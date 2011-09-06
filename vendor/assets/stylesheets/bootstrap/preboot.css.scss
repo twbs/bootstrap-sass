@@ -117,7 +117,7 @@ $analog2:           adjust-hue($baseColor, -22);
 }
 
 // Grid System
-@mixin container {
+.container {
   width: $siteWidth;
   margin: 0 auto;
   @include clearfix();
