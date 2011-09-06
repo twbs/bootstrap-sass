@@ -1,6 +1,6 @@
 # Bootstrap for Rails
 
-`bootstrap-rails` is an SASS-powered version of [Twitter's Bootstrap](http://github.com/twitter/bootstrap), ready to drop right into your asset-pipeline powered Rails applications.
+`bootstrap-sass` is an SASS-powered version of [Twitter's Bootstrap](http://github.com/twitter/bootstrap), ready to drop right into your asset-pipeline powered Rails applications.
 
 Enjoy.
 
@@ -8,7 +8,7 @@ Enjoy.
 
 In your gemfile:
 
-    gem 'bootstrap-rails', '1.2.0'
+    gem 'bootstrap-sass', '1.2.0'
 
 In your css file of choice:
 
