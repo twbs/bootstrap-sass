@@ -8,6 +8,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'sass-rails'
 
-  s.files = Dir["vendor/**/*.css.scss"] + ["README.md", "LICENSE", "lib/bootstrap-sass.rb"]
+  s.files = Dir["vendor/**/*.css.scss"] + Dir["vendor/**/*.js"] + ["README.md", "LICENSE", "lib/bootstrap-sass.rb"]
 end
 
