@@ -1,3 +1,5 @@
+require 'sass-rails'
+
 module Bootstrap
   module Rails
     class Engine < ::Rails::Engine
