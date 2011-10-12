@@ -14,7 +14,7 @@ In your gemfile:
 
 In your CSS file of choice:
 
-    @import "bootstrap" // Use this to get all of Bootstrap's @mixins and $variables
+    @import "bootstrap"; /* Use this to get all of Bootstrap's @mixins and $variables */
 
 or
 
