@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "bootstrap-sass"
-  s.version = '1.3.1'
+  s.version = '1.3.2'
   s.authors = ["Thomas McDonald"]
   s.email = 'tom@conceptcoding.co.uk'
   s.summary = "Twitter's Bootstrap, converted to SASS and ready to drop into Rails"
