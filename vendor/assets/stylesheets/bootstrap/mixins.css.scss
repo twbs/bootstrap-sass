@@ -11,7 +11,6 @@
     display: table;
     content: "";
     zoom: 1;
-    *display: inline;
 	}
 	&:after {
     clear: both;
@@ -110,7 +109,7 @@
 
 // Transitions
 @mixin transition($transition) {
-	-webkit-transition: $transition;
+  -webkit-transition: $transition;
 	   -moz-transition: $transition;
  	    -ms-transition: $transition;
 	     -o-transition: $transition;
@@ -132,6 +131,11 @@
   -webkit-column-gap: $columnGap;
 	   -moz-column-gap: $columnGap;
           column-gap: $columnGap;
+}
+
+@mixin resizable($direction: both) {
+  resize: $direction; // Options are horizontal, vertical, both
+  overflow: auto; // Safari fix
 }
 
 // Add an alphatransparency value to any background or border color (via Elyse Holladay)
