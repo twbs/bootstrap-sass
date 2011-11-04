@@ -1,5 +1,5 @@
 /* ==========================================================
- * bootstrap-alerts.js v1.3.0
+ * bootstrap-alerts.js v1.4.0
  * http://twitter.github.com/bootstrap/javascript.html#alerts
  * ==========================================================
  * Copyright 2011 Twitter, Inc.
@@ -20,6 +20,8 @@
 
 !function( $ ){
 
+  "use strict"
+
   /* CSS TRANSITION SUPPORT (https://gist.github.com/373874)
    * ======================================================= */
 
@@ -38,11 +40,11 @@
      if ( $.support.transition ) {
        transitionEnd = "TransitionEnd"
        if ( $.browser.webkit ) {
-       	transitionEnd = "webkitTransitionEnd"
+        transitionEnd = "webkitTransitionEnd"
        } else if ( $.browser.mozilla ) {
-       	transitionEnd = "transitionend"
+        transitionEnd = "transitionend"
        } else if ( $.browser.opera ) {
-       	transitionEnd = "oTransitionEnd"
+        transitionEnd = "oTransitionEnd"
        }
      }
 

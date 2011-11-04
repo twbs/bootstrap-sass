@@ -1,5 +1,5 @@
 /* ==========================================================
- * bootstrap-twipsy.js v1.3.0
+ * bootstrap-twipsy.js v1.4.0
  * http://twitter.github.com/bootstrap/javascript.html#twipsy
  * Adapted from the original jQuery.tipsy by Jason Frame
  * ==========================================================
@@ -20,6 +20,8 @@
 
 
 !function( $ ) {
+
+  "use strict"
 
  /* CSS TRANSITION SUPPORT (https://gist.github.com/373874)
   * ======================================================= */
@@ -70,7 +72,7 @@
         , $tip
         , tp
 
-      if (this.getTitle() && this.enabled) {
+      if (this.hasContent() && this.enabled) {
         $tip = this.tip()
         this.setContent()
 
@@ -143,6 +145,10 @@
       }
     }
 
+  , hasContent: function () {
+      return this.getTitle()
+    }
+
   , getTitle: function() {
       var title
         , $e = this.$element
@@ -163,7 +169,7 @@
 
   , tip: function() {
       if (!this.$tip) {
-        this.$tip = $('<div class="twipsy" />').html('<div class="twipsy-arrow"></div><div class="twipsy-inner"></div>')
+        this.$tip = $('<div class="twipsy" />').html(this.options.template)
       }
       return this.$tip
     }
@@ -294,10 +300,11 @@
   , offset: 0
   , title: 'title'
   , trigger: 'hover'
+  , template: '<div class="twipsy-arrow"></div><div class="twipsy-inner"></div>'
   }
 
   $.fn.twipsy.elementOptions = function(ele, options) {
-    return $.metadata ? $.extend({}, options, $(ele).metadata()) : options
+    return $.extend({}, options, $(ele).data())
   }
 
 }( window.jQuery || window.ender );

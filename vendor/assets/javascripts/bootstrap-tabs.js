@@ -1,5 +1,5 @@
 /* ========================================================
- * bootstrap-tabs.js v1.3.0
+ * bootstrap-tabs.js v1.4.0
  * http://twitter.github.com/bootstrap/javascript.html#tabs
  * ========================================================
  * Copyright 2011 Twitter, Inc.
@@ -20,6 +20,8 @@
 
 !function( $ ){
 
+  "use strict"
+
   function activate ( element, container ) {
     container
       .find('> .active')
@@ -39,6 +41,7 @@
       , $ul = $this.closest('ul:not(.dropdown-menu)')
       , href = $this.attr('href')
       , previous
+      , $href
 
     if ( /^#\w+/.test(href) ) {
       e.preventDefault()
