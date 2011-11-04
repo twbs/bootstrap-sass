@@ -8,20 +8,13 @@ Enjoy.
 
 In your gemfile:
 
-    gem 'bootstrap-sass', '1.3.0'
+    gem 'bootstrap-sass', '1.4.0'
 
 ### CSS
 
-In your CSS file of choice:
+In your SCSS file of choice:
 
     @import "bootstrap"; /* Use this to get all of Bootstrap's @mixins and $variables */
-
-or
-
-    /*
-     *= require bootstrap // This doesn't (at the moment) preserve loaded @mixins,
-     *                    //so I wouldn't use this. Stil, its an alternative.
-     */
 
 ### Javascript
 
@@ -30,7 +23,7 @@ In your Javascript manifest:
     // Loads all Bootstrap javascripts
     //= require bootstrap
     
-    // Alternatively, load individual modules
+    // Alternatively, you can load individual modules
     //= require bootstrap-scrollspy
     //= require bootstrap-modal
     //= require bootstrap-dropdown
