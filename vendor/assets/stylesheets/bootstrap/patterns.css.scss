@@ -398,7 +398,7 @@ a.menu:after, .dropdown-toggle:after {
 // Tabbable areas
 .tab-content, .pill-content {
 }
-.tab-content > .tab-pane, .pill-content > .pill-pane {
+.tab-content > .tab-pane, .pill-content > .pill-pane, .tab-content > div, .pill-content > div {
   display: none;
 }
 .tab-content > .active, .pill-content > .active {
