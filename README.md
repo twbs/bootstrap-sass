@@ -16,6 +16,13 @@ In your SCSS file of choice:
 
     @import "bootstrap"; /* Use this to get all of Bootstrap's @mixins and $variables */
 
+Want to configure a variable? Thanks to bernado, this is now awesome *and* easy! Just define the variables you want to change *before* importing Bootstrap. SASS will respect your existing definition and won't overwrite it with the Bootstrap defaults.
+
+    $gridColumns: 12;
+    $gridColumnWidth: 60px;
+    $gridGutterWidth: 20px;
+    @import "bootstrap";
+
 ### Javascript
 
 In your Javascript manifest:
