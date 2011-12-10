@@ -8,7 +8,7 @@ Enjoy.
 
 In your gemfile:
 
-    gem 'bootstrap-sass', '1.4.1'
+    gem 'bootstrap-sass', '~> 1.4.2'
 
 ### CSS
 
