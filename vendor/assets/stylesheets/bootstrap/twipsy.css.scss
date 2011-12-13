@@ -1,0 +1,34 @@
+// TWIPSY
+// ------
+
+.twipsy {
+  position: absolute;
+  z-index: 1000;
+  display: block;
+  visibility: visible;
+  padding: 5px;
+  font-size: 11px;
+  @include opacity(0);
+  &.in {
+    @include opacity(80);
+  }
+  &.above .twipsy-arrow   { @include popoverArrow-above(); }
+  &.left .twipsy-arrow    { @include popoverArrow-left(); }
+  &.below .twipsy-arrow   { @include popoverArrow-below(); }
+  &.right .twipsy-arrow   { @include popoverArrow-right(); }
+}
+.twipsy-inner {
+  max-width: 200px;
+  padding: 3px 8px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  background-color: $black;
+  @include border-radius(4px);
+}
+.twipsy-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+

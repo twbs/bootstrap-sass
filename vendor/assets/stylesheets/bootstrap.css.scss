@@ -1,5 +1,5 @@
 /*!
- * Bootstrap v1.4.0
+ * Bootstrap v2.0.0.pre
  *
  * Copyright 2011 Twitter, Inc
  * Licensed under the Apache License v2.0
@@ -8,18 +8,35 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  * Converted to SASS by Thomas McDonald
  *
- * Date: Friday 4 November, 2011
+ * Date: Saturday 10 December, 2011
  */
 
+// CSS Reset
 @import "bootstrap/reset";
 
+// Core variables & mixins
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 
+// Grid system and page structure
 @import "bootstrap/scaffolding";
 
+// Styled patterns and elements
 @import "bootstrap/type";
 @import "bootstrap/forms";
 @import "bootstrap/tables";
+
+// Temp catchall for what's missing thus far
 @import "bootstrap/patterns";
+
+@import "bootstrap/tabs-pills";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+@import "bootstrap/modals";
+@import "bootstrap/twipsy";
+@import "bootstrap/popovers";
+@import "bootstrap/media-grids";
+
+// Responsive
+@import "bootstrap/responsive";
 

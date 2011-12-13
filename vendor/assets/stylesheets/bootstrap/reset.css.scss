@@ -1,6 +1,8 @@
-/* reset.css.scss
- * Props to Eric Meyer (meyerweb.com) for his CSS reset file. We're using an adapted version here that cuts out some of the reset HTML elements we will never need here (i.e., dfn, samp, etc).
- * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+// Reset.less
+// Props to Eric Meyer (meyerweb.com) for his CSS reset file.
+// We're using an adapted version here that cuts out some of the reset HTML
+// elements we will never need here (i.e., dfn, samp, etc).
+// ------------------------------------------------------------------------
 
 
 // ERIC MEYER RESET
@@ -8,7 +10,11 @@
 
 html, body { margin: 0; padding: 0; }
 h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, em, img, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, legend, button, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; font-weight: normal; font-style: normal; font-size: 100%; line-height: 1; font-family: inherit; }
-table { border-collapse: collapse; border-spacing: 0; }
+table {
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 ol, ul { list-style: none; }
 q:before, q:after, blockquote:before, blockquote:after { content: ""; }
 
@@ -31,33 +37,21 @@ a:focus {
   outline: thin dotted;
 }
 // Hover & Active
-a:hover,
-a:active {
+a:hover, a:active {
   outline: 0;
 }
 
 // Display in IE6-9 and FF3
 // -------------------------
 // Source: http://github.com/necolas/normalize.css
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-nav,
-section {
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
   display: block;
 }
 
 // Display block in IE6-9 and FF3
 // -------------------------
 // Source: http://github.com/necolas/normalize.css
-audio,
-canvas,
-video {
+audio, canvas, video {
   display: inline-block;
   *display: inline;
   *zoom: 1;
@@ -73,11 +67,10 @@ audio:not([controls]) {
 // Prevents sub and sup affecting line-height in all browsers
 // -------------------------
 // Source: http://github.com/necolas/normalize.css
-sub,
-sup {
+sub, sup {
+  position: relative;
   font-size: 75%;
   line-height: 0;
-  position: relative;
   vertical-align: baseline;
 }
 sup {
@@ -91,8 +84,10 @@ sub {
 // -------------------------
 // Source: http://github.com/necolas/normalize.css
 img {
-    border: 0;
-    -ms-interpolation-mode: bicubic;
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
 }
 
 // Forms
@@ -100,29 +95,21 @@ img {
 // Source: http://github.com/necolas/normalize.css
 
 // Font size in all browsers, margin changes, misc consistency
-button,
-input,
-select,
-textarea {
-  font-size: 100%;
+button, input, select, textarea {
   margin: 0;
+  font-size: 100%;
   vertical-align: baseline;
   *vertical-align: middle;
 }
-button,
-input {
-  line-height: normal; // FF3/4 have !important on line-height in UA stylesheet
+button, input {
   *overflow: visible; // Inner spacing ie IE6/7
+  line-height: normal; // FF3/4 have !important on line-height in UA stylesheet
 }
-button::-moz-focus-inner,
-input::-moz-focus-inner { // Inner padding and border oddities in FF3/4
-  border: 0;
+button::-moz-focus-inner, input::-moz-focus-inner { // Inner padding and border oddities in FF3/4
   padding: 0;
+  border: 0;
 }
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+button, input[type="button"], input[type="reset"], input[type="submit"] {
   cursor: pointer; // Cursors on all buttons applied consistently
   -webkit-appearance: button; // Style clicable inputs in iOS
 }
@@ -139,4 +126,3 @@ textarea {
   overflow: auto; // Remove vertical scrollbar in IE6-9
   vertical-align: top; // Readability and alignment cross-browser
 }
-

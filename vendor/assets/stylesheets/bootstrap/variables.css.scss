@@ -1,12 +1,18 @@
-/* Variables.less
- * Variables to customize the look and feel of Bootstrap
- * ----------------------------------------------------- */
+// Variables.less
+// Variables to customize the look and feel of Bootstrap
+// -----------------------------------------------------
 
-// Links
+
+// LINK COLORS
+// -----------
+
 $linkColor:         #0069d6 !default;
 $linkColorHover:    darken($linkColor, 15) !default;
 
-// Grays
+
+// GRAYS
+// -----
+
 $black:             #000 !default;
 $grayDark:          lighten($black, 25%) !default;
 $gray:              lighten($black, 50%) !default;
@@ -14,7 +20,10 @@ $grayLight:         lighten($black, 75%) !default;
 $grayLighter:       lighten($black, 90%) !default;
 $white:             #fff !default;
 
-// Accent Colors
+
+// ACCENT COLORS
+// -------------
+
 $blue:              #049CDB !default;
 $blueDark:          #0064CD !default;
 $green:             #46a546 !default;
@@ -24,28 +33,24 @@ $orange:            #f89406 !default;
 $pink:              #c3325f !default;
 $purple:            #7a43b6 !default;
 
-// Baseline grid
-$basefont:          13px !default;
-$baseline:          18px !default;
 
-// Griditude
+// GRID
+// ----
+
 // Modify the grid styles in mixins.less
-$gridColumns:       16 !default;
-$gridColumnWidth:   40px !default;
+$gridColumns:       12 !default;
+$gridColumnWidth:   60px !default;
 $gridGutterWidth:   20px !default;
-$extraSpace:        ($gridGutterWidth * 2) !default; // For our grid calculations
 $siteWidth:         ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1)) !default;
 
-// Color Scheme
-// Use this to roll your own color schemes if you like (unused by Bootstrap by default)
-$baseColor:         $blue !default;                  // Set a base color
-$complement:        spin($baseColor, 180) !default;  // Determine a complementary color
-$split1:            spin($baseColor, 158) !default;  // Split complements
-$split2:            spin($baseColor, -158) !default;
-$triad1:            spin($baseColor, 135) !default;  // Triads colors
-$triad2:            spin($baseColor, -135) !default;
-$tetra1:            spin($baseColor, 90) !default;   // Tetra colors
-$tetra2:            spin($baseColor, -90) !default;
-$analog1:           spin($baseColor, 22) !default;   // Analogs colors
-$analog2:           spin($baseColor, -22) !default;
 
+// THEME VARIABLES
+// ---------------
+
+// Typography
+$baseFontSize:          13px !default;
+$baseFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$baseLineHeight:        18px !default;
+
+// Visuals
+$primaryButtonColor:    $blue !default;
