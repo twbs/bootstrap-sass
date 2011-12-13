@@ -1,5 +1,5 @@
 /* ===========================================================
- * bootstrap-popover.js v1.4.0
+ * bootstrap-popover.js v2.0.0
  * http://twitter.github.com/bootstrap/javascript.html#popover
  * ===========================================================
  * Copyright 2011 Twitter, Inc.
@@ -34,10 +34,16 @@
 
   Popover.prototype = $.extend({}, $.fn.twipsy.Twipsy.prototype, {
 
-    setContent: function () {
+    constructor: Popover
+
+  , setContent: function () {
       var $tip = this.tip()
-      $tip.find('.title')[this.options.html ? 'html' : 'text'](this.getTitle())
-      $tip.find('.content > *')[this.options.html ? 'html' : 'text'](this.getContent())
+        , title = this.getTitle()
+        , content = this.getContent()
+
+      $tip.find('.title')[ $.type(title) == 'object' ? 'append' : 'html' ](title)
+      $tip.find('.content > *')[ $.type(content) == 'object' ? 'append' : 'html' ](content)
+
       $tip[0].className = 'popover'
     }
 
@@ -87,4 +93,4 @@
 
   $.fn.twipsy.rejectAttrOptions.push( 'content' )
 
-}( window.jQuery || window.ender );
+}( window.jQuery || window.ender )

@@ -1,5 +1,5 @@
 /* ==========================================================
- * bootstrap-twipsy.js v1.4.0
+ * bootstrap-twipsy.js v2.0.0
  * http://twitter.github.com/bootstrap/javascript.html#twipsy
  * Adapted from the original jQuery.tipsy by Jason Frame
  * ==========================================================
@@ -18,39 +18,9 @@
  * limitations under the License.
  * ========================================================== */
 
-
 !function( $ ) {
 
   "use strict"
-
- /* CSS TRANSITION SUPPORT (https://gist.github.com/373874)
-  * ======================================================= */
-
-  var transitionEnd
-
-  $(document).ready(function () {
-
-    $.support.transition = (function () {
-      var thisBody = document.body || document.documentElement
-        , thisStyle = thisBody.style
-        , support = thisStyle.transition !== undefined || thisStyle.WebkitTransition !== undefined || thisStyle.MozTransition !== undefined || thisStyle.MsTransition !== undefined || thisStyle.OTransition !== undefined
-      return support
-    })()
-
-    // set CSS transition event type
-    if ( $.support.transition ) {
-      transitionEnd = "TransitionEnd"
-      if ( $.browser.webkit ) {
-      	transitionEnd = "webkitTransitionEnd"
-      } else if ( $.browser.mozilla ) {
-      	transitionEnd = "transitionend"
-      } else if ( $.browser.opera ) {
-      	transitionEnd = "oTransitionEnd"
-      }
-    }
-
-  })
-
 
  /* TWIPSY PUBLIC CLASS DEFINITION
   * ============================== */
@@ -64,7 +34,9 @@
 
   Twipsy.prototype = {
 
-    show: function() {
+    constructor: Twipsy
+
+  , show: function() {
       var pos
         , actualWidth
         , actualHeight
@@ -119,7 +91,7 @@
 
   , setContent: function () {
       var $tip = this.tip()
-      $tip.find('.twipsy-inner')[this.options.html ? 'html' : 'text'](this.getTitle())
+      $tip.find('.twipsy-inner').html(this.getTitle())
       $tip[0].className = 'twipsy'
     }
 
@@ -134,7 +106,7 @@
       }
 
       $.support.transition && this.$tip.hasClass('fade') ?
-        $tip.bind(transitionEnd, removeElement) :
+        $tip.bind( $.support.transition.end, removeElement) :
         removeElement()
     }
 
@@ -164,7 +136,7 @@
 
         title = ('' + title).replace(/(^\s*|\s*$)/, "")
 
-        return title || o.fallback
+        return title
     }
 
   , tip: function() {
@@ -213,29 +185,33 @@
     return this
   }
 
-  $.fn.twipsy.initWith = function (options, Constructor, name) {
+  $.fn.twipsy.initWith = function (options, Base, name) {
     var twipsy
       , binder
       , eventIn
       , eventOut
 
-    if (options === true) {
-      return this.data(name)
-    } else if (typeof options == 'string') {
-      twipsy = this.data(name)
-      if (twipsy) {
-        twipsy[options]()
-      }
-      return this
+    if (typeof options == 'string') {
+      return this.each(function (){
+        twipsy = $.data(this, name)
+        if (twipsy) twipsy[options]()
+      })
     }
 
     options = $.extend({}, $.fn[name].defaults, options)
+
+    if (options.delay && typeof options.delay == 'number') {
+      options.delay = {
+        show: options.delay
+      , hide: options.delay
+      }
+    }
 
     function get(ele) {
       var twipsy = $.data(ele, name)
 
       if (!twipsy) {
-        twipsy = new Constructor(ele, $.fn.twipsy.elementOptions(ele, options))
+        twipsy = new Base(ele, $.fn.twipsy.elementOptions(ele, options))
         $.data(ele, name, twipsy)
       }
 
@@ -246,7 +222,7 @@
       var twipsy = get(this)
       twipsy.hoverState = 'in'
 
-      if (options.delayIn == 0) {
+      if (!options.delay || !options.delay.show) {
         twipsy.show()
       } else {
         twipsy.fixTitle()
@@ -254,21 +230,21 @@
           if (twipsy.hoverState == 'in') {
             twipsy.show()
           }
-        }, options.delayIn)
+        }, options.delay.show)
       }
     }
 
     function leave() {
       var twipsy = get(this)
       twipsy.hoverState = 'out'
-      if (options.delayOut == 0) {
+      if (!options.delay || !options.delay.hide) {
         twipsy.hide()
       } else {
         setTimeout(function() {
           if (twipsy.hoverState == 'out') {
             twipsy.hide()
           }
-        }, options.delayOut)
+        }, options.delay.hide)
       }
     }
 
@@ -292,15 +268,12 @@
 
   $.fn.twipsy.defaults = {
     animate: true
-  , delayIn: 0
-  , delayOut: 0
-  , fallback: ''
+  , delay: 0
   , placement: 'above'
-  , html: false
   , live: false
   , offset: 0
-  , title: 'title'
   , trigger: 'hover'
+  , title: 'title'
   , template: '<div class="twipsy-arrow"></div><div class="twipsy-inner"></div>'
   }
 
@@ -318,4 +291,4 @@
     return $.extend({}, options, data)
   }
 
-}( window.jQuery || window.ender );
+}( window.jQuery || window.ender )
