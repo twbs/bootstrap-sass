@@ -1,4 +1,6 @@
 require 'sass-rails'
+require 'bootstrap/html_builders'
+#require 'forms/form_builder'
 
 module Bootstrap
   module Rails
