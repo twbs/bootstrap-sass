@@ -1,41 +1,62 @@
 /*!
- * Bootstrap v2.0.0.pre
+ * Bootstrap 2.0.pre
  *
- * Copyright 2011 Twitter, Inc
+ * Copyright 2012 Twitter, Inc
  * Licensed under the Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  * Converted to SASS by Thomas McDonald
  *
- * Date: Saturday 10 December, 2011
+ * Date: Sunday 15 January, 2012
  */
 
 // CSS Reset
 @import "bootstrap/reset";
 
-// Core variables & mixins
-@import "bootstrap/variables";
+// Core variables and mixins
+@import "bootstrap/variables"; // Modify this for custom colors, font-sizes, etc
 @import "bootstrap/mixins";
 
 // Grid system and page structure
 @import "bootstrap/scaffolding";
 
-// Styled patterns and elements
+// Base CSS
 @import "bootstrap/type";
 @import "bootstrap/forms";
 @import "bootstrap/tables";
 
-// Temp catchall for what's missing thus far
-@import "bootstrap/patterns";
+// Components: common
+@import "bootstrap/sprites";
+@import "bootstrap/dropdowns";
+@import "bootstrap/wells";
+@import "bootstrap/component-animations";
+@import "bootstrap/close";
 
-@import "bootstrap/tabs-pills";
+// Components: Nav
+@import "bootstrap/navbar";
+@import "bootstrap/navs";
 @import "bootstrap/breadcrumbs";
 @import "bootstrap/pagination";
+@import "bootstrap/pager";
+
+// Components: Popovers
 @import "bootstrap/modals";
-@import "bootstrap/twipsy";
+@import "bootstrap/tooltip";
 @import "bootstrap/popovers";
-@import "bootstrap/media-grids";
+
+// Components: Buttons & Alerts
+@import "bootstrap/buttons";
+@import "bootstrap/button-groups";
+@import "bootstrap/alerts"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
+
+// Components: Misc
+@import "bootstrap/thumbnails";
+@import "bootstrap/labels";
+@import "bootstrap/progress-bars";
+
+// Utility classes
+@import "bootstrap/utilities"; // Has to be last to override when necessary
 
 // Responsive
 @import "bootstrap/responsive";

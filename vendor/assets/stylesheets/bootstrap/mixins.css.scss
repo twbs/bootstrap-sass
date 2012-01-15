@@ -1,4 +1,4 @@
-// Mixins.less
+// Mixins.css.scss
 // Snippets of reusable CSS to develop faster and keep code readable
 // -----------------------------------------------------------------
 
@@ -6,8 +6,7 @@
 // Clearfix for clearing floats like a boss h5bp.com/q
 @mixin clearfix() {
   zoom: 1;
-  &:before,
-  &:after {
+  &:before, &:after {
     display: table;
     *display: inline;
     content: "";
@@ -23,6 +22,12 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+// IE7 inline-block
+@mixin ie7-inline-block() {
+  *display: inline; /* IE7 inline-block hack */
+  *zoom: 1;
 }
 
 // Sizing shortcuts
@@ -46,13 +51,13 @@
 
 // Font Stacks
 @mixin font-family-serif() {
-  font-family: "Georgia", Times New Roman, Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 @mixin font-family-sans-serif() {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 @mixin font-family-monospace() {
-  font-family: "Menlo", Monaco, Courier New, monospace;
+  font-family: Menlo, Monaco, "Courier New", monospace;
 }
 @mixin font-shorthand($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
   font-size: $size;
@@ -88,7 +93,6 @@
 
 // Necessary grid styles for every column to make them appear next to each other horizontally
 @mixin gridColumn() {
-  display: inline;
   float: left;
   margin-left: $gridGutterWidth;
 }
@@ -138,8 +142,7 @@
           transition: $transition;
 }
 
-// Transform for scale and rotate
-// translate, rotate, scale -- need to finalize
+// Transformations
 @mixin rotate($degrees: 5deg) {
   -webkit-transform: rotate($degrees);
      -moz-transform: rotate($degrees);
@@ -162,12 +165,28 @@
           transform: translate($x, $y);
 }
 
+// User select
+// For selecting text on the page
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+     -moz-user-select: $select;
+       -o-user-select: $select;
+          user-select: $select;
+}
+
 // Background clipping
 // Heads up: FF 3.6 and under need padding instead of padding-box
 @mixin background-clip($clip) {
   -webkit-background-clip: $clip;
      -moz-background-clip: $clip;
           background-clip: $clip;
+}
+
+// Box sizing
+@mixin box-sizing($boxmodel) {
+  -webkit-box-sizing: $boxmodel;
+     -moz-box-sizing: $boxmodel;
+          box-sizing: $boxmodel;
 }
 
 // Resize anything
@@ -199,14 +218,13 @@
 
 // Gradient Bar Colors for buttons and alerts
 @mixin gradientBar($primaryColor, $secondaryColor) {
-  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
-  @include vertical-gradient($primaryColor, $secondaryColor);
+  @include gradient-vertical($primaryColor, $secondaryColor);
   border-color: $secondaryColor $secondaryColor darken($secondaryColor, 15%);
   border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fadein(rgba(0,0,0,.1), 15%);
 }
 
 // Gradients
-@mixin horizontal-gradient($startColor: #555, $endColor: #333) {
+@mixin gradient-horizontal($startColor: #555, $endColor: #333) {
   background-color: $endColor;
   background-image: -khtml-gradient(linear, left top, right top, from($startColor), to($endColor)); // Konqueror
   background-image: -moz-linear-gradient(left, $startColor, $endColor); // FF 3.6+
@@ -218,7 +236,7 @@
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=1); // IE9 and down
 }
-@mixin vertical-gradient($startColor: #555, $endColor: #333) {
+@mixin gradient-vertical($startColor: #555, $endColor: #333) {
   background-color: $endColor;
   background-image: -khtml-gradient(linear, left top, left bottom, from($startColor), to($endColor)); // Konqueror
   background-image: -moz-linear-gradient(top, $startColor, $endColor); // FF 3.6+
@@ -230,7 +248,7 @@
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=0); // IE9 and down
 }
-@mixin directional-gradient($startColor: #555, $endColor: #333, $deg: 45deg) {
+@mixin gradient-directional($startColor: #555, $endColor: #333, $deg: 45deg) {
   background-color: $endColor;
   background-repeat: repeat-x;
   background-image: -moz-linear-gradient($deg, $startColor, $endColor); // FF 3.6+
@@ -239,7 +257,7 @@
   background-image: -o-linear-gradient($deg, $startColor, $endColor); // Opera 11.10
   background-image: linear-gradient($deg, $startColor, $endColor); // The standard
 }
-@mixin vertical-three-colors-gradient($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f) {
+@mixin gradient-vertical-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f) {
   background-color: $endColor;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));
   background-image: -webkit-linear-gradient($startColor, $midColor $colorStop, $endColor);
@@ -250,7 +268,7 @@
   background-repeat: no-repeat;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=0); // IE9 and down, gets no color-stop at all for proper fallback
 }
-@mixin radial-gradient($centerColor: #555, $outsideColor: #333)  {
+@mixin gradient-radial($centerColor: #555, $outsideColor: #333)  {
   background-color: $outsideColor;
   background-image: -webkit-gradient(radial, center center, 0, center center, 460, from($centerColor), to($outsideColor));
   background-image: -webkit-radial-gradient(circle, $centerColor, $outsideColor);
@@ -258,6 +276,15 @@
   background-image: -ms-radial-gradient(circle, $centerColor, $outsideColor);
   background-repeat: no-repeat;
   // Opera cannot do radial gradients yet
+}
+@mixin gradient-striped($color, $angle: -45deg) {
+  background-color: $color;
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  background-image: -ms-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
 }
 
 // Reset filters for IE
@@ -267,14 +294,13 @@
 
 // Opacity
 @mixin opacity($opacity: 100) {
-  filter: alpha(opacity=#{$opacity});
+  filter: alpha(opacity=$opacity);
     -moz-opacity: $opacity / 100;
          opacity: $opacity / 100;
 }
-
 // Popover arrows
 // For tipsies and popovers
-@mixin popoverArrow-above($arrowWidth: 5px) {
+@mixin popoverArrow-top($arrowWidth: 5px) {
   bottom: 0;
   left: 50%;
   margin-left: -$arrowWidth;
@@ -290,7 +316,7 @@
   border-bottom: $arrowWidth solid transparent;
   border-left: $arrowWidth solid $black;
 }
-@mixin popoverArrow-below($arrowWidth: 5px) {
+@mixin popoverArrow-bottom($arrowWidth: 5px) {
   top: 0;
   left: 50%;
   margin-left: -$arrowWidth;
@@ -305,4 +331,11 @@
   border-top: $arrowWidth solid transparent;
   border-bottom: $arrowWidth solid transparent;
   border-right: $arrowWidth solid $black;
+}
+
+@mixin background-size($width, $height){
+  -webkit-background-size: $width $height;
+     -moz-background-size: $width $height;
+       -o-background-size: $width $height;
+          background-size: $width $height;
 }

@@ -1,17 +1,21 @@
-// POPOVERS
+// Popovers.css.scss
 // --------
 
 .popover {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: $zindexPopover;
   display: none;
   padding: 5px;
-  &.above .arrow { @include popoverArrow-above(); }
-  &.right .arrow { @include popoverArrow-right(); }
-  &.below .arrow { @include popoverArrow-below(); }
-  &.left .arrow  { @include popoverArrow-left(); }
+  &.top    { margin-top:  -5px; }
+  &.right  { margin-left:  5px; }
+  &.bottom { margin-top:   5px; }
+  &.left   { margin-left: -5px; }
+  &.top .arrow    { @include popoverArrow-top(); }
+  &.right .arrow  { @include popoverArrow-right(); }
+  &.bottom .arrow { @include popoverArrow-bottom(); }
+  &.left .arrow   { @include popoverArrow-left();  }
   .arrow {
     position: absolute;
     width: 0;
@@ -43,4 +47,3 @@
     }
   }
 }
-

@@ -1,0 +1,25 @@
+// Pager.css.scss
+// -----
+
+.pager {
+  margin-left: 0;
+  margin-bottom: $baseLineHeight;
+  list-style: none;
+  text-align: center;
+  @include clearfix();
+}
+.pager li {
+  display: inline;
+}
+.pager a {
+  display: inline-block;
+  padding: 6px 15px;
+  background-color: #f5f5f5;
+  @include border-radius(15px);
+}
+.pager .next a {
+  float: right;
+}
+.pager .previous a {
+  float: left;
+}

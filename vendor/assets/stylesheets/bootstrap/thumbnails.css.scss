@@ -1,0 +1,85 @@
+// Thumbnails.css.scss
+// ----------
+
+.thumbnails {
+  margin-left: -20px;
+  margin-bottom: 0;
+  list-style: none;
+  @include clearfix();
+}
+.thumbnails > li {
+  float: left;
+  margin: 0 0 20px 20px;
+}
+.thumbnail {
+  display: block;
+  padding: 4px;
+  line-height: 1;
+  border: 1px solid #ddd;
+  @include border-radius(4px);
+  @include box-shadow(0 1px 1px rgba(0,0,0,.075));
+}
+// Add a hover state for linked versions only
+a.thumbnail:hover {
+  border-color: $linkColor;
+  @include box-shadow(0 1px 4px rgba(0,105,214,.25));
+}
+// Images and captions
+.thumbnail > img {
+  display: block;
+  max-width: 100%;
+}
+.thumbnail .caption {
+  padding: 9px;
+}
+
+.carousel {
+  position: relative;
+
+  .carousel-inner {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  .item {
+    display: none;
+    position: relative;
+    @include transition(.6s ease-in-out left);
+  }
+
+  .active, .next, .prev { display: block; }
+
+  .active { left: 0 }
+
+  .next, .prev {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .next { left: 100%; }
+  .prev { left: -100%; }
+  .next.left, .prev.right { left: 0% }
+
+  .active.left { left: -100% }
+  .active.right { left: 100% }
+
+  .nav {
+    width: auto;
+    @include border-radius(0);
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    margin: -25px 0 0;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 42px;
+    left: 5px;
+    font-weight: 100;
+    padding: 0 15px;
+    &.right { right: 5px; left: auto; }
+    &:hover { text-decoration: none; background: rgba(0, 0, 0, 0.8); }
+  }
+}

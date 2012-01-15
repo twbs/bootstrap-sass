@@ -1,4 +1,4 @@
-// Typography.less
+// Type.css.scss
 // Headings, body text, lists, code, and more for a versatile and durable typography system
 // ----------------------------------------------------------------------------------------
 
@@ -50,27 +50,27 @@ h3 {
     font-size: 14px;
   }
 }
+h4, h5, h6 {
+  line-height: $baseLineHeight;
+}
 h4 {
-  font-size: 16px;
-  line-height: $baseLineHeight * 2;
+  font-size: 14px;
   small {
     font-size: 12px;
   }
 }
 h5 {
-  font-size: 14px;
-  line-height: $baseLineHeight;
+  font-size: 12px;
 }
 h6 {
-  font-size: 13px;
-  line-height: $baseLineHeight;
+  font-size: 11px;
   color: $grayLight;
   text-transform: uppercase;
 }
 
 
-// COLORS
-// ------
+// LISTS
+// -----
 
 // Unordered and Ordered lists
 ul, ol {
@@ -87,7 +87,6 @@ ol {
 }
 li {
   line-height: $baseLineHeight;
-  color: $grayDark;
 }
 ul.unstyled {
   margin-left: 0;
@@ -113,7 +112,7 @@ dl {
 
 // Horizontal rules
 hr {
-  margin: $baseLineHeight * 1.5 0;
+  margin: $baseLineHeight 0;
   border: 0;
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #fff;
@@ -148,7 +147,7 @@ blockquote {
   border-left: 5px solid #eee;
   p {
     margin-bottom: 0;
-    @include font-shorthand(300,16px,$baseLineHeight * 1.25);
+    @include font-shorthand(16px,300,$baseLineHeight * 1.25);
   }
   small {
     display: block;
@@ -162,6 +161,10 @@ blockquote {
   // Float right with text-align: right
   &.pull-right {
     float: right;
+    padding-left: 0;
+    padding-right: 15px;
+    border-left: 0;
+    border-right: 5px solid #eee;
     p, small {
       text-align: right;
     }
@@ -196,7 +199,7 @@ pre {
   background-color: #f5f5f5;
   border: 1px solid #ccc;
   border: 1px solid rgba(0,0,0,.15);
-  @include border-radius(3px);
+  @include border-radius(4px);
   white-space: pre;
   white-space: pre-wrap;
   word-break: break-all;

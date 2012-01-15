@@ -1,4 +1,4 @@
-// Responsive.less
+// Responsive.css.scss
 // For phone and tablet devices
 // -------------------------------------------------------------
 
@@ -18,31 +18,95 @@
 // ---------------------
 
 @media (max-width: 480px) {
-  // Resize modals
-  .modal {
-    width: auto;
-    margin: 0;
+
+  // Make the nav work for small devices
+  .navbar {
+    .nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 180px;
+      padding-top: 40px;
+      list-style: none;
+    }
+    .nav, .nav > li:last-child a {
+      @include border-radius(0 0 4px 0);
+    }
+    .nav > li {
+      float: none;
+      display: none;
+    }
+    .nav > li > a {
+      float: none;
+      background-color: #222;
+    }
+    .nav > .active {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .nav > .active > a {
+      background-color: transparent;
+    }
+    .nav > .active > a:hover {
+      background-color: #333;
+    }
+    .nav > .active > a:after {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-top: 8px;
+      margin-left: 6px;
+      text-indent: -99999px;
+      vertical-align: top;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid $white;
+      @include opacity(100);
+      content: "&darr;";
+    }
+    .nav:hover > li {
+      display: block;
+    }
+    .nav:hover > li > a:hover {
+      background-color: #333;
+    }
   }
 
   // Remove the horizontal form styles
-  .horizontal-form .control-group > label {
+  .form-horizontal .control-group > label {
     float: none;
     width: auto;
     padding-top: 0;
     text-align: left;
   }
   // Move over all input controls and content
-  .horizontal-form .controls {
+  .form-horizontal .controls {
     margin-left: 0;
   }
   // Move the options list down to align with labels
-  .horizontal-form .control-list {
+  .form-horizontal .control-list {
     padding-top: 0; // has to be padding because margin collaspes
   }
   // Move over buttons in .form-actions to align with .controls
-  .horizontal-form .form-actions {
+  .form-horizontal .form-actions {
     padding-left: 0;
   }
+
+  // Modals
+  .modal {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    &.fade.in { top: auto; }
+  }
+  .modal-header .close {
+    padding: 10px;
+  }
+
 }
 
 
@@ -50,6 +114,15 @@
 // --------------------------------------------------
 
 @media (max-width: 768px) {
+  
+  // Unfix the navbar
+  .navbar-fixed {
+    position: absolute;
+  }
+  .navbar-fixed .nav {
+    float: none;
+  }
+
   // Remove width from containers
   .container {
     width: auto;
@@ -60,123 +133,73 @@
     margin-left: 0;
   }
   // Make all columns even
-  [class*="span"] {
+  .row > [class*="span"] {
     float: none;
     display: block;
     width: auto;
     margin: 0;
   }
 
-  // Make the nav work for small devices
-  .nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 180px;
-    padding-top: 40px;
-    list-style: none;
-  }
-  .nav, .nav > li:last-child a {
-    @include border-radius(0 0 4px 0);
-  }
-  .nav > li {
-    float: none;
-    display: none;
-  }
-  .nav > li > a {
-    float: none;
-    background-color: #222;
-  }
-  .nav > .active {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .navbar ul .active > a {
-    background-color: transparent;
-  }
-  .nav > .active a:after {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    margin-top: 8px;
-    margin-left: 6px;
-    text-indent: -99999px;
-    vertical-align: top;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 4px solid $white;
-    @include opacity(100);
-    content: "&darr;";
-  }
-  .nav > .active a:hover {
-    background-color: rgba(255,255,255,.05);
-  }
 }
 
-
-// PORTRAIT TABLET TO DEFAULT DESKTOP
-// ----------------------------------
-// SASS only supports mixins at root so we namespace it all with a suffix of tablet
+// SASS only supports mixins at root so we namespace it all with a prefix of tablet
 // and redefine at root
 
 // Reset grid variables
-$gridColumnsTablet:       16;
-$gridColumnWidthTablet:   44px;
-$gridGutterWidthTablet:   20px;
-$siteWidthTablet:         748px;
+$tabletgridColumns:       16;
+$tabletgridColumnWidth:   44px;
+$tabletgridGutterWidth:   20px;
+$tabletsiteWidth:         748px;
 
 // Bring grid mixins to recalculate widths
-@mixin columnsTablet($columnSpan: 1) {
-  width: ($gridColumnWidthTablet * $columnSpan) + ($gridGutterWidthTablet * ($columnSpan - 1));
+@mixin tabletColumns($columnSpan: 1) {
+  width: ($gridColumnWidth * $columnSpan) + ($gridGutterWidth * ($columnSpan - 1));
 }
-@mixin offsetTablet($columnOffset: 1) {
-  margin-left: ($gridColumnWidthTablet * $columnOffset) + ($gridGutterWidthTablet * ($columnOffset - 1)) + $gridGutterWidthTablet;
+@mixin tabletOffset($columnOffset: 1) {
+  margin-left: ($gridColumnWidth * $columnOffset) + ($gridGutterWidth * ($columnOffset - 1)) + $gridGutterWidth;
 }
+
+// PORTRAIT TABLET TO DEFAULT DESKTOP
+// ----------------------------------
 
 @media (min-width: 768px) and (max-width: 940px) {
 
-  // Reset grid variables
-
-
   // 16cols at 30px wide with 16px gutters
-  .container {  
-    width: $siteWidthTablet;
+  .container {
+    width: $tabletsiteWidth;
   }
 
   // Default columns
-  .span1     { @include columnsTablet(1); }
-  .span2     { @include columnsTablet(2); }
-  .span3     { @include columnsTablet(3); }
-  .span4     { @include columnsTablet(4); }
-  .span5     { @include columnsTablet(5); }
-  .span6     { @include columnsTablet(6); }
-  .span7     { @include columnsTablet(7); }
-  .span8     { @include columnsTablet(8); }
-  .span9     { @include columnsTablet(9); }
-  .span10    { @include columnsTablet(10); }
-  .span11    { @include columnsTablet(11); }
-  .span12    { @include columnsTablet(12); }
+  .span1     { @include tabletColumns(1); }
+  .span2     { @include tabletColumns(2); }
+  .span3     { @include tabletColumns(3); }
+  .span4     { @include tabletColumns(4); }
+  .span5     { @include tabletColumns(5); }
+  .span6     { @include tabletColumns(6); }
+  .span7     { @include tabletColumns(7); }
+  .span8     { @include tabletColumns(8); }
+  .span9     { @include tabletColumns(9); }
+  .span10    { @include tabletColumns(10); }
+  .span11    { @include tabletColumns(11); }
+  .span12    { @include tabletColumns(12); }
 
   // Offset column options
-  .offset1   { @include offsetTablet(1); }
-  .offset2   { @include offsetTablet(2); }
-  .offset3   { @include offsetTablet(3); }
-  .offset4   { @include offsetTablet(4); }
-  .offset5   { @include offsetTablet(5); }
-  .offset6   { @include offsetTablet(6); }
-  .offset7   { @include offsetTablet(7); }
-  .offset8   { @include offsetTablet(8); }
-  .offset9   { @include offsetTablet(9); }
-  .offset10  { @include offsetTablet(10); }
-  .offset11  { @include offsetTablet(11); }
-  .offset12  { @include offsetTablet(12); }
+  .offset1   { @include tabletOffset(1); }
+  .offset2   { @include tabletOffset(2); }
+  .offset3   { @include tabletOffset(3); }
+  .offset4   { @include tabletOffset(4); }
+  .offset5   { @include tabletOffset(5); }
+  .offset6   { @include tabletOffset(6); }
+  .offset7   { @include tabletOffset(7); }
+  .offset8   { @include tabletOffset(8); }
+  .offset9   { @include tabletOffset(9); }
+  .offset10  { @include tabletOffset(10); }
+  .offset11  { @include tabletOffset(11); }
+  .offset12  { @include tabletOffset(12); }
 
 }
 
 // LARGE DESKTOP & UP
 // ------------------
-/*
-// removed from bootstrap-sass until completed - TM
-*/
+//
+// Removed from bootstrap-sass until completed - TM

@@ -1,5 +1,4 @@
-//
-// Scaffolding
+// Scaffolding.css.scss
 // Basic and global styles for generating a grid system, structural layout, and page templates
 // -------------------------------------------------------------------------------------------
 
@@ -12,7 +11,7 @@ body {
   font-family: $baseFontFamily;
   font-size: $baseFontSize;
   line-height: $baseLineHeight;
-  color: $grayDark;
+  color: $gray;
   background-color: $white;
 }
 
@@ -29,20 +28,29 @@ body {
   padding-right: 20px;
   @include clearfix();
 }
+
 // Sidebars (left and right options)
-.fluid-sidebar-left, .fluid-sidebar-right {
-  width: 220px;
+.fluid-sidebar {
+  width: $fluidSidebarWidth;
+  margin: 0 20px 18px;
 }
-.fluid-sidebar-left   { float: left; }
-.fluid-sidebar-right  { float: right; }
+.sidebar-left   { padding-left: $fluidSidebarWidth + 40; }
+.sidebar-right  { padding-right: $fluidSidebarWidth + 40; }
+
+// Float the sidebars accordingly
+.sidebar-left .fluid-sidebar {
+  float: left;
+  margin-left: ($fluidSidebarWidth + 20) * -1;
+}
+.sidebar-right .fluid-sidebar {
+  float: right;
+  margin-right: ($fluidSidebarWidth + 20) * -1;
+}
+
 // The main content area
 .fluid-content {
-  margin-left: 240px;
-}
-// Reverse layout for sidebar on right
-.fluid-container.reverse .fluid-content {
-  margin-left: 0;
-  margin-right: 240px;
+  float: left;
+  width: 100%;
 }
 
 
@@ -60,14 +68,6 @@ a {
     text-decoration: underline;
   }
 }
-
-// Quick floats
-.pull-right { float: right; }
-.pull-left { float: left; }
-
-// Toggling content
-.hide { display: none; }
-.show { display: block; }
 
 
 // GRID SYSTEM
@@ -110,4 +110,3 @@ a {
 .offset9   { @include offset(9); }
 .offset10  { @include offset(10); }
 .offset11  { @include offset(11); }
-

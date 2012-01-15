@@ -1,4 +1,4 @@
-// Variables.less
+// Variables.css.scss
 // Variables to customize the look and feel of Bootstrap
 // -----------------------------------------------------
 
@@ -6,7 +6,7 @@
 // LINK COLORS
 // -----------
 
-$linkColor:         #0069d6 !default;
+$linkColor:         #08c !default;
 $linkColorHover:    darken($linkColor, 15) !default;
 
 
@@ -14,10 +14,10 @@ $linkColorHover:    darken($linkColor, 15) !default;
 // -----
 
 $black:             #000 !default;
-$grayDark:          lighten($black, 25%) !default;
-$gray:              lighten($black, 50%) !default;
-$grayLight:         lighten($black, 75%) !default;
-$grayLighter:       lighten($black, 90%) !default;
+$grayDark:          #333 !default;
+$gray:              #555 !default;
+$grayLight:         #999 !default;
+$grayLighter:       #eee !default;
 $white:             #fff !default;
 
 
@@ -37,11 +37,25 @@ $purple:            #7a43b6 !default;
 // GRID
 // ----
 
-// Modify the grid styles in mixins.less
+// Modify the grid styles by creating new styles
 $gridColumns:       12 !default;
 $gridColumnWidth:   60px !default;
 $gridGutterWidth:   20px !default;
 $siteWidth:         ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1)) !default;
+
+// Fluid width sidebar
+$fluidSidebarWidth: 220px !default;
+
+
+// Z-INDEX
+// -------
+
+$zindexDropdown:        1000 !default;
+$zindexPopover:         1010 !default;
+$zindexTooltip:         1020 !default;
+$zindexFixedNavbar:     1030 !default;
+$zindexModalBackdrop:   1040 !default;
+$zindexModal:           1050 !default;
 
 
 // THEME VARIABLES
