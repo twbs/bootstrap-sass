@@ -84,7 +84,7 @@
 // Reposition menu on open and round all corners
 .btn-group.open .dropdown-menu {
   display: block;
-  top: 30px;
+  margin-top: 1px;
   @include border-radius(5px);
   &.large { top: 40px; }
 }
@@ -103,7 +103,7 @@
 // Account for other colors
 .primary, .danger, .info, .success {
   .caret {
-    border-top-color: #fff;
+    border-top-color: $white;
     @include opacity(75);
   }
 }

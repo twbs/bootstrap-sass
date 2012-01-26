@@ -30,9 +30,9 @@
   padding: 5px 10px 6px;
   font-size: $baseFontSize;
   line-height: normal;
-  color: #333;
+  color: $grayDark;
   text-shadow: 0 1px 1px rgba(255,255,255,.75);
-  @include gradient-vertical-three-colors(#ffffff, #ffffff, 25%, darken(#ffffff, 10%)); // Don't use .gradientbar() here since it does a three-color gradient
+  @include gradient-vertical-three-colors($white, $white, 25%, darken($white, 10%)); // Don't use .gradientbar() here since it does a three-color gradient
   border: 1px solid #ccc;
   border-bottom-color: #bbb;
   @include border-radius(4px);
@@ -63,7 +63,8 @@
 
   // Active and Disabled states
   &.active, &:active {
-    $shadow: inset 0 2px 4px rgba(0,0,0,.25), 0 1px 2px rgba(0,0,0,.05);
+    background-image: none;
+    $shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
     @include box-shadow($shadow);
   }
   &.disabled {
@@ -96,7 +97,7 @@
   }
 }
 // Super jank hack for removing border-radius from IE9 so we can keep filter gradients on alerts and buttons
-:root .alert-message, :root .btn {
+:root .btn {
   border-radius: 0 \0;
 }
 

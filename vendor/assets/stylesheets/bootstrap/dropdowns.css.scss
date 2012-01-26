@@ -15,7 +15,7 @@
   vertical-align: top;
   border-left:  4px solid transparent;
   border-right: 4px solid transparent;
-  border-top:   4px solid #000;
+  border-top:   4px solid $black;
   @include opacity(30);
   content: "\2193";
 }
@@ -30,7 +30,7 @@
 // The dropdown menu (ul)
 .dropdown-menu {
   position: absolute;
-  top: 40px;
+  top: 100%;
   z-index: $zindexDropdown;
   float: left;
   display: none; // none by default, but block on "open" of the menu
@@ -53,6 +53,13 @@
   zoom: 1; // do we need this?
   *border-right-width: 2px;
   *border-bottom-width: 2px;
+
+  // Allow for dropup-menu
+  &.bottom-up {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: 2px;
+  }
 
   // Dividers (basically an hr) within the dropdown
   .divider {
@@ -77,7 +84,7 @@
 
 // Hover state
 .dropdown-menu li > a:hover, .dropdown-menu .active > a, .dropdown-menu .active > a:hover {
-  color: #fff;
+  color: $white;
   text-decoration: none;
   background-color: $linkColor;
 }

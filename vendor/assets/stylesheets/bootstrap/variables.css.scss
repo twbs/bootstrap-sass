@@ -3,53 +3,58 @@
 // -----------------------------------------------------
 
 
-// LINK COLORS
-// -----------
 
-$linkColor:         #08c !default;
-$linkColorHover:    darken($linkColor, 15) !default;
+// GLOBAL VALUES
+// --------------------------------------------------
 
+// Links
+$linkColor:             #08c !default;
+$linkColorHover:        darken($linkColor, 15%) !default;
 
-// GRAYS
-// -----
+// Grays
+$black:                 #000 !default;
+$grayDarker:            #222 !default;
+$grayDark:              #333 !default;
+$gray:                  #555 !default;
+$grayLight:             #999 !default;
+$grayLighter:           #eee !default;
+$white:                 #fff !default;
 
-$black:             #000 !default;
-$grayDark:          #333 !default;
-$gray:              #555 !default;
-$grayLight:         #999 !default;
-$grayLighter:       #eee !default;
-$white:             #fff !default;
+// Accent colors
+$blue:                  #049cdb !default;
+$blueDark:              #0064cd !default;
+$green:                 #46a546 !default;
+$red:                   #9d261d !default;
+$yellow:                #ffc40d !default;
+$orange:                #f89406 !default;
+$pink:                  #c3325f !default;
+$purple:                #7a43b6 !default;
 
-
-// ACCENT COLORS
-// -------------
-
-$blue:              #049CDB !default;
-$blueDark:          #0064CD !default;
-$green:             #46a546 !default;
-$red:               #9d261d !default;
-$yellow:            #ffc40d !default;
-$orange:            #f89406 !default;
-$pink:              #c3325f !default;
-$purple:            #7a43b6 !default;
-
-
-// GRID
-// ----
-
-// Modify the grid styles by creating new styles
-$gridColumns:       12 !default;
-$gridColumnWidth:   60px !default;
-$gridGutterWidth:   20px !default;
-$siteWidth:         ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1)) !default;
-
+// Grid system
+// Modify the grid styles in mixins.less
+$gridColumns:           12 !default;
+$gridColumnWidth:       60px !default;
+$gridGutterWidth:       20px !default;
+$siteWidth:             ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1)) !default;
 // Fluid width sidebar
-$fluidSidebarWidth: 220px !default;
+$fluidSidebarWidth:     220px !default;
+
+// Typography
+$baseFontSize:          13px !default;
+$baseFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$baseLineHeight:        18px !default;
+
+// Buttons
+$primaryButtonColor:    $blue !default;
 
 
-// Z-INDEX
-// -------
 
+// COMPONENT VARIABLES
+// --------------------------------------------------
+
+// Z-index master list
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
 $zindexDropdown:        1000 !default;
 $zindexPopover:         1010 !default;
 $zindexTooltip:         1020 !default;
@@ -57,14 +62,27 @@ $zindexFixedNavbar:     1030 !default;
 $zindexModalBackdrop:   1040 !default;
 $zindexModal:           1050 !default;
 
+// Input placeholder text color
+$placeholderText:       $grayLight !default;
 
-// THEME VARIABLES
-// ---------------
+// Navbar
+$navbarHeight:                    40px !default;
+$navbarBackground:                $grayDarker !default;
+$navbarBackgroundHighlight:       $grayDark !default;
 
-// Typography
-$baseFontSize:          13px !default;
-$baseFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$baseLineHeight:        18px !default;
+// Form states and alerts
+$warningText:             #c09853 !default;
+$warningBackground:       #fcf8e3 !default;
+$warningBorder:           #f3edd2 !default;
 
-// Visuals
-$primaryButtonColor:    $blue !default;
+$errorText:               #b94a48 !default;
+$errorBackground:         #f2dede !default;
+$errorBorder:             #e9c7c7 !default;
+
+$successText:             #468847 !default;
+$successBackground:       #dff0d8 !default;
+$successBorder:           #cfe8c4 !default;
+
+$infoText:                #3a87ad !default;
+$infoBackground:          #d9edf7 !default;
+$infoBorder:              #bfe1f2 !default;
