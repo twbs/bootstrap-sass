@@ -2,22 +2,20 @@
 // Fixed & static navbar
 // -------------------------
 
-// Navbar variables
-$navBarHeight: 40px !default;
-$navBarBgStart: #333 !default;
-$navBarBgEnd: #222 !default;
+// COMMON STYLES
+// -------------
 
-// Common styles
 .navbar {
   overflow: visible;
 }
 // gradient is applied to it's own element because overflow visible is not honored by IE when filter is present
 .navbar-inner {
-  background-color: $navBarBgEnd;
-  @include gradient-vertical($navBarBgStart, $navBarBgEnd);
+  background-color: $navbarBackground;
+  @include gradient-vertical($navbarBackgroundHighlight, $navbarBackground);
   $shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
   @include box-shadow($shadow);
 }
+
 // Text and links
 .navbar {
   // Hover and active states
@@ -74,20 +72,16 @@ $navBarBgEnd: #222 !default;
     @include font-sans-serif(13px, normal, 1);
     color: $white;
     color: rgba(255,255,255,.75);
-    background-color: #444;
-    background-color: rgba(255,255,255,.3);
+    background: #444;
+    background: rgba(255,255,255,.3);
     border: 1px solid #111;
     $shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0px rgba(255,255,255,.15);
     @include box-shadow($shadow);
     @include transition(none);
 
     // Placeholder text gets special styles; can't be bundled together though for some reason
-    &:-moz-placeholder {
-      color: $grayLighter;
-    }
-    &::-webkit-input-placeholder {
-      color: $grayLighter;
-    }
+    @include placeholder($grayLighter);
+
     // Hover states
     &:hover {
       color: $white;
@@ -167,7 +161,7 @@ $navBarBgEnd: #222 !default;
 .navbar .nav .active > a {
   color: $white;
   text-decoration: none;
-  background-color: #222;
+  background-color: $grayDarker;
   background-color: rgba(0,0,0,.5);
 }
 
@@ -177,7 +171,7 @@ $navBarBgEnd: #222 !default;
   width: 1px;
   margin: 0 5px;
   overflow: hidden;
-  background-color: #222;
+  background-color: $grayDarker;
   border-right: 1px solid #444;
 }
 
@@ -194,7 +188,7 @@ $navBarBgEnd: #222 !default;
 
 // Menu position and menu carets
 .navbar .dropdown-menu {
-  top: 41px;
+  margin-top: 1px;
   @include border-radius(4px);
   &:before {
     content: '';
@@ -212,7 +206,7 @@ $navBarBgEnd: #222 !default;
     display: inline-block;
     border-left:   6px solid transparent;
     border-right:  6px solid transparent;
-    border-bottom: 6px solid #fff;
+    border-bottom: 6px solid $white;
     position: absolute;
     top: -6px;
     left: 10px;
@@ -221,7 +215,7 @@ $navBarBgEnd: #222 !default;
 
 // Dropdown toggle caret
 .navbar .nav .dropdown-toggle .caret, .navbar .nav .open.dropdown .caret {
-  border-top-color: #fff;
+  border-top-color: $white;
 }
 .navbar .nav .active .caret {
   @include opacity(100);
@@ -234,7 +228,7 @@ $navBarBgEnd: #222 !default;
 
 // Dropdown link on hover
 .navbar .nav .active > .dropdown-toggle:hover {
-  color: #fff;
+  color: $white;
 }
 
 // Right aligned menus need alt position

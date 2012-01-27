@@ -8,24 +8,32 @@
 
 // Make all forms have space below them
 form {
-  margin-bottom: $baseLineHeight;
+  margin: 0 0 $baseLineHeight;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 
 // Groups of fields with labels on top (legends)
 legend {
   display: block;
   width: 100%;
+  padding: 0;
   margin-bottom: $baseLineHeight * 1.5;
   font-size: $baseFontSize * 1.5;
   line-height: $baseLineHeight * 2;
   color: $grayDark;
+  border: 0;
   border-bottom: 1px solid #eee;
   -webkit-margin-collapse: separate;
 }
 
 // Set font for forms
 label, input, select, textarea {
-  @include font-sans-serif(normal,$baseFontSize,$baseLineHeight);
+  @include font-sans-serif($baseFontSize, normal, $baseLineHeight);
 }
 
 // Identify controls by their labels
@@ -49,13 +57,18 @@ input, textarea, select, .uneditable-input {
   @include border-radius(3px);
 }
 
+.uneditable-textarea {
+  width: auto;
+  height: auto;
+}
+
 // Mini reset for unique input types
 input[type=image], input[type=checkbox], input[type=radio] {
   width: auto;
   height: auto;
   padding: 0;
   margin: 3px 0;
-  *margin-top: 0; /* IE6-7 */
+  *margin-top: 0; /* IE7 */
   line-height: normal;
   border: none;
   cursor: pointer;
@@ -79,7 +92,7 @@ input[type=button], input[type=reset], input[type=submit] {
 
 // Set the height of select and file controls to match text inputs
 select, input[type=file] {
-  height: $baseLineHeight * 1.5; // In IE7, the height of the select element cannot be changed by height, only font-size
+  height: $baseLineHeight * 1.5; /* In IE7, the height of the select element cannot be changed by height, only font-size */
   *margin-top: 4px; /* For IE7, add top margin to align select with labels */
   line-height: $baseLineHeight * 1.5;
 }
@@ -87,7 +100,6 @@ select, input[type=file] {
 // Chrome on Linux and Mobile Safari need background-color
 select {
   width: 220px; // default input width + 10px of padding that doesn't get applied
-  padding: 0;
   vertical-align: middle;
   background-color: $white;
 }
@@ -140,13 +152,13 @@ textarea {
 // -----------
 
 input, textarea {
-  @include box-shadow(inset 0 1px 1px rgba(0,0,0,.1));
+  @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
   $transition: border linear .2s, box-shadow linear .2s;
   @include transition($transition);
 }
 input:focus, textarea:focus {
   border-color: rgba(82,168,236,.8);
-  $shadow: inset 0 1px 1px rgba(0,0,0,.1), 0 0 8px rgba(82,168,236,.6);
+  $shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
   @include box-shadow($shadow);
   outline: 0;
 }
@@ -252,22 +264,22 @@ input[disabled], select[disabled], textarea[disabled], input[readonly], select[r
     border-color: $textColor;
   }
 }
-// Error
-.control-group.error {
-  @include formFieldState(#b94a48, #ee5f5b, lighten(#ee5f5b, 30%));
-}
 // Warning
 .control-group.warning {
-  @include formFieldState(#c09853, #ccae64, lighten(#CCAE64, 5%));
+  @include formFieldState($warningText, $warningText, $warningBackground);
+}
+// Error
+.control-group.error {
+  @include formFieldState($errorText, $errorText, $errorBackground);
 }
 // Success
 .control-group.success {
-  @include formFieldState(#468847, #57a957, lighten(#57a957, 30%));
+  @include formFieldState($successText, $successText, $successBackground);
 }
 
 // HTML5 invalid states
 // Shares styles with the .control-group.error above
-input:invalid, textarea:invalid, select:invalid {
+input:focus:required:invalid, textarea:focus:required:invalid, select:focus:required:invalid {
   color: #b94a48;
   border-color: #ee5f5b;
   &:focus {
@@ -299,12 +311,13 @@ input:invalid, textarea:invalid, select:invalid {
 }
 
 // Placeholder text gets special styles; can't be bundled together though for some reason
-input:-moz-placeholder {
-  color: $grayLight;
-}
-input::-webkit-input-placeholder {
-  color: $grayLight;
-}
+@include placeholder($grayLight); //TODO: test if valid.
+//input:-moz-placeholder {
+//  color: $grayLight;
+//}
+//input::-webkit-input-placeholder {
+//  color: $grayLight;
+//}
 
 
 
@@ -413,26 +426,30 @@ input::-webkit-input-placeholder {
 
 // Margin to space out fieldsets
 .control-group {
-  margin-bottom: $baseLineHeight;
+  margin-bottom: $baseLineHeight / 2;
 }
 
 // Horizontal-specific styles
 // --------------------------
 
 .form-horizontal {
+  // Increase spacing between groups
+  .control-group {
+    margin-bottom: $baseLineHeight;
+  }
   // Float the labels left
   .control-group > label {
     float: left;
-    width: 120px;
+    width: 140px;
     padding-top: 5px;
     text-align: right;
   }
   // Move over all input controls and content
   .controls {
-    margin-left: 140px;
+    margin-left: 160px;
   }
   // Move over buttons in .form-actions to align with .controls
   .form-actions {
-    padding-left: 140px;
+    padding-left: 160px;
   }
 }

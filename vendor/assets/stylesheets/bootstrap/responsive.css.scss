@@ -3,6 +3,13 @@
 // -------------------------------------------------------------
 
 
+// REPEAT VARIABLES & MIXINS
+// -------------------------
+// Required since we compile the responsive stuff separately
+
+@import "variables";
+@import "mixins";
+
 // RESPONSIVE CLASSES
 // ------------------
 
@@ -96,11 +103,12 @@
 
   // Modals
   .modal {
-    position: fixed;
+    position: absolute;
     top: 20px;
     left: 20px;
     right: 20px;
     width: auto;
+    margin: 0;
     &.fade.in { top: auto; }
   }
   .modal-header .close {
@@ -152,13 +160,12 @@ $tabletgridGutterWidth:   20px;
 $tabletsiteWidth:         748px;
 
 // Bring grid mixins to recalculate widths
-@mixin tabletColumns($columnSpan: 1) {
-  width: ($gridColumnWidth * $columnSpan) + ($gridGutterWidth * ($columnSpan - 1));
+@mixin tabletColumns($columns: 1) {
+  width: ($tabletgridColumnWidth * $columns) + ($tabletgridGutterWidth * ($columns - 1));
 }
-@mixin tabletOffset($columnOffset: 1) {
-  margin-left: ($gridColumnWidth * $columnOffset) + ($gridGutterWidth * ($columnOffset - 1)) + $gridGutterWidth;
+@mixin tabletOffset($columns: 1) {
+  margin-left: ($tabletgridColumnWidth * $columns) + ($tabletgridGutterWidth * ($columns - 1)) + ($tabletgridGutterWidth * 2);
 }
-
 // PORTRAIT TABLET TO DEFAULT DESKTOP
 // ----------------------------------
 

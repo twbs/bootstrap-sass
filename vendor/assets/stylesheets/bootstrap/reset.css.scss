@@ -1,33 +1,34 @@
-// Reset.css.scss
-// Props to Eric Meyer (meyerweb.com) for his CSS reset file.
-// We're using an adapted version here that cuts out some of the reset HTML
-// elements we will never need here (i.e., dfn, samp, etc).
+// Reset.less
+// Adapted from Normalize.css http://github.com/necolas/normalize.css
 // ------------------------------------------------------------------------
-
-
-// ERIC MEYER RESET
-// --------------------------------------------------
-
-html, body { margin: 0; padding: 0; }
-h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, em, img, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, legend, button, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; font-weight: normal; font-style: normal; font-size: 100%; line-height: 1; font-family: inherit; }
-table {
-  max-width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-ol, ul { list-style: none; }
-q:before, q:after, blockquote:before, blockquote:after { content: ""; }
-
-
-// Normalize.css
-// Pulling in select resets form the normalize.css project
-// --------------------------------------------------
 
 // Display in IE6-9 and FF3
 // -------------------------
-// Source: http://github.com/necolas/normalize.css
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+  display: block;
+}
+
+// Display block in IE6-9 and FF3
+// -------------------------
+
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+// Prevents modern browsers from displaying 'audio' without controls
+// -------------------------
+
+audio:not([controls]) {
+    display: none;
+}
+
+// Base settings
+// -------------------------
+
 html {
-  overflow-y: scroll;
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
@@ -41,32 +42,9 @@ a:hover, a:active {
   outline: 0;
 }
 
-// Display in IE6-9 and FF3
-// -------------------------
-// Source: http://github.com/necolas/normalize.css
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
-  display: block;
-}
-
-// Display block in IE6-9 and FF3
-// -------------------------
-// Source: http://github.com/necolas/normalize.css
-audio, canvas, video {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-}
-
-// Prevents modern browsers from displaying 'audio' without controls
-// -------------------------
-// Source: http://github.com/necolas/normalize.css
-audio:not([controls]) {
-    display: none;
-}
-
 // Prevents sub and sup affecting line-height in all browsers
 // -------------------------
-// Source: http://github.com/necolas/normalize.css
+
 sub, sup {
   position: relative;
   font-size: 75%;
@@ -82,7 +60,7 @@ sub {
 
 // Img border in a's and image quality
 // -------------------------
-// Source: http://github.com/necolas/normalize.css
+
 img {
   max-width: 100%;
   height: auto;
@@ -92,7 +70,6 @@ img {
 
 // Forms
 // -------------------------
-// Source: http://github.com/necolas/normalize.css
 
 // Font size in all browsers, margin changes, misc consistency
 button, input, select, textarea {
@@ -119,7 +96,8 @@ input[type="search"] { // Appearance in Safari/Chrome
      -moz-box-sizing: content-box;
           box-sizing: content-box;
 }
-input[type="search"]::-webkit-search-decoration {
+input[type="search"]::-webkit-search-decoration, 
+input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none; // Inner-padding issues in Chrome OSX, Safari 5
 }
 textarea {

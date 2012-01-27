@@ -2,39 +2,43 @@
 // Tables for, you guessed it, tabular data
 // ----------------------------------------
 
-
+// BASE TABLES
+// -----------------
+table {
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
 // BASELINE STYLES
 // ---------------
 
-table {
+.table {
   width: 100%;
   margin-bottom: $baseLineHeight;
+  // Cells
+  th, td {
+    padding: 8px;
+    line-height: $baseLineHeight;
+    text-align: left;
+    border-top: 1px solid #ddd;
+  }
+  th {
+    font-weight: bold;
+    vertical-align: bottom;
+  }
+  td {
+    vertical-align: top;
+  }
+  // Remove top border from thead by default
+  thead:first-child tr th, thead:first-child tr td {
+    border-top: 0;
+  }
+  // Account for multiple tbody instances
+  tbody + tbody {
+    border-top: 2px solid #ddd;
+  }
 }
-th, td {
-  padding: 8px;
-  line-height: $baseLineHeight;
-  text-align: left;
-  border-top: 1px solid #ddd;
-}
-th {
-  font-weight: bold;
-  vertical-align: bottom;
-}
-td {
-  vertical-align: top;
-}
-
-// Remove top border from thead by default
-thead:first-child tr th, thead:first-child tr td {
-  border-top: 0;
-}
-
-// Account for multiple tbody instances
-tbody + tbody {
-  border-top: 2px solid #ddd;
-}
-
 
 // CONDENSED TABLE W/ HALF PADDING
 // -------------------------------
@@ -119,7 +123,7 @@ table {
 
 // TABLESORTER
 // -----------
-// Support for the tablesorter jQuerdy plugin
+// Support for the tablesorter jQuery plugin
 
 table {
   // Tablesorting styles w/ jQuery plugin
@@ -131,7 +135,7 @@ table {
       margin-top: 7px;
       border-width: 0 4px 4px;
       border-style: solid;
-      border-color: #000 transparent;
+      border-color: $black transparent;
       visibility: hidden;
     }
   }
