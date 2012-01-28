@@ -45,7 +45,7 @@ label {
 
 // Inputs, Textareas, Selects
 input, textarea, select, .uneditable-input {
-  display: block;
+  display: inline-block;
   width: 210px;
   height: $baseLineHeight;
   padding: 4px;
@@ -60,6 +60,11 @@ input, textarea, select, .uneditable-input {
 .uneditable-textarea {
   width: auto;
   height: auto;
+}
+
+// Inputs within a label
+label input, label textarea, label select {
+  display: block;
 }
 
 // Mini reset for unique input types

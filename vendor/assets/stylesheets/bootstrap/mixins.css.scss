@@ -93,7 +93,7 @@
 
 // Site container
 // -------------------------
-@mixin fixed-container() {
+@mixin container-fixed() {
   width: $siteWidth;
   margin-left: auto;
   margin-right: auto;
@@ -125,31 +125,12 @@
 // Border Radius
 @mixin border-radius($radius: 5px) {
   -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
           border-radius: $radius;
-}
-@mixin border-radius-custom($topLeft: 0, $topRight: 0, $bottomRight: 0, $bottomLeft: 0) {
-  -webkit-border-top-left-radius: $topLeft;
-      -moz-border-radius-topleft: $topLeft;
-          border-top-left-radius: $topLeft;
-  -webkit-border-top-right-radius: $topRight;
-      -moz-border-radius-topright: $topRight;
-          border-top-right-radius: $topRight;
-  -webkit-border-bottom-right-radius: $bottomRight;
-      -moz-border-radius-bottomright: $bottomRight;
-          border-bottom-right-radius: $bottomRight;
-  -webkit-border-bottom-left-radius: $bottomLeft;
-      -moz-border-radius-bottomleft: $bottomLeft;
-          border-bottom-left-radius: $bottomLeft;
-  -webkit-background-clip: padding-box;
-     -moz-background-clip: padding;
-          background-clip: padding-box;
 }
 
 // Drop shadows
 @mixin box-shadow($shadow: 0 1px 3px rgba(0,0,0,.25)) {
   -webkit-box-shadow: $shadow;
-     -moz-box-shadow: $shadow;
           box-shadow: $shadow;
 }
 
@@ -163,19 +144,19 @@
 }
 
 // Transformations
-@mixin rotate($degrees: 5deg) {
+@mixin rotate($degrees) {
   -webkit-transform: rotate($degrees);
      -moz-transform: rotate($degrees);
       -ms-transform: rotate($degrees);
        -o-transform: rotate($degrees);
           transform: rotate($degrees);
 }
-@mixin scale($value: 1.5) {
-  -webkit-transform: scale($value);
-     -moz-transform: scale($value);
-      -ms-transform: scale($value);
-       -o-transform: scale($value);
-          transform: scale($value);
+@mixin scale($ratio) {
+  -webkit-transform: scale($ratio);
+     -moz-transform: scale($ratio);
+      -ms-transform: scale($ratio);
+       -o-transform: scale($ratio);
+          transform: scale($ratio);
 }
 @mixin translate($x: 0, $y: 0) {
   -webkit-transform: translate($x, $y);
@@ -186,7 +167,7 @@
 }
 
 // Background clipping
-// Heads up: FF 3.6 and under need padding instead of padding-box
+// Heads up: FF 3.6 and under need "padding" instead of "padding-box"
 @mixin background-clip($clip) {
   -webkit-background-clip: $clip;
      -moz-background-clip: $clip;
@@ -225,13 +206,12 @@
 
 // Opacity
 @mixin opacity($opacity: 100) {
+  opacity: $opacity / 100;
   filter: alpha(opacity=$opacity);
-    -moz-opacity: $opacity / 100;
-         opacity: $opacity / 100;
 }
 
 // CSS3 Content Columns
-@mixin content-columns($columnCount, $columnGap: 20px) {
+@mixin content-columns($columnCount, $columnGap: $gridColumnGutter) {
   -webkit-column-count: $columnCount;
      -moz-column-count: $columnCount;
           column-count: $columnCount;
@@ -249,9 +229,7 @@
 }
 @mixin translucent-border($color: $white, $alpha: 1) {
   border-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
-  -webkit-background-clip: padding-box;
-     -moz-background-clip: padding;
-          background-clip: padding-box;
+  @include background-clip(padding-box);
 }
 
 // Gradient Bar Colors for buttons and alerts
@@ -267,7 +245,7 @@
   background-image: -khtml-gradient(linear, left top, right top, from($startColor), to($endColor)); // Konqueror
   background-image: -moz-linear-gradient(left, $startColor, $endColor); // FF 3.6+
   background-image: -ms-linear-gradient(left, $startColor, $endColor); // IE10
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, $startColor), color-stop(100%, $endColor)); // Safari 4+, Chrome 2+
+  background-image: -webkit-gradient(linear, 0 0, 100% 0, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
   background-image: -webkit-linear-gradient(left, $startColor, $endColor); // Safari 5.1+, Chrome 10+
   background-image: -o-linear-gradient(left, $startColor, $endColor); // Opera 11.10
   background-image: linear-gradient(left, $startColor, $endColor); // Le standard
@@ -279,7 +257,7 @@
   background-image: -khtml-gradient(linear, left top, left bottom, from($startColor), to($endColor)); // Konqueror
   background-image: -moz-linear-gradient(top, $startColor, $endColor); // FF 3.6+
   background-image: -ms-linear-gradient(top, $startColor, $endColor); // IE10
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $startColor), color-stop(100%, $endColor)); // Safari 4+, Chrome 2+
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
   background-image: -webkit-linear-gradient(top, $startColor, $endColor); // Safari 5.1+, Chrome 10+
   background-image: -o-linear-gradient(top, $startColor, $endColor); // Opera 11.10
   background-image: linear-gradient(top, $startColor, $endColor); // The standard

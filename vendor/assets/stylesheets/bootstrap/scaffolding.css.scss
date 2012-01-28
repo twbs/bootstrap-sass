@@ -17,7 +17,7 @@ body {
 
 // Container (centered, fixed-width layouts)
 .container {
-  @include fixed-container();
+  @include container-fixed();
 }
 
 // Fluid layouts (left aligned, with sidebar, min- & max-width content)
