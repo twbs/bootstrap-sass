@@ -1,8 +1,8 @@
 /* =============================================================
- * bootstrap-collapsible.js v2.0.0
- * http://twitter.github.com/bootstrap/javascript.html#collapsible
+ * bootstrap-collapse.js v2.0.0
+ * http://twitter.github.com/bootstrap/javascript.html#collapse
  * =============================================================
- * Copyright 2011 Twitter, Inc.
+ * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,19 +17,19 @@
  * limitations under the License.
  * ============================================================ */
 
-(function( $ ){
+!function( $ ){
 
   "use strict"
 
   var Collapse = function ( element, options ) {
   	this.$element = $(element)
-    this.settings = $.extend({}, $.fn.collapse.defaults, options)
+    this.options = $.extend({}, $.fn.collapse.defaults, options)
 
-    if (this.settings["parent"]) {
-      this.$parent = $(this.settings["parent"])
+    if (this.options["parent"]) {
+      this.$parent = $(this.options["parent"])
     }
 
-    this.settings.toggle && this.toggle()
+    this.options.toggle && this.toggle()
   }
 
   Collapse.prototype = {
@@ -116,20 +116,21 @@
     toggle: true
   }
 
-  $.fn.collapse.Collapse = Collapse
+  $.fn.collapse.Constructor = Collapse
 
 
  /* COLLAPSIBLE DATA-API
   * ==================== */
 
   $(function () {
-    $('body').delegate('[data-toggle=collapse]', 'click.collapse.data-api', function ( e ) {
-      var $this = $(this)
-        , target = $this.attr('data-target') || $this.attr('href')
+    $('body').on('click.collapse.data-api', '[data-toggle=collapse]', function ( e ) {
+      var $this = $(this), href
+        , target = $this.attr('data-target')
+          || e.preventDefault()
+          || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
         , option = $(target).data('collapse') ? 'toggle' : $this.data()
-        e.preventDefault()
       $(target).collapse(option)
     })
   })
 
-})( window.jQuery || window.ender )
+}( window.jQuery )
