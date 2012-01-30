@@ -56,6 +56,7 @@ table {
 .table-bordered {
   border: 1px solid #ddd;
   border-collapse: separate; // Done so we can round those corners!
+  *border-collapse: collapsed; // IE7 can't round corners anyway
   @include border-radius(4px);
   th + th, td + td, th + td, td + th {
     border-left: 1px solid #ddd;

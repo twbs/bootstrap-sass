@@ -1,24 +1,36 @@
+/*!
+ * Bootstrap Responsive v2.0.0
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ * Converted to SASS by Thomas McDonald
+ */
+
 // Responsive.css.scss
 // For phone and tablet devices
 // -------------------------------------------------------------
-
 
 // REPEAT VARIABLES & MIXINS
 // -------------------------
 // Required since we compile the responsive stuff separately
 
-@import "variables";
+@import "variables"; // Modify this for custom colors, font-sizes, etc
 @import "mixins";
+
 
 // RESPONSIVE CLASSES
 // ------------------
 
 // Hide from screenreaders and browsers
-// Credit: HTML5BP
+// Credit: HTML5 Boilerplate
 .hidden {
   display: none;
   visibility: hidden;
 }
+
 
 
 // UP TO LANDSCAPE PHONE
@@ -26,59 +38,31 @@
 
 @media (max-width: 480px) {
 
-  // Make the nav work for small devices
-  .navbar {
-    .nav {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 180px;
-      padding-top: 40px;
-      list-style: none;
-    }
-    .nav, .nav > li:last-child a {
-      @include border-radius(0 0 4px 0);
-    }
-    .nav > li {
-      float: none;
-      display: none;
-    }
-    .nav > li > a {
-      float: none;
-      background-color: #222;
-    }
-    .nav > .active {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    .nav > .active > a {
-      background-color: transparent;
-    }
-    .nav > .active > a:hover {
-      background-color: #333;
-    }
-    .nav > .active > a:after {
-      display: inline-block;
-      width: 0;
-      height: 0;
-      margin-top: 8px;
-      margin-left: 6px;
-      text-indent: -99999px;
-      vertical-align: top;
-      border-left: 4px solid transparent;
-      border-right: 4px solid transparent;
-      border-top: 4px solid $white;
-      @include opacity(100);
-      content: "&darr;";
-    }
-    .nav:hover > li {
-      display: block;
-    }
-    .nav:hover > li > a:hover {
-      background-color: #333;
-    }
+  // Block level the page header small tag for readability
+  .page-header h1 small {
+    display: block;
+    line-height: $baseLineHeight;
+  }
+
+  // Make span* classes full width
+  input[class*="span"], select[class*="span"], textarea[class*="span"], .uneditable-input {
+    display: block;
+    width: 100%;
+    height: 28px; /* Make inputs at least the height of their button counterpart */
+    /* Makes inputs behave like true block-level elements */
+    -webkit-box-sizing: border-box; /* Older Webkit */
+       -moz-box-sizing: border-box; /* Older FF */
+        -ms-box-sizing: border-box; /* IE8 */
+            box-sizing: border-box; /* CSS3 spec*/
+  }
+  // But don't let it screw up prepend/append inputs
+  .input-prepend input[class*="span"], .input-append input[class*="span"] {
+    width: auto;
+  }
+
+  // Update checkboxes for iOS
+  input[type="checkbox"], input[type="radio"] {
+    border: 1px solid #ccc;
   }
 
   // Remove the horizontal form styles
@@ -98,115 +82,227 @@
   }
   // Move over buttons in .form-actions to align with .controls
   .form-horizontal .form-actions {
-    padding-left: 0;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   // Modals
   .modal {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
+    top:   10px;
+    left:  10px;
+    right: 10px;
     width: auto;
     margin: 0;
     &.fade.in { top: auto; }
   }
   .modal-header .close {
     padding: 10px;
+    margin: -10px;
+  }
+
+  // Carousel
+  .carousel-caption {
+    position: static;
   }
 
 }
+
 
 
 // LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
 // --------------------------------------------------
 
 @media (max-width: 768px) {
-  
-  // Unfix the navbar
-  .navbar-fixed {
-    position: absolute;
-  }
-  .navbar-fixed .nav {
-    float: none;
-  }
-
+  // GRID & CONTAINERS
+  // -----------------
   // Remove width from containers
   .container {
     width: auto;
     padding: 0 20px;
+  }
+  // Fluid rows
+  .row-fluid {
+    width: 100%;
   }
   // Undo negative margin on rows
   .row {
     margin-left: 0;
   }
   // Make all columns even
-  .row > [class*="span"] {
+  .row > [class*="span"], .row-fluid > [class*="span"] {
     float: none;
     display: block;
     width: auto;
     margin: 0;
   }
-
 }
 
-// SASS only supports mixins at root so we namespace it all with a prefix of tablet
-// and redefine at root
 
-// Reset grid variables
-$tabletgridColumns:       16;
-$tabletgridColumnWidth:   44px;
-$tabletgridGutterWidth:   20px;
-$tabletsiteWidth:         748px;
 
-// Bring grid mixins to recalculate widths
-@mixin tabletColumns($columns: 1) {
-  width: ($tabletgridColumnWidth * $columns) + ($tabletgridGutterWidth * ($columns - 1));
-}
-@mixin tabletOffset($columns: 1) {
-  margin-left: ($tabletgridColumnWidth * $columns) + ($tabletgridGutterWidth * ($columns - 1)) + ($tabletgridGutterWidth * 2);
-}
 // PORTRAIT TABLET TO DEFAULT DESKTOP
 // ----------------------------------
 
 @media (min-width: 768px) and (max-width: 940px) {
 
-  // 16cols at 30px wide with 16px gutters
-  .container {
-    width: $tabletsiteWidth;
-  }
+  // Fixed grid
+  @include gridSystemGenerate(12, 42px, 20px);
 
-  // Default columns
-  .span1     { @include tabletColumns(1); }
-  .span2     { @include tabletColumns(2); }
-  .span3     { @include tabletColumns(3); }
-  .span4     { @include tabletColumns(4); }
-  .span5     { @include tabletColumns(5); }
-  .span6     { @include tabletColumns(6); }
-  .span7     { @include tabletColumns(7); }
-  .span8     { @include tabletColumns(8); }
-  .span9     { @include tabletColumns(9); }
-  .span10    { @include tabletColumns(10); }
-  .span11    { @include tabletColumns(11); }
-  .span12    { @include tabletColumns(12); }
+  // Fluid grid
+  @include fluidGridSystemGenerate(12, 5.801104972%, 2.762430939%);
 
-  // Offset column options
-  .offset1   { @include tabletOffset(1); }
-  .offset2   { @include tabletOffset(2); }
-  .offset3   { @include tabletOffset(3); }
-  .offset4   { @include tabletOffset(4); }
-  .offset5   { @include tabletOffset(5); }
-  .offset6   { @include tabletOffset(6); }
-  .offset7   { @include tabletOffset(7); }
-  .offset8   { @include tabletOffset(8); }
-  .offset9   { @include tabletOffset(9); }
-  .offset10  { @include tabletOffset(10); }
-  .offset11  { @include tabletOffset(11); }
-  .offset12  { @include tabletOffset(12); }
+  // Input grid
+  @include inputGridSystemGenerate(12, 42px, 20px);
 
 }
 
+
+
+// TABLETS AND BELOW
+// -----------------
+@media (max-width: 940px) {
+
+  // UNFIX THE TOPBAR
+  // ----------------
+  // Remove any padding from the body
+  body {
+    padding-top: 0;
+  }
+  // Unfix the navbar
+  .navbar-fixed-top {
+    position: static;
+    margin-bottom: $baseLineHeight;
+  }
+  .navbar-fixed-top .navbar-inner {
+    padding: 5px;
+    background-image: none;
+  }
+  .navbar .container {
+    padding: 0;
+  }
+  // Account for brand name
+  .navbar .brand {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 0 0 -5px;
+  }
+  // Nav collapse clears brand
+  .navbar .nav-collapse {
+    clear: left;
+  }
+  // Block-level the nav
+  .navbar .nav {
+    float: none;
+    margin: 0 0 ($baseLineHeight / 2);
+  }
+  .navbar .nav > li {
+    float: none;
+  }
+  .navbar .nav > li > a {
+    margin-bottom: 2px;
+  }
+  .navbar .nav > .divider-vertical {
+    display: none;
+  }
+  // Nav and dropdown links in navbar
+  .navbar .nav > li > a, .navbar .dropdown-menu a {
+    padding: 6px 15px;
+    font-weight: bold;
+    color: $navbarLinkColor;
+    @include border-radius(3px);
+  }
+  .navbar .dropdown-menu li + li a {
+    margin-bottom: 2px;
+  }
+  .navbar .nav > li > a:hover, .navbar .dropdown-menu a:hover {
+    background-color: $navbarBackground;
+  }
+  // Dropdowns in the navbar
+  .navbar .dropdown-menu {
+    position: static;
+    top: auto;
+    left: auto;
+    float: none;
+    display: block;
+    max-width: none;
+    margin: 0 15px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    @include border-radius(0);
+    @include box-shadow(none);
+  }
+  .navbar .dropdown-menu:before, .navbar .dropdown-menu:after {
+    display: none;
+  }
+  .navbar .dropdown-menu .divider {
+    display: none;
+  }
+  // Forms in navbar
+  .navbar-form, .navbar-search {
+    float: none;
+    padding: ($baseLineHeight / 2) 15px;
+    margin: ($baseLineHeight / 2) 0;
+    border-top: 1px solid $navbarBackground;
+    border-bottom: 1px solid $navbarBackground;
+    $shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
+    @include box-shadow($shadow);
+  }
+  // Pull right (secondary) nav content
+  .navbar .nav.pull-right {
+    float: none;
+    margin-left: 0;
+  }
+  // Static navbar
+  .navbar-static .navbar-inner {
+    padding-left:  10px;
+    padding-right: 10px;
+  }
+  // Navbar button
+  .btn-navbar {
+    display: block;
+  }
+
+  // Hide everything in the navbar save .brand and toggle button */
+  .nav-collapse {
+    overflow: hidden;
+    height: 0;
+  }
+}
+
+
+
+// DEFAULT DESKTOP
+// ---------------
+
+@media (min-width: 940px) {
+  .nav-collapse.collapse {
+    height: auto !important;
+  }
+}
+
+
+
 // LARGE DESKTOP & UP
 // ------------------
-//
-// Removed from bootstrap-sass until completed - TM
+
+@media (min-width: 1200px) {
+
+  // Fixed grid
+  @include gridSystemGenerate(12, 70px, 30px);
+
+  // Fluid grid
+  @include fluidGridSystemGenerate(12, 5.982905983%, 2.564102564%);
+  
+  // Input grid
+  @include inputGridSystemGenerate(12, 70px, 30px);
+
+  // Thumbnails
+  .thumbnails {
+    margin-left: -30px;
+  }
+  .thumbnails > li {
+    margin-left: 30px;
+  }
+
+}

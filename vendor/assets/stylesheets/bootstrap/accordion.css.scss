@@ -1,4 +1,4 @@
-// ACCORDION
+// COLLAPSE
 // ---------
 
 // Parent container
@@ -8,15 +8,16 @@
 
 // Group == heading + body
 .accordion-group {
-  background-color: #f5f5f5;
+  margin-bottom: 2px;
+  border: 1px solid #e5e5e5;
   @include border-radius(4px);
 }
 .accordion-heading {
-  padding: 8px 15px;
   border-bottom: 0;
 }
-.accordion-body {
-  margin-bottom: 2px;
+.accordion-heading .accordion-toggle {
+  display: block;
+  padding: 8px 15px;
 }
 
 // Inner needs the styles because you can't animate properly with any styles on the element

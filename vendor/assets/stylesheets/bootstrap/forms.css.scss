@@ -28,7 +28,6 @@ legend {
   color: $grayDark;
   border: 0;
   border-bottom: 1px solid #eee;
-  -webkit-margin-collapse: separate;
 }
 
 // Set font for forms
@@ -68,19 +67,21 @@ label input, label textarea, label select {
 }
 
 // Mini reset for unique input types
-input[type=image], input[type=checkbox], input[type=radio] {
+input[type="image"], input[type="checkbox"], input[type="radio"] {
   width: auto;
   height: auto;
   padding: 0;
   margin: 3px 0;
   *margin-top: 0; /* IE7 */
   line-height: normal;
-  border: none;
+  border: 0;
   cursor: pointer;
+  @include border-radius(0);
+  border-radius: #{"0 \0/"}; // Nuke border-radius on IE9
 }
 
 // Reset the file input to browser defaults
-input[type=file] {
+input[type="file"] {
   padding: initial;
   line-height: initial;
   border: initial;
@@ -90,39 +91,43 @@ input[type=file] {
 }
 
 // Help out input buttons
-input[type=button], input[type=reset], input[type=submit] {
+input[type="button"], input[type="reset"], input[type="submit"] {
   width: auto;
   height: auto;
 }
 
 // Set the height of select and file controls to match text inputs
-select, input[type=file] {
-  height: $baseLineHeight * 1.5; /* In IE7, the height of the select element cannot be changed by height, only font-size */
+select, input[type="file"] {
+  height: 28px; /* In IE7, the height of the select element cannot be changed by height, only font-size */
   *margin-top: 4px; /* For IE7, add top margin to align select with labels */
-  line-height: $baseLineHeight * 1.5;
+  line-height: 28px;
 }
 
 // Chrome on Linux and Mobile Safari need background-color
 select {
   width: 220px; // default input width + 10px of padding that doesn't get applied
-  vertical-align: middle;
   background-color: $white;
 }
 
 // Make multiple select elements height not fixed
 select[multiple], select[size] {
-  height: inherit;
+  height: auto;
 }
 
 // Remove shadow from image inputs
-input[type=image] {
+input[type="image"] {
   @include box-shadow(none);
 }
 
+// Make textarea height behave
 textarea {
   height: auto;
 }
 
+// Hidden inputs
+input[type="hidden"] {
+  display: none;
+}
 
 
 // CHECKBOXES & RADIOS
@@ -132,23 +137,28 @@ textarea {
 .radio, .checkbox {
   padding-left: 18px;
 }
-.radio input[type=radio], .checkbox input[type=checkbox] {
+.radio input[type="radio"], .checkbox input[type="checkbox"] {
   float: left;
   margin-left: -18px;
 }
 
 // Move the options list down to align with labels
 .controls > .radio:first-child, .controls > .checkbox:first-child {
-  padding-top: 6px; // has to be padding because margin collaspes
+  padding-top: 5px; // has to be padding because margin collaspes
 }
 
 // Radios and checkboxes on same line
 .radio.inline, .checkbox.inline {
   display: inline-block;
   margin-bottom: 0;
+  vertical-align: middle;
 }
 .radio.inline + .radio.inline, .checkbox.inline + .checkbox.inline {
   margin-left: 10px; // space out consecutive inline controls
+}
+// But don't forget to remove their padding on first-child
+.controls > .radio.inline:first-child, .controls > .checkbox.inline:first-child {
+  padding-top: 5px; // has to be padding because margin collapses
 }
 
 
@@ -166,10 +176,11 @@ input:focus, textarea:focus {
   $shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
   @include box-shadow($shadow);
   outline: 0;
+  outline: thin dotted \9; /* IE6-8 */
 }
-input[type=file]:focus, input[type=checkbox]:focus, select:focus {
+input[type="file"]:focus, input[type="checkbox"]:focus, select:focus {
   @include box-shadow(none); // override for file inputs
-  outline: 1px dotted #666; // Selet elements don't get box-shadow styles, so instead we do outline
+  @include tab-focus();
 }
 
 
@@ -192,44 +203,7 @@ input[class*="span"], select[class*="span"], textarea[class*="span"], .uneditabl
 }
 
 // This is a duplication of the main grid .columns() mixin, but subtracts 10px to account for input padding and border
-@mixin inputColumns($columnSpan: 1) {
-  width: (($gridColumnWidth) * $columnSpan) + ($gridGutterWidth * ($columnSpan - 1)) - 10;
-}
-input, textarea, .uneditable-input {
-  // Default columns
-  &.span1     { @include inputColumns(1); }
-  &.span2     { @include inputColumns(2); }
-  &.span3     { @include inputColumns(3); }
-  &.span4     { @include inputColumns(4); }
-  &.span5     { @include inputColumns(5); }
-  &.span6     { @include inputColumns(6); }
-  &.span7     { @include inputColumns(7); }
-  &.span8     { @include inputColumns(8); }
-  &.span9     { @include inputColumns(9); }
-  &.span10    { @include inputColumns(10); }
-  &.span11    { @include inputColumns(11); }
-  &.span12    { @include inputColumns(12); }
-}
-
-@mixin selectColumns($columnSpan: 1) {
-  width: (($gridColumnWidth) * $columnSpan) + ($gridGutterWidth * ($columnSpan - 1)) + 10;
-}
-select {
-  &.span1     { @include selectColumns(1); }
-  &.span2     { @include selectColumns(2); }
-  &.span3     { @include selectColumns(3); }
-  &.span4     { @include selectColumns(4); }
-  &.span5     { @include selectColumns(5); }
-  &.span6     { @include selectColumns(6); }
-  &.span7     { @include selectColumns(7); }
-  &.span8     { @include selectColumns(8); }
-  &.span9     { @include selectColumns(9); }
-  &.span10    { @include selectColumns(10); }
-  &.span11    { @include selectColumns(11); }
-  &.span12    { @include selectColumns(12); }
-}
-
-
+@include inputGridSystemGenerate($gridColumns, $gridColumnWidth, $gridGutterWidth);
 
 // DISABLED STATE
 // --------------
@@ -254,7 +228,7 @@ input[disabled], select[disabled], textarea[disabled], input[readonly], select[r
     color: $textColor;
   }
   // Style inputs accordingly
-  input, textarea {
+  input, select, textarea {
     color: $textColor;
     border-color: $borderColor;
     &:focus {
@@ -336,9 +310,10 @@ input:focus:required:invalid, textarea:focus:required:invalid, select:focus:requ
 }
 
 .help-inline {
-  *position: relative; /* IE6-7 */
-  *top: -5px; /* IE6-7 */
-  display: inline;
+  display: inline-block;
+  @include ie7-inline-block();
+  margin-bottom: 9px;
+  vertical-align: middle;
   padding-left: 5px;
 }
 
@@ -353,6 +328,10 @@ input:focus:required:invalid, textarea:focus:required:invalid, select:focus:requ
   @include clearfix(); // Clear the float to prevent wrapping
   input, .uneditable-input {
     @include border-radius(0 3px 3px 0);
+    &:focus {
+      position: relative;
+      z-index: 2;
+    }
   }
   .uneditable-input {
     border-left-color: #ccc;
@@ -364,7 +343,7 @@ input:focus:required:invalid, textarea:focus:required:invalid, select:focus:requ
     min-width: 16px;
     height: $baseLineHeight;
     margin-right: -1px;
-    padding: 4px 4px 4px 5px;
+    padding: 4px 5px;
     font-weight: normal;
     line-height: $baseLineHeight;
     color: $grayLight;
@@ -397,6 +376,15 @@ input:focus:required:invalid, textarea:focus:required:invalid, select:focus:requ
     margin-left: -1px;
     @include border-radius(0 3px 3px 0);
   }
+  input:first-child {
+    // In IE7, having a hasLayout container (from clearfix's zoom:1) can make the first input
+    // inherit the sum of its ancestors' margins.
+    *margin-left: -160px;
+
+    &+.add-on {
+      *margin-left: -21px;
+    }
+  }
 }
 
 
@@ -420,13 +408,18 @@ input:focus:required:invalid, textarea:focus:required:invalid, select:focus:requ
 // -----------------
 
 .form-search, .form-inline, .form-horizontal {
-  input, textarea, select, .uneditable-input {
+  input, textarea, select, .help-inline, .uneditable-input {
     display: inline-block;
     margin-bottom: 0;
   }
 }
-.form-search label, .form-inline label {
+.form-search label, .form-inline label, .form-search .input-append, .form-inline .input-append, .form-search .input-prepend, .form-search .input-prepend {
   display: inline-block;
+}
+
+// Make the prepend and append add-on vertical-algin:middle
+.form-search .input-append .add-on, .form-search .input-prepend .add-on, .form-inline .input-append .add-on, .form-inline .input-prepend .add-on {
+  vertical-align: middle;
 }
 
 // Margin to space out fieldsets
@@ -438,9 +431,15 @@ input:focus:required:invalid, textarea:focus:required:invalid, select:focus:requ
 // --------------------------
 
 .form-horizontal {
+  // Legend collapses margin, so we're relegated to padding
+  legend + .control-group {
+    margin-top: $baseLineHeight;
+    -webkit-margin-top-collapse: separate;
+  }
   // Increase spacing between groups
   .control-group {
     margin-bottom: $baseLineHeight;
+    @include clearfix();
   }
   // Float the labels left
   .control-group > label {

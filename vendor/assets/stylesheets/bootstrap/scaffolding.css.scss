@@ -15,45 +15,6 @@ body {
   background-color: $white;
 }
 
-// Container (centered, fixed-width layouts)
-.container {
-  @include container-fixed();
-}
-
-// Fluid layouts (left aligned, with sidebar, min- & max-width content)
-.fluid-container {
-  position: relative;
-  min-width: $siteWidth;
-  padding-left: $gridGutterWidth;
-  padding-right: $gridGutterWidth;
-  @include clearfix();
-}
-
-// Sidebars (left and right options)
-.fluid-sidebar {
-  width: $fluidSidebarWidth;
-  margin: 0 20px 18px;
-}
-.sidebar-left   { padding-left: $fluidSidebarWidth + $gridGutterWidth * 2; }
-.sidebar-right  { padding-right: $fluidSidebarWidth + $gridGutterWidth * 2; }
-
-// Float the sidebars accordingly
-.sidebar-left .fluid-sidebar {
-  float: left;
-  margin-left: ($fluidSidebarWidth + $gridGutterWidth) * -1;
-}
-.sidebar-right .fluid-sidebar {
-  float: right;
-  margin-right: ($fluidSidebarWidth + $gridGutterWidth) * -1;
-}
-
-// The main content area
-.fluid-content {
-  float: left;
-  width: 100%;
-}
-
-
 // BASE STYLES
 // -----------
 
@@ -61,51 +22,8 @@ body {
 a {
   color: $linkColor;
   text-decoration: none;
-  &:hover {
-    color: $linkColorHover;
-    text-decoration: underline;
-  }
 }
-
-
-// GRID SYSTEM
-// -----------
-// To customize the grid system, bring up the variables.less file and change the column count, size, and gutter there
-.row {
-  margin-left: $gridGutterWidth * -1;
-  @include clearfix();
+a:hover {
+  color: $linkColorHover;
+  text-decoration: underline;
 }
-
-// Find all .span# classes within .row and give them the necessary properties for grid columns
-// (supported by all browsers back to IE7)
-// Credit to @dhg for the idea
-[class*="span"] {
-  @include gridColumn();
-}
-
-// Default columns
-.span1     { @include columns(1); }
-.span2     { @include columns(2); }
-.span3     { @include columns(3); }
-.span4     { @include columns(4); }
-.span5     { @include columns(5); }
-.span6     { @include columns(6); }
-.span7     { @include columns(7); }
-.span8     { @include columns(8); }
-.span9     { @include columns(9); }
-.span10    { @include columns(10); }
-.span11    { @include columns(11); }
-.span12    { @include columns(12); }
-
-// Offset column options
-.offset1   { @include offset(1); }
-.offset2   { @include offset(2); }
-.offset3   { @include offset(3); }
-.offset4   { @include offset(4); }
-.offset5   { @include offset(5); }
-.offset6   { @include offset(6); }
-.offset7   { @include offset(7); }
-.offset8   { @include offset(8); }
-.offset9   { @include offset(9); }
-.offset10  { @include offset(10); }
-.offset11  { @include offset(11); }

@@ -7,20 +7,50 @@
 
 .navbar {
   overflow: visible;
+  margin-bottom: $baseLineHeight;
 }
 // gradient is applied to it's own element because overflow visible is not honored by IE when filter is present
 .navbar-inner {
-  background-color: $navbarBackground;
+  padding-left: 20px;
+  padding-right: 20px;
   @include gradient-vertical($navbarBackgroundHighlight, $navbarBackground);
+  @include border-radius(4px);
   $shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
   @include box-shadow($shadow);
 }
 
-// Text and links
+// Navbar button for toggling navbar items in responsive layouts
+.btn-navbar {
+  display: none;
+  float: right;
+  padding: 7px 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  @include buttonBackground($navbarBackgroundHighlight, $navbarBackground);
+  $shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075);
+  @include box-shadow($shadow);
+}
+.btn-navbar .i-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: #f5f5f5;
+  @include border-radius(1px);
+  @include box-shadow(0 1px 0 rgba(0,0,0,0.25));
+}
+.btn-navbar .i-bar + .i-bar {
+  margin-top: 3px;
+}
+
+// Override the default collapsed state
+.nav-collapse.collapse {
+  height: auto;
+}
+
+// Brands, links, text, and buttons
 .navbar {
   // Hover and active states
   .brand:hover {
-    color: $white;
     text-decoration: none;
   }
   // Website or project name
@@ -35,9 +65,10 @@
     color: $white;
   }
   // Plain text in topbar
-  p {
-    margin: 0;
+  .navbar-text {
+    margin-bottom: 0;
     line-height: 40px;
+    color: $navbarText;
     a:hover {
       color: $white;
       background-color: transparent;
@@ -57,7 +88,14 @@
   margin-bottom: 0; // remove default bottom margin
   input, select {
     display: inline-block;
+    margin-top: 5px;
     margin-bottom: 0;
+  }
+  .radio, .checkbox {
+    margin-top: 5px;
+  }
+  input[type="image"], input[type="checkbox"], input[type="radio"] {
+    margin-top: 3px;
   }
 }
 
@@ -72,7 +110,7 @@
     @include font-sans-serif(13px, normal, 1);
     color: $white;
     color: rgba(255,255,255,.75);
-    background: #444;
+    background: #666;
     background: rgba(255,255,255,.3);
     border: 1px solid #111;
     $shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0px rgba(255,255,255,.15);
@@ -101,19 +139,10 @@
   }
 }
 
+// FIXED NAVBAR
+// ------------
 
-// Static navbar
-.navbar-static {
-  margin-bottom: $baseLineHeight;
-}
-.navbar-static .navbar-inner {
-  padding-left:  20px;
-  padding-right: 20px;
-  @include border-radius(4px);
-}
-
-// Fixed navbar
-.navbar-fixed {
+.navbar-fixed-top {
   position: fixed;
   top: 0;
   right: 0;
@@ -121,6 +150,11 @@
   z-index: $zindexFixedNavbar;
 }
 
+.navbar-fixed-top .navbar-inner {
+  padding-left: 0;
+  padding-right: 0;
+  @include border-radius(0);
+}
 
 
 // NAVIGATION
@@ -146,33 +180,33 @@
   float: none;
   padding: 10px 10px 11px;
   line-height: 19px;
-  color: $grayLight;
+  color: $navbarLinkColor;
   text-decoration: none;
   text-shadow: 0 -1px 0 rgba(0,0,0,.25);
 }
 // Hover
 .navbar .nav > li > a:hover {
   background-color: transparent;
-  color: $white;
+  color: $navbarLinkColorHover;
   text-decoration: none;
 }
 
 // Active nav items
-.navbar .nav .active > a {
-  color: $white;
+.navbar .nav .active > a, .navbar .nav .active > a:hover {
+  color: $navbarLinkColorHover;
   text-decoration: none;
-  background-color: $grayDarker;
+  background-color: $navbarBackground;
   background-color: rgba(0,0,0,.5);
 }
 
 // Dividers (basically a vertical hr)
-.navbar .vertical-divider {
-  height: 40px;
+.navbar .divider-vertical {
+  height: $navbarHeight;
   width: 1px;
-  margin: 0 5px;
+  margin: 0 9px;
   overflow: hidden;
-  background-color: $grayDarker;
-  border-right: 1px solid #444;
+  background-color: $navbarBackground;
+  border-right: 1px solid $navbarBackgroundHighlight;
 }
 
 // Secondary (floated right) nav in topbar
@@ -233,6 +267,7 @@
 
 // Right aligned menus need alt position
 .navbar .nav.pull-right .dropdown-menu {
+  left: 0;
   right: 0;
   &:before {
     left: auto;

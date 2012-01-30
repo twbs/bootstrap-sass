@@ -1,6 +1,13 @@
 // Modals.css.scss
 // ------
 
+.modal-open {
+  .dropdown-menu {  z-index: $zindexDropdown + $zindexModal; }
+  .dropdown.open { *z-index: $zindexDropdown + $zindexModal; }
+  .popover       {  z-index: $zindexPopover  + $zindexModal; }
+  .tooltip       {  z-index: $zindexTooltip  + $zindexModal; }
+}
+
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -32,7 +39,7 @@
   *border: 1px solid #999; /* IE6-7 */
   @include border-radius(6px);
   @include box-shadow(0 3px 7px rgba(0,0,0,0.3));
-  @Include background-clip(padding-box);
+  @include background-clip(padding-box);
   &.fade {
     $transition: opacity .3s linear, top .3s ease-out;
     @include transition($transition);
@@ -41,7 +48,7 @@
   &.fade.in { top: 50%; }
 }
 .modal-header {
-  padding: 5px 15px;
+  padding: 9px 15px;
   border-bottom: 1px solid #eee;
   // Close icon
   .close { margin-top: 2px; }
@@ -60,6 +67,6 @@
   .btn {
     float: right;
     margin-left: 5px;
-    margin-bottom: 0; // account for input[type=submit] which gets the bottom margin like all other inputs
+    margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
   }
 }

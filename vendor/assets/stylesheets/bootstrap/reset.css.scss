@@ -35,7 +35,7 @@ html {
 }
 // Focus states
 a:focus {
-  outline: thin dotted;
+  @include tab-focus();
 }
 // Hover & Active
 a:hover, a:active {
@@ -75,8 +75,7 @@ img {
 button, input, select, textarea {
   margin: 0;
   font-size: 100%;
-  vertical-align: baseline;
-  *vertical-align: middle;
+  vertical-align: middle;
 }
 button, input {
   *overflow: visible; // Inner spacing ie IE6/7
