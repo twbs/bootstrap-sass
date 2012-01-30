@@ -1,7 +1,3 @@
-require 'sass-rails'
-require 'bootstrap/html_builders'
-#require 'forms/form_builder'
-
 module Bootstrap
   module Rails
     class Engine < ::Rails::Engine
@@ -9,4 +5,3 @@ module Bootstrap
     end
   end
 end
-

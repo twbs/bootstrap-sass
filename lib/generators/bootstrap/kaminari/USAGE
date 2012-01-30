@@ -1,7 +1,0 @@
-Description:
-    bootstrap:kaminari provides a set of templates already configured so Kaminari looks good with Bootstrap
-
-Example:
-    rails generate bootstrap:kaminari
-
-      Creates a series of partials in app/views/kaminari
