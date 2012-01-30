@@ -1,14 +1,25 @@
-# Bootstrap for Rails
+# Bootstrap for SASS
 
-`bootstrap-sass` is an SASS-powered version of [Twitter's Bootstrap](http://github.com/twitter/bootstrap), ready to drop right into your asset-pipeline powered Rails applications.
+`bootstrap-sass` is an SASS-powered version of [Twitter's Bootstrap](http://github.com/twitter/bootstrap), ready to drop right into your SASS powered applications.
 
 Enjoy.
 
 ## Usage
 
+### Including
+
+#### Rails
+
 In your gemfile:
 
-    gem 'bootstrap-sass', '~> 1.4.2'
+    gem 'sass-rails', '~> 3.1'
+    gem 'bootstrap-sass', '~> 2.0.0'
+
+**Note**: previous versions of bootstrap-sass automatically required sass-rails. This is no longer the case.
+
+#### Compass
+
+Soon.
 
 ### CSS
 
@@ -23,12 +34,16 @@ Want to configure a variable? Thanks to bernado, this is now awesome *and* easy!
     $gridGutterWidth: 20px;
     @import "bootstrap";
 
-### Javascript
+### Javascripts
 
-In your Javascript manifest:
+Running Rails? You can include the Bootstrap javascripts through two methods:
+
+1. We have a helper that includes all available javascripts:
 
     // Loads all Bootstrap javascripts
     //= require bootstrap
+    
+2. You can also load individual modules, provided you include any related dependencies.
     
     // Alternatively, you can load individual modules
     //= require bootstrap-scrollspy
