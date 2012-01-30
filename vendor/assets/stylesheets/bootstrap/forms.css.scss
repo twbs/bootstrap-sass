@@ -290,15 +290,7 @@ input:focus:required:invalid, textarea:focus:required:invalid, select:focus:requ
 }
 
 // Placeholder text gets special styles; can't be bundled together though for some reason
-@include placeholder($grayLight); //TODO: test if valid.
-//input:-moz-placeholder {
-//  color: $grayLight;
-//}
-//input::-webkit-input-placeholder {
-//  color: $grayLight;
-//}
-
-
+@include placeholder($grayLight);
 
 // HELP TEXT
 // ---------

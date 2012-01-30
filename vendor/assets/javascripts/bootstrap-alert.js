@@ -2,7 +2,7 @@
  * bootstrap-alert.js v2.0.0
  * http://twitter.github.com/bootstrap/javascript.html#alerts
  * ==========================================================
- * Copyright 2011 Twitter, Inc.
+ * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
 
   var dismiss = '[data-dismiss="alert"]'
     , Alert = function ( el ) {
-        $(el).delegate(dismiss, 'click', this.close)
+        $(el).on('click', dismiss, this.close)
       }
 
   Alert.prototype = {
@@ -35,18 +35,31 @@
     constructor: Alert
 
   , close: function ( e ) {
-      var $element = $(this)
+      var $this = $(this)
+        , selector = $this.attr('data-target')
+        , $parent
 
-      $element = $element.hasClass('alert-message') ? $element : $element.parent()
-      e && e.preventDefault()
-      $element.removeClass('in')
-
-      function removeElement() {
-        $element.remove()
+      if (!selector) {
+        selector = $this.attr('href')
+        selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
       }
 
-      $.support.transition && $element.hasClass('fade') ?
-        $element.bind($.support.transition.end, removeElement) :
+      $parent = $(selector)
+      $parent.trigger('close')
+
+      e && e.preventDefault()
+
+      $parent.length || ($parent = $this.hasClass('alert') ? $this : $this.parent())
+
+      $parent.removeClass('in')
+
+      function removeElement() {
+        $parent.remove()
+        $parent.trigger('closed')
+      }
+
+      $.support.transition && $parent.hasClass('fade') ?
+        $parent.on($.support.transition.end, removeElement) :
         removeElement()
     }
 
@@ -65,14 +78,14 @@
     })
   }
 
-  $.fn.alert.Alert = Alert
+  $.fn.alert.Constructor = Alert
 
 
  /* ALERT DATA-API
   * ============== */
 
   $(function () {
-    $('body').delegate(dismiss, 'click.alert.data-api', Alert.prototype.close)
+    $('body').on('click.alert.data-api', dismiss, Alert.prototype.close)
   })
 
-}( window.jQuery || window.ender )
+}( window.jQuery )

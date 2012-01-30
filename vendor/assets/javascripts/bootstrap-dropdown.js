@@ -1,8 +1,8 @@
 /* ============================================================
  * bootstrap-dropdown.js v2.0.0
- * http://twitter.github.com/bootstrap/javascript.html#dropdown
+ * http://twitter.github.com/bootstrap/javascript.html#dropdowns
  * ============================================================
- * Copyright 2011 Twitter, Inc.
+ * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,10 @@
 
   var toggle = '[data-toggle="dropdown"]'
     , Dropdown = function ( element ) {
-        $(element).bind('click', this.toggle)
+        var $el = $(element).on('click.dropdown.data-api', this.toggle)
+        $('html').on('click.dropdown.data-api', function () {
+          $el.parent().removeClass('open')
+        })
       }
 
   Dropdown.prototype = {
@@ -35,11 +38,23 @@
     constructor: Dropdown
 
   , toggle: function ( e ) {
-      var li = $(this).parent('li')
-        , isActive = li.hasClass('open')
+      var $this = $(this)
+        , selector = $this.attr('data-target')
+        , $parent
+        , isActive
+
+      if (!selector) {
+        selector = $this.attr('href')
+        selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
+      }
+
+      $parent = $(selector)
+      $parent.length || ($parent = $this.parent())
+
+      isActive = $parent.hasClass('open')
 
       clearMenus()
-      !isActive && li.toggleClass('open')
+      !isActive && $parent.toggleClass('open')
 
       return false
     }
@@ -47,7 +62,7 @@
   }
 
   function clearMenus() {
-    $(toggle).parent('li').removeClass('open')
+    $(toggle).parent().removeClass('open')
   }
 
 
@@ -63,13 +78,15 @@
     })
   }
 
+  $.fn.dropdown.Constructor = Dropdown
+
 
   /* APPLY TO STANDARD DROPDOWN ELEMENTS
    * =================================== */
 
   $(function () {
-    $('html').bind('click.dropdown.data-api', clearMenus)
-    $('body').delegate(toggle, 'click.dropdown.data-api', Dropdown.prototype.toggle)
+    $('html').on('click.dropdown.data-api', clearMenus)
+    $('body').on('click.dropdown.data-api', toggle, Dropdown.prototype.toggle)
   })
 
-}( window.jQuery || window.ender )
+}( window.jQuery )
