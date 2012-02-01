@@ -1,5 +1,5 @@
 /*!
- * Bootstrap 2.0.pre
+ * Bootstrap 2.0.0
  *
  * Copyright 2012 Twitter, Inc
  * Licensed under the Apache License v2.0
@@ -7,8 +7,6 @@
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  * Converted to SASS by Thomas McDonald
- *
- * Date: Saturday 28 January, 2012
  */
 
 // Core variables and mixins
@@ -63,7 +61,3 @@
 
 // Utility classes
 @import "bootstrap/utilities"; // Has to be last to override when necessary
-
-// Responsive
-// @import "bootstrap/responsive"; // Not imported by default.
-

@@ -1,9 +1,12 @@
-// Tables.css.scss
+//
+// Tables.less
 // Tables for, you guessed it, tabular data
 // ----------------------------------------
 
+
 // BASE TABLES
 // -----------------
+
 table {
   max-width: 100%;
   border-collapse: collapse;
@@ -39,6 +42,8 @@ table {
     border-top: 2px solid #ddd;
   }
 }
+
+
 
 // CONDENSED TABLE W/ HALF PADDING
 // -------------------------------
@@ -106,16 +111,7 @@ table {
   margin-left: 0;
 }
 table {
-  .span1     { @include tableColumns(1); }
-  .span2     { @include tableColumns(2); }
-  .span3     { @include tableColumns(3); }
-  .span4     { @include tableColumns(4); }
-  .span5     { @include tableColumns(5); }
-  .span6     { @include tableColumns(6); }
-  .span7     { @include tableColumns(7); }
-  .span8     { @include tableColumns(8); }
-  .span9     { @include tableColumns(9); }
-  .span10    { @include tableColumns(10); }
-  .span11    { @include tableColumns(11); }
-  .span12    { @include tableColumns(12); }
+  @for $i from 1 through $gridColumns {
+    .span#{$i} { @include tableColumns($i); }
+  }
 }

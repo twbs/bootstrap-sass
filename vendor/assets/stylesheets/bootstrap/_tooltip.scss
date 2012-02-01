@@ -1,5 +1,5 @@
-// Tooltip.css.scss
-// -------
+// TOOLTIP
+// ------=
 
 .tooltip {
   position: absolute;
@@ -14,10 +14,10 @@
   &.right  { margin-left:  2px; }
   &.bottom { margin-top:   2px; }
   &.left   { margin-left: -2px; }
-  &.top .tooltip-arrow    { @include popoverArrow-top(); }
-  &.left .tooltip-arrow   { @include popoverArrow-left(); }
-  &.bottom .tooltip-arrow { @include popoverArrow-bottom(); }
-  &.right .tooltip-arrow  { @include popoverArrow-right(); }
+  &.top .tooltip-arrow    { @include popoverArrowTop(); }
+  &.left .tooltip-arrow   { @include popoverArrowLeft(); }
+  &.bottom .tooltip-arrow { @include popoverArrowBottom(); }
+  &.right .tooltip-arrow  { @include popoverArrowRight(); }
 }
 .tooltip-inner {
   max-width: 200px;

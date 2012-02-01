@@ -1,4 +1,4 @@
-// Mixins.css.scss
+// Mixins.less
 // Snippets of reusable CSS to develop faster and keep code readable
 // -----------------------------------------------------------------
 
@@ -21,7 +21,7 @@
   }
 }
 
-// Webkit style focus
+// Webkit-style focus
 // ------------------
 @mixin tab-focus() {
   // Default
@@ -59,12 +59,13 @@
     *margin-left: 0;
   }
 }
+
 @mixin ie7-restore-right-whitespace() {
   *margin-right: .3em;
 
-   &:last-child {
- 	   *margin-left: 0;
-   }
+  &:last-child {
+    *margin-left: 0;
+  }
 }
 
 // Sizing shortcuts
@@ -88,9 +89,10 @@
   }
 }
 
+
+
 // FONTS
 // --------------------------------------------------
-
 @mixin font-family-serif() {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
@@ -118,6 +120,8 @@
   @include font-shorthand($size, $weight, $lineHeight);
 }
 
+
+
 // GRID SYSTEM
 // --------------------------------------------------
 
@@ -130,25 +134,28 @@
   @include clearfix();
 }
 
-// Grid system
+// Le grid system
 // -------------------------
+
+// Setup the mixins to be used
 @mixin gridSystemColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $columns) {
   width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1));
-}
+} 
 @mixin gridSystemOffset($gridColumnWidth, $gridGutterWidth, $columns) {
   margin-left: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1)) + ($gridGutterWidth * 2);
 }
-// Necessary grid styles for every column to make them appear next to each other horizontally
 @mixin gridSystemGridColumn($gridGutterWidth) {
   float: left;
   margin-left: $gridGutterWidth;
 }
-// Take these values and mixins and make 'em do their thang
+// Take these values and mixins, and make 'em do their thang
 @mixin gridSystemGenerate($gridColumns, $gridColumnWidth, $gridGutterWidth) {
+  // Row surrounds the columns
   .row {
     margin-left: $gridGutterWidth * -1;
     @include clearfix();
   }
+  // Find all .span# classes within .row and give them the necessary properties for grid columns (supported by all browsers back to IE7, thanks @dhg)
   [class*="span"] {
     @include gridSystemGridColumn($gridGutterWidth);
   }
@@ -157,13 +164,15 @@
     .span#{$i} { @include gridSystemColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $i) }
   }
   .container { @include gridSystemColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $gridColumns) }
+
+  // Offset column options
   @for $i from 1 through $gridColumns - 1 {
     .offset#{$i} { @include gridSystemOffset($gridColumnWidth, $gridGutterWidth, $i) }
   }
 }
 
 // Fluid grid system
-// -----------------
+// -------------------------
 @mixin fluidGridSystemColumns($fluidGridGutterWidth, $fluidGridColumnWidth, $columns) {
   width: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - 1));
 } 
@@ -179,19 +188,20 @@
     @include clearfix();
 
     // Find all .span# classes within .row and give them the necessary properties for grid columns (supported by all browsers back to IE7, thanks @dhg)
-    [class*="span"] {
+    > [class*="span"] {
       @include fluidGridSystemGridColumn($fluidGridGutterWidth);
     }
-    [class*="span"]:first-child {
+    > [class*="span"]:first-child {
       margin-left: 0;
     }
-    
     // Default columns
     @for $i from 1 through $gridColumns {
       .span#{$i} { @include fluidGridSystemColumns($fluidGridGutterWidth, $fluidGridColumnWidth, $i); }
     }
   }
 }
+
+
 
 // Input grid system
 // -------------------------
@@ -206,8 +216,11 @@
   }
 }
 
+
+
 // CSS3 PROPERTIES
 // --------------------------------------------------
+
 // Border Radius
 @mixin border-radius($radius: 5px) {
   -webkit-border-radius: $radius;
@@ -254,6 +267,16 @@
           transform: translate($x, $y);
 }
 
+// Removed duplicate mixin # TM.
+
+@mixin skew($x: 0, $y: 0) {
+  -webkit-transform: skew($x, $y);
+     -moz-transform: skew($x, $y);
+      -ms-transform: skew($x, $y);
+       -o-transform: skew($x, $y);
+          transform: skew($x, $y);
+}
+
 // Background clipping
 // Heads up: FF 3.6 and under need "padding" instead of "padding-box"
 @mixin background-clip($clip) {
@@ -269,6 +292,7 @@
        -o-background-size: $size;
           background-size: $size;
 }
+
 
 // Box sizing
 @mixin box-sizing($boxmodel) {
@@ -292,12 +316,6 @@
   overflow: auto; // Safari fix
 }
 
-// Opacity
-@mixin opacity($opacity: 100) {
-  opacity: $opacity / 100;
-  filter: alpha(opacity=$opacity);
-}
-
 // CSS3 Content Columns
 @mixin content-columns($columnCount, $columnGap: $gridColumnGutter) {
   -webkit-column-count: $columnCount;
@@ -307,6 +325,14 @@
      -moz-column-gap: $columnGap;
           column-gap: $columnGap;
 }
+
+// Opacity
+@mixin opacity($opacity: 100) {
+  opacity: $opacity / 100;
+   filter: alpha(opacity=$opacity);
+}
+
+
 
 // BACKGROUNDS
 // --------------------------------------------------
@@ -330,7 +356,6 @@
 // Gradients
 @mixin gradient-horizontal($startColor: #555, $endColor: #333) {
   background-color: $endColor;
-  background-image: -khtml-gradient(linear, left top, right top, from($startColor), to($endColor)); // Konqueror
   background-image: -moz-linear-gradient(left, $startColor, $endColor); // FF 3.6+
   background-image: -ms-linear-gradient(left, $startColor, $endColor); // IE10
   background-image: -webkit-gradient(linear, 0 0, 100% 0, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
@@ -342,7 +367,6 @@
 }
 @mixin gradient-vertical($startColor: #555, $endColor: #333) {
   background-color: mix($startColor, $endColor, 60%);
-  background-image: -khtml-gradient(linear, left top, left bottom, from($startColor), to($endColor)); // Konqueror
   background-image: -moz-linear-gradient(top, $startColor, $endColor); // FF 3.6+
   background-image: -ms-linear-gradient(top, $startColor, $endColor); // IE10
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
@@ -362,7 +386,7 @@
   background-image: linear-gradient($deg, $startColor, $endColor); // The standard
 }
 @mixin gradient-vertical-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f) {
-  background-color: mid($midColor, $endColor, 80%);
+  background-color: mix($midColor, $endColor, 80%);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));
   background-image: -webkit-linear-gradient($startColor, $midColor $colorStop, $endColor);
   background-image: -moz-linear-gradient(top, $startColor, $midColor $colorStop, $endColor);
@@ -390,11 +414,11 @@
   background-image: -o-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient($angle, rgba(255,255,255,.15) 25%, rgba(255,255,255,0) 25%, rgba(255,255,255,0) 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, rgba(255,255,255,0) 75%, rgba(255,255,255,0));
 }
-
 // Reset filters for IE
 @mixin reset-filter() {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
+
 
 // Mixin for generating button backgrounds
 // ---------------------------------------
@@ -414,13 +438,14 @@
   }
 }
 
+
 // COMPONENT MIXINS
 // --------------------------------------------------
 
 // POPOVER ARROWS
 // -------------------------
 // For tipsies and popovers
-@mixin popoverArrow-top($arrowWidth: 5px) {
+@mixin popoverArrowTop($arrowWidth: 5px) {
   bottom: 0;
   left: 50%;
   margin-left: -$arrowWidth;
@@ -428,7 +453,7 @@
   border-right: $arrowWidth solid transparent;
   border-top: $arrowWidth solid $black;
 }
-@mixin popoverArrow-left($arrowWidth: 5px) {
+@mixin popoverArrowLeft($arrowWidth: 5px) {
   top: 50%;
   right: 0;
   margin-top: -$arrowWidth;
@@ -436,7 +461,7 @@
   border-bottom: $arrowWidth solid transparent;
   border-left: $arrowWidth solid $black;
 }
-@mixin popoverArrow-bottom($arrowWidth: 5px) {
+@mixin popoverArrowBottom($arrowWidth: 5px) {
   top: 0;
   left: 50%;
   margin-left: -$arrowWidth;
@@ -444,7 +469,7 @@
   border-right: $arrowWidth solid transparent;
   border-bottom: $arrowWidth solid $black;
 }
-@mixin popoverArrow-right($arrowWidth: 5px) {
+@mixin popoverArrowRight($arrowWidth: 5px) {
   top: 50%;
   left: 0;
   margin-top: -$arrowWidth;

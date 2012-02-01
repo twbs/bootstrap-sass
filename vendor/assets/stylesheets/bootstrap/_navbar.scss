@@ -1,6 +1,6 @@
-// Navbar.css.scss
-// Fixed & static navbar
+// NAVBAR (FIXED AND STATIC)
 // -------------------------
+
 
 // COMMON STYLES
 // -------------
@@ -9,7 +9,8 @@
   overflow: visible;
   margin-bottom: $baseLineHeight;
 }
-// gradient is applied to it's own element because overflow visible is not honored by IE when filter is present
+
+// Gradient is applied to it's own element because overflow visible is not honored by IE when filter is present
 .navbar-inner {
   padding-left: 20px;
   padding-right: 20px;
@@ -30,24 +31,24 @@
   $shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075);
   @include box-shadow($shadow);
 }
-.btn-navbar .i-bar {
+.btn-navbar .icon-bar {
   display: block;
   width: 18px;
   height: 2px;
   background-color: #f5f5f5;
   @include border-radius(1px);
-  @include box-shadow(0 1px 0 rgba(0,0,0,0.25));
+  @include box-shadow(0 1px 0 rgba(0,0,0,.25));
 }
-.btn-navbar .i-bar + .i-bar {
+.btn-navbar .icon-bar + .icon-bar {
   margin-top: 3px;
 }
-
 // Override the default collapsed state
 .nav-collapse.collapse {
   height: auto;
 }
 
-// Brands, links, text, and buttons
+
+// Brand, links, text, and buttons
 .navbar {
   // Hover and active states
   .brand:hover {
@@ -86,6 +87,7 @@
 // Navbar forms
 .navbar-form {
   margin-bottom: 0; // remove default bottom margin
+  @include clearfix();
   input, select {
     display: inline-block;
     margin-top: 5px;
@@ -139,6 +141,7 @@
   }
 }
 
+
 // FIXED NAVBAR
 // ------------
 
@@ -149,7 +152,6 @@
   left: 0;
   z-index: $zindexFixedNavbar;
 }
-
 .navbar-fixed-top .navbar-inner {
   padding-left: 0;
   padding-right: 0;
@@ -267,7 +269,7 @@
 
 // Right aligned menus need alt position
 .navbar .nav.pull-right .dropdown-menu {
-  left: 0;
+  left: auto;
   right: 0;
   &:before {
     left: auto;

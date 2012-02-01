@@ -1,4 +1,4 @@
-// Scaffolding.css.scss
+// Scaffolding
 // Basic and global styles for generating a grid system, structural layout, and page templates
 // -------------------------------------------------------------------------------------------
 
@@ -11,14 +11,14 @@ body {
   font-family: $baseFontFamily;
   font-size: $baseFontSize;
   line-height: $baseLineHeight;
-  color: $gray;
+  color: $textColor;
   background-color: $white;
 }
 
-// BASE STYLES
-// -----------
 
-// Links
+// LINKS
+// -----
+
 a {
   color: $linkColor;
   text-decoration: none;

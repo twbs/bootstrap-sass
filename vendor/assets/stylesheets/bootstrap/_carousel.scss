@@ -3,6 +3,7 @@
 
 .carousel {
   position: relative;
+  margin-bottom: $baseLineHeight;
   line-height: 1;
 }
 
@@ -13,6 +14,7 @@
 }
 
 .carousel {
+
   .item {
     display: none;
     position: relative;
@@ -21,8 +23,8 @@
 
   // Account for jankitude on images
   .item > img {
-    display: block;	
-    line-height: 1;	
+    display: block;
+    line-height: 1;
   }
 
   .active, .next, .prev { display: block; }
@@ -53,6 +55,7 @@
   .active.right {
     left: 100%;
   }
+
 }
 
 // Left/right controls for nav
@@ -74,8 +77,13 @@
   border: 3px solid $white;
   @include border-radius(23px);
   @include opacity(50);
-  // webkit does not enjoy this.
-  // @include transition(all .2s linear);
+
+  // we can't have this transition here
+  // because webkit cancels the carousel
+  // animation if you trip this while
+  // in the middle of another animation
+  // ;_;
+  // @include transition(opacity .2s linear);
 
   // Reposition the right one
   &.right {

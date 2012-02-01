@@ -1,4 +1,4 @@
-// Forms.css.scss
+// Forms.less
 // Base styles for various input types, form layouts, and states
 // -------------------------------------------------------------
 
@@ -31,7 +31,7 @@ legend {
 }
 
 // Set font for forms
-label, input, select, textarea {
+label, input, button, select, textarea {
   @include font-sans-serif($baseFontSize, normal, $baseLineHeight);
 }
 
@@ -55,7 +55,6 @@ input, textarea, select, .uneditable-input {
   border: 1px solid #ccc;
   @include border-radius(3px);
 }
-
 .uneditable-textarea {
   width: auto;
   height: auto;
@@ -76,8 +75,7 @@ input[type="image"], input[type="checkbox"], input[type="radio"] {
   line-height: normal;
   border: 0;
   cursor: pointer;
-  @include border-radius(0);
-  border-radius: #{"0 \0/"}; // Nuke border-radius on IE9
+  border-radius: #{"0 \0/"}; // Nuke border-radius for IE9 only
 }
 
 // Reset the file input to browser defaults
@@ -130,6 +128,7 @@ input[type="hidden"] {
 }
 
 
+
 // CHECKBOXES & RADIOS
 // -------------------
 
@@ -158,7 +157,7 @@ input[type="hidden"] {
 }
 // But don't forget to remove their padding on first-child
 .controls > .radio.inline:first-child, .controls > .checkbox.inline:first-child {
-  padding-top: 5px; // has to be padding because margin collapses
+  padding-top: 0;
 }
 
 
@@ -202,8 +201,15 @@ input[class*="span"], select[class*="span"], textarea[class*="span"], .uneditabl
   margin-left: 0;
 }
 
-// This is a duplication of the main grid .columns() mixin, but subtracts 10px to account for input padding and border
+
+
+// GRID SIZING FOR INPUTS
+// ----------------------
+
 @include inputGridSystemGenerate($gridColumns, $gridColumnWidth, $gridGutterWidth);
+
+
+
 
 // DISABLED STATE
 // --------------
@@ -263,7 +269,7 @@ input:focus:required:invalid, textarea:focus:required:invalid, select:focus:requ
   border-color: #ee5f5b;
   &:focus {
     border-color: darken(#ee5f5b, 10%);
-    @include box-shadow(0 0 6px lighten(#ee5f5b, 20%));    
+    @include box-shadow(0 0 6px lighten(#ee5f5b, 20%));
   }
 }
 
@@ -291,6 +297,8 @@ input:focus:required:invalid, textarea:focus:required:invalid, select:focus:requ
 
 // Placeholder text gets special styles; can't be bundled together though for some reason
 @include placeholder($grayLight);
+
+
 
 // HELP TEXT
 // ---------
@@ -405,12 +413,11 @@ input:focus:required:invalid, textarea:focus:required:invalid, select:focus:requ
     margin-bottom: 0;
   }
 }
-.form-search label, .form-inline label, .form-search .input-append, .form-inline .input-append, .form-search .input-prepend, .form-search .input-prepend {
+.form-search label, .form-inline label, .form-search .input-append, .form-inline .input-append, .form-search .input-prepend, .form-inline .input-prepend {
   display: inline-block;
 }
-
-// Make the prepend and append add-on vertical-algin:middle
-.form-search .input-append .add-on, .form-search .input-prepend .add-on, .form-inline .input-append .add-on, .form-inline .input-prepend .add-on {
+// Make the prepend and append add-on vertical-align: middle;
+.form-search .input-append .add-on, .form-inline .input-prepend .add-on, .form-search .input-append .add-on, .form-inline .input-prepend .add-on {
   vertical-align: middle;
 }
 

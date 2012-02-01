@@ -1,4 +1,4 @@
-// Pagination.css.scss
+// PAGINATION
 // ----------
 
 .pagination {
@@ -14,8 +14,8 @@
   @include box-shadow(0 1px 2px rgba(0,0,0,.05));
 }
 .pagination li {
-    display: inline;
-  }
+  display: inline;
+}
 .pagination a {
   float: left;
   padding: 0 14px;
@@ -29,6 +29,7 @@
 }
 .pagination .active a {
   color: $grayLight;
+  cursor: default;
 }
 .pagination .disabled a, .pagination .disabled a:hover {
   color: $grayLight;
@@ -50,4 +51,3 @@
 .pagination-right {
   text-align: right;
 }
-

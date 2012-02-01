@@ -13,6 +13,7 @@
 // For phone and tablet devices
 // -------------------------------------------------------------
 
+
 // REPEAT VARIABLES & MIXINS
 // -------------------------
 // Required since we compile the responsive stuff separately
@@ -37,6 +38,11 @@
 // ---------------------
 
 @media (max-width: 480px) {
+
+  // Smooth out the collapsing/expanding nav
+  .nav-collapse {
+    -webkit-transform: translate3d(0, 0, 0); // activate the GPU
+  }
 
   // Block level the page header small tag for readability
   .page-header h1 small {
@@ -143,7 +149,7 @@
 // PORTRAIT TABLET TO DEFAULT DESKTOP
 // ----------------------------------
 
-@media (min-width: 768px) and (max-width: 940px) {
+@media (min-width: 768px) and (max-width: 980px) {
 
   // Fixed grid
   @include gridSystemGenerate(12, 42px, 20px);
@@ -160,7 +166,7 @@
 
 // TABLETS AND BELOW
 // -----------------
-@media (max-width: 940px) {
+@media (max-width: 980px) {
 
   // UNFIX THE TOPBAR
   // ----------------
@@ -175,9 +181,9 @@
   }
   .navbar-fixed-top .navbar-inner {
     padding: 5px;
-    background-image: none;
   }
   .navbar .container {
+    width: auto;
     padding: 0;
   }
   // Account for brand name
@@ -275,7 +281,7 @@
 // DEFAULT DESKTOP
 // ---------------
 
-@media (min-width: 940px) {
+@media (min-width: 980px) {
   .nav-collapse.collapse {
     height: auto !important;
   }
@@ -293,7 +299,7 @@
 
   // Fluid grid
   @include fluidGridSystemGenerate(12, 5.982905983%, 2.564102564%);
-  
+
   // Input grid
   @include inputGridSystemGenerate(12, 70px, 30px);
 

@@ -1,4 +1,4 @@
-// Popovers.css.scss
+// POPOVERS
 // --------
 
 .popover {
@@ -12,10 +12,10 @@
   &.right  { margin-left:  5px; }
   &.bottom { margin-top:   5px; }
   &.left   { margin-left: -5px; }
-  &.top .arrow    { @include popoverArrow-top(); }
-  &.right .arrow  { @include popoverArrow-right(); }
-  &.bottom .arrow { @include popoverArrow-bottom(); }
-  &.left .arrow   { @include popoverArrow-left();  }
+  &.top .arrow    { @include popoverArrowTop(); }
+  &.right .arrow  { @include popoverArrowRight(); }
+  &.bottom .arrow { @include popoverArrowBottom(); }
+  &.left .arrow   { @include popoverArrowLeft();  }
   .arrow {
     position: absolute;
     width: 0;

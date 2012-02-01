@@ -1,4 +1,4 @@
-// Labels.css.scss
+// LABELS
 // ------
 
 .label {
@@ -10,7 +10,6 @@
   background-color: $grayLight;
   @include border-radius(3px);
 }
-
 .label-important { background-color: $errorText; }
 .label-warning   { background-color: $orange; }
 .label-success   { background-color: $successText; }

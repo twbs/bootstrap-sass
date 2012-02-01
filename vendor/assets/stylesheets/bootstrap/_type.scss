@@ -1,4 +1,4 @@
-// Type.css.scss
+// Typography.less
 // Headings, body text, lists, code, and more for a versatile and durable typography system
 // ----------------------------------------------------------------------------------------
 
@@ -16,14 +16,12 @@ p {
     color: $grayLight;
   }
 }
-
 .lead {
   margin-bottom: $baseLineHeight;
   font-size: 20px;
   font-weight: 200;
-  line-height: $baseLineHeight;
+  line-height: $baseLineHeight * 1.5;
 }
-
 
 // HEADINGS
 // --------
@@ -86,6 +84,7 @@ h6 {
 .page-header h1 {
   line-height: 1;
 }
+
 
 
 // LISTS
