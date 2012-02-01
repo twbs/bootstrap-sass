@@ -6,8 +6,8 @@ Gem::Specification.new do |s|
   s.summary = "Twitter's Bootstrap, converted to SASS and ready to drop into Rails"
   s.homepage = "http://github.com/thomas-mcdonald/bootstrap-sass"
 
+  s.add_development_dependency 'compass'
   s.add_development_dependency 'sass-rails', '~> 3.1'
 
-  s.files = Dir["vendor/**/*.css.scss"] + Dir["vendor/**/*.js"] + Dir["lib/**/*"] + ["README.md", "LICENSE"]
+  s.files = Dir["vendor/**/*.{scss,js,png}"] + Dir["lib/**/*"] + Dir["templates/**/*"] + ["README.md", "LICENSE"]
 end
-

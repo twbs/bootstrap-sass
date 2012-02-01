@@ -6,9 +6,7 @@ Enjoy.
 
 ## Usage
 
-### Including
-
-#### Rails
+### Rails
 
 In your gemfile:
 
@@ -17,11 +15,7 @@ In your gemfile:
 
 **Note**: previous versions of bootstrap-sass automatically required sass-rails. This is no longer the case.
 
-#### Compass
-
-Soon.
-
-### CSS
+#### CSS
 
 In your SCSS file of choice:
 
@@ -34,23 +28,31 @@ Want to configure a variable? Thanks to bernado, this is now awesome *and* easy!
     $gridGutterWidth: 20px;
     @import "bootstrap";
 
-### Javascripts
+#### Javascripts
 
 Running Rails? You can include the Bootstrap javascripts through two methods:
 
 1. We have a helper that includes all available javascripts:
 
-    // Loads all Bootstrap javascripts
-    //= require bootstrap
+        // Loads all Bootstrap javascripts
+        //= require bootstrap
     
 2. You can also load individual modules, provided you include any related dependencies.
     
-    // Alternatively, you can load individual modules
-    //= require bootstrap-scrollspy
-    //= require bootstrap-modal
-    //= require bootstrap-dropdown
+        // Alternatively, you can load individual modules
+          //= require bootstrap-scrollspy
+          //= require bootstrap-modal
+          //= require bootstrap-dropdown
 
 Simples.
+
+### Compass
+
+New project?
+
+    gem install bootstrap-sass
+    compass create compass-test -r bootstrap-sass --using bootstrap
+
 
 ## Versioning
 We try to stick to Bootstrap versioning wherever possible. The major and minor version numbers will always represent the Twitter Bootstrap version, but no guarantees are made for the tiny version number, since waiting for Bootstrap to update so I can push out a fix sucks.
