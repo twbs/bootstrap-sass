@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/thomas-mcdonald/bootstrap-sass"
 
   s.add_development_dependency 'compass'
-  s.add_development_dependency 'sass-rails', '~> 3.1'
+  s.add_development_dependency 'sass-rails', '~> 3.2.3'
 
   s.files = Dir["vendor/**/*.{scss,js,png}"] + Dir["lib/**/*"] + Dir["templates/**/*"] + ["README.md", "LICENSE"]
 end
