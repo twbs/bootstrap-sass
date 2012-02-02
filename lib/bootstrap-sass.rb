@@ -1,4 +1,6 @@
 module Bootstrap
+  class FrameworkNotFound < StandardError; end
+
   # Inspired by Kaminari
   def self.load!
     if rails?
@@ -11,7 +13,7 @@ module Bootstrap
       templates = File.join(base, 'templates')
       ::Compass::Frameworks.register('bootstrap', :stylesheets_directory => styles, :templates_directory => templates)
     else
-      # Raise error
+      raise Bootstrap::FrameworkNotFound, "bootstrap-sass requires either Rails or Compass, neither of which are loaded"
     end
   end
 
