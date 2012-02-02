@@ -17,7 +17,7 @@ In your Gemfile:
 
 #### CSS
 
-Import "bootstrap" in you SCSS file of choice to get all of Bootstrap's styles, mixins and variables! Don't use Sproket's `//= require` directives for SASS, because they're horrible and will kill your cat.
+Import "bootstrap" in your SCSS file of choice to get all of Bootstrap's styles, mixins and variables! Don't use Sproket's `//= require` directives for SASS files, because they're horrible and will kill your cat.
 
     @import "bootstrap";
 
@@ -62,7 +62,7 @@ This will sort a few things out:
 
 #### Existing project
 
-Install the gem, add the require statement to the top of your configuration, and install the extension.
+Install the gem, add the require statement to the top of your configuration file, and install the extension.
 
     gem install bootstrap-sass
 
