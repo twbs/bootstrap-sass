@@ -75,7 +75,7 @@ input[type="image"], input[type="checkbox"], input[type="radio"] {
   line-height: normal;
   border: 0;
   cursor: pointer;
-  border-radius: #{"0 \0/"}; // Nuke border-radius for IE9 only
+  @include border-radius(0);
 }
 
 // Reset the file input to browser defaults
@@ -369,7 +369,7 @@ input:focus:required:invalid, textarea:focus:required:invalid, select:focus:requ
     @include border-radius(3px 0 0 3px);
   }
   .uneditable-input {
-    border-right-color: #ccc;    
+    border-right-color: #ccc;
   }
   .add-on {
     margin-right: 0;
