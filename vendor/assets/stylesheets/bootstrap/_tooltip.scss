@@ -9,7 +9,7 @@
   padding: 5px;
   font-size: 11px;
   @include opacity(0);
-  &.in     { @include opacity(80); }
+  &.in     { @include opacity(0.8); }
   &.top    { margin-top:  -2px; }
   &.right  { margin-left:  2px; }
   &.bottom { margin-top:   2px; }

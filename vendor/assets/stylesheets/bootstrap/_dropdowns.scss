@@ -25,7 +25,7 @@
   border-left:  4px solid transparent;
   border-right: 4px solid transparent;
   border-top:   4px solid $black;
-  @include opacity(30);
+  @include opacity(0.3);
   content: "\2193";
 }
 .dropdown .caret {
@@ -33,7 +33,7 @@
   margin-left: 2px;
 }
 .dropdown:hover .caret, .open.dropdown .caret {
-  @include opacity(100);
+  @include opacity(1);
 }
 // The dropdown menu (ul)
 .dropdown-menu {
