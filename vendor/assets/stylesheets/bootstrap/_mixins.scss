@@ -327,9 +327,9 @@
 }
 
 // Opacity
-@mixin opacity($opacity: 100) {
-  opacity: $opacity / 100;
-   filter: alpha(opacity=$opacity);
+@mixin opacity($opacity: 1) {
+  opacity: $opacity;
+   filter: alpha(opacity=$opacity * 100);
 }
 
 

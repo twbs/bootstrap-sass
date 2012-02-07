@@ -254,7 +254,7 @@
   border-top-color: $white;
 }
 .navbar .nav .active .caret {
-  @include opacity(100);
+  @include opacity(1);
 }
 
 // Remove background color from open dropdown
