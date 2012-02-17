@@ -10,7 +10,8 @@
   border: 1px solid $warningBorder;
   @include border-radius(4px);
 }
-.alert, .alert-heading {
+.alert,
+.alert-heading {
   color: $warningText;
 }
 
@@ -29,21 +30,27 @@
   background-color: $successBackground;
   border-color: $successBorder;
 }
-.alert-success, .alert-success .alert-heading {
+.alert-success,
+.alert-success .alert-heading {
   color: $successText;
 }
-.alert-danger, .alert-error {
+.alert-danger,
+.alert-error {
   background-color: $errorBackground;
   border-color: $errorBorder;
 }
-.alert-danger, .alert-error, .alert-danger .alert-heading, .alert-error .alert-heading {
+.alert-danger,
+.alert-error,
+.alert-danger .alert-heading,
+.alert-error .alert-heading {
   color: $errorText;
 }
 .alert-info {
   background-color: $infoBackground;
   border-color: $infoBorder;
 }
-.alert-info, .alert-info .alert-heading {
+.alert-info,
+.alert-info .alert-heading {
   color: $infoText;
 }
 
@@ -54,7 +61,8 @@
   padding-top: 14px;
   padding-bottom: 14px;
 }
-.alert-block > p, .alert-block > ul {
+.alert-block > p,
+.alert-block > ul {
   margin-bottom: 0;
 }
 .alert-block p + p {
