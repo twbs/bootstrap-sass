@@ -24,14 +24,16 @@
   border: 1px solid #ddd;
   border-left-width: 0;
 }
-.pagination a:hover, .pagination .active a {
+.pagination a:hover,
+.pagination .active a {
   background-color: #f5f5f5;
 }
 .pagination .active a {
   color: $grayLight;
   cursor: default;
 }
-.pagination .disabled a, .pagination .disabled a:hover {
+.pagination .disabled a,
+.pagination .disabled a:hover {
   color: $grayLight;
   background-color: transparent;
   cursor: default;
