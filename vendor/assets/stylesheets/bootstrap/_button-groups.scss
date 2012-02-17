@@ -41,7 +41,8 @@
       -moz-border-radius-bottomleft: 4px;
           border-bottom-left-radius: 4px;
 }
-.btn-group .btn:last-child, .btn-group .dropdown-toggle {
+.btn-group .btn:last-child,
+.btn-group .dropdown-toggle {
      -webkit-border-top-right-radius: 4px;
          -moz-border-radius-topright: 4px;
              border-top-right-radius: 4px;
@@ -59,7 +60,8 @@
       -moz-border-radius-bottomleft: 6px;
           border-bottom-left-radius: 6px;
 }
-.btn-group .btn.large:last-child, .btn-group .large.dropdown-toggle {
+.btn-group .btn.large:last-child,
+.btn-group .large.dropdown-toggle {
      -webkit-border-top-right-radius: 6px;
          -moz-border-radius-topright: 6px;
              border-top-right-radius: 6px;
@@ -69,12 +71,16 @@
 }
 
 // On hover/focus/active, bring the proper btn to front
-.btn-group .btn:hover, .btn-group .btn:focus, .btn-group .btn:active, .btn-group .btn.active {
+.btn-group .btn:hover,
+.btn-group .btn:focus,
+.btn-group .btn:active,
+.btn-group .btn.active {
   z-index: 2;
 }
 
 // On active and open, don't show outline
-.btn-group .dropdown-toggle:active, .btn-group.open .dropdown-toggle {
+.btn-group .dropdown-toggle:active,
+.btn-group.open .dropdown-toggle {
   outline: 0;
 }
 
@@ -117,13 +123,17 @@
   margin-top: 7px;
   margin-left: 0;
 }
-.btn:hover .caret, .open.btn-group .caret {
+.btn:hover .caret,
+.open.btn-group .caret {
   @include opacity(100);
 }
 
 
 // Account for other colors
-.btn-primary, .btn-danger, .btn-info, .btn-success {
+.btn-primary,
+.btn-danger,
+.btn-info,
+.btn-success {
   .caret {
     border-top-color: $white;
     @include opacity(75);
