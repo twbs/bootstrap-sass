@@ -169,7 +169,7 @@
   }
   // Default columns
   @for $i from 1 through $gridColumns {
-    > .span#{$i} { @include gridSystemColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $i) }
+    .span#{$i} { @include gridSystemColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $i) }
   }
   .container { @include gridSystemColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $gridColumns) }
 
@@ -204,7 +204,7 @@
     }
     // Default columns
     @for $i from 1 through $gridColumns {
-      .span#{$i} { @include fluidGridSystemColumns($fluidGridGutterWidth, $fluidGridColumnWidth, $i); }
+      > .span#{$i} { @include fluidGridSystemColumns($fluidGridGutterWidth, $fluidGridColumnWidth, $i); }
     }
   }
 }
