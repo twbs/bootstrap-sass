@@ -14,7 +14,7 @@ Updating your application to a new version of `bootstrap-sass`? See [our changel
 In your Gemfile:
 
     gem 'sass-rails', '~> 3.1'
-    gem 'bootstrap-sass', '~> 2.0.0'
+    gem 'bootstrap-sass', '~> 2.0.1'
 
 **Note**: previous versions of bootstrap-sass automatically required sass-rails. This is no longer the case, and you will *need* to require it in your Gemfile.
 
