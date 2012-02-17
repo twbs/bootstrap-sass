@@ -9,7 +9,8 @@
   // The caret makes the toggle a bit too tall in IE7
   *margin-bottom: -3px;
 }
-.dropdown-toggle:active, .open .dropdown-toggle {
+.dropdown-toggle:active,
+.open .dropdown-toggle {
   outline: 0;
 }
 // Dropdown arrow/caret
@@ -32,7 +33,8 @@
   margin-top: 8px;
   margin-left: 2px;
 }
-.dropdown:hover .caret, .open.dropdown .caret {
+.dropdown:hover .caret,
+.open.dropdown .caret {
   @include opacity(100);
 }
 // The dropdown menu (ul)
@@ -44,7 +46,6 @@
   float: left;
   display: none; // none by default, but block on "open" of the menu
   min-width: 160px;
-  max-width: 220px;
   _width: 160px;
   padding: 4px 0;
   margin: 0; // override default ul
@@ -91,14 +92,16 @@
     padding: 3px 15px;
     clear: both;
     font-weight: normal;
-    line-height: 18px;
+    line-height: $baseLineHeight;
     color: $gray;
     white-space: nowrap;
   }
 }
 
 // Hover state
-.dropdown-menu li > a:hover, .dropdown-menu .active > a, .dropdown-menu .active > a:hover {
+.dropdown-menu li > a:hover,
+.dropdown-menu .active > a,
+.dropdown-menu .active > a:hover {
   color: $white;
   text-decoration: none;
   background-color: $linkColor;
