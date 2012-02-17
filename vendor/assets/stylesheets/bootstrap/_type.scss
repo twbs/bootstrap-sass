@@ -95,7 +95,10 @@ ul, ol {
   padding: 0;
   margin: 0 0 $baseLineHeight / 2 25px;
 }
-ul ul, ul ol, ol ol, ol ul {
+ul ul,
+ul ol,
+ol ol,
+ol ul {
   margin-bottom: 0;
 }
 ul {
@@ -107,7 +110,8 @@ ol {
 li {
   line-height: $baseLineHeight;
 }
-ul.unstyled {
+ul.unstyled,
+ol.unstyled {
   margin-left: 0;
   list-style: none;
 }
@@ -116,7 +120,8 @@ ul.unstyled {
 dl {
   margin-bottom: $baseLineHeight;
 }
-dt, dd {
+dt, 
+dd {
   line-height: $baseLineHeight;
 }
 dt {
@@ -133,7 +138,7 @@ dd {
 hr {
   margin: $baseLineHeight 0;
   border: 0;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid $hrBorder;
   border-bottom: 1px solid $white;
 }
 
@@ -181,14 +186,18 @@ blockquote {
     padding-right: 15px;
     border-left: 0;
     border-right: 5px solid $grayLighter;
-    p, small {
+    p,
+    small {
       text-align: right;
     }
   }
 }
 
 // Quotes
-q:before, q:after, blockquote:before, blockquote:after {
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
   content: "";
 }
 
