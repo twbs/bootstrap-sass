@@ -214,7 +214,7 @@
 }
 .nav .open .caret, .nav .open.active .caret, .nav .open a:hover .caret {
   border-top-color: $white;
-  @include opacity(100);
+  @include opacity(1);
 }
 
 // Dropdowns in stacked tabs
