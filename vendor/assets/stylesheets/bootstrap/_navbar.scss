@@ -76,11 +76,12 @@
     }
   }
   // Buttons in navbar
-  .btn, .btn-group {
+  .btn,
+  .btn-group {
     margin-top: 5px; // make buttons vertically centered in navbar
   }
   .btn-group .btn {
-    margin-top: 0;
+    margin-top: 0; // then undo the margin here so we don't accidentally double it
   }
 }
 
@@ -88,16 +89,28 @@
 .navbar-form {
   margin-bottom: 0; // remove default bottom margin
   @include clearfix();
-  input, select {
+  input,
+  select {
     display: inline-block;
     margin-top: 5px;
     margin-bottom: 0;
   }
-  .radio, .checkbox {
+  .radio,
+  .checkbox {
     margin-top: 5px;
   }
-  input[type="image"], input[type="checkbox"], input[type="radio"] {
+  input[type="image"],
+  input[type="checkbox"],
+  input[type="radio"] {
     margin-top: 3px;
+  }
+  .input-append,
+  .input-prepend {
+    margin-top: 6px;
+    white-space: nowrap; // preven two  items from separating within a .navbar-form that has .pull-left
+    input {
+      margin-top: 0; // remove the margin on top since it's on the parent
+    }
   }
 }
 
@@ -128,8 +141,9 @@
       background-color: $grayLight;
       background-color: rgba(255,255,255,.5);
     }
-    // Focus states (we use .focused since IE8 and down doesn't support :focus)
-    &:focus, &.focused {
+    // Focus states (we use .focused since IE7-8 and down doesn't support :focus)
+    &:focus,
+    &.focused {
       padding: 5px 10px;
       color: $grayDark;
       text-shadow: 0 1px 0 $white;
@@ -188,17 +202,17 @@
 }
 // Hover
 .navbar .nav > li > a:hover {
-  background-color: transparent;
+  background-color: $navbarLinkBackgroundHover; // "transparent" is default to differentiate :hover from .active
   color: $navbarLinkColorHover;
   text-decoration: none;
 }
 
 // Active nav items
-.navbar .nav .active > a, .navbar .nav .active > a:hover {
+.navbar .nav .active > a,
+.navbar .nav .active > a:hover {
   color: $navbarLinkColorHover;
   text-decoration: none;
   background-color: $navbarBackground;
-  background-color: rgba(0,0,0,.5);
 }
 
 // Dividers (basically a vertical hr)
@@ -250,7 +264,8 @@
 }
 
 // Dropdown toggle caret
-.navbar .nav .dropdown-toggle .caret, .navbar .nav .open.dropdown .caret {
+.navbar .nav .dropdown-toggle .caret,
+.navbar .nav .open.dropdown .caret {
   border-top-color: $white;
 }
 .navbar .nav .active .caret {
@@ -258,7 +273,9 @@
 }
 
 // Remove background color from open dropdown
-.navbar .nav .open > .dropdown-toggle, .navbar .nav .active > .dropdown-toggle, .navbar .nav .open.active > .dropdown-toggle {
+.navbar .nav .open > .dropdown-toggle,
+.navbar .nav .active > .dropdown-toggle,
+.navbar .nav .open.active > .dropdown-toggle {
   background-color: transparent;
 }
 
