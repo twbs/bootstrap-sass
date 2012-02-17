@@ -123,7 +123,7 @@
 
 
 // Account for other colors
-.btn-primary, .btn-danger, .btn-info, .btn-success {
+.btn-primary, .btn-danger, .btn-info, .btn-success, .btn-inverse {
   .caret {
     border-top-color: $white;
     @include opacity(0.75);

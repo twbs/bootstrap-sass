@@ -55,12 +55,16 @@ $zindexModalBackdrop:   1040;
 $zindexModal:           1050;
 
 // Input placeholder text color
-$placeholderText:       $grayLight !default;
+$placeholderText:         $grayLight !default;
+
+// HR border color
+$hrBorder:                $grayLighter !default;
 
 // Navbar
 $navbarHeight:                    40px !default;
 $navbarBackground:                $grayDarker !default;
 $navbarBackgroundHighlight:       $grayDark !default;
+$navbarLinkBackgroundHover:       transparent !default;
 
 $navbarText:                      $grayLight !default;
 $navbarLinkColor:                 $grayLight !default;

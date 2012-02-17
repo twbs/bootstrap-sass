@@ -1,5 +1,5 @@
 /*!
- * Bootstrap Responsive v2.0.0
+ * Bootstrap Responsive v2.0.1
  *
  * Copyright 2012 Twitter, Inc
  * Licensed under the Apache License v2.0
@@ -54,7 +54,7 @@
   input[class*="span"], select[class*="span"], textarea[class*="span"], .uneditable-input {
     display: block;
     width: 100%;
-    height: 28px; /* Make inputs at least the height of their button counterpart */
+    min-height: 28px; /* Make inputs at least the height of their button counterpart */
     /* Makes inputs behave like true block-level elements */
     -webkit-box-sizing: border-box; /* Older Webkit */
        -moz-box-sizing: border-box; /* Older FF */
@@ -119,7 +119,7 @@
 // LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
 // --------------------------------------------------
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   // GRID & CONTAINERS
   // -----------------
   // Remove width from containers
@@ -149,7 +149,7 @@
 // PORTRAIT TABLET TO DEFAULT DESKTOP
 // ----------------------------------
 
-@media (min-width: 768px) and (max-width: 980px) {
+@media (min-width: 768px) and (max-width: 979px) {
 
   // Fixed grid
   @include gridSystemGenerate(12, 42px, 20px);
@@ -166,7 +166,7 @@
 
 // TABLETS AND BELOW
 // -----------------
-@media (max-width: 980px) {
+@media (max-width: 979px) {
 
   // UNFIX THE TOPBAR
   // ----------------
@@ -209,6 +209,10 @@
   }
   .navbar .nav > .divider-vertical {
     display: none;
+  }
+  .navbar .nav .nav-header {
+    color: $navbarText;
+    text-shadow: none;
   }
   // Nav and dropdown links in navbar
   .navbar .nav > li > a, .navbar .dropdown-menu a {

@@ -80,7 +80,7 @@
     margin-top: 5px; // make buttons vertically centered in navbar
   }
   .btn-group .btn {
-    margin-top: 0;
+    margin-top: 0; // then undo the margin here so we don't accidentally double it
   }
 }
 
@@ -98,6 +98,13 @@
   }
   input[type="image"], input[type="checkbox"], input[type="radio"] {
     margin-top: 3px;
+  }
+  .input-append, .input-prepend {
+    margin-top: 6px;
+    white-space: nowrap; // prevents two items from separating within a .navbar-form that has .pull-left
+    input {
+      margin-top: 0; //remove the margin on top since it's on parent
+    }
   }
 }
 
@@ -128,7 +135,7 @@
       background-color: $grayLight;
       background-color: rgba(255,255,255,.5);
     }
-    // Focus states (we use .focused since IE8 and down doesn't support :focus)
+    // Focus states (we use .focused since IE7-8 and down doesn't support :focus)
     &:focus, &.focused {
       padding: 5px 10px;
       color: $grayDark;
@@ -188,7 +195,7 @@
 }
 // Hover
 .navbar .nav > li > a:hover {
-  background-color: transparent;
+  background-color: $navbarLinkBackgroundHover; // "transparent" is default to differentiate :hover from :active
   color: $navbarLinkColorHover;
   text-decoration: none;
 }
@@ -198,7 +205,6 @@
   color: $navbarLinkColorHover;
   text-decoration: none;
   background-color: $navbarBackground;
-  background-color: rgba(0,0,0,.5);
 }
 
 // Dividers (basically a vertical hr)
