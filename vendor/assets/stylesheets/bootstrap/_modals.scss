@@ -1,6 +1,7 @@
 // MODALS
 // ------
 
+// Recalculate z-index where appropriate
 .modal-open {
   .dropdown-menu {  z-index: $zindexDropdown + $zindexModal; }
   .dropdown.open { *z-index: $zindexDropdown + $zindexModal; }
@@ -8,6 +9,7 @@
   .tooltip       {  z-index: $zindexTooltip  + $zindexModal; }
 }
 
+// Background
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -20,10 +22,12 @@
   &.fade { opacity: 0; }
 }
 
-.modal-backdrop, .modal-backdrop.fade.in {
+.modal-backdrop,
+.modal-backdrop.fade.in {
   @include opacity(80);
 }
 
+// Base modal
 .modal {
   position: fixed;
   top: 50%;
@@ -41,8 +45,7 @@
   @include box-shadow(0 3px 7px rgba(0,0,0,0.3));
   @include background-clip(padding-box);
   &.fade {
-    $transition: opacity .3s linear, top .3s ease-out;
-    @include transition($transition);
+    @include transition( (opacity .3s linear, top .3s ease-out) );
     top: -25%;
   }
   &.fade.in { top: 50%; }
@@ -53,9 +56,17 @@
   // Close icon
   .close { margin-top: 2px; }
 }
+
+// Body (where all modal content resises)
 .modal-body {
   padding: 15px;
 }
+// Remove bottom margin if need be
+.modal-body .modal-form {
+  margin-bottom: 0;
+}
+
+// Footer (for actions)
 .modal-footer {
   padding: 14px 15px 15px;
   margin-bottom: 0;
