@@ -20,21 +20,24 @@ table {
   width: 100%;
   margin-bottom: $baseLineHeight;
   // Cells
-  th, td {
+  th,
+  td {
     padding: 8px;
     line-height: $baseLineHeight;
     text-align: left;
+    vertical-align: top;
     border-top: 1px solid #ddd;
   }
   th {
     font-weight: bold;
+  }
+  // Bottom align for column headings
+  thead th {
     vertical-align: bottom;
   }
-  td {
-    vertical-align: top;
-  }
   // Remove top border from thead by default
-  thead:first-child tr th, thead:first-child tr td {
+  thead:first-child tr th,
+  thead:first-child tr td {
     border-top: 0;
   }
   // Account for multiple tbody instances
@@ -49,7 +52,8 @@ table {
 // -------------------------------
 
 .table-condensed {
-  th, td {
+  th,
+  td {
     padding: 4px 5px;
   }
 }
@@ -63,25 +67,34 @@ table {
   border-collapse: separate; // Done so we can round those corners!
   *border-collapse: collapsed; // IE7 can't round corners anyway
   @include border-radius(4px);
-  th + th, td + td, th + td, td + th {
+  th + th,
+  td + td,
+  th + td,
+  td + th {
     border-left: 1px solid #ddd;
   }
   // Prevent a double border
-  thead:first-child tr:first-child th, tbody:first-child tr:first-child th, tbody:first-child tr:first-child td {
+  thead:first-child tr:first-child th,
+  tbody:first-child tr:first-child th,
+  tbody:first-child tr:first-child td {
     border-top: 0;
   }
   // For first th or td in the first row in the first thead or tbody
-  thead:first-child tr:first-child th:first-child, tbody:first-child tr:first-child td:first-child {
+  thead:first-child tr:first-child th:first-child,
+  tbody:first-child tr:first-child td:first-child {
     @include border-radius(4px 0 0 0);
   }
-  thead:first-child tr:first-child th:last-child, tbody:first-child tr:first-child td:last-child {
+  thead:first-child tr:first-child th:last-child,
+  tbody:first-child tr:first-child td:last-child {
     @include border-radius(0 4px 0 0);
   }
   // For first th or td in the first row in the first thead or tbody
-  thead:last-child tr:last-child th:first-child, tbody:last-child tr:last-child td:first-child {
+  thead:last-child tr:last-child th:first-child,
+  tbody:last-child tr:last-child td:first-child {
     @include border-radius(0 0 0 4px);
   }
-  thead:last-child tr:last-child th:last-child, tbody:last-child tr:last-child td:last-child {
+  thead:last-child tr:last-child th:last-child,
+  tbody:last-child tr:last-child td:last-child {
     @include border-radius(0 0 4px 0);
   }
 }
@@ -93,12 +106,23 @@ table {
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
 .table-striped {
   tbody {
-    tr:nth-child(odd) td, tr:nth-child(odd) th {
+    tr:nth-child(odd) td,
+    tr:nth-child(odd) th {
       background-color: #f9f9f9;
     }
   }
 }
 
+
+// HOVER EFFECT
+// ------------
+// Placed here since it has to come after the potential zebra striping
+.table {
+  tbody tr:hover td,
+  tbody tr:hover th {
+    background-color: #f5f5f5;
+  }
+}
 
 
 // TABLE CELL SIZING
