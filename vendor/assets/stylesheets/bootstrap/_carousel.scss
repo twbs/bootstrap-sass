@@ -27,13 +27,16 @@
     line-height: 1;
   }
 
-  .active, .next, .prev { display: block; }
+  .active,
+  .next,
+  .prev { display: block; }
 
   .active {
     left: 0;
   }
 
-  .next, .prev {
+  .next,
+  .prev {
     position: absolute;
     top: 0;
     width: 100%;
@@ -45,7 +48,8 @@
   .prev {
     left: -100%;
   }
-  .next.left, .prev.right {
+  .next.left,
+  .prev.right {
     left: 0;
   }
 
@@ -111,6 +115,7 @@
   background: $grayDark;
   background: rgba(0,0,0,.75);
 }
-.carousel-caption h4, .carousel-caption p {
+.carousel-caption h4,
+.carousel-caption p {
   color: $white;
 }
