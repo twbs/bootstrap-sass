@@ -47,24 +47,28 @@ $primaryButtonBackground:    $linkColor !default;
 // Z-index master list
 // Used for a bird's eye view of components dependent on the z-axis
 // Try to avoid customizing these :)
-$zindexDropdown:        1000;
-$zindexPopover:         1010;
-$zindexTooltip:         1020;
-$zindexFixedNavbar:     1030;
-$zindexModalBackdrop:   1040;
-$zindexModal:           1050;
+$zindexDropdown:          1000;
+$zindexPopover:           1010;
+$zindexTooltip:           1020;
+$zindexFixedNavbar:       1030;
+$zindexModalBackdrop:     1040;
+$zindexModal:             1050;
 
 // Sprite icons path
-$iconSpritePath:          "glyphicons-halflings.png";
-$iconWhiteSpritePath:     "glyphicons-halflings-white.png";
+$iconSpritePath:          "glyphicons-halflings.png" !default;
+$iconWhiteSpritePath:     "glyphicons-halflings-white.png" !default;
 
 // Input placeholder text color
-$placeholderText:       $grayLight !default;
+$placeholderText:         $grayLight !default;
+
+// Hr border color
+$hrBorder:                $grayLighter !default;
 
 // Navbar
 $navbarHeight:                    40px !default;
 $navbarBackground:                $grayDarker !default;
 $navbarBackgroundHighlight:       $grayDark !default;
+$navbarLinkBackgroundHover:       transparent !default;
 
 $navbarText:                      $grayLight !default;
 $navbarLinkColor:                 $grayLight !default;
