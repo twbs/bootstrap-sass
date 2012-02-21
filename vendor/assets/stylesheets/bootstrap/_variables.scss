@@ -87,6 +87,9 @@ $infoText:                #3a87ad !default;
 $infoBackground:          #d9edf7 !default;
 $infoBorder:              darken(adjust-hue($infoBackground, -10), 7%) !default;
 
+$iconImageURL:           asset-url("glyphicons-halflings.png", image) !default;
+$iconWhiteImageURL:      asset-url("glyphicons-halflings-white.png", image) !default;
+
 
 
 // GRID

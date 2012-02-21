@@ -20,14 +20,14 @@
   height: 14px;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: asset-url("glyphicons-halflings.png", image);
+  background-image: $iconImageURL;
   background-position: 14px 14px;
   background-repeat: no-repeat;
 
   @include ie7-restore-right-whitespace();
 }
 .icon-white {
-  background-image: asset-url("glyphicons-halflings-white.png", image);
+  background-image: $iconWhiteImageURL;
 }
 
 .icon-glass              { background-position: 0      0; }
