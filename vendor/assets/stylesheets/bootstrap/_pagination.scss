@@ -31,7 +31,7 @@
   color: $grayLight;
   cursor: default;
 }
-.pagination .disabled a, .pagination .disabled a:hover {
+.pagination .disabled span, .pagination .disabled a, .pagination .disabled a:hover {
   color: $grayLight;
   background-color: transparent;
   cursor: default;

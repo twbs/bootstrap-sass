@@ -11,6 +11,7 @@ table {
   max-width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
+  background-color: $tableBackground;
 }
 
 // BASELINE STYLES
@@ -25,7 +26,7 @@ table {
     line-height: $baseLineHeight;
     text-align: left;
     vertical-align: top;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid $tableBorder;
   }
   th {
     font-weight: bold;
@@ -35,12 +36,13 @@ table {
     vertical-align: bottom;
   }
   // Remove top border from thead by default
-  thead:first-child tr th, thead:first-child tr td {
+  colgroup + thead tr:first-child th, colgroup + thead tr:first-child td,
+  thead:first-child tr:first-child th, thead:first-child tr:first-child td {
     border-top: 0;
   }
   // Account for multiple tbody instances
   tbody + tbody {
-    border-top: 2px solid #ddd;
+    border-top: 2px solid $tableBorder;
   }
 }
 
@@ -60,12 +62,13 @@ table {
 // ----------------
 
 .table-bordered {
-  border: 1px solid #ddd;
+  border: 1px solid $tableBorder;
+  border-left: 0;
   border-collapse: separate; // Done so we can round those corners!
   *border-collapse: collapsed; // IE7 can't round corners anyway
   @include border-radius(4px);
-  th + th, td + td, th + td, td + th {
-    border-left: 1px solid #ddd;
+  th, td {
+    border-left: 1px solid $tableBorder;
   }
   // Prevent a double border
   thead:first-child tr:first-child th, tbody:first-child tr:first-child th, tbody:first-child tr:first-child td {
@@ -95,7 +98,7 @@ table {
 .table-striped {
   tbody {
     tr:nth-child(odd) td, tr:nth-child(odd) th {
-      background-color: #f9f9f9;
+      background-color: $tableBackgroundAccent;
     }
   }
 }
@@ -106,19 +109,12 @@ table {
 // Placed here since it has to come after the potential zebra striping
 .table {
   tbody tr:hover td, tbody tr:hover th {
-    background-color: #f5f5f5;
+    background-color: $tableBackgroundHover;
   }
 }
 
 // TABLE CELL SIZING
 // -----------------
-
-// Change the columns
-@mixin tableColumns($columnSpan: 1) {
-  float: none;
-  width: (($gridColumnWidth) * $columnSpan) + ($gridGutterWidth * ($columnSpan - 1)) - 16;
-  margin-left: 0;
-}
 table {
   @for $i from 1 through $gridColumns {
     .span#{$i} { @include tableColumns($i); }
