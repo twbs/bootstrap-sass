@@ -21,3 +21,12 @@
 .invisible {
   visibility: hidden;
 }
+.hidden {
+  visibility: hidden;
+  position: absolute;
+}
+
+// Clearfix
+.clearfix {
+  @include clearfix();
+}
