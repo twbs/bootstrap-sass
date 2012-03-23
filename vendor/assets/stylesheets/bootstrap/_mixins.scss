@@ -498,6 +498,11 @@
 
 // The Grid
 @mixin gridCore($gridColumnWidth, $gridGutterWidth) {
+  [class*="span"] {
+    float: left;
+    margin-left: $gridGutterWidth;
+  }
+
   @for $i from 1 through $gridColumns {
     .span#{$i} { @include gridCoreSpan($i, $gridColumnWidth, $gridGutterWidth) }
   }
@@ -509,11 +514,6 @@
   .row {
     margin-left: $gridGutterWidth * -1;
     @include clearfix();
-  }
-
-  [class*="span"] {
-    float: left;
-    margin-left: $gridGutterWidth;
   }
 
   .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
