@@ -20,7 +20,6 @@
     clear: both;
   }
 }
-.clearfix { @include clearfix(); }
 
 // Webkit-style focus
 // ------------------
@@ -183,13 +182,13 @@
 // -------------------------
 @mixin fluidGridSystemColumns($fluidGridGutterWidth, $fluidGridColumnWidth, $columns) {
   width: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - 1));
-} 
+}
 @mixin fluidGridSystemGridColumn($fluidGridGutterWidth) {
   float: left;
   margin-left: $fluidGridGutterWidth;
 }
 // Take these values and mixins, and make 'em do their thang
-@mixin fluidGridSystemGenerate($gridColumns, $fluidGridColumnWidth, $fluidGridGutterWidth) {      
+@mixin fluidGridSystemGenerate($gridColumns, $fluidGridColumnWidth, $fluidGridGutterWidth) {
   // Row surrounds the columns
   .row-fluid {
     width: 100%;
