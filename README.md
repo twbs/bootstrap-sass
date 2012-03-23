@@ -20,7 +20,7 @@ In your Gemfile:
 
 #### CSS
 
-Import "bootstrap" in your SCSS file of choice to get all of Bootstrap's styles, mixins and variables! Don't use Sproket's `//= require` directives for SASS files, because they're horrible and will kill your cat.
+Import "bootstrap" in your SCSS file of choice to get all of Bootstrap's styles, mixins and variables! Don't use Sprocket's `//= require` directives for SASS files, because they're horrible and will kill your cat.
 
     @import "bootstrap";
 
@@ -31,7 +31,7 @@ Need to configure a variable or two? Simple define the value of the variable you
 
 #### Javascripts
 
-You can include the Bootstrap javascripts through two methods. In this case, Sproket's `//= require` directives are useful and will not cause feline death.
+You can include the Bootstrap javascripts through two methods. In this case, Sprocket's `//= require` directives are useful and will not cause feline death.
 
 We have a helper that includes all available javascripts:
 
