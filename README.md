@@ -18,18 +18,20 @@ In your Gemfile:
 
 #### CSS
 
-Import "bootstrap" in your SCSS file of choice to get all of Bootstrap's styles, mixins and variables! Don't use Sprocket's `//= require` directives for Sass files, because they're horrible and will kill your cat.
+Import "bootstrap" in your SCSS file of choice to get all of Bootstrap's styles, mixins and variables! We recommend against using `//= require` directives, since none of your other stylesheets will be [able to use](https://github.com/thomas-mcdonald/bootstrap-sass/issues/79#issuecomment-4428595) the awesome mixins that Bootstrap has defined.
 
     @import "bootstrap";
 
-Need to configure a variable or two? Simple define the value of the variable you want to change *before* importing Bootstrap. Sass will be awesome and respect your existing definition rather than overwriting it with the Bootstrap defaults. A list of customisable variables can be found in the [Bootstrap documentation](http://twitter.github.com/bootstrap/less.html#variables).
+Need to configure a variable or two? Simple define the value of the variable you want to change *before* importing Bootstrap. Sass will respect your existing definition rather than overwriting it with the Bootstrap defaults. A list of customisable variables can be found in the [Bootstrap documentation](http://twitter.github.com/bootstrap/less.html#variables).
 
     $primaryButtonBackground: #f00;
     @import "bootstrap";
 
+**Note**: It's important that the file you are importing is not named `bootstrap`, since this will cause an import loop. As a general rule, errors are something you should try to avoid.
+
 #### Javascripts
 
-You can include the Bootstrap javascripts through two methods. In this case, Sprocket's `//= require` directives are useful and will not cause feline death.
+You can include the Bootstrap javascripts through two methods. In this case, Sprocket's `//= require` directives are useful, since there is no better alternative.
 
 We have a helper that includes all available javascripts:
 
