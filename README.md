@@ -1,6 +1,6 @@
-# Bootstrap for SASS
+# Bootstrap for Sass
 
-`bootstrap-sass` is an SASS-powered version of [Twitter's Bootstrap](http://github.com/twitter/bootstrap), ready to drop right into your SASS powered applications.
+`bootstrap-sass` is an Sass-powered version of [Twitter's Bootstrap](http://github.com/twitter/bootstrap), ready to drop right into your Sass powered applications.
 
 Enjoy.
 
@@ -20,11 +20,11 @@ In your Gemfile:
 
 #### CSS
 
-Import "bootstrap" in your SCSS file of choice to get all of Bootstrap's styles, mixins and variables! Don't use Sprocket's `//= require` directives for SASS files, because they're horrible and will kill your cat.
+Import "bootstrap" in your SCSS file of choice to get all of Bootstrap's styles, mixins and variables! Don't use Sprocket's `//= require` directives for Sass files, because they're horrible and will kill your cat.
 
     @import "bootstrap";
 
-Need to configure a variable or two? Simple define the value of the variable you want to change *before* importing Bootstrap. SASS will be awesome and respect your existing definition rather than overwriting it with the Bootstrap defaults. A list of customisable variables can be found in the [Bootstrap documentation](http://twitter.github.com/bootstrap/less.html#variables).
+Need to configure a variable or two? Simple define the value of the variable you want to change *before* importing Bootstrap. Sass will be awesome and respect your existing definition rather than overwriting it with the Bootstrap defaults. A list of customisable variables can be found in the [Bootstrap documentation](http://twitter.github.com/bootstrap/less.html#variables).
 
     $primaryButtonBackground: #f00;
     @import "bootstrap";

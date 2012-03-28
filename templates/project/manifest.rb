@@ -1,4 +1,4 @@
-description "Bootstrap for SASS"
+description "Bootstrap for Sass"
 
 # Stylesheet importing bootstrap
 stylesheet 'styles.scss'
