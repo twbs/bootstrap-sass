@@ -562,3 +562,10 @@
 @mixin gridInputSpan($columns, $gridColumWidth, $gridGutterWidth) {
   width: (($gridColumnWidth) * $columns) + ($gridGutterWidth * ($columns - 1)) - 10;
 }
+
+@mixin makeFluidColumn($columns) {
+  // This isn't perfect, but it's better than nothing.
+  float: left;
+  margin-left: $fluidGridGutterWidth;
+  @include gridFluidSpan($columns, $fluidGridColumnWidth, $fluidGridGutterWidth);
+}
