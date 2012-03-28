@@ -512,8 +512,7 @@
   }
 
   .row {
-    margin-left: $gridGutterWidth * -1;
-    @include clearfix();
+    @include makeRow();
   }
 
   .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
