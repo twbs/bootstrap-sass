@@ -1,6 +1,6 @@
-# Bootstrap for SASS
+# Bootstrap for Sass
 
-`bootstrap-sass` is an SASS-powered version of [Twitter's Bootstrap](http://github.com/twitter/bootstrap), ready to drop right into your SASS powered applications.
+`bootstrap-sass` is an Sass-powered version of [Twitter's Bootstrap](http://github.com/twitter/bootstrap), ready to drop right into your Sass powered applications.
 
 Enjoy.
 
@@ -14,24 +14,24 @@ Updating your application to a new version of `bootstrap-sass`? See [our changel
 In your Gemfile:
 
     gem 'sass-rails', '~> 3.1'
-    gem 'bootstrap-sass', '~> 2.0.1'
-
-**Note**: previous versions of bootstrap-sass automatically required sass-rails. This is no longer the case, and you will *need* to require it in your Gemfile.
+    gem 'bootstrap-sass', '~> 2.0.2'
 
 #### CSS
 
-Import "bootstrap" in your SCSS file of choice to get all of Bootstrap's styles, mixins and variables! Don't use Sproket's `//= require` directives for SASS files, because they're horrible and will kill your cat.
+Import "bootstrap" in your SCSS file of choice to get all of Bootstrap's styles, mixins and variables! We recommend against using `//= require` directives, since none of your other stylesheets will be [able to use](https://github.com/thomas-mcdonald/bootstrap-sass/issues/79#issuecomment-4428595) the awesome mixins that Bootstrap has defined.
 
     @import "bootstrap";
 
-Need to configure a variable or two? Simple define the value of the variable you want to change *before* importing Bootstrap. SASS will be awesome and respect your existing definition rather than overwriting it with the Bootstrap defaults. A list of customisable variables can be found in the [Bootstrap documentation](http://twitter.github.com/bootstrap/less.html#variables).
+Need to configure a variable or two? Simple define the value of the variable you want to change *before* importing Bootstrap. Sass will respect your existing definition rather than overwriting it with the Bootstrap defaults. A list of customisable variables can be found in the [Bootstrap documentation](http://twitter.github.com/bootstrap/less.html#variables).
 
     $primaryButtonBackground: #f00;
     @import "bootstrap";
 
+**Note**: It's important that the file you are importing is not named `bootstrap`, since this will cause an import loop. As a general rule, errors are something you should try to avoid.
+
 #### Javascripts
 
-You can include the Bootstrap javascripts through two methods. In this case, Sproket's `//= require` directives are useful and will not cause feline death.
+You can include the Bootstrap javascripts through two methods. In this case, Sprocket's `//= require` directives are useful, since there is no better alternative.
 
 We have a helper that includes all available javascripts:
 

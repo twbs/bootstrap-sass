@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
   s.name = "bootstrap-sass"
-  s.version = '2.0.1'
+  s.version = '2.0.2'
   s.authors = ["Thomas McDonald"]
   s.email = 'tom@conceptcoding.co.uk'
-  s.summary = "Twitter's Bootstrap, converted to SASS and ready to drop into Rails or Compass"
+  s.summary = "Twitter's Bootstrap, converted to Sass and ready to drop into Rails or Compass"
   s.homepage = "http://github.com/thomas-mcdonald/bootstrap-sass"
 
   s.add_development_dependency 'compass'

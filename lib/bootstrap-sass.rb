@@ -6,8 +6,10 @@ module Bootstrap
     if rails?
       require 'sass-rails' # See: https://github.com/thomas-mcdonald/bootstrap-sass/pull/4
       require 'bootstrap-sass/engine'
+      require 'bootstrap-sass/config/sass_extentions'
     elsif compass?
       require 'bootstrap-sass/compass_extensions'
+      require 'bootstrap-sass/config/sass_extentions'
       base = File.join(File.dirname(__FILE__), '..')
       styles = File.join(base, 'vendor', 'assets', 'stylesheets')
       templates = File.join(base, 'templates')
