@@ -248,8 +248,7 @@
     display: inline-block;
     border-left:   7px solid transparent;
     border-right:  7px solid transparent;
-    border-bottom: 7px solid #ccc;
-    border-bottom-color: $dropdownBackground;
+    border-bottom: 7px solid $dropdownBorder;
     position: absolute;
     top: -7px;
     left: 9px;
