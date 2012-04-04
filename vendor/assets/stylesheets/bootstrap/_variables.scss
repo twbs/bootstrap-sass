@@ -174,25 +174,49 @@ $infoBorder:              darken(adjust-hue($infoBackground, -10), 7%) !default;
 
 
 
-// GRID
+// FIXED GRID
 // --------------------------------------------------
 
-// Default 940px grid
+// Default, 940px
 // -------------------------
 $gridColumns:             12 !default;
 $gridColumnWidth:         60px !default;
 $gridGutterWidth:         20px !default;
 $gridRowWidth:            ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1)) !default;
 
-
-// Fluid grid
+// Portrait tablet to default desktop
 // -------------------------
-$fluidGridColumnWidth:    6.382978723% !default;
-$fluidGridGutterWidth:    2.127659574% !default;
+$gridColumnWidthTablet:   42px !default;
+$gridGutterWidthTablet:   20px !default;
+
+// Large desktop and up
+// -------------------------
+$gridColumnWidthLarge:    70px !default;
+$gridGutterWidthLarge:    30px !default;
 
 
 
-// Responsive design
+// FLUID GRID
+// --------------------------------------------------
+
+// Default
+// -------------------------
+$fluidGridColumnWidth:         6.382978723% !default;
+$fluidGridGutterWidth:         2.127659574% !default;
+
+// Portrait tablet to default desktop
+// -------------------------
+$fluidGridColumnWidthTablet:   5.801104972% !default;
+$fluidGridGutterWidthTablet:   2.762430939% !default;
+
+// Large desktop and up
+// -------------------------
+$fluidGridColumnWidthLarge:    5.982905983% !default;
+$fluidGridGutterWidthLarge:    2.564102564% !default;
+
+
+
+// RESPONSIVE DESIGN
 // --------------------------------------------------
 
 // Media widths
