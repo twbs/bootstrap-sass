@@ -189,3 +189,15 @@ $gridRowWidth:            ($gridColumns * $gridColumnWidth) + ($gridGutterWidth 
 // -------------------------
 $fluidGridColumnWidth:    6.382978723% !default;
 $fluidGridGutterWidth:    2.127659574% !default;
+
+
+
+// Responsive design
+// --------------------------------------------------
+
+// Media widths
+// -------------------------
+$mediaPhone:              480px !default;
+$mediaTablet:             768px !default;
+$mediaDesktop:            980px !default;
+$mediaLarge:              1200px !default; // and upper
