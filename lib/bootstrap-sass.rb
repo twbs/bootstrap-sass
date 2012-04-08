@@ -7,8 +7,7 @@ module Bootstrap
       require 'sass-rails' # See: https://github.com/thomas-mcdonald/bootstrap-sass/pull/4
       require 'bootstrap-sass/engine'
       require 'bootstrap-sass/config/sass_extentions'
-    end
-    if compass?
+    elsif compass?
       require 'bootstrap-sass/compass_extensions'
       require 'bootstrap-sass/config/sass_extentions'
       base = File.join(File.dirname(__FILE__), '..')
