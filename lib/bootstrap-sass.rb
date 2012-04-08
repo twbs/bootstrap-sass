@@ -3,7 +3,7 @@ module Bootstrap
 
   # Inspired by Kaminari
   def self.load!
-    if rails?
+    if rails_asset_pipeline?
       require 'sass-rails' # See: https://github.com/thomas-mcdonald/bootstrap-sass/pull/4
       require 'bootstrap-sass/engine'
       require 'bootstrap-sass/config/sass_extentions'
@@ -21,8 +21,8 @@ module Bootstrap
   end
 
   private
-  def self.rails?
-    defined?(::Rails)
+  def self.rails_asset_pipeline?
+    defined?(::Rails) && ::Rails.version >= '3.1.0'
   end
 
   def self.compass?
