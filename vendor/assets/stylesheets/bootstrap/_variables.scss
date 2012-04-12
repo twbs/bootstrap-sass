@@ -16,6 +16,7 @@ $gray:                  #555 !default;
 $grayLight:             #999 !default;
 $grayLighter:           #eee !default;
 $white:                 #fff !default;
+$whiteSmoke:            #f5f5f5 !default;
 
 
 // Accent colors
@@ -54,7 +55,7 @@ $headingsColor:         inherit !default; // empty to use BS default, @textColor
 // -------------------------
 $tableBackground:                   transparent !default; // overall background-color
 $tableBackgroundAccent:             #f9f9f9 !default; // for striping
-$tableBackgroundHover:              #f5f5f5 !default; // for hover
+$tableBackgroundHover:              $whiteSmoke !default; // for hover
 $tableBorder:                       #ddd !default; // table and cell border
 
 // Buttons

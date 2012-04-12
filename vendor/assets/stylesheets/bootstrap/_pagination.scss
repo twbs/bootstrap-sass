@@ -25,7 +25,7 @@
   border-left-width: 0;
 }
 .pagination a:hover, .pagination .active a {
-  background-color: #f5f5f5;
+  background-color: $whiteSmoke;
 }
 .pagination .active a {
   color: $grayLight;
