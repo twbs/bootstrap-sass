@@ -27,7 +27,7 @@ legend {
   line-height: $baseLineHeight * 2;
   color: $grayDark;
   border: 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid $inputBorderColorUneditable;
 
   // Small
   small {
@@ -62,7 +62,7 @@ input, textarea, select, .uneditable-input {
   font-size: $baseFontSize;
   line-height: $baseLineHeight;
   color: $gray;
-  border: 1px solid $inputBorder;
+  border: 1px solid $inputBorderColor;
   @include border-radius(3px);
 }
 .uneditable-textarea {
@@ -286,7 +286,7 @@ input:focus:required:invalid, textarea:focus:required:invalid, select:focus:requ
 .uneditable-input {
   display: block;
   background-color: $inputBackground;
-  border-color: #eee;
+  border-color: $inputBorderColorUneditable;
   @include box-shadow(inset 0 1px 2px rgba(0,0,0,.025));
   cursor: not-allowed;
 }
@@ -332,8 +332,7 @@ input:focus:required:invalid, textarea:focus:required:invalid, select:focus:requ
     }
   }
   .uneditable-input {
-    border-left-color: #eee;
-    border-right-color: #ccc;
+    border-color: $inputBorderColorUneditable;
   }
   .add-on {
     display: inline-block;
@@ -347,7 +346,7 @@ input:focus:required:invalid, textarea:focus:required:invalid, select:focus:requ
     text-shadow: 0 1px 0 $white;
     vertical-align: middle;
     background-color: $grayLighter;
-    border: 1px solid #ccc;
+    border: 1px solid $inputBorderColor;
   }
   .add-on, .btn {
     @include border-radius(3px 0 0 3px);
@@ -365,9 +364,6 @@ input:focus:required:invalid, textarea:focus:required:invalid, select:focus:requ
 .input-append {
   input, select, .uneditable-input {
     @include border-radius(3px 0 0 3px);
-  }
-  .uneditable-input {
-    border-right-color: #ccc;
   }
   .add-on, .btn {
     margin-left: -1px;
