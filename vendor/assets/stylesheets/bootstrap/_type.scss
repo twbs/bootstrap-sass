@@ -164,7 +164,7 @@ em {
 
 // Abbreviations and acronyms
 abbr[title] {
-  border-bottom: 1px dotted #ddd;
+  border-bottom: 1px dotted $borderColor;
   cursor: help;
 }
 

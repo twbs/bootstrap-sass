@@ -34,6 +34,7 @@ $purple:                #7a43b6 !default;
 // -------------------------
 $bodyBackground:        $white !default;
 $textColor:             $grayDark !default;
+$borderColor:           #ddd !default;
 
 // Links
 // -------------------------
@@ -56,7 +57,7 @@ $headingsColor:         inherit !default; // empty to use BS default, @textColor
 $tableBackground:                   transparent !default; // overall background-color
 $tableBackgroundAccent:             #f9f9f9 !default; // for striping
 $tableBackgroundHover:              $whiteSmoke !default; // for hover
-$tableBorder:                       #ddd !default; // table and cell border
+$tableBorder:                       $borderColor !default; // table and cell border
 
 // Buttons
 // -------------------------
