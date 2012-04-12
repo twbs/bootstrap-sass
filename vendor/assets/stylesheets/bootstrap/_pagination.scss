@@ -21,7 +21,7 @@
   padding: 0 14px;
   line-height: ($baseLineHeight * 2) - 2;
   text-decoration: none;
-  border: 1px solid #ddd;
+  border: 1px solid $borderColor;
   border-left-width: 0;
 }
 .pagination a:hover, .pagination .active a {

@@ -234,7 +234,7 @@ input[class*="span"], select[class*="span"], textarea[class*="span"], .uneditabl
 // Disabled and read-only inputs
 input[disabled], select[disabled], textarea[disabled], input[readonly], select[readonly], textarea[readonly] {
   background-color: $inputDisabledBackground;
-  border-color: #ddd;
+  border-color: $borderColor;
   cursor: not-allowed;
 }
 
@@ -278,7 +278,7 @@ input:focus:required:invalid, textarea:focus:required:invalid, select:focus:requ
   margin-top: $baseLineHeight;
   margin-bottom: $baseLineHeight;
   background-color: $grayLighter;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid $borderColor;
   @include clearfix(); // Adding clearfix to allow for .pull-right button containers
 }
 
