@@ -5,8 +5,8 @@
   padding: 7px 14px;
   margin: 0 0 $baseLineHeight;
   list-style: none;
-  @include gradient-vertical($white, #f5f5f5);
-  border: 1px solid #ddd;
+  @include gradient-vertical($white, $whiteSmoke);
+  border: 1px solid $borderColor;
   @include border-radius(3px);
   @include box-shadow(inset 0 1px 0 $white);
   li {
