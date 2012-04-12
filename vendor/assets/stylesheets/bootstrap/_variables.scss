@@ -85,7 +85,8 @@ $btnInverseBackgroundHighlight:     $grayDarker !default;
 // Forms
 // -------------------------
 $inputBackground:               $white !default;
-$inputBorder:                   #ccc !default;
+$inputBorderColor:              #ccc !default;
+$inputBorderColorUneditable:    lighten($inputBorderColor, 13.5%) !default;
 $inputDisabledBackground:       $grayLighter !default;
 
 
