@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>bootstrap-sass by thomas-mcdonald</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>bootstrap-sass</h1>
+        <p>bootstrap-sass is bootstrap for Sass, ready to roll</p>
+        <p class="view"><a href="https://github.com/thomas-mcdonald/bootstrap-sass">View the Project on GitHub <small>thomas-mcdonald/bootstrap-sass</small></a></p>
+        <ul>
+          <li><a href="https://github.com/thomas-mcdonald/bootstrap-sass/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/thomas-mcdonald/bootstrap-sass/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/thomas-mcdonald/bootstrap-sass">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Bootstrap for Sass</h1>
+
+<p><code>bootstrap-sass</code> is an Sass-powered version of <a href="http://github.com/twitter/bootstrap">Twitter's Bootstrap</a>, ready to drop right into your Sass powered applications.</p>
+
+<p>Enjoy.</p>
+
+<h2>Updating</h2>
+
+<p>Updating your application to a new version of <code>bootstrap-sass</code>? See <a href="https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/CHANGELOG.md">our changelog</a>, <a href="https://github.com/twitter/bootstrap/wiki/Changelog">Bootstrap's changelog</a>, and this <a href="http://twitter.github.com/bootstrap/upgrading.html">guide to updating to Bootstrap 2.0</a></p>
+
+<h2>Usage</h2>
+
+<h3>Rails</h3>
+
+<p>In your Gemfile:</p>
+
+<pre><code>gem 'sass-rails', '~&gt; 3.1'
+gem 'bootstrap-sass', '~&gt; 2.0.2'
+</code></pre>
+
+<h4>CSS</h4>
+
+<p>Import "bootstrap" in your SCSS file of choice to get all of Bootstrap's styles, mixins and variables! We recommend against using <code>//= require</code> directives, since none of your other stylesheets will be <a href="https://github.com/thomas-mcdonald/bootstrap-sass/issues/79#issuecomment-4428595">able to use</a> the awesome mixins that Bootstrap has defined.</p>
+
+<pre><code>@import "bootstrap";
+</code></pre>
+
+<p>Need to configure a variable or two? Simple define the value of the variable you want to change <em>before</em> importing Bootstrap. Sass will respect your existing definition rather than overwriting it with the Bootstrap defaults. A list of customisable variables can be found in the <a href="http://twitter.github.com/bootstrap/less.html#variables">Bootstrap documentation</a>.</p>
+
+<pre><code>$primaryButtonBackground: #f00;
+@import "bootstrap";
+</code></pre>
+
+<p><strong>Note</strong>: It's important that the file you are importing is not named <code>bootstrap</code>, since this will cause an import loop. As a general rule, errors are something you should try to avoid.</p>
+
+<h4>Javascripts</h4>
+
+<p>You can include the Bootstrap javascripts through two methods. In this case, Sprocket's <code>//= require</code> directives are useful, since there is no better alternative.</p>
+
+<p>We have a helper that includes all available javascripts:</p>
+
+<pre><code>// Loads all Bootstrap javascripts
+//= require bootstrap
+</code></pre>
+
+<p>You can also load individual modules, provided you sort out any related dependencies.</p>
+
+<pre><code>//= require bootstrap-scrollspy
+//= require bootstrap-modal
+//= require bootstrap-dropdown
+</code></pre>
+
+<p>Simples.</p>
+
+<h3>Compass</h3>
+
+<p><code>bootstrap-sass</code> 2.0 now comes with support for Compass, meaning projects that don't use Rails can get in on the fun Bootstrap web.</p>
+
+<h4>New project</h4>
+
+<p>Install the gem and create a new project using the gem.</p>
+
+<pre><code>gem install bootstrap-sass
+compass create compass-test -r bootstrap-sass --using bootstrap
+</code></pre>
+
+<p>This will sort a few things out:</p>
+
+<ul>
+<li>You'll get a starting <code>styles.scss</code> ready for your alterations</li>
+<li>You'll get a compiled stylesheet compiled &amp; ready to drop into your application</li>
+<li>We'll also copy the Bootstrap javascripts &amp; images into their respective folders for you, absolutely free of charge! How cool is that?</li>
+</ul><h4>Existing project</h4>
+
+<p>Install the gem, add the require statement to the top of your configuration file, and install the extension.</p>
+
+<pre><code>gem install bootstrap-sass
+
+# In config.rb
+require 'bootstrap-sass'
+
+compass install bootstrap
+</code></pre>
+
+<p>You'll get the same benefits as those starting from scratch. Radical.</p>
+
+<hr><p>As per the Bootstrap project we don't include the responsive styles by default. <code>@import "bootstrap-responsive";</code> to get them.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/thomas-mcdonald">thomas-mcdonald</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
