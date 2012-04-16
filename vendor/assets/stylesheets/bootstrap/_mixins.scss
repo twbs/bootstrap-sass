@@ -560,7 +560,7 @@
   }
 }
 
-@mixin gridInputSpan($columns, $gridColumWidth, $gridGutterWidth) {
+@mixin gridInputSpan($columns, $gridColumnWidth, $gridGutterWidth) {
   width: (($gridColumnWidth) * $columns) + ($gridGutterWidth * ($columns - 1)) - 10;
 }
 
