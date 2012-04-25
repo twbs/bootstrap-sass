@@ -227,7 +227,8 @@ $fluidGridGutterWidthLarge:    2.564102564% !default;
 
 // Media widths
 // -------------------------
-$mediaPhone:              480px !default;
-$mediaTablet:             768px !default;
-$mediaDesktop:            980px !default;
-$mediaLarge:              1200px !default; // and upper
+// Not supported Sass < 3.2 :(
+// $mediaPhone:              480px !default;
+// $mediaTablet:             768px !default;
+// $mediaDesktop:            980px !default;
+// $mediaLarge:              1200px !default; // and upper
