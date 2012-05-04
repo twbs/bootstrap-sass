@@ -71,11 +71,11 @@
 
 // Sizing shortcuts
 // -------------------------
-@mixin size($height: 5px, $width: 5px) {
+@mixin size($height, $width) {
   width: $width;
   height: $height;
 }
-@mixin square($size: 5px) {
+@mixin square($size) {
   @include size($size, $size);
 }
 
@@ -98,26 +98,28 @@
   white-space: nowrap;
 }
 
-// New image replacement
+// CSS image replacement
 // -------------------------
-// Source: http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+// Source: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
 @mixin hide-text() {
-  overflow: hidden;
-  text-indent: 100%;
-  white-space: nowrap;
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
 }
 
 
 // FONTS
 // --------------------------------------------------
 @mixin font-family-serif() {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: $serifFontFamily;
 }
 @mixin font-family-sans-serif() {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $sansFontFamily;
 }
 @mixin font-family-monospace() {
-  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-family: $monoFontFamily;
 }
 @mixin font-shorthand($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
   font-size: $size;
@@ -145,9 +147,8 @@
 @mixin input-block-level() {
   display: block;
   width: 100%;
-  min-height: 28px; /* Make inputs at least the height of their button counterpart */
-  /* Makes inputs behave like true block-level elements */
-  @include box-sizing(border-box);
+  min-height: 28px; // Make inputs at least the height of their button counterpart
+  @include box-sizing(border-box); // Makes inputs behave like true block-level elements
 }
 
 
@@ -179,14 +180,14 @@
 // --------------------------------------------------
 
 // Border Radius
-@mixin border-radius($radius: 5px) {
+@mixin border-radius($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
           border-radius: $radius;
 }
 
 // Drop shadows
-@mixin box-shadow($shadow: 0 1px 3px rgba(0,0,0,.25)) {
+@mixin box-shadow($shadow) {
   -webkit-box-shadow: $shadow;
      -moz-box-shadow: $shadow;
           box-shadow: $shadow;
@@ -216,7 +217,7 @@
        -o-transform: scale($ratio);
           transform: scale($ratio);
 }
-@mixin translate($x: 0, $y: 0) {
+@mixin translate($x, $y) {
   -webkit-transform: translate($x, $y);
      -moz-transform: translate($x, $y);
       -ms-transform: translate($x, $y);
@@ -224,7 +225,7 @@
           transform: translate($x, $y);
 }
 
-@mixin skew($x: 0, $y: 0) {
+@mixin skew($x, $y) {
   -webkit-transform: skew($x, $y);
      -moz-transform: skew($x, $y);
       -ms-transform: skew($x, $y);
@@ -232,12 +233,23 @@
           transform: skew($x, $y);
 }
 
-@mixin translate3d($x: 0, $y: 0, $z: 0) {
+@mixin translate3d($x, $y, $z) {
   -webkit-transform: translate($x, $y, $z);
      -moz-transform: translate($x, $y, $z);
       -ms-transform: translate($x, $y, $z);
        -o-transform: translate($x, $y, $z);
           transform: translate($x, $y, $z);
+}
+
+// Backface visibility
+// Prevent browsers from flickering when using CSS 3D transforms.
+// Default value is `visible`, but can be changed to `hidden
+// See git pull https://github.com/dannykeane/bootstrap.git backface-visibility for examples
+@mixin backface-visibility($visibility){
+  -webkit-backface-visibility: $visibility;
+     -moz-backface-visibility: $visibility;
+      -ms-backface-visibility: $visibility;
+          backface-visibility: $visibility;
 }
 
 // Background clipping
@@ -270,18 +282,19 @@
 @mixin user-select($select) {
   -webkit-user-select: $select;
      -moz-user-select: $select;
+      -ms-user-select: $select;
        -o-user-select: $select;
           user-select: $select;
 }
 
 // Resize anything
-@mixin resizable($direction: both) {
+@mixin resizable($direction) {
   resize: $direction; // Options: horizontal, vertical, both
   overflow: auto; // Safari fix
 }
 
 // CSS3 Content Columns
-@mixin content-columns($columnCount, $columnGap: $gridColumnGutter) {
+@mixin content-columns($columnCount, $columnGap: $gridGutterWidth) {
   -webkit-column-count: $columnCount;
      -moz-column-count: $columnCount;
           column-count: $columnCount;
@@ -293,7 +306,7 @@
 // Opacity
 @mixin opacity($opacity: 1) {
   opacity: $opacity;
-   filter: alpha(opacity=$opacity * 100);
+  filter: alpha(opacity=#{$opacity * 100});
 }
 
 
@@ -391,18 +404,17 @@
 // -------------------
 // Dividers (basically an hr) within dropdowns and nav lists
 @mixin nav-divider() {
-  height: 1px;
-  margin: (($baseLineHeight / 2) - 1) 1px; // 8px 1px
-  overflow: hidden;
-  background-color: #e5e5e5;
-  border-bottom: 1px solid $white;
-
   // IE7 needs a set width since we gave a height. Restricting just
   // to IE7 to keep the 1px left/right space in other browsers.
   // It is unclear where IE is getting the extra space that we need
   // to negative-margin away, but so it goes.
   *width: 100%;
+  height: 1px;
+  margin: (($baseLineHeight / 2) - 1) 1px; // 8px 1px
   *margin: -5px 0 5px;
+  overflow: hidden;
+  background-color: #e5e5e5;
+  border-bottom: 1px solid $white;
 }
 
 // Button backgrounds
@@ -410,11 +422,13 @@
 @mixin buttonBackground($startColor, $endColor) {
   // gradientBar will set the background to a pleasing blend of these, to support IE<=9
   @include gradientBar($startColor, $endColor);
+  *background-color: $endColor; // Darken IE7 buttons by default so they stand out more given they won't have borders
   @include reset-filter();
 
   // in these cases the gradient won't cover the background, so we override
   &:hover, &:active, &.active, &.disabled, &[disabled] {
     background-color: $endColor;
+    *background-color: darken($endColor, 5%);
   }
 
   // IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves
@@ -472,8 +486,8 @@
 
 // Centered container element
 @mixin container-fixed() {
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
   @include clearfix();
 }
 
@@ -490,77 +504,93 @@
   margin-left: $gridGutterWidth * -1;
   @include clearfix();
 }
-@mixin makeColumn($columns: 1) {
+@mixin makeColumn($columns: 1, $offset: 0) {
   float: left;
-  margin-left: $gridGutterWidth;
+  margin-left: ($gridColumnWidth * $offset) + ($gridGutterWidth * ($offset - 1)) + ($gridGutterWidth * 2);
   width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1));
 }
 
 // The Grid
 @mixin gridCore($gridColumnWidth, $gridGutterWidth) {
-  [class*="span"] {
-    float: left;
-    margin-left: $gridGutterWidth;
-  }
-
-  @for $i from 1 through $gridColumns {
-    .span#{$i} { @include gridCoreSpan($i, $gridColumnWidth, $gridGutterWidth) }
-  }
-
-  @for $i from 1 through $gridColumns {
-    .offset#{$i} { @include gridCoreOffset($i, $gridColumnWidth, $gridGutterWidth) }
-  }
-
   .row {
     margin-left: $gridGutterWidth * -1;
     @include clearfix();
   }
 
-  .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
-    @include gridCoreSpan($gridColumns, $gridColumnWidth, $gridGutterWidth);
+  [class*="span"] {
+    float: left;
+    margin-left: $gridGutterWidth;
+  }
+
+  // Set the container width, and override it for fixed navbars in media queries
+  .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container { @include gridCoreSpan($gridColumns); }
+
+  @include gridCoreSpanX($gridColumns);
+  @include gridCoreOffsetX($gridColumns);
+}
+@mixin gridCoreSpanX($index) {
+  @if $index != 0 {
+    .span#{$index} { @include gridCoreSpan($index) };
+    @include gridCoreSpanX($index - 1);
   }
 }
-
-@mixin gridCoreSpan($columns, $gridColumnWidth, $gridGutterWidth) {
+@mixin gridCoreSpan($columns) {
   width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1));
 }
-
-@mixin gridCoreOffset($columns, $gridColumnWidth, $gridGutterWidth) {
-  margin-left: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1)) + ($gridGutterWidth * 2);
+@mixin gridCoreOffsetX($index) {
+  @if $index != 0 {
+    .offset#{$index} { @include gridCoreOffset($index); };
+    @include gridCoreOffsetX($index - 1);
+  }
+}
+@mixin gridCoreOffset($columns) {
+  margin-left: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns + 1));
 }
 
 @mixin gridFluid($fluidGridColumnWidth, $fluidGridGutterWidth) {
   .row-fluid {
     width: 100%;
     @include clearfix();
-    > [class*="span"] {
+    [class*="span"] {
+      @include input-block-level();
       float: left;
       margin-left: $fluidGridGutterWidth;
+      *margin-left: $fluidGridGutterWidth - (.5 / ($gridRowWidth/1px) * 100 * 1%);
     }
-    > [class*="span"]:first-child {
+    [class*="span"]:first-child {
       margin-left: 0;
     }
-    @for $i from 1 through $gridColumns {
-      > .span#{$i} { @include gridFluidSpan($i, $fluidGridColumnWidth, $fluidGridGutterWidth); }
-    }
+
+    // generate .spanX
+    @include gridFluidSpanX($gridColumns);
   }
 }
-
-@mixin gridFluidSpan($columns, $fluidGridColumnWidth, $fluidGridGutterWidth) {
+@mixin gridFluidSpanX($index) {
+  @if $index != 0 {
+    .span#{$index} { @include gridFluidSpan($index) };
+    @include gridFluidSpanX($index - 1);
+  }
+}
+@mixin gridFluidSpan($columns) {
   width: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - 1));
+  *width: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - 1)) - (.5 / ($gridRowWidth/1px) * 100 * 1%);
 }
 
 @mixin gridInput($gridColumnWidth, $gridGutterWidth) {
-  @for $i from 1 through $gridColumns {
-    input.span#{$i}, textarea.span#{$i}, .uneditable-input.span#{$i} { @include gridInputSpan($i, $gridColumnWidth, $gridGutterWidth); }
-  }
-
   input, textarea, .uneditable-input {
     margin-left: 0; // override margin-left from core grid system
   }
-}
 
-@mixin gridInputSpan($columns, $gridColumnWidth, $gridGutterWidth) {
+  // generate .spanX
+  @include gridInputSpanX($gridColumns);
+}
+@mixin gridInputSpanX($index) {
+  @if $index != 0 {
+    input.span#{$index}, textarea.span#{$index}, .uneditable-input.span#{$index} { @include gridInputSpan($index); }
+    @include gridInputSpanX($index - 1);
+  }
+}
+@mixin gridInputSpan($columns) {
   width: (($gridColumnWidth) * $columns) + ($gridGutterWidth * ($columns - 1)) - 10;
 }
 

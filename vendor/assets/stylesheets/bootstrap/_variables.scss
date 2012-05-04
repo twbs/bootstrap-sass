@@ -43,20 +43,25 @@ $linkColorHover:        darken($linkColor, 15%) !default;
 
 // Typography
 // -------------------------
+$sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$serifFontFamily:       Georgia, "Times New Roman", Times, serif !default;
+$monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace !default;
+
 $baseFontSize:          13px !default;
-$baseFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$baseFontFamily:        $sansFontFamily !default;
 $baseLineHeight:        18px !default;
-$altFontFamily:         Georgia, "Times New Roman", Times, serif !default;
+$altFontFamily:         $serifFontFamily !default;
 
 $headingsFontFamily:    inherit !default; // empty to use BS default, @baseFontFamily
 $headingsFontWeight:    bold !default;    // instead of browser default, bold
 $headingsColor:         inherit !default; // empty to use BS default, @textColor
 
+
 // Tables
 // -------------------------
 $tableBackground:                   transparent !default; // overall background-color
 $tableBackgroundAccent:             #f9f9f9 !default; // for striping
-$tableBackgroundHover:              $whiteSmoke !default; // for hover
+$tableBackgroundHover:              #f5f5f5 !default; // for hover
 $tableBorder:                       $borderColor !default; // table and cell border
 
 // Buttons
@@ -87,8 +92,10 @@ $btnInverseBackgroundHighlight:     $grayDarker !default;
 // -------------------------
 $inputBackground:               $white !default;
 $inputBorderColor:              #ccc !default;
-$inputBorderColorUneditable:    lighten($inputBorderColor, 13.5%) !default;
+$inputBorderRadius:             3px !default;
 $inputDisabledBackground:       $grayLighter !default;
+$inputDisabledBorderColor:      lighten($inputBorderColor, 13.5%) !default;
+$formActionsBackground:         #f5f5f5 !default;
 
 
 // Dropdowns
@@ -148,6 +155,7 @@ $navbarSearchBackground:          lighten($navbarBackground, 25%) !default;
 $navbarSearchBackgroundFocus:     $white !default;
 $navbarSearchBorder:              darken($navbarSearchBackground, 30%) !default;
 $navbarSearchPlaceholderColor:    #ccc !default;
+$navbarBrandColor:                $navbarLinkColor !default;
 
 
 // Hero unit
@@ -176,7 +184,6 @@ $infoBackground:          #d9edf7 !default;
 $infoBorder:              darken(adjust-hue($infoBackground, -10), 7%) !default;
 
 
-
 // FIXED GRID
 // --------------------------------------------------
 
@@ -196,7 +203,6 @@ $gridGutterWidthTablet:   20px !default;
 // -------------------------
 $gridColumnWidthLarge:    70px !default;
 $gridGutterWidthLarge:    30px !default;
-
 
 
 // FLUID GRID
@@ -224,7 +230,8 @@ $fluidGridGutterWidthLarge:    2.564102564% !default;
 
 // Media widths
 // -------------------------
-$mediaPhone:              480px !default;
-$mediaTablet:             768px !default;
-$mediaDesktop:            980px !default;
-$mediaLarge:              1200px !default; // and upper
+// Not supported Sass < 3.2 :(
+// $mediaPhone:              480px !default;
+// $mediaTablet:             768px !default;
+// $mediaDesktop:            980px !default;
+// $mediaLarge:              1200px !default; // and upper

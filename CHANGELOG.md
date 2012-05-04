@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.3 (Unreleased)
+* Updated to Bootstrap 2.0.3
+* [#106] Support for Rails < 3.1 w/Compass
+
 ## 2.0.2
 * [#86] Updated to Bootstrap 2.0.2
 Things of note: static navbars now have full width. (to be fixed in 2.0.3) `.navbar-inner > .container { width:940px; }` seems to work in the meanwhile
