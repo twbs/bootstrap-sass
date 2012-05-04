@@ -511,92 +511,92 @@
 }
 
 // The Grid
-@mixin gridCore($gridColumnWidth, $gridGutterWidth) {
+@mixin gridCore($columnWidth, $gutterWidth) {
   .row {
-    margin-left: $gridGutterWidth * -1;
+    margin-left: $gutterWidth * -1;
     @include clearfix();
   }
 
   [class*="span"] {
     float: left;
-    margin-left: $gridGutterWidth;
+    margin-left: $gutterWidth;
   }
 
   // Set the container width, and override it for fixed navbars in media queries
-  .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container { @include gridCoreSpan($gridColumns); }
+  .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container { @include gridCoreSpan($gridColumns, $columnWidth, $gutterWidth); }
 
-  @include gridCoreSpanX($gridColumns);
-  @include gridCoreOffsetX($gridColumns);
+  @include gridCoreSpanX($gridColumns, $columnWidth, $gutterWidth);
+  @include gridCoreOffsetX($gridColumns, $columnWidth, $gutterWidth);
 }
-@mixin gridCoreSpanX($index) {
+@mixin gridCoreSpanX($index, $columnWidth, $gutterWidth) {
   @if $index != 0 {
-    .span#{$index} { @include gridCoreSpan($index) };
-    @include gridCoreSpanX($index - 1);
+    .span#{$index} { @include gridCoreSpan($index, $columnWidth, $gutterWidth) };
+    @include gridCoreSpanX($index - 1, $columnWidth, $gutterWidth);
   }
 }
-@mixin gridCoreSpan($columns) {
-  width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1));
+@mixin gridCoreSpan($columns, $columnWidth, $gutterWidth) {
+  width: ($columnWidth * $columns) + ($gutterWidth * ($columns - 1));
 }
-@mixin gridCoreOffsetX($index) {
+@mixin gridCoreOffsetX($index, $columnWidth, $gutterWidth) {
   @if $index != 0 {
-    .offset#{$index} { @include gridCoreOffset($index); };
-    @include gridCoreOffsetX($index - 1);
+    .offset#{$index} { @include gridCoreOffset($index, $columnWidth, $gutterWidth); };
+    @include gridCoreOffsetX($index - 1, $columnWidth, $gutterWidth);
   }
 }
-@mixin gridCoreOffset($columns) {
-  margin-left: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns + 1));
+@mixin gridCoreOffset($columns, $columnWidth, $gutterWidth) {
+  margin-left: ($columnWidth * $columns) + ($gutterWidth * ($columns + 1));
 }
 
-@mixin gridFluid($fluidGridColumnWidth, $fluidGridGutterWidth) {
+@mixin gridFluid($columnWidth, $gutterWidth) {
   .row-fluid {
     width: 100%;
     @include clearfix();
     [class*="span"] {
       @include input-block-level();
       float: left;
-      margin-left: $fluidGridGutterWidth;
-      *margin-left: $fluidGridGutterWidth - (.5 / ($gridRowWidth/1px) * 100 * 1%);
+      margin-left: $gutterWidth;
+      *margin-left: $gutterWidth - (.5 / ($gridRowWidth/1px) * 100 * 1%);
     }
     [class*="span"]:first-child {
       margin-left: 0;
     }
 
     // generate .spanX
-    @include gridFluidSpanX($gridColumns);
+    @include gridFluidSpanX($gridColumns, $columnWidth, $gutterWidth);
   }
 }
-@mixin gridFluidSpanX($index) {
+@mixin gridFluidSpanX($index, $columnWidth, $gutterWidth) {
   @if $index != 0 {
-    .span#{$index} { @include gridFluidSpan($index) };
-    @include gridFluidSpanX($index - 1);
+    .span#{$index} { @include gridFluidSpan($index, $columnWidth, $gutterWidth) };
+    @include gridFluidSpanX($index - 1, $columnWidth, $gutterWidth);
   }
 }
-@mixin gridFluidSpan($columns) {
-  width: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - 1));
-  *width: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - 1)) - (.5 / ($gridRowWidth/1px) * 100 * 1%);
+@mixin gridFluidSpan($columns, $columnWidth, $gutterWidth) {
+  width: ($columnWidth * $columns) + ($gutterWidth * ($columns - 1));
+  *width: ($columnWidth * $columns) + ($gutterWidth * ($columns - 1)) - (.5 / ($gridRowWidth/1px) * 100 * 1%);
 }
 
-@mixin gridInput($gridColumnWidth, $gridGutterWidth) {
+@mixin gridInput($columnWidth, $gutterWidth) {
   input, textarea, .uneditable-input {
     margin-left: 0; // override margin-left from core grid system
   }
 
   // generate .spanX
-  @include gridInputSpanX($gridColumns);
+  @include gridInputSpanX($gridColumns, $columnWidth, $gutterWidth);
 }
-@mixin gridInputSpanX($index) {
+@mixin gridInputSpanX($index, $columnWidth, $gutterWidth) {
   @if $index != 0 {
-    input.span#{$index}, textarea.span#{$index}, .uneditable-input.span#{$index} { @include gridInputSpan($index); }
-    @include gridInputSpanX($index - 1);
+    input.span#{$index}, textarea.span#{$index}, .uneditable-input.span#{$index} { @include gridInputSpan($index, $columnWidth, $gutterWidth); }
+    @include gridInputSpanX($index - 1, $columnWidth, $gutterWidth);
   }
 }
-@mixin gridInputSpan($columns) {
-  width: (($gridColumnWidth) * $columns) + ($gridGutterWidth * ($columns - 1)) - 10;
+@mixin gridInputSpan($columns, $columnWidth, $gutterWidth) {
+  width: (($columnWidth) * $columns) + ($gutterWidth * ($columns - 1)) - 10;
 }
 
-@mixin makeFluidColumn($columns) {
+@mixin makeFluidColumn($columns, $columnWidth, $gutterWidth) {
   // This isn't perfect, but it's better than nothing.
   float: left;
-  margin-left: $fluidGridGutterWidth;
-  @include gridFluidSpan($columns, $fluidGridColumnWidth, $fluidGridGutterWidth);
+  margin-left: $gutterWidth;
+  @include gridFluidSpan($columns, $columnWidth, $gutterWidth);
 }
