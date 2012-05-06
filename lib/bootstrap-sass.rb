@@ -3,16 +3,16 @@ module Bootstrap
 
   # Inspired by Kaminari
   def self.load!
-    if asset_pipeline?
-      require 'sass-rails' # See: https://github.com/thomas-mcdonald/bootstrap-sass/pull/4
-      require 'bootstrap-sass/engine'
-      require 'bootstrap-sass/rails_extentions'
-    elsif compass?
+    if compass?
       require 'bootstrap-sass/compass_extensions'
       base = File.join(File.dirname(__FILE__), '..')
       styles = File.join(base, 'vendor', 'assets', 'stylesheets')
       templates = File.join(base, 'templates')
       ::Compass::Frameworks.register('bootstrap', :stylesheets_directory => styles, :templates_directory => templates)
+    elsif asset_pipeline?
+      require 'sass-rails' # See: https://github.com/thomas-mcdonald/bootstrap-sass/pull/4
+      require 'bootstrap-sass/engine'
+      require 'bootstrap-sass/rails_extentions'
     else
       raise Bootstrap::FrameworkNotFound, "bootstrap-sass requires either Rails > 3.1 or Compass, neither of which are loaded"
     end
