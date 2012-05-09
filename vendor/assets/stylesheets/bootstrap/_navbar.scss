@@ -88,6 +88,12 @@
   .btn-group .btn {
     margin-top: 0; // then undo the margin here so we don't accidentally double it
   }
+  .btn-group {
+    margin: 0;
+    // Vertically center the button given $navbarHeight
+    $elementHeight: 28px;
+    padding: (($navbarHeight - $elementHeight) / 2 - 1) 5px (($navbarHeight - $elementHeight) / 2);
+  }
 }
 
 // Navbar forms
