@@ -88,6 +88,12 @@
   .btn-group .btn {
     margin-top: 0; // then undo the margin here so we don't accidentally double it
   }
+  .btn-group {
+    margin: 0;
+    // Vertically center the button given $navbarHeight
+    $elementHeight: 28px;
+    padding: (($navbarHeight - $elementHeight) / 2 - 1) 5px (($navbarHeight - $elementHeight) / 2);
+  }
 }
 
 // Navbar forms
@@ -304,7 +310,7 @@
 
 // Right aligned menus need alt position
 // TODO: rejigger this at some point to simplify the selectors
-.navbar .nav.pull-right .dropdown-menu, .navbar .nav .dropdown-menu.pull-right {
+.navbar .pull-right .dropdown-menu, .navbar .dropdown-menu.pull-right {
   left: auto;
   right: 0;
   &:before {
