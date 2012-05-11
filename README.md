@@ -22,9 +22,9 @@ Import "bootstrap" in your SCSS file of choice to get all of Bootstrap's styles,
 
     @import "bootstrap";
 
-Need to configure a variable or two? Simple define the value of the variable you want to change *before* importing Bootstrap. Sass will respect your existing definition rather than overwriting it with the Bootstrap defaults. A list of customisable variables can be found in the [Bootstrap documentation](http://twitter.github.com/bootstrap/less.html#variables).
+Need to configure a variable or two? Simply define the value of the variable you want to change *before* importing Bootstrap. Sass will respect your existing definition rather than overwriting it with the Bootstrap defaults. A list of customisable variables can be found in the [Bootstrap documentation](http://twitter.github.com/bootstrap/less.html#variables).
 
-    $primaryButtonBackground: #f00;
+    $btnPrimaryBackground: #f00;
     @import "bootstrap";
 
 **Note**: It's important that the file you are importing is not named `bootstrap`, since this will cause an import loop. As a general rule, errors are something you should try to avoid.
