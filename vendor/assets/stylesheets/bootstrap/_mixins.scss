@@ -528,19 +528,17 @@
   @include gridCoreSpanX($gridColumns, $columnWidth, $gutterWidth);
   @include gridCoreOffsetX($gridColumns, $columnWidth, $gutterWidth);
 }
-@mixin gridCoreSpanX($index, $columnWidth, $gutterWidth) {
-  @if $index != 0 {
-    .span#{$index} { @include gridCoreSpan($index, $columnWidth, $gutterWidth) };
-    @include gridCoreSpanX($index - 1, $columnWidth, $gutterWidth);
+@mixin gridCoreSpanX($cols, $columnWidth, $gutterWidth) {
+  @for $i from 1 through $cols {
+    .span#{$i} { @include gridCoreSpan($i, $columnWidth, $gutterWidth) };
   }
 }
 @mixin gridCoreSpan($columns, $columnWidth, $gutterWidth) {
   width: ($columnWidth * $columns) + ($gutterWidth * ($columns - 1));
 }
-@mixin gridCoreOffsetX($index, $columnWidth, $gutterWidth) {
-  @if $index != 0 {
-    .offset#{$index} { @include gridCoreOffset($index, $columnWidth, $gutterWidth); };
-    @include gridCoreOffsetX($index - 1, $columnWidth, $gutterWidth);
+@mixin gridCoreOffsetX($cols, $columnWidth, $gutterWidth) {
+  @for $i from 1 through $cols {
+    .offset#{$i} { @include gridCoreOffset($i, $columnWidth, $gutterWidth); };
   }
 }
 @mixin gridCoreOffset($columns, $columnWidth, $gutterWidth) {
@@ -565,10 +563,9 @@
     @include gridFluidSpanX($gridColumns, $columnWidth, $gutterWidth);
   }
 }
-@mixin gridFluidSpanX($index, $columnWidth, $gutterWidth) {
-  @if $index != 0 {
-    .span#{$index} { @include gridFluidSpan($index, $columnWidth, $gutterWidth) };
-    @include gridFluidSpanX($index - 1, $columnWidth, $gutterWidth);
+@mixin gridFluidSpanX($cols, $columnWidth, $gutterWidth) {
+  @for $i from 1 through $cols {
+    .span#{$i} { @include gridFluidSpan($i, $columnWidth, $gutterWidth) };
   }
 }
 @mixin gridFluidSpan($columns, $columnWidth, $gutterWidth) {
@@ -584,10 +581,9 @@
   // generate .spanX
   @include gridInputSpanX($gridColumns, $columnWidth, $gutterWidth);
 }
-@mixin gridInputSpanX($index, $columnWidth, $gutterWidth) {
-  @if $index != 0 {
-    input.span#{$index}, textarea.span#{$index}, .uneditable-input.span#{$index} { @include gridInputSpan($index, $columnWidth, $gutterWidth); }
-    @include gridInputSpanX($index - 1, $columnWidth, $gutterWidth);
+@mixin gridInputSpanX($cols, $columnWidth, $gutterWidth) {
+  @for $i from 1 through $cols {
+    input.span#{$i}, textarea.span#{$i}, .uneditable-input.span#{$i} { @include gridInputSpan($i, $columnWidth, $gutterWidth); }
   }
 }
 @mixin gridInputSpan($columns, $columnWidth, $gutterWidth) {
