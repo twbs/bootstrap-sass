@@ -22,34 +22,35 @@
 }
 
 // Visibility utilities
+
 // For desktops
-.visible-phone     { display: none; }
-.visible-tablet    { display: none; }
-.visible-desktop   { display: block; }
-.hidden-phone      { display: block; }
-.hidden-tablet     { display: block; }
-.hidden-desktop    { display: none; }
+.visible-phone     { display: none !important; }
+.visible-tablet    { display: none !important; }
+.visible-desktop   { } // Don't set initially
+.hidden-phone      { }
+.hidden-tablet     { }
+.hidden-desktop    { display: none !important; }
 
 // Phones only
-@media (max-width: 767px) {
+@media (max-width : 767px) {
   // Show
-  .visible-phone     { display: block; }
+  .visible-phone     { display: inherit !important; } // Use inherit to restore previous behavior
   // Hide
-  .hidden-phone      { display: none; }
+  .hidden-phone      { display: none !important; }
   // Hide everything else
-  .hidden-desktop    { display: block; }
-  .visible-desktop   { display: none; }
+  .hidden-desktop    { display: inherit !important; }
+  .visible-desktop   { display: none !important; }
 }
 
 // Tablets & small desktops only
 @media (min-width: 768px) and (max-width: 979px) {
   // Show
-  .visible-tablet    { display: block; }
+  .visible-tablet    { display: inherit !important; }
   // Hide
-  .hidden-tablet     { display: none; }
+  .hidden-tablet     { display: none !important; }
   // Hide everything else
-  .hidden-desktop    { display: block; }
-  .visible-desktop   { display: none; }
+  .hidden-desktop    { display: inherit !important; }
+  .visible-desktop   { display: none !important ; }
 }
 
 // UP TO LANDSCAPE PHONE
@@ -121,16 +122,36 @@
 // LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
 // --------------------------------------------------
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
 
   // Padding to set content in a bit
   body {
     padding-left: 20px;
     padding-right: 20px;
   }
-  .navbar-fixed-top {
+  // Negative indent the now static "fixed" navbar
+  .navbar-fixed-top, .navbar-fixed-bottom {
     margin-left: -20px;
     margin-right: -20px;
+  }
+  // Remove padding on container given explicit padding set on body
+  .container-fluid {
+    padding: 0;
+  }
+
+  // TYPOGRAPHY
+  // ----------
+  // Reset horizontal dl
+  .dl-horizontal {
+    dt {
+      float: none;
+      clear: none;
+      width: auto;
+      text-align: left;
+    }
+    dd {
+      margin-left: 0;
+    }
   }
 
   // GRID & CONTAINERS
@@ -143,32 +164,27 @@
   .row-fluid {
     width: 100%;
   }
-  // Undo negative margin on rows
-  .row {
+  // Undo negative margin on rows and thumbnails
+  .row, .thumbnails {
     margin-left: 0;
   }
-  // Make all columns even
-  .row > [class*="span"], .row-fluid > [class*="span"] {
+  // Make all grid-sized elements block level again
+  [class*="span"], .row-fluid [class*="span"] {
     float: none;
     display: block;
     width: auto;
-    margin: 0;
-  }
-
-  // THUMBNAILS
-  // ----------
-  .thumbnails [class*="span"] {
-    width: auto;
+    margin-left: 0;
   }
 
   // FORM FIELDS
   // -----------
   // Make span* classes full width
-  input[class*="span"], select[class*="span"], textarea[class*="span"], .uneditable-input {
+  .input-large, .input-xlarge, .input-xxlarge, input[class*="span"], select[class*="span"], textarea[class*="span"], .uneditable-input {
     @include input-block-level();
   }
   // But don't let it screw up prepend/append inputs
-  .input-prepend input[class*="span"], .input-append input[class*="span"] {
+  .input-prepend input, .input-append input, .input-prepend input[class*="span"], .input-append input[class*="span"] {
+    display: inline-block; // redeclare so they don't wrap to new lines
     width: auto;
   }
 }
@@ -181,13 +197,15 @@
 @media (min-width: 768px) and (max-width: 979px) {
 
   // Fixed grid
-  @include gridCore(42px, 20px);
+  @include gridCore($gridColumnWidthTablet, $gridGutterWidthTablet);
 
   // Fluid grid
-  @include gridFluid(5.801104972%, 2.762430939%);
+  @include gridFluid($fluidGridColumnWidthTablet, $fluidGridGutterWidthTablet);
 
   // Input grid
-  @include gridInput(42px, 20px);
+  @include gridInput($gridColumnWidthTablet, $gridGutterWidthTablet);
+
+  // No need to reset .thumbnails here since it's the same $gridGutterWidth
 
 }
 
@@ -221,43 +239,57 @@
     padding-right: 10px;
     margin: 0 0 0 -5px;
   }
+
+  // COLLAPSIBLE NAVBAR
+  // ------------------
   // Nav collapse clears brand
-  .navbar .nav-collapse {
-    clear: left;
+  .nav-collapse {
+    clear: both;
   }
   // Block-level the nav
-  .navbar .nav {
+  .nav-collapse .nav {
     float: none;
     margin: 0 0 ($baseLineHeight / 2);
   }
-  .navbar .nav > li {
+  .nav-collapse .nav > li {
     float: none;
   }
-  .navbar .nav > li > a {
+  .nav-collapse .nav > li > a {
     margin-bottom: 2px;
   }
-  .navbar .nav > .divider-vertical {
+  .nav-collapse .nav > .divider-vertical {
     display: none;
   }
-  .navbar .nav .nav-header {
+  .nav-collapse .nav .nav-header {
     color: $navbarText;
     text-shadow: none;
   }
   // Nav and dropdown links in navbar
-  .navbar .nav > li > a, .navbar .dropdown-menu a {
+  .nav-collapse .nav > li > a, .nav-collapse .dropdown-menu a {
     padding: 6px 15px;
     font-weight: bold;
     color: $navbarLinkColor;
     @include border-radius(3px);
   }
-  .navbar .dropdown-menu li + li a {
+  // Buttons
+  .nav-collapse .btn {
+    padding: 4px 10px 4px;
+    font-weight: normal;
+    @include border-radius(4px);
+  }
+  .nav-collapse .dropdown-menu li + li a {
     margin-bottom: 2px;
   }
-  .navbar .nav > li > a:hover, .navbar .dropdown-menu a:hover {
+  .nav-collapse .nav > li > a:hover, .nav-collapse .dropdown-menu a:hover {
     background-color: $navbarBackground;
   }
+  // Buttons in the navbar
+  .nav-collapse.in .btn-group {
+    margin-top: 5px;
+    padding: 0;
+  }
   // Dropdowns in the navbar
-  .navbar .dropdown-menu {
+  .nav-collapse .dropdown-menu {
     position: static;
     top: auto;
     left: auto;
@@ -271,49 +303,49 @@
     @include border-radius(0);
     @include box-shadow(none);
   }
-  .navbar .dropdown-menu:before, .navbar .dropdown-menu:after {
+  .nav-collapse .dropdown-menu:before, .nav-collapse .dropdown-menu:after {
     display: none;
   }
-  .navbar .dropdown-menu .divider {
+  .nav-collapse .dropdown-menu .divider {
     display: none;
   }
   // Forms in navbar
-  .navbar-form, .navbar-search {
+  .nav-collapse .navbar-form, .nav-collapse .navbar-search {
     float: none;
     padding: ($baseLineHeight / 2) 15px;
     margin: ($baseLineHeight / 2) 0;
     border-top: 1px solid $navbarBackground;
     border-bottom: 1px solid $navbarBackground;
-    $shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
-    @include box-shadow($shadow);
+    @include box-shadow(#{inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1)});
   }
   // Pull right (secondary) nav content
-  .navbar .nav.pull-right {
+  .navbar .nav-collapse .nav.pull-right {
     float: none;
     margin-left: 0;
   }
-  // Static navbar
+  // Hide everything in the navbar save .brand and toggle button */
+  .nav-collapse, .nav-collapse.collapse {
+    overflow: hidden;
+    height: 0;
+  }
+  // Navbar button
+  .navbar .btn-navbar {
+    display: block;
+  }
+
+  // STATIC NAVBAR
+  // -------------
   .navbar-static .navbar-inner {
     padding-left:  10px;
     padding-right: 10px;
   }
-  // Navbar button
-  .btn-navbar {
-    display: block;
-  }
-
-  // Hide everything in the navbar save .brand and toggle button
-  .nav-collapse {
-    overflow: hidden;
-    height: 0;
-  }
 }
-
 
 
 // DEFAULT DESKTOP
 // ---------------
 
+// Required to make the collapsing navbar work on regular desktops
 @media (min-width: 980px) {
   .nav-collapse.collapse {
     height: auto !important;
@@ -321,28 +353,28 @@
   }
 }
 
-
-
 // LARGE DESKTOP & UP
 // ------------------
 
 @media (min-width: 1200px) {
 
   // Fixed grid
-  @include gridCore(70px, 30px);
+  @include gridCore($gridColumnWidthLarge, $gridGutterWidthLarge);
 
   // Fluid grid
-  @include gridFluid(5.982905983%, 2.564102564%);
+  @include gridFluid($fluidGridColumnWidthLarge, $fluidGridGutterWidthLarge);
 
   // Input grid
-  @include gridInput(70px, 30px);
+  @include gridInput($gridColumnWidthLarge, $gridGutterWidthLarge);
 
   // Thumbnails
   .thumbnails {
-    margin-left: -30px;
+    margin-left: -$gridGutterWidthLarge;
   }
   .thumbnails > li {
-    margin-left: 30px;
+    margin-left: $gridGutterWidthLarge;
   }
-
+  .row-fluid .thumbnails {
+    margin-left: 0;
+  }
 }

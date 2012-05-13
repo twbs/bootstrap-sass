@@ -1,0 +1,7 @@
+language: ruby
+rvm:
+  - 1.9.3
+  - jruby-19mode
+gemfile:
+  - test/gemfiles/sass_3_1.gemfile
+  - test/gemfiles/sass_head.gemfile
