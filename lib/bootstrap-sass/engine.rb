@@ -1,5 +1,6 @@
 require File.dirname(__FILE__) + '/helpers/modal_helper.rb'
 require File.dirname(__FILE__) + '/helpers/flash_block_helper.rb'
+require File.dirname(__FILE__) + '/helpers/breadcrumbs_helper.rb'
 
 module Bootstrap
   module Rails
@@ -10,6 +11,9 @@ module Bootstrap
         app.config.to_prepare do
           ActionController::Base.send :helper, ModalHelper
           ActionController::Base.send :helper, FlashBlockHelper
+
+          ActionController::Base.send :include, BreadcrumbsHelper
+          ActionController::Base.send :helper_method, :render_breadcrumbs
         end
       end
 
