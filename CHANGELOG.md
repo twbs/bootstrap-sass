@@ -1,6 +1,9 @@
 # Changelog
 
-## 2.0.3 (Unreleased)
+## 2.0.3.1
+* [#145, #146] Fix button alignment in collapsing navbar as a result of an incorrect variable
+
+## 2.0.3
 * Updated to Bootstrap 2.0.3
 * [#106] Support for Rails < 3.1 through Compass
 * [#132] Add CI testing
