@@ -16,6 +16,7 @@ $gray:                  #555 !default;
 $grayLight:             #999 !default;
 $grayLighter:           #eee !default;
 $white:                 #fff !default;
+$whiteSmoke:            #f5f5f5 !default;
 
 
 // Accent colors
@@ -33,6 +34,7 @@ $purple:                #7a43b6 !default;
 // -------------------------
 $bodyBackground:        $white !default;
 $textColor:             $grayDark !default;
+$borderColor:           #ddd !default;
 
 // Links
 // -------------------------
@@ -60,13 +62,13 @@ $headingsColor:         inherit !default; // empty to use BS default, @textColor
 $tableBackground:                   transparent !default; // overall background-color
 $tableBackgroundAccent:             #f9f9f9 !default; // for striping
 $tableBackgroundHover:              #f5f5f5 !default; // for hover
-$tableBorder:                       #ddd !default; // table and cell border
+$tableBorder:                       $borderColor !default; // table and cell border
 
 // Buttons
 // -------------------------
 $btnBackground:                     $white !default;
 $btnBackgroundHighlight:            darken($white, 10%) !default;
-$btnBorder:                         #ccc !default;
+$btnBorder:                         darken($white, 20%) !default;
 
 $btnPrimaryBackground:              $linkColor !default;
 $btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 15%) !default;
@@ -89,9 +91,10 @@ $btnInverseBackgroundHighlight:     $grayDarker !default;
 // Forms
 // -------------------------
 $inputBackground:               $white !default;
-$inputBorder:                   #ccc !default;
+$inputBorderColor:              #ccc !default;
 $inputBorderRadius:             3px !default;
 $inputDisabledBackground:       $grayLighter !default;
+$inputDisabledBorderColor:      lighten($inputBorderColor, 13.5%) !default;
 $formActionsBackground:         #f5f5f5 !default;
 
 

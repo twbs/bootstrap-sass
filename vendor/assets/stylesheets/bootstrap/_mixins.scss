@@ -153,7 +153,7 @@
 
 
 // Mixin for form field states
-@mixin formFieldState($textColor: #555, $borderColor: #ccc, $backgroundColor: #f5f5f5) {
+@mixin formFieldState($textColor: #555, $borderColor: #ccc, $backgroundColor: $whiteSmoke) {
   // Set the text color
   > label, .help-block, .help-inline {
     color: $textColor;

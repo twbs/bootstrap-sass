@@ -15,12 +15,12 @@
   display: inline-block;
   padding: 5px 14px;
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid $borderColor;
   @include border-radius(15px);
 }
 .pager a:hover {
   text-decoration: none;
-  background-color: #f5f5f5;
+  background-color: $whiteSmoke;
 }
 .pager .next a {
   float: right;
