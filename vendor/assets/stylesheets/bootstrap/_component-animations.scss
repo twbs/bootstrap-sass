@@ -2,10 +2,10 @@
 // --------------------
 
 .fade {
-  @include opacity(0);
+  opacity: 0;
   @include transition(opacity .15s linear);
   &.in {
-    @include opacity(1);
+    opacity: 1;
   }
 }
 

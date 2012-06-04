@@ -82,7 +82,23 @@
 // Placeholder text
 // -------------------------
 @mixin placeholder($color: $placeholderText) {
+  &:-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+}
+
+// Sass doesn't support using & at base level, so we need a special root placeholder mixin.
+@mixin rootPlaceholder($color: $placeholderText) {
   :-moz-placeholder {
+    color: $color;
+  }
+  :-ms-input-placeholder {
     color: $color;
   }
   ::-webkit-input-placeholder {
@@ -159,7 +175,7 @@
     color: $textColor;
   }
   // Style inputs accordingly
-  input, select, textarea {
+  .checkbox, .radio, input, select, textarea {
     color: $textColor;
     border-color: $borderColor;
     &:focus {
@@ -303,6 +319,17 @@
           column-gap: $columnGap;
 }
 
+	
+// Optional hyphenation
+@mixin hyphens($mode: auto) {
+  word-wrap: break-word;
+  -webkit-hyphens: $mode;
+     -moz-hyphens: $mode;
+      -ms-hyphens: $mode;
+       -o-hyphens: $mode;
+          hyphens: $mode;
+}
+
 // Opacity
 @mixin opacity($opacity: 1) {
   opacity: $opacity;
@@ -403,7 +430,7 @@
 // Horizontal dividers
 // -------------------
 // Dividers (basically an hr) within dropdowns and nav lists
-@mixin nav-divider() {
+@mixin nav-divider($top: #e5e5e5, $bottom: $white) {
   // IE7 needs a set width since we gave a height. Restricting just
   // to IE7 to keep the 1px left/right space in other browsers.
   // It is unclear where IE is getting the extra space that we need
@@ -413,8 +440,8 @@
   margin: (($baseLineHeight / 2) - 1) 1px; // 8px 1px
   *margin: -5px 0 5px;
   overflow: hidden;
-  background-color: #e5e5e5;
-  border-bottom: 1px solid $white;
+  background-color: $top;
+  border-bottom: 1px solid $bottom;
 }
 
 // Button backgrounds
