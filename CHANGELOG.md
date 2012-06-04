@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.4.0
+* Updated to Bootstrap 2.0.4
+* Switched to Bootstrap 2.0.3+'s method of separating responsive files
+* [#149, #150] Fix off by one error introduced with manual revert of media query breakpoints
+* `rake debug` and `rake test` both compile bootstrap & bootstrap-responsive
+
 ## 2.0.3.1
 * [#145, #146] Fix button alignment in collapsing navbar as a result of an incorrect variable
 
