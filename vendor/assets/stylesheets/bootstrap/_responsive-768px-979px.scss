@@ -1,0 +1,16 @@
+// PORTRAIT TABLET TO DEFAULT DESKTOP
+// ----------------------------------
+
+@media (min-width: 768px) and (max-width: 979px) {
+
+  // Fixed grid
+  @include gridCore($gridColumnWidthTablet, $gridGutterWidthTablet);
+
+  // Fluid grid
+  @include gridFluid($fluidGridColumnWidthTablet, $fluidGridGutterWidthTablet);
+
+  // Input grid
+  @include gridInput($gridColumnWidthTablet, $gridGutterWidthTablet);
+
+  // No need to reset .thumbnails here since it's the same $gridGutterWidth
+}
