@@ -1,3 +1,4 @@
 *.gem
 .sass-cache
-debug.css
+bootstrap.css
+bootstrap-responsive.css
