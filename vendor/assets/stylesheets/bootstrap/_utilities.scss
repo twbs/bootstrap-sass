@@ -21,3 +21,5 @@
 .invisible {
   visibility: hidden;
 }
+
+.clearfix { @include clearfix(); }
