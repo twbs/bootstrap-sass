@@ -585,14 +585,10 @@
     [class*="span"]:first-child {
       margin-left: 0;
     }
-
-    // generate .spanX
-    @include gridFluidSpanX($gridColumns, $columnWidth, $gutterWidth);
   }
-}
-@mixin gridFluidSpanX($cols, $columnWidth, $gutterWidth) {
-  @for $i from 1 through $cols {
-    .span#{$i} { @include gridFluidSpan($i, $columnWidth, $gutterWidth) };
+  // generate .row-fluid > .spanX
+  @for $i from 1 through $gridColumns {
+    .row-fluid > .span#{$i} { @include gridFluidSpan($i, $columnWidth, $gutterWidth) };
   }
 }
 @mixin gridFluidSpan($columns, $columnWidth, $gutterWidth) {
