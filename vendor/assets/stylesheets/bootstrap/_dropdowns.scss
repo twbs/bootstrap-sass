@@ -102,7 +102,7 @@
   text-decoration: none;
   outline: 0;
   background-color: $dropdownLinkBackgroundActive;
-  #gradient > .vertical($dropdownLinkBackgroundActive, darken($dropdownLinkBackgroundActive, 5%));
+  @include gradient-vertical($dropdownLinkBackgroundActive, darken($dropdownLinkBackgroundActive, 5%));
 }
 
 // Disabled state

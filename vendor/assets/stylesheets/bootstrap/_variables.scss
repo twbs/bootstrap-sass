@@ -109,10 +109,10 @@ $dropdownDividerBottom:         $white;
 $dropdownLinkColor:             $grayDark;
 
 $dropdownLinkColorHover:        $white;
+$dropdownLinkBackgroundActive:  $linkColor;
 $dropdownLinkBackgroundHover:   $dropdownLinkBackgroundActive;
 
 $dropdownLinkColorActive:       $dropdownLinkColor;
-$dropdownLinkBackgroundActive:  $linkColor;
 
 
 
@@ -133,8 +133,8 @@ $zindexModal:             1050;
 
 // Sprite icons path
 // -------------------------
-$iconSpritePath:          asset-url("glyphicons-halflings.png", image)
-$iconWhiteSpritePath:     asset-url("glyphicons-halflings-white.png", image)
+$iconSpritePath:          asset-url("glyphicons-halflings.png", image);
+$iconWhiteSpritePath:     asset-url("glyphicons-halflings-white.png", image);
 
 
 // Input placeholder text color
@@ -157,8 +157,8 @@ $wellBackground:                  #f5f5f5;
 $navbarCollapseWidth:             979px;
 
 $navbarHeight:                    40px;
-$navbarBackground:                darken($navbarBackgroundHighlight, 5%);
 $navbarBackgroundHighlight:       #ffffff;
+$navbarBackground:                darken($navbarBackgroundHighlight, 5%);
 $navbarBorder:                    darken($navbarBackground, 12%);
 
 $navbarText:                      $gray;

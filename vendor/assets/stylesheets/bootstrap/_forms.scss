@@ -189,7 +189,7 @@ input[type="checkbox"]:focus {
   color: $grayLight;
   background-color: darken($inputBackground, 1%);
   border-color: $inputBorder;
-  @include box-shadow(inset 0 1px 2px rgba(0,0,0,.025));
+  @include box-shadow(#{inset 0 1px 2px rgba(0,0,0,.025)});
   cursor: not-allowed;
 }
 
@@ -297,7 +297,7 @@ textarea[class*="span"],
 // ----------------------
 
 // Grid sizes
-@include gridInput($gridColumnWidth, $gridGutterWidth);
+@include gridInput($gridColumns, $gridColumnWidth, $gridGutterWidth);
 
 // Control row for multiple inputs per line
 .controls-row {

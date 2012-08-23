@@ -173,7 +173,7 @@
   textarea {
     color: $textColor;
     border-color: $borderColor;
-    .box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
     &:focus {
       border-color: darken($borderColor, 10%);
       // Write out in full since the lighten() function isn't easily escaped
@@ -227,20 +227,20 @@
 
 // Single Side Border Radius
 @mixin border-top-radius($radius) {
-  .border-top-right-radius($radius);
-  .border-top-left-radius($radius);
+  @include border-top-right-radius($radius);
+  @include border-top-left-radius($radius);
 }
 @mixin border-right-radius($radius) {
-  .border-top-right-radius($radius);
-  .border-bottom-right-radius($radius);
+  @include border-top-right-radius($radius);
+  @include border-bottom-right-radius($radius);
 }
 @mixin border-bottom-radius($radius) {
-  .border-bottom-right-radius($radius);
-  .border-bottom-left-radius($radius);
+  @include border-bottom-right-radius($radius);
+  @include border-bottom-left-radius($radius);
 }
 @mixin border-left-radius($radius) {
-  .border-top-left-radius($radius);
-  .border-bottom-left-radius($radius);
+  @include border-top-left-radius($radius);
+  @include border-bottom-left-radius($radius);
 }
 
 // Drop shadows
@@ -589,35 +589,39 @@
     }
 
     // generate .spanX and .offsetX
-    @include gridFluidSpanX($gridColumns, $columnWidth, $gutterWidth);
-    @include gridFluidOffsetX($gridColumns, $columnWidth, $gutterWidth);
-  }
-}
-@mixin gridFluidSpanX($cols, $columnWidth, $gutterWidth) {
-  @for $i from 1 through $cols {
-    .span#{$i} { @include gridFluidSpan($i, $columnWidth, $gutterWidth) };
+    //@include gridFluidSpanX($gridColumns, $columnWidth, $gutterWidth);
+
+    @for $i from 1 through $gridColumns {
+      .span#{$i} { @include gridFluidSpan($i, $columnWidth, $gutterWidth) }
+    }
+
+    //@include gridFluidOffsetX($gridColumns, $columnWidth, $gutterWidth);
   }
 }
 @mixin gridFluidSpan($columns, $columnWidth, $gutterWidth) {
   width: ($columnWidth * $columns) + ($gutterWidth * ($columns - 1));
   *width: ($columnWidth * $columns) + ($gutterWidth * ($columns - 1)) - (.5 / ($gridRowWidth/1px) * 100 * 1%);
 }
-@mixin gridInput($columnWidth, $gutterWidth) {
+
+@mixin gridInput($columns, $columnWidth, $gutterWidth) {
   input, textarea, .uneditable-input {
     margin-left: 0; // override margin-left from core grid system
   }
 
   // generate .spanX
-  @include gridInputSpanX($gridColumns, $columnWidth, $gutterWidth);
-}
-@mixin gridInputSpanX($cols, $columnWidth, $gutterWidth) {
-  @for $i from 1 through $cols {
-    input.span#{$i}, textarea.span#{$i}, .uneditable-input.span#{$i} { @include gridInputSpan($i, $columnWidth, $gutterWidth); }
+  //@include gridInputSpanX($gridColumns, $columnWidth, $gutterWidth);
+//}
+//@mixin gridInputSpanX($cols, $columnWidth, $gutterWidth) {
+  @for $i from 1 through $columns {
+    input.span#{$i}, textarea.span#{$i}, .uneditable-input.span#{$i} {
+      @include gridInputSpan($i, $columnWidth, $gutterWidth);
+    }
   }
 }
 @mixin gridInputSpan($columns, $columnWidth, $gutterWidth) {
   width: (($columnWidth) * $columns) + ($gutterWidth * ($columns - 1)) - 10;
 }
+
 @mixin makeFluidColumn($columns, $columnWidth, $gutterWidth) {
   // This isn't perfect, but it's better than nothing.
   float: left;
