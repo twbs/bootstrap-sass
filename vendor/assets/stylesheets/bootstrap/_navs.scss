@@ -122,8 +122,8 @@
 // Active state, and it's :hover to override normal :hover
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover {
-  color: @gray;
-  background-color: @white;
+  color: $gray;
+  background-color: $white;
   border: 1px solid #ddd;
   border-bottom-color: transparent;
   cursor: default;
@@ -303,7 +303,7 @@
   margin-bottom: 0;
 }
 .tabs-below > .nav-tabs > li > a {
-  .border-radius(0 0 4px 4px);
+  @include border-radius(0 0 4px 4px);
   &:hover {
     border-bottom-color: transparent;
     border-top-color: #ddd;
@@ -337,7 +337,7 @@
 }
 .tabs-left > .nav-tabs > li > a {
   margin-right: -1px;
-  $include border-radius(4px 0 0 4px);
+  @include border-radius(4px 0 0 4px);
 }
 .tabs-left > .nav-tabs > li > a:hover {
   border-color: $grayLighter #ddd $grayLighter $grayLighter;

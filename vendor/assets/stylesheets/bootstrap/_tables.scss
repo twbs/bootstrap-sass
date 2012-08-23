@@ -71,7 +71,7 @@ table {
   border-collapse: separate; // Done so we can round those corners!
   *border-collapse: collapse; // IE7 can't round corners anyway
   border-left: 0;
-  .border-radius(4px);
+  @include border-radius(4px);
   th,
   td {
     border-left: 1px solid $tableBorder;
@@ -105,7 +105,7 @@ table {
   thead:last-child tr:last-child th:first-child,
   tbody:last-child tr:last-child td:first-child,
   tfoot:last-child tr:last-child td:first-child {
-    .border-radius(0 0 0 4px);
+    @include border-radius(0 0 0 4px);
     -webkit-border-bottom-left-radius: 4px;
             border-bottom-left-radius: 4px;
         -moz-border-radius-bottomleft: 4px;
@@ -181,30 +181,30 @@ table [class*=span],
 
 // Change the column widths to account for td/th padding
 table {
-  .span1     { .tableColumns(1); }
-  .span2     { .tableColumns(2); }
-  .span3     { .tableColumns(3); }
-  .span4     { .tableColumns(4); }
-  .span5     { .tableColumns(5); }
-  .span6     { .tableColumns(6); }
-  .span7     { .tableColumns(7); }
-  .span8     { .tableColumns(8); }
-  .span9     { .tableColumns(9); }
-  .span10    { .tableColumns(10); }
-  .span11    { .tableColumns(11); }
-  .span12    { .tableColumns(12); }
-  .span13    { .tableColumns(13); }
-  .span14    { .tableColumns(14); }
-  .span15    { .tableColumns(15); }
-  .span16    { .tableColumns(16); }
-  .span17    { .tableColumns(17); }
-  .span18    { .tableColumns(18); }
-  .span19    { .tableColumns(19); }
-  .span20    { .tableColumns(20); }
-  .span21    { .tableColumns(21); }
-  .span22    { .tableColumns(22); }
-  .span23    { .tableColumns(23); }
-  .span24    { .tableColumns(24); }
+  .span1     { @include tableColumns(1); }
+  .span2     { @include tableColumns(2); }
+  .span3     { @include tableColumns(3); }
+  .span4     { @include tableColumns(4); }
+  .span5     { @include tableColumns(5); }
+  .span6     { @include tableColumns(6); }
+  .span7     { @include tableColumns(7); }
+  .span8     { @include tableColumns(8); }
+  .span9     { @include tableColumns(9); }
+  .span10    { @include tableColumns(10); }
+  .span11    { @include tableColumns(11); }
+  .span12    { @include tableColumns(12); }
+  .span13    { @include tableColumns(13); }
+  .span14    { @include tableColumns(14); }
+  .span15    { @include tableColumns(15); }
+  .span16    { @include tableColumns(16); }
+  .span17    { @include tableColumns(17); }
+  .span18    { @include tableColumns(18); }
+  .span19    { @include tableColumns(19); }
+  .span20    { @include tableColumns(20); }
+  .span21    { @include tableColumns(21); }
+  .span22    { @include tableColumns(22); }
+  .span23    { @include tableColumns(23); }
+  .span24    { @include tableColumns(24); }
 }
 
 

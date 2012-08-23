@@ -19,10 +19,10 @@
   vertical-align: middle;
   cursor: pointer;
   @include buttonBackground($btnBackground, $btnBackgroundHighlight, $grayDark, 0 1px 1px rgba(255,255,255,.75));
-  border: 1px solid @btnBorder;
+  border: 1px solid $btnBorder;
   *border: 0; // Remove the border to prevent IE7's black border on input:focus
-  border-bottom-color: darken(@btnBorder, 10%);
-  .border-radius(4px);
+  border-bottom-color: darken($btnBorder, 10%);
+  @include border-radius(4px);
   @include ie7-restore-left-whitespace(); // Give IE7 some love
   @include box-shadow(#{inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)});
 
@@ -48,7 +48,7 @@
   &.active,
   &:active {
     background-color: darken($white, 10%);
-    background-color: darken($white, 15%) e("\9");
+    background-color: darken($white, 15%) \9;
     background-image: none;
     outline: 0;
     @include box-shadow(#{inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)});

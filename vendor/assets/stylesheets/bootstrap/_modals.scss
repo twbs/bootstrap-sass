@@ -85,7 +85,7 @@
   @include border-radius(0 0 6px 6px);
   @include box-shadow(inset 0 1px 0 $white);
   @include clearfix(); // clear it in case folks use .pull-* classes on buttons
-    @include transition(e('opacity .3s linear, top .3s ease-out'));
+  @include transition(#{opacity .3s linear, top .3s ease-out});
 
   // Properly space out buttons
   .btn + .btn {

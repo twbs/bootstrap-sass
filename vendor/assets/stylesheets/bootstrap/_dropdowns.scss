@@ -68,7 +68,7 @@
 
   // Dividers (basically an hr) within the dropdown
   .divider {
-    .nav-divider($dropdownDividerTop, $dropdownDividerBottom);
+    @include nav-divider($dropdownDividerTop, $dropdownDividerBottom);
   }
 
   // Links within the dropdown menu
@@ -91,7 +91,7 @@
   text-decoration: none;
   color: $dropdownLinkColorHover;
   background-color: $dropdownLinkBackgroundHover;
-  #gradient > .vertical($dropdownLinkBackgroundHover, darken($dropdownLinkBackgroundHover, 5%));
+  @include gradient-vertical($dropdownLinkBackgroundHover, darken($dropdownLinkBackgroundHover, 5%));
 }
 
 // Active state
