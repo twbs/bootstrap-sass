@@ -1,0 +1,5 @@
+// Fixed (940px)
+@include gridCore($gridColumnWidth, $gridGutterWidth);
+
+// Fluid (940px)
+@include gridFluid($fluidGridColumnWidth, $fluidGridGutterWidth);

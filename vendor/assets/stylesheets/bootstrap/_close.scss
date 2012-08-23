@@ -1,5 +1,7 @@
-// CLOSE ICONS
-// -----------
+//
+// Close icons
+// --------------------------------------------------
+
 
 .close {
   float: right;
@@ -8,12 +10,12 @@
   line-height: $baseLineHeight;
   color: $black;
   text-shadow: 0 1px 0 rgba(255,255,255,1);
-  @include opacity(0.2);
+  @include opacity(20);
   &:hover {
     color: $black;
     text-decoration: none;
     cursor: pointer;
-    @include opacity(0.4);
+    @include opacity(40);
   }
 }
 
@@ -23,7 +25,7 @@
 button.close {
   padding: 0;
   cursor: pointer;
-  background-color: transparent;
+  background: transparent;
   border: 0;
   -webkit-appearance: none;
 }

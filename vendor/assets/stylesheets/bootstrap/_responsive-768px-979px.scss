@@ -1,16 +1,19 @@
-// PORTRAIT TABLET TO DEFAULT DESKTOP
-// ----------------------------------
+//
+// Responsive: Tablet to desktop
+// --------------------------------------------------
+
 
 @media (min-width: 768px) and (max-width: 979px) {
 
   // Fixed grid
-  @include gridCore($gridColumnWidthTablet, $gridGutterWidthTablet);
+  #grid > .core(@gridColumnWidth768, @gridGutterWidth768);
 
   // Fluid grid
-  @include gridFluid($fluidGridColumnWidthTablet, $fluidGridGutterWidthTablet);
+  #grid > .fluid(@fluidGridColumnWidth768, @fluidGridGutterWidth768);
 
   // Input grid
-  @include gridInput($gridColumnWidthTablet, $gridGutterWidthTablet);
+  #grid > .input(@gridColumnWidth768, @gridGutterWidth768);
 
-  // No need to reset .thumbnails here since it's the same $gridGutterWidth
+  // No need to reset .thumbnails here since it's the same @gridGutterWidth
+
 }

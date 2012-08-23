@@ -1,18 +1,31 @@
-// Reset.css.scss
-// Adapted from Normalize.css http://github.com/necolas/normalize.css
-// ------------------------------------------------------------------------
+//
+// Modals
+// Adapted from http://github.com/necolas/normalize.css
+// --------------------------------------------------
+
 
 // Display in IE6-9 and FF3
 // -------------------------
 
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
   display: block;
 }
 
 // Display block in IE6-9 and FF3
 // -------------------------
 
-audio, canvas, video {
+audio,
+canvas,
+video {
   display: inline-block;
   *display: inline;
   *zoom: 1;
@@ -35,17 +48,19 @@ html {
 }
 // Focus states
 a:focus {
-  @include tab-focus();
+  .tab-focus();
 }
 // Hover & Active
-a:hover, a:active {
+a:hover,
+a:active {
   outline: 0;
 }
 
 // Prevents sub and sup affecting line-height in all browsers
 // -------------------------
 
-sub, sup {
+sub,
+sup {
   position: relative;
   font-size: 75%;
   line-height: 0;
@@ -63,6 +78,7 @@ sub {
 
 img {
   max-width: 100%; // Make images inherently responsive
+  height: auto; // Make images inherently responsive
   vertical-align: middle;
   border: 0;
   -ms-interpolation-mode: bicubic;
@@ -77,20 +93,28 @@ img {
 // -------------------------
 
 // Font size in all browsers, margin changes, misc consistency
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   margin: 0;
   font-size: 100%;
   vertical-align: middle;
 }
-button, input {
+button,
+input {
   *overflow: visible; // Inner spacing ie IE6/7
   line-height: normal; // FF3/4 have !important on line-height in UA stylesheet
 }
-button::-moz-focus-inner, input::-moz-focus-inner { // Inner padding and border oddities in FF3/4
+button::-moz-focus-inner,
+input::-moz-focus-inner { // Inner padding and border oddities in FF3/4
   padding: 0;
   border: 0;
 }
-button, input[type="button"], input[type="reset"], input[type="submit"] {
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
   cursor: pointer; // Cursors on all buttons applied consistently
   -webkit-appearance: button; // Style clickable inputs in iOS
 }
