@@ -73,7 +73,7 @@ $btnBackgroundHighlight:            darken($white, 10%);
 $btnBorder:                         #bbb;
 
 $btnPrimaryBackground:              $linkColor;
-$btnPrimaryBackgroundHighlight:     spin($btnPrimaryBackground, 20%);
+$btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 20%);
 
 $btnInfoBackground:                 #5bc0de;
 $btnInfoBackgroundHighlight:        #2f96b4;
@@ -133,8 +133,8 @@ $zindexModal:             1050;
 
 // Sprite icons path
 // -------------------------
-$iconSpritePath:          "../img/glyphicons-halflings.png";
-$iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
+$iconSpritePath:          asset-url("glyphicons-halflings.png", image)
+$iconWhiteSpritePath:     asset-url("glyphicons-halflings-white.png", image)
 
 
 // Input placeholder text color
@@ -208,19 +208,19 @@ $heroUnitLeadColor:               inherit;
 // -------------------------
 $warningText:             #c09853;
 $warningBackground:       #fcf8e3;
-$warningBorder:           darken(spin($warningBackground, -10), 3%);
+$warningBorder:           darken(adjust-hue($warningBackground, -10), 3%);
 
 $errorText:               #b94a48;
 $errorBackground:         #f2dede;
-$errorBorder:             darken(spin($errorBackground, -10), 3%);
+$errorBorder:             darken(adjust-hue($errorBackground, -10), 3%);
 
 $successText:             #468847;
 $successBackground:       #dff0d8;
-$successBorder:           darken(spin($successBackground, -10), 5%);
+$successBorder:           darken(adjust-hue($successBackground, -10), 5%);
 
 $infoText:                #3a87ad;
 $infoBackground:          #d9edf7;
-$infoBorder:              darken(spin($infoBackground, -10), 7%);
+$infoBorder:              darken(adjust-hue($infoBackground, -10), 7%);
 
 
 // Tooltips and popovers
