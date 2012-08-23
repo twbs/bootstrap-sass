@@ -8,7 +8,7 @@
 
 table {
   max-width: 100%;
-  background-color: @tableBackground;
+  background-color: $tableBackground;
   border-collapse: collapse;
   border-spacing: 0;
 }
@@ -18,15 +18,15 @@ table {
 
 .table {
   width: 100%;
-  margin-bottom: @baseLineHeight;
+  margin-bottom: $baseLineHeight;
   // Cells
   th,
   td {
     padding: 8px;
-    line-height: @baseLineHeight;
+    line-height: $baseLineHeight;
     text-align: left;
     vertical-align: top;
-    border-top: 1px solid @tableBorder;
+    border-top: 1px solid $tableBorder;
   }
   th {
     font-weight: bold;
@@ -46,7 +46,7 @@ table {
   }
   // Account for multiple tbody instances
   tbody + tbody {
-    border-top: 2px solid @tableBorder;
+    border-top: 2px solid $tableBorder;
   }
 }
 
@@ -67,14 +67,14 @@ table {
 // ----------------
 
 .table-bordered {
-  border: 1px solid @tableBorder;
+  border: 1px solid $tableBorder;
   border-collapse: separate; // Done so we can round those corners!
   *border-collapse: collapse; // IE7 can't round corners anyway
   border-left: 0;
   .border-radius(4px);
   th,
   td {
-    border-left: 1px solid @tableBorder;
+    border-left: 1px solid $tableBorder;
   }
   // Prevent a double border
   caption + thead tr:first-child th,
@@ -149,7 +149,7 @@ table {
   tbody {
     tr:nth-child(odd) td,
     tr:nth-child(odd) th {
-      background-color: @tableBackgroundAccent;
+      background-color: $tableBackgroundAccent;
     }
   }
 }
@@ -162,7 +162,7 @@ table {
   tbody {
     tr:hover td,
     tr:hover th {
-      background-color: @tableBackgroundHover;
+      background-color: $tableBackgroundHover;
     }
   }
 }
@@ -214,12 +214,12 @@ table {
 
 .table {
   tbody tr.success td {
-    background-color: @successBackground;
+    background-color: $successBackground;
   }
   tbody tr.error td {
-    background-color: @errorBackground;
+    background-color: $errorBackground;
   }
   tbody tr.info td {
-    background-color: @infoBackground;
+    background-color: $infoBackground;
   }
 }

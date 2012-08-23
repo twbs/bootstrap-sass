@@ -7,13 +7,13 @@
 // -------------------------
 
 p {
-  margin: 0 0 @baseLineHeight / 2;
+  margin: 0 0 $baseLineHeight / 2;
 }
 .lead {
-  margin-bottom: @baseLineHeight;
+  margin-bottom: $baseLineHeight;
   font-size: 20px;
   font-weight: 200;
-  line-height: @baseLineHeight * 1.5;
+  line-height: $baseLineHeight * 1.5;
 }
 
 
@@ -33,7 +33,7 @@ cite {
   font-style: normal;
 }
 .muted {
-  color: @grayLight;
+  color: $grayLight;
 }
 
 
@@ -41,16 +41,16 @@ cite {
 // -------------------------
 
 h1, h2, h3, h4, h5, h6 {
-  margin: (@baseLineHeight / 2) 0;
-  font-family: @headingsFontFamily;
-  font-weight: @headingsFontWeight;
+  margin: ($baseLineHeight / 2) 0;
+  font-family: $headingsFontFamily;
+  font-weight: $headingsFontWeight;
   line-height: 1;
-  color: @headingsColor;
+  color: $headingsColor;
   text-rendering: optimizelegibility; // Fix the character spacing for headings
   small {
     font-weight: normal;
     line-height: 1;
-    color: @grayLight;
+    color: $grayLight;
   }
 }
 h1 { font-size: 36px; line-height: 40px; }
@@ -70,9 +70,9 @@ h4 small { font-size: 14px; }
 // -------------------------
 
 .page-header {
-  padding-bottom: (@baseLineHeight / 2) - 1;
-  margin: @baseLineHeight 0 (@baseLineHeight * 1.5);
-  border-bottom: 1px solid @grayLighter;
+  padding-bottom: ($baseLineHeight / 2) - 1;
+  margin: $baseLineHeight 0 ($baseLineHeight * 1.5);
+  border-bottom: 1px solid $grayLighter;
 }
 
 
@@ -83,7 +83,7 @@ h4 small { font-size: 14px; }
 // Unordered and Ordered lists
 ul, ol {
   padding: 0;
-  margin: 0 0 @baseLineHeight / 2 25px;
+  margin: 0 0 $baseLineHeight / 2 25px;
 }
 ul ul,
 ul ol,
@@ -92,7 +92,7 @@ ol ul {
   margin-bottom: 0;
 }
 li {
-  line-height: @baseLineHeight;
+  line-height: $baseLineHeight;
 }
 ul.unstyled,
 ol.unstyled {
@@ -102,17 +102,17 @@ ol.unstyled {
 
 // Description Lists
 dl {
-  margin-bottom: @baseLineHeight;
+  margin-bottom: $baseLineHeight;
 }
 dt,
 dd {
-  line-height: @baseLineHeight;
+  line-height: $baseLineHeight;
 }
 dt {
   font-weight: bold;
 }
 dd {
-  margin-left: @baseLineHeight / 2;
+  margin-left: $baseLineHeight / 2;
 }
 // Horizontal layout (like forms)
 .dl-horizontal {
@@ -121,7 +121,7 @@ dd {
     width: 120px;
     clear: left;
     text-align: right;
-    .text-overflow();
+    @include text-overflow();
   }
   dd {
     margin-left: 130px;
@@ -133,16 +133,16 @@ dd {
 
 // Horizontal rules
 hr {
-  margin: @baseLineHeight 0;
+  margin: $baseLineHeight 0;
   border: 0;
-  border-top: 1px solid @hrBorder;
-  border-bottom: 1px solid @white;
+  border-top: 1px solid $hrBorder;
+  border-bottom: 1px solid $white;
 }
 
 // Abbreviations and acronyms
 abbr[title] {
   cursor: help;
-  border-bottom: 1px dotted @grayLight;
+  border-bottom: 1px dotted $grayLight;
 }
 abbr.initialism {
   font-size: 90%;
@@ -152,16 +152,16 @@ abbr.initialism {
 // Blockquotes
 blockquote {
   padding: 0 0 0 15px;
-  margin: 0 0 @baseLineHeight;
-  border-left: 5px solid @grayLighter;
+  margin: 0 0 $baseLineHeight;
+  border-left: 5px solid $grayLighter;
   p {
     margin-bottom: 0;
-    #font > .shorthand(16px,300,@baseLineHeight * 1.25);
+    @include font-shorthand(16px,300,$baseLineHeight * 1.25);
   }
   small {
     display: block;
-    line-height: @baseLineHeight;
-    color: @grayLight;
+    line-height: $baseLineHeight;
+    color: $grayLight;
     &:before {
       content: '\2014 \00A0';
     }
@@ -172,7 +172,7 @@ blockquote {
     float: right;
     padding-right: 15px;
     padding-left: 0;
-    border-right: 5px solid @grayLighter;
+    border-right: 5px solid $grayLighter;
     border-left: 0;
     p,
     small {
@@ -200,7 +200,7 @@ blockquote:after {
 // Addresses
 address {
   display: block;
-  margin-bottom: @baseLineHeight;
+  margin-bottom: $baseLineHeight;
   font-style: normal;
-  line-height: @baseLineHeight;
+  line-height: $baseLineHeight;
 }

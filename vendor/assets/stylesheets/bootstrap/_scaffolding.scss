@@ -8,11 +8,11 @@
 
 body {
   margin: 0;
-  font-family: @baseFontFamily;
-  font-size: @baseFontSize;
-  line-height: @baseLineHeight;
-  color: @textColor;
-  background-color: @bodyBackground;
+  font-family: $baseFontFamily;
+  font-size: $baseFontSize;
+  line-height: $baseLineHeight;
+  color: $textColor;
+  background-color: $bodyBackground;
 }
 
 
@@ -20,11 +20,11 @@ body {
 // -------------------------
 
 a {
-  color: @linkColor;
+  color: $linkColor;
   text-decoration: none;
 }
 a:hover {
-  color: @linkColorHover;
+  color: $linkColorHover;
   text-decoration: underline;
 }
 
@@ -33,7 +33,7 @@ a:hover {
 // -------------------------
 
 .img-rounded {
-  .border-radius(6px);
+  @include border-radius(6px);
 }
 
 .img-polaroid {
@@ -47,5 +47,5 @@ a:hover {
 }
 
 .img-circle {
-  .border-radius(500px);
+  @include border-radius(500px);
 }

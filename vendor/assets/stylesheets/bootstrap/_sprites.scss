@@ -19,10 +19,10 @@
   display: inline-block;
   width: 14px;
   height: 14px;
-  .ie7-restore-right-whitespace();
+  @include ie7-restore-right-whitespace();
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("@{iconSpritePath}");
+  background-image: $iconSpritePath;
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px;
@@ -36,7 +36,7 @@
 .dropdown-menu > li > a:hover > [class*=" icon-"],
 .dropdown-menu > .active > a > [class^="icon-"],
 .dropdown-menu > .active > a > [class*=" icon-"] {
-  background-image: url("@{iconWhiteSpritePath}");
+  background-image: $iconWhiteSpritePath;
 }
 
 .icon-glass              { background-position: 0      0; }

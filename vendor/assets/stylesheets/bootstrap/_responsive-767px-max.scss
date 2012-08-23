@@ -66,7 +66,7 @@
   .span12,
   .row-fluid .span12 {
     width: 100%;
-    .box-sizing(border-box);
+    @include box-sizing(border-box);
   }
 
   // FORM FIELDS
@@ -79,7 +79,7 @@
   select[class*="span"],
   textarea[class*="span"],
   .uneditable-input {
-    .input-block-level();
+    @include input-block-level();
   }
   // But don't let it screw up prepend/append inputs
   .input-prepend input,
@@ -118,7 +118,7 @@
   // Block level the page header small tag for readability
   .page-header h1 small {
     display: block;
-    line-height: @baseLineHeight;
+    line-height: $baseLineHeight;
   }
 
   // Update checkboxes for iOS

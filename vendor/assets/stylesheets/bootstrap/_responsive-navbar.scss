@@ -19,10 +19,10 @@
     position: static;
   }
   .navbar-fixed-top {
-    margin-bottom: @baseLineHeight;
+    margin-bottom: $baseLineHeight;
   }
   .navbar-fixed-bottom {
-    margin-top: @baseLineHeight;
+    margin-top: $baseLineHeight;
   }
   .navbar-fixed-top .navbar-inner,
   .navbar-fixed-bottom .navbar-inner {
@@ -48,7 +48,7 @@
   // Block-level the nav
   .nav-collapse .nav {
     float: none;
-    margin: 0 0 (@baseLineHeight / 2);
+    margin: 0 0 ($baseLineHeight / 2);
   }
   .nav-collapse .nav > li {
     float: none;
@@ -60,7 +60,7 @@
     display: none;
   }
   .nav-collapse .nav .nav-header {
-    color: @navbarText;
+    color: $navbarText;
     text-shadow: none;
   }
   // Nav and dropdown links in navbar
@@ -68,8 +68,8 @@
   .nav-collapse .dropdown-menu a {
     padding: 9px 15px;
     font-weight: bold;
-    color: @navbarLinkColor;
-    .border-radius(3px);
+    color: $navbarLinkColor;
+    @include border-radius(3px);
   }
   // Buttons
   .nav-collapse .btn {
@@ -82,11 +82,11 @@
   }
   .nav-collapse .nav > li > a:hover,
   .nav-collapse .dropdown-menu a:hover {
-    background-color: @navbarBackground;
+    background-color: $navbarBackground;
   }
   .navbar-inverse .nav-collapse .nav > li > a:hover,
   .navbar-inverse .nav-collapse .dropdown-menu a:hover {
-    background-color: @navbarInverseBackground;
+    background-color: $navbarInverseBackground;
   }
   // Buttons in the navbar
   .nav-collapse.in .btn-group {
@@ -105,8 +105,8 @@
     padding: 0;
     background-color: transparent;
     border: none;
-    .border-radius(0);
-    .box-shadow(none);
+    @include border-radius(0);
+    @include box-shadow(none);
   }
   .nav-collapse .dropdown-menu:before,
   .nav-collapse .dropdown-menu:after {
@@ -119,11 +119,11 @@
   .nav-collapse .navbar-form,
   .nav-collapse .navbar-search {
     float: none;
-    padding: (@baseLineHeight / 2) 15px;
-    margin: (@baseLineHeight / 2) 0;
-    border-top: 1px solid @navbarBackground;
-    border-bottom: 1px solid @navbarBackground;
-    .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1)");
+    padding: ($baseLineHeight / 2) 15px;
+    margin: ($baseLineHeight / 2) 0;
+    border-top: 1px solid $navbarBackground;
+    border-bottom: 1px solid $navbarBackground;
+    @include box-shadow("#{inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1)}");
   }
   // Pull right (secondary) nav content
   .navbar .nav-collapse .nav.pull-right {
