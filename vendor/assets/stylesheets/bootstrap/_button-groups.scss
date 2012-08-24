@@ -231,14 +231,14 @@
   margin-top: -1px;
 }
 .btn-group-vertical .btn:first-child {
-  @include border-radius(4px 4px 0 0);
+  @include border-top-radius(4px);
 }
 .btn-group-vertical .btn:last-child {
-  @include border-radius(0 0 4px 4px);
+  @include border-bottom-radius(4px);
 }
 .btn-group-vertical .btn-large:first-child {
-  @include border-radius(6px 6px 0 0);
+  @include border-top-radius(6px);
 }
 .btn-group-vertical .btn-large:last-child {
-  @include border-radius(0 0 6px 6px);
+  @include border-bottom-radius(6px);
 }
