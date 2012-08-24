@@ -1,4 +1,4 @@
-# Bootstrap for Sass
+# Bootstrap 2.1.0 for Sass
 
 [![Build Status](https://secure.travis-ci.org/thomas-mcdonald/bootstrap-sass.png?branch=master)](http://travis-ci.org/thomas-mcdonald/bootstrap-sass)
 
@@ -16,7 +16,7 @@ Updating your application to a new version of `bootstrap-sass`? See our [changel
 In your Gemfile:
 
     gem 'sass-rails', '~> 3.1'
-    gem 'bootstrap-sass', '~> 2.0.4.0'
+    gem "bootstrap-sass", :git => 'git://github.com/dszczyt/bootstrap-sass.git'
 
 #### CSS
 
