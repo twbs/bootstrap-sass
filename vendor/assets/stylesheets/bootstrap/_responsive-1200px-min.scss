@@ -12,7 +12,7 @@
   @include gridFluid($fluidGridColumnWidth1200, $fluidGridGutterWidth1200);
 
   // Input grid
-  @include gridInput($gridColumnWidth1200, $gridGutterWidth1200);
+  @include gridInput($gridColumns, $gridColumnWidth1200, $gridGutterWidth1200);
 
   // Thumbnails
   .thumbnails {

@@ -5,7 +5,7 @@
 
 // TABLETS AND BELOW
 // -----------------
-@media (max-width: @navbarCollapseWidth) {
+@media (max-width: $navbarCollapseWidth) {
 
   // UNFIX THE TOPBAR
   // ----------------
@@ -75,7 +75,7 @@
   .nav-collapse .btn {
     padding: 4px 10px 4px;
     font-weight: normal;
-    .border-radius(4px);
+    @include border-radius(4px);
   }
   .nav-collapse .dropdown-menu li + li a {
     margin-bottom: 2px;
