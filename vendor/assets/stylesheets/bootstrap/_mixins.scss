@@ -562,16 +562,14 @@
 }
 
 @mixin gridCoreSpanX($gridColumns, $columnWidth, $gutterWidth) {
-	@while $gridColumns > 0 {
-		.span#{$gridColumns} { @include gridCoreSpan($gridColumns, $columnWidth, $gutterWidth); }
-		$gridColumn: $gridColumns - 1;
+	@for $i from 1 through $gridColumns {
+		.span#{$i} { @include gridCoreSpan($i, $columnWidth, $gutterWidth); }
 	}
 }
 
 @mixin gridCoreOffsetX($gridColumns, $columnWidth, $gutterWidth) {
-	@while $gridColumns > 0 {
-		.offset#{$gridColumns} { @include gridCoreOffset($gridColumns, $columnWidth, $gutterWidth); }
-		$gridColumn: $gridColumns - 1;
+	@for $i from 1 through $gridColumns {
+		.offset#{$i} { @include gridCoreOffset($i, $columnWidth, $gutterWidth); }
 	}
 }
 
@@ -596,8 +594,6 @@
 		}
 		[class*="span"]:first-child {
 			margin-left: 0;
-		}
-
 		// generate .spanX and .offsetX
 		@include gridFluidSpanX($gridColumns, $fluidGridColumnWidth, $fluidGridGutterWidth);
 		@include gridFluidOffsetX($gridColumns, $fluidGridColumnWidth, $fluidGridGutterWidth);
@@ -605,17 +601,15 @@
 }
 
 @mixin gridFluidSpanX($gridColumns, $columnWidth, $gutterWidth) {
-	@while $gridColumns > 0 {
-		.span#{$gridColumns} { @include gridFluidSpan($gridColumns, $columnWidth, $gutterWidth); }
-		$gridColumns: $gridColumns - 1;
+	@for $i from 1 through $gridColumns {
+		.span#{$i} { @include gridFluidSpan($i, $columnWidth, $gutterWidth); }
 	}
 }
 
 @mixin gridFluidOffsetX($gridColumns, $columnWidth, $gutterWidth) {
-	@while $gridColumns > 0 {
-		.offset#{$gridColumns} { @include gridFluidOffset($gridColumns, $columnWidth, $gutterWidth); }
-		.offset#{$gridColumns}:first-child { @include gridFluidOffsetFirstChild($gridColumns, $columnWidth, $gutterWidth); }
-		$gridColumns: $gridColumns - 1;
+	@for $i from 1 through $gridColumns {
+		.offset#{$i} { @include gridFluidOffset($i, $columnWidth, $gutterWidth); }
+		.offset#{$i}:first-child { @include gridFluidOffsetFirstChild($i, $columnWidth, $gutterWidth); }
 	}
 }
 
@@ -652,9 +646,8 @@
 }
 
 @mixin gridInputSpanX ($gridColumns, $columnWidth, $gutterWidth) {
-	@while $gridColumns > 0 {
-		input.span#{$gridColumns}, textarea.span#{$gridColumns}, .uneditable-input.span#{$gridColumns} { @include gridInputSpan($gridColumns, $columnWidth, $gutterWidth); }
-		$gridColumns: $gridColumns - 1;
+	@for $i from 1 through $gridColumns {
+		input.span#{$gridColumns}, textarea.span#{$i}, .uneditable-input.span#{$gridColumns} { @include gridInputSpan($i, $columnWidth, $gutterWidth); }
 	}
 }
 
