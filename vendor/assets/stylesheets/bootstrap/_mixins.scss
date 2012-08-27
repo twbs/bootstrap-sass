@@ -594,10 +594,12 @@
 		}
 		[class*="span"]:first-child {
 			margin-left: 0;
+    }
+
 		// generate .spanX and .offsetX
 		@include gridFluidSpanX($gridColumns, $fluidGridColumnWidth, $fluidGridGutterWidth);
 		@include gridFluidOffsetX($gridColumns, $fluidGridColumnWidth, $fluidGridGutterWidth);
-    }
+  }
 }
 
 @mixin gridFluidSpanX($gridColumns, $columnWidth, $gutterWidth) {
