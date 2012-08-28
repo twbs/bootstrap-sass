@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.4.1
+* Fix `.row-fluid > spanX` nesting
+* Small Javascript fixes for those staying on the 2.0.4 release
+* Add `!default` to z-index variables.
+
 ## 2.0.4.0
 * Updated to Bootstrap 2.0.4
 * Switched to Bootstrap 2.0.3+'s method of separating responsive files
