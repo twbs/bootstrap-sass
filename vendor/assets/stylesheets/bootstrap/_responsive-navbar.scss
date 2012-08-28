@@ -1,6 +1,11 @@
+//
+// Responsive: Navbar
+// --------------------------------------------------
+
+
 // TABLETS AND BELOW
 // -----------------
-@media (max-width: 979px) {
+@media (max-width: $navbarCollapseWidth) {
 
   // UNFIX THE TOPBAR
   // ----------------
@@ -8,8 +13,9 @@
   body {
     padding-top: 0;
   }
-  // Unfix the navbar
-  .navbar-fixed-top, .navbar-fixed-bottom {
+  // Unfix the navbars
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
     position: static;
   }
   .navbar-fixed-top {
@@ -18,7 +24,8 @@
   .navbar-fixed-bottom {
     margin-top: $baseLineHeight;
   }
-  .navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner {
+  .navbar-fixed-top .navbar-inner,
+  .navbar-fixed-bottom .navbar-inner {
     padding: 5px;
   }
   .navbar .container {
@@ -57,8 +64,9 @@
     text-shadow: none;
   }
   // Nav and dropdown links in navbar
-  .nav-collapse .nav > li > a, .nav-collapse .dropdown-menu a {
-    padding: 6px 15px;
+  .nav-collapse .nav > li > a,
+  .nav-collapse .dropdown-menu a {
+    padding: 9px 15px;
     font-weight: bold;
     color: $navbarLinkColor;
     @include border-radius(3px);
@@ -72,8 +80,13 @@
   .nav-collapse .dropdown-menu li + li a {
     margin-bottom: 2px;
   }
-  .nav-collapse .nav > li > a:hover, .nav-collapse .dropdown-menu a:hover {
+  .nav-collapse .nav > li > a:hover,
+  .nav-collapse .dropdown-menu a:hover {
     background-color: $navbarBackground;
+  }
+  .navbar-inverse .nav-collapse .nav > li > a:hover,
+  .navbar-inverse .nav-collapse .dropdown-menu a:hover {
+    background-color: $navbarInverseBackground;
   }
   // Buttons in the navbar
   .nav-collapse.in .btn-group {
@@ -95,20 +108,22 @@
     @include border-radius(0);
     @include box-shadow(none);
   }
-  .nav-collapse .dropdown-menu:before, .nav-collapse .dropdown-menu:after {
+  .nav-collapse .dropdown-menu:before,
+  .nav-collapse .dropdown-menu:after {
     display: none;
   }
   .nav-collapse .dropdown-menu .divider {
     display: none;
   }
   // Forms in navbar
-  .nav-collapse .navbar-form, .nav-collapse .navbar-search {
+  .nav-collapse .navbar-form,
+  .nav-collapse .navbar-search {
     float: none;
     padding: ($baseLineHeight / 2) 15px;
     margin: ($baseLineHeight / 2) 0;
     border-top: 1px solid $navbarBackground;
     border-bottom: 1px solid $navbarBackground;
-    @include box-shadow(#{inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1)});
+    @include box-shadow("#{inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1)}");
   }
   // Pull right (secondary) nav content
   .navbar .nav-collapse .nav.pull-right {
@@ -132,16 +147,20 @@
     padding-left:  10px;
     padding-right: 10px;
   }
+
+
 }
 
 
 // DEFAULT DESKTOP
 // ---------------
 
-// Required to make the collapsing navbar work on regular desktops
 @media (min-width: 980px) {
+
+  // Required to make the collapsing navbar work on regular desktops
   .nav-collapse.collapse {
     height: auto !important;
     overflow: visible !important;
   }
+
 }
