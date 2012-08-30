@@ -304,6 +304,7 @@ input:focus:required:invalid, textarea:focus:required:invalid, select:focus:requ
 // Allow us to put symbols and text within the input field for a cleaner look
 .input-prepend, .input-append {
   margin-bottom: 5px;
+  white-space: nowrap;
   input, select, .uneditable-input {
     position: relative; // placed here by default so that on :focus we can place the input above the .add-on for full border and box-shadow goodness
     margin-bottom: 0; // prevent bottom margin from screwing up alignment in stacked forms
