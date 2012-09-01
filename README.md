@@ -13,7 +13,7 @@ Enjoy.
 In your Gemfile:
 
     gem 'sass-rails', '~> 3.1'
-    gem 'bootstrap-sass', '~> 2.0.4.1'
+    gem 'bootstrap-sass', '~> 2.1.0.0'
 
 #### CSS
 
