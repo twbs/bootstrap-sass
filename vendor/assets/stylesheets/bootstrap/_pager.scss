@@ -1,9 +1,10 @@
-// PAGER
-// -----
+//
+// Pager pagination
+// --------------------------------------------------
+
 
 .pager {
-  margin-left: 0;
-  margin-bottom: $baseLineHeight;
+  margin: $baseLineHeight 0;
   list-style: none;
   text-align: center;
   @include clearfix();
@@ -28,7 +29,8 @@
 .pager .previous a {
   float: left;
 }
-.pager .disabled a, .pager .disabled a:hover {
+.pager .disabled a,
+.pager .disabled a:hover {
   color: $grayLight;
   background-color: #fff;
   cursor: default;

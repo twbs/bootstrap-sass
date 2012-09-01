@@ -1,4 +1,5 @@
 //= require bootstrap-transition
+//= require bootstrap-affix
 //= require bootstrap-alert
 //= require bootstrap-button
 //= require bootstrap-carousel

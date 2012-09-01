@@ -1,7 +1,6 @@
 //
-// Tables.less
-// Tables for, you guessed it, tabular data
-// ----------------------------------------
+// Tables
+// --------------------------------------------------
 
 
 // BASE TABLES
@@ -21,7 +20,8 @@ table {
   width: 100%;
   margin-bottom: $baseLineHeight;
   // Cells
-  th, td {
+  th,
+  td {
     padding: 8px;
     line-height: $baseLineHeight;
     text-align: left;
@@ -36,9 +36,12 @@ table {
     vertical-align: bottom;
   }
   // Remove top border from thead by default
-  caption + thead tr:first-child th, caption + thead tr:first-child td,
-  colgroup + thead tr:first-child th, colgroup + thead tr:first-child td,
-  thead:first-child tr:first-child th, thead:first-child tr:first-child td {
+  caption + thead tr:first-child th,
+  caption + thead tr:first-child td,
+  colgroup + thead tr:first-child th,
+  colgroup + thead tr:first-child td,
+  thead:first-child tr:first-child th,
+  thead:first-child tr:first-child td {
     border-top: 0;
   }
   // Account for multiple tbody instances
@@ -53,7 +56,8 @@ table {
 // -------------------------------
 
 .table-condensed {
-  th, td {
+  th,
+  td {
     padding: 4px 5px;
   }
 }
@@ -65,41 +69,76 @@ table {
 .table-bordered {
   border: 1px solid $tableBorder;
   border-collapse: separate; // Done so we can round those corners!
-  *border-collapse: collapsed; // IE7 can't round corners anyway
+  *border-collapse: collapse; // IE7 can't round corners anyway
   border-left: 0;
   @include border-radius(4px);
-  th, td {
+  th,
+  td {
     border-left: 1px solid $tableBorder;
   }
   // Prevent a double border
-  caption + thead tr:first-child th, caption + tbody tr:first-child th, caption + tbody tr:first-child td,
-  colgroup + thead tr:first-child th, colgroup + tbody tr:first-child th, colgroup + tbody tr:first-child td,
-  thead:first-child tr:first-child th, tbody:first-child tr:first-child th, tbody:first-child tr:first-child td {
+  caption + thead tr:first-child th,
+  caption + tbody tr:first-child th,
+  caption + tbody tr:first-child td,
+  colgroup + thead tr:first-child th,
+  colgroup + tbody tr:first-child th,
+  colgroup + tbody tr:first-child td,
+  thead:first-child tr:first-child th,
+  tbody:first-child tr:first-child th,
+  tbody:first-child tr:first-child td {
     border-top: 0;
   }
   // For first th or td in the first row in the first thead or tbody
-  thead:first-child tr:first-child th:first-child, tbody:first-child tr:first-child td:first-child {
+  thead:first-child tr:first-child th:first-child,
+  tbody:first-child tr:first-child td:first-child {
     -webkit-border-top-left-radius: 4px;
             border-top-left-radius: 4px;
         -moz-border-radius-topleft: 4px;
   }
-  thead:first-child tr:first-child th:last-child, tbody:first-child tr:first-child td:last-child {
+  thead:first-child tr:first-child th:last-child,
+  tbody:first-child tr:first-child td:last-child {
     -webkit-border-top-right-radius: 4px;
             border-top-right-radius: 4px;
         -moz-border-radius-topright: 4px;
   }
   // For first th or td in the first row in the first thead or tbody
-  thead:last-child tr:last-child th:first-child, tbody:last-child tr:last-child td:first-child {
+  thead:last-child tr:last-child th:first-child,
+  tbody:last-child tr:last-child td:first-child,
+  tfoot:last-child tr:last-child td:first-child {
+    @include border-radius(0 0 0 4px);
     -webkit-border-bottom-left-radius: 4px;
             border-bottom-left-radius: 4px;
         -moz-border-radius-bottomleft: 4px;
   }
-  thead:last-child tr:last-child th:last-child, tbody:last-child tr:last-child td:last-child {
+  thead:last-child tr:last-child th:last-child,
+  tbody:last-child tr:last-child td:last-child,
+  tfoot:last-child tr:last-child td:last-child {
     -webkit-border-bottom-right-radius: 4px;
             border-bottom-right-radius: 4px;
-        -moz-border-radius-bottomright: 4px;	
+        -moz-border-radius-bottomright: 4px;
   }
+
+  // Special fixes to round the left border on the first td/th
+  caption + thead tr:first-child th:first-child,
+  caption + tbody tr:first-child td:first-child,
+  colgroup + thead tr:first-child th:first-child,
+  colgroup + tbody tr:first-child td:first-child {
+    -webkit-border-top-left-radius: 4px;
+            border-top-left-radius: 4px;
+        -moz-border-radius-topleft: 4px;
+  }
+  caption + thead tr:first-child th:last-child,
+  caption + tbody tr:first-child td:last-child,
+  colgroup + thead tr:first-child th:last-child,
+  colgroup + tbody tr:first-child td:last-child {
+    -webkit-border-top-right-radius: 4px;
+            border-top-right-radius: 4px;
+          -moz-border-right-topleft: 4px;
+  }
+
 }
+
+
 
 
 // ZEBRA-STRIPING
@@ -108,7 +147,8 @@ table {
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
 .table-striped {
   tbody {
-    tr:nth-child(odd) td, tr:nth-child(odd) th {
+    tr:nth-child(odd) td,
+    tr:nth-child(odd) th {
       background-color: $tableBackgroundAccent;
     }
   }
@@ -118,16 +158,47 @@ table {
 // HOVER EFFECT
 // ------------
 // Placed here since it has to come after the potential zebra striping
-.table {
-  tbody tr:hover td, tbody tr:hover th {
-    background-color: $tableBackgroundHover;
+.table-hover {
+  tbody {
+    tr:hover td,
+    tr:hover th {
+      background-color: $tableBackgroundHover;
+    }
   }
 }
 
+
 // TABLE CELL SIZING
 // -----------------
+
+// Reset default grid behavior
+table [class*=span],
+.row-fluid table [class*=span] {
+  display: table-cell;
+  float: none; // undo default grid column styles
+  margin-left: 0; // undo default grid column styles
+}
+
+// Change the column widths to account for td/th padding
 table {
   @for $i from 1 through $gridColumns {
     .span#{$i} { @include tableColumns($i); }
+  }
+}
+
+
+// TABLE BACKGROUNDS
+// -----------------
+// Exact selectors below required to override .table-striped
+
+.table {
+  tbody tr.success td {
+    background-color: $successBackground;
+  }
+  tbody tr.error td {
+    background-color: $errorBackground;
+  }
+  tbody tr.info td {
+    background-color: $infoBackground;
   }
 }

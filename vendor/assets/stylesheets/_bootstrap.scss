@@ -1,5 +1,5 @@
 //
-// Bootstrap v2.0.3
+// Bootstrap v2.1.0
 //
 // Copyright 2012 Twitter, Inc
 // Licensed under the Apache License v2.0
@@ -36,7 +36,7 @@
 // Components: Buttons & Alerts
 @import "bootstrap/buttons";
 @import "bootstrap/button-groups";
-@import "bootstrap/alerts"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
+@import "bootstrap/alerts"; // Note: alerts share common CSS with buttons and thus have styles in _buttons.scss
 
 // Components: Nav
 @import "bootstrap/navs";

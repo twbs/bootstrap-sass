@@ -1,7 +1,12 @@
-// Responsive.css.scss
-// For phone and tablet devices
-// -------------------------------------------------------------
-
+//
+// Bootstrap Responsive v2.1.0
+//
+// Copyright 2012 Twitter, Inc
+// Licensed under the Apache License v2.0
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Designed and built with all the love in the world @twitter by @mdo and @fat.
+// Converted to Sass by @thomasmcdonald_, and distributed as bootstrap-sass
 
 // REPEAT VARIABLES & MIXINS
 // -------------------------
@@ -10,22 +15,24 @@
 @import "bootstrap/variables"; // Modify this for custom colors, font-sizes, etc
 @import "bootstrap/mixins";
 
+
 // RESPONSIVE CLASSES
 // ------------------
 
 @import "bootstrap/responsive-utilities";
 
+
 // MEDIA QUERIES
 // ------------------
 
-// Phones to portrait tablets and narrow desktops
-@import "bootstrap/responsive-767px-max";
+// Large desktops
+@import "bootstrap/responsive-1200px-min";
 
 // Tablets to regular desktops
 @import "bootstrap/responsive-768px-979px";
 
-// Large desktops
-@import "bootstrap/responsive-1200px-min";
+// Phones to portrait tablets and narrow desktops
+@import "bootstrap/responsive-767px-max";
 
 
 // RESPONSIVE NAVBAR

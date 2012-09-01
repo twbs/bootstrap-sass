@@ -1,5 +1,7 @@
-// MODALS
-// ------
+//
+// Modals
+// --------------------------------------------------
+
 
 // Recalculate z-index where appropriate
 .modal-open {
@@ -22,7 +24,8 @@
   &.fade { opacity: 0; }
 }
 
-.modal-backdrop, .modal-backdrop.fade.in {
+.modal-backdrop,
+.modal-backdrop.fade.in {
   @include opacity(0.8);
 }
 
@@ -43,8 +46,7 @@
   @include box-shadow(0 3px 7px rgba(0,0,0,0.3));
   @include background-clip(padding-box);
   &.fade {
-    $transition: opacity .3s linear, top .3s ease-out;
-    @include transition($transition);
+    @include transition(#{opacity .3s linear, top .3s ease-out});
     top: -25%;
   }
   &.fade.in { top: 50%; }
@@ -54,6 +56,11 @@
   border-bottom: 1px solid #eee;
   // Close icon
   .close { margin-top: 2px; }
+  // Heading
+  h3 {
+    margin: 0;
+    line-height: 30px;
+  }
 }
 
 // Body (where all modal content resides)
