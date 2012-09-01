@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.4.2
+* Revert "Fix `.row-fluid > spanX` nesting"
+
 ## 2.0.4.1
 * Fix `.row-fluid > spanX` nesting
 * Small Javascript fixes for those staying on the 2.0.4 release

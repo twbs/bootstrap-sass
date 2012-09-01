@@ -16,7 +16,7 @@ Updating your application to a new version of `bootstrap-sass`? See our [changel
 In your Gemfile:
 
     gem 'sass-rails', '~> 3.1'
-    gem 'bootstrap-sass', '~> 2.0.4.1'
+    gem 'bootstrap-sass', '~> 2.0.4.2'
 
 #### CSS
 
