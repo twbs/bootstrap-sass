@@ -92,9 +92,9 @@ Bootstrap [claims](https://github.com/twitter/bootstrap#versioning) to use SemVe
 
 ### Bundler?
 
-    gem 'bootstrap-sass', '~> 2.0.4.0'
+    gem 'bootstrap-sass', '~> 2.1.0.0'
 
-Don't use the standard `~> 2.0.x` please. Your apps may break.
+Don't use the standard `~> 2.1.x` please. Your apps may break.
 
 ## Who
 bootstrap-sass is a project by [Thomas McDonald](https://twitter.com/#!/thomasmcdonald_), with support from [other awesome people](https://github.com/thomas-mcdonald/bootstrap-sass/graphs/contributors).
