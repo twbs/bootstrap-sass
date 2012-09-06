@@ -6,9 +6,6 @@
 
 Enjoy.
 
-## Updating
-Updating your application to a new version of `bootstrap-sass`? See our [changelog](https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/CHANGELOG.md), [Bootstrap's changelog](https://github.com/twitter/bootstrap/wiki/Changelog), and this [guide to updating to Bootstrap 2.0](http://twitter.github.com/bootstrap/upgrading.html)
-
 ## Usage
 
 ### Rails
@@ -16,7 +13,7 @@ Updating your application to a new version of `bootstrap-sass`? See our [changel
 In your Gemfile:
 
     gem 'sass-rails', '~> 3.1'
-    gem 'bootstrap-sass', '~> 2.0.4.1'
+    gem 'bootstrap-sass', '~> 2.1.0.0'
 
 #### CSS
 

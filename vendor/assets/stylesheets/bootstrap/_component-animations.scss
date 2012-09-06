@@ -1,5 +1,7 @@
-// COMPONENT ANIMATIONS
-// --------------------
+//
+// Component animations
+// --------------------------------------------------
+
 
 .fade {
   opacity: 0;
@@ -10,9 +12,10 @@
 }
 
 .collapse {
-  position:relative;
+  position: relative;
   height: 0;
-  overflow:hidden;
+  overflow: hidden;
+  overflow: visible \9;
   @include transition(height .35s ease);
   &.in {
     height: auto;

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.0.0
+* Updated to Bootstrap 2.1
+* Changed some mixin names to be more consistent. Nested mixins in Less are separated by a `-` when they are flattened in Sass.
+
 ## 2.0.4.1
 * Fix `.row-fluid > spanX` nesting
 * Small Javascript fixes for those staying on the 2.0.4 release
