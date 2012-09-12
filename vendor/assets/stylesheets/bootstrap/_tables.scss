@@ -201,4 +201,7 @@ table {
   tbody tr.info td {
     background-color: $infoBackground;
   }
+  tbody tr.warning td {
+    background-color: $warningBackground;
+ }
 }
