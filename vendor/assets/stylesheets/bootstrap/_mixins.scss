@@ -171,14 +171,15 @@
   select,
   textarea {
     color: $textColor;
+  }
+  input,
+  select,
+  textarea {
     border-color: $borderColor;
-    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
+    @include box-shadow(#{inset 0 1px 1px rgba(0,0,0,.075)}); // Redeclare so transitions work
     &:focus {
       border-color: darken($borderColor, 10%);
-      // Write out in full since the lighten() function isn't easily escaped
-      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten($borderColor, 20%);
-         -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten($borderColor, 20%);
-              box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten($borderColor, 20%);
+      @include box-shadow(#{inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten($borderColor, 20%)});
     }
   }
   // Give a small background color for input-prepend/-append
@@ -256,6 +257,12 @@
        -o-transition: $transition;
           transition: $transition;
 }
+@mixin transition-delay($transition-delay) {
+  -webkit-transition-delay: $transition-delay;
+     -moz-transition-delay: $transition-delay;
+       -o-transition-delay: $transition-delay;
+          transition-delay: $transition-delay;
+}
 
 // Transformations
 @mixin rotate($degrees) {
@@ -282,7 +289,7 @@
 @mixin skew($x, $y) {
   -webkit-transform: skew($x, $y);
      -moz-transform: skew($x, $y);
-      -ms-transform: skew($x, $y);
+      -ms-transform: skewX($x) skewY($y); // See https://github.com/twitter/bootstrap/issues/4885
        -o-transform: skew($x, $y);
           transform: skew($x, $y);
 }
@@ -545,6 +552,7 @@
 
   [class*="span"] {
     float: left;
+    min-height: 1px; // prevent collapsing columns
     margin-left: $gridGutterWidth;
   }
 
