@@ -625,10 +625,10 @@
   }
 
   @for $i from 1 through $gridColumns {
-    input.span#{$i}, textarea.span#{$i}, .uneditable-input.span#{$i} { @include grid-core-span($i, $columnWidth, $gutterWidth); }
+    input.span#{$i}, textarea.span#{$i}, .uneditable-input.span#{$i} { @include grid-input-span($i, $columnWidth, $gutterWidth); }
   }
 }
 
-@mixin grid-input-span($columns, $columnWidth, $offsetWidth) {
+@mixin grid-input-span($columns, $columnWidth, $gutterWidth) {
   width: (($columnWidth) * $columns) + ($gutterWidth * ($columns - 1)) - 14;
 }
