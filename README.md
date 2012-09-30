@@ -13,7 +13,7 @@ Enjoy.
 In your Gemfile:
 
     gem 'sass-rails', '~> 3.1'
-    gem 'bootstrap-sass', '~> 2.1.0.0'
+    gem 'bootstrap-sass', '~> 2.1.0.1'
 
 #### CSS
 
@@ -92,12 +92,12 @@ Bootstrap [claims](https://github.com/twitter/bootstrap#versioning) to use SemVe
 
 ### Bundler?
 
-    gem 'bootstrap-sass', '~> 2.1.0.0'
+    gem 'bootstrap-sass', '~> 2.1.0.1'
 
-Don't use the standard `~> 2.1.x` please. Your apps may break.
+Don't use the standard `~> 2.1.x`. Your apps may break.
 
 ## Who
 bootstrap-sass is a project by [Thomas McDonald](https://twitter.com/#!/thomasmcdonald_), with support from [other awesome people](https://github.com/thomas-mcdonald/bootstrap-sass/graphs/contributors).
 
 ## You're in good company
-bootstrap-sass is used to build some awesome projects, including [Diaspora](http://diasporaproject.org/), [rails_admin](https://github.com/sferik/rails_admin), Michael Hartl's [Rails Tutorial](http://railstutorial.org/) and [gitlabhq](http://gitlabhq.com/). Using bootstrap-sass? I'd love it if you let me know through Twitter.
+bootstrap-sass is used to build some awesome projects, including [Diaspora](http://diasporaproject.org/), [rails_admin](https://github.com/sferik/rails_admin), Michael Hartl's [Rails Tutorial](http://railstutorial.org/) and [gitlabhq](http://gitlabhq.com/). Using bootstrap-sass? I'd love it if you let me know.

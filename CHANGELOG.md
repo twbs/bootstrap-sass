@@ -1,5 +1,10 @@
 # Changelog
 
+# 2.1.0.1
+* [#219] Fix expected a color. Got: transparent.
+* [#207] Add missing warning style for table row highlighting
+* [#208] Use grid-input-span for input spans
+
 ## 2.1.0.0
 * Updated to Bootstrap 2.1
 * Changed some mixin names to be more consistent. Nested mixins in Less are separated by a `-` when they are flattened in Sass.
