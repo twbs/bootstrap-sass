@@ -349,6 +349,10 @@ input[type="checkbox"][readonly] {
 .control-group.success {
   @include formFieldState($successText, $successText, $successBackground);
 }
+// Info
+.control-group.info {
+  @include formFieldState($infoText, $infoText, $infoBackground);
+}
 
 // HTML5 invalid states
 // Shares styles with the .control-group.error above
