@@ -147,6 +147,7 @@
 // --------------------------------------------------
 
 // Block level inputs
+// This is also a class, defined at the bottom of the file
 @mixin input-block-level() {
   display: block;
   width: 100%;
@@ -631,4 +632,8 @@
 
 @mixin grid-input-span($columns, $columnWidth, $gutterWidth) {
   width: (($columnWidth) * $columns) + ($gutterWidth * ($columns - 1)) - 14;
+}
+
+.input-block-level {
+  @include input-block-level;
 }
