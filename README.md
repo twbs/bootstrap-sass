@@ -69,7 +69,7 @@ Install the gem, add the require statement to the top of your configuration file
 You'll get the same benefits as those starting from scratch. Radical.
 
 ## Configuration
-Need to configure a variable or two? Simply define the value of the variable you want to change *before* importing Bootstrap. Sass will respect your existing definition rather than overwriting it with the Bootstrap defaults. A list of customisable variables can be found in the [Bootstrap documentation](http://twitter.github.com/bootstrap/less.html#variables).
+Need to configure a variable or two? Simply define the value of the variable you want to change *before* importing Bootstrap. Sass will respect your existing definition rather than overwriting it with the Bootstrap defaults. A list of customisable variables can be found in the [Bootstrap documentation](http://twitter.github.com/bootstrap/customize.html#variables).
 
     $btnPrimaryBackground: #f00;
     @import "bootstrap";
