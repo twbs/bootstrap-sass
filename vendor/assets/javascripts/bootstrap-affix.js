@@ -101,4 +101,4 @@
   })
 
 
-}(window.jQuery);
+}(window.$);

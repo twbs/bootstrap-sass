@@ -57,4 +57,4 @@
 
   })
 
-}(window.jQuery);
+}(window.$);

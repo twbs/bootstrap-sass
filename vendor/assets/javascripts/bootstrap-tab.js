@@ -132,4 +132,4 @@
     })
   })
 
-}(window.jQuery);
+}(window.$);

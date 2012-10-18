@@ -236,4 +236,4 @@
     })
   })
 
-}(window.jQuery);
+}(window.$);
