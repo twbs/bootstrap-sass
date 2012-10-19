@@ -69,6 +69,10 @@
             that.$element[0].offsetWidth // force reflow
           }
 
+          if (that.options.keyboard) {
+            that.$element.attr('tabindex', -1)
+          }
+
           that.$element
             .addClass('in')
             .attr('aria-hidden', false)
