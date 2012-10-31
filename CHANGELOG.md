@@ -1,5 +1,12 @@
 # Changelog
 
+# 2.1.1.0
+* Update to Bootstrap 2.1.1
+* [#222] Remove 100% multiplier in vertical-three-colours
+* [#227] Fix IE component animation collapse
+* [#228] Fix variables documentation link
+* [#231] Made .input-block-level a class as well as mixin
+
 # 2.1.0.1
 * [#219] Fix expected a color. Got: transparent.
 * [#207] Add missing warning style for table row highlighting
