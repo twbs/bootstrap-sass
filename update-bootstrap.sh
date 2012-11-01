@@ -11,4 +11,7 @@ cp -r $TMP/js/* $ROOT/javascripts
 # Copy img/ to images/
 cp -r $TMP/img/* $ROOT/images
 
-#rm -rf $TMP
+# Patch the asset-url in _variables.scss
+patch -f vendor/assets/stylesheets/_variables.scss < asseturl.patch
+
+rm -rf $TMP
