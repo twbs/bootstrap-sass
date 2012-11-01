@@ -151,8 +151,8 @@ $zindexModal:             1050 !default;
 
 // Sprite icons path
 // -------------------------
-$iconSpritePath:          image-url("glyphicons-halflings.png") !default;
-$iconWhiteSpritePath:     image-url("glyphicons-halflings-white.png") !default;
+$iconSpritePath:          image-path("glyphicons-halflings.png") !default;
+$iconWhiteSpritePath:     image-path("glyphicons-halflings-white.png") !default;
 
 
 // Input placeholder text color

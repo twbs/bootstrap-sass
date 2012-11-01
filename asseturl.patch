@@ -8,8 +8,8 @@ index e29dc59..85f4d56 100644
  // -------------------------
 -$iconSpritePath:          "../img/glyphicons-halflings.png" !default;
 -$iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png" !default;
-+$iconSpritePath:          image-url("glyphicons-halflings.png") !default;
-+$iconWhiteSpritePath:     image-url("glyphicons-halflings-white.png") !default;
++$iconSpritePath:          image-path("glyphicons-halflings.png") !default;
++$iconWhiteSpritePath:     image-path("glyphicons-halflings-white.png") !default;
  
  
  // Input placeholder text color
