@@ -10,6 +10,9 @@ cp -r $TMP/lib/* $ROOT/stylesheets
 cp -r $TMP/js/* $ROOT/javascripts
 # Copy img/ to images/
 cp -r $TMP/img/* $ROOT/images
+# Remove tests
+rm -r $ROOT/javascripts/tests
+rm -r $ROOT/stylesheets/tests
 
 # Patch the asset-url in _variables.scss
 patch -f vendor/assets/stylesheets/_variables.scss < asseturl.patch
