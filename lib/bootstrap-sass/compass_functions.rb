@@ -1,10 +1,14 @@
 # This contains functions for use with a project *only* using Compass.
 
 module Sass::Script::Functions
-  # Define asset_url for Compass to allow use of sprites.
-  def asset_url(asset, type)
-    asset_sans_quotes = asset.value.gsub('"', '')
-    path = Sass::Script::String.new("/#{type}s/#{asset_sans_quotes}", :string)
-    Sass::Script::String.new("url(#{path})")
+  # Define image_path for Compass to allow use of sprites without url() wrapper.
+  def image_path(asset)
+    if defined?(::Compass)
+      image_url(asset, Sass::Script::Bool.new(true))
+    else
+      # Revert to the old compass-agnostic path determination
+      asset_sans_quotes = asset.value.gsub('"', '')
+      Sass::Script::String.new("/images/#{asset_sans_quotes}", :string)
+    end
   end
 end
