@@ -151,7 +151,7 @@ hr {
   margin: $baseLineHeight 0;
   border: 0;
   border-top: 1px solid $hrBorder;
-  border-bottom: 1px solid $white;
+  border-bottom: border-bottom: 1px solid lighten($bodyBackground, 20%);
 }
 
 // Abbreviations and acronyms
