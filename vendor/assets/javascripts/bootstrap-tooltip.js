@@ -272,4 +272,4 @@
   , html: true
   }
 
-}(window.jQuery);
+}(window.$);

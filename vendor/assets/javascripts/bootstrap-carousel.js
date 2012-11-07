@@ -173,4 +173,4 @@
     })
   })
 
-}(window.jQuery);
+}(window.$);

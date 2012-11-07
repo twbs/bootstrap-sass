@@ -297,4 +297,4 @@
     })
   })
 
-}(window.jQuery);
+}(window.$);
