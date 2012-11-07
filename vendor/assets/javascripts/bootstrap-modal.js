@@ -69,6 +69,10 @@
             that.$element[0].offsetWidth // force reflow
           }
 
+          if (that.options.keyboard) {
+            that.$element.attr('tabindex', -1)
+          }
+
           that.$element
             .addClass('in')
             .attr('aria-hidden', false)
@@ -165,7 +169,7 @@
           var doAnimate = $.support.transition && animate
 
           this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
-            .appendTo(document.body)
+            .insertAfter(this.$element)
 
           if (this.options.backdrop != 'static') {
             this.$backdrop.click($.proxy(this.hide, this))
