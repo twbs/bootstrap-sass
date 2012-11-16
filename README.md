@@ -13,7 +13,7 @@ Enjoy.
 In your Gemfile:
 
     gem 'sass-rails', '~> 3.1'
-    gem 'bootstrap-sass', '~> 2.1.1.0'
+    gem 'bootstrap-sass', '~> 2.1.1.1'
 
 #### CSS
 
@@ -92,7 +92,7 @@ Bootstrap [claims](https://github.com/twitter/bootstrap#versioning) to use SemVe
 
 ### Bundler?
 
-    gem 'bootstrap-sass', '~> 2.1.1.0'
+    gem 'bootstrap-sass', '~> 2.1.1.1'
 
 Don't use the standard `~> 2.1.x`. Your apps may break.
 
