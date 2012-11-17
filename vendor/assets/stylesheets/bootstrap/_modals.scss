@@ -2,16 +2,6 @@
 // Modals
 // --------------------------------------------------
 
-
-// Recalculate z-index where appropriate,
-// but only apply to elements within modal
-.modal-open modal {
-  .dropdown-menu {  z-index: $zindexDropdown + $zindexModal; }
-  .dropdown.open { *z-index: $zindexDropdown + $zindexModal; }
-  .popover       {  z-index: $zindexPopover  + $zindexModal; }
-  .tooltip       {  z-index: $zindexTooltip  + $zindexModal; }
-}
-
 // Background
 .modal-backdrop {
   position: fixed;
@@ -27,7 +17,7 @@
 
 .modal-backdrop,
 .modal-backdrop.fade.in {
-  @include opacity(0.8);
+  @include opacity(80);
 }
 
 // Base modal
@@ -44,10 +34,13 @@
   border: 1px solid rgba(0,0,0,.3);
   *border: 1px solid #999; /* IE6-7 */
   @include border-radius(6px);
-  @include box-shadow(#{0 3px 7px rgba(0,0,0,0.3)});
+  @include box-shadow(0 3px 7px rgba(0,0,0,0.3));
   @include background-clip(padding-box);
+  // Remove focus outline from opened modal
+  outline: none;
+
   &.fade {
-    @include transition(#{opacity .3s linear, top .3s ease-out});
+    @include transition(opacity .3s linear, top .3s ease-out);
     top: -25%;
   }
   &.fade.in { top: 50%; }
@@ -83,7 +76,7 @@
   background-color: #f5f5f5;
   border-top: 1px solid #ddd;
   @include border-radius(0 0 6px 6px);
-  @include box-shadow(#{inset 0 1px 0 $white});
+  @include box-shadow(inset 0 1px 0 $white);
   @include clearfix(); // clear it in case folks use .pull-* classes on buttons
 
   // Properly space out buttons
@@ -94,5 +87,9 @@
   // but override that for button groups
   .btn-group .btn + .btn {
     margin-left: -1px;
+  }
+  // and override it for block buttons as well
+  .btn-block + .btn-block {
+    margin-left: 0;
   }
 }

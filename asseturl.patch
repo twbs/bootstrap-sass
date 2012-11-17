@@ -1,0 +1,15 @@
+diff --git a/vendor/assets/stylesheets/_variables.scss b/vendor/assets/stylesheets/_variables.scss
+index e29dc59..85f4d56 100644
+--- a/vendor/assets/stylesheets/_variables.scss
++++ b/vendor/assets/stylesheets/_variables.scss
+@@ -151,8 +151,8 @@ $zindexModal:             1050 !default;
+ 
+ // Sprite icons path
+ // -------------------------
+-$iconSpritePath:          "../img/glyphicons-halflings.png" !default;
+-$iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png" !default;
++$iconSpritePath:          image-path("glyphicons-halflings.png") !default;
++$iconWhiteSpritePath:     image-path("glyphicons-halflings-white.png") !default;
+ 
+ 
+ // Input placeholder text color

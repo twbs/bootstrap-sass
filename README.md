@@ -12,8 +12,8 @@ Enjoy.
 
 In your Gemfile:
 
-    gem 'sass-rails', '~> 3.1'
-    gem 'bootstrap-sass', '~> 2.1.1.1'
+    gem 'sass-rails', '~> 3.2'
+    gem 'bootstrap-sass', '~> 2.2.1.0'
 
 #### CSS
 
@@ -88,13 +88,15 @@ Some CSS3 properties take multiple values, such as `box-shadow` or `text-shadow`
 As per the Bootstrap project we don't include the responsive styles by default. `@import "bootstrap-responsive";` to get them.
 
 ## Versioning
-Bootstrap [claims](https://github.com/twitter/bootstrap#versioning) to use SemVer, although this is for values of public API that don't seem to include selectively requiring CSS components (see breaking change 2.0.2 -> 2.0.3). Since many people using bootstrap-sass *do* selectively require CSS components and I consider it part of the public API we can't really follow SemVer without becoming wildly out of sync with the Bootstrap version number, which is confusing for everyone involved. Further releases to bootstrap-sass will therefore have version numbers of the form `2.x.x.y`, where `2.x.x` is the release of Bootstrap we should be compatible with, and `y` is the patch version.
+Bootstrap [claims](https://github.com/twitter/bootstrap#versioning) to use SemVer, although this is for values of public API that don't seem to include selectively requiring CSS components (see breaking change 2.0.2 -> 2.0.3). Since many people using bootstrap-sass *do* selectively require CSS components and I consider it part of the public API we can't really follow SemVer without becoming wildly out of sync with the Bootstrap version number, which is confusing for everyone involved. Further releases to bootstrap-sass will therefore have version numbers of the form `2.x.y.z`, where `2.x.y` is the release of Bootstrap we should be compatible with, and `y` is the patch version.
+
+Basically this means you should expect to append a separate patch version to the bootstrap version, which allows our versioning to stay more honest about changes.
 
 ### Bundler?
 
-    gem 'bootstrap-sass', '~> 2.1.1.1'
+    gem 'bootstrap-sass', '~> 2.2.1.0'
 
-Don't use the standard `~> 2.1.x`. Your apps may break.
+Don't use the standard `~> 2.x.y`. Your apps may break.
 
 ## Who
 bootstrap-sass is a project by [Thomas McDonald](https://twitter.com/#!/thomasmcdonald_), with support from [other awesome people](https://github.com/thomas-mcdonald/bootstrap-sass/graphs/contributors).
