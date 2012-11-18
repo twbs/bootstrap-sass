@@ -13,7 +13,7 @@ Enjoy.
 In your Gemfile:
 
     gem 'sass-rails', '~> 3.2'
-    gem 'bootstrap-sass', '~> 2.2.1.0'
+    gem 'bootstrap-sass', '~> 2.2.1.1'
 
 #### CSS
 
@@ -94,7 +94,7 @@ Basically this means you should expect to append a separate patch version to the
 
 ### Bundler?
 
-    gem 'bootstrap-sass', '~> 2.2.1.0'
+    gem 'bootstrap-sass', '~> 2.2.1.1'
 
 Don't use the standard `~> 2.x.y`. Your apps may break.
 
