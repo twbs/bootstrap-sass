@@ -1,0 +1,17 @@
+Description:
+    Generates a layout based on the Twitter Bootstrap example templates.
+    <http://twitter.github.com/bootstrap/getting-started.html#examples>
+    
+    **Note:** The layout doesn't include <%%= yield %>.
+    You will need to add that yourself.
+    
+    The template choices are
+      - starter_template (default)
+      - hero
+      - fluid
+
+Example:
+    rails generate bootstrap_sass:layout application --template=fluid
+
+    This will create:
+        app/views/layouts/[LAYOUT_NAME].html.erb

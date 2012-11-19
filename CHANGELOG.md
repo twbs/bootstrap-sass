@@ -1,5 +1,8 @@
 # Changelog
 
+# 2.1.1.1
+* Added a layout generator
+
 # 2.1.1.0
 * Update to Bootstrap 2.1.1
 * [#222] Remove 100% multiplier in vertical-three-colours

@@ -3,4 +3,5 @@
 bootstrap.css
 bootstrap-responsive.css
 Gemfile.lock
+.DS_Store
 .rvmrc
