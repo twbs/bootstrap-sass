@@ -12,7 +12,7 @@ task :debug do
   require './lib/bootstrap-sass/rails_functions'
   path = './vendor/assets/stylesheets'
   %w(bootstrap bootstrap-responsive).each do |file|
-    engine = Sass::Engine.for_file("#{path}/_#{file}.scss", syntax: :scss, load_paths: [path])
+    engine = Sass::Engine.for_file("#{path}/#{file}.scss", syntax: :scss, load_paths: [path])
     File.open("./#{file}.css", 'w') { |f| f.write(engine.render) }
   end
 end
