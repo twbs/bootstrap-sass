@@ -12,14 +12,18 @@ Enjoy.
 
 In your Gemfile:
 
-    gem 'sass-rails', '~> 3.2'
-    gem 'bootstrap-sass', '~> 2.2.2.0'
+```ruby
+gem 'sass-rails', '~> 3.2'
+gem 'bootstrap-sass', '~> 2.2.2.0'
+```
 
 #### CSS
 
 Import "bootstrap" in your SCSS file of choice to get all of Bootstrap's styles, mixins and variables! We recommend against using `//= require` directives, since none of your other stylesheets will be [able to use](https://github.com/thomas-mcdonald/bootstrap-sass/issues/79#issuecomment-4428595) the awesome mixins that Bootstrap has defined.
 
-    @import "bootstrap";
+```css
+@import "bootstrap";
+```
 
 #### Javascripts
 
@@ -27,14 +31,18 @@ You can include the Bootstrap javascripts through two methods. In this case, Spr
 
 We have a helper that includes all available javascripts:
 
-    // Loads all Bootstrap javascripts
-    //= require bootstrap
+```js
+// Loads all Bootstrap javascripts
+//= require bootstrap
+```
 
 You can also load individual modules, provided you sort out any related dependencies.
 
-    //= require bootstrap-scrollspy
-    //= require bootstrap-modal
-    //= require bootstrap-dropdown
+```js
+//= require bootstrap-scrollspy
+//= require bootstrap-modal
+//= require bootstrap-dropdown
+```
 
 Simples.
 
@@ -46,8 +54,10 @@ Simples.
 
 Install the gem and create a new project using the gem.
 
-    gem install bootstrap-sass
-    compass create compass-test -r bootstrap-sass --using bootstrap
+```console
+gem install bootstrap-sass
+compass create compass-test -r bootstrap-sass --using bootstrap
+```
 
 This will sort a few things out:
 
@@ -59,20 +69,28 @@ This will sort a few things out:
 
 Install the gem, add the require statement to the top of your configuration file, and install the extension.
 
-    gem install bootstrap-sass
+```console
+gem install bootstrap-sass
+```
 
-    # In config.rb
-    require 'bootstrap-sass'
+```ruby
+# In config.rb
+require 'bootstrap-sass'
+```
 
-    compass install bootstrap
+```console
+compass install bootstrap
+```
 
 You'll get the same benefits as those starting from scratch. Radical.
 
 ## Configuration
 Need to configure a variable or two? Simply define the value of the variable you want to change *before* importing Bootstrap. Sass will respect your existing definition rather than overwriting it with the Bootstrap defaults. A list of customisable variables can be found in the [Bootstrap documentation](http://twitter.github.com/bootstrap/customize.html#variables).
 
-    $btnPrimaryBackground: #f00;
-    @import "bootstrap";
+```scss
+$btnPrimaryBackground: #f00;
+@import "bootstrap";
+```
 
 **Note**: It's important that the file you are importing is not named `bootstrap`, since this will cause an import loop. As a general rule, errors are something you should try to avoid.
 
@@ -80,9 +98,11 @@ Need to configure a variable or two? Simply define the value of the variable you
 
 Some CSS3 properties take multiple values, such as `box-shadow` or `text-shadow`. To pass multiple values to the Bootstrap mixins, you must escape the values or else the Sass parser will choke on the commas. Here's how to escape the values in Sass:
 
-    .selector {
-      @include box-shadow(#{0 2px 5px rgba(0,0,0,.25) inset, 0 -2px 5px rgba(0,0,0,.25) inset});
-    }
+```scss
+.selector {
+  @include box-shadow(#{0 2px 5px rgba(0,0,0,.25) inset, 0 -2px 5px rgba(0,0,0,.25) inset});
+}
+```
 
 ### Responsive styling?
 As per the Bootstrap project we don't include the responsive styles by default. `@import "bootstrap-responsive";` to get them.
@@ -94,7 +114,9 @@ Basically this means you should expect to append a separate patch version to the
 
 ### Bundler?
 
-    gem 'bootstrap-sass', '~> 2.2.2.0'
+```ruby
+gem 'bootstrap-sass', '~> 2.2.2.0'
+```
 
 Don't use the standard `~> 2.x.y`. Your apps may break.
 
