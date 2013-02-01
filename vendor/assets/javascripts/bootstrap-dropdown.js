@@ -52,7 +52,9 @@
       clearMenus()
 
       if (!isActive) {
+        $this.trigger('open_before')
         $parent.toggleClass('open')
+        $this.trigger('open_after')
       }
 
       $this.focus()
