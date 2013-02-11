@@ -19,7 +19,7 @@ rm -r $ROOT/stylesheets/bootstrap/tests
 patch -f vendor/assets/stylesheets/bootstrap/_variables.scss < asseturl.patch
 
 # Patch paths in bootstrap.scss and responsive.scss
-sed -i .bak 's_@import \"_@import \"bootstrap/_g' $ROOT/stylesheets/bootstrap/{bootstrap,responsive}.scss
+sed --in-place=.bak 's_@import \"_@import \"bootstrap/_g' $ROOT/stylesheets/bootstrap/{bootstrap,responsive}.scss
 rm $ROOT/stylesheets/bootstrap/*.bak
 
 rm -rf $TMP
