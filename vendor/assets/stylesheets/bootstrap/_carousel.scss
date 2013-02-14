@@ -82,7 +82,7 @@
   background: $grayDarker;
   border: 3px solid $white;
   @include border-radius(23px);
-  @include opacity(50);
+  @include opacity(.5);
 
   // we can't have this transition here
   // because webkit cancels the carousel
@@ -101,7 +101,7 @@
   &:hover {
     color: $white;
     text-decoration: none;
-    @include opacity(90);
+    @include opacity(.9);
   }
 }
 

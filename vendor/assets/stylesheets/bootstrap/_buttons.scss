@@ -54,7 +54,7 @@
   &[disabled] {
     cursor: default;
     background-image: none;
-    @include opacity(65);
+    @include opacity(.65);
     @include box-shadow(none);
   }
 
