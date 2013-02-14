@@ -256,7 +256,7 @@
 .nav li.dropdown.open a:hover .caret {
   border-top-color: $white;
   border-bottom-color: $white;
-  @include opacity(100);
+  @include opacity(1);
 }
 
 // Dropdowns in stacked tabs
