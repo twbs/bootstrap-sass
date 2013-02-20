@@ -18,7 +18,7 @@ module Bootstrap
       raise Bootstrap::FrameworkNotFound, "bootstrap-sass requires either Rails > 3.1 or Compass, neither of which are loaded"
     end
     stylesheets = File.expand_path(File.join("..", 'vendor', 'assets', 'stylesheets'))
-    Sass.load_paths << stylesheets
+    ::Sass.load_paths << stylesheets
   end
 
   private
