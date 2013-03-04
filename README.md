@@ -14,7 +14,7 @@ In your Gemfile:
 
 ```ruby
 gem 'sass-rails', '~> 3.2'
-gem 'bootstrap-sass', '~> 2.3.0.1'
+gem 'bootstrap-sass', '~> 2.3.1.0'
 ```
 
 #### CSS
@@ -48,7 +48,7 @@ Simples.
 
 ### Compass
 
-`bootstrap-sass` 2.0 now comes with support for Compass, meaning projects that don't use Rails can get in on the fun Bootstrap web.
+`bootstrap-sass` since 2.0 comes with support for Compass, meaning projects that don't use Rails can get in on the fun Bootstrap web.
 
 #### New project
 
@@ -115,7 +115,7 @@ Basically this means you should expect to append a separate patch version to the
 ### Bundler?
 
 ```ruby
-gem 'bootstrap-sass', '~> 2.3.0.1'
+gem 'bootstrap-sass', '~> 2.3.1.0'
 ```
 
 Don't use the standard `~> 2.x.y`. Your apps may break.
