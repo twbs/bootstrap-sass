@@ -17,6 +17,8 @@ gem 'sass-rails', '~> 3.2'
 gem 'bootstrap-sass', '~> 2.3.1.0'
 ```
 
+Restart your server to have Rails pick up this change.
+
 #### CSS
 
 Import "bootstrap" in your SCSS file of choice to get all of Bootstrap's styles, mixins and variables! We recommend against using `//= require` directives, since none of your other stylesheets will be [able to use](https://github.com/thomas-mcdonald/bootstrap-sass/issues/79#issuecomment-4428595) the awesome mixins that Bootstrap has defined.
