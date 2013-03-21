@@ -8,6 +8,12 @@ Enjoy.
 
 ## Usage
 
+### Rails 4
+
+Due to a change in Rails that prevents images from being compiled in vendor and lib, you'll need to add the following line to your application.rb:
+
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+
 ### Rails
 
 In your Gemfile:
