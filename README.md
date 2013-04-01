@@ -33,6 +33,8 @@ Import "bootstrap" in your SCSS file of choice to get all of Bootstrap's styles,
 @import "bootstrap";
 ```
 
+If you are importing within the `application.css` file that Rails creates by default, be sure to rename the file to `application.css.scss` for `@import` to work.
+
 #### Javascripts
 
 You can include the Bootstrap javascripts through two methods. In this case, Sprocket's `//= require` directives are useful, since there is no better alternative.
