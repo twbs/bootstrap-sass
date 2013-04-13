@@ -9,7 +9,7 @@ desc 'Dumps output to a CSS file for testing'
 task :debug do
   require 'sass'
   require './lib/bootstrap-sass/compass_functions'
-  require './lib/bootstrap-sass/rails_functions'
+  require './lib/bootstrap-sass/sass_functions'
   path = './vendor/assets/stylesheets'
   %w(bootstrap).each do |file|
     engine = Sass::Engine.for_file("#{path}/#{file}.scss", syntax: :scss, load_paths: [path])
