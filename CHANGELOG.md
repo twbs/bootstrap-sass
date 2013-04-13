@@ -1,13 +1,32 @@
 # Changelog
 
-# 2.1.1.0
+## 2.3.0.0
+* [#290] Update to Bootstrap 2.3.0 - *Tristan Harward*
+* Fix `rake:debug` with new file locations - *Thomas McDonald*
+* Add draft contributing document - *Thomas McDonald*
+* [#260] Add our load path to the global Sass load path - *Tristan Harward*
+* [#275] Use GitHub notation in Sass head testing gemfile - *Timo Schilling*
+* [#279, #283] Readme improvements - *theverything, Philip Arndt*
+
+## 2.2.2.0
+* [#270] Update to Bootstrap 2.2.2 - *Tristan Harward*
+* [#266] Add license to gemspec - *Peter Marsh*
+
+## 2.2.1.1
+* [#258] Use `bootstrap` prefix for `@import`ing files in `bootstrap/bootstrap.scss` - *Umair Siddique*
+
+## 2.2.1.0
+* [#246] Update to Bootstrap 2.2.1 - *Tristan Harward*
+* [#246] Pull Bootstrap updates from jlong/sass-twitter-bootstrap - *Tristan Harward*
+
+## 2.1.1.0
 * Update to Bootstrap 2.1.1
 * [#222] Remove 100% multiplier in vertical-three-colours
 * [#227] Fix IE component animation collapse
 * [#228] Fix variables documentation link
 * [#231] Made .input-block-level a class as well as mixin
 
-# 2.1.0.1
+## 2.1.0.1
 * [#219] Fix expected a color. Got: transparent.
 * [#207] Add missing warning style for table row highlighting
 * [#208] Use grid-input-span for input spans
