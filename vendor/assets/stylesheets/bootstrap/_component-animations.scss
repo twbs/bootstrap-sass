@@ -11,12 +11,22 @@
   }
 }
 
+/*.collapse {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  .transition(height .35s ease);
+  &.in {
+    height: auto;
+  }
+}*/
+
 .collapse {
   position: relative;
   height: 0;
   overflow: hidden;
   @include transition(height .35s ease);
-  &.in {
-    height: auto;
-  }
+}
+.collapse.in {
+  height: auto;
 }
