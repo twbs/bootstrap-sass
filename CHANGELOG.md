@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.1.1
+
+* Fix some font variables not having `!default` - *Thomas McDonald*
+
 ## 2.3.0.0
 * [#290] Update to Bootstrap 2.3.0 - *Tristan Harward*
 * Fix `rake:debug` with new file locations - *Thomas McDonald*
