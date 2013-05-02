@@ -14,6 +14,6 @@ module Sass::Script::Functions
 
   protected
   def sprockets_context # :nodoc:
-    options[:custom][:sprockets_context]
+    options[:sprockets][:context]
   end
 end
