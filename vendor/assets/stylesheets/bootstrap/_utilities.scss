@@ -7,7 +7,7 @@
 // -------------------------
 
 .clearfix {
-  @include clear_float();
+  @include clearfix();
 }
 .pull-right {
   float: right;

@@ -8,11 +8,11 @@
 
 .alert {
   padding: 8px 35px 8px 14px;
-  margin-bottom: $line-height-base;
-  color: $state-warning-text;
-  background-color: $state-warning-background;
-  border: 1px solid $state-warning-border;
-  border-radius: $border-radius-base;
+  margin-bottom: $line-height-computed;
+  color: $alert-text;
+  background-color: $alert-bg;
+  border: 1px solid $alert-border;
+  border-radius: $alert-border-radius;
 
   // Headings for larger alerts
   h4 {
@@ -22,13 +22,13 @@
   }
   // Match the hr to the border of the alert
   hr {
-    border-top-color: darken($state-warning-border, 5%);
+    border-top-color: darken($alert-border, 5%);
   }
   // Inherit color for immediate links and bolden them some
   > a,
   > p > a {
     font-weight: 500;
-    color: darken($state-warning-text, 10%);
+    color: darken($alert-text, 10%);
   }
   
     
@@ -37,7 +37,6 @@
     position: relative;
     top: -2px;
     right: -21px;
-    line-height: $line-height-base;
     color: inherit;
   }
 }
@@ -47,40 +46,40 @@
 // -------------------------
 
 .alert-success {
-  background-color: $state-success-background;
+  background-color: $state-success-bg;
   border-color: $state-success-border;
-  color: $state-success-text;
+  color: $alert-success-text;
   hr {
-    border-top-color: darken($state-success-border, 5%);
+    border-top-color: darken($alert-success-border, 5%);
   }
   > a,
   > p > a {
-    color: darken($state-success-text, 10%);
+    color: darken($alert-success-text, 10%);
   }
 }
 .alert-danger,
 .alert-error {
-  background-color: $state-error-background;
-  border-color: $state-error-border;
-  color: $state-error-text;
+  background-color: $alert-danger-bg;
+  border-color: $alert-danger-border;
+  color: $alert-danger-text;
   hr {
-    border-top-color: darken($state-error-border, 5%);
+    border-top-color: darken($alert-danger-border, 5%);
   }
   > a,
   > p > a {
-    color: darken($state-error-text, 10%);
+    color: darken($alert-danger-text, 10%);
   }
 }
 .alert-info {
-  background-color: $state-info-background;
-  border-color: $state-info-border;
-  color: $state-info-text;
+  background-color: $alert-danger-bg;
+  border-color: $alert-info-border;
+  color: $alert-info-text;
   hr {
     border-top-color: darken($state-info-border, 5%);
   }
   > a,
   > p > a {
-    color: darken($state-info-text, 10%);
+    color: darken($alert-info-text, 10%);
   }
 }
 
@@ -88,8 +87,8 @@
 // -------------------------
 
 .alert-block {
-  padding-top: 14px;
-  padding-bottom: 14px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .alert-block > p,
 .alert-block > ul {
