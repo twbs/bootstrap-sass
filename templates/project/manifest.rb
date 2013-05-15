@@ -2,6 +2,7 @@ description "Bootstrap for Sass"
 
 # Stylesheet importing bootstrap
 stylesheet 'styles.scss'
+stylesheet '_variables.scss'
 
 #
 # Other Bootstrap assets
