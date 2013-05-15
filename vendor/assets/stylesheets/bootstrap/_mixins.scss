@@ -16,7 +16,7 @@
 //    that are clearfixed.
 // 2. The use of `table` rather than `block` is only necessary if using
 //    `:before` to contain the top-margins of child elements.
-@mixin clear_float() {
+@mixin clearfix() {
   &:before,
   &:after {
     content: " "; /* 1 */
@@ -345,8 +345,8 @@
 // -------------------------
 // Dividers (basically an hr) within dropdowns and nav lists
 @mixin nav-divider($top: #e5e5e5, $bottom: #fff) {
-  height: 1px;
-  margin: (($line-height-base / 2) - 1) 0;
+  height: 2px; // 1px for background, one for border
+  margin: (($line-height-computed / 2) - 1) 0;
   overflow: hidden;
   background-color: $top;
   border-bottom: 1px solid $bottom;
@@ -356,7 +356,8 @@
 // -------------------------
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
-@mixin btn-pseudo-states($background, $border) {
+@mixin btn-pseudo-states($color, $background, $border) {
+  color: $color;
   background-color: $background;
   border-color: $border;
 
@@ -399,7 +400,7 @@
 @mixin container-fixed() {
   margin-right: auto;
   margin-left: auto;
-  @include clear_float();
+  @include clearfix();
 }
 
 // Make a grid
@@ -407,14 +408,14 @@
 // Creates a wrapper for a series of columns
 @mixin make-row() {
   // Then clear the floated columns
-  @include clear_float();
+  @include clearfix();
   
   // Negative margin the row out to align the content of columns
   .row {
   	margin-left:  ($grid-gutter-width / -2);
   	margin-right: ($grid-gutter-width / -2);
   }
-  
+
 }
 // Generate the columns
 @mixin make-column($columns) {
@@ -424,13 +425,13 @@
   width: 100%;
   // Prevent columns from collapsing when empty
   min-height: 1px;
-  // Set inner padding as gutters instead of margin
+  // Inner gutter via padding
   padding-left:  ($grid-gutter-width / 2);
   padding-right: ($grid-gutter-width / 2);
+
+  // Calculate width based on number of columns available
   @media (min-width: $grid-float-breakpoint) {
-    float: left;
-    // Calculate width based on number of columns available
-    width: percentage($columns / $grid-columns);
+    width: percentage(($columns / $grid-columns));
   }
 }
 // Generate the column offsets
@@ -451,63 +452,89 @@
 }
 
 
+// Small grid columns
 
-// The Grid
+// Generate columns
 @mixin generate-grid-columns($grid-columns) {
-  // Generate .spanX and .offsetX
-  @include grid-spanX($grid-columns);
-  @include grid-offsetX($grid-columns);
-  @include grid-pushX($grid-columns);
-  @include grid-pullX($grid-columns);
+  @include col-sm-X($grid-columns)
 }
 
-@mixin grid-spanX($grid-columns) {
+@mixin col-sm-X ($grid-columns) {
   $index: $grid-columns;
   @while $index > 0 {
-    .span#{$index} { @include grid-span($grid-columns, $index); }
+    .col-sm-#{$index} { @include col-sm-($index, $grid-columns); }
     $index: $index - 1;
   }
 }
 
-@mixin grid-span($grid-columns, $index) {
-  width: percentage($index / $grid-columns);
+// Apply the styles
+@mixin col-sm-($columns, $grid-columns) {
+  width: percentage(($columns / $grid-columns));
 }
 
-@mixin grid-offsetX($grid-columns) {
+
+// Large grid columns
+
+// Generate columns
+@mixin generate-large-grid-columns($grid-columns) {
+  @include col-lg-X($grid-columns);
+  @include col-offset-X($grid-columns);
+  @include col-push-X($grid-columns);
+  @include col-pull-X($grid-columns);
+}
+
+@mixin col-lg-X ($grid-columns) {
   $index: $grid-columns;
   @while $index > 0 {
-    .offset#{$index} { @include grid-offset($grid-columns, $index); }
+    .col-lg-#{$index} { @include col-lg-($index, $grid-columns); }
     $index: $index - 1;
   }
 }
 
-@mixin grid-offset($grid-columns, $index) {
-  margin-left: percentage($index / $grid-columns);
-}
-
-@mixin grid-pushX($grid-columns) {
+// Offsets (gaps between columns)
+@mixin col-offset-X ($grid-columns) {
   $index: $grid-columns;
   @while $index > 0 {
-    .push#{$index} { @include grid-push($grid-columns, $index) }
+    .col-offset-#{$index} { @include col-offset-($index, $grid-columns); }
     $index: $index - 1;
   }
 }
 
-@mixin grid-push($grid-columns, $index) {
-  left: percentage($index / $grid-columns);
-}
-
-@mixin grid-pullX($grid-columns) {
+// Source Ordering
+@mixin col-push-X ($grid-columns) {
   $index: $grid-columns;
   @while $index > 0 {
-    .pull#{$index} { @include grid-pull($grid-columns, $index) }
+    .col-push-#{$index} { @include col-push-($index, $grid-columns); }
     $index: $index - 1;
   }
 }
 
-@mixin grid-pull($grid-columns, $index) {
-  right: percentage($index / $grid-columns);
+// Source Ordering
+@mixin col-pull-X ($grid-columns) {
+  $index: $grid-columns;
+  @while $index > 0 {
+    .col-pull-#{$index} { @include col-pull-($index, $grid-columns); }
+    $index: $index - 1;
+  }
 }
+
+// Apply the Styles
+@mixin col-lg-($columns, $grid-columns) {
+  width: percentage(($columns / $grid-columns));
+}
+
+@mixin col-offset-($columns, $grid-columns) {
+  width: percentage(($columns / $grid-columns));
+}
+
+@mixin col-push-($columns, $grid-columns) {
+  width: percentage(($columns / $grid-columns));
+}
+
+@mixin col-pull-($columns, $grid-columns) {
+  width: percentage(($columns / $grid-columns));
+}
+
 
 // Framework mixins
 // --------------------------------------------------
