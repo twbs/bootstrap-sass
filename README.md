@@ -86,8 +86,14 @@ gem install bootstrap-sass
 require 'bootstrap-sass'
 ```
 
+```ruby
+# In Gemfile
+gem "compass"
+gem "compass-rails"
+```
+
 ```console
-compass install bootstrap
+bundle exec compass install bootstrap
 ```
 
 You'll get the same benefits as those starting from scratch. Radical.
