@@ -2,6 +2,6 @@
 
 Welcome to the 3 branch.
 
-3 might be complete in places, but stuff will break.
+## Conversion
 
-This certainly won't be merged into master (and the commit messages will be horrible) since we will pull from jlong/sass-twitter-bootstrap as per usual, but this is an attempt so you can see and try out Bootstrap 3 with you application.
+If you'd like to help out with the conversion to Twitter Bootstrap 3, please read about how to use the new converter script in the [CONTRIBUTING README](https://github.com/intridea/bootstrap-sass/blob/3.0.0-wip/CONTRIBUTING.md).

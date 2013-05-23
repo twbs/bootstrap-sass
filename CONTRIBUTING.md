@@ -1,4 +1,21 @@
-# Contributing to bootstrap-sass 
+# Contributing to bootstrap-sass
+
+## Upstream Converter
+
+Upsteam changes to the Twitter Bootstrap project can be pulled in using the `convert` rake task.
+
+Here's an example run that would pull down the `3.0.0-wip` branch from the main twitter/bootstrap repo:
+
+    % bundle exec rake 'convert[3.0.0-wip]'
+
+The latest converter script is located [here](https://github.com/intridea/bootstrap-sass/blob/3.0.0-wip/tasks/converter.rb) and attempts to do the following:
+
+* Convert upsteam bootstrap Less files to the matching Scss file.
+* TODO: Copy upstream javascript, images and other assets into the bootstrap-sass assets directory.
+
+This conversion is not perfect at this time so manual fixes to the resulting Scss will necessary.
+See [these github issues](https://github.com/intridea/bootstrap-sass/issues?labels=converter&state=open) tagged with `conversion` which track the current shortcomings of the conversion process.
+
 
 ## Bugs
 
