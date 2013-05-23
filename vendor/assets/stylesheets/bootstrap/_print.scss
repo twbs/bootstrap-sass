@@ -51,8 +51,8 @@
     max-width: 100% !important;
   }
 
-  @page {
-    margin: 0.5cm;
+  $page {
+    margin: 2cm .5cm;
   }
 
   p,
@@ -68,7 +68,7 @@
   }
 
   // Bootstrap components
-  .navbar-toggle {
+  .navbar {
     display: none;
   }
 }

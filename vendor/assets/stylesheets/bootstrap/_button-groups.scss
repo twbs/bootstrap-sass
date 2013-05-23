@@ -4,24 +4,21 @@
 
 // Button carets
 .btn .caret {
-  border-top-color: $btn-color;
+  border-top-color: $btn-default-color;
 }
 .dropup .btn .caret {
-  border-bottom-color: $btn-color;
+  border-bottom-color: $btn-default-color;
 }
 
 // Make the div behave like a button
-.btn-group {
+.btn-group,
+.btn-group-vertical {
   position: relative;
   display: inline-block;
   vertical-align: middle; // match .btn alignment given font-size hack above
   > .btn {
     position: relative;
     float: left;
-    // Prevent double borders when buttons are next to each other
-    + btn {
-      margin-left: -1px;
-    }
     // Bring the "active" button to the front
     &:hover,
     &:active {
@@ -30,9 +27,14 @@
   }
 }
 
+// Prevent double borders when buttons are next to each other
+.btn-group .btn + .btn {
+  margin-left: -1px;
+}
+
 // Optional: Group multiple button groups together for a toolbar
 .btn-toolbar {
-  @include clear_float();
+  @include bootstrap-clearfix();
 
   .btn-group {
     float: left;
@@ -46,31 +48,36 @@
   }
 }
 
-// Float them, remove border radius, then re-add to first and last elements
-.btn-group > .btn {
-  position: relative;
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0;
 }
-
 
 // Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
 .btn-group > .btn:first-child {
   margin-left: 0;
-  @include border-left-radius($border-radius-base);
+  &:not(:last-child):not(.dropdown-toggle) {
+    @include bootstrap-border-right-radius(0);
+  }
 }
 // Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
-.btn-group > .btn:last-child,
-.btn-group > .dropdown-toggle {
-  @include border-right-radius($border-radius-base);
+.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child) {
+  @include bootstrap-border-left-radius(0);
 }
-// Reset corners for large buttons
-.btn-group > .btn.large:first-child {
-  margin-left: 0;
-  @include border-left-radius($border-radius-large);
+
+// Custom edits for including btn-groups within btn-groups (useful for including dropdown buttons within a btn-group)
+.btn-group > .btn-group {
+  float: left;
 }
-.btn-group > .btn.large:last-child,
-.btn-group > .large.dropdown-toggle {
-  @include border-right-radius($border-radius-large);
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+.btn-group > .btn-group:first-child > .btn:last-child,
+.btn-group > .btn-group:first-child > .dropdown-toggle {
+  @include bootstrap-border-right-radius(0);
+}
+.btn-group > .btn-group:last-child > .btn:first-child {
+  @include bootstrap-border-left-radius(0);
 }
 
 // On active and open, don't show outline
@@ -101,13 +108,12 @@
 // The clickable button for toggling the menu
 // Remove the gradient and set the same inset shadow as the :active state
 .btn-group.open .dropdown-toggle {
-  @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+  @include bootstrap-box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
 }
 
 
 // Reposition the caret
 .btn .caret {
-  margin-top: 8px;
   margin-left: 0;
 }
 // Carets in other button sizes
@@ -128,20 +134,18 @@
   float: none;
   width: 100%;
   max-width: 100%;
+  + .btn {
+    margin-top: -1px;
+  }
+}
+.btn-group-vertical .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
 }
 .btn-group-vertical .btn:first-child {
-  border-radius: 0; // Needs to be here for specificity since we're not zeroing them out again
-  @include border-top-radius($border-radius-base);
+  @include bootstrap-border-bottom-radius(0);
 }
 .btn-group-vertical .btn:last-child {
-  border-radius: 0; // Needs to be here for specificity since we're not zeroing them out again
-  @include border-bottom-radius($border-radius-base);
-}
-.btn-group-vertical .btn-large:first-child {
-  @include border-top-radius($border-radius-large);
-}
-.btn-group-vertical .btn-large:last-child {
-  @include border-bottom-radius($border-radius-large);
+  @include bootstrap-border-top-radius(0);
 }
 
 

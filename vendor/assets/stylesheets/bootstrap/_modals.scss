@@ -28,7 +28,7 @@
   // When fading in the modal, animate it to slide down
   &.fade {
     top: -25%;
-    @include transition(#{opacity 0.3s linear, top 0.3s ease-out});
+    @include bootstrap-transition(#{opacity 0.3s linear, top 0.3s ease-out});
   }
   &.fade.in { top: 0; }
 }
@@ -51,8 +51,8 @@
   border: 1px solid #999;
   border: 1px solid rgba(0,0,0,.2);
   border-radius: 6px;
-  @include box-shadow(0 3px 9px rgba(0,0,0,.5));
-  @include background-clip(padding-box);
+  @include bootstrap-box-shadow(0 3px 9px rgba(0,0,0,.5));
+  @include bootstrap-background-clip(padding-box);
   // Remove focus outline from opened modal
   outline: none;
 }
@@ -67,25 +67,26 @@
   z-index: ($zindex-modal-background - 10);
   background-color: #000;
   // Fade for backdrop
-  &.fade { @include opacity(0); }
-  &.fade.in { @include opacity(.5); }
+  &.fade { @include bootstrap-opacity(0); }
+  &.fade.in { @include bootstrap-opacity(.5); }
 }
 
 // Modal header
 // Top section of the modal w/ title and dismiss
 .modal-header {
-  padding: 9px 15px;
+  padding: $modal-title-padding;
   border-bottom: 1px solid #e5e5e5;
+  min-height: ($modal-title-padding + $modal-title-line-height);
 }
 // Close icon
 .modal-header .close {
-  margin-top: 2px;
+  margin-top: -2px;
 }
 
 // Title text within header
 .modal-title {
   margin: 0;
-  line-height: 30px; // effectively set a min-height for the header
+  line-height: $modal-title-line-height;
 }
 
 // Modal body
@@ -101,7 +102,7 @@
   padding: ($modal-inner-padding - 1) $modal-inner-padding $modal-inner-padding;
   text-align: right; // right align buttons
   border-top: 1px solid #e5e5e5;
-  @extend .clearfix; // clear it in case folks use .pull-* classes on buttons
+  @include bootstrap-clearfix(); // clear it in case folks use .pull-* classes on buttons
 
   // Properly space out buttons
   .btn + .btn {
@@ -119,7 +120,7 @@
 }
 
 // Scale up the modal
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $screen-tablet) {
 
   .modal-dialog {
     left: 50%;
@@ -130,7 +131,7 @@
     padding-bottom: 30px;
   }
   .modal-content {
-    @include box-shadow(0 5px 15px rgba(0,0,0,.5));
+    @include bootstrap-box-shadow(0 5px 15px rgba(0,0,0,.5));
   }
 
 }

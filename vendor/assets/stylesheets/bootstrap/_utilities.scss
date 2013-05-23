@@ -7,7 +7,7 @@
 // -------------------------
 
 .clearfix {
-  @include clear_float();
+  @include bootstrap-clearfix();
 }
 .pull-right {
   float: right;
@@ -30,7 +30,7 @@
   visibility: hidden;
 }
 .text-hide {
-  @include hide-text();
+  @include bootstrap-hide-text();
 }
 
 

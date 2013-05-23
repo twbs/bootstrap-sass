@@ -12,9 +12,10 @@
 .img-thumbnail {
   padding: 4px;
   line-height: $line-height-base;
-  border: 1px solid #ddd;
-  border-radius: $border-radius-base;
-  @include transition(all .2s ease-in-out);
+  background-color: $thumbnail-bg;
+  border: 1px solid $thumbnail-border;
+  border-radius: $thumbnail-border-radius;
+  @include bootstrap-transition(all .2s ease-in-out);
 }
 .thumbnail {
   display: block;
@@ -38,5 +39,5 @@ a.thumbnail:focus {
 }
 .thumbnail .caption {
   padding: 9px;
-  color: $gray;
+  color: $thumbnail-caption-color;
 }

@@ -5,7 +5,7 @@
 
 .fade {
   opacity: 0;
-  @include transition(opacity .15s linear);
+  @include bootstrap-transition(opacity .15s linear);
   &.in {
     opacity: 1;
   }
@@ -15,7 +15,7 @@
   position: relative;
   height: 0;
   overflow: hidden;
-  .transition(height .35s ease);
+  @include bootstrap-transition(height .35s ease);
   &.in {
     height: auto;
   }
@@ -25,7 +25,7 @@
   position: relative;
   height: 0;
   overflow: hidden;
-  @include transition(height .35s ease);
+  @include bootstrap-transition(height .35s ease);
 }
 .collapse.in {
   height: auto;
