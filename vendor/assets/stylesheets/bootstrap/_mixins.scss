@@ -236,7 +236,7 @@
   opacity: $opacity;
   // IE8 filter
   $opacity-ie: ($opacity * 100);
-  filter: ~"alpha(opacity=${opacity-ie})";
+  filter: alpha(opacity=$opacity-ie);
 }
 
 
@@ -245,70 +245,68 @@
 // --------------------------------------------------
 
 // Gradients
-#gradient {
-  @include bootstrap-horizontal($startColor: #555, $endColor: #333)
-    background-color: $endColor;
-    background-image: -webkit-gradient(linear, 0 0, 100% 0, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
-    background-image: -webkit-linear-gradient(left, $startColor, $endColor); // Safari 5.1+, Chrome 10+
-    background-image: -moz-linear-gradient(left, $startColor, $endColor); // FF 3.6+
-    background-image: linear-gradient(to right, $startColor, $endColor); // Standard, IE10
-    background-repeat: repeat-x;
-    filter: e(%("progid:DXImageTransform.Microsoft@include bootstrap-gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb($startColor),argb($endColor))); // IE9 and down
-  }
-  @include bootstrap-vertical($startColor: #555, $endColor: #333)
-    background-color: $endColor;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
-    background-image: -webkit-linear-gradient(top, $startColor, $endColor); // Safari 5.1+, Chrome 10+
-    background-image: -moz-linear-gradient(top, $startColor, $endColor); // FF 3.6+
-    background-image: linear-gradient(to bottom, $startColor, $endColor); // Standard, IE10
-    background-repeat: repeat-x;
-    filter: e(%("progid:DXImageTransform.Microsoft@include bootstrap-gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb($startColor),argb($endColor))); // IE9 and down
-  }
-  @include bootstrap-directional($startColor: #555, $endColor: #333, $deg: 45deg)
-    background-color: $endColor;
-    background-repeat: repeat-x;
-    background-image: -webkit-linear-gradient($deg, $startColor, $endColor); // Safari 5.1+, Chrome 10+
-    background-image: -moz-linear-gradient($deg, $startColor, $endColor); // FF 3.6+
-    background-image: linear-gradient($deg, $startColor, $endColor); // Standard, IE10
-  }
-  @include bootstrap-horizontal-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f)
-    background-color: mix($midColor, $endColor, 80%);
-    background-image: -webkit-gradient(left, linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));
-    background-image: -webkit-linear-gradient(left, $startColor, $midColor $colorStop, $endColor);
-    background-image: -moz-linear-gradient(left, $startColor, $midColor $colorStop, $endColor);
-    background-image: linear-gradient(to right, $startColor, $midColor $colorStop, $endColor);
-    background-repeat: no-repeat;
-    filter: e(%("progid:DXImageTransform.Microsoft@include bootstrap-gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb($startColor),argb($endColor))); // IE9 and down, gets no color-stop at all for proper fallback
-  }
+@mixin bootstrap-gradient-horizontal($startColor: #555, $endColor: #333) {
+  background-color: $endColor;
+  background-image: -webkit-gradient(linear, 0 0, 100% 0, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
+  background-image: -webkit-linear-gradient(left, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+  background-image: -moz-linear-gradient(left, $startColor, $endColor); // FF 3.6+
+  background-image: linear-gradient(to right, $startColor, $endColor); // Standard, IE10
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{endColor}', GradientType=1); // IE9 and down
+}
+@mixin bootstrap-gradient-vertical($startColor: #555, $endColor: #333) {
+  background-color: $endColor;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
+  background-image: -webkit-linear-gradient(top, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+  background-image: -moz-linear-gradient(top, $startColor, $endColor); // FF 3.6+
+  background-image: linear-gradient(to bottom, $startColor, $endColor); // Standard, IE10
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{endColor}', GradientType=0); // IE9 and down
+}
+@mixin bootstrap-gradient-directional($startColor: #555, $endColor: #333, $deg: 45deg) {
+  background-color: $endColor;
+  background-repeat: repeat-x;
+  background-image: -webkit-linear-gradient($deg, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+  background-image: -moz-linear-gradient($deg, $startColor, $endColor); // FF 3.6+
+  background-image: linear-gradient($deg, $startColor, $endColor); // Standard, IE10
+}
+@mixin bootstrap-gradient-horizontal-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f) {
+  background-color: mix($midColor, $endColor, 80%);
+  background-image: -webkit-gradient(left, linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));
+  background-image: -webkit-linear-gradient(left, $startColor, $midColor $colorStop, $endColor);
+  background-image: -moz-linear-gradient(left, $startColor, $midColor $colorStop, $endColor);
+  background-image: linear-gradient(to right, $startColor, $midColor $colorStop, $endColor);
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{endColor}', GradientType=1); // IE9 and down, gets no color-stop at all for proper fallback
+}
 
-  @include bootstrap-vertical-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f)
-    background-color: mix($midColor, $endColor, 80%);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));
-    background-image: -webkit-linear-gradient($startColor, $midColor $colorStop, $endColor);
-    background-image: -moz-linear-gradient(top, $startColor, $midColor $colorStop, $endColor);
-    background-image: linear-gradient($startColor, $midColor $colorStop, $endColor);
-    background-repeat: no-repeat;
-    filter: e(%("progid:DXImageTransform.Microsoft@include bootstrap-gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb($startColor),argb($endColor))); // IE9 and down, gets no color-stop at all for proper fallback
-  }
-  @include bootstrap-radial($innerColor: #555, $outerColor: #333)
-    background-color: $outerColor;
-    background-image: -webkit-gradient(radial, center center, 0, center center, 460, from($innerColor), to($outerColor));
-    background-image: -webkit-radial-gradient(circle, $innerColor, $outerColor);
-    background-image: -moz-radial-gradient(circle, $innerColor, $outerColor);
-    background-image: radial-gradient(circle, $innerColor, $outerColor);
-    background-repeat: no-repeat;
-  }
-  @include bootstrap-striped($color: #555, $angle: 45deg)
-    background-color: $color;
-    background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent));
-    background-image: -webkit-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
-    background-image: -moz-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
-    background-image: linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
-  }
+@mixin bootstrap-gradient-vertical-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f) {
+  background-color: mix($midColor, $endColor, 80%);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));
+  background-image: -webkit-linear-gradient($startColor, $midColor $colorStop, $endColor);
+  background-image: -moz-linear-gradient(top, $startColor, $midColor $colorStop, $endColor);
+  background-image: linear-gradient($startColor, $midColor $colorStop, $endColor);
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{endColor}', GradientType=0); // IE9 and down, gets no color-stop at all for proper fallback
+}
+@mixin bootstrap-gradient-radial($innerColor: #555, $outerColor: #333) {
+  background-color: $outerColor;
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from($innerColor), to($outerColor));
+  background-image: -webkit-radial-gradient(circle, $innerColor, $outerColor);
+  background-image: -moz-radial-gradient(circle, $innerColor, $outerColor);
+  background-image: radial-gradient(circle, $innerColor, $outerColor);
+  background-repeat: no-repeat;
+}
+@mixin bootstrap-gradient-striped($color: #555, $angle: 45deg) {
+  background-color: $color;
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
 }
 // Reset filters for IE
 @mixin bootstrap-reset-filter() {
-  filter: e(%("progid:DXImageTransform.Microsoft@include bootstrap-gradient(enabled = false)"));
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 
 
@@ -446,75 +444,26 @@
 
 // Small grid columns
 @mixin bootstrap-generate-grid-columns($grid-columns) {
-
-  .col-sm-X ($index) when ($index > 0) {
-    .col-sm-${index} { @include bootstrap-col-sm-($index); }
-    @include bootstrap-col-sm-X(($index - 1));
-  }
-  .col-sm-X (0) {}
-
-  // Generate columns
-  @include bootstrap-col-sm-X($grid-columns);
-
-  // Apply the styles
-  @include bootstrap-col-sm-($columns)
-    width: percentage(($columns / $grid-columns));
+  @for $columns from 1 to $grid-columns {
+    .col-sm-#{$columns} {
+      width: percentage($columns / $grid-columns);
+    }
   }
 }
 
 // Large grid columns
 @mixin bootstrap-generate-large-grid-columns($grid-columns) {
-
-  .col-lg-X ($index) when ($index > 0) {
-    .col-lg-${index} { @include bootstrap-col-lg-($index); }
-    @include bootstrap-col-lg-X(($index - 1));
+  @for $columns from 1 to $grid-columns {
+    .col-offset-#{$columns} {
+      margin-left: percentage(($columns / $grid-columns));
+    }
+    .col-push-#{$columns} {
+      left: percentage($columns / $grid-columns);
+    }
+    .col-pull-#{$columns} {
+      right: percentage($columns / $grid-columns);
+    }
   }
-  .col-lg-X (0) {}
-
-  // Generate the columns
-  @include bootstrap-col-lg-X($grid-columns);
-
-  // Apply the styles
-  @include bootstrap-col-lg-($columns)
-    width: percentage(($columns / $grid-columns));
-  }
-
-  // Offsets (gaps between columns)
-  .col-offset-X ($index) when ($index > 0) {
-    .col-offset-${index} { @include bootstrap-col-offset-($index); }
-    @include bootstrap-col-offset-X(($index - 1));
-  }
-  .col-offset-X (0) {}
-
-  // Source ordering
-  .col-push-X ($index) when ($index > 0) {
-    .col-push-${index} { @include bootstrap-col-push-($index); }
-    @include bootstrap-col-push-X(($index - 1));
-  }
-  .col-push-X (0) {}
-
-  // Source ordering
-  .col-pull-X ($index) when ($index > 0) {
-    .col-pull-${index} { @include bootstrap-col-pull-($index); }
-    @include bootstrap-col-pull-X(($index - 1));
-  }
-  .col-pull-X (0) {}
-
-  // Apply the styles
-  @include bootstrap-col-offset-($columns)
-    margin-left: percentage(($columns / $grid-columns));
-  }
-  @include bootstrap-col-push-($columns)
-    left: percentage(($columns / $grid-columns));
-  }
-  @include bootstrap-col-pull-($columns)
-    right: percentage(($columns / $grid-columns));
-  }
-
-  // Generate .spanX and .offsetX
-  @include bootstrap-col-offset-X($grid-columns);
-  @include bootstrap-col-push-X($grid-columns);
-  @include bootstrap-col-pull-X($grid-columns);
 }
 
 
