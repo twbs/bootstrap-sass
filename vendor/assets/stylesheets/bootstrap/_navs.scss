@@ -3,6 +3,35 @@
 // --------------------------------------------------
 
 
+//
+// Mixins at top
+// --------------------------------------------------
+
+@mixin bootstrap-nav-justified {
+  width: 100%;
+  > li {
+    float: none;
+    display: table-cell;
+    width: 1%;
+    > a {
+      text-align: center;
+    }
+  }
+}
+
+@mixin bootstrap-nav-tabs-justified {
+  border-bottom: 0;
+  > li > a {
+    border-bottom: 1px solid #ddd;
+
+    // Override margin from .nav-tabs
+    margin-right: 0;
+  }
+  > .active > a {
+    border-bottom-color: $body-bg;
+  }
+}
+
 // Base class
 // --------------------------------------------------
 
@@ -111,8 +140,8 @@
   }
   // pulling this in mainly for less shorthand
   &.nav-justified {
-    .nav-justified;
-    .nav-tabs-justified;
+    @include bootstrap-nav-justified;
+    @include bootstrap-nav-tabs-justified;
   }
 }
 
@@ -159,34 +188,14 @@
 
 // Justified nav links
 // -------------------------
-
 .nav-justified {
-  width: 100%;
-  > li {
-    float: none;
-    display: table-cell;
-    width: 1%;
-    > a {
-      text-align: center;
-    }
-  }
+  @include bootstrap-nav-justified;
 }
 
 // Move borders to anchors instead of bottom of list
-.nav-tabs-justified () {
-  border-bottom: 0;
-  > li > a {
-    border-bottom: 1px solid #ddd;
-
-    // Override margin from .nav-tabs
-    margin-right: 0;
-  }
-  > .active > a {
-    border-bottom-color: $body-bg;
-  }
-
+.nav-tabs-justified {
+  @include bootstrap-nav-tabs-justified;
 }
-
 
 
 // Nav headers (for dropdowns and lists)

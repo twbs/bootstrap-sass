@@ -426,7 +426,7 @@ select:focus:invalid {
 // Inline forms
 // --------------------------------------------------
 
-.form-inline {
+@mixin bootstrap-form-inline {
   input,
   select,
   textarea,
@@ -439,6 +439,9 @@ select:focus:invalid {
     margin-top: 0;
     margin-bottom: 0;
   }
+}
+.form-inline {
+  @include bootstrap-form-inline;
 }
 
 

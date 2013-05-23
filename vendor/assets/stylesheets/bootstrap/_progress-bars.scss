@@ -31,7 +31,7 @@
 }
 
 // Spec
-$keyframes progress-bar-stripes {
+@keyframes progress-bar-stripes {
   from  { background-position: 40px 0; }
   to    { background-position: 0 0; }
 }
@@ -67,7 +67,7 @@ $keyframes progress-bar-stripes {
 
 // Striped bars
 .progress-striped .progress-bar {
-  @include gradient-striped($progress-bar-bg);
+  @include bootstrap-gradient-striped($progress-bar-bg);
   @include bootstrap-background-size(40px 40px);
 }
 
@@ -89,7 +89,7 @@ $keyframes progress-bar-stripes {
 .progress-bar-danger {
   background-color: $progress-bar-danger-bg;
   .progress-striped & {
-    @include gradient-striped($progress-bar-danger-bg);
+    @include bootstrap-gradient-striped($progress-bar-danger-bg);
   }
 }
 
@@ -97,7 +97,7 @@ $keyframes progress-bar-stripes {
 .progress-bar-success {
   background-color: $progress-bar-success-bg;
   .progress-striped & {
-    @include gradient-striped($progress-bar-success-bg);
+    @include bootstrap-gradient-striped($progress-bar-success-bg);
   }
 }
 
@@ -105,7 +105,7 @@ $keyframes progress-bar-stripes {
 .progress-bar-warning {
   background-color: $progress-bar-warning-bg;
   .progress-striped & {
-    @include gradient-striped($progress-bar-warning-bg);
+    @include bootstrap-gradient-striped($progress-bar-warning-bg);
   }
 }
 
@@ -113,6 +113,6 @@ $keyframes progress-bar-stripes {
 .progress-bar-info {
   background-color: $progress-bar-info-bg;
   .progress-striped & {
-    @include gradient-striped($progress-bar-info-bg);
+    @include bootstrap-gradient-striped($progress-bar-info-bg);
   }
 }

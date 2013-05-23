@@ -122,10 +122,15 @@ li {
 // List options
 
 // Unstyled keeps list items block level, just removes list-style
-.list-unstyled {
+@mixin bootstrap-list-unstyled {
   margin-left: 0;
   list-style: none;
 }
+
+.list-unstyled {
+  @include bootstrap-list-unstyled();
+}
+
 // Inline turns list items into inline-block
 .list-inline {
   @include bootstrap-list-unstyled();

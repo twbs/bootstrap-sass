@@ -90,13 +90,13 @@
 
   // Set gradients for backgrounds
   &.left {
-    @include gradient-horizontal(rgba(0,0,0,.5), rgba(0,0,0,.0001));
+    @include bootstrap-gradient-horizontal(rgba(0,0,0,.5), rgba(0,0,0,.0001));
     background-color: transparent;
   }
   &.right {
     left: auto;
     right: 0;
-    @include gradient-horizontal(rgba(0,0,0,.0001), rgba(0,0,0,.5));
+    @include bootstrap-gradient-horizontal(rgba(0,0,0,.0001), rgba(0,0,0,.5));
     background-color: transparent;
   }
 
