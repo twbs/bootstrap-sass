@@ -17,4 +17,11 @@ task :debug do
   end
 end
 
+desc 'Convert bootstrap to bootstrap-sass'
+task :convert, :branch do |t, args|
+  require './tasks/converter'
+  branch = args[:branch]
+  Converter.new(branch).process
+end
+
 task default: :test
