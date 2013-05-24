@@ -19,11 +19,16 @@ require 'json'
 class Converter
   def initialize(branch = 'master')
     @branch = branch
-    @files  = get_less_files
   end
 
   def process
-    @files.each do |name|
+    process_stylesheet_assets
+    process_javascript_assets
+  end
+
+  def process_stylesheet_assets
+    puts "\nProcessing stylesheets..."
+    bootstrap_less_files.each do |name|
       unless ['bootstrap.less', 'responsive.less'].include?(name)
         file = open("https://raw.github.com/twitter/bootstrap/#{@branch}/less/#{name}").read
 
@@ -34,36 +39,62 @@ class Converter
           file = replace_mixins(file)
         when 'utilities.less'
           file = replace_mixin_file(file)
-          file = convert(file)
+          file = convert_to_scss(file)
         when 'variables.less'
-          file = convert(file)
+          file = convert_to_scss(file)
           file = insert_default_vars(file)
         else
-          file = convert(file)
+          file = convert_to_scss(file)
         end
 
         if name == 'progress-bars.less'
-          #file = fix_progress_bar(file)
+          # file = fix_progress_bar(file)
         end
 
-        save_file(name, file)
+        name = name.gsub(/\.less$/, '.scss')
+        path = "vendor/assets/stylesheets/bootstrap/_#{name}"
+        save_file(path, file)
       end
     end
   end
 
-private
+  def process_javascript_assets
+    puts "\nProcessing javascripts..."
+    bootstrap_js_files.each do |name|
+      file = open("https://raw.github.com/twitter/bootstrap/#{@branch}/js/#{name}").read
+      path = "vendor/assets/javascripts/bootstrap/#{name}"
+      save_file(path, file)
+    end
 
-  # Get the sha of less branch
-  def get_tree_sha
-    trees = open("https://api.github.com/repos/twitter/bootstrap/git/trees/#{@branch}").read
-    trees = JSON.parse trees
-    trees['tree'].find{|t| t['path'] == 'less'}['sha']
+    # Update javascript manifest
+    content = ''
+    bootstrap_js_files.each do |name|
+      name = name.gsub(/\.js$/, '')
+      content << "//= require bootstrap/#{name}\n"
+    end
+    path = "vendor/assets/javascripts/bootstrap.js"
+    save_file(path, content)
   end
 
-  def get_less_files
-    files = open("https://api.github.com/repos/twitter/bootstrap/git/trees/#{get_tree_sha}").read
+private
+
+  # Get the sha of a dir
+  def get_tree_sha(dir)
+    trees = open("https://api.github.com/repos/twitter/bootstrap/git/trees/#{@branch}").read
+    trees = JSON.parse trees
+    trees['tree'].find{|t| t['path'] == dir}['sha']
+  end
+
+  def bootstrap_less_files
+    files = open("https://api.github.com/repos/twitter/bootstrap/git/trees/#{get_tree_sha('less')}").read
     files = JSON.parse files
-    files['tree'].select{|f| f['type'] == 'blob' }.map{|f| f['path'] }
+    files['tree'].select{|f| f['type'] == 'blob' && f['path'] =~ /.less$/ }.map{|f| f['path'] }
+  end
+
+  def bootstrap_js_files
+    files = open("https://api.github.com/repos/twitter/bootstrap/git/trees/#{get_tree_sha('js')}").read
+    files = JSON.parse files
+    files['tree'].select{|f| f['type'] == 'blob' && f['path'] =~ /.js$/ }.map{|f| f['path'] }
   end
 
   def get_mixins_name
@@ -77,7 +108,7 @@ private
     mixins
   end
 
-  def convert(file)
+  def convert_to_scss(file)
     file = replace_vars(file)
     file = replace_fonts(file)
     file = replace_font_family(file)
@@ -93,12 +124,9 @@ private
     file
   end
 
-  def save_file(name, content)
-    name = name.gsub(/\.less/, '')
-    f = File.open("vendor/assets/stylesheets/bootstrap/_#{name}.scss", "w+")
-    f.write(content)
-    f.close
-    puts "Converted #{name}\n"
+  def save_file(path, content, mode='w')
+    File.open(path, mode) { |file| file.write(content) }
+    puts "Saved #{path}\n"
   end
 
   def replace_mixins(less)
