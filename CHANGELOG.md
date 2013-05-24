@@ -1,7 +1,14 @@
 # Changelog
 
-## 2.3.1.1
+## 2.3.1.2
 
+* Fix changes to image url - *Gleb Mazovetskiy*
+* Copy _variables into project on Compass install - *Phil Thompson*
+* Add `bootstrap-affix` to the Compass template file - *brief*
+
+## 2.3.1.1 (yanked)
+
+* Change how image_url is handled internally - *Tristan Harward*
 * Fix some font variables not having `!default` - *Thomas McDonald*
 
 ## 2.3.0.0
