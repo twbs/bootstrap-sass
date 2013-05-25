@@ -48,10 +48,6 @@ class Converter
           file = convert_to_scss(file)
         end
 
-        if name == 'progress-bars.less'
-          # file = fix_progress_bar(file)
-        end
-
         name = name.gsub(/\.less$/, '.scss')
         path = "vendor/assets/stylesheets/bootstrap/_#{name}"
         save_file(path, file)
@@ -156,13 +152,7 @@ private
   end
 
   def replace_vars(less)
-    less.gsub(/(?!@media|@-\w)@/, '$')
-  end
-
-  def fix_progress_bar(less)
-    less = less.gsub(/(\$)(-webkit-keyframes progress-bar-stripes)/, '@\2')
-    less = less.gsub(/(\$)(-moz-keyframes)/, '@\2')
-    less = less.gsub(/(\$)(keyframes progress-bar-stripes)/, '@\2')
+    less.gsub(/(?!@media|@page|@keyframes|@font-face|@-\w)@/, '$')
   end
 
   def replace_fonts(less)
