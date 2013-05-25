@@ -133,6 +133,7 @@ private
     file = replace_less_extend(file)
     file = replace_spin(file)
     file = replace_image_urls(file)
+    file = replace_font_urls(file)
     file = replace_image_paths(file)
     file = replace_escaping(file)
     file = convert_less_ampersand(file)
@@ -186,6 +187,10 @@ private
 
   def replace_image_urls(less)
     less.gsub(/background-image: url\("?(.*?)"?\);/) {|s| "background-image: image-url(\"#{$1}\");" }
+  end
+
+  def replace_font_urls(less)
+    less.gsub(/url\('\$\{glyphicons-font-path\}\/?(.*?)'\)/) {|s| "font-url('#{$1}')" }
   end
 
   def replace_image_paths(less)
