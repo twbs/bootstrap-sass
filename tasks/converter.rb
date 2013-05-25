@@ -24,6 +24,7 @@ class Converter
   def process
     process_stylesheet_assets
     process_javascript_assets
+    process_font_assets
   end
 
   def process_stylesheet_assets
@@ -76,6 +77,15 @@ class Converter
     save_file(path, content)
   end
 
+  def process_font_assets
+    puts "\nProcessing fonts..."
+    bootstrap_font_files.each do |name|
+      file = open("https://raw.github.com/twitter/bootstrap/#{@branch}/fonts/#{name}").read
+      path = "vendor/assets/fonts/#{name}"
+      save_file(path, file)
+    end
+  end
+
 private
 
   # Get the sha of a dir
@@ -95,6 +105,12 @@ private
     files = open("https://api.github.com/repos/twitter/bootstrap/git/trees/#{get_tree_sha('js')}").read
     files = JSON.parse files
     files['tree'].select{|f| f['type'] == 'blob' && f['path'] =~ /.js$/ }.map{|f| f['path'] }
+  end
+
+  def bootstrap_font_files
+    files = open("https://api.github.com/repos/twitter/bootstrap/git/trees/#{get_tree_sha('fonts')}").read
+    files = JSON.parse files
+    files['tree'].select{|f| f['type'] == 'blob' }.map{|f| f['path'] }
   end
 
   def get_mixins_name
