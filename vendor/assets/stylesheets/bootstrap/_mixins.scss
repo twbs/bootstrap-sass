@@ -454,6 +454,9 @@
 // Large grid columns
 @mixin bootstrap-generate-large-grid-columns($grid-columns) {
   @for $columns from 1 to $grid-columns {
+    .col-lg-#{$columns} {
+      width: percentage($columns / $grid-columns);
+    }
     .col-offset-#{$columns} {
       margin-left: percentage(($columns / $grid-columns));
     }
