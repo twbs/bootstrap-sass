@@ -15,8 +15,8 @@ cp -r $TMP/img/* $ROOT/images
 rm -r $ROOT/javascripts/tests
 rm -r $ROOT/stylesheets/bootstrap/tests
 
-# Patch the asset-url in _variables.scss
-patch -f vendor/assets/stylesheets/bootstrap/_variables.scss < asseturl.patch
+# Patch the asset-url in _glyphicons.scss
+patch -f vendor/assets/stylesheets/bootstrap/_glyphicons.scss < asseturl.patch
 
 # Patch paths in bootstrap.scss and responsive.scss
 sed -i .bak 's_@import \"_@import \"bootstrap/_g' $ROOT/stylesheets/bootstrap/{bootstrap,responsive}.scss
