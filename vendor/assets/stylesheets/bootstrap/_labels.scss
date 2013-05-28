@@ -2,10 +2,9 @@
 // Labels
 // --------------------------------------------------
 
-
-// Base classes
 .label {
-  padding: inline;
+  display: inline;
+  padding: .25em .6em;
   font-size: 75%;
   font-weight: 500;
   line-height: 1;
@@ -13,18 +12,18 @@
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  background-color: $gray_light;
+  background-color: $gray-light;
   border-radius: .25em;
-}
 
-// Hover state, but only for links
-a.label {
-  &:hover,
-  &:focus {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-    background-color: darken($gray-light, 10%);
+  // Add hover effects, but only for links 
+  &[href] {
+    &:hover,
+    &:focus {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      background-color: darken($gray-light, 10%);
+    }
   }
 }
 

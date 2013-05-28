@@ -11,7 +11,7 @@ p {
 }
 .lead {
   margin-bottom: $line-height-computed;
-  @include font-size(($font-size-base * 1.5));
+  font-size: ($font-size-base * 1.5);
   font-weight: 200;
   line-height: 1.4;
 }
@@ -28,17 +28,17 @@ em      { font-style: italic; }
 cite    { font-style: normal; }
 
 // Utility classes
-.text-muted               { color: $gray-light; }
+.text-muted          { color: $gray-light; }
 a.text-muted:hover,
-a.muted:focus        { color: darken($gray-light, 10%); }
+a.text-muted:focus   { color: darken($gray-light, 10%); }
 
 .text-warning        { color: $state-warning-text; }
 a.text-warning:hover,
 a.text-warning:focus { color: darken($state-warning-text, 10%); }
 
-.text-danger          { color: $state-danger-text; }
+.text-danger         { color: $state-danger-text; }
 a.text-danger:hover,
-a.text-danger:focus   { color: darken($state-danger-text, 10%); }
+a.text-danger:focus  { color: darken($state-danger-text, 10%); }
 
 .text-success        { color: $state-success-text; }
 a.text-success:hover,
@@ -54,9 +54,8 @@ a.text-success:focus { color: darken($state-success-text, 10%); }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: $headings-font-family;
   font-weight: $headings-font-weight;
-  line-height: $line-height-headings;
+  line-height: $headings-line-height;
   small {
     font-weight: normal;
     line-height: 1;
@@ -149,7 +148,7 @@ dt {
   font-weight: bold;
 }
 dd {
-  margin-left: ($line-height-base / 2);
+  margin-left: ($line-height-computed / 2);
 }
 // Horizontal layout (like forms)
 .dl-horizontal {

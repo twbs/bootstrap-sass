@@ -10,11 +10,11 @@
 // Grays
 // -------------------------
 
-$gray-darker:            lighten(#000, 13.5%); // #222
-$gray-dark:              lighten(#000, 20%);   // #333
-$gray:                   lighten(#000, 33.5%); // #555
-$gray-light:             lighten(#000, 60%);   // #999
-$gray-lighter:           lighten(#000, 93.5%); // #eee
+$gray-darker:            lighten(#000, 13.5%) !default; // #222
+$gray-dark:              lighten(#000, 20%) !default;   // #333
+$gray:                   lighten(#000, 33.5%) !default; // #555
+$gray-light:             lighten(#000, 60%) !default;   // #999
+$gray-lighter:           lighten(#000, 93.5%) !default; // #eee
 
 // Brand colors
 // -------------------------
@@ -34,7 +34,7 @@ $text-color:            $gray-dark !default;
 // Links
 // -------------------------
 
-$link-color:            #428bca !default;
+$link-color:            $brand-primary !default;
 $link-hover-color:      darken($link-color, 15%) !default;
 
 // Typography
@@ -50,27 +50,31 @@ $font-size-large:         ceil($font-size-base * 1.25) !default; // ~18px
 $font-size-small:         ceil($font-size-base * 0.85) !default; // ~12px
 $font-size-mini:          ceil($font-size-base * 0.75) !default; // ~11px
 
-$line-height-base:        1.428 !default; // 20/14
-$line-height-computed:    ceil($font-size-base * $line-height-base) !default; // ~20px
-$line-height-headings:    1.1 !default;
+$line-height-base:        1.428571429 !default; // 20/14
+$line-height-computed:    floor($font-size-base * $line-height-base) !default; // ~20px
 
-$headings-font-family:    inherit !default; // empty to use BS default, $font-family-base
 $headings-font-weight:    500 !default;
+$headings-line-height:    1.1 !default;
 
 
-// Component
+// Components
 // -------------------------
-// Based on 14px font-size and 1.5 line-height
+// Based on 14px font-size and 1.428 line-height (~20px to start)
 
-$padding-large:           11px 14px !default; // 44px
-$padding-small:           2px 10px !default;  // 26px
-$padding-mini:            0 6px !default;   // 22px
+$padding-base-vertical:          8px !default;
+$padding-base-horizontal:        12px !default;
 
-$border-radius-base:      4px !default;
-$border-radius-large:     6px !default;
-$border-radius-small:     3px !default;
+$padding-large-vertical:         14px !default;
+$padding-large-horizontal:       16px !default;
 
-$component-active-bg:     $brand-primary;
+$padding-small-vertical:         5px !default;
+$padding-small-horizontal:       10px !default;
+
+$border-radius-base:             4px !default;
+$border-radius-large:            6px !default;
+$border-radius-small:            3px !default;
+
+$component-active-bg:            $brand-primary !default;
 
 
 // Tables
@@ -123,11 +127,11 @@ $input-border-radius:            $border-radius-base !default;
 
 $input-color-placeholder:        $gray-light !default;
 
-$input-height-base:              ($line-height-computed + 14px) !default; // base line-height + 12px vertical padding + 2px top/bottom border
-$input-height-large:             ($line-height-computed + 24px) !default; // base line-height + 22px vertical padding + 2px top/bottom border
-$input-height-small:             ($line-height-computed + 6px) !default;  // base line-height + 4px vertical padding + 2px top/bottom border
+$input-height-base:              ($line-height-computed + ($padding-base-vertical * 2)) !default;
+$input-height-large:             ($line-height-computed + ($padding-large-vertical * 2)) !default;
+$input-height-small:             ($line-height-computed + ($padding-small-vertical * 2)) !default;
 
-$form-actions-bg:                 #f5f5f5 !default;
+$form-actions-bg:                #f5f5f5 !default;
 
 
 // Dropdowns
@@ -173,7 +177,7 @@ $glyphicons-font-path:          "../fonts" !default;
 
 // Basics of a navbar
 $navbar-height:                    50px !default;
-$navbar-text:                      #777 !default;
+$navbar-color:                     #777 !default;
 $navbar-bg:                        #eee !default;
 
 // Navbar links
@@ -191,7 +195,7 @@ $navbar-brand-hover-color:         darken($navbar-link-color, 10%) !default;
 $navbar-brand-hover-bg:            transparent !default;
 
 // Inverted navbar
-$navbar-inverse-color:                      $gray-light !default;
+$navbar-inverse-color:                       $gray-light !default;
 $navbar-inverse-bg:                         #222 !default;
 
 // Inverted navbar links
@@ -331,6 +335,7 @@ $panel-bg:                    #fff !default;
 $panel-border:                #ddd !default;
 $panel-border-radius:         $border-radius-base !default;
 $panel-heading-bg:            #f5f5f5 !default;
+$panel-footer-bg:             #f5f5f5 !default;
 
 $panel-primary-text:          #fff !default;
 $panel-primary-border:        $brand-primary !default;
@@ -380,32 +385,32 @@ $component-offset-horizontal: 180px !default;
 // --------------------------------------------------
 
 // Tiny screen / phone
-$screen-tiny:                480px;
-$screen-phone:               $screen-tiny;
+$screen-tiny:                480px !default;
+$screen-phone:               $screen-tiny !default;
 
 // Small screen / tablet
-$screen-small:               768px;
-$screen-tablet:              $screen-small;
+$screen-small:               768px !default;
+$screen-tablet:              $screen-small !default;
 
 // Medium screen / desktop
-$screen-medium:              992px;
-$screen-desktop:             $screen-medium;
+$screen-medium:              992px !default;
+$screen-desktop:             $screen-medium !default;
 
 // So media queries don't overlap when required, provide a maximum
-$screen-small-max:           ($screen-medium - 1);
-$screen-tablet-max:          $screen-small-max;
+$screen-small-max:           ($screen-medium - 1) !default;
+$screen-tablet-max:          $screen-small-max !default;
 
 // Large screen / wide desktop
-$screen-large:               1200px;
-$screen-large-desktop:       $screen-large;
+$screen-large:               1200px !default;
+$screen-large-desktop:       $screen-large !default;
 
 
 // Grid system
 // --------------------------------------------------
 
 // Number of columns in the grid system
-$grid-columns:              12;
+$grid-columns:              12 !default;
 // Padding, to be divided by two and applied to the left and right of all columns
-$grid-gutter-width:         30px;
+$grid-gutter-width:         30px !default;
 // Point at which the navbar stops collapsing
-$grid-float-breakpoint:     $screen-tablet;
+$grid-float-breakpoint:     $screen-tablet !default;

@@ -7,7 +7,7 @@
 // -------------------------
 
 .alert {
-  padding: 8px 35px 8px 14px;
+  padding: 10px 35px 10px 15px;
   margin-bottom: $line-height-computed;
   color: $alert-text;
   background-color: $alert-bg;
@@ -24,14 +24,12 @@
   hr {
     border-top-color: darken($alert-border, 5%);
   }
-  // Inherit color for immediate links and bolden them some
-  > a,
-  > p > a {
+  // Provide class for links that match alerts
+  .alert-link {
     font-weight: 500;
     color: darken($alert-text, 10%);
   }
-  
-    
+
   // Adjust close link position
   .close {
     position: relative;
@@ -41,44 +39,39 @@
   }
 }
 
-
 // Alternate styles
 // -------------------------
 
 .alert-success {
-  background-color: $state-success-bg;
-  border-color: $state-success-border;
+  background-color: $alert-success-bg;
+  border-color: $alert-success-border;
   color: $alert-success-text;
   hr {
     border-top-color: darken($alert-success-border, 5%);
   }
-  > a,
-  > p > a {
+  .alert-link {
     color: darken($alert-success-text, 10%);
   }
 }
-.alert-danger,
-.alert-error {
+.alert-danger {
   background-color: $alert-danger-bg;
   border-color: $alert-danger-border;
   color: $alert-danger-text;
   hr {
     border-top-color: darken($alert-danger-border, 5%);
   }
-  > a,
-  > p > a {
+  .alert-link {
     color: darken($alert-danger-text, 10%);
   }
 }
 .alert-info {
-  background-color: $alert-danger-bg;
+  background-color: $alert-info-bg;
   border-color: $alert-info-border;
   color: $alert-info-text;
   hr {
-    border-top-color: darken($state-info-border, 5%);
+    border-top-color: darken($alert-info-border, 5%);
   }
-  > a,
-  > p > a {
+  .alert-link {
     color: darken($alert-info-text, 10%);
   }
 }

@@ -23,7 +23,7 @@
     &:hover,
     &:active {
       z-index: 2;
-    }  
+    }
   }
 }
 
@@ -87,6 +87,7 @@
 }
 
 
+
 // Split button dropdowns
 // ----------------------
 
@@ -113,7 +114,6 @@
 
 // Reposition the caret
 .btn .caret {
-  margin-top: 8px;
   margin-left: 0;
 }
 // Carets in other button sizes
@@ -142,11 +142,12 @@
   border-radius: 0;
 }
 .btn-group-vertical .btn:first-child {
-  @inclue border-bottom-radius(0);
+  @include border-bottom-radius(0);
 }
 .btn-group-vertical .btn:last-child {
   @include border-top-radius(0);
 }
+
 
 // Justified button groups
 // ----------------------
