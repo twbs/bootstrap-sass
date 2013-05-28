@@ -7,7 +7,7 @@
   margin: $line-height-computed 0;
   list-style: none;
   text-align: center;
-  @include bootstrap-clearfix();
+  @include twbs-clearfix();
   li {
     display: inline;
     > a,

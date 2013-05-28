@@ -16,7 +16,7 @@
 //    that are clearfixed.
 // 2. The use of `table` rather than `block` is only necessary if using
 //    `:before` to contain the top-margins of child elements.
-@mixin bootstrap-clearfix() {
+@mixin twbs-clearfix() {
   &:before,
   &:after {
     content: " "; /* 1 */
@@ -28,7 +28,7 @@
 }
 
 // Webkit-style focus
-@mixin bootstrap-tab-focus() {
+@mixin twbs-tab-focus() {
   // Default
   outline: thin dotted #333;
   // Webkit
@@ -37,23 +37,23 @@
 }
 
 // Center-align a block level element
-@mixin bootstrap-center-block() {
+@mixin twbs-center-block() {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
 // Sizing shortcuts
-@mixin bootstrap-size($width, $height) {
+@mixin twbs-size($width, $height) {
   width: $width;
   height: $height;
 }
-@mixin bootstrap-square($size) {
-  @include bootstrap-size($size, $size);
+@mixin twbs-square($size) {
+  @include twbs-size($size, $size);
 }
 
 // Placeholder text
-@mixin bootstrap-placeholder($color: $input-color-placeholder) {
+@mixin twbs-placeholder($color: $input-color-placeholder) {
   &:-moz-placeholder            { color: $color; } // Firefox 4-18
   &::-moz-placeholder           { color: $color; } // Firefox 19+
   &:-ms-input-placeholder       { color: $color; } // Internet Explorer 10+
@@ -62,7 +62,7 @@
 
 // Text overflow
 // Requires inline-block or block for proper styling
-@mixin bootstrap-text-overflow() {
+@mixin twbs-text-overflow() {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -70,7 +70,7 @@
 
 // CSS image replacement
 // Source: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
-@mixin bootstrap-hide-text() {
+@mixin twbs-hide-text() {
   font: 0/0 a;
   color: transparent;
   text-shadow: none;
@@ -84,43 +84,43 @@
 // --------------------------------------------------
 
 // Single side border-radius
-@mixin bootstrap-border-top-radius($radius) {
+@mixin twbs-border-top-radius($radius) {
   border-top-right-radius: $radius;
    border-top-left-radius: $radius;
 }
-@mixin bootstrap-border-right-radius($radius) {
+@mixin twbs-border-right-radius($radius) {
   border-bottom-right-radius: $radius;
      border-top-right-radius: $radius;
 }
-@mixin bootstrap-border-bottom-radius($radius) {
+@mixin twbs-border-bottom-radius($radius) {
   border-bottom-right-radius: $radius;
    border-bottom-left-radius: $radius;
 }
-@mixin bootstrap-border-left-radius($radius) {
+@mixin twbs-border-left-radius($radius) {
   border-bottom-left-radius: $radius;
      border-top-left-radius: $radius;
 }
 
 // Drop shadows
-@mixin bootstrap-box-shadow($shadow) {
+@mixin twbs-box-shadow($shadow) {
   -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
           box-shadow: $shadow;
 }
 
 // Transitions
-@mixin bootstrap-transition($transition) {
+@mixin twbs-transition($transition) {
   -webkit-transition: $transition;
      -moz-transition: $transition;
        -o-transition: $transition;
           transition: $transition;
 }
-@mixin bootstrap-transition-delay($transition-delay) {
+@mixin twbs-transition-delay($transition-delay) {
   -webkit-transition-delay: $transition-delay;
      -moz-transition-delay: $transition-delay;
        -o-transition-delay: $transition-delay;
           transition-delay: $transition-delay;
 }
-@mixin bootstrap-transition-duration($transition-duration) {
+@mixin twbs-transition-duration($transition-duration) {
   -webkit-transition-duration: $transition-duration;
      -moz-transition-duration: $transition-duration;
        -o-transition-duration: $transition-duration;
@@ -128,35 +128,35 @@
 }
 
 // Transformations
-@mixin bootstrap-rotate($degrees) {
+@mixin twbs-rotate($degrees) {
   -webkit-transform: rotate($degrees);
      -moz-transform: rotate($degrees);
       -ms-transform: rotate($degrees);
        -o-transform: rotate($degrees);
           transform: rotate($degrees);
 }
-@mixin bootstrap-scale($ratio) {
+@mixin twbs-scale($ratio) {
   -webkit-transform: scale($ratio);
      -moz-transform: scale($ratio);
       -ms-transform: scale($ratio);
        -o-transform: scale($ratio);
           transform: scale($ratio);
 }
-@mixin bootstrap-translate($x, $y) {
+@mixin twbs-translate($x, $y) {
   -webkit-transform: translate($x, $y);
      -moz-transform: translate($x, $y);
       -ms-transform: translate($x, $y);
        -o-transform: translate($x, $y);
           transform: translate($x, $y);
 }
-@mixin bootstrap-skew($x, $y) {
+@mixin twbs-skew($x, $y) {
   -webkit-transform: skew($x, $y);
      -moz-transform: skew($x, $y);
       -ms-transform: skewX($x) skewY($y); // See https://github.com/twitter/bootstrap/issues/4885
        -o-transform: skew($x, $y);
           transform: skew($x, $y);
 }
-@mixin bootstrap-translate3d($x, $y, $z) {
+@mixin twbs-translate3d($x, $y, $z) {
   -webkit-transform: translate3d($x, $y, $z);
      -moz-transform: translate3d($x, $y, $z);
        -o-transform: translate3d($x, $y, $z);
@@ -167,21 +167,21 @@
 // Prevent browsers from flickering when using CSS 3D transforms.
 // Default value is `visible`, but can be changed to `hidden
 // See git pull https://github.com/dannykeane/bootstrap.git backface-visibility for examples
-@mixin bootstrap-backface-visibility($visibility){
+@mixin twbs-backface-visibility($visibility){
 	-webkit-backface-visibility: $visibility;
 	   -moz-backface-visibility: $visibility;
 	        backface-visibility: $visibility;
 }
 
 // Background clipping
-@mixin bootstrap-background-clip($clip) {
+@mixin twbs-background-clip($clip) {
   -webkit-background-clip: $clip;
      -moz-background-clip: $clip;
           background-clip: $clip;
 }
 
 // Background sizing
-@mixin bootstrap-background-size($size) {
+@mixin twbs-background-size($size) {
   -webkit-background-size: $size;
      -moz-background-size: $size;
        -o-background-size: $size;
@@ -189,7 +189,7 @@
 }
 
 // Box sizing
-@mixin bootstrap-box-sizing($boxmodel) {
+@mixin twbs-box-sizing($boxmodel) {
   -webkit-box-sizing: $boxmodel;
      -moz-box-sizing: $boxmodel;
           box-sizing: $boxmodel;
@@ -197,7 +197,7 @@
 
 // User select
 // For selecting text on the page
-@mixin bootstrap-user-select($select) {
+@mixin twbs-user-select($select) {
   -webkit-user-select: $select;
      -moz-user-select: $select;
       -ms-user-select: $select;
@@ -206,13 +206,13 @@
 }
 
 // Resize anything
-@mixin bootstrap-resizable($direction) {
+@mixin twbs-resizable($direction) {
   resize: $direction; // Options: horizontal, vertical, both
   overflow: auto; // Safari fix
 }
 
 // CSS3 Content Columns
-@mixin bootstrap-content-columns($column-count, $column-gap: $grid-gutter-width) {
+@mixin twbs-content-columns($column-count, $column-gap: $grid-gutter-width) {
   -webkit-column-count: $column-count;
      -moz-column-count: $column-count;
           column-count: $column-count;
@@ -222,7 +222,7 @@
 }
 
 // Optional hyphenation
-@mixin bootstrap-hyphens($mode: auto) {
+@mixin twbs-hyphens($mode: auto) {
   word-wrap: break-word;
   -webkit-hyphens: $mode;
      -moz-hyphens: $mode;
@@ -232,7 +232,7 @@
 }
 
 // Opacity
-@mixin bootstrap-opacity($opacity) {
+@mixin twbs-opacity($opacity) {
   opacity: $opacity;
   // IE8 filter
   $opacity-ie: ($opacity * 100);
@@ -245,7 +245,7 @@
 // --------------------------------------------------
 
 // Gradients
-@mixin bootstrap-gradient-horizontal($startColor: #555, $endColor: #333) {
+@mixin twbs-gradient-horizontal($startColor: #555, $endColor: #333) {
   background-color: $endColor;
   background-image: -webkit-gradient(linear, 0 0, 100% 0, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
   background-image: -webkit-linear-gradient(left, $startColor, $endColor); // Safari 5.1+, Chrome 10+
@@ -254,7 +254,7 @@
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{endColor}', GradientType=1); // IE9 and down
 }
-@mixin bootstrap-gradient-vertical($startColor: #555, $endColor: #333) {
+@mixin twbs-gradient-vertical($startColor: #555, $endColor: #333) {
   background-color: $endColor;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
   background-image: -webkit-linear-gradient(top, $startColor, $endColor); // Safari 5.1+, Chrome 10+
@@ -263,14 +263,14 @@
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{endColor}', GradientType=0); // IE9 and down
 }
-@mixin bootstrap-gradient-directional($startColor: #555, $endColor: #333, $deg: 45deg) {
+@mixin twbs-gradient-directional($startColor: #555, $endColor: #333, $deg: 45deg) {
   background-color: $endColor;
   background-repeat: repeat-x;
   background-image: -webkit-linear-gradient($deg, $startColor, $endColor); // Safari 5.1+, Chrome 10+
   background-image: -moz-linear-gradient($deg, $startColor, $endColor); // FF 3.6+
   background-image: linear-gradient($deg, $startColor, $endColor); // Standard, IE10
 }
-@mixin bootstrap-gradient-horizontal-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f) {
+@mixin twbs-gradient-horizontal-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f) {
   background-color: mix($midColor, $endColor, 80%);
   background-image: -webkit-gradient(left, linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));
   background-image: -webkit-linear-gradient(left, $startColor, $midColor $colorStop, $endColor);
@@ -280,7 +280,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{endColor}', GradientType=1); // IE9 and down, gets no color-stop at all for proper fallback
 }
 
-@mixin bootstrap-gradient-vertical-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f) {
+@mixin twbs-gradient-vertical-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f) {
   background-color: mix($midColor, $endColor, 80%);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));
   background-image: -webkit-linear-gradient($startColor, $midColor $colorStop, $endColor);
@@ -289,7 +289,7 @@
   background-repeat: no-repeat;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{endColor}', GradientType=0); // IE9 and down, gets no color-stop at all for proper fallback
 }
-@mixin bootstrap-gradient-radial($innerColor: #555, $outerColor: #333) {
+@mixin twbs-gradient-radial($innerColor: #555, $outerColor: #333) {
   background-color: $outerColor;
   background-image: -webkit-gradient(radial, center center, 0, center center, 460, from($innerColor), to($outerColor));
   background-image: -webkit-radial-gradient(circle, $innerColor, $outerColor);
@@ -297,7 +297,7 @@
   background-image: radial-gradient(circle, $innerColor, $outerColor);
   background-repeat: no-repeat;
 }
-@mixin bootstrap-gradient-striped($color: #555, $angle: 45deg) {
+@mixin twbs-gradient-striped($color: #555, $angle: 45deg) {
   background-color: $color;
   background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent));
   background-image: -webkit-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
@@ -305,7 +305,7 @@
   background-image: linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
 }
 // Reset filters for IE
-@mixin bootstrap-reset-filter() {
+@mixin twbs-reset-filter() {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 
@@ -314,7 +314,7 @@
 // --------------------------------------------------
 
 // Short retina mixin for setting background-image and -size
-@mixin bootstrap-retina-image($file-1x, $file-2x, $width-1x, $height-1x) {
+@mixin twbs-retina-image($file-1x, $file-2x, $width-1x, $height-1x) {
   background-image: url("${file-1x}");
 
   @media
@@ -336,7 +336,7 @@
 // Horizontal dividers
 // -------------------------
 // Dividers (basically an hr) within dropdowns and nav lists
-@mixin bootstrap-nav-divider($top: #e5e5e5, $bottom: #fff) {
+@mixin twbs-nav-divider($top: #e5e5e5, $bottom: #fff) {
   height: 2px; // 1px for background, one for border
   margin: (($line-height-computed / 2) - 1) 0;
   overflow: hidden;
@@ -348,7 +348,7 @@
 // -------------------------
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
-@mixin bootstrap-btn-pseudo-states($color, $background, $border) {
+@mixin twbs-btn-pseudo-states($color, $background, $border) {
   color: $color;
   background-color: $background;
   border-color: $border;
@@ -377,8 +377,8 @@
 // Navbar vertical align
 // -------------------------
 // Vertically center elements in the navbar.
-// Example: an element has a height of 30px, so write out `@include bootstrap-navbarVerticalAlign(30px);` to calculate the appropriate top margin.
-@mixin bootstrap-navbar-vertical-align($element-height) {
+// Example: an element has a height of 30px, so write out `@include twbs-navbarVerticalAlign(30px);` to calculate the appropriate top margin.
+@mixin twbs-navbar-vertical-align($element-height) {
   margin-top: (($navbar-height - $element-height) / 2);
   margin-bottom: (($navbar-height - $element-height) / 2);
 }
@@ -389,18 +389,18 @@
 // -----------
 
 // Centered container element
-@mixin bootstrap-container-fixed() {
+@mixin twbs-container-fixed() {
   margin-right: auto;
   margin-left: auto;
-  @include bootstrap-clearfix();
+  @include twbs-clearfix();
 }
 
 // Make a grid
 
 // Creates a wrapper for a series of columns
-@mixin bootstrap-make-row() {
+@mixin twbs-make-row() {
   // Then clear the floated columns
-  @include bootstrap-clearfix();
+  @include twbs-clearfix();
 
   // Negative margin nested rows out to align the content of columns
   .row {
@@ -409,7 +409,7 @@
   }
 }
 // Generate the columns
-@mixin bootstrap-make-column($columns) {
+@mixin twbs-make-column($columns) {
   position: relative;
   // Float and set width: 100%; for easy stacking on mobile devices
   float: left;
@@ -426,24 +426,24 @@
   }
 }
 // Generate the column offsets
-@mixin bootstrap-make-column-offset($columns) {
+@mixin twbs-make-column-offset($columns) {
   @media (min-width: $grid-float-breakpoint) {
     margin-left: percentage(($columns / $grid-columns));
   }
 }
-@mixin bootstrap-make-column-push($columns) {
+@mixin twbs-make-column-push($columns) {
   @media (min-width: $grid-float-breakpoint) {
     left: percentage(($columns / $grid-columns));
   }
 }
-@mixin bootstrap-make-column-pull($columns) {
+@mixin twbs-make-column-pull($columns) {
   @media (min-width: $grid-float-breakpoint) {
     right: percentage(($columns / $grid-columns));
   }
 }
 
 // Small grid columns
-@mixin bootstrap-generate-grid-columns($grid-columns) {
+@mixin twbs-generate-grid-columns($grid-columns) {
   @for $columns from 1 to $grid-columns {
     .col-sm-#{$columns} {
       width: percentage($columns / $grid-columns);
@@ -452,7 +452,7 @@
 }
 
 // Large grid columns
-@mixin bootstrap-generate-large-grid-columns($grid-columns) {
+@mixin twbs-generate-large-grid-columns($grid-columns) {
   @for $columns from 1 to $grid-columns {
     .col-lg-#{$columns} {
       width: percentage($columns / $grid-columns);
@@ -475,7 +475,7 @@
 // --------------------------------------------------
 
 // Generate form validation states
-@mixin bootstrap-form-field-validation($text-color: #555, $border-color: #ccc, $background-color: #f5f5f5) {
+@mixin twbs-form-field-validation($text-color: #555, $border-color: #ccc, $background-color: #f5f5f5) {
   // Color the label text
   .control-label {
     color: $text-color;
@@ -484,11 +484,11 @@
   .input-with-feedback {
     padding-right: 32px; // to account for the feedback icon
     border-color: $border-color;
-    @include bootstrap-box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
+    @include twbs-box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
     &:focus {
       border-color: darken($border-color, 10%);
       $shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten($border-color, 20%);
-      @include bootstrap-box-shadow($shadow);
+      @include twbs-box-shadow($shadow);
     }
   }
 }

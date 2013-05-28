@@ -34,7 +34,7 @@
 
 // Optional: Group multiple button groups together for a toolbar
 .btn-toolbar {
-  @include bootstrap-clearfix();
+  @include twbs-clearfix();
 
   .btn-group {
     float: left;
@@ -56,13 +56,13 @@
 .btn-group > .btn:first-child {
   margin-left: 0;
   &:not(:last-child):not(.dropdown-toggle) {
-    @include bootstrap-border-right-radius(0);
+    @include twbs-border-right-radius(0);
   }
 }
 // Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
 .btn-group > .btn:last-child:not(:first-child),
 .btn-group > .dropdown-toggle:not(:first-child) {
-  @include bootstrap-border-left-radius(0);
+  @include twbs-border-left-radius(0);
 }
 
 // Custom edits for including btn-groups within btn-groups (useful for including dropdown buttons within a btn-group)
@@ -74,10 +74,10 @@
 }
 .btn-group > .btn-group:first-child > .btn:last-child,
 .btn-group > .btn-group:first-child > .dropdown-toggle {
-  @include bootstrap-border-right-radius(0);
+  @include twbs-border-right-radius(0);
 }
 .btn-group > .btn-group:last-child > .btn:first-child {
-  @include bootstrap-border-left-radius(0);
+  @include twbs-border-left-radius(0);
 }
 
 // On active and open, don't show outline
@@ -108,7 +108,7 @@
 // The clickable button for toggling the menu
 // Remove the gradient and set the same inset shadow as the :active state
 .btn-group.open .dropdown-toggle {
-  @include bootstrap-box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+  @include twbs-box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
 }
 
 
@@ -142,10 +142,10 @@
   border-radius: 0;
 }
 .btn-group-vertical .btn:first-child {
-  @include bootstrap-border-bottom-radius(0);
+  @include twbs-border-bottom-radius(0);
 }
 .btn-group-vertical .btn:last-child {
-  @include bootstrap-border-top-radius(0);
+  @include twbs-border-top-radius(0);
 }
 
 

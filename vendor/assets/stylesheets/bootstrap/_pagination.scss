@@ -41,11 +41,11 @@
 .pagination > li:first-child > a,
 .pagination > li:first-child > span {
   border-left-width: 1px;
-  @include bootstrap-border-left-radius($border-radius-base);
+  @include twbs-border-left-radius($border-radius-base);
 }
 .pagination > li:last-child > a,
 .pagination > li:last-child > span {
-  @include bootstrap-border-right-radius($border-radius-base);
+  @include twbs-border-right-radius($border-radius-base);
 }
 
 
@@ -61,11 +61,11 @@
   }
   > li:first-child > a,
   > li:first-child > span {
-    @include bootstrap-border-left-radius($border-radius-large);
+    @include twbs-border-left-radius($border-radius-large);
   }
   > li:last-child > a,
   > li:last-child > span {
-    @include bootstrap-border-right-radius($border-radius-large);
+    @include twbs-border-right-radius($border-radius-large);
   }
 }
 
@@ -78,10 +78,10 @@
   }
   > li:first-child > a,
   > li:first-child > span {
-    @include bootstrap-border-left-radius($border-radius-small);
+    @include twbs-border-left-radius($border-radius-small);
   }
   > li:last-child > a,
   > li:last-child > span {
-    @include bootstrap-border-right-radius($border-radius-small);
+    @include twbs-border-right-radius($border-radius-small);
   }
 }

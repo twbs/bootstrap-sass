@@ -64,13 +64,13 @@ input[type="color"] {
   background-color: $input-bg;
   border: 1px solid $input-border;
   border-radius: $input-border-radius;
-  @include bootstrap-box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
-  @include bootstrap-transition(#{border-color ease-in-out .15s, box-shadow ease-in-out .15s});
+  @include twbs-box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+  @include twbs-transition(#{border-color ease-in-out .15s, box-shadow ease-in-out .15s});
 
   &:focus {
     border-color: rgba(82,168,236,.8);
     outline: 0;
-    @include bootstrap-box-shadow(#{inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)});
+    @include twbs-box-shadow(#{inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)});
   }
 }
 
@@ -95,7 +95,7 @@ input[type="checkbox"] {
 
 // Override content-box in Normalize (* isn't specific enough)
 input[type="search"] {
-  @include bootstrap-box-sizing(border-box);
+  @include twbs-box-sizing(border-box);
 }
 
 // Reset height since textareas have rows
@@ -135,7 +135,7 @@ select optgroup {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  @include bootstrap-tab-focus();
+  @include twbs-tab-focus();
 }
 
 
@@ -145,7 +145,7 @@ input[type="checkbox"]:focus {
 // Placeholder text gets special styles because when browsers invalidate entire lines if it doesn't understand a selector
 input,
 textarea {
-  @include bootstrap-placeholder();
+  @include twbs-placeholder();
 }
 
 
@@ -275,15 +275,15 @@ input[type="checkbox"] {
 
 // Warning
 .has-warning {
-  @include bootstrap-form-field-validation($state-warning-text, $state-warning-text, $state-warning-bg);
+  @include twbs-form-field-validation($state-warning-text, $state-warning-text, $state-warning-bg);
 }
 // Error
 .has-error {
-  @include bootstrap-form-field-validation($state-danger-text, $state-danger-text, $state-danger-bg);
+  @include twbs-form-field-validation($state-danger-text, $state-danger-text, $state-danger-bg);
 }
 // Success
 .has-success {
-  @include bootstrap-form-field-validation($state-success-text, $state-success-text, $state-success-bg);
+  @include twbs-form-field-validation($state-success-text, $state-success-text, $state-success-bg);
 }
 
 // HTML5 invalid states
@@ -296,7 +296,7 @@ select:focus:invalid {
   &:focus {
     border-color: darken(#ee5f5b, 10%);
     $shadow: 0 0 6px lighten(#ee5f5b, 20%);
-    @include bootstrap-box-shadow($shadow);
+    @include twbs-box-shadow($shadow);
   }
 }
 
@@ -358,7 +358,7 @@ select:focus:invalid {
 // Text input groups
 // -------------------------
 .input-group-addon {
-  @include bootstrap-box-sizing(border-box);
+  @include twbs-box-sizing(border-box);
   padding: 6px 8px;
   font-size: $font-size-base;
   font-weight: normal;
@@ -387,7 +387,7 @@ select:focus:invalid {
 .input-group-btn:first-child > .btn,
 .input-group-btn:first-child > .dropdown-toggle,
 .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle) {
-  @include bootstrap-border-right-radius(0);
+  @include twbs-border-right-radius(0);
 }
 .input-group-addon:first-child {
   border-right: 0;
@@ -397,7 +397,7 @@ select:focus:invalid {
 .input-group-btn:last-child > .btn,
 .input-group-btn:last-child > .dropdown-toggle,
 .input-group-btn:first-child > .btn:not(:first-child) {
-  @include bootstrap-border-left-radius(0);
+  @include twbs-border-left-radius(0);
 }
 .input-group-addon:last-child {
   border-left: 0;

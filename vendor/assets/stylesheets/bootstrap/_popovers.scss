@@ -19,7 +19,7 @@
   border: 1px solid #ccc;
   border: 1px solid rgba(0,0,0,.2);
   border-radius: 6px;
-  @include bootstrap-box-shadow(0 5px 10px rgba(0,0,0,.2));
+  @include twbs-box-shadow(0 5px 10px rgba(0,0,0,.2));
 
   // Overrides for proper insertion
   white-space: normal;

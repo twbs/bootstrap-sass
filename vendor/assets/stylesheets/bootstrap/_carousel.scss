@@ -21,7 +21,7 @@
   > .item {
     display: none;
     position: relative;
-    @include bootstrap-transition(.6s ease-in-out left);
+    @include twbs-transition(.6s ease-in-out left);
 
     // Account for jankitude on images
     > img,
@@ -75,7 +75,7 @@
   left: 0;
   bottom: 0;
   width: 15%;
-  @include bootstrap-opacity(.5);
+  @include twbs-opacity(.5);
   font-size: 20px;
   color: #fff;
   text-align: center;
@@ -86,17 +86,17 @@
   // animation if you trip this while
   // in the middle of another animation
   // ;_;
-  // @include bootstrap-transition(opacity .2s linear);
+  // @include twbs-transition(opacity .2s linear);
 
   // Set gradients for backgrounds
   &.left {
-    @include bootstrap-gradient-horizontal(rgba(0,0,0,.5), rgba(0,0,0,.0001));
+    @include twbs-gradient-horizontal(rgba(0,0,0,.5), rgba(0,0,0,.0001));
     background-color: transparent;
   }
   &.right {
     left: auto;
     right: 0;
-    @include bootstrap-gradient-horizontal(rgba(0,0,0,.0001), rgba(0,0,0,.5));
+    @include twbs-gradient-horizontal(rgba(0,0,0,.0001), rgba(0,0,0,.5));
     background-color: transparent;
   }
 
@@ -105,7 +105,7 @@
   &:focus {
     color: #fff;
     text-decoration: none;
-    @include bootstrap-opacity(.9);
+    @include twbs-opacity(.9);
   }
 
   // Toggles

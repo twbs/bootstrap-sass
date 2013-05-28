@@ -12,7 +12,7 @@
   border-radius: $border-radius-base;
 
   // Prevent floats from breaking the navbar
-  @include bootstrap-clearfix();
+  @include twbs-clearfix();
 }
 
 // Navbar nav links
@@ -135,7 +135,7 @@
 // Navbar form
 .navbar-form {
   @extend .form-inline;
-  @include bootstrap-navbar-vertical-align($input-height-base); // Vertically center in navbar
+  @include twbs-navbar-vertical-align($input-height-base); // Vertically center in navbar
 }
 
 // Dropdown menus
@@ -330,7 +330,7 @@
 // Add a class to make any element properly align itself vertically within the navbars.
 
 .navbar-text {
-  @include bootstrap-navbar-vertical-align($line-height-computed);
+  @include twbs-navbar-vertical-align($line-height-computed);
 }
 
 

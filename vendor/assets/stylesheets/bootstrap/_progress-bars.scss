@@ -48,7 +48,7 @@
   margin-bottom: $line-height-computed;
   background-color: $progress-bg;
   border-radius: $border-radius-base;
-  @include bootstrap-box-shadow(inset 0 1px 2px rgba(0,0,0,.1));
+  @include twbs-box-shadow(inset 0 1px 2px rgba(0,0,0,.1));
 }
 
 // Bar of progress
@@ -61,14 +61,14 @@
   text-align: center;
   text-shadow: 0 -1px 0 rgba(0,0,0,.25);
   background-color: $progress-bar-bg;
-  @include bootstrap-box-shadow(inset 0 -1px 0 rgba(0,0,0,.15));
-  @include bootstrap-transition(width .6s ease);
+  @include twbs-box-shadow(inset 0 -1px 0 rgba(0,0,0,.15));
+  @include twbs-transition(width .6s ease);
 }
 
 // Striped bars
 .progress-striped .progress-bar {
-  @include bootstrap-gradient-striped($progress-bar-bg);
-  @include bootstrap-background-size(40px 40px);
+  @include twbs-gradient-striped($progress-bar-bg);
+  @include twbs-background-size(40px 40px);
 }
 
 // Call animation for the active one
@@ -89,7 +89,7 @@
 .progress-bar-danger {
   background-color: $progress-bar-danger-bg;
   .progress-striped & {
-    @include bootstrap-gradient-striped($progress-bar-danger-bg);
+    @include twbs-gradient-striped($progress-bar-danger-bg);
   }
 }
 
@@ -97,7 +97,7 @@
 .progress-bar-success {
   background-color: $progress-bar-success-bg;
   .progress-striped & {
-    @include bootstrap-gradient-striped($progress-bar-success-bg);
+    @include twbs-gradient-striped($progress-bar-success-bg);
   }
 }
 
@@ -105,7 +105,7 @@
 .progress-bar-warning {
   background-color: $progress-bar-warning-bg;
   .progress-striped & {
-    @include bootstrap-gradient-striped($progress-bar-warning-bg);
+    @include twbs-gradient-striped($progress-bar-warning-bg);
   }
 }
 
@@ -113,6 +113,6 @@
 .progress-bar-info {
   background-color: $progress-bar-info-bg;
   .progress-striped & {
-    @include bootstrap-gradient-striped($progress-bar-info-bg);
+    @include twbs-gradient-striped($progress-bar-info-bg);
   }
 }

@@ -11,7 +11,7 @@
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   list-style: none;
-  @include bootstrap-clearfix();
+  @include twbs-clearfix();
 
   > li {
     position: relative;
@@ -67,7 +67,7 @@
 
   // Dividers (basically an hr) within the dropdown
   .nav-divider {
-    @include bootstrap-nav-divider();
+    @include twbs-nav-divider();
   }
 }
 
@@ -210,7 +210,7 @@
 
 // Clear any floats
 .tabbable {
-  @include bootstrap-clearfix();
+  @include twbs-clearfix();
 }
 
 // Show/hide tabbable areas
@@ -243,5 +243,5 @@
   // make dropdown border overlap tab border
   margin-top: -1px;
   // Remove the top rounded corners here since there is a hard edge above the menu
-  @include bootstrap-border-top-radius(0);
+  @include twbs-border-top-radius(0);
 }

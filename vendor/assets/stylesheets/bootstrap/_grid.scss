@@ -5,12 +5,12 @@
 
 // Set the container width, and override it for fixed navbars in media queries
 .container {
-  @include bootstrap-container-fixed();
+  @include twbs-container-fixed();
 }
 
 // Mobile-first defaults
 .row {
-  @include bootstrap-make-row();
+  @include twbs-make-row();
 }
 
 
@@ -28,11 +28,11 @@
 }
 
 // Generate small grid classes first
-@include bootstrap-generate-grid-columns($grid-columns);
+@include twbs-generate-grid-columns($grid-columns);
 
 // Then generate the larger grid classes via media query
 @media screen and (min-width: $screen-small) {
-  @include bootstrap-generate-large-grid-columns($grid-columns);
+  @include twbs-generate-large-grid-columns($grid-columns);
 }
 
 

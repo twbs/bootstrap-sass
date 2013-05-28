@@ -24,11 +24,11 @@
 }
 // Round the first and last items
 .list-group-item:first-child {
-  @include bootstrap-border-top-radius($border-radius-base);
+  @include twbs-border-top-radius($border-radius-base);
 }
 .list-group-item:last-child {
   margin-bottom: 0;
-  @include bootstrap-border-bottom-radius($border-radius-base);
+  @include twbs-border-bottom-radius($border-radius-base);
 }
 
 

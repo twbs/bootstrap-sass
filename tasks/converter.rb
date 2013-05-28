@@ -144,11 +144,11 @@ private
 
   def replace_mixins(less)
     mixin_pattern = /\.([\w-]+\(.*\))\s?{?/
-    less.gsub(mixin_pattern, '@include bootstrap-\1')
+    less.gsub(mixin_pattern, '@include twbs-\1')
   end
 
   def replace_mixin_file(less)
-    less.gsub(/^\.([\w-]+\(.*\)\s?{?)$/, '@mixin bootstrap-\1')
+    less.gsub(/^\.([\w-]+\(.*\)\s?{?)$/, '@mixin twbs-\1')
   end
 
   def replace_vars(less)

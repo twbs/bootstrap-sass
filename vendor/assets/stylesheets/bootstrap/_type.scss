@@ -152,13 +152,13 @@ dd {
 }
 // Horizontal layout (like forms)
 .dl-horizontal {
-  @include bootstrap-clearfix(); // Ensure dl clears floats if empty dd elements present
+  @include twbs-clearfix(); // Ensure dl clears floats if empty dd elements present
   dt {
     float: left;
     width: ($component-offset-horizontal - 20);
     clear: left;
     text-align: right;
-    @include bootstrap-text-overflow();
+    @include twbs-text-overflow();
   }
   dd {
     margin-left: $component-offset-horizontal;
