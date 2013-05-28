@@ -3,7 +3,7 @@
 ROOT=`pwd`"/vendor/assets"
 TMP='tmp/sass-twitter-bootstrap'
 # Pull down sass-twitter-bootstrap sources
-git clone https://github.com/jlong/sass-twitter-bootstrap.git tmp/sass-twitter-bootstrap
+git clone https://github.com/jlong/sass-twitter-bootstrap.git tmp/sass-twitter-bootstrap --branch '3.0.0-wip'
 # Copy lib/ to stylesheets/
 mkdir -p $ROOT/stylesheets/bootstrap
 cp -r $TMP/lib/* $ROOT/stylesheets/bootstrap
