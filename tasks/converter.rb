@@ -174,10 +174,6 @@ private
     less.gsub(/#font \> #family \> \.([\w-]+)/, '@include font-family-\1')
   end
 
-  #def replace_grads(less)
-  #  less.gsub(/#gradient \> \.([\w-]+)/, '@include gradient-\1')
-  #end
-
   def replace_less_extend(less)
     less.gsub(/\#(\w+) \> \.([\w-]*)(\(.*\));?/, '@include \1-\2\3;')
   end
