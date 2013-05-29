@@ -124,7 +124,6 @@ private
     file = replace_vars(file)
     file = replace_fonts(file)
     file = replace_font_family(file)
-    file = replace_grads(file)
     file = replace_mixins(file)
     file = replace_less_extend(file)
     file = replace_spin(file)
@@ -142,9 +141,21 @@ private
     puts "Saved #{path}\n"
   end
 
+  # Replaces the following:
+  #  .mixin()          -> @import twbs-mixin()
+  #  #scope > .mixin() -> @import twbs-scope-mixin()
   def replace_mixins(less)
-    mixin_pattern = /\.([\w-]+\(.*\))\s?{?/
-    less.gsub(mixin_pattern, '@include twbs-\1')
+    mixin_pattern = /(\s*)(([#|\.][\w-]+\s*>\s*)*)\.([\w-]+\(.*\))\s*{?/
+    less.gsub(mixin_pattern) do |match|
+      matches = match.scan(mixin_pattern).flatten
+      scope = matches[1] || ''
+      if scope != ''
+        scope = 'twbs-' + scope.scan(/[\w-]+/).join('-')
+      else
+        scope = 'twbs'
+      end
+      "#{matches.first}@include #{scope}-#{matches.last}"
+    end
   end
 
   def replace_mixin_file(less)
@@ -163,9 +174,9 @@ private
     less.gsub(/#font \> #family \> \.([\w-]+)/, '@include font-family-\1')
   end
 
-  def replace_grads(less)
-    less.gsub(/#gradient \> \.([\w-]+)/, '@include gradient-\1')
-  end
+  #def replace_grads(less)
+  #  less.gsub(/#gradient \> \.([\w-]+)/, '@include gradient-\1')
+  #end
 
   def replace_less_extend(less)
     less.gsub(/\#(\w+) \> \.([\w-]*)(\(.*\));?/, '@include \1-\2\3;')
