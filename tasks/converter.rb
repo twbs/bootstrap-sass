@@ -145,7 +145,7 @@ private
   #  .mixin()          -> @import twbs-mixin()
   #  #scope > .mixin() -> @import twbs-scope-mixin()
   def replace_mixins(less)
-    mixin_pattern = /(\s*)(([#|\.][\w-]+\s*>\s*)*)\.([\w-]+\(.*\))\s*{?/
+    mixin_pattern = /(\s*)(([#|\.][\w-]+\s*>\s*)*)\.([\w-]+\(.*\))/
     less.gsub(mixin_pattern) do |match|
       matches = match.scan(mixin_pattern).flatten
       scope = matches[1] || ''
@@ -159,7 +159,7 @@ private
   end
 
   def replace_mixin_file(less)
-    less.gsub(/^\.([\w-]+\(.*\)\s?{?)$/, '@mixin twbs-\1')
+    less.gsub(/^(\s*)\.([\w-]+\(.*\))(\s*{)/, '\1@mixin twbs-\2\3')
   end
 
   def replace_vars(less)
