@@ -14,6 +14,11 @@ module Sass::Script::Functions
 
   protected
   def sprockets_context # :nodoc:
-    options[:sprockets][:context]
+    if options.key?(:sprockets)
+      options[:sprockets][:context]
+    else
+      # Compatibility with sprockets pre 2.10.0
+      options[:custom][:sprockets_context]
+    end
   end
 end
