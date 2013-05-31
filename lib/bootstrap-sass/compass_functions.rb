@@ -18,7 +18,7 @@ module Sass::Script::Functions
       options[:sprockets][:context]
     else
       # Compatibility with sprockets pre 2.10.0
-      options[:custom][:sprockets_context]
+      options[:importer].context
     end
   end
 end
