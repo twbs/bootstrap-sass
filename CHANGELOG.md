@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.2.0
+
+* Update to Bootstrap 2.3.2 - *Dan Allen*
+
 ## 2.3.1.3
 
 * Find the correct Sprockets context for the `image_path` function - *Tristan Harward, Gleb Mazovetskiy*
