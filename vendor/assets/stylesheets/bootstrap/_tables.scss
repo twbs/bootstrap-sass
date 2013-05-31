@@ -67,6 +67,7 @@ th {
 }
 
 
+
 // BORDERED VERSION
 // ----------------
 
@@ -75,7 +76,7 @@ th {
   border-collapse: separate; // Done so we can round those corners!
   border-left: 0;
   border-radius: $border-radius-base;
-  
+
   > thead > tr > th,
   > tbody > tr > th,
   > thead > tr > td,
@@ -145,7 +146,7 @@ th {
     border-top-right-radius: $border-radius-base;
   }
 
-}  
+}
 
 
 
@@ -204,8 +205,8 @@ table th[class*="col-span-"] {
     background-color: $state-success-bg;
     border-color: $state-success-border;
   }
-  > td.error,
-  > th.error,
+  > td.danger,
+  > th.danger,
   &.danger > td {
     background-color: $state-danger-bg;
     border-color: $state-danger-border;

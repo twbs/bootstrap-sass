@@ -28,7 +28,7 @@
   // When fading in the modal, animate it to slide down
   &.fade {
     top: -25%;
-    @include transition(#{opacity 0.3s linear, top 0.3s ease-out});
+    @include transition(opacity 0.3s linear, top 0.3s ease-out);
   }
   &.fade.in { top: 0; }
 }
@@ -80,7 +80,7 @@
 }
 // Close icon
 .modal-header .close {
-  margin-top: 2px;
+  margin-top: -2px;
 }
 
 // Title text within header
@@ -102,7 +102,7 @@
   padding: ($modal-inner-padding - 1) $modal-inner-padding $modal-inner-padding;
   text-align: right; // right align buttons
   border-top: 1px solid #e5e5e5;
-  @extend .clearfix; // clear it in case folks use .pull-* classes on buttons
+  @include clearfix(); // clear it in case folks use .pull-* classes on buttons
 
   // Properly space out buttons
   .btn + .btn {

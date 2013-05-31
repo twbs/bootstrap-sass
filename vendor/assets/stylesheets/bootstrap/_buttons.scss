@@ -9,7 +9,7 @@
 // Core styles
 .btn {
   display: inline-block;
-  padding: 6px 12px;
+  padding: $padding-base-vertical $padding-base-horizontal;
   margin-bottom: 0; // For input.btn
   font-size: $font-size-base;
   font-weight: 500;
@@ -120,32 +120,23 @@ fieldset[disabled] .btn-link {
 
 
 // Button Sizes
-// -------------------------
+// --------------------------------------------------
 
-// Large
 .btn-large {
-  padding: $padding-large;
+  padding: $padding-large-vertical $padding-large-horizontal;
   font-size: $font-size-large;
   border-radius: $border-radius-large;
 }
-
-// Small
 .btn-small {
-  padding: $padding-small;
+  padding: $padding-small-vertical $padding-small-horizontal;
   font-size: $font-size-small;
-  border-radius: $border-radius-small;
-}
-
-// Mini
-.btn-mini {
-  padding: $padding-mini;
-  font-size: $font-size-mini;
+  line-height: 1.5; // ensure proper height of button next to small input
   border-radius: $border-radius-small;
 }
 
 
 // Block button
-// -------------------------
+// --------------------------------------------------
 
 .btn-block {
   display: block;
