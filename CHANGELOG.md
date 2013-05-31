@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.1.3
+
+* Find the correct Sprockets context for the `image_path` function - *Tristan Harward, Gleb Mazovetskiy*
+
 ## 2.3.1.2
 
 * Fix changes to image url - *Gleb Mazovetskiy*
