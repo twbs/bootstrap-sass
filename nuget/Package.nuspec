@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Twitter.Bootstrap.Sass</id>
+    <title>Bootstrap Sass Source</title>
+    <version>2.3.2.1</version>
+    <authors>Thomas McDonald</authors>
+    <owners>Georgios Diamantopoulos</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://github.com/thomas-mcdonald/bootstrap-sass</projectUrl>
+    <iconUrl>http://twitter.github.io/bootstrap/assets/ico/favicon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>bootstrap-sass is an Sass-powered version of Twitter's Bootstrap, ready to drop right into your Sass powered applications.</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <tags>bootstrap sass mvc</tags>
+    <dependencies>
+    </dependencies>
+  </metadata>
+</package>
