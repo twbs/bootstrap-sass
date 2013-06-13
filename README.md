@@ -14,7 +14,7 @@ In your Gemfile:
 
 ```ruby
 gem 'sass-rails', '~> 3.2'
-gem 'bootstrap-sass', '~> 2.3.2'
+gem 'bootstrap-sass', '~> 2.3.2.0'
 ```
 
 `bundle install` and restart your server to make the files available.
@@ -44,7 +44,7 @@ We have a helper that includes all available javascripts:
 //= require bootstrap
 ```
 
-You can also load individual modules, provided you sort out any related dependencies.
+You can also load individual modules, provid2.3.ed you sort out any related dependencies.
 
 ```js
 //= require bootstrap-scrollspy
@@ -123,7 +123,7 @@ Basically this means you should expect to append a separate patch version to the
 ### Bundler?
 
 ```ruby
-gem 'bootstrap-sass', '~> 2.3.2'
+gem 'bootstrap-sass', '~> 2.3.2.0'
 ```
 
 Don't use the standard `~> 2.x.y`. Your apps may break.
