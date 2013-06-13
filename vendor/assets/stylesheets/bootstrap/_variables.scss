@@ -131,8 +131,6 @@ $input-height-base:              ($line-height-computed + ($padding-base-vertica
 $input-height-large:             ($line-height-computed + ($padding-large-vertical * 2)) !default;
 $input-height-small:             ($line-height-computed + ($padding-small-vertical * 2)) !default;
 
-$form-actions-bg:                #f5f5f5 !default;
-
 
 // Dropdowns
 // -------------------------
@@ -403,6 +401,19 @@ $screen-tablet-max:          $screen-small-max !default;
 // Large screen / wide desktop
 $screen-large:               1200px !default;
 $screen-large-desktop:       $screen-large !default;
+
+
+// Container sizes
+// --------------------------------------------------
+
+// Small screen / tablet
+$container-tablet:          728px !default;
+
+// Medium screen / desktop
+$container-desktop:         940px !default;
+
+// Large screen / wide desktop
+$container-large-desktop:   1170px !default;
 
 
 // Grid system
