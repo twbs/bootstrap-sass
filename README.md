@@ -44,7 +44,7 @@ We have a helper that includes all available javascripts:
 //= require bootstrap
 ```
 
-You can also load individual modules, provid2.3.ed you sort out any related dependencies.
+You can also load individual modules, provided you sort out any related dependencies.
 
 ```js
 //= require bootstrap-scrollspy
