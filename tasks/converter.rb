@@ -202,7 +202,7 @@ private
   end
 
   def insert_default_vars(scss)
-    scss.gsub(/^(\$.+);$/, '\1 !default;')
+    scss.gsub(/^(\$.+);/, '\1 !default;')
   end
 
   def convert_scss(file, folder='')

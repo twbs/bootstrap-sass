@@ -10,11 +10,11 @@
 // Grays
 // -------------------------
 
-$gray-darker:            lighten(#000, 13.5%); // #222
-$gray-dark:              lighten(#000, 20%);   // #333
-$gray:                   lighten(#000, 33.5%); // #555
-$gray-light:             lighten(#000, 60%);   // #999
-$gray-lighter:           lighten(#000, 93.5%); // #eee
+$gray-darker:            lighten(#000, 13.5%) !default; // #222
+$gray-dark:              lighten(#000, 20%) !default;   // #333
+$gray:                   lighten(#000, 33.5%) !default; // #555
+$gray-light:             lighten(#000, 60%) !default;   // #999
+$gray-lighter:           lighten(#000, 93.5%) !default; // #eee
 
 // Brand colors
 // -------------------------
@@ -46,12 +46,12 @@ $font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace !def
 $font-family-base:        $font-family-sans-serif !default;
 
 $font-size-base:          14px !default;
-$font-size-large:         ceil($font-size-base * 1.25); // ~18px
-$font-size-small:         ceil($font-size-base * 0.85); // ~12px
-$font-size-mini:          ceil($font-size-base * 0.75); // ~11px
+$font-size-large:         ceil($font-size-base * 1.25) !default; // ~18px
+$font-size-small:         ceil($font-size-base * 0.85) !default; // ~12px
+$font-size-mini:          ceil($font-size-base * 0.75) !default; // ~11px
 
-$line-height-base:        1.428571429; // 20/14
-$line-height-computed:    floor($font-size-base * $line-height-base); // ~20px
+$line-height-base:        1.428571429 !default; // 20/14
+$line-height-computed:    floor($font-size-base * $line-height-base) !default; // ~20px
 
 $headings-font-weight:    500 !default;
 $headings-line-height:    1.1 !default;
@@ -80,11 +80,11 @@ $component-active-bg:            $brand-primary !default;
 // Tables
 // -------------------------
 
-$table-bg:                           transparent; // overall background-color
-$table-bg-accent:                    #f9f9f9; // for striping
-$table-bg-hover:                     #f5f5f5; // for hover
+$table-bg:                           transparent !default; // overall background-color
+$table-bg-accent:                    #f9f9f9 !default; // for striping
+$table-bg-hover:                     #f5f5f5 !default; // for hover
 
-$table-border-color:                 #ddd; // table and cell border
+$table-border-color:                 #ddd !default; // table and cell border
 
 
 // Buttons
