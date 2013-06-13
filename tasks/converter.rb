@@ -17,8 +17,8 @@ require 'open-uri'
 require 'json'
 
 class Converter
-  def initialize(branch = 'master')
-    @branch = branch
+  def initialize(branch)
+    @branch = branch || 'master'
   end
 
   def process
