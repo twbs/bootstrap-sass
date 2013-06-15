@@ -9,56 +9,56 @@
  */
 
 // Core variables and mixins
-@import "variables";
-@import "mixins";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
 
 // Reset
-@import "normalize";
-@import "print";
+@import "bootstrap/normalize";
+@import "bootstrap/print";
 
 // Core CSS
-@import "scaffolding";
-@import "type";
-@import "code";
-@import "grid";
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+@import "bootstrap/code";
+@import "bootstrap/grid";
 
-@import "tables";
-@import "forms";
-@import "buttons";
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
 
 // Components: common
-@import "component-animations";
-@import "glyphicons";
-@import "dropdowns";
-@import "list-group";
-@import "panels";
-@import "wells";
-@import "close";
+@import "bootstrap/component-animations";
+@import "bootstrap/glyphicons";
+@import "bootstrap/dropdowns";
+@import "bootstrap/list-group";
+@import "bootstrap/panels";
+@import "bootstrap/wells";
+@import "bootstrap/close";
 
 // Components: Nav
-@import "navs";
-@import "navbar";
-@import "button-groups";
-@import "breadcrumbs";
-@import "pagination";
-@import "pager";
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+@import "bootstrap/button-groups";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+@import "bootstrap/pager";
 
 // Components: Popovers
-@import "modals";
-@import "tooltip";
-@import "popovers";
+@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
 
 // Components: Misc
-@import "alerts";
-@import "thumbnails";
-@import "media";
-@import "labels";
-@import "badges";
-@import "progress-bars";
-@import "accordion";
-@import "carousel";
-@import "jumbotron";
+@import "bootstrap/alerts";
+@import "bootstrap/thumbnails";
+@import "bootstrap/media";
+@import "bootstrap/labels";
+@import "bootstrap/badges";
+@import "bootstrap/progress-bars";
+@import "bootstrap/accordion";
+@import "bootstrap/carousel";
+@import "bootstrap/jumbotron";
 
 // Utility classes
-@import "utilities"; // Has to be last to override when necessary
-@import "responsive-utilities";
+@import "bootstrap/utilities"; // Has to be last to override when necessary
+@import "bootstrap/responsive-utilities";
