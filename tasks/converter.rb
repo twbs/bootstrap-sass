@@ -30,29 +30,33 @@ class Converter
   def process_stylesheet_assets
     puts "\nProcessing stylesheets..."
     bootstrap_less_files.each do |name|
-      unless ['bootstrap.less', 'responsive.less'].include?(name)
-        file = open("https://raw.github.com/twitter/bootstrap/#{@branch}/less/#{name}").read
+      file = open("https://raw.github.com/twitter/bootstrap/#{@branch}/less/#{name}").read
 
-        case name
-        when 'mixins.less'
-          file = replace_vars(file)
-          file = replace_escaping(file)
-          file = replace_mixin_file(file)
-          file = replace_mixins(file)
-        when 'utilities.less'
-          file = replace_mixin_file(file)
-          file = convert_to_scss(file)
-        when 'variables.less'
-          file = convert_to_scss(file)
-          file = insert_default_vars(file)
-        else
-          file = convert_to_scss(file)
-        end
-
-        name = name.gsub(/\.less$/, '.scss')
-        path = "vendor/assets/stylesheets/bootstrap/_#{name}"
-        save_file(path, file)
+      case name
+      when 'bootstrap.less'
+        file = replace_file_imports(file)
+      when 'mixins.less'
+        file = replace_vars(file)
+        file = replace_escaping(file)
+        file = replace_mixin_file(file)
+        file = replace_mixins(file)
+      when 'utilities.less'
+        file = replace_mixin_file(file)
+        file = convert_to_scss(file)
+      when 'variables.less'
+        file = convert_to_scss(file)
+        file = insert_default_vars(file)
+      else
+        file = convert_to_scss(file)
       end
+
+      name = name.gsub(/\.less$/, '.scss')
+      if name == 'bootstrap.scss'
+        path = "vendor/assets/stylesheets/bootstrap/bootstrap.scss"
+      else
+        path = "vendor/assets/stylesheets/bootstrap/_#{name}"
+      end
+      save_file(path, file)
     end
   end
 
@@ -133,13 +137,16 @@ private
     file = replace_image_paths(file)
     file = replace_escaping(file)
     file = convert_less_ampersand(file)
-
     file
   end
 
   def save_file(path, content, mode='w')
     File.open(path, mode) { |file| file.write(content) }
     puts "Saved #{path}\n"
+  end
+
+  def replace_file_imports(less)
+    less.gsub(/@import ["|']([\w-]+).less["|'];/, '@import "bootstrap/\1";');
   end
 
   # Replaces the following:
