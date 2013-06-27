@@ -314,7 +314,6 @@
   background-image: linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
 }
 
-
 // Reset filters for IE
 //
 // When you need to remove a gradient background, don't forget to use this to reset
@@ -398,6 +397,16 @@
   margin-bottom: (($navbar-height - $element-height) / 2);
 }
 
+// Responsive utilities
+// -------------------------
+// More easily include all the states for responsive-utilities.less.
+// $parent hack because sass doesn't support tr& (without space)
+@mixin twbs-responsive-visibility($parent) {
+  #{$parent} { display: block !important; }
+  tr#{$parent} { display: table-row !important; }
+  th#{$parent},
+  td#{$parent} { display: table-cell !important; }
+}
 
 
 // Grid System

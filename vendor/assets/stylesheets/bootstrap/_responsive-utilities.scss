@@ -36,42 +36,42 @@
 // Visibility utilities
 
 // For Phones
-.visible-sm   { display: block !important; }
-.visible-md   { display: none !important; }
-.visible-lg   { display: none !important; }
+@include twbs-responsive-visibility('.visible-sm');
+.visible-md { display: none !important; }
+.visible-lg { display: none !important; }
 
-.hidden-sm    { display: none !important; }
-.hidden-md    { display: block !important; }
-.hidden-lg    { display: block !important; }
+.hidden-sm { display: none !important; }
+@include twbs-responsive-visibility('.visible-md');
+@include twbs-responsive-visibility('.visible-lg');
 
 
 // Tablets & small desktops only
 @media (min-width: $screen-tablet) and (max-width: $screen-tablet-max) {
-  .visible-sm   { display: none !important; }
-  .visible-md   { display: block !important; }
-  .visible-lg   { display: none !important; }
+  .visible-sm { display: none !important; }
+  @include twbs-responsive-visibility('.visible-md');
+  .visible-lg { display: none !important; }
 
-  .hidden-sm    { display: block !important; }
-  .hidden-md    { display: none !important; }
-  .hidden-lg    { display: block !important; }
+  @include twbs-responsive-visibility('.visible-sm');
+  .hidden-md { display: none !important; }
+  @include twbs-responsive-visibility('.visible-lg');
 }
 
 // For desktops
 @media (min-width: $screen-desktop) {
-  .visible-sm   { display: none !important; }
-  .visible-md   { display: none !important; }
-  .visible-lg   { display: block !important; }
+  .visible-sm { display: none !important; }
+  .visible-md { display: none !important; }
+  @include twbs-responsive-visibility('.visible-lg');
 
-  .hidden-sm    { display: block !important; }
-  .hidden-md    { display: block !important; }
-  .hidden-lg    { display: none !important; }
+  @include twbs-responsive-visibility('.visible-sm');
+  @include twbs-responsive-visibility('.visible-md');
+  .hidden-lg { display: none !important; }
 }
 
 // Print utilities
-.visible-print  { display: none !important; }
-.hidden-print   { }
+.visible-print { display: none !important; }
+.hidden-print  { }
 
 @media print {
-  .visible-print  { display: block !important; }
-  .hidden-print   { display: none !important; }
+  @include twbs-responsive-visibility('.visible-print');
+  .hidden-print { display: none !important; }
 }
