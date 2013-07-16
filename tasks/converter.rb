@@ -111,8 +111,6 @@ private
 
   def convert_to_scss(file)
     file = replace_vars(file)
-    file = replace_fonts(file)
-    file = replace_font_family(file)
     file = replace_mixins(file)
     file = replace_less_extend(file)
     file = replace_spin(file)
@@ -157,14 +155,6 @@ private
     less.gsub(/(?!@media|@page|@keyframes|@font-face|@-\w)@/, '$')
   end
 
-  def replace_fonts(less)
-    less.gsub(/#font \> \.([\w-]+)/, '@include font-\1')
-  end
-
-  def replace_font_family(less)
-    less.gsub(/#font \> #family \> \.([\w-]+)/, '@include font-family-\1')
-  end
-
   def replace_less_extend(less)
     less.gsub(/\#(\w+) \> \.([\w-]*)(\(.*\));?/, '@include \1-\2\3;')
   end
@@ -189,11 +179,6 @@ private
 
   def insert_default_vars(scss)
     scss.gsub(/^(\$.+);/, '\1 !default;')
-  end
-
-  def convert_scss(file, folder='')
-    sass_files = 'stylesheets_sass'
-    system("sass-convert #{file.path} #{sass_files}/#{folder}#{File.basename(file, 'scss')}sass")
   end
 
   # Converts &-
