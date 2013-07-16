@@ -24,7 +24,6 @@ class Converter
   def process
     process_stylesheet_assets
     process_javascript_assets
-    process_font_assets
   end
 
   def process_stylesheet_assets
@@ -78,15 +77,6 @@ class Converter
     save_file(path, content)
   end
 
-  def process_font_assets
-    puts "\nProcessing fonts..."
-    bootstrap_font_files.each do |name|
-      file = open("https://raw.github.com/twitter/bootstrap/#{@branch}/fonts/#{name}").read
-      path = "vendor/assets/fonts/#{name}"
-      save_file(path, file)
-    end
-  end
-
 private
 
   # Get the sha of a dir
@@ -108,12 +98,6 @@ private
     files['tree'].select{|f| f['type'] == 'blob' && f['path'] =~ /.js$/ }.map{|f| f['path'] }
   end
 
-  def bootstrap_font_files
-    files = open("https://api.github.com/repos/twitter/bootstrap/git/trees/#{get_tree_sha('fonts')}").read
-    files = JSON.parse files
-    files['tree'].select{|f| f['type'] == 'blob' }.map{|f| f['path'] }
-  end
-
   def get_mixins_name
     mixins      = []
     less_mixins = open("https://raw.github.com/twitter/bootstrap/#{@branch}/less/mixins.less").read
@@ -133,7 +117,6 @@ private
     file = replace_less_extend(file)
     file = replace_spin(file)
     file = replace_image_urls(file)
-    file = replace_font_urls(file)
     file = replace_image_paths(file)
     file = replace_escaping(file)
     file = convert_less_ampersand(file)
@@ -192,10 +175,6 @@ private
 
   def replace_image_urls(less)
     less.gsub(/background-image: url\("?(.*?)"?\);/) {|s| "background-image: image-url(\"#{$1}\");" }
-  end
-
-  def replace_font_urls(less)
-    less.gsub(/url\('\$\{glyphicons-font-path\}\/?(.*?)'\)/) {|s| "font-url('#{$1}')" }
   end
 
   def replace_image_paths(less)

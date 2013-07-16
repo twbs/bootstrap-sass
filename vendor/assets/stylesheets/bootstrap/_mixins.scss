@@ -328,7 +328,7 @@
 // --------------------------------------------------
 
 // Short retina mixin for setting background-image and -size
-@mixin twbs-retina-image($file-1x, $file-2x, $width-1x, $height-1x) {
+@mixin twbs-img-retina($file-1x, $file-2x, $width-1x, $height-1x) {
   background-image: url("${file-1x}");
 
   @media
@@ -358,6 +358,20 @@
   border-bottom: 1px solid $bottom;
 }
 
+// Alerts
+// -------------------------
+@mixin twbs-alert-variant($background, $border, $text-color) {
+  background-color: $background;
+  border-color: $border;
+  color: $text-color;
+  hr {
+    border-top-color: darken($border, 5%);
+  }
+  .alert-link {
+    color: darken($text-color, 10%);
+  }
+}
+
 // Button psuedo states
 // -------------------------
 // Easily pump out default styles, as well as :hover, :focus, :active,
@@ -378,12 +392,25 @@
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
+    &,
     &:hover,
     &:focus,
     &:active,
     &.active {
       background-color: $background;
           border-color: $border
+    }
+  }
+}
+
+// Labels
+// -------------------------
+@mixin twbs-label-variant($color) {
+  background-color: $color;
+  &[href] {
+    &:hover,
+    &:focus {
+      background-color: darken($color, 10%);
     }
   }
 }
@@ -397,6 +424,15 @@
   margin-bottom: (($navbar-height - $element-height) / 2);
 }
 
+// Progress bars
+// -------------------------
+@mixin twbs-progress-bar-variant($color) {
+  background-color: $color;
+  .progress-striped & {
+    @include twbs-gradient-striped($color);
+  }
+}
+
 // Responsive utilities
 // -------------------------
 // More easily include all the states for responsive-utilities.less.
@@ -408,6 +444,12 @@
   td#{$parent} { display: table-cell !important; }
 }
 
+@mixin twbs-responsive-invisibility($parent) {
+  #{$parent} { display: none !important; }
+  tr#{$parent} { display: none !important; }
+  th#{$parent},
+  td#{$parent} { display: none !important; }
+}
 
 // Grid System
 // -----------
@@ -440,9 +482,6 @@
 // Generate the columns
 @mixin twbs-make-column($columns) {
   position: relative;
-  // Float and set width: 100%; for easy stacking on mobile devices
-  float: left;
-  width: 100%;
   // Prevent columns from collapsing when empty
   min-height: 1px;
   // Inner gutter via padding
@@ -451,6 +490,7 @@
 
   // Calculate width based on number of columns available
   @media (min-width: $grid-float-breakpoint) {
+    float: left;
     width: percentage(($columns / $grid-columns));
   }
 }
@@ -479,6 +519,7 @@
 // Generate form validation states
 @mixin twbs-form-field-validation($text-color: #555, $border-color: #ccc, $background-color: #f5f5f5) {
   // Color the label text
+  .help-block,
   .control-label {
     color: $text-color;
   }

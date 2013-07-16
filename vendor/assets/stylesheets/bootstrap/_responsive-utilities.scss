@@ -29,49 +29,49 @@
 // Hide from screenreaders and browsers
 // Credit: HTML5 Boilerplate
 .hidden {
-  display: none;
-  visibility: hidden;
+  display: none !important;
+  visibility: hidden !important;
 }
 
 // Visibility utilities
 
 // For Phones
 @include twbs-responsive-visibility('.visible-sm');
-.visible-md { display: none !important; }
-.visible-lg { display: none !important; }
+@include twbs-responsive-invisibility('.visible-md');
+@include twbs-responsive-invisibility('.visible-lg');
 
-.hidden-sm { display: none !important; }
-@include twbs-responsive-visibility('.visible-md');
-@include twbs-responsive-visibility('.visible-lg');
+@include twbs-responsive-invisibility('.hidden-sm');
+@include twbs-responsive-visibility('.hidden-md');
+@include twbs-responsive-visibility('.hidden-lg');
 
 
 // Tablets & small desktops only
 @media (min-width: $screen-tablet) and (max-width: $screen-tablet-max) {
-  .visible-sm { display: none !important; }
+  @include twbs-responsive-invisibility('.visible-sm');
   @include twbs-responsive-visibility('.visible-md');
-  .visible-lg { display: none !important; }
+  @include twbs-responsive-invisibility('.visible-lg');
 
-  @include twbs-responsive-visibility('.visible-sm');
-  .hidden-md { display: none !important; }
-  @include twbs-responsive-visibility('.visible-lg');
+  @include twbs-responsive-visibility('.hidden-sm');
+  @include twbs-responsive-invisibility('.hidden-md');
+  @include twbs-responsive-visibility('.hidden-lg');
 }
 
 // For desktops
 @media (min-width: $screen-desktop) {
-  .visible-sm { display: none !important; }
-  .visible-md { display: none !important; }
+  @include twbs-responsive-invisibility('.visible-sm');
+  @include twbs-responsive-invisibility('.visible-md');
   @include twbs-responsive-visibility('.visible-lg');
 
-  @include twbs-responsive-visibility('.visible-sm');
-  @include twbs-responsive-visibility('.visible-md');
-  .hidden-lg { display: none !important; }
+  @include twbs-responsive-visibility('.hidden-sm');
+  @include twbs-responsive-visibility('.hidden-md');
+  @include twbs-responsive-invisibility('.hidden-lg');
 }
 
 // Print utilities
-.visible-print { display: none !important; }
+@include twbs-responsive-invisibility('.visible-print');
 .hidden-print  { }
 
 @media print {
   @include twbs-responsive-visibility('.visible-print');
-  .hidden-print { display: none !important; }
+  @include twbs-responsive-invisibility('.hidden-print');
 }
