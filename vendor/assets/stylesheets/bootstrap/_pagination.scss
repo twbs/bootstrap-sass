@@ -86,17 +86,23 @@
 
 // Small
 .pagination-small {
-  > li > a,
-  > li > span {
-    padding: $padding-small-vertical $padding-small-horizontal;
-    font-size: $font-size-small;
-  }
-  > li:first-child > a,
-  > li:first-child > span {
-    @include twbs-border-left-radius($border-radius-small);
-  }
-  > li:last-child > a,
-  > li:last-child > span {
-    @include twbs-border-right-radius($border-radius-small);
+  > li {
+    > a,
+    > span {
+      padding: $padding-small-vertical $padding-small-horizontal;
+      font-size: $font-size-small;
+    }
+    &:first-child {
+      > a,
+      > span {
+        @include twbs-border-left-radius($border-radius-small);
+      }
+    }
+    &:last-child {
+      > a,
+      > span {
+        @include twbs-border-right-radius($border-radius-small);
+      }
+    }
   }
 }
