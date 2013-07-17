@@ -131,24 +131,22 @@ private
   end
 
   # Replaces the following:
-  #  .mixin()          -> @import twbs-mixin()
-  #  #scope > .mixin() -> @import twbs-scope-mixin()
+  #  .mixin()          -> @import mixin()
+  #  #scope > .mixin() -> @import scope-mixin()
   def replace_mixins(less)
     mixin_pattern = /(\s*)(([#|\.][\w-]+\s*>\s*)*)\.([\w-]+\(.*\))/
     less.gsub(mixin_pattern) do |match|
       matches = match.scan(mixin_pattern).flatten
       scope = matches[1] || ''
       if scope != ''
-        scope = 'twbs-' + scope.scan(/[\w-]+/).join('-')
-      else
-        scope = 'twbs'
+        scope = scope.scan(/[\w-]+/).join('-') + '-'
       end
-      "#{matches.first}@include #{scope}-#{matches.last}"
+      "#{matches.first}@include #{scope}#{matches.last}"
     end
   end
 
   def replace_mixin_file(less)
-    less.gsub(/^(\s*)\.([\w-]+\(.*\))(\s*{)/, '\1@mixin twbs-\2\3')
+    less.gsub(/^(\s*)\.([\w-]+\(.*\))(\s*{)/, '\1@mixin \2\3')
   end
 
   def replace_vars(less)

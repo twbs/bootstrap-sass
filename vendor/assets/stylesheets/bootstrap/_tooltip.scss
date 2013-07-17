@@ -11,9 +11,9 @@
   visibility: visible;
   font-size: $font-size-mini;
   line-height: 1.4;
-  @include twbs-opacity(0);
+  @include opacity(0);
 
-  &.in     { @include twbs-opacity(1); }
+  &.in     { @include opacity(1); }
   &.top    { margin-top:  -3px; padding: 5px 0; }
   &.right  { margin-left:  3px; padding: 0 5px; }
   &.bottom { margin-top:   3px; padding: 5px 0; }

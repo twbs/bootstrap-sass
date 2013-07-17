@@ -27,7 +27,7 @@
   // When fading in the modal, animate it to slide down
   &.fade {
     top: -25%;
-    @include twbs-transition(#{opacity 0.3s linear, top 0.3s ease-out});
+    @include transition(#{opacity 0.3s linear, top 0.3s ease-out});
   }
   &.fade.in { top: 0; }
 }
@@ -50,8 +50,8 @@
   border: 1px solid #999;
   border: 1px solid rgba(0,0,0,.2);
   border-radius: 6px;
-  @include twbs-box-shadow(0 3px 9px rgba(0,0,0,.5));
-  @include twbs-background-clip(padding-box);
+  @include box-shadow(0 3px 9px rgba(0,0,0,.5));
+  @include background-clip(padding-box);
   // Remove focus outline from opened modal
   outline: none;
 }
@@ -66,8 +66,8 @@
   z-index: ($zindex-modal-background - 10);
   background-color: #000;
   // Fade for backdrop
-  &.fade { @include twbs-opacity(0); }
-  &.fade.in { @include twbs-opacity(.5); }
+  &.fade { @include opacity(0); }
+  &.fade.in { @include opacity(.5); }
 }
 
 // Modal header
@@ -101,7 +101,7 @@
   padding: ($modal-inner-padding - 1) $modal-inner-padding $modal-inner-padding;
   text-align: right; // right align buttons
   border-top: 1px solid #e5e5e5;
-  @include twbs-clearfix(); // clear it in case folks use .pull-* classes on buttons
+  @include clearfix(); // clear it in case folks use .pull-* classes on buttons
 
   // Properly space out buttons
   .btn + .btn {
@@ -130,7 +130,7 @@
     padding-bottom: 30px;
   }
   .modal-content {
-    @include twbs-box-shadow(0 5px 15px rgba(0,0,0,.5));
+    @include box-shadow(0 5px 15px rgba(0,0,0,.5));
   }
 
 }

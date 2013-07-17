@@ -7,7 +7,7 @@
 // -------------------------
 
 .clearfix {
-  @include twbs-clearfix();
+  @include clearfix();
 }
 .pull-right {
   float: right;
@@ -30,7 +30,7 @@
   visibility: hidden;
 }
 .text-hide {
-  @include twbs-hide-text();
+  @include hide-text();
 }
 
 

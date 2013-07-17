@@ -16,7 +16,7 @@
   > .item {
     display: none;
     position: relative;
-    @include twbs-transition(.6s ease-in-out left);
+    @include transition(.6s ease-in-out left);
 
     // Account for jankitude on images
     > img,
@@ -70,7 +70,7 @@
   left: 0;
   bottom: 0;
   width: 15%;
-  @include twbs-opacity(.5);
+  @include opacity(.5);
   font-size: 20px;
   color: #fff;
   text-align: center;
@@ -80,13 +80,13 @@
 
   // Set gradients for backgrounds
   &.left {
-    @include twbs-gradient-horizontal($start-color: rgba(0,0,0,.5), $end-color: rgba(0,0,0,.0001));
+    @include gradient-horizontal($start-color: rgba(0,0,0,.5), $end-color: rgba(0,0,0,.0001));
     background-color: transparent;
   }
   &.right {
     left: auto;
     right: 0;
-    @include twbs-gradient-horizontal($start-color: rgba(0,0,0,.0001), $end-color: rgba(0,0,0,.5));
+    @include gradient-horizontal($start-color: rgba(0,0,0,.0001), $end-color: rgba(0,0,0,.5));
     background-color: transparent;
   }
 
@@ -95,7 +95,7 @@
   &:focus {
     color: #fff;
     text-decoration: none;
-    @include twbs-opacity(.9);
+    @include opacity(.9);
   }
 
   // Toggles

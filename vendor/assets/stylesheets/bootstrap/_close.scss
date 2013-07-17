@@ -10,14 +10,14 @@
   line-height: 1;
   color: #000;
   text-shadow: 0 1px 0 rgba(255,255,255,1);
-  @include twbs-opacity(.2);
+  @include opacity(.2);
 
   &:hover,
   &:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-    @include twbs-opacity(.5);
+    @include opacity(.5);
   }
 }
 

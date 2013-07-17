@@ -30,17 +30,17 @@
 // Colors
 // Contextual variations (linked labels get darker on :hover)
 .label-danger {
-  @include twbs-label-variant($label-danger-bg);
+  @include label-variant($label-danger-bg);
 }
 
 .label-success {
-  @include twbs-label-variant($label-success-bg);
+  @include label-variant($label-success-bg);
 }
 
 .label-warning {
-  @include twbs-label-variant($label-warning-bg);
+  @include label-variant($label-warning-bg);
 }
 
 .label-info {
-  @include twbs-label-variant($label-info-bg);
+  @include label-variant($label-info-bg);
 }

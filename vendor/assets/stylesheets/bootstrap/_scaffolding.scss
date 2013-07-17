@@ -7,7 +7,7 @@
 // -------------------------
 
 * {
-  @include twbs-box-sizing(border-box);
+  @include box-sizing(border-box);
 }
 
 
@@ -51,7 +51,7 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  @include twbs-tab-focus();
+  @include tab-focus();
 }
 
 

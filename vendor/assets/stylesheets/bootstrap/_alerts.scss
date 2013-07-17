@@ -43,13 +43,13 @@
 // -------------------------
 
 .alert-success {
-  @include twbs-alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
+  @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
 }
 .alert-danger {
-  @include twbs-alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
 }
 .alert-info {
-  @include twbs-alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
+  @include alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
 }
 
 // Block alerts

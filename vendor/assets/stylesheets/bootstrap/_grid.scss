@@ -4,12 +4,12 @@
 
 // Set the container width, and override it for fixed navbars in media queries
 .container {
-  @include twbs-container-fixed();
+  @include container-fixed();
 }
 
 // Mobile-first defaults
 .row {
-  @include twbs-make-row();
+  @include make-row();
 }
 
 // Common styles for small and large grid columns

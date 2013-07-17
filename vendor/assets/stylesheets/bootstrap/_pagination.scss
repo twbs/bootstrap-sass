@@ -6,7 +6,7 @@
   padding-left: 0;
   margin: $line-height-computed 0;
   border-radius: $border-radius-base;
-  
+
   > li {
     display: inline; // Remove list-style and block-level defaults
     > a,
@@ -23,17 +23,17 @@
       > a,
       > span {
         border-left-width: 1px;
-        @include twbs-border-left-radius($border-radius-base);
+        @include border-left-radius($border-radius-base);
       }
     }
     &:last-child {
       > a,
       > span {
-        @include twbs-border-right-radius($border-radius-base);
+        @include border-right-radius($border-radius-base);
       }
     }
   }
-  
+
   > li > a:hover,
   > li > a:focus,
   > .active > a,
@@ -45,7 +45,7 @@
     color: $gray-light;
     cursor: default;
   }
-  
+
   > .disabled {
     > span,
     > a,
@@ -72,13 +72,13 @@
     &:first-child {
       > a,
       > span {
-        @include twbs-border-left-radius($border-radius-large);
+        @include border-left-radius($border-radius-large);
       }
     }
     &:last-child {
       > a,
       > span {
-        @include twbs-border-right-radius($border-radius-large);
+        @include border-right-radius($border-radius-large);
       }
     }
   }
@@ -95,13 +95,13 @@
     &:first-child {
       > a,
       > span {
-        @include twbs-border-left-radius($border-radius-small);
+        @include border-left-radius($border-radius-small);
       }
     }
     &:last-child {
       > a,
       > span {
-        @include twbs-border-right-radius($border-radius-small);
+        @include border-right-radius($border-radius-small);
       }
     }
   }

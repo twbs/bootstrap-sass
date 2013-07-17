@@ -34,8 +34,8 @@
   border: 1px solid #ccc; // IE8 fallback
   border: 1px solid $dropdown-border;
   border-radius: $border-radius-base;
-  @include twbs-box-shadow(0 6px 12px rgba(0,0,0,.175));
-  @include twbs-background-clip(padding-box);
+  @include box-shadow(0 6px 12px rgba(0,0,0,.175));
+  @include background-clip(padding-box);
 
   // Aligns the dropdown menu to right
   &.pull-right {
@@ -45,7 +45,7 @@
 
   // Dividers (basically an hr) within the dropdown
   .divider {
-    @include twbs-nav-divider($dropdown-divider-top, $dropdown-divider-bottom);
+    @include nav-divider($dropdown-divider-top, $dropdown-divider-bottom);
   }
 
   // Links within the dropdown menu
@@ -67,7 +67,7 @@
   &:focus {
     text-decoration: none;
     color: $dropdown-link-hover-color;
-    @include twbs-gradient-vertical($start-color: $dropdown-link-hover-bg, $end-color: darken($dropdown-link-hover-bg, 5%));
+    @include gradient-vertical($start-color: $dropdown-link-hover-bg, $end-color: darken($dropdown-link-hover-bg, 5%));
   }
 }
 
@@ -80,7 +80,7 @@
     color: $dropdown-link-active-color;
     text-decoration: none;
     outline: 0;
-    @include twbs-gradient-vertical($start-color: $dropdown-link-active-bg, $end-color: darken($dropdown-link-active-bg, 5%));
+    @include gradient-vertical($start-color: $dropdown-link-active-bg, $end-color: darken($dropdown-link-active-bg, 5%));
   }
 }
 
@@ -101,7 +101,7 @@
     text-decoration: none;
     background-color: transparent;
     background-image: none; // Remove CSS gradient
-    @include twbs-reset-filter();
+    @include reset-filter();
     cursor: default;
   }
 }

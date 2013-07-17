@@ -25,11 +25,11 @@
 
   // Round the first and last items
   &:first-child {
-    @include twbs-border-top-radius($border-radius-base);
+    @include border-top-radius($border-radius-base);
   }
   &:last-child {
     margin-bottom: 0;
-    @include twbs-border-bottom-radius($border-radius-base);
+    @include border-bottom-radius($border-radius-base);
   }
 
   // Align badges within list items
