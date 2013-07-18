@@ -19,12 +19,6 @@ gem 'bootstrap-sass', '~> 2.3.2.0'
 
 `bundle install` and restart your server to make the files available.
 
-#### Rails 4
-
-Due to a change in Rails that prevents images from being compiled in vendor and lib, you'll need to add the following line to your application.rb:
-
-    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-
 #### CSS
 
 Import Bootstrap in an SCSS file (for example, `application.css.scss`) to get all of Bootstrap's styles, mixins and variables! We recommend against using `//= require` directives, since none of your other stylesheets will be [able to use](https://github.com/thomas-mcdonald/bootstrap-sass/issues/79#issuecomment-4428595) the awesome mixins that Bootstrap has defined.
