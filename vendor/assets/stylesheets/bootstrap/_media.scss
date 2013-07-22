@@ -2,54 +2,55 @@
 // Source: http://stubbornella.org/content/?p=497
 // --------------------------------------------------
 
+@if($media == true){
+  // Common styles
+  // -------------------------
 
-// Common styles
-// -------------------------
+  // Clear the floats
+  .media,
+  .media-body {
+    overflow: hidden;
+    *overflow: visible;
+    zoom: 1;
+  }
 
-// Clear the floats
-.media,
-.media-body {
-  overflow: hidden;
-  *overflow: visible;
-  zoom: 1;
-}
+  // Proper spacing between instances of .media
+  .media,
+  .media .media {
+    margin-top: 15px;
+  }
+  .media:first-child {
+    margin-top: 0;
+  }
 
-// Proper spacing between instances of .media
-.media,
-.media .media {
-  margin-top: 15px;
-}
-.media:first-child {
-  margin-top: 0;
-}
+  // For images and videos, set to block
+  .media-object {
+    display: block;
+  }
 
-// For images and videos, set to block
-.media-object {
-  display: block;
-}
-
-// Reset margins on headings for tighter default spacing
-.media-heading {
-  margin: 0 0 5px;
-}
-
-
-// Media image alignment
-// -------------------------
-
-.media > .pull-left {
-  margin-right: 10px;
-}
-.media > .pull-right {
-  margin-left: 10px;
-}
+  // Reset margins on headings for tighter default spacing
+  .media-heading {
+    margin: 0 0 5px;
+  }
 
 
-// Media list variation
-// -------------------------
+  // Media image alignment
+  // -------------------------
 
-// Undo default ul/ol styles
-.media-list {
-  margin-left: 0;
-  list-style: none;
+  .media > .pull-left {
+    margin-right: 10px;
+  }
+  .media > .pull-right {
+    margin-left: 10px;
+  }
+
+
+  // Media list variation
+  // -------------------------
+
+  // Undo default ul/ol styles
+  .media-list {
+    margin-left: 0;
+    list-style: none;
+  }
 }

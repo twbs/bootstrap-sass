@@ -1,0 +1,44 @@
+//Tracking components of Bootstrap.
+
+$default-bootstrap 		: 		true;
+	
+$reset 					: 		$default-bootstrap;
+$scaffolding 			: 		$default-bootstrap;
+$grid 					: 		false;
+$layouts 				: 		$default-bootstrap;
+$type 					: 		$default-bootstrap;
+$code 					: 		false;
+$forms 					: 		false;
+$tables 				: 		false;
+$sprites 				: 		false;
+$dropdowns 				: 		false;
+$wells 					: 		false;
+$component-animations 	: 		false;
+$close 					: 		false;
+$buttons 				: 		false;
+$button-groups 			: 		false;
+$alerts 				: 		false;
+$navs 					: 		false;
+$navbar 				: 		false;
+$breadcrumbs 			: 		false;
+$pagination 			: 		false;
+$pager 					: 		false;
+$modals 				: 		false;
+$tooltip 				: 		false;
+$popovers 				: 		false;
+$thumbnails 			: 		false;
+$media 					: 		false;
+$labels-badges 			: 		false;
+$progress-bars 			: 		false;
+$accordion 				: 		false;
+$carousel 				: 		false;
+$hero-unit 				: 		false;
+$utilities 				: 		false;
+
+//Responsive Controller
+
+$responsive-utilities 	: 		false;
+$responsive-1200px-min 	: 		false;
+$responsive-768px-979px	: 		false;
+$responsive-767px-max 	: 		false;
+$responsive-navbar 		: 		false;
