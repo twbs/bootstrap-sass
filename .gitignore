@@ -4,3 +4,9 @@ bootstrap.css
 bootstrap-responsive.css
 Gemfile.lock
 .rvmrc
+.rbenv-version
+
+# Ignore bundler config
+/.bundle
+/vendor/cache
+/vendor/bundle
