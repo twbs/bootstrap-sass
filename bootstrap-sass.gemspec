@@ -1,6 +1,10 @@
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'bootstrap-sass/version'
+
 Gem::Specification.new do |s|
   s.name = "bootstrap-sass"
-  s.version = '2.3.1.0'
+  s.version = Bootstrap::VERSION
   s.authors = ["Thomas McDonald"]
   s.email = 'tom@conceptcoding.co.uk'
   s.summary = "Twitter's Bootstrap, converted to Sass and ready to drop into Rails or Compass"
