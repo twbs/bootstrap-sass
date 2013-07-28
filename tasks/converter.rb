@@ -134,7 +134,7 @@ private
   #  .mixin()          -> @import mixin()
   #  #scope > .mixin() -> @import scope-mixin()
   def replace_mixins(less)
-    mixin_pattern = /(\s*)(([#|\.][\w-]+\s*>\s*)*)\.([\w-]+\(.*\))/
+    mixin_pattern = /(\s+)(([#|\.][\w-]+\s*>\s*)*)\.([\w-]+\(.*\))/
     less.gsub(mixin_pattern) do |match|
       matches = match.scan(mixin_pattern).flatten
       scope = matches[1] || ''
