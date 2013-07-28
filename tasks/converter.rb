@@ -171,8 +171,8 @@ private
 
   def replace_escaping(less)
     less = less.gsub(/\~"([^"]+)"/, '#{\1}') # Get rid of ~"" escape
-    #less.gsub(/(\W)e\("([^\)]+)"\)/) {|s| "#{$1 if $1 != /\s/}#{$2}"} # Get rid of e escape
-    less.gsub(/(\W)e\(%\((.*)\)\)/, '\1\2') # Get rid of e(%("")) escape
+    less.gsub!(/\${([^}]+)}/, '$\1') # Get rid of @{} escape
+    less.gsub(/(\W)e\(%\("?([^"]*)"?\)\)/, '\1\2') # Get rid of e(%("")) escape
   end
 
   def insert_default_vars(scss)
