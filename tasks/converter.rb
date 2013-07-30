@@ -147,7 +147,9 @@ private
   end
 
   def replace_mixin_file(less)
-    less.gsub(/^(\s*)\.([\w-]+\(.*\))(\s*{)/, '\1@mixin \2\3')
+    less.gsub(/^(\s*)\.([\w-]+\(.*\))(\s*\{)/) { |match|
+      "#{$1}@mixin #{$2.tr(';', ',')}#{$3}"
+    }
   end
 
   def replace_vars(less)
