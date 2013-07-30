@@ -146,7 +146,7 @@
 
 // Navbar form
 .navbar-form {
-  @include form-inline();
+  @extend .form-inline;
   @include navbar-vertical-align($input-height-base); // Vertically center in navbar
 }
 

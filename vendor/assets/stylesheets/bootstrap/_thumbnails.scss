@@ -22,7 +22,7 @@
 }
 .thumbnail > img,
 .img-thumbnail {
-  @include img-responsive();
+  @extend .img-responsive;
 }
 
 // Add a hover state for linked versions only
