@@ -19,6 +19,7 @@ require 'json'
 class Converter
   def initialize(branch)
     @branch = branch || 'master'
+    @mixins = get_mixins_name
   end
 
   def process
@@ -103,7 +104,7 @@ private
     less_mixins = open("https://raw.github.com/twitter/bootstrap/#{@branch}/less/mixins.less").read
 
     less_mixins.scan(/\.([\w-]+)\(.*\)\s?{?/) do |mixin|
-      mixins << mixin
+      mixins << mixin.first
     end
 
     mixins
@@ -141,7 +142,13 @@ private
       if scope != ''
         scope = scope.scan(/[\w-]+/).join('-') + '-'
       end
-      "#{matches.first}@include #{scope}#{matches.last}"
+      mixin_name = match.scan(/\.([\w-]+)\(.*\)\s?{?/).first
+
+      if mixin_name && @mixins.include?(mixin_name.first)
+        "#{matches.first}@include #{scope}#{matches.last}".gsub(/; \$/,', $')
+      else
+        "#{matches.first}@extend .#{scope}#{matches.last.gsub(/\(\)/, '')}"
+      end
     end
   end
 
