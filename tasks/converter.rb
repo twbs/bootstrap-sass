@@ -1,3 +1,4 @@
+# coding: utf-8
 # Based on convert script from vwall/compass-twitter-bootstrap gem.
 # https://github.com/vwall/compass-twitter-bootstrap/blob/master/build/convert.rb
 #
@@ -29,9 +30,7 @@ class Converter
 
   def process_stylesheet_assets
     puts "\nProcessing stylesheets..."
-    bootstrap_less_files.each do |name|
-      file = open("https://raw.github.com/#@repo/#@branch/less/#{name}").read
-
+    read_files('less', bootstrap_less_files).each do |name, file|
       case name
       when 'bootstrap.less'
         file = replace_file_imports(file)
@@ -62,10 +61,8 @@ class Converter
 
   def process_javascript_assets
     puts "\nProcessing javascripts..."
-    bootstrap_js_files.each do |name|
-      file = open("https://raw.github.com/#@repo/#@branch/js/#{name}").read
-      path = "vendor/assets/javascripts/bootstrap/#{name}"
-      save_file(path, file)
+    read_files('js', bootstrap_js_files).each do |name, file|
+      save_file("vendor/assets/javascripts/bootstrap/#{name}", file)
     end
 
     # Update javascript manifest
@@ -80,6 +77,21 @@ class Converter
 
 private
 
+  def read_files(path, files)
+    contents = {}
+    files.map do |name|
+      url = "https://raw.github.com/#@repo/#@branch/#{path}/#{name}"
+      Thread.start {
+        content = open(url).read
+        Thread.exclusive {
+          puts "GET #{url}"
+          contents[name] = content
+        }
+      }
+    end.each(&:join)
+    contents
+  end
+
   # Get the sha of a dir
   def get_tree_sha(dir)
     trees = open("https://api.github.com/repos/#@repo/git/trees/#@branch").read
@@ -88,24 +100,30 @@ private
   end
 
   def bootstrap_less_files
-    files = open("https://api.github.com/repos/#@repo/git/trees/#{get_tree_sha('less')}").read
-    files = JSON.parse files
-    files['tree'].select{|f| f['type'] == 'blob' && f['path'] =~ /.less$/ }.map{|f| f['path'] }
+    @bootstrap_less_files ||= begin
+      files = open("https://api.github.com/repos/#@repo/git/trees/#{get_tree_sha('less')}").read
+      files = JSON.parse files
+      files['tree'].select{|f| f['type'] == 'blob' && f['path'] =~ /.less$/ }.map{|f| f['path'] }
+    end
   end
 
   def bootstrap_js_files
-    files = open("https://api.github.com/repos/#@repo/git/trees/#{get_tree_sha('js')}").read
-    files = JSON.parse files
-    files = files['tree'].select{|f| f['type'] == 'blob' && f['path'] =~ /.js$/ }.map{|f| f['path'] }
-    files.sort_by { |f|
-      case f
-        # tooltip depends on popover and must be loaded earlier
-        when /tooltip/ then 1
-        when /popover/ then 2
-        else
-          0
-      end
-    }
+    @bootstrap_js_files ||= begin
+      files = open("https://api.github.com/repos/#@repo/git/trees/#{get_tree_sha('js')}").read
+      files = JSON.parse files
+      files = files['tree'].select { |f| f['type'] == 'blob' && f['path'] =~ /.js$/ }.map { |f| f['path'] }
+      files.sort_by { |f|
+        case f
+          # tooltip depends on popover and must be loaded earlier
+          when /tooltip/ then
+            1
+          when /popover/ then
+            2
+          else
+            0
+        end
+      }
+    end
   end
 
   def get_mixins_name
