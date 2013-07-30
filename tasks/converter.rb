@@ -18,6 +18,7 @@ require 'json'
 
 class Converter
   def initialize(branch)
+    @repo = 'twbs/bootstrap'
     @branch = branch || 'master'
   end
 
@@ -29,7 +30,7 @@ class Converter
   def process_stylesheet_assets
     puts "\nProcessing stylesheets..."
     bootstrap_less_files.each do |name|
-      file = open("https://raw.github.com/twitter/bootstrap/#{@branch}/less/#{name}").read
+      file = open("https://raw.github.com/#@repo/#@branch/less/#{name}").read
 
       case name
       when 'bootstrap.less'
@@ -62,7 +63,7 @@ class Converter
   def process_javascript_assets
     puts "\nProcessing javascripts..."
     bootstrap_js_files.each do |name|
-      file = open("https://raw.github.com/twitter/bootstrap/#{@branch}/js/#{name}").read
+      file = open("https://raw.github.com/#@repo/#@branch/js/#{name}").read
       path = "vendor/assets/javascripts/bootstrap/#{name}"
       save_file(path, file)
     end
@@ -81,26 +82,26 @@ private
 
   # Get the sha of a dir
   def get_tree_sha(dir)
-    trees = open("https://api.github.com/repos/twitter/bootstrap/git/trees/#{@branch}").read
+    trees = open("https://api.github.com/repos/#@repo/git/trees/#@branch").read
     trees = JSON.parse trees
     trees['tree'].find{|t| t['path'] == dir}['sha']
   end
 
   def bootstrap_less_files
-    files = open("https://api.github.com/repos/twitter/bootstrap/git/trees/#{get_tree_sha('less')}").read
+    files = open("https://api.github.com/repos/#@repo/git/trees/#{get_tree_sha('less')}").read
     files = JSON.parse files
     files['tree'].select{|f| f['type'] == 'blob' && f['path'] =~ /.less$/ }.map{|f| f['path'] }
   end
 
   def bootstrap_js_files
-    files = open("https://api.github.com/repos/twitter/bootstrap/git/trees/#{get_tree_sha('js')}").read
+    files = open("https://api.github.com/repos/#@repo/git/trees/#{get_tree_sha('js')}").read
     files = JSON.parse files
     files['tree'].select{|f| f['type'] == 'blob' && f['path'] =~ /.js$/ }.map{|f| f['path'] }
   end
 
   def get_mixins_name
     mixins      = []
-    less_mixins = open("https://raw.github.com/twitter/bootstrap/#{@branch}/less/mixins.less").read
+    less_mixins = open("https://raw.github.com/#@repo/#@branch/less/mixins.less").read
 
     less_mixins.scan(/\.([\w-]+)\(.*\)\s?{?/) do |mixin|
       mixins << mixin
