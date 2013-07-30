@@ -5,9 +5,8 @@
 //= require bootstrap/collapse
 //= require bootstrap/dropdown
 //= require bootstrap/modal
+//= require bootstrap/popover
 //= require bootstrap/scrollspy
 //= require bootstrap/tab
 //= require bootstrap/tooltip
-// Popover depends on tooltip and must be included after it:
-//= require bootstrap/popover
 //= require bootstrap/transition

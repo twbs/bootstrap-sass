@@ -142,7 +142,7 @@ private
       if scope != ''
         scope = scope.scan(/[\w-]+/).join('-') + '-'
       end
-      "#{matches.first}@include #{scope}#{matches.last}"
+      "#{matches.first}@include #{scope}#{matches.last.tr(';', ',')}"
     end
   end
 
