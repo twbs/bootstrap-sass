@@ -413,7 +413,7 @@
 // -------------------------
 @mixin progress-bar-variant($color) {
   background-color: $color;
-  .progress-striped & {
+  &.progress-striped {
     @include gradient-striped($color);
   }
 }
@@ -423,16 +423,14 @@
 // More easily include all the states for responsive-utilities.less.
 @mixin responsive-visibility() {
   display: block !important;
-  tr & { display: table-row !important; }
-  th &,
-  td & { display: table-cell !important; }
+  tr { display: table-row !important; }
+  th, td { display: table-cell !important; }
 }
 
 @mixin responsive-invisibility() {
   display: none !important;
-  tr & { display: none !important; }
-  th &,
-  td & { display: none !important; }
+  tr { display: none !important; }
+  th, td { display: none !important; }
 }
 
 // Grid System
