@@ -96,7 +96,16 @@ private
   def bootstrap_js_files
     files = open("https://api.github.com/repos/#@repo/git/trees/#{get_tree_sha('js')}").read
     files = JSON.parse files
-    files['tree'].select{|f| f['type'] == 'blob' && f['path'] =~ /.js$/ }.map{|f| f['path'] }
+    files = files['tree'].select{|f| f['type'] == 'blob' && f['path'] =~ /.js$/ }.map{|f| f['path'] }
+    files.sort_by { |f|
+      case f
+        # tooltip depends on popover and must be loaded earlier
+        when /tooltip/ then 1
+        when /popover/ then 2
+        else
+          0
+      end
+    }
   end
 
   def get_mixins_name
