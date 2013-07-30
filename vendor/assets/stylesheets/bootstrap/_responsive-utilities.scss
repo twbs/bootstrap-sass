@@ -36,42 +36,84 @@
 // Visibility utilities
 
 // For Phones
-@include responsive-visibility('.visible-sm');
-@include responsive-invisibility('.visible-md');
-@include responsive-invisibility('.visible-lg');
+.visible-sm {
+  @include responsive-visibility();
+}
+.visible-md {
+  @include responsive-invisibility();
+}
+.visible-lg {
+  @include responsive-invisibility();
+}
 
-@include responsive-invisibility('.hidden-sm');
-@include responsive-visibility('.hidden-md');
-@include responsive-visibility('.hidden-lg');
+.hidden-sm {
+  @include responsive-invisibility();
+}
+.hidden-md {
+  @include responsive-visibility();
+}
+.hidden-lg {
+  @include responsive-visibility();
+}
 
 
 // Tablets & small desktops only
 @media (min-width: $screen-tablet) and (max-width: $screen-tablet-max) {
-  @include responsive-invisibility('.visible-sm');
-  @include responsive-visibility('.visible-md');
-  @include responsive-invisibility('.visible-lg');
+  .visible-sm {
+    @include responsive-invisibility();
+  }
+  .visible-md {
+    @include responsive-visibility();
+  }
+  .visible-lg {
+    @include responsive-invisibility();
+  }
 
-  @include responsive-visibility('.hidden-sm');
-  @include responsive-invisibility('.hidden-md');
-  @include responsive-visibility('.hidden-lg');
+  .hidden-sm {
+    @include responsive-visibility();
+  }
+  .hidden-md {
+    @include responsive-invisibility();
+  }
+  .hidden-lg {
+    @include responsive-visibility();
+  }
 }
 
 // For desktops
 @media (min-width: $screen-desktop) {
-  @include responsive-invisibility('.visible-sm');
-  @include responsive-invisibility('.visible-md');
-  @include responsive-visibility('.visible-lg');
+  .visible-sm {
+    @include responsive-invisibility();
+  }
+  .visible-md {
+    @include responsive-invisibility();
+  }
+  .visible-lg {
+    @include responsive-visibility();
+  }
 
-  @include responsive-visibility('.hidden-sm');
-  @include responsive-visibility('.hidden-md');
-  @include responsive-invisibility('.hidden-lg');
+  .hidden-sm {
+    @include responsive-visibility();
+  }
+  .hidden-md {
+    @include responsive-visibility();
+  }
+  .hidden-lg {
+    @include responsive-invisibility();
+  }
 }
 
 // Print utilities
-@include responsive-invisibility('.visible-print');
+.visible-print {
+  @include responsive-invisibility();
+}
 .hidden-print  { }
 
 @media print {
-  @include responsive-visibility('.visible-print');
-  @include responsive-invisibility('.hidden-print');
+  .visible-print {
+    @include responsive-visibility();
+  }
+  .hidden-print {
+    @include responsive-invisibility();
+  }
 }
