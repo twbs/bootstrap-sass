@@ -278,8 +278,8 @@ $pagination-disabled-color:            $gray-light !default;
 // Pager
 // -------------------------
 
-@pager-border-radius:                  15px;
-@pager-disabled-color:                 $gray-light;
+$pager-border-radius:                  15px !default;
+$pager-disabled-color:                 $gray-light !default;
 
 
 // Jumbotron
