@@ -174,6 +174,102 @@ $zindex-navbar-fixed:      1030 !default;
 $zindex-modal-background:  1040 !default;
 $zindex-modal:             1050 !default;
 
+// Media queries breakpoints
+// --------------------------------------------------
+
+// Tiny screen / phone
+$screen-tiny:                480px !default;
+$screen-phone:               $screen-tiny !default;
+
+// Small screen / tablet
+$screen-small:               768px !default;
+$screen-tablet:              $screen-small !default;
+
+// Medium screen / desktop
+$screen-medium:              992px !default;
+$screen-desktop:             $screen-medium !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-small-max:           ($screen-medium - 1) !default;
+$screen-tablet-max:          $screen-small-max !default;
+
+// Large screen / wide desktop
+$screen-large:               1200px !default;
+$screen-large-desktop:       $screen-large !default;
+
+// Grid system
+// --------------------------------------------------
+
+// Number of columns in the grid system
+$grid-columns:              12 !default;
+// Padding, to be divided by two and applied to the left and right of all columns
+$grid-gutter-width:         30px !default;
+// Point at which the navbar stops collapsing
+$grid-float-breakpoint:     $screen-tablet !default;
+
+
+// Navbar
+// -------------------------
+
+// Basics of a navbar
+$navbar-height:                    50px !default;
+$navbar-color:                     #777 !default;
+$navbar-bg:                        #eee !default;
+$navbar-padding-horizontal:        floor($grid-gutter-width / 2) !default;  // ~15px
+$navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
+
+// Navbar links
+$navbar-link-color:                #777 !default;
+$navbar-link-hover-color:          #333 !default;
+$navbar-link-hover-bg:             transparent !default;
+$navbar-link-active-color:         #555 !default;
+$navbar-link-active-bg:            darken($navbar-bg, 10%) !default;
+$navbar-link-disabled-color:       #ccc !default;
+$navbar-link-disabled-bg:          transparent !default;
+
+// Navbar brand label
+$navbar-brand-color:               $navbar-link-color !default;
+$navbar-brand-hover-color:         darken($navbar-link-color, 10%) !default;
+$navbar-brand-hover-bg:            transparent !default;
+
+// Navbar toggle
+$navbar-toggle-hover-bg:           #ddd !default;
+$navbar-toggle-icon-bar-bg:        #ccc !default;
+$navbar-toggle-border-color:       #ddd !default;
+
+
+// Inverted navbar
+//
+// Reset inverted navbar basics
+$navbar-inverse-color:                      $gray-light !default;
+$navbar-inverse-bg:                         #222 !default;
+
+// Inverted navbar links
+$navbar-inverse-link-color:                 $gray-light !default;
+$navbar-inverse-link-hover-color:           #fff !default;
+$navbar-inverse-link-hover-bg:              transparent !default;
+$navbar-inverse-link-active-color:          $navbar-inverse-link-hover-color !default;
+$navbar-inverse-link-active-bg:             darken($navbar-inverse-bg, 10%) !default;
+$navbar-inverse-link-disabled-color:        #444 !default;
+$navbar-inverse-link-disabled-bg:           transparent !default;
+
+// Inverted navbar brand label
+$navbar-inverse-brand-color:                $navbar-inverse-link-color !default;
+$navbar-inverse-brand-hover-color:          #fff !default;
+$navbar-inverse-brand-hover-bg:             transparent !default;
+
+// Inverted navbar search
+// Normal navbar needs no special styles or vars
+$navbar-inverse-search-bg:                  lighten($navbar-inverse-bg, 25%) !default;
+$navbar-inverse-search-bg-focus:            #fff !default;
+$navbar-inverse-search-border:              $navbar-inverse-bg !default;
+$navbar-inverse-search-placeholder-color:   #ccc !default;
+
+// Inverted navbar toggle
+$navbar-inverse-toggle-hover-bg:            #333 !default;
+$navbar-inverse-toggle-icon-bar-bg:         #fff !default;
+$navbar-inverse-toggle-border-color:        #333 !default;
+
 
 // Navs
 // -------------------------
@@ -457,30 +553,6 @@ $hr-border:                   $gray-lighter !default;
 $component-offset-horizontal: 180px !default;
 
 
-// Media queries breakpoints
-// --------------------------------------------------
-
-// Tiny screen / phone
-$screen-tiny:                480px !default;
-$screen-phone:               $screen-tiny !default;
-
-// Small screen / tablet
-$screen-small:               768px !default;
-$screen-tablet:              $screen-small !default;
-
-// Medium screen / desktop
-$screen-medium:              992px !default;
-$screen-desktop:             $screen-medium !default;
-
-// So media queries don't overlap when required, provide a maximum
-$screen-small-max:           ($screen-medium - 1) !default;
-$screen-tablet-max:          $screen-small-max !default;
-
-// Large screen / wide desktop
-$screen-large:               1200px !default;
-$screen-large-desktop:       $screen-large !default;
-
-
 // Container sizes
 // --------------------------------------------------
 
@@ -492,76 +564,3 @@ $container-desktop:         940px !default;
 
 // Large screen / wide desktop
 $container-large-desktop:   1170px !default;
-
-
-// Grid system
-// --------------------------------------------------
-
-// Number of columns in the grid system
-$grid-columns:              12 !default;
-// Padding, to be divided by two and applied to the left and right of all columns
-$grid-gutter-width:         30px !default;
-// Point at which the navbar stops collapsing
-$grid-float-breakpoint:     $screen-tablet !default;
-
-// Navbar
-// -------------------------
-
-// Basics of a navbar
-$navbar-height:                    50px !default;
-$navbar-color:                     #777 !default;
-$navbar-bg:                        #eee !default;
-$navbar-padding-horizontal:        floor($grid-gutter-width / 2) !default;  // ~15px
-$navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
-
-// Navbar links
-$navbar-link-color:                #777 !default;
-$navbar-link-hover-color:          #333 !default;
-$navbar-link-hover-bg:             transparent !default;
-$navbar-link-active-color:         #555 !default;
-$navbar-link-active-bg:            darken($navbar-bg, 10%) !default;
-$navbar-link-disabled-color:       #ccc !default;
-$navbar-link-disabled-bg:          transparent !default;
-
-// Navbar brand label
-$navbar-brand-color:               $navbar-link-color !default;
-$navbar-brand-hover-color:         darken($navbar-link-color, 10%) !default;
-$navbar-brand-hover-bg:            transparent !default;
-
-// Navbar toggle
-$navbar-toggle-hover-bg:           #ddd !default;
-$navbar-toggle-icon-bar-bg:        #ccc !default;
-$navbar-toggle-border-color:       #ddd !default;
-
-
-// Inverted navbar
-//
-// Reset inverted navbar basics
-$navbar-inverse-color:                      $gray-light !default;
-$navbar-inverse-bg:                         #222 !default;
-
-// Inverted navbar links
-$navbar-inverse-link-color:                 $gray-light !default;
-$navbar-inverse-link-hover-color:           #fff !default;
-$navbar-inverse-link-hover-bg:              transparent !default;
-$navbar-inverse-link-active-color:          $navbar-inverse-link-hover-color !default;
-$navbar-inverse-link-active-bg:             darken($navbar-inverse-bg, 10%) !default;
-$navbar-inverse-link-disabled-color:        #444 !default;
-$navbar-inverse-link-disabled-bg:           transparent !default;
-
-// Inverted navbar brand label
-$navbar-inverse-brand-color:                $navbar-inverse-link-color !default;
-$navbar-inverse-brand-hover-color:          #fff !default;
-$navbar-inverse-brand-hover-bg:             transparent !default;
-
-// Inverted navbar search
-// Normal navbar needs no special styles or vars
-$navbar-inverse-search-bg:                  lighten($navbar-inverse-bg, 25%) !default;
-$navbar-inverse-search-bg-focus:            #fff !default;
-$navbar-inverse-search-border:              $navbar-inverse-bg !default;
-$navbar-inverse-search-placeholder-color:   #ccc !default;
-
-// Inverted navbar toggle
-$navbar-inverse-toggle-hover-bg:            #333 !default;
-$navbar-inverse-toggle-icon-bar-bg:         #fff !default;
-$navbar-inverse-toggle-border-color:        #333 !default;
