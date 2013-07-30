@@ -508,7 +508,7 @@ $abbr-border-color:           $gray-light !default;
 $headings-small-color:        $gray-light !default;
 $blockquote-small-color:      $gray-light !default;
 $blockquote-border-color:     $gray-lighter !default;
-@page-header-border-color:    $gray-lighter;
+$page-header-border-color:    $gray-lighter !default;
 
 // Miscellaneous
 // -------------------------

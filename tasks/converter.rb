@@ -151,7 +151,10 @@ private
   end
 
   def replace_vars(less)
-    less.gsub(/(?!@media|@page|@keyframes|@font-face|@-\w)@/, '$')
+    less = less.gsub(/(?!@media|@page|@keyframes|@font-face|@-\w)@/, '$')
+    # variables that would be ignored by gsub above: e.g. @page-header-border-color
+    less.gsub! /@(page-[\w-]+)/, '$\1'
+    less
   end
 
   def replace_less_extend(less)
