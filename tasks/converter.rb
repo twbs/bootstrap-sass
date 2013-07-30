@@ -21,6 +21,7 @@ class Converter
   def initialize(branch)
     @repo = 'twbs/bootstrap'
     @branch = branch || 'master'
+    @mixins = get_mixins_name
   end
 
   def process
@@ -131,7 +132,7 @@ private
     less_mixins = open("https://raw.github.com/#@repo/#@branch/less/mixins.less").read
 
     less_mixins.scan(/\.([\w-]+)\(.*\)\s?{?/) do |mixin|
-      mixins << mixin
+      mixins << mixin.first
     end
 
     mixins
@@ -162,14 +163,20 @@ private
   #  .mixin()          -> @import mixin()
   #  #scope > .mixin() -> @import scope-mixin()
   def replace_mixins(less)
-    mixin_pattern = /(\s*)(([#|\.][\w-]+\s*>\s*)*)\.([\w-]+\(.*\))/
+    mixin_pattern = /(\s+)(([#|\.][\w-]+\s*>\s*)*)\.([\w-]+\(.*\))/
     less.gsub(mixin_pattern) do |match|
       matches = match.scan(mixin_pattern).flatten
       scope = matches[1] || ''
       if scope != ''
         scope = scope.scan(/[\w-]+/).join('-') + '-'
       end
-      "#{matches.first}@include #{scope}#{matches.last.tr(';', ',')}"
+      mixin_name = match.scan(/\.([\w-]+)\(.*\)\s?{?/).first
+
+      if mixin_name && @mixins.include?(mixin_name.first)
+        "#{matches.first}@include #{scope}#{matches.last}".gsub(/; \$/,', $')
+      else
+        "#{matches.first}@extend .#{scope}#{matches.last.gsub(/\(\)/, '')}"
+      end
     end
   end
 
@@ -204,8 +211,8 @@ private
 
   def replace_escaping(less)
     less = less.gsub(/\~"([^"]+)"/, '#{\1}') # Get rid of ~"" escape
-    #less.gsub(/(\W)e\("([^\)]+)"\)/) {|s| "#{$1 if $1 != /\s/}#{$2}"} # Get rid of e escape
-    less.gsub(/(\W)e\(%\((.*)\)\)/, '\1\2') # Get rid of e(%("")) escape
+    less.gsub!(/\${([^}]+)}/, '$\1') # Get rid of @{} escape
+    less.gsub(/(\W)e\(%\("?([^"]*)"?\)\)/, '\1\2') # Get rid of e(%("")) escape
   end
 
   def insert_default_vars(scss)
