@@ -16,6 +16,7 @@
 
 require 'open-uri'
 require 'json'
+require 'strscan'
 
 class Converter
   def initialize(branch)
@@ -39,6 +40,7 @@ class Converter
         file = replace_escaping(file)
         file = replace_mixin_file(file)
         file = replace_mixins(file)
+        file = flatten_mixins(file, 'gradient')
       when 'utilities.less'
         file = replace_mixin_file(file)
         file = convert_to_scss(file)
@@ -158,6 +160,16 @@ private
     less.gsub(/@import ["|']([\w-]+).less["|'];/, '@import "bootstrap/\1";');
   end
 
+  # #gradient > { @mixin horizontal ... }
+  # to:
+  # @mixin gradient-horizontal
+  def flatten_mixins(file, parent)
+    replace_rules file, Regexp.escape('#' + parent) do |mixins_css|
+      unwrapped = mixins_css.split("\n")[1..-2] * "\n"
+      unindent(unwrapped.gsub /@mixin\s*([\w-]+)/, "@mixin #{parent}-\\1")
+    end
+  end
+
   # Replaces the following:
   #  .mixin()          -> @import mixin()
   #  #scope > .mixin() -> @import scope-mixin()
@@ -222,5 +234,45 @@ private
     end
 
     less.gsub(regx, tmp)
+  end
+
+  # unindent by n spaces
+  def unindent(txt, n = 2)
+    txt.gsub /^\s{1,#{n}}/, ''
+  end
+
+  # replace CSS rule blocks matching rule_prefix with yields
+  #
+  # replace_rules(".a{ \n .b{} }", '.b') { |rule| ">#{rule}<"  } #=> ".a{ \n >.b{}< }"
+  def replace_rules(less, rule_prefix = '\s*')
+    less = less.dup
+    s = StringScanner.new(less)
+    rule_start_re = /^#{rule_prefix}[^{]*{/
+    while (rule_start = scan_next(s, rule_start_re))
+      rule_pos = (s.pos - rule_start.length..next_brace_pos(less, s.pos - 1))
+      group = less[rule_pos]
+      less[rule_pos] = yield(group)
+    end
+    less
+  end
+
+  # next matching brace for brace at brace_pos in css
+  def next_brace_pos(css, brace_pos)
+    depth = 0
+    brace_re = /(?![#])[{}]/m
+    s = StringScanner.new(css[brace_pos..-1])
+    while (b = scan_next(s, brace_re))
+      depth += (b == '}' ? -1 : +1)
+      break if depth.zero?
+    end
+    raise "match not found for {" unless depth.zero?
+    brace_pos + s.pos - 1
+  end
+
+  # advance scanner to pos just *before* the next match of pattern
+  def scan_next(scanner, pattern)
+    return unless scanner.skip_until(pattern)
+    scanner.pos -= scanner.matched_size
+    scanner.scan pattern
   end
 end
