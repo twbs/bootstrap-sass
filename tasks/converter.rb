@@ -44,14 +44,7 @@ class Converter
         file = parameterize_mixin_parent_selector(file, 'responsive-(in)?visibility')
       when 'responsive-utilities.less'
         file = convert_to_scss(file)
-        # .visible-sm { @include responsive-visibility() }
-        # =>
-        # @include responsive-visibility('.visible-sm')
-        file = replace_rules file, '(\s*)\.(visible|hidden)-' do |rule|
-          next rule unless rule =~ /@include/
-          rule =~ /\A\s+/ # keep indentation
-          $~.to_s + rule.sub(/(#{SELECTOR_RE}){(.*)}/m, '\2').sub(/(@include [\w-]+\()/, "\\1'#{$1.strip}'").strip
-        end
+        file = apply_mixin_parent_selector(file, '\.(visible|hidden)')
       when 'utilities.less'
         file = replace_mixin_file(file)
         file = convert_to_scss(file)
@@ -180,6 +173,17 @@ private
       mxn_css.sub! /(@mixin [\w-]+\()/, "\\1#{param}"
       replace_properties(mxn_css) { |props| "  \#{#{param}} { #{props.strip} }\n" }
       replace_rules(mxn_css) { |rule| replace_in_selector rule , /&/, "\#{#{param}}" }
+    end
+  end
+
+  # .visible-sm { @include responsive-visibility() }
+  # to:
+  # @include responsive-visibility('.visible-sm')
+  def apply_mixin_parent_selector(file, rule_sel)
+    replace_rules file, "(\s*)#{rule_sel}" do |rule|
+      next rule unless rule =~ /@include/
+      rule =~ /\A\s+/ # keep indentation
+      $~.to_s + rule.sub(/(#{SELECTOR_RE}){(.*)}/m, '\2').sub(/(@include [\w-]+\()/, "\\1'#{$1.strip}'").strip
     end
   end
 
