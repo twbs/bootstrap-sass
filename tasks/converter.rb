@@ -56,6 +56,9 @@ class Converter
         file = convert_to_scss(file)
         # extract .close { button& {...} } rule
         file = extract_nested_rule(file, '\s*button&', 'button.close')
+      when 'forms.less'
+        file = convert_to_scss(file)
+        file = extract_nested_rule(file, '\s*textarea&', 'textarea.form-control')
       else
         file = convert_to_scss(file)
       end
@@ -213,8 +216,8 @@ private
   end
 
   # Replaces the following:
-  #  .mixin()          -> @import mixin()
-  #  #scope > .mixin() -> @import scope-mixin()
+  #  .mixin()          -> @include mixin()
+  #  #scope > .mixin() -> @include scope-mixin()
   def replace_mixins(less)
     mixin_pattern = /(\s+)(([#|\.][\w-]+\s*>\s*)*)\.([\w-]+\(.*\))/
     less.gsub(mixin_pattern) do |match|
@@ -246,6 +249,9 @@ private
     less
   end
 
+  # #gradient > .horizontal()
+  # to:
+  # @include .horizontal-gradient()
   def replace_less_extend(less)
     less.gsub(/\#(\w+) \> \.([\w-]*)(\(.*\));?/, '@include \1-\2\3;')
   end
