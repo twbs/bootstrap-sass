@@ -365,7 +365,7 @@ private
     positions.each do |p|
       p = (p.begin + offset .. p.end + offset)
       r = block.call(css, p)
-      offset += r.size - p.size
+      offset += r.size - (p.end - p.begin  + 1)
       css[p] = r
     end
     css
