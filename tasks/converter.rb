@@ -16,6 +16,7 @@
 
 require 'open-uri'
 require 'json'
+require 'strscan'
 
 class Converter
   def initialize(branch)
@@ -40,12 +41,21 @@ class Converter
         file = replace_escaping(file)
         file = replace_mixin_file(file)
         file = replace_mixins(file)
+        file = flatten_mixins(file, '#gradient', 'gradient')
+        file = parameterize_mixin_parent_selector(file, 'responsive-(in)?visibility')
+      when 'responsive-utilities.less'
+        file = convert_to_scss(file)
+        file = apply_mixin_parent_selector(file, '\.(visible|hidden)')
       when 'utilities.less'
         file = replace_mixin_file(file)
         file = convert_to_scss(file)
       when 'variables.less'
         file = convert_to_scss(file)
         file = insert_default_vars(file)
+      when 'close.less'
+        file = convert_to_scss(file)
+        # extract .close { button& {...} } rule
+        file = extract_nested_rule(file, '\s*button&', 'button.close')
       else
         file = convert_to_scss(file)
       end
@@ -159,6 +169,49 @@ private
     less.gsub(/@import ["|']([\w-]+).less["|'];/, '@import "bootstrap/\1";');
   end
 
+  # @mixin a() { tr& { color:white } }
+  # to:
+  # @mixin a($parent) { tr#{$parent} { color: white } }
+  def parameterize_mixin_parent_selector(file, rule_sel)
+    param = '$parent'
+    replace_rules(file, '\s*@mixin\s*' + rule_sel) do |mxn_css|
+      mxn_css.sub! /(@mixin [\w-]+\()/, "\\1#{param}"
+      replace_properties(mxn_css) { |props| "  \#{#{param}} { #{props.strip} }\n" }
+      replace_rules(mxn_css) { |rule| replace_in_selector rule, /&/, "\#{#{param}}" }
+    end
+  end
+
+  # extracts rule immediately after it's parent and optionally changes selector to new_selector
+  def extract_nested_rule(css, selector, new_selector = selector)
+    rule = pos = nil
+    css = replace_rules(css, selector) { |r, p| rule = r; pos = p; '' }
+    # replace rule selector with new_selector
+    rule = rule.sub /^(\s*).*?(\s*){/m, "\\1#{new_selector}\\2{"
+    css.insert pos.begin + css[pos.begin..-1].index('}') + 1,
+               "\n" + unindent(rule)
+  end
+
+  # .visible-sm { @include responsive-visibility() }
+  # to:
+  # @include responsive-visibility('.visible-sm')
+  def apply_mixin_parent_selector(file, rule_sel)
+    replace_rules file, "(\s*)#{rule_sel}" do |rule|
+      next rule unless rule =~ /@include/
+      rule =~ /\A\s+/ # keep indentation
+      $~.to_s + rule.sub(/(#{SELECTOR_RE}){(.*)}/m, '\2').sub(/(@include [\w-]+\()/, "\\1'#{$1.strip}'").strip
+    end
+  end
+
+  # #gradient > { @mixin horizontal ... }
+  # to:
+  # @mixin gradient-horizontal
+  def flatten_mixins(file, container, prefix)
+    replace_rules file, Regexp.escape(container) do |mixins_css|
+      unwrapped = mixins_css.split("\n")[1..-2] * "\n"
+      unindent(unwrapped.gsub /@mixin\s*([\w-]+)/, "@mixin #{prefix}-\\1")
+    end
+  end
+
   # Replaces the following:
   #  .mixin()          -> @import mixin()
   #  #scope > .mixin() -> @import scope-mixin()
@@ -229,5 +282,99 @@ private
     end
 
     less.gsub(regx, tmp)
+  end
+
+  # unindent by n spaces
+  def unindent(txt, n = 2)
+    txt.gsub /^\s{1,#{n}}/, ''
+  end
+
+  # replace CSS rule blocks matching rule_prefix with yields
+  #
+  # replace_rules(".a{ \n .b{} }", '.b') { |rule| ">#{rule}<"  } #=> ".a{ \n >.b{}< }"
+  def replace_rules(less, rule_prefix = '\s*')
+    less = less.dup
+    s = StringScanner.new(less)
+    rule_start_re = /^#{rule_prefix}[^{]*{/
+    while (rule_start = scan_next(s, rule_start_re))
+      rule_pos = (s.pos - rule_start.length..next_brace_pos(less, s.pos - 1))
+      group = less[rule_pos]
+      less[rule_pos] = yield(group, rule_pos)
+    end
+    less
+  end
+
+  # replace in the top-level selector
+  # replace_in_selector('a {a: {a: a} } a {}', /a/, 'b') => 'b {a: {a: a} } b {}'
+  def replace_in_selector(css, pattern, sub)
+    # scan for selector positions in css
+    s = StringScanner.new(css)
+    prev_pos = 0
+    sel_pos = []
+    while (brace = scan_next(s, /\{/))
+      sel_pos << (prev_pos .. s.pos - 1)
+      s.pos = next_brace_pos(css, s.pos - 1) + 1
+      prev_pos = s.pos
+    end
+    # insert replacements
+    insert_sub(css, sel_pos) { |css, p| css[p].gsub(pattern, sub) }
+  end
+
+
+  SELECTOR_RE = /[$\w\-{}#\s,.:&]+/
+  BRACE_RE = /(?![#])[{}]/m
+
+  # replace first level properties in the css with yields
+  # replace_properties("a { color: white }") { |props| props.gsub 'white', 'red' }
+  def replace_properties(css, &block)
+    s = StringScanner.new(css)
+    s.skip_until /{\n?/
+    prev_pos = s.pos
+    depth = 0
+    pos = []
+    while (b = scan_next(s, /#{SELECTOR_RE}(?![#])\{\n?|\}/))
+      if depth.zero?
+        if b == '}'
+          prev_pos = s.pos
+        else
+          pos << (prev_pos .. s.pos - b.length )
+        end
+        depth += (b == '}' ?  -1 : +1)
+      end
+    end
+    insert_sub(css, pos) { |css, p| yield(css[p]) }
+  end
+
+
+  # next matching brace for brace at brace_pos in css
+  def next_brace_pos(css, brace_pos)
+    depth = 0
+    s = StringScanner.new(css[brace_pos..-1])
+    while (b = scan_next(s, BRACE_RE))
+      depth += (b == '}' ? -1 : +1)
+      break if depth.zero?
+    end
+    raise "match not found for {" unless depth.zero?
+    brace_pos + s.pos - 1
+  end
+
+  # advance scanner to pos after the next match of pattern and return the match
+  def scan_next(scanner, pattern)
+    return unless scanner.skip_until(pattern)
+    scanner.pos -= scanner.matched_size
+    scanner.scan pattern
+  end
+
+  # insert substitutions into css at positions
+  # substitutions are yields from block called with (css, (begin..end))
+  def insert_sub(css, positions, &block)
+    offset = 0
+    positions.each do |p|
+      p = (p.begin + offset .. p.end + offset)
+      r = block.call(css, p)
+      offset += r.size - (p.end - p.begin  + 1)
+      css[p] = r
+    end
+    css
   end
 end
