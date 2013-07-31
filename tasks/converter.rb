@@ -54,9 +54,7 @@ class Converter
       when 'close.less'
         file = convert_to_scss(file)
         # extract .close { button& {...} } rule
-        btn_rules = nil
-        file = replace_rules(file, '\s*button&') { |rules| btn_rules = rules; '' } +
-                unindent(replace_in_selector(btn_rules, /&/, '.close'), 2)
+        file = extract_nested_rule(file, '\s*button&', 'button.close')
       else
         file = convert_to_scss(file)
       end
@@ -182,6 +180,16 @@ private
     end
   end
 
+  # extracts rule immediately after it's parent and optionally changes selector to new_selector
+  def extract_nested_rule(css, selector, new_selector = selector)
+    rule = pos = nil
+    css = replace_rules(css, selector) { |r, p| rule = r; pos = p; '' }
+    # replace rule selector with new_selector
+    rule = rule.sub /^(\s*).*?(\s*){/m, "\\1#{new_selector}\\2{"
+    css.insert pos.begin + css[pos.begin..-1].index('}') + 1,
+               "\n" + unindent(rule)
+  end
+
   # .visible-sm { @include responsive-visibility() }
   # to:
   # @include responsive-visibility('.visible-sm')
@@ -284,7 +292,7 @@ private
     while (rule_start = scan_next(s, rule_start_re))
       rule_pos = (s.pos - rule_start.length..next_brace_pos(less, s.pos - 1))
       group = less[rule_pos]
-      less[rule_pos] = yield(group)
+      less[rule_pos] = yield(group, rule_pos)
     end
     less
   end
