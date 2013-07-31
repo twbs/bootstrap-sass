@@ -40,7 +40,7 @@ class Converter
         file = replace_escaping(file)
         file = replace_mixin_file(file)
         file = replace_mixins(file)
-        file = flatten_mixins(file, '#gradient')
+        file = flatten_mixins(file, '#gradient', 'gradient')
         file = parameterize_mixin_parent_selector(file, 'responsive-(in)?visibility')
       when 'responsive-utilities.less'
         file = convert_to_scss(file)
@@ -51,6 +51,12 @@ class Converter
       when 'variables.less'
         file = convert_to_scss(file)
         file = insert_default_vars(file)
+      when 'close.less'
+        file = convert_to_scss(file)
+        # extract .close { button& {...} } rule
+        btn_rules = nil
+        file = replace_rules(file, '\s*button&') { |rules| btn_rules = rules; '' } +
+                unindent(replace_in_selector(btn_rules, /&/, '.close'), 2)
       else
         file = convert_to_scss(file)
       end
@@ -172,7 +178,7 @@ private
     replace_rules(file, '\s*@mixin\s*' + rule_sel) do |mxn_css|
       mxn_css.sub! /(@mixin [\w-]+\()/, "\\1#{param}"
       replace_properties(mxn_css) { |props| "  \#{#{param}} { #{props.strip} }\n" }
-      replace_rules(mxn_css) { |rule| replace_in_selector rule , /&/, "\#{#{param}}" }
+      replace_rules(mxn_css) { |rule| replace_in_selector rule, /&/, "\#{#{param}}" }
     end
   end
 
@@ -190,10 +196,10 @@ private
   # #gradient > { @mixin horizontal ... }
   # to:
   # @mixin gradient-horizontal
-  def flatten_mixins(file, container)
+  def flatten_mixins(file, container, prefix)
     replace_rules file, Regexp.escape(container) do |mixins_css|
       unwrapped = mixins_css.split("\n")[1..-2] * "\n"
-      unindent(unwrapped.gsub /@mixin\s*([\w-]+)/, "@mixin #{container}-\\1")
+      unindent(unwrapped.gsub /@mixin\s*([\w-]+)/, "@mixin #{prefix}-\\1")
     end
   end
 
