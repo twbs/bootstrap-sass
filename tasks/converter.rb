@@ -42,7 +42,16 @@ class Converter
         file = replace_mixins(file)
         file = flatten_mixins(file, '#gradient')
         file = parameterize_mixin_parent_selector(file, 'responsive-(in)?visibility')
-
+      when 'responsive-utilities.less'
+        file = convert_to_scss(file)
+        # .visible-sm { @include responsive-visibility() }
+        # =>
+        # @include responsive-visibility('.visible-sm')
+        file = replace_rules file, '(\s*)\.(visible|hidden)-' do |rule|
+          next rule unless rule =~ /@include/
+          rule =~ /\A\s+/ # keep indentation
+          $~.to_s + rule.sub(/(#{SELECTOR_RE}){(.*)}/m, '\2').sub(/(@include [\w-]+\()/, "\\1'#{$1.strip}'").strip
+        end
       when 'utilities.less'
         file = replace_mixin_file(file)
         file = convert_to_scss(file)
@@ -287,7 +296,7 @@ private
   end
 
 
-  SELECTOR_RE = /[$\w\-{}#\s,:&]+/
+  SELECTOR_RE = /[$\w\-{}#\s,.:&]+/
   BRACE_RE = /(?![#])[{}]/m
 
   # replace first level properties in the css with yields
