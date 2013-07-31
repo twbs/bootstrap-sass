@@ -189,7 +189,7 @@ private
     rule = pos = nil
     css = replace_rules(css, selector) { |r, p| rule = r; pos = p; '' }
     # replace rule selector with new_selector
-    rule = rule.sub /^(\s*).*?(\s*){/m, "\\1#{new_selector}\\2{"
+    rule = rule.sub /^(#{COMMENTS_RE})?(\s*).*?(\s*){/m, "\\1\\2#{new_selector}\\3{"
     css.insert pos.begin + css[pos.begin..-1].index('}') + 1,
                "\n" + unindent(rule)
   end
@@ -201,7 +201,7 @@ private
     replace_rules file, "(\s*)#{rule_sel}" do |rule|
       next rule unless rule =~ /@include/
       rule =~ /\A\s+/ # keep indentation
-      $~.to_s + rule.sub(/(#{SELECTOR_RE}){(.*)}/m, '\2').sub(/(@include [\w-]+\()/, "\\1'#{$1.strip}'").strip
+      $~.to_s + rule.sub(/(#{COMMENTS_RE})?(#{SELECTOR_RE}){(.*)}/m, '\3').sub(/(@include [\w-]+\()/, "#{$1}\\1'#{$2.strip}'").strip
     end
   end
 
@@ -210,8 +210,7 @@ private
   # @mixin gradient-horizontal
   def flatten_mixins(file, container, prefix)
     replace_rules file, Regexp.escape(container) do |mixins_css|
-      unwrapped = mixins_css.split("\n")[1..-2] * "\n"
-      unindent(unwrapped.gsub /@mixin\s*([\w-]+)/, "@mixin #{prefix}-\\1")
+      unindent(unwrape_rule_block(mixins_css).gsub /@mixin\s*([\w-]+)/, "@mixin #{prefix}-\\1")
     end
   end
 
@@ -234,6 +233,14 @@ private
         "#{matches.first}@extend .#{scope}#{matches.last.gsub(/\(\)/, '')}"
       end
     end
+  end
+
+  # unwraps topmost rule block
+  # #sel { a: b; }
+  # to:
+  # a: b;
+  def unwrape_rule_block(css)
+    replace_in_selector(css, /.*/, '').sub(/}\s*$/m, '')
   end
 
   def replace_mixin_file(less)
@@ -295,17 +302,25 @@ private
     txt.gsub /^\s{1,#{n}}/, ''
   end
 
-  # replace CSS rule blocks matching rule_prefix with yields
+  # replace CSS rule blocks matching rule_prefix with yield(rule_block, rule_pos)
+  # will also include immediately preceding comments in rule_block
+  #
+  # option :comments -- include immediately preceding comments in rule_block
   #
   # replace_rules(".a{ \n .b{} }", '.b') { |rule| ">#{rule}<"  } #=> ".a{ \n >.b{}< }"
-  def replace_rules(less, rule_prefix = '\s*')
+  def replace_rules(less, rule_prefix = '\s*', options = {})
+    options = {comments: true}.merge(options || {})
     less = less.dup
     s = StringScanner.new(less)
-    rule_start_re = /^#{rule_prefix}[^{]*{/
+    if options[:comments]
+      rule_start_re = /^(?:#{COMMENTS_RE})?#{rule_prefix}[^{]*{/
+    else
+      rule_start_re = /^#{rule_prefix}[^{]*{/
+    end
     while (rule_start = scan_next(s, rule_start_re))
       rule_pos = (s.pos - rule_start.length..next_brace_pos(less, s.pos - 1))
-      group = less[rule_pos]
-      less[rule_pos] = yield(group, rule_pos)
+      rule_block = less[rule_pos]
+      less[rule_pos] = yield(rule_block, rule_pos)
     end
     less
   end
@@ -329,6 +344,7 @@ private
 
   SELECTOR_RE = /[$\w\-{}#\s,.:&]+/
   BRACE_RE = /(?![#])[{}]/m
+  COMMENTS_RE = %r((?:^\s*//.*\n)+)
 
   # replace first level properties in the css with yields
   # replace_properties("a { color: white }") { |props| props.gsub 'white', 'red' }
