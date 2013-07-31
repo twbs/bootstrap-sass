@@ -40,7 +40,7 @@ class Converter
         file = replace_escaping(file)
         file = replace_mixin_file(file)
         file = replace_mixins(file)
-        file = flatten_mixins(file, 'gradient')
+        file = flatten_mixins(file, '#gradient')
       when 'utilities.less'
         file = replace_mixin_file(file)
         file = convert_to_scss(file)
@@ -163,10 +163,10 @@ private
   # #gradient > { @mixin horizontal ... }
   # to:
   # @mixin gradient-horizontal
-  def flatten_mixins(file, parent)
-    replace_rules file, Regexp.escape('#' + parent) do |mixins_css|
+  def flatten_mixins(file, container)
+    replace_rules file, Regexp.escape(container) do |mixins_css|
       unwrapped = mixins_css.split("\n")[1..-2] * "\n"
-      unindent(unwrapped.gsub /@mixin\s*([\w-]+)/, "@mixin #{parent}-\\1")
+      unindent(unwrapped.gsub /@mixin\s*([\w-]+)/, "@mixin #{container}-\\1")
     end
   end
 
@@ -269,7 +269,7 @@ private
     brace_pos + s.pos - 1
   end
 
-  # advance scanner to pos just *before* the next match of pattern
+  # advance scanner to pos after the next match of pattern and return the match
   def scan_next(scanner, pattern)
     return unless scanner.skip_until(pattern)
     scanner.pos -= scanner.matched_size
