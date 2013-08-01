@@ -210,7 +210,7 @@ private
   # @mixin gradient-horizontal
   def flatten_mixins(file, container, prefix)
     replace_rules file, Regexp.escape(container) do |mixins_css|
-      unindent(unwrape_rule_block(mixins_css).gsub /@mixin\s*([\w-]+)/, "@mixin #{prefix}-\\1")
+      unindent(unwrap_rule_block(mixins_css).gsub /@mixin\s*([\w-]+)/, "@mixin #{prefix}-\\1")
     end
   end
 
@@ -239,7 +239,7 @@ private
   # #sel { a: b; }
   # to:
   # a: b;
-  def unwrape_rule_block(css)
+  def unwrap_rule_block(css)
     replace_in_selector(css, /.*/, '').sub(/}\s*$/m, '')
   end
 
