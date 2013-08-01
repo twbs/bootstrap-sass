@@ -264,7 +264,7 @@ private
   end
 
   def replace_spin(less)
-    less.gsub(/spin/, 'adjust-hue')
+    less.gsub(/(?![\-$@.])spin(?!-)/, 'adjust-hue')
   end
 
   def replace_image_urls(less)
