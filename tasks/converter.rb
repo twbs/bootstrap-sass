@@ -20,7 +20,7 @@ require 'strscan'
 
 class Converter
   def initialize(branch)
-    @repo = 'twbs/bootstrap'
+    @repo   = 'twbs/bootstrap'
     @branch = branch || 'master'
     @mixins = get_mixins_name
   end
@@ -43,6 +43,12 @@ class Converter
         file = replace_mixins(file)
         file = flatten_mixins(file, '#gradient', 'gradient')
         file = parameterize_mixin_parent_selector(file, 'responsive-(in)?visibility')
+        file = file.gsub(
+            /filter: e\(%\("progid:DXImageTransform.Microsoft.gradient\(startColorstr='%d', endColorstr='%d', GradientType=(\d)\)",argb\(([\-$\w]+)\),argb\(([\-$\w]+)\)\)\);/,
+            %Q(filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='\#{ie-hex-str(\\2)}', endColorstr='\#{ie-hex-str(\\3)}', GradientType=\\1);)
+        )
+
+
       when 'responsive-utilities.less'
         file = convert_to_scss(file)
         file = apply_mixin_parent_selector(file, '\.(visible|hidden)')
@@ -89,16 +95,17 @@ class Converter
     save_file(path, content)
   end
 
-private
+  private
 
   def read_files(path, files)
     contents = {}
+    full_path = "https://raw.github.com/#@repo/#@branch/#{path}"
+    puts "downloading from #{full_path}..."
     files.map do |name|
-      url = "https://raw.github.com/#@repo/#@branch/#{path}/#{name}"
       Thread.start {
-        content = open(url).read
+        content = open("#{full_path}/#{name}").read
         Thread.exclusive {
-          puts "GET #{url}"
+          puts "  ↓ #{name}"
           contents[name] = content
         }
       }
@@ -177,21 +184,32 @@ private
   # @mixin a($parent) { tr#{$parent} { color: white } }
   def parameterize_mixin_parent_selector(file, rule_sel)
     param = '$parent'
-    replace_rules(file, '\s*@mixin\s*' + rule_sel) do |mxn_css|
+    replace_rules(file, '^[ \t]*@mixin\s*' + rule_sel) do |mxn_css|
+      mxn_css.sub! /(?=@mixin)/, "// [converter] $parent hack\n"
+      # insert param into mixin def
       mxn_css.sub! /(@mixin [\w-]+\()/, "\\1#{param}"
-      replace_properties(mxn_css) { |props| "  \#{#{param}} { #{props.strip} }\n" }
-      replace_rules(mxn_css) { |rule| replace_in_selector rule, /&/, "\#{#{param}}" }
+      # wrap properties in #{$parent} { ... }
+      replace_properties(mxn_css) { |props| "  \#{#{param}} { #{props.strip} }\n  " }
+      # change nested& rules to nested#{$parent}
+      replace_rules(mxn_css, /.*[^\s ]&/) { |rule| replace_in_selector rule, /&/, "\#{#{param}}" }
     end
   end
 
   # extracts rule immediately after it's parent and optionally changes selector to new_selector
   def extract_nested_rule(css, selector, new_selector = selector)
-    rule = pos = nil
-    css = replace_rules(css, selector) { |r, p| rule = r; pos = p; '' }
+    matches = []
+    # first find the rules, and remove them
+    css     = replace_rules(css, selector, comments: true) { |rule, pos|
+      matches << [rule, pos]
+      indent "// [converter] extracted #{get_selector(rule)} to #{new_selector}", indent_width(rule)
+    }
     # replace rule selector with new_selector
-    rule = rule.sub /^(#{COMMENTS_RE})?(\s*).*?(\s*){/m, "\\1\\2#{new_selector}\\3{"
-    css.insert pos.begin + css[pos.begin..-1].index('}') + 1,
-               "\n" + unindent(rule)
+    matches.each do |m|
+      m[0].sub! /(#{COMMENT_RE}*)^(\s*).*?(\s*){/m, "\\1\\2#{new_selector}\\3{"
+    end
+    replace_substrings_at css,
+                          matches.map { |_, pos| pos.begin + css[pos.begin..-1].index('}') + 1 },
+                          matches.map { |rule, _| "\n\n" + unindent(rule) }
   end
 
   # .visible-sm { @include responsive-visibility() }
@@ -201,7 +219,7 @@ private
     replace_rules file, "(\s*)#{rule_sel}" do |rule|
       next rule unless rule =~ /@include/
       rule =~ /\A\s+/ # keep indentation
-      $~.to_s + rule.sub(/(#{COMMENTS_RE})?(#{SELECTOR_RE}){(.*)}/m, '\3').sub(/(@include [\w-]+\()/, "#{$1}\\1'#{$2.strip}'").strip
+      $~.to_s + rule.sub(/(#{COMMENT_RE}*)(#{SELECTOR_RE})\{(.*)\}/m, '\3').sub(/(@include [\w-]+\()/, "#{$1}\\1'#{$2.strip}'").strip
     end
   end
 
@@ -210,7 +228,7 @@ private
   # @mixin gradient-horizontal
   def flatten_mixins(file, container, prefix)
     replace_rules file, Regexp.escape(container) do |mixins_css|
-      unindent(unwrap_rule_block(mixins_css).gsub /@mixin\s*([\w-]+)/, "@mixin #{prefix}-\\1")
+      unindent unwrap_rule_block(mixins_css).gsub(/@mixin\s*([\w-]+)/, "@mixin #{prefix}-\\1")
     end
   end
 
@@ -225,10 +243,10 @@ private
       if scope != ''
         scope = scope.scan(/[\w-]+/).join('-') + '-'
       end
-      mixin_name = match.scan(/\.([\w-]+)\(.*\)\s?{?/).first
+      mixin_name = match.scan(/\.([\w-]+)\(.*\)\s?\{?/).first
 
       if mixin_name && @mixins.include?(mixin_name.first)
-        "#{matches.first}@include #{scope}#{matches.last}".gsub(/; \$/,', $')
+        "#{matches.first}@include #{scope}#{matches.last}".gsub(/; \$/, ", $")
       else
         "#{matches.first}@extend .#{scope}#{matches.last.gsub(/\(\)/, '')}"
       end
@@ -240,7 +258,7 @@ private
   # to:
   # a: b;
   def unwrap_rule_block(css)
-    replace_in_selector(css, /.*/, '').sub(/}\s*$/m, '')
+    replace_in_selector(css, /.*/, '').sub(/}\s*\z/m, '')
   end
 
   def replace_mixin_file(less)
@@ -299,7 +317,22 @@ private
 
   # unindent by n spaces
   def unindent(txt, n = 2)
-    txt.gsub /^\s{1,#{n}}/, ''
+    txt.gsub /^[ ]{#{n}}/, ''
+  end
+
+  # indent by n spaces
+  def indent(txt, n = 2)
+    "#{' ' * n}#{txt}"
+  end
+
+  # get indent length from the first line of txt
+  def indent_width(txt)
+    txt.match(/\A\s*/).to_s.length
+  end
+
+  # get full selector for rule_block
+  def get_selector(rule_block)
+    /^\s*(#{SELECTOR_RE}?)\s*\{/.match(rule_block) && $1 && $1.strip
   end
 
   # replace CSS rule blocks matching rule_prefix with yield(rule_block, rule_pos)
@@ -308,19 +341,20 @@ private
   # option :comments -- include immediately preceding comments in rule_block
   #
   # replace_rules(".a{ \n .b{} }", '.b') { |rule| ">#{rule}<"  } #=> ".a{ \n >.b{}< }"
-  def replace_rules(less, rule_prefix = '\s*', options = {})
+  def replace_rules(less, rule_prefix = SELECTOR_RE, options = {})
     options = {comments: true}.merge(options || {})
-    less = less.dup
-    s = StringScanner.new(less)
+    less    = less.dup
+    s       = StringScanner.new(less)
+    rule_re = "#{rule_prefix}[^{]*#{RULE_OPEN_BRACE_RE}"
     if options[:comments]
-      rule_start_re = /^(?:#{COMMENTS_RE})?#{rule_prefix}[^{]*{/
+      rule_start_re = /#{COMMENT_RE}*^#{rule_re}/
     else
-      rule_start_re = /^#{rule_prefix}[^{]*{/
+      rule_start_re = /^#{rule_re}/
     end
+
     while (rule_start = scan_next(s, rule_start_re))
-      rule_pos = (s.pos - rule_start.length..next_brace_pos(less, s.pos - 1))
-      rule_block = less[rule_pos]
-      less[rule_pos] = yield(rule_block, rule_pos)
+      rule_pos       = (s.pos - rule_start.length..next_brace_pos(less, s.pos - 1))
+      less[rule_pos] = yield(less[rule_pos], rule_pos)
     end
     less
   end
@@ -329,49 +363,51 @@ private
   # replace_in_selector('a {a: {a: a} } a {}', /a/, 'b') => 'b {a: {a: a} } b {}'
   def replace_in_selector(css, pattern, sub)
     # scan for selector positions in css
-    s = StringScanner.new(css)
+    s        = StringScanner.new(css)
     prev_pos = 0
-    sel_pos = []
-    while (brace = scan_next(s, /\{/))
+    sel_pos  = []
+    while (brace = scan_next(s, /#{RULE_OPEN_BRACE_RE}/))
       sel_pos << (prev_pos .. s.pos - 1)
-      s.pos = next_brace_pos(css, s.pos - 1) + 1
+      s.pos    = next_brace_pos(css, s.pos - 1) + 1
       prev_pos = s.pos
     end
-    # insert replacements
-    insert_sub(css, sel_pos) { |css, p| css[p].gsub(pattern, sub) }
+    replace_substrings_at(css, sel_pos) { |s| s.gsub(pattern, sub) }
   end
 
 
-  SELECTOR_RE = /[$\w\-{}#\s,.:&]+/
-  BRACE_RE = /(?![#])[{}]/m
-  COMMENTS_RE = %r((?:^\s*//.*\n)+)
+  sel_chars = '\[\]$\w\-{}#,.:&>@'
+  SELECTOR_RE = /[#{sel_chars}]+[#{sel_chars}\s]*/
+  COMMENT_RE = %r((?:^[ \t]*//[^\n]*\n))
+  RULE_OPEN_BRACE_RE = /(?<!#)\{/
+  RULE_CLOSE_BRACE_RE = /(?<!\w)\}/
+  BRACE_RE    = /#{RULE_OPEN_BRACE_RE}|#{RULE_CLOSE_BRACE_RE}/m
 
   # replace first level properties in the css with yields
   # replace_properties("a { color: white }") { |props| props.gsub 'white', 'red' }
   def replace_properties(css, &block)
     s = StringScanner.new(css)
-    s.skip_until /{\n?/
+    s.skip_until /#{RULE_OPEN_BRACE_RE}\n?/
     prev_pos = s.pos
     depth = 0
     pos = []
-    while (b = scan_next(s, /#{SELECTOR_RE}(?![#])\{\n?|\}/))
-      if depth.zero?
+    while (b = scan_next(s, /#{SELECTOR_RE}#{RULE_OPEN_BRACE_RE}|#{RULE_CLOSE_BRACE_RE}/m))
+      depth += (b == '}' ? -1 : +1)
+      if depth == 1
         if b == '}'
           prev_pos = s.pos
         else
-          pos << (prev_pos .. s.pos - b.length )
+          pos << (prev_pos .. s.pos - b.length - 1)
         end
-        depth += (b == '}' ?  -1 : +1)
       end
     end
-    insert_sub(css, pos) { |css, p| yield(css[p]) }
+    replace_substrings_at css, pos, &block
   end
 
 
   # next matching brace for brace at brace_pos in css
   def next_brace_pos(css, brace_pos)
     depth = 0
-    s = StringScanner.new(css[brace_pos..-1])
+    s     = StringScanner.new(css[brace_pos..-1])
     while (b = scan_next(s, BRACE_RE))
       depth += (b == '}' ? -1 : +1)
       break if depth.zero?
@@ -387,16 +423,19 @@ private
     scanner.scan pattern
   end
 
-  # insert substitutions into css at positions
-  # substitutions are yields from block called with (css, (begin..end))
-  def insert_sub(css, positions, &block)
+  # insert substitutions into text at positions (Range or Fixnum)
+  # substitutions can be passed as array or as yields from the &block called with |substring, position, text|
+  # position is a range (begin..end)
+  def replace_substrings_at(text, positions, replacements = nil, &block)
     offset = 0
-    positions.each do |p|
-      p = (p.begin + offset .. p.end + offset)
-      r = block.call(css, p)
-      offset += r.size - (p.end - p.begin  + 1)
-      css[p] = r
+    positions.each_with_index do |p, i|
+      p = (p...p) if p.is_a?(Fixnum)
+      p       = p.exclude_end? ? (p.begin + offset ... p.end + offset) : (p.begin + offset .. p.end + offset)
+      # block returns the substitution, e.g.: { |text, pos| text[pos].upcase }
+      r       = replacements ? replacements[i] : block.call(text[p], p, text)
+      offset  += r.size - (p.end - p.begin + 1)
+      text[p] = r
     end
-    css
+    text
   end
 end
