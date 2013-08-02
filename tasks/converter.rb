@@ -295,7 +295,8 @@ class Converter
 
   def replace_escaping(less)
     less = less.gsub(/\~"([^"]+)"/, '#{\1}') # Get rid of ~"" escape
-    less.gsub!(/\${([^}]+)}/, '$\1') # Get rid of @{} escape
+    less.gsub!(/\$\{([^}]+)\}/, '$\1') # Get rid of @{} escape
+    less.gsub!(/"([^"\n]*)(\$[\w\-]+)([^"\n]*)"/, '"\1#{\2}\3"') # interpolate variable in string, e.g. url("$file-1x") => url("#{$file-1x}")
     less.gsub(/(\W)e\(%\("?([^"]*)"?\)\)/, '\1\2') # Get rid of e(%("")) escape
   end
 
