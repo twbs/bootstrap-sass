@@ -20,8 +20,10 @@
     @include opacity(.5);
   }
 
+  // [converter] extracted button& to button.close
 }
- // Additional properties for button version
+
+// Additional properties for button version
 // iOS requires the button element instead of an anchor tag.
 // If you want the anchor version, it requires `href="#"`.
 button.close {
