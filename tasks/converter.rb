@@ -23,6 +23,7 @@ class Converter
   GIT_RAW = 'https://raw.github.com'
   def initialize(branch)
     @repo       = 'twbs/bootstrap'
+    @repo_url   = "https://github.com/#@repo"
     @branch     = branch || 'master'
     @branch_sha = get_branch_sha
     @mixins     = get_mixins_name
@@ -126,7 +127,7 @@ class Converter
 
   # get sha of the branch (= the latest commit)
   def get_branch_sha
-    @branch_sha ||= %x[git ls-remote 'https://github.com/#@repo' | awk '/#@branch/ {print $1}'].chomp
+    @branch_sha ||= %x[git ls-remote '#@repo_url' | awk '/#@branch/ {print $1}'].chomp
   end
 
   # Get the sha of a dir
@@ -135,29 +136,25 @@ class Converter
   end
 
   def get_trees
-    @trees ||= JSON.parse(open("#{GIT_DATA}/#@repo/git/trees/#@branch_sha").read)
+    @trees ||= get_json("#{GIT_DATA}/#@repo/git/trees/#@branch_sha")
   end
 
   def bootstrap_less_files
     @bootstrap_less_files ||= begin
-      files = open("#{GIT_DATA}/#@repo/git/trees/#{get_tree_sha('less')}").read
-      files = JSON.parse files
+      files = get_json "#{GIT_DATA}/#@repo/git/trees/#{get_tree_sha('less')}"
       files['tree'].select{|f| f['type'] == 'blob' && f['path'] =~ /.less$/ }.map{|f| f['path'] }
     end
   end
 
   def bootstrap_js_files
     @bootstrap_js_files ||= begin
-      files = open("#{GIT_DATA}/#@repo/git/trees/#{get_tree_sha('js')}").read
-      files = JSON.parse files
+      files = get_json "#{GIT_DATA}/#@repo/git/trees/#{get_tree_sha('js')}"
       files = files['tree'].select { |f| f['type'] == 'blob' && f['path'] =~ /.js$/ }.map { |f| f['path'] }
       files.sort_by { |f|
         case f
           # tooltip depends on popover and must be loaded earlier
-          when /tooltip/ then
-            1
-          when /popover/ then
-            2
+          when /tooltip/ then 1
+          when /popover/ then 2
           else
             0
         end
@@ -456,5 +453,9 @@ class Converter
       text[p] = r
     end
     text
+  end
+
+  def get_json(url)
+    JSON.parse open(url).read
   end
 end
