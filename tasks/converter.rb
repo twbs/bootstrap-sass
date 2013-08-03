@@ -19,15 +19,19 @@ require 'json'
 require 'strscan'
 
 class Converter
+  GIT_DATA = 'https://api.github.com/repos'
+  GIT_RAW = 'https://raw.github.com'
   def initialize(branch)
-    @repo   = 'twbs/bootstrap'
-    @branch = branch || 'master'
-    @mixins = get_mixins_name
+    @repo       = 'twbs/bootstrap'
+    @branch     = branch || 'master'
+    @branch_sha = get_branch_sha
+    @mixins     = get_mixins_name
   end
 
   def process
     process_stylesheet_assets
     process_javascript_assets
+    store_version
   end
 
   def process_stylesheet_assets
@@ -79,6 +83,13 @@ class Converter
     end
   end
 
+  def store_version
+    path = 'lib/bootstrap-sass/version.rb'
+    get_branch_sha
+    content = File.read(path).sub(/BOOTSTRAP_SHA\s*=\s*['"][\w+]['"]/, "BOOTSTRAP_SHA = '#@branch_sha'")
+    File.open(path, 'w') { |f| f.write(content) }
+  end
+
   def process_javascript_assets
     puts "\nProcessing javascripts..."
     read_files('js', bootstrap_js_files).each do |name, file|
@@ -99,8 +110,8 @@ class Converter
 
   def read_files(path, files)
     contents = {}
-    full_path = "https://raw.github.com/#@repo/#@branch/#{path}"
-    puts "downloading from #{full_path}..."
+    full_path = "#{GIT_RAW}/#@repo/#@branch_sha/#{path}"
+    puts "downloading from #{full_path} (branch #@branch)..."
     files.map do |name|
       Thread.start {
         content = open("#{full_path}/#{name}").read
@@ -113,16 +124,23 @@ class Converter
     contents
   end
 
+  # get sha of the branch (= the latest commit)
+  def get_branch_sha
+    @branch_sha ||= %x[git ls-remote 'https://github.com/#@repo' | awk '/#@branch/ {print $1}'].chomp
+  end
+
   # Get the sha of a dir
   def get_tree_sha(dir)
-    trees = open("https://api.github.com/repos/#@repo/git/trees/#@branch").read
-    trees = JSON.parse trees
-    trees['tree'].find{|t| t['path'] == dir}['sha']
+    get_trees['tree'].find { |t| t['path'] == dir }['sha']
+  end
+
+  def get_trees
+    @trees ||= JSON.parse(open("#{GIT_DATA}/#@repo/git/trees/#@branch_sha").read)
   end
 
   def bootstrap_less_files
     @bootstrap_less_files ||= begin
-      files = open("https://api.github.com/repos/#@repo/git/trees/#{get_tree_sha('less')}").read
+      files = open("#{GIT_DATA}/#@repo/git/trees/#{get_tree_sha('less')}").read
       files = JSON.parse files
       files['tree'].select{|f| f['type'] == 'blob' && f['path'] =~ /.less$/ }.map{|f| f['path'] }
     end
@@ -130,7 +148,7 @@ class Converter
 
   def bootstrap_js_files
     @bootstrap_js_files ||= begin
-      files = open("https://api.github.com/repos/#@repo/git/trees/#{get_tree_sha('js')}").read
+      files = open("#{GIT_DATA}/#@repo/git/trees/#{get_tree_sha('js')}").read
       files = JSON.parse files
       files = files['tree'].select { |f| f['type'] == 'blob' && f['path'] =~ /.js$/ }.map { |f| f['path'] }
       files.sort_by { |f|
@@ -149,7 +167,7 @@ class Converter
 
   def get_mixins_name
     mixins      = []
-    less_mixins = open("https://raw.github.com/#@repo/#@branch/less/mixins.less").read
+    less_mixins = open("#{GIT_RAW}/#@repo/#@branch_sha/less/mixins.less").read
 
     less_mixins.scan(/\.([\w-]+)\(.*\)\s?{?/) do |mixin|
       mixins << mixin.first
