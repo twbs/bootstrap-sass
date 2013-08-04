@@ -103,7 +103,7 @@ class Converter
     end
     log_processed "#{bootstrap_js_files * ' '}"
 
-    log_status "  updating javascript manifest"
+    log_status "Updating javascript manifest"
     content = ''
     bootstrap_js_files.each do |name|
       name = name.gsub(/\.js$/, '')
@@ -483,9 +483,9 @@ class Converter
     def initialize(env)
       @env = env
       puts bold "Convert Bootstrap LESS to SASS"
-      puts " repo   : #{bold magenta env[:repo]}"
-      puts " branch : #{bold magenta env[:branch]} #{dark "#{env[:repo]}/tree/#{env[:branch_sha]}"}"
-      puts " save to: SCSS #{@env[:save_at][:scss]}, JS #{@env[:save_at][:js]}"
+      puts " repo   : #{env[:repo]}"
+      puts " branch : #{env[:branch]} #{dark "#{env[:repo]}/tree/#{env[:branch_sha]}"}"
+      puts " save to: SCSS @ #{@env[:save_at][:scss]} JS @ #{@env[:save_at][:js]}"
       puts dark "-" * 60
     end
 
@@ -498,7 +498,7 @@ class Converter
     end
 
     def log_downloading(files)
-      puts "  downloading #{files.length} files (#{files * ' '})..."
+      puts "  downloading #{files.length} files #{dark files * ' '}..."
     end
 
     def log_processing(name)
