@@ -19,6 +19,7 @@ require 'json'
 require 'strscan'
 require 'forwardable'
 require 'term/ansicolor'
+require 'fileutils'
 
 class Converter
   extend Forwardable
@@ -32,7 +33,9 @@ class Converter
     @branch     = branch || 'master'
     @branch_sha = get_branch_sha
     @mixins     = get_mixins_name
-    @logger     = Logger.new(repo: @repo_url, branch: @branch, branch_sha: @branch_sha)
+    @save_at    = { js: 'vendor/assets/javascripts/bootstrap', scss: 'vendor/assets/stylesheets/bootstrap' }
+    @save_at.each { |_,v| FileUtils.mkdir_p(v) }
+    @logger     = Logger.new(repo: @repo_url, branch: @branch, branch_sha: @branch_sha, save_at: @save_at)
   end
 
   def_delegators :@logger, :log_status, :log_downloading, :log_processing, :log_transform, :log_processed
@@ -78,14 +81,11 @@ class Converter
         file = convert_to_scss(file)
       end
 
-      name = name.gsub(/\.less$/, '.scss')
-      if name == 'bootstrap.scss'
-        path = "vendor/assets/stylesheets/bootstrap/bootstrap.scss"
-      else
-        path = "vendor/assets/stylesheets/bootstrap/_#{name}"
-      end
+      name = name.sub(/\.less$/, '.scss')
+      save_at = @save_at[:scss]
+      path = "#{save_at}/#{'_' unless name == 'bootstrap.scss'}#{name}"
       save_file(path, file)
-      log_processed path
+      log_processed File.basename(path)
     end
   end
 
@@ -97,12 +97,11 @@ class Converter
 
   def process_javascript_assets
     log_status "Processing javascripts..."
-    save_at = 'vendor/assets/javascripts/bootstrap'
+    save_at = @save_at[:js]
     read_files('js', bootstrap_js_files).each do |name, file|
-      # log_processing name
       save_file("#{save_at}/#{name}", file)
     end
-    log_processed "#{save_at} #{bootstrap_js_files.length} files: #{bootstrap_js_files * ' '}"
+    log_processed "#{bootstrap_js_files * ' '}"
 
     log_status "  updating javascript manifest"
     content = ''
@@ -484,8 +483,9 @@ class Converter
     def initialize(env)
       @env = env
       puts bold "Convert Bootstrap LESS to SASS"
-      puts dark " repo  : #{bold magenta env[:repo]}"
-      puts dark " branch: #{bold magenta env[:branch]} #{dark env[:branch_sha]}"
+      puts dark " repo   : #{bold magenta env[:repo]}"
+      puts dark " branch : #{bold magenta env[:branch]} #{dark env[:branch_sha]}"
+      puts dark " save to: #{@env[:save_at][:scss]} for JS and #{@env[:save_at][:js]} for SCSS"
       puts "-" * 40
     end
 
@@ -498,7 +498,7 @@ class Converter
     end
 
     def log_downloading(files)
-      puts dark bold "  downloading #{files.length} files: #{files * ' '}..."
+      puts dark bold "  downloading #{files.length} files (#{files * ' '})..."
     end
 
     def log_processing(name)
@@ -506,7 +506,7 @@ class Converter
     end
 
     def log_processed(name)
-      puts green "    #{name.ljust(62)}"
+      puts green "    #{name}"
     end
   end
 end
