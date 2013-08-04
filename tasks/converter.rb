@@ -17,17 +17,25 @@
 require 'open-uri'
 require 'json'
 require 'strscan'
+require 'forwardable'
+require 'term/ansicolor'
 
 class Converter
+  extend Forwardable
+
   GIT_DATA = 'https://api.github.com/repos'
-  GIT_RAW = 'https://raw.github.com'
+  GIT_RAW  = 'https://raw.github.com'
+
   def initialize(branch)
     @repo       = 'twbs/bootstrap'
     @repo_url   = "https://github.com/#@repo"
     @branch     = branch || 'master'
     @branch_sha = get_branch_sha
     @mixins     = get_mixins_name
+    @logger     = Logger.new(repo: @repo_url, branch: @branch, branch_sha: @branch_sha)
   end
+
+  def_delegators :@logger, :log_status, :log_file_status
 
   def process
     process_stylesheet_assets
@@ -36,8 +44,9 @@ class Converter
   end
 
   def process_stylesheet_assets
-    puts "\nProcessing stylesheets..."
+    log_status "Processing stylesheets..."
     read_files('less', bootstrap_less_files).each do |name, file|
+      log_file_status name, :processing
       case name
       when 'bootstrap.less'
         file = replace_file_imports(file)
@@ -91,8 +100,9 @@ class Converter
   end
 
   def process_javascript_assets
-    puts "\nProcessing javascripts..."
+    log_status "Processing javascripts..."
     read_files('js', bootstrap_js_files).each do |name, file|
+      log_file_status name, :processing
       save_file("vendor/assets/javascripts/bootstrap/#{name}", file)
     end
 
@@ -109,14 +119,13 @@ class Converter
   private
 
   def read_files(path, files)
-    contents = {}
+    contents  = {}
     full_path = "#{GIT_RAW}/#@repo/#@branch_sha/#{path}"
-    puts "downloading from #{full_path} (branch #@branch)..."
     files.map do |name|
+      log_file_status name, :downloading
       Thread.start {
         content = open("#{full_path}/#{name}").read
         Thread.exclusive {
-          puts "  ↓ #{name}"
           contents[name] = content
         }
       }
@@ -186,7 +195,7 @@ class Converter
 
   def save_file(path, content, mode='w')
     File.open(path, mode) { |file| file.write(content) }
-    puts "Saved #{path}\n"
+    log_file_status path, :processed
   end
 
   def replace_file_imports(less)
@@ -253,7 +262,7 @@ class Converter
     mixin_pattern = /(\s+)(([#|\.][\w-]+\s*>\s*)*)\.([\w-]+\(.*\))/
     less.gsub(mixin_pattern) do |match|
       matches = match.scan(mixin_pattern).flatten
-      scope = matches[1] || ''
+      scope   = matches[1] || ''
       if scope != ''
         scope = scope.scan(/[\w-]+/).join('-') + '-'
       end
@@ -456,5 +465,26 @@ class Converter
 
   def get_json(url)
     JSON.parse open(url).read
+  end
+
+  class Logger
+    include Term::ANSIColor
+
+    def initialize(env)
+      @env = env
+      puts bold "Convert Bootstrap LESS to SASS"
+      puts dark " branch: #{bold env[:branch]} #{dark env[:branch_sha]}"
+      puts dark " repo  : #{bold env[:repo]}"
+      puts "---------------------------------"
+    end
+
+    def log_status(status)
+      puts bold dark status
+    end
+
+    def log_file_status(file, status)
+      status, color = {downloading: ['↓', :cyan], processing: ['⟳', :yellow], processed: ['✓', :green]}[status]
+      puts send(color, "  #{status}  #{File.basename(file)}")
+    end
   end
 end
