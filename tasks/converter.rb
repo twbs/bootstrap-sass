@@ -86,8 +86,7 @@ class Converter
 
   def store_version
     path = 'lib/bootstrap-sass/version.rb'
-    get_branch_sha
-    content = File.read(path).sub(/BOOTSTRAP_SHA\s*=\s*['"][\w+]['"]/, "BOOTSTRAP_SHA = '#@branch_sha'")
+    content = File.read(path).sub(/BOOTSTRAP_SHA\s*=\s*['"][\w]+['"]/, "BOOTSTRAP_SHA = '#@branch_sha'")
     File.open(path, 'w') { |f| f.write(content) }
   end
 
