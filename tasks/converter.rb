@@ -483,14 +483,14 @@ class Converter
     def initialize(env)
       @env = env
       puts bold "Convert Bootstrap LESS to SASS"
-      puts dark " repo   : #{bold magenta env[:repo]}"
-      puts dark " branch : #{bold magenta env[:branch]} #{dark env[:branch_sha]}"
-      puts dark " save to: #{@env[:save_at][:scss]} for JS and #{@env[:save_at][:js]} for SCSS"
-      puts "-" * 40
+      puts " repo   : #{bold magenta env[:repo]}"
+      puts " branch : #{bold magenta env[:branch]} #{dark "#{env[:repo]}/tree/#{env[:branch_sha]}"}"
+      puts " save to: SCSS #{@env[:save_at][:scss]}, JS #{@env[:save_at][:js]}"
+      puts dark "-" * 60
     end
 
     def log_status(status)
-      puts bold dark status
+      puts bold status
     end
 
     def log_transform(*args)
@@ -498,7 +498,7 @@ class Converter
     end
 
     def log_downloading(files)
-      puts dark bold "  downloading #{files.length} files (#{files * ' '})..."
+      puts "  downloading #{files.length} files (#{files * ' '})..."
     end
 
     def log_processing(name)
