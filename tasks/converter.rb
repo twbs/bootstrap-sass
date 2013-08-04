@@ -35,7 +35,7 @@ class Converter
     @logger     = Logger.new(repo: @repo_url, branch: @branch, branch_sha: @branch_sha)
   end
 
-  def_delegators :@logger, :log_status, :log_file_status
+  def_delegators :@logger, :log_status, :log_file_status, :log_transform
 
   def process
     process_stylesheet_assets
@@ -57,12 +57,7 @@ class Converter
         file = replace_mixins(file)
         file = flatten_mixins(file, '#gradient', 'gradient')
         file = parameterize_mixin_parent_selector(file, 'responsive-(in)?visibility')
-        file = file.gsub(
-            /filter: e\(%\("progid:DXImageTransform.Microsoft.gradient\(startColorstr='%d', endColorstr='%d', GradientType=(\d)\)",argb\(([\-$\w]+)\),argb\(([\-$\w]+)\)\)\);/,
-            %Q(filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='\#{ie-hex-str(\\2)}', endColorstr='\#{ie-hex-str(\\3)}', GradientType=\\1);)
-        )
-
-
+        file = replace_ms_filters(file)
       when 'responsive-utilities.less'
         file = convert_to_scss(file)
         file = apply_mixin_parent_selector(file, '\.(visible|hidden)')
@@ -206,6 +201,7 @@ class Converter
   # to:
   # @mixin a($parent) { tr#{$parent} { color: white } }
   def parameterize_mixin_parent_selector(file, rule_sel)
+    log_transform rule_sel
     param = '$parent'
     replace_rules(file, '^[ \t]*@mixin\s*' + rule_sel) do |mxn_css|
       mxn_css.sub! /(?=@mixin)/, "// [converter] $parent hack\n"
@@ -220,6 +216,7 @@ class Converter
 
   # extracts rule immediately after it's parent and optionally changes selector to new_selector
   def extract_nested_rule(css, selector, new_selector = selector)
+    log_transform selector, new_selector
     matches = []
     # first find the rules, and remove them
     css     = replace_rules(css, selector, comments: true) { |rule, pos|
@@ -239,6 +236,7 @@ class Converter
   # to:
   # @include responsive-visibility('.visible-sm')
   def apply_mixin_parent_selector(file, rule_sel)
+    log_transform rule_sel
     replace_rules file, "(\s*)#{rule_sel}" do |rule|
       next rule unless rule =~ /@include/
       rule =~ /\A\s+/ # keep indentation
@@ -250,6 +248,7 @@ class Converter
   # to:
   # @mixin gradient-horizontal
   def flatten_mixins(file, container, prefix)
+    log_transform container, prefix
     replace_rules file, Regexp.escape(container) do |mixins_css|
       unindent unwrap_rule_block(mixins_css).gsub(/@mixin\s*([\w-]+)/, "@mixin #{prefix}-\\1")
     end
@@ -274,6 +273,15 @@ class Converter
         "#{matches.first}@extend .#{scope}#{matches.last.gsub(/\(\)/, '')}"
       end
     end
+  end
+
+  # change Microsoft filters to SASS calling convention
+  def replace_ms_filters(file)
+    log_transform 
+    file.gsub(
+      /filter: e\(%\("progid:DXImageTransform.Microsoft.gradient\(startColorstr='%d', endColorstr='%d', GradientType=(\d)\)",argb\(([\-$\w]+)\),argb\(([\-$\w]+)\)\)\);/,
+      %Q(filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='\#{ie-hex-str(\\2)}', endColorstr='\#{ie-hex-str(\\3)}', GradientType=\\1);)
+    )
   end
 
   # unwraps topmost rule block
@@ -480,6 +488,10 @@ class Converter
 
     def log_status(status)
       puts bold dark status
+    end
+
+    def log_transform(*args)
+      puts dark("     #{bold caller[1][/`.*'/][1..-2]}") + dark(" with #{args * ', '}")
     end
 
     def log_file_status(file, status)
