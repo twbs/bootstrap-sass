@@ -180,9 +180,9 @@ $zindex-modal:             1050 !default;
 // Media queries breakpoints
 // --------------------------------------------------
 
-// Tiny screen / phone
-$screen-tiny:                480px !default;
-$screen-phone:               $screen-tiny !default;
+// Extra small screen / phone
+$screen-xsmall:              480px !default;
+$screen-phone:               $screen-xsmall !default;
 
 // Small screen / tablet
 $screen-small:               768px !default;
