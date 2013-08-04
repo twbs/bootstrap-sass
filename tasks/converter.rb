@@ -35,7 +35,7 @@ class Converter
     @logger     = Logger.new(repo: @repo_url, branch: @branch, branch_sha: @branch_sha)
   end
 
-  def_delegators :@logger, :log_status, :log_file_status, :log_transform
+  def_delegators :@logger, :log_status, :log_downloading, :log_processing, :log_transform, :log_processed
 
   def process
     process_stylesheet_assets
@@ -46,7 +46,7 @@ class Converter
   def process_stylesheet_assets
     log_status "Processing stylesheets..."
     read_files('less', bootstrap_less_files).each do |name, file|
-      log_file_status name, :processing
+      log_processing name
       case name
       when 'bootstrap.less'
         file = replace_file_imports(file)
@@ -85,6 +85,7 @@ class Converter
         path = "vendor/assets/stylesheets/bootstrap/_#{name}"
       end
       save_file(path, file)
+      log_processed path
     end
   end
 
@@ -96,12 +97,14 @@ class Converter
 
   def process_javascript_assets
     log_status "Processing javascripts..."
+    save_at = 'vendor/assets/javascripts/bootstrap'
     read_files('js', bootstrap_js_files).each do |name, file|
-      log_file_status name, :processing
-      save_file("vendor/assets/javascripts/bootstrap/#{name}", file)
+      # log_processing name
+      save_file("#{save_at}/#{name}", file)
     end
+    log_processed "#{save_at} #{bootstrap_js_files.length} files: #{bootstrap_js_files * ' '}"
 
-    # Update javascript manifest
+    log_status "  updating javascript manifest"
     content = ''
     bootstrap_js_files.each do |name|
       name = name.gsub(/\.js$/, '')
@@ -109,6 +112,7 @@ class Converter
     end
     path = "vendor/assets/javascripts/bootstrap.js"
     save_file(path, content)
+    log_processed path
   end
 
   private
@@ -116,8 +120,8 @@ class Converter
   def read_files(path, files)
     contents  = {}
     full_path = "#{GIT_RAW}/#@repo/#@branch_sha/#{path}"
+    log_downloading files
     files.map do |name|
-      log_file_status name, :downloading
       Thread.start {
         content = open("#{full_path}/#{name}").read
         Thread.exclusive {
@@ -190,7 +194,6 @@ class Converter
 
   def save_file(path, content, mode='w')
     File.open(path, mode) { |file| file.write(content) }
-    log_file_status path, :processed
   end
 
   def replace_file_imports(less)
@@ -481,9 +484,9 @@ class Converter
     def initialize(env)
       @env = env
       puts bold "Convert Bootstrap LESS to SASS"
-      puts dark " branch: #{bold env[:branch]} #{dark env[:branch_sha]}"
-      puts dark " repo  : #{bold env[:repo]}"
-      puts "---------------------------------"
+      puts dark " repo  : #{bold magenta env[:repo]}"
+      puts dark " branch: #{bold magenta env[:branch]} #{dark env[:branch_sha]}"
+      puts "-" * 40
     end
 
     def log_status(status)
@@ -491,12 +494,19 @@ class Converter
     end
 
     def log_transform(*args)
-      puts dark("     #{bold caller[1][/`.*'/][1..-2]}") + dark(" with #{args * ', '}")
+      puts "#{cyan "    #{caller[1][/`.*'/][1..-2]}"}#{cyan " with #{args * ', '}" unless args.empty?}"
     end
 
-    def log_file_status(file, status)
-      status, color = {downloading: ['↓', :cyan], processing: ['⟳', :yellow], processed: ['✓', :green]}[status]
-      puts send(color, "  #{status}  #{File.basename(file)}")
+    def log_downloading(files)
+      puts dark bold "  downloading #{files.length} files: #{files * ' '}..."
+    end
+
+    def log_processing(name)
+      puts yellow "  #{File.basename(name)}"
+    end
+
+    def log_processed(name)
+      puts green "    #{name.ljust(62)}"
     end
   end
 end
