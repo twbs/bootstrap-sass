@@ -120,7 +120,7 @@ class Converter
   def read_files(path, files)
     contents  = {}
     full_path = "#{GIT_RAW}/#@repo/#@branch_sha/#{path}"
-    log_downloading files
+    log_downloading files, full_path
     files.map do |name|
       Thread.start {
         content = open("#{full_path}/#{name}").read
@@ -500,8 +500,8 @@ class Converter
       puts "#{cyan "    #{caller[1][/`.*'/][1..-2]}"}#{cyan " with #{args * ', '}" unless args.empty?}"
     end
 
-    def log_downloading(files)
-      puts "  downloading #{files.length} files #{dark files * ' '}..."
+    def log_downloading(files, from)
+      puts dark cyan "  GET #{files.length} files from #{from} #{files * ' '}..."
     end
 
     def log_processing(name)
@@ -513,7 +513,7 @@ class Converter
     end
 
     def log_http_get(url)
-      puts dark cyan "  GET #{url}"
+      puts dark cyan "  GET #{url}..."
     end
   end
 end
