@@ -336,6 +336,7 @@ class Converter
   end
 
   def insert_default_vars(scss)
+    log_transform
     scss.gsub(/^(\$.+);/, '\1 !default;')
   end
 
