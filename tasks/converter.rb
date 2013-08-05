@@ -57,7 +57,7 @@ class Converter
       when 'mixins.less'
         file = replace_vars(file)
         file = replace_escaping(file)
-        file = replace_mixin_file(file)
+        file = replace_mixin_definitions(file)
         file = replace_mixins(file)
         file = flatten_mixins(file, '#gradient', 'gradient')
         file = parameterize_mixin_parent_selector(file, 'responsive-(in)?visibility')
@@ -66,7 +66,7 @@ class Converter
         file = convert_to_scss(file)
         file = apply_mixin_parent_selector(file, '\.(visible|hidden)')
       when 'utilities.less'
-        file = replace_mixin_file(file)
+        file = replace_mixin_definitions(file)
         file = convert_to_scss(file)
       when 'variables.less'
         file = convert_to_scss(file)
@@ -193,8 +193,11 @@ class Converter
     File.open(path, mode) { |file| file.write(content) }
   end
 
-  def replace_file_imports(less)
-    less.gsub(/@import ["|']([\w-]+).less["|'];/, '@import "bootstrap/\1";');
+  # @import "file.less" to "#{target_path}file;"
+  def replace_file_imports(less, target_path = 'bootstrap/')
+    log_transform target_path
+    less.gsub %r(@import ["|']([\w-]+).less["|'];),
+              %Q(@import "#{target_path}\\1";)
   end
 
   # @mixin a() { tr& { color:white } }
@@ -292,7 +295,8 @@ class Converter
     replace_in_selector(css, /.*/, '').sub(/}\s*\z/m, '')
   end
 
-  def replace_mixin_file(less)
+  def replace_mixin_definitions(less)
+    log_transform
     less.gsub(/^(\s*)\.([\w-]+\(.*\))(\s*\{)/) { |match|
       "#{$1}@mixin #{$2.tr(';', ',')}#{$3}"
     }
