@@ -130,22 +130,22 @@
 // Transformations
 @mixin rotate($degrees) {
   -webkit-transform: rotate($degrees);
-      -ms-transform: rotate($degrees);
+      -ms-transform: rotate($degrees); // IE9+
           transform: rotate($degrees);
 }
 @mixin scale($ratio) {
   -webkit-transform: scale($ratio);
-      -ms-transform: scale($ratio);
+      -ms-transform: scale($ratio); // IE9+
           transform: scale($ratio);
 }
 @mixin translate($x, $y) {
   -webkit-transform: translate($x, $y);
-      -ms-transform: translate($x, $y);
+      -ms-transform: translate($x, $y); // IE9+
           transform: translate($x, $y);
 }
 @mixin skew($x, $y) {
   -webkit-transform: skew($x, $y);
-      -ms-transform: skewX($x) skewY($y); // See https://github.com/twbs/bootstrap/issues/4885
+      -ms-transform: skewX($x) skewY($y); // See https://github.com/twbs/bootstrap/issues/4885; IE9+
           transform: skew($x, $y);
 }
 @mixin translate3d($x, $y, $z) {
@@ -165,12 +165,12 @@
 
 // Background clipping
 @mixin background-clip($clip) {
-          background-clip: $clip;
+  background-clip: $clip;
 }
 
 // Background sizing
 @mixin background-size($size) {
-          background-size: $size;
+  background-size: $size;
 }
 
 // Box sizing
@@ -185,7 +185,7 @@
 @mixin user-select($select) {
   -webkit-user-select: $select;
      -moz-user-select: $select;
-      -ms-user-select: $select;
+      -ms-user-select: $select; // IE10+
        -o-user-select: $select;
           user-select: $select;
 }
@@ -211,7 +211,7 @@
   word-wrap: break-word;
   -webkit-hyphens: $mode;
      -moz-hyphens: $mode;
-      -ms-hyphens: $mode;
+      -ms-hyphens: $mode; // IE10+
        -o-hyphens: $mode;
           hyphens: $mode;
 }
@@ -235,7 +235,7 @@
 //
 // Creates two color stops, start and end, by specifying a color and position for each color stop.
 // Color stops are not available in IE9 and below.
-@mixin gradient-horizontal($start-color: #555, $start-percent: 0%, $end-color: #333, $end-percent: 100%) {
+@mixin gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
   background-color: $end-color;
   background-image: -webkit-gradient(linear, $start-percent top, $end-percent top, from($start-color), to($end-color)); // Safari 4+, Chrome 2+
   background-image: -webkit-linear-gradient(left, color-stop($start-color $start-percent), color-stop($end-color $end-percent)); // Safari 5.1+, Chrome 10+
@@ -249,7 +249,7 @@
 //
 // Creates two color stops, start and end, by specifying a color and position for each color stop.
 // Color stops are not available in IE9 and below.
-@mixin gradient-vertical($start-color: #555, $start-percent: 0%, $end-color: #333, $end-percent: 100%) {
+@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
   background-color: $end-color;
   background-image: -webkit-gradient(linear, left $start-percent, left $end-percent, from($start-color), to($end-color)); // Safari 4+, Chrome 2+
   background-image: -webkit-linear-gradient(top, $start-color, $start-percent, $end-color, $end-percent); // Safari 5.1+, Chrome 10+
@@ -372,8 +372,9 @@
   &:focus,
   &:active,
   &.active {
-    background-color: darken($background, 5%);
-        border-color: darken($border, 10%);
+    color: $color;
+    background-color: darken($background, 8%);
+        border-color: darken($border, 12%);
   }
 
   &.disabled,
