@@ -32,13 +32,12 @@ class Converter
     @repo_url   = "https://github.com/#@repo"
     @branch     = branch || 'master'
     @branch_sha = get_branch_sha
-    @mixins     = get_mixins_name
     @save_at    = { js: 'vendor/assets/javascripts/bootstrap', scss: 'vendor/assets/stylesheets/bootstrap' }
     @save_at.each { |_,v| FileUtils.mkdir_p(v) }
     @logger     = Logger.new(repo: @repo_url, branch: @branch, branch_sha: @branch_sha, save_at: @save_at)
   end
 
-  def_delegators :@logger, :log_status, :log_downloading, :log_processing, :log_transform, :log_processed
+  def_delegators :@logger, :log_status, :log_downloading, :log_processing, :log_transform, :log_processed, :log_http_get
 
   def process
     process_stylesheet_assets
@@ -48,7 +47,9 @@ class Converter
 
   def process_stylesheet_assets
     log_status "Processing stylesheets..."
-    read_files('less', bootstrap_less_files).each do |name, file|
+    files = read_files('less', bootstrap_less_files)
+    @mixins = get_mixin_names files['mixins.less']
+    files.each do |name, file|
       log_processing name
       case name
       when 'bootstrap.less'
@@ -168,14 +169,11 @@ class Converter
     end
   end
 
-  def get_mixins_name
+  def get_mixin_names(file)
     mixins      = []
-    less_mixins = open("#{GIT_RAW}/#@repo/#@branch_sha/less/mixins.less").read
-
-    less_mixins.scan(/\.([\w-]+)\(.*\)\s?{?/) do |mixin|
+    file.scan(/\.([\w-]+)\(.*\)\s?{?/) do |mixin|
       mixins << mixin.first
     end
-
     mixins
   end
 
@@ -474,7 +472,12 @@ class Converter
   end
 
   def get_json(url)
-    JSON.parse open(url).read
+    JSON.parse get_file(url)
+  end
+
+  def get_file(url)
+    log_http_get url
+    open(url).read
   end
 
   class Logger
@@ -507,6 +510,10 @@ class Converter
 
     def log_processed(name)
       puts green "    #{name}"
+    end
+
+    def log_http_get(url)
+      puts dark cyan "  GET #{url}"
     end
   end
 end
