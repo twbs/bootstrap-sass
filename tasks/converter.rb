@@ -45,6 +45,7 @@ class Converter
     store_version
   end
 
+  VARARG_MIXINS = %w(transition transition-transform box-shadow)
   def process_stylesheet_assets
     log_status "Processing stylesheets..."
     files = read_files('less', bootstrap_less_files)
@@ -60,6 +61,8 @@ class Converter
         file = replace_mixin_definitions(file)
         file = replace_mixins(file)
         file = flatten_mixins(file, '#gradient', 'gradient')
+        file = varargify_mixin_definitions(file, *VARARG_MIXINS)
+        file = deinterpolate_vararg_mixins(file)
         file = parameterize_mixin_parent_selector(file, 'responsive-(in)?visibility')
         file = replace_ms_filters(file)
       when 'responsive-utilities.less'
@@ -186,6 +189,7 @@ class Converter
     file = replace_image_paths(file)
     file = replace_escaping(file)
     file = convert_less_ampersand(file)
+    file = deinterpolate_vararg_mixins(file)
     file
   end
 
@@ -367,6 +371,29 @@ class Converter
     txt.match(/\A\s*/).to_s.length
   end
 
+  # @mixin transition($transition) {
+  # to:
+  # @mixin transition($transition...) {
+  def varargify_mixin_definitions(scss, *mixins)
+    log_transform *mixins
+    scss = scss.dup
+    mixins.each do |mixin|
+      scss.gsub! /(@mixin\s*#{Regexp.quote(mixin)})\((#{SCSS_MIXIN_ARGS_RE})\)/, '\1(\2...)'
+    end
+    scss
+  end
+
+  # @include transition(#{border-color ease-in-out .15s, box-shadow ease-in-out .15s})
+  # to
+  # @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s)
+  def deinterpolate_vararg_mixins(scss)
+    scss = scss.dup
+    VARARG_MIXINS.each do |mixin|
+      scss.gsub! /(@include\s*#{Regexp.quote(mixin)})\(\s*\#\{([^}]+)\}\s*\)/, '\1(\2)'
+    end
+    scss
+  end
+
   # get full selector for rule_block
   def get_selector(rule_block)
     /^\s*(#{SELECTOR_RE}?)\s*\{/.match(rule_block) && $1 && $1.strip
@@ -377,7 +404,7 @@ class Converter
   #
   # option :comments -- include immediately preceding comments in rule_block
   #
-  # replace_rules(".a{ \n .b{} }", '.b') { |rule| ">#{rule}<"  } #=> ".a{ \n >.b{}< }"
+  # replace_rules(".a{ \n .b{} }", '.b') { |rule, pos| ">#{rule}<"  } #=> ".a{ \n >.b{}< }"
   def replace_rules(less, rule_prefix = SELECTOR_RE, options = {})
     options = {comments: true}.merge(options || {})
     less    = less.dup
@@ -418,6 +445,7 @@ class Converter
   RULE_OPEN_BRACE_RE = /(?<!#)\{/
   RULE_CLOSE_BRACE_RE = /(?<!\w)\}/
   BRACE_RE    = /#{RULE_OPEN_BRACE_RE}|#{RULE_CLOSE_BRACE_RE}/m
+  SCSS_MIXIN_ARGS_RE = /[\w\-,\s$:]*/
 
   # replace first level properties in the css with yields
   # replace_properties("a { color: white }") { |props| props.gsub 'white', 'red' }

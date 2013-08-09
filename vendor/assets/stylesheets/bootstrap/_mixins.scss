@@ -102,13 +102,13 @@
 }
 
 // Drop shadows
-@mixin box-shadow($shadow) {
+@mixin box-shadow($shadow...) {
   -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
           box-shadow: $shadow;
 }
 
 // Transitions
-@mixin transition($transition) {
+@mixin transition($transition...) {
   -webkit-transition: $transition;
           transition: $transition;
 }
@@ -120,7 +120,7 @@
   -webkit-transition-duration: $transition-duration;
           transition-duration: $transition-duration;
 }
-@mixin transition-transform($transition) {
+@mixin transition-transform($transition...) {
   -webkit-transition: -webkit-transform $transition;
      -moz-transition: -moz-transform $transition;
        -o-transition: -o-transform $transition;
@@ -570,6 +570,6 @@
   &:focus {
     border-color: $color;
     outline: 0;
-    @include box-shadow(#{inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px $color-rgba});
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px $color-rgba);
   }
 }
