@@ -378,7 +378,7 @@ class Converter
     log_transform *mixins
     scss = scss.dup
     mixins.each do |mixin|
-      scss.gsub! /(@mixin\s*#{Regexp.quote(mixin)})\((#{SCSS_MIXIN_ARGS_RE})\)/, '\1(\2...)'
+      scss.gsub! /(@mixin\s*#{Regexp.quote(mixin)})\((#{SCSS_MIXIN_DEF_ARGS_RE})\)/, '\1(\2...)'
     end
     scss
   end
@@ -389,7 +389,9 @@ class Converter
   def deinterpolate_vararg_mixins(scss)
     scss = scss.dup
     VARARG_MIXINS.each do |mixin|
-      scss.gsub! /(@include\s*#{Regexp.quote(mixin)})\(\s*\#\{([^}]+)\}\s*\)/, '\1(\2)'
+      if scss.gsub! /(@include\s*#{Regexp.quote(mixin)})\(\s*\#\{([^}]+)\}\s*\)/, '\1(\2)'
+        log_transform mixin
+      end
     end
     scss
   end
@@ -445,7 +447,7 @@ class Converter
   RULE_OPEN_BRACE_RE = /(?<!#)\{/
   RULE_CLOSE_BRACE_RE = /(?<!\w)\}/
   BRACE_RE    = /#{RULE_OPEN_BRACE_RE}|#{RULE_CLOSE_BRACE_RE}/m
-  SCSS_MIXIN_ARGS_RE = /[\w\-,\s$:]*/
+  SCSS_MIXIN_DEF_ARGS_RE = /[\w\-,\s$:]*/
 
   # replace first level properties in the css with yields
   # replace_properties("a { color: white }") { |props| props.gsub 'white', 'red' }
@@ -530,7 +532,7 @@ class Converter
     end
 
     def log_transform(*args)
-      puts "#{cyan "    #{caller[1][/`.*'/][1..-2]}"}#{cyan " with #{args * ', '}" unless args.empty?}"
+      puts "#{cyan "    #{caller[1][/`.*'/][1..-2].sub(/^block in /, '')}"}#{cyan ": #{args * ', '}" unless args.empty?}"
     end
 
     def log_downloading(files, from)
