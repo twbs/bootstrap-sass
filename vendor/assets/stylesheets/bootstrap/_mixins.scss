@@ -163,16 +163,6 @@
           backface-visibility: $visibility;
 }
 
-// Background clipping
-@mixin background-clip($clip) {
-  background-clip: $clip;
-}
-
-// Background sizing
-@mixin background-size($size) {
-  background-size: $size;
-}
-
 // Box sizing
 @mixin box-sizing($boxmodel) {
   -webkit-box-sizing: $boxmodel;
@@ -362,11 +352,11 @@
   }
 }
 
-// Button pseudo states
+// Button variants
 // -------------------------
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
-@mixin btn-pseudo-states($color, $background, $border) {
+@mixin button-variant($color, $background, $border) {
   color: $color;
   background-color: $background;
   border-color: $border;
@@ -392,6 +382,15 @@
           border-color: $border
     }
   }
+}
+
+// Button sizes
+// -------------------------
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  line-height: $line-height;
+  border-radius: $border-radius;
 }
 
 // Labels
@@ -472,8 +471,8 @@
   }
 }
 
-// Generate the default columns
-@mixin make-column($columns, $gutter: $grid-gutter-width) {
+// Generate the extra small columns
+@mixin make-xs-column($columns, $gutter: $grid-gutter-width) {
   position: relative;
   float: left;
   // Prevent columns from collapsing when empty
