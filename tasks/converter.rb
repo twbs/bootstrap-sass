@@ -68,6 +68,7 @@ class Converter
       when 'responsive-utilities.less'
         file = convert_to_scss(file)
         file = apply_mixin_parent_selector(file, '\.(visible|hidden)')
+        file = replace_rules(file, '  @media') { |r| unindent(r, 2) }
       when 'utilities.less'
         file = replace_mixin_definitions(file)
         file = convert_to_scss(file)
@@ -81,6 +82,9 @@ class Converter
       when 'forms.less'
         file = convert_to_scss(file)
         file = extract_nested_rule(file, '\s*textarea&', 'textarea.form-control')
+      when 'list-group.less'
+        file = convert_to_scss(file)
+        file = extract_nested_rule file, '\s*a&', 'a.list-group-item'
       else
         file = convert_to_scss(file)
       end
@@ -247,7 +251,7 @@ class Converter
     replace_rules file, "(\s*)#{rule_sel}" do |rule|
       next rule unless rule =~ /@include/
       rule =~ /\A\s+/ # keep indentation
-      $~.to_s + rule.sub(/(#{COMMENT_RE}*)(#{SELECTOR_RE})\{(.*)\}/m, '\3').sub(/(@include [\w-]+\()/, "#{$1}\\1'#{$2.strip}'").strip
+      $~.to_s + rule.sub(/(#{COMMENT_RE}*)(#{SELECTOR_RE})\{(.*)\}/m, '\3').gsub(/(@include [\w-]+\()/, "#{$1}\\1'#{$2.strip}'").strip
     end
   end
 
