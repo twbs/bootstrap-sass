@@ -37,7 +37,7 @@ class Converter
     @logger     = Logger.new(repo: @repo_url, branch: @branch, branch_sha: @branch_sha, save_at: @save_at)
   end
 
-  def_delegators :@logger, :log_status, :log_downloading, :log_processing, :log_transform, :log_processed, :log_http_get
+  def_delegators :@logger, :log_status, :log_downloading, :log_processing, :log_transform, :log_processed, :log_http_get, :silence_log
 
   def process
     process_stylesheet_assets
@@ -63,7 +63,8 @@ class Converter
         file = flatten_mixins(file, '#gradient', 'gradient')
         file = varargify_mixin_definitions(file, *VARARG_MIXINS)
         file = deinterpolate_vararg_mixins(file)
-        file = parameterize_mixin_parent_selector(file, 'responsive-(in)?visibility')
+        file = parameterize_mixin_parent_selector file, 'responsive-(in)?visibility'
+        file = parameterize_mixin_parent_selector file, 'input-size'
         file = replace_ms_filters(file)
       when 'responsive-utilities.less'
         file = convert_to_scss(file)
@@ -78,13 +79,17 @@ class Converter
       when 'close.less'
         file = convert_to_scss(file)
         # extract .close { button& {...} } rule
-        file = extract_nested_rule(file, '\s*button&', 'button.close')
+        file = extract_nested_rule(file, 'button&', 'button.close')
       when 'forms.less'
         file = convert_to_scss(file)
-        file = extract_nested_rule(file, '\s*textarea&', 'textarea.form-control')
+        file = extract_nested_rule(file, 'textarea&', 'textarea.form-control')
+        file = apply_mixin_parent_selector(file, '\.input-(?:sm|lg)')
+      when 'navbar.less'
+        file = convert_to_scss(file)
+        file = replace_all file, /\.navbar-(right|left)\s*\{\s*@extend\s*\.pull-(right|left);\s*\}/, '.navbar-\1 { float: \1 !important; }'
       when 'list-group.less'
         file = convert_to_scss(file)
-        file = extract_nested_rule file, '\s*a&', 'a.list-group-item'
+        file = extract_nested_rule file, 'a&', 'a.list-group-item'
       else
         file = convert_to_scss(file)
       end
@@ -208,6 +213,11 @@ class Converter
               %Q(@import "#{target_path}\\1";)
   end
 
+  def replace_all(file, regex, replacement = nil, &block)
+    log_transform regex, replacement
+    file.gsub(regex, replacement, &block)
+  end
+
   # @mixin a() { tr& { color:white } }
   # to:
   # @mixin a($parent) { tr#{$parent} { color: white } }
@@ -217,7 +227,7 @@ class Converter
     replace_rules(file, '^[ \t]*@mixin\s*' + rule_sel) do |mxn_css|
       mxn_css.sub! /(?=@mixin)/, "// [converter] $parent hack\n"
       # insert param into mixin def
-      mxn_css.sub! /(@mixin [\w-]+\()/, "\\1#{param}"
+      mxn_css.sub!(/(@mixin [\w-]+)\(([\$\w\-,\s]*)\)/) { "#{$1}(#{param}#{', ' if $2 && !$2.empty?}#{$2})" }
       # wrap properties in #{$parent} { ... }
       replace_properties(mxn_css) { |props| "  \#{#{param}} { #{props.strip} }\n  " }
       # change nested& rules to nested#{$parent}
@@ -230,7 +240,7 @@ class Converter
     log_transform selector, new_selector
     matches = []
     # first find the rules, and remove them
-    css     = replace_rules(css, selector, comments: true) { |rule, pos|
+    css     = replace_rules(css, "\s*#{selector}", comments: true) { |rule, pos|
       matches << [rule, pos]
       indent "// [converter] extracted #{get_selector(rule)} to #{new_selector}", indent_width(rule)
     }
@@ -239,7 +249,7 @@ class Converter
       m[0].sub! /(#{COMMENT_RE}*)^(\s*).*?(\s*){/m, "\\1\\2#{new_selector}\\3{"
     end
     replace_substrings_at css,
-                          matches.map { |_, pos| pos.begin + css[pos.begin..-1].index('}') + 1 },
+                          matches.map { |_, pos| close_brace_pos(css, css =~ RULE_OPEN_BRACE_RE) + 1 },
                           matches.map { |rule, _| "\n\n" + unindent(rule) }
   end
 
@@ -249,9 +259,13 @@ class Converter
   def apply_mixin_parent_selector(file, rule_sel)
     log_transform rule_sel
     replace_rules file, "(\s*)#{rule_sel}" do |rule|
-      next rule unless rule =~ /@include/
+      next rule unless rule =~ /{\s*@include.*?;\s*}/m
       rule =~ /\A\s+/ # keep indentation
-      $~.to_s + rule.sub(/(#{COMMENT_RE}*)(#{SELECTOR_RE})\{(.*)\}/m, '\3').gsub(/(@include [\w-]+\()/, "#{$1}\\1'#{$2.strip}'").strip
+      # unwrap
+      rule = $~.to_s + rule.sub(/(#{COMMENT_RE}*)(#{SELECTOR_RE})\{(.*)\}/m, '\3')
+      cmt, sel  = $1, $2.strip
+      # inject param
+      rule.gsub(/(@include [\w-]+)\(([\$\w\-,\s]*)\)/) { "#{cmt}#{$1}('#{sel}'#{', ' if $2 && !$2.empty?}#{$2})"} .strip
     end
   end
 
@@ -423,7 +437,7 @@ class Converter
     end
 
     while (rule_start = scan_next(s, rule_start_re))
-      rule_pos       = (s.pos - rule_start.length..next_brace_pos(less, s.pos - 1))
+      rule_pos       = (s.pos - rule_start.length..close_brace_pos(less, s.pos - 1))
       less[rule_pos] = yield(less[rule_pos], rule_pos)
     end
     less
@@ -438,7 +452,7 @@ class Converter
     sel_pos  = []
     while (brace = scan_next(s, /#{RULE_OPEN_BRACE_RE}/))
       sel_pos << (prev_pos .. s.pos - 1)
-      s.pos    = next_brace_pos(css, s.pos - 1) + 1
+      s.pos    = close_brace_pos(css, s.pos - 1) + 1
       prev_pos = s.pos
     end
     replace_substrings_at(css, sel_pos) { |s| s.gsub(pattern, sub) }
@@ -448,9 +462,12 @@ class Converter
   sel_chars = '\[\]$\w\-{}#,.:&>@'
   SELECTOR_RE = /[#{sel_chars}]+[#{sel_chars}\s]*/
   COMMENT_RE = %r((?:^[ \t]*//[^\n]*\n))
-  RULE_OPEN_BRACE_RE = /(?<!#)\{/
-  RULE_CLOSE_BRACE_RE = /(?<!\w)\}/
-  BRACE_RE    = /#{RULE_OPEN_BRACE_RE}|#{RULE_CLOSE_BRACE_RE}/m
+  RULE_OPEN_BRACE_RE         = /(?<!#)\{/
+  RULE_OPEN_BRACE_RE_REVERSE = /\{(?!#)/
+  RULE_CLOSE_BRACE_RE         = /(?<!\w)\}/
+  RULE_CLOSE_BRACE_RE_REVERSE = /\}(?!\w)/
+  BRACE_RE         = /#{RULE_OPEN_BRACE_RE}|#{RULE_CLOSE_BRACE_RE}/m
+  BRACE_RE_REVERSE = /#{RULE_OPEN_BRACE_RE_REVERSE}|#{RULE_CLOSE_BRACE_RE_REVERSE}/m
   SCSS_MIXIN_DEF_ARGS_RE = /[\w\-,\s$:]*/
 
   # replace first level properties in the css with yields
@@ -475,16 +492,34 @@ class Converter
   end
 
 
-  # next matching brace for brace at brace_pos in css
-  def next_brace_pos(css, brace_pos)
-    depth = 0
-    s     = StringScanner.new(css[brace_pos..-1])
+  # get the pos of css def at pos (search backwards)
+  def css_def_pos(css, pos, depth = -1)
+    to = open_brace_pos(css, pos, depth)
+    prev_def = to - css[0..to].reverse.index('}') + 1
+    from = prev_def + 1 + (css[prev_def + 1..-1] =~ %r(^\s*[^\s/]))
+    (from..to - 1)
+  end
+
+  # next matching brace for brace at from
+  def close_brace_pos(css, from, depth = 0)
+    s     = StringScanner.new(css[from..-1])
     while (b = scan_next(s, BRACE_RE))
       depth += (b == '}' ? -1 : +1)
       break if depth.zero?
     end
     raise "match not found for {" unless depth.zero?
-    brace_pos + s.pos - 1
+    from + s.pos - 1
+  end
+
+  # opening brace position from +from+ (search backwards)
+  def open_brace_pos(css, from, depth = 0)
+    s     = StringScanner.new(css[0..from].reverse)
+    while (b = scan_next(s, BRACE_RE_REVERSE))
+      depth += (b == '{' ? +1 : -1)
+      break if depth.zero?
+    end
+    raise "matching { brace not found" unless depth.zero?
+    from - s.pos + 1
   end
 
   # advance scanner to pos after the next match of pattern and return the match
@@ -501,11 +536,14 @@ class Converter
     offset = 0
     positions.each_with_index do |p, i|
       p = (p...p) if p.is_a?(Fixnum)
-      p       = p.exclude_end? ? (p.begin + offset ... p.end + offset) : (p.begin + offset .. p.end + offset)
+      from = p.begin + offset
+      to = p.end + offset
+      p       = p.exclude_end? ? (from...to) : (from..to)
       # block returns the substitution, e.g.: { |text, pos| text[pos].upcase }
       r       = replacements ? replacements[i] : block.call(text[p], p, text)
-      offset  += r.size - (p.end - p.begin + 1)
       text[p] = r
+      # add the change in length to offset
+      offset  += r.size - (p.end - p.begin + (p.exclude_end? ? 0 : 1))
     end
     text
   end
@@ -553,6 +591,17 @@ class Converter
 
     def log_http_get(url)
       puts dark cyan "  GET #{url}..."
+    end
+
+    def puts(*args)
+      STDOUT.puts *args unless @silence
+    end
+
+    def silence_log
+      @silence = true
+      yield
+    ensure
+      @silence = false
     end
   end
 end

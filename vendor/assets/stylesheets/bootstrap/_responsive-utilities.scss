@@ -122,6 +122,6 @@
 .hidden-print  { }
 
 @media print {
-  @include responsive-visibility('.visible-print');
-  @include responsive-invisibility('.hidden-print');
+@include responsive-visibility('.visible-print');
+@include responsive-invisibility('.hidden-print');
 }
