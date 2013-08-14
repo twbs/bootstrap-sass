@@ -79,10 +79,10 @@ class Converter
       when 'close.less'
         file = convert_to_scss(file)
         # extract .close { button& {...} } rule
-        file = extract_nested_rule(file, 'button&', 'button.close')
+        file = extract_nested_rule file, 'button&'
       when 'forms.less'
         file = convert_to_scss(file)
-        file = extract_nested_rule(file, 'textarea&', 'textarea.form-control')
+        file = extract_nested_rule file, 'textarea&'
         file = apply_mixin_parent_selector(file, '\.input-(?:sm|lg)')
       when 'navbar.less'
         file = convert_to_scss(file)
@@ -90,7 +90,7 @@ class Converter
         file = replace_all file, /(\s*)@extend \.pull-right-dropdown-menu;/, "\\1right: 0;\\1left: auto;"
       when 'list-group.less'
         file = convert_to_scss(file)
-        file = extract_nested_rule file, 'a&', 'a.list-group-item'
+        file = extract_nested_rule file, 'a&'
       else
         file = convert_to_scss(file)
       end
@@ -236,21 +236,26 @@ class Converter
     end
   end
 
-  # extracts rule immediately after it's parent and optionally changes selector to new_selector
-  def extract_nested_rule(css, selector, new_selector = selector)
-    log_transform selector, new_selector
+  # extracts rule immediately after it's parent, and adjust the selector
+  # .x { textarea& { ... }}
+  # to:
+  # .x { ... }
+  # textarea.x { ... }
+  def extract_nested_rule(css, selector, new_selector = nil)
     matches = []
     # first find the rules, and remove them
     css     = replace_rules(css, "\s*#{selector}", comments: true) { |rule, pos|
       matches << [rule, pos]
+      new_selector ||= "#{get_selector(rule).sub(/&$/, '')}#{selector_for_pos(css, pos.begin)}"
       indent "// [converter] extracted #{get_selector(rule)} to #{new_selector}", indent_width(rule)
     }
+    log_transform selector, new_selector
     # replace rule selector with new_selector
     matches.each do |m|
       m[0].sub! /(#{COMMENT_RE}*)^(\s*).*?(\s*){/m, "\\1\\2#{new_selector}\\3{"
     end
     replace_substrings_at css,
-                          matches.map { |_, pos| close_brace_pos(css, css =~ RULE_OPEN_BRACE_RE) + 1 },
+                          matches.map { |_, pos| close_brace_pos(css, pos.begin, 1) + 1 },
                           matches.map { |rule, _| "\n\n" + unindent(rule) }
   end
 
@@ -493,10 +498,15 @@ class Converter
   end
 
 
+  # immediate selector of css at pos
+  def selector_for_pos(css, pos, depth = -1)
+    css[css_def_pos(css, pos, depth)].strip
+  end
+
   # get the pos of css def at pos (search backwards)
   def css_def_pos(css, pos, depth = -1)
     to = open_brace_pos(css, pos, depth)
-    prev_def = to - css[0..to].reverse.index('}') + 1
+    prev_def = to - (css[0..to].reverse.index('}') || to) + 1
     from = prev_def + 1 + (css[prev_def + 1..-1] =~ %r(^\s*[^\s/]))
     (from..to - 1)
   end

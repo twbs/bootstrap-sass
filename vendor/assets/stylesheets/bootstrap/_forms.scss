@@ -13,11 +13,6 @@ fieldset {
   border: 0;
 }
 
-// Reset height for `textarea`s
-textarea.form-control {
-  height: auto;
-}
-
 legend {
   display: block;
   width: 100%;
@@ -149,6 +144,11 @@ input[type="number"] {
   }
 
   // [converter] extracted textarea& to textarea.form-control
+}
+
+// Reset height for `textarea`s
+textarea.form-control {
+  height: auto;
 }
 
 
