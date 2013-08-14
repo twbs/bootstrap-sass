@@ -45,18 +45,19 @@ Glyphicons are no longer supported out of the box in Bootstrap 3. The required f
 ### Rails 3
 
 2. Add the font files in the downloaded zip to your application's `app/assets/fonts/` directory.
-3. Add the `bootstrap-glyphicons.css.scss` stylesheet to your application's `app/assets/stylesheets` directory.
+3. Add the `bootstrap-glyphicons.css` stylesheet to your application's `app/assets/stylesheets` directory.
 4. Rename `bootstrap-glyphicons.css` to `bootstrap-glyphicons.css.scss`.
 5. Change all the `font-url` references in that stylesheet (5 in total) from `src:url('../fonts/glyphiconshalflings-regular.eot')` to `src:font-url('glyphiconshalflings-regular.eot');`.
 
 ### Rails 4
 
 2. Add the font files in the downloaded zip to your application's `vendor/assets/fonts/` directory.
-3. Add the `bootstrap-glyphicons.css.scss` stylesheet to your application's `vendor/assets/stylesheets` directory.
+3. Add the `bootstrap-glyphicons.css` stylesheet to your application's `vendor/assets/stylesheets` directory.
 4. Rename `bootstrap-glyphicons.css` to `bootstrap-glyphicons.css.scss`.
 5. Change all the `font-url` references in that stylesheet (5 in total) from `src:url('../fonts/glyphiconshalflings-regular.eot')` to `src:font-url('glyphiconshalflings-regular.eot');`.
 6. Import the new stylesheet in your application SASS/SCSS file with `@import "bootstrap-glyphicons"`.
-7. In your console, navigate to your application's directory and run `rake assets:precompile`.
+
+If you are experiencing caching issues regarding the newly added files, this can be resolved by running `rm -rf tmp/cache` in your console while in your application's root directory.
 
 A full list of the glyphicon class names can be found [here](http://bootply.com/61521).
 
