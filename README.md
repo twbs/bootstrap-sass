@@ -36,5 +36,29 @@ The latest converter script is located [here](https://github.com/thomas-mcdonald
 This LESS to SCSS conversion is pretty good, but not perfect. So manual fixes to the resulting SCSS will be necessary for now.
 Please submit GitHub issues tagged with `conversion` to help track current shortcomings of the conversion process.
 
+## Glyphicon support
+
+Glyphicons are no longer supported out of the box in Bootstrap 3. The required files will need to be downloaded and added to your asset pipeline to be used.
+
+1. Go to the [glyphicon bootstrap page](http://glyphicons.getbootstrap.com/) and download the files.
+
+### Rails 3
+
+2. Add the font files in the downloaded zip to your application's `app/assets/fonts/` directory.
+3. Add the `bootstrap-glyphicons.css.scss` stylesheet to your application's `app/assets/stylesheets` directory.
+4. Rename `bootstrap-glyphicons.css` to `bootstrap-glyphicons.css.scss`.
+5. Change all the `font-url` references in that stylesheet (5 in total) from `src:url('../fonts/glyphiconshalflings-regular.eot')` to `src:font-url('glyphiconshalflings-regular.eot');`.
+
+### Rails 4
+
+2. Add the font files in the downloaded zip to your application's `vendor/assets/fonts/` directory.
+3. Add the `bootstrap-glyphicons.css.scss` stylesheet to your application's `vendor/assets/stylesheets` directory.
+4. Rename `bootstrap-glyphicons.css` to `bootstrap-glyphicons.css.scss`.
+5. Change all the `font-url` references in that stylesheet (5 in total) from `src:url('../fonts/glyphiconshalflings-regular.eot')` to `src:font-url('glyphiconshalflings-regular.eot');`.
+6. Import the new stylesheet in your application SASS/SCSS file with `@import "bootstrap-glyphicons"`.
+7. In your console, navigate to your application's directory and run `rake assets:precompile`.
+
+A full list of the glyphicon class names can be found [here](http://bootply.com/61521).
+
 ## Who
 bootstrap-sass is a project by [Thomas McDonald](https://twitter.com/#!/thomasmcdonald_), with support from [other awesome people](https://github.com/thomas-mcdonald/bootstrap-sass/graphs/contributors).
