@@ -86,7 +86,8 @@ class Converter
         file = apply_mixin_parent_selector(file, '\.input-(?:sm|lg)')
       when 'navbar.less'
         file = convert_to_scss(file)
-        file = replace_all file, /\.navbar-(right|left)\s*\{\s*@extend\s*\.pull-(right|left);\s*\}/, '.navbar-\1 { float: \1 !important; }'
+        file = replace_all file, /(\s*)\.navbar-(right|left)\s*\{\s*@extend\s*\.pull-(right|left);\s*/, "\\1.navbar-\\2 {\\1  float: \\2 !important;\\1"
+        file = replace_all file, /(\s*)@extend \.pull-right-dropdown-menu;/, "\\1right: 0;\\1left: auto;"
       when 'list-group.less'
         file = convert_to_scss(file)
         file = extract_nested_rule file, 'a&', 'a.list-group-item'

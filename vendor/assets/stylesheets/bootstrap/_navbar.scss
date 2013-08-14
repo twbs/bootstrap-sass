@@ -258,8 +258,16 @@
 // though so that navbar contents properly stack and align in mobile.
 
 @media (min-width: $grid-float-breakpoint) {
-  .navbar-left { float: left !important; }
-  .navbar-right { float: right !important; }
+  .navbar-left {
+    float: left !important;
+  }
+  .navbar-right {
+    float: right !important;
+  .dropdown-menu {
+      right: 0;
+      left: auto;
+    }
+  }
 }
 
 
