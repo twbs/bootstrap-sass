@@ -66,6 +66,7 @@ class Converter
         file = parameterize_mixin_parent_selector file, 'responsive-(in)?visibility'
         file = parameterize_mixin_parent_selector file, 'input-size'
         file = replace_ms_filters(file)
+        file = replace_all file, /\.\$state/, '.#{$state}'
       when 'responsive-utilities.less'
         file = convert_to_scss(file)
         file = apply_mixin_parent_selector(file, '\.(visible|hidden)')
@@ -88,6 +89,9 @@ class Converter
         file = convert_to_scss(file)
         file = replace_all file, /(\s*)\.navbar-(right|left)\s*\{\s*@extend\s*\.pull-(right|left);\s*/, "\\1.navbar-\\2 {\\1  float: \\2 !important;\\1"
         file = replace_all file, /(\s*)@extend \.pull-right-dropdown-menu;/, "\\1right: 0;\\1left: auto;"
+      when 'tables.less'
+        file = convert_to_scss(file)
+        file = replace_all file, /(@include\s*table-row-variant\()(\w+)/, "\\1'\\2'"
       when 'list-group.less'
         file = convert_to_scss(file)
         file = extract_nested_rule file, 'a&'
@@ -326,7 +330,7 @@ class Converter
   def replace_mixin_definitions(less)
     log_transform
     less.gsub(/^(\s*)\.([\w-]+\(.*\))(\s*\{)/) { |match|
-      "#{$1}@mixin #{$2.tr(';', ',')}#{$3}"
+      "#{$1}@mixin #{$2.tr(';', ',')}#{$3}".sub(/,\)/, ')')
     }
   end
 
