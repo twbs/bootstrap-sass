@@ -96,6 +96,9 @@ class Converter
       when 'list-group.less'
         file = convert_to_scss(file)
         file = extract_nested_rule file, 'a&'
+      when 'theme.less'
+        file = convert_to_scss(file)
+        file = replace_file_imports(file)
       else
         file = convert_to_scss(file)
       end
@@ -237,7 +240,7 @@ class Converter
   # @import "file.less" to "#{target_path}file;"
   def replace_file_imports(less, target_path = 'bootstrap/')
     log_transform target_path
-    less.gsub %r(@import ["|']([\w-]+).less["|'];),
+    less.gsub %r([@\$]import ["|']([\w-]+).less["|'];),
               %Q(@import "#{target_path}\\1";)
   end
 
