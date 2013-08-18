@@ -34,7 +34,8 @@ class Converter
     @branch_sha = get_branch_sha
     @save_at    = { js: 'vendor/assets/javascripts/bootstrap', scss: 'vendor/assets/stylesheets/bootstrap' }
     @save_at.each { |_,v| FileUtils.mkdir_p(v) }
-    @logger     = Logger.new(repo: @repo_url, branch: @branch, branch_sha: @branch_sha, save_at: @save_at)
+    @cache_path = 'tmp/converter-cache'
+    @logger     = Logger.new(repo: @repo_url, branch: @branch, branch_sha: @branch_sha, save_at: @save_at, cache_path: @cache_path)
   end
 
   def_delegators :@logger, :log_status, :log_downloading, :log_processing, :log_transform, :log_processed, :log_http_get, :silence_log
@@ -135,18 +136,40 @@ class Converter
   private
 
   def read_files(path, files)
-    contents  = {}
     full_path = "#{GIT_RAW}/#@repo/#@branch_sha/#{path}"
-    log_downloading files, full_path
-    files.map do |name|
-      Thread.start {
-        content = open("#{full_path}/#{name}").read
-        Thread.exclusive {
-          contents[name] = content
+    if (contents = read_cached_files(path, files))
+      log_downloading files, full_path, true
+    else
+      log_downloading files, full_path, false
+      contents = {}
+      files.map do |name|
+        Thread.start {
+          content = open("#{full_path}/#{name}").read
+          Thread.exclusive { contents[name] = content }
         }
-      }
-    end.each(&:join)
+      end.each(&:join)
+      write_cached_files path, contents
+    end
     contents
+  end
+
+  def read_cached_files(path, files)
+    full_path = "#@cache_path/#@branch_sha/#{path}"
+    contents = {}
+    if File.directory?(full_path)
+      files.each do |name|
+        contents[name] = File.read("#{full_path}/#{name}") || ''
+      end
+      contents
+    end
+  end
+
+  def write_cached_files(path, files)
+    full_path = "./#@cache_path/#@branch_sha/#{path}"
+    FileUtils.mkdir_p full_path
+    files.each do |name, content|
+      File.open("#{full_path}/#{name}", 'w') { |f| f.write content}
+    end
   end
 
   # get sha of the branch (= the latest commit)
@@ -581,6 +604,7 @@ class Converter
       puts " repo   : #{env[:repo]}"
       puts " branch : #{env[:branch]} #{dark "#{env[:repo]}/tree/#{env[:branch_sha]}"}"
       puts " save to: SCSS @ #{@env[:save_at][:scss]} JS @ #{@env[:save_at][:js]}"
+      puts " twbs cache: #{@env[:cache_path]}"
       puts dark "-" * 60
     end
 
@@ -592,8 +616,8 @@ class Converter
       puts "#{cyan "    #{caller[1][/`.*'/][1..-2].sub(/^block in /, '')}"}#{cyan ": #{args * ', '}" unless args.empty?}"
     end
 
-    def log_downloading(files, from)
-      puts dark cyan "  GET #{files.length} files from #{from} #{files * ' '}..."
+    def log_downloading(files, from, cached = false)
+      puts dark cyan " #{' CACHED ' if cached}GET #{files.length} files from #{from} #{files * ' '}..."
     end
 
     def log_processing(name)
