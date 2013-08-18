@@ -15,7 +15,9 @@
 // Panel contents
 .panel-body {
   padding: 15px;
+  @include clearfix();
 }
+
 
 // List groups in panels
 //
@@ -23,7 +25,10 @@
 // any kind of custom content between the two.
 
 .panel {
-  .list-group {
+  > .table {
+    margin-bottom: 0;
+  }
+  > .list-group {
     margin-bottom: 0;
 
     .list-group-item {
@@ -47,6 +52,22 @@
   }
 }
 
+
+// Tables in panels
+//
+// Place a non-bordered `.table` within a panel (not within a `.panel-body`) and
+// watch it go full width.
+
+.panel {
+  > .table {
+    margin-bottom: 0;
+  }
+  > .panel-body + .table {
+    border-top: 1px solid $table-border-color;
+  }
+}
+
+
 // Optional heading
 .panel-heading {
   padding: 10px 15px;
@@ -59,7 +80,7 @@
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: ($font-size-base * 1.25);
+  font-size: ceil(($font-size-base * 1.125));
   > a {
     color: inherit;
   }

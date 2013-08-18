@@ -21,43 +21,39 @@
 @import "bootstrap/type";
 @import "bootstrap/code";
 @import "bootstrap/grid";
-
 @import "bootstrap/tables";
 @import "bootstrap/forms";
 @import "bootstrap/buttons";
 
-// Components: common
+// Components
 @import "bootstrap/component-animations";
-@import "bootstrap/input-groups";
+@import "bootstrap/glyphicons";
 @import "bootstrap/dropdowns";
+@import "bootstrap/button-groups";
+@import "bootstrap/input-groups";
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+@import "bootstrap/pager";
+@import "bootstrap/labels";
+@import "bootstrap/badges";
+@import "bootstrap/jumbotron";
+@import "bootstrap/thumbnails";
+@import "bootstrap/alerts";
+@import "bootstrap/progress-bars";
+@import "bootstrap/media";
 @import "bootstrap/list-group";
 @import "bootstrap/panels";
 @import "bootstrap/wells";
 @import "bootstrap/close";
 
-// Components: Nav
-@import "bootstrap/navs";
-@import "bootstrap/navbar";
-@import "bootstrap/button-groups";
-@import "bootstrap/breadcrumbs";
-@import "bootstrap/pagination";
-@import "bootstrap/pager";
-
-// Components: Popovers
+// Components w/ JavaScript
 @import "bootstrap/modals";
 @import "bootstrap/tooltip";
 @import "bootstrap/popovers";
-
-// Components: Misc
-@import "bootstrap/alerts";
-@import "bootstrap/thumbnails";
-@import "bootstrap/media";
-@import "bootstrap/labels";
-@import "bootstrap/badges";
-@import "bootstrap/progress-bars";
 @import "bootstrap/carousel";
-@import "bootstrap/jumbotron";
 
 // Utility classes
-@import "bootstrap/utilities"; // Has to be last to override when necessary
+@import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";

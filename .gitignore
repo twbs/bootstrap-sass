@@ -10,3 +10,4 @@ Gemfile.lock
 /.bundle
 /vendor/cache
 /vendor/bundle
+tmp/

@@ -46,11 +46,24 @@ class Converter
     store_version
   end
 
+  NESTED_MIXINS = {'#gradient' => 'gradient'}
   VARARG_MIXINS = %w(transition transition-transform box-shadow)
   def process_stylesheet_assets
     log_status "Processing stylesheets..."
     files = read_files('less', bootstrap_less_files)
-    @mixins = get_mixin_names files['mixins.less']
+
+    # read common mixin definitions from mixins.less
+    mixins_file = files['mixins.less']
+    @mixins = get_mixin_names(mixins_file)
+    NESTED_MIXINS.each do |selector, prefix|
+      replace_rules(mixins_file, selector) { |rule|
+        @mixins += get_mixin_names(unwrap_rule_block rule).map { |name| "#{prefix}-#{name}" }
+        rule
+      }
+    end
+    puts "*** MIXINS #{@mixins}"
+
+    # convert each file
     files.each do |name, file|
       log_processing name
       case name
@@ -61,7 +74,9 @@ class Converter
         file = replace_escaping(file)
         file = replace_mixin_definitions(file)
         file = replace_mixins(file)
-        file = flatten_mixins(file, '#gradient', 'gradient')
+        NESTED_MIXINS.each do |selector, prefix|
+          file = flatten_mixins(file, selector, prefix)
+        end
         file = varargify_mixin_definitions(file, *VARARG_MIXINS)
         file = deinterpolate_vararg_mixins(file)
         file = parameterize_mixin_parent_selector file, 'responsive-(in)?visibility'
@@ -214,7 +229,7 @@ class Converter
 
   def get_mixin_names(file)
     mixins      = []
-    file.scan(/\.([\w-]+)\(.*\)\s?{?/) do |mixin|
+    get_css_selectors(file).join("\n" * 2).scan(/\.([\w-]+)\(.*\)\s?\{?/) do |mixin|
       mixins << mixin.first
     end
     mixins
@@ -246,7 +261,9 @@ class Converter
 
   def replace_all(file, regex, replacement = nil, &block)
     log_transform regex, replacement
-    file.gsub(regex, replacement, &block)
+    new_file = file.gsub(regex, replacement, &block)
+    raise "replace_all #{regex}, #{replacement} NO MATCH" if file == new_file
+    new_file
   end
 
   # @mixin a() { tr& { color:white } }
@@ -318,8 +335,9 @@ class Converter
   # Replaces the following:
   #  .mixin()          -> @include mixin()
   #  #scope > .mixin() -> @include scope-mixin()
-  def replace_mixins(less)
+  def replace_mixins(less, mixins = @mixins + get_mixin_names(less))
     mixin_pattern = /(\s+)(([#|\.][\w-]+\s*>\s*)*)\.([\w-]+\(.*\))/
+
     less.gsub(mixin_pattern) do |match|
       matches = match.scan(mixin_pattern).flatten
       scope   = matches[1] || ''
@@ -327,8 +345,7 @@ class Converter
         scope = scope.scan(/[\w-]+/).join('-') + '-'
       end
       mixin_name = match.scan(/\.([\w-]+)\(.*\)\s?\{?/).first
-
-      if mixin_name && @mixins.include?(mixin_name.first)
+      if mixin_name && mixins.include?("#{scope}#{mixin_name.first}")
         "#{matches.first}@include #{scope}#{matches.last}".gsub(/; \$/, ", $")
       else
         "#{matches.first}@extend .#{scope}#{matches.last.gsub(/\(\)/, '')}"
@@ -473,10 +490,25 @@ class Converter
     end
 
     while (rule_start = scan_next(s, rule_start_re))
-      rule_pos       = (s.pos - rule_start.length..close_brace_pos(less, s.pos - 1))
+      pos = byte_to_str_pos less, s.pos
+      rule_pos       = (pos - rule_start.length..close_brace_pos(less, pos - 1))
       less[rule_pos] = yield(less[rule_pos], rule_pos)
     end
     less
+  end
+
+  # Get a list of all top-level selectors with bodies {}
+  def get_css_selectors(css)
+    s         = StringScanner.new(css)
+    selectors = []
+    while (brace = scan_next(s, RULE_OPEN_BRACE_RE))
+      pos     = byte_to_str_pos(css, s.pos)
+      def_pos = css_def_pos(css, pos, -1)
+      sel     = css[def_pos.begin..pos - 1]
+      selectors << sel.dup.strip
+      s.pos    = str_to_byte_pos(css, close_brace_pos(css, pos - 1) + 1)
+    end
+    selectors
   end
 
   # replace in the top-level selector
@@ -486,10 +518,11 @@ class Converter
     s        = StringScanner.new(css)
     prev_pos = 0
     sel_pos  = []
-    while (brace = scan_next(s, /#{RULE_OPEN_BRACE_RE}/))
-      sel_pos << (prev_pos .. s.pos - 1)
-      s.pos    = close_brace_pos(css, s.pos - 1) + 1
-      prev_pos = s.pos
+    while (brace = scan_next(s, RULE_OPEN_BRACE_RE))
+      pos = byte_to_str_pos css, s.pos
+      sel_pos << (prev_pos .. pos - 1)
+      s.pos    = str_to_byte_pos(s.string, close_brace_pos(css, s.pos - 1) + 1)
+      prev_pos = pos
     end
     replace_substrings_at(css, sel_pos) { |s| s.gsub(pattern, sub) }
   end
@@ -498,10 +531,10 @@ class Converter
   sel_chars = '\[\]$\w\-{}#,.:&>@'
   SELECTOR_RE = /[#{sel_chars}]+[#{sel_chars}\s]*/
   COMMENT_RE = %r((?:^[ \t]*//[^\n]*\n))
-  RULE_OPEN_BRACE_RE         = /(?<!#)\{/
-  RULE_OPEN_BRACE_RE_REVERSE = /\{(?!#)/
-  RULE_CLOSE_BRACE_RE         = /(?<!\w)\}/
-  RULE_CLOSE_BRACE_RE_REVERSE = /\}(?!\w)/
+  RULE_OPEN_BRACE_RE         = /(?<![@#\$])\{/
+  RULE_OPEN_BRACE_RE_REVERSE = /\{(?![@#\$])/
+  RULE_CLOSE_BRACE_RE         = /(?<!\w)\}(?![.'"])/
+  RULE_CLOSE_BRACE_RE_REVERSE = /(?<![.'"])\}(?!\w)/
   BRACE_RE         = /#{RULE_OPEN_BRACE_RE}|#{RULE_CLOSE_BRACE_RE}/m
   BRACE_RE_REVERSE = /#{RULE_OPEN_BRACE_RE_REVERSE}|#{RULE_CLOSE_BRACE_RE_REVERSE}/m
   SCSS_MIXIN_DEF_ARGS_RE = /[\w\-,\s$:]*/
@@ -515,12 +548,13 @@ class Converter
     depth = 0
     pos = []
     while (b = scan_next(s, /#{SELECTOR_RE}#{RULE_OPEN_BRACE_RE}|#{RULE_CLOSE_BRACE_RE}/m))
+      s_pos = byte_to_str_pos(s.string, s.pos)
       depth += (b == '}' ? -1 : +1)
       if depth == 1
         if b == '}'
-          prev_pos = s.pos
+          prev_pos = s_pos
         else
-          pos << (prev_pos .. s.pos - b.length - 1)
+          pos << (prev_pos .. s_pos - b.length - 1)
         end
       end
     end
@@ -530,7 +564,7 @@ class Converter
 
   # immediate selector of css at pos
   def selector_for_pos(css, pos, depth = -1)
-    css[css_def_pos(css, pos, depth)].strip
+    css[css_def_pos(css, pos, depth)].dup.strip
   end
 
   # get the pos of css def at pos (search backwards)
@@ -549,7 +583,7 @@ class Converter
       break if depth.zero?
     end
     raise "match not found for {" unless depth.zero?
-    from + s.pos - 1
+    from + byte_to_str_pos(s.string, s.pos) - 1
   end
 
   # opening brace position from +from+ (search backwards)
@@ -560,14 +594,21 @@ class Converter
       break if depth.zero?
     end
     raise "matching { brace not found" unless depth.zero?
-    from - s.pos + 1
+    from - byte_to_str_pos(s.string, s.pos) + 1
   end
 
   # advance scanner to pos after the next match of pattern and return the match
   def scan_next(scanner, pattern)
-    return unless scanner.skip_until(pattern)
-    scanner.pos -= scanner.matched_size
-    scanner.scan pattern
+    return unless scanner.scan_until(pattern)
+    scanner.matched
+  end
+
+  def byte_to_str_pos(str, pos)
+    str.byteslice(0, pos).length
+  end
+
+  def str_to_byte_pos(str, pos)
+    str.slice(0, pos).bytesize
   end
 
   # insert substitutions into text at positions (Range or Fixnum)
@@ -620,7 +661,12 @@ class Converter
     end
 
     def log_downloading(files, from, cached = false)
-      puts dark cyan " #{' CACHED ' if cached}GET #{files.length} files from #{from} #{files * ' '}..."
+      s = " #{' CACHED ' if cached}GET #{files.length} files from #{from} #{files * ' '}..."
+      if cached
+        puts dark green s
+      else
+        puts dark cyan s
+      end
     end
 
     def log_processing(name)

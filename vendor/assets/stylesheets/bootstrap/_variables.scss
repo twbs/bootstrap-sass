@@ -55,6 +55,12 @@ $headings-font-family:    $font-family-base !default;
 $headings-font-weight:    500 !default;
 $headings-line-height:    1.1 !default;
 
+// Iconography
+// -------------------------
+
+$icon-font-path:          "../fonts/" !default;
+$icon-font-name:          "glyphicons-halflings-regular" !default;
+
 
 // Components
 // -------------------------
@@ -98,7 +104,7 @@ $table-border-color:                 #ddd !default; // table and cell border
 // Buttons
 // -------------------------
 
-$btn-font-weight:                bold !default;
+$btn-font-weight:                normal !default;
 
 $btn-default-color:              #333 !default;
 $btn-default-bg:                 #fff !default;
@@ -193,26 +199,25 @@ $zindex-modal:             1050 !default;
 // --------------------------------------------------
 
 // Extra small screen / phone
-$screen-xsmall:              480px !default;
-$screen-phone:               $screen-xsmall !default;
+$screen-xs:                  480px !default;
+$screen-phone:               $screen-xs !default;
 
 // Small screen / tablet
-$screen-small:               768px !default;
-$screen-tablet:              $screen-small !default;
+$screen-sm:                  768px !default;
+$screen-tablet:              $screen-sm !default;
 
 // Medium screen / desktop
-$screen-medium:              992px !default;
-$screen-desktop:             $screen-medium !default;
+$screen-md:                  992px !default;
+$screen-desktop:             $screen-md !default;
 
 // Large screen / wide desktop
-$screen-large:               1200px !default;
-$screen-large-desktop:       $screen-large !default;
+$screen-lg:                  1200px !default;
+$screen-lg-desktop:          $screen-lg !default;
 
 // So media queries don't overlap when required, provide a maximum
-$screen-phone-max:           ($screen-small - 1) !default;
-$screen-small-max:           ($screen-medium - 1) !default;
-$screen-tablet-max:          ($screen-desktop - 1) !default;
-$screen-desktop-max:         ($screen-large-desktop - 1) !default;
+$screen-xs-max:              ($screen-sm - 1) !default;
+$screen-sm-max:              ($screen-md - 1) !default;
+$screen-md-max:              ($screen-lg - 1) !default;
 
 
 // Grid system
@@ -296,6 +301,7 @@ $navbar-inverse-toggle-border-color:        #333 !default;
 // Navs
 // -------------------------
 
+$nav-link-padding:                          10px 15px !default;
 $nav-link-hover-bg:                         $gray-lighter !default;
 
 $nav-disabled-link-color:                   $gray-light !default;
@@ -326,9 +332,14 @@ $nav-pills-active-link-hover-color:         #fff !default;
 
 $pagination-bg:                        #fff !default;
 $pagination-border:                    #ddd !default;
-$pagination-active-bg:                 #f5f5f5 !default;
-$pagination-active-color:              $gray-light !default;
+
+$pagination-hover-bg:                  $gray-lighter !default;
+
+$pagination-active-bg:                 $brand-primary !default;
+$pagination-active-color:              #fff !default;
+
 $pagination-disabled-color:            $gray-light !default;
+
 
 // Pager
 // -------------------------
@@ -396,6 +407,7 @@ $popover-arrow-outer-fallback-color:  #999 !default;
 // -------------------------
 
 $label-default-bg:            $gray-light !default;
+$label-primary-bg:            $brand-primary !default;
 $label-success-bg:            $brand-success !default;
 $label-info-bg:               $brand-info !default;
 $label-warning-bg:            $brand-warning !default;
@@ -593,10 +605,10 @@ $component-offset-horizontal: 180px !default;
 // --------------------------------------------------
 
 // Small screen / tablet
-$container-tablet:          720px !default;
+$container-tablet:            ((720px + $grid-gutter-width)) !default;
 
 // Medium screen / desktop
-$container-desktop:         940px !default;
+$container-desktop:           ((940px + $grid-gutter-width)) !default;
 
 // Large screen / wide desktop
-$container-large-desktop:   1140px !default;
+$container-lg-desktop:        ((1140px + $grid-gutter-width)) !default;
