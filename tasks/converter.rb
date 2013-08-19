@@ -61,7 +61,6 @@ class Converter
         rule
       }
     end
-    puts "*** MIXINS #{@mixins}"
 
     # convert each file
     files.each do |name, file|
@@ -346,7 +345,7 @@ class Converter
       end
       mixin_name = match.scan(/\.([\w-]+)\(.*\)\s?\{?/).first
       if mixin_name && mixins.include?("#{scope}#{mixin_name.first}")
-        "#{matches.first}@include #{scope}#{matches.last}".gsub(/; \$/, ", $")
+        "#{matches.first}@include #{scope}#{matches.last}".gsub(/; \$/, ", $").sub(/;\)$/, ')')
       else
         "#{matches.first}@extend .#{scope}#{matches.last.gsub(/\(\)/, '')}"
       end

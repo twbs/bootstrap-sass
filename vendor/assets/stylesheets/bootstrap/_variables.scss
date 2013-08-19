@@ -237,31 +237,31 @@ $grid-float-breakpoint:     $screen-tablet !default;
 // Basics of a navbar
 $navbar-height:                    50px !default;
 $navbar-margin-bottom:             $line-height-computed !default;
-$navbar-color:                     #777 !default;
-$navbar-bg:                        #f8f8f8 !default;
-$navbar-border:                    darken($navbar-bg, 6.5%) !default;
+$navbar-default-color:             #777 !default;
+$navbar-default-bg:                #f8f8f8 !default;
+$navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
 $navbar-border-radius:             $border-radius-base !default;
 $navbar-padding-horizontal:        floor($grid-gutter-width / 2) !default;
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
 
 // Navbar links
-$navbar-link-color:                #777 !default;
-$navbar-link-hover-color:          #333 !default;
-$navbar-link-hover-bg:             transparent !default;
-$navbar-link-active-color:         #555 !default;
-$navbar-link-active-bg:            darken($navbar-bg, 6.5%) !default;
-$navbar-link-disabled-color:       #ccc !default;
-$navbar-link-disabled-bg:          transparent !default;
+$navbar-default-link-color:                #777 !default;
+$navbar-default-link-hover-color:          #333 !default;
+$navbar-default-link-hover-bg:             transparent !default;
+$navbar-default-link-active-color:         #555 !default;
+$navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%) !default;
+$navbar-default-link-disabled-color:       #ccc !default;
+$navbar-default-link-disabled-bg:          transparent !default;
 
 // Navbar brand label
-$navbar-brand-color:               $navbar-link-color !default;
-$navbar-brand-hover-color:         darken($navbar-link-color, 10%) !default;
-$navbar-brand-hover-bg:            transparent !default;
+$navbar-default-brand-color:               $navbar-default-link-color !default;
+$navbar-default-brand-hover-color:         darken($navbar-default-link-color, 10%) !default;
+$navbar-default-brand-hover-bg:            transparent !default;
 
 // Navbar toggle
-$navbar-toggle-hover-bg:           #ddd !default;
-$navbar-toggle-icon-bar-bg:        #ccc !default;
-$navbar-toggle-border-color:       #ddd !default;
+$navbar-default-toggle-hover-bg:           #ddd !default;
+$navbar-default-toggle-icon-bar-bg:        #ccc !default;
+$navbar-default-toggle-border-color:       #ddd !default;
 
 
 // Inverted navbar
