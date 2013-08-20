@@ -250,9 +250,13 @@ class Converter
     end
   end
 
+  # We need to keep a list of shared mixin names in order to convert the includes correctly
+  # Before doing any processing we read shared mixins from a file
+  # If a mixin is nested, it gets prefixed in the list (e.g. #gradient > .horizontal to 'gradient-horizontal')
   def read_shared_mixins!(mixins_file)
     @mixins = get_mixin_names(mixins_file)
     NESTED_MIXINS.each do |selector, prefix|
+      # we use replace_rules without replacing anything just to use the parsing algorithm
       replace_rules(mixins_file, selector) { |rule|
         @mixins += get_mixin_names(unwrap_rule_block rule).map { |name| "#{prefix}-#{name}" }
         rule
@@ -270,6 +274,7 @@ class Converter
   end
 
   def convert_to_scss(file)
+    # mixins may also be defined in the file. get mixin names before doing any processing
     mixin_names = @mixins + get_mixin_names(file)
     file = replace_vars(file)
     file = replace_file_imports(file)
