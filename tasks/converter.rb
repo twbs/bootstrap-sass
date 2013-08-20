@@ -32,7 +32,9 @@ class Converter
     @repo_url   = "https://github.com/#@repo"
     @branch     = branch || 'master'
     @branch_sha = get_branch_sha
-    @save_at    = { js: 'vendor/assets/javascripts/bootstrap', scss: 'vendor/assets/stylesheets/bootstrap' }
+    @save_at    = { js: 'vendor/assets/javascripts/bootstrap',
+                    scss: 'vendor/assets/stylesheets/bootstrap',
+                    fonts: 'vendor/assets/fonts/bootstrap' }
     @save_at.each { |_,v| FileUtils.mkdir_p(v) }
     @cache_path = 'tmp/converter-cache'
     @logger     = Logger.new(repo: @repo_url, branch: @branch, branch_sha: @branch_sha, save_at: @save_at, cache_path: @cache_path)
@@ -43,7 +45,17 @@ class Converter
   def process
     process_stylesheet_assets
     process_javascript_assets
+    process_font_assets
     store_version
+  end
+
+  def process_font_assets
+    log_status "Processing fonts..."
+    files = read_files('fonts', bootstrap_font_files)
+    save_at = @save_at[:fonts]
+    files.each do |name, content|
+      save_file "#{save_at}/#{name}", content
+    end
   end
 
   NESTED_MIXINS = {'#gradient' => 'gradient'}
@@ -95,6 +107,7 @@ class Converter
       when 'variables.less'
         file = convert_to_scss(file)
         file = insert_default_vars(file)
+        file = replace_all file, /(\$icon-font-path:).*(!default)/, '\1 "bootstrap" \2'
       when 'close.less'
         file = convert_to_scss(file)
         # extract .close { button& {...} } rule
@@ -113,7 +126,6 @@ class Converter
       when 'navbar.less'
         file = convert_to_scss(file)
         file = replace_all file, /(\s*)\.navbar-(right|left)\s*\{\s*@extend\s*\.pull-(right|left);\s*/, "\\1.navbar-\\2 {\\1  float: \\2 !important;\\1"
-        # file = replace_all file, /(\s*)@extend \.pull-right-dropdown-menu;/, "\\1right: 0;\\1left: auto;"
       when 'tables.less'
         file = convert_to_scss(file)
         file = replace_all file, /(@include\s*table-row-variant\()(\w+)/, "\\1'\\2'"
@@ -124,6 +136,7 @@ class Converter
         file = convert_to_scss(file)
         file = replace_file_imports(file)
       when 'glyphicons.less'
+        file = convert_to_scss(file)
         file = replace_rules(file, '@font-face') { |rule|
           replace_all rule, /url\(/, 'font-url('
         }
@@ -189,7 +202,7 @@ class Converter
     contents = {}
     if File.directory?(full_path)
       files.each do |name|
-        contents[name] = File.read("#{full_path}/#{name}") || ''
+        contents[name] = File.read("#{full_path}/#{name}", mode: 'rb') || ''
       end
       contents
     end
@@ -199,7 +212,7 @@ class Converter
     full_path = "./#@cache_path/#@branch_sha/#{path}"
     FileUtils.mkdir_p full_path
     files.each do |name, content|
-      File.open("#{full_path}/#{name}", 'w') { |f| f.write content}
+      File.open("#{full_path}/#{name}", 'wb') { |f| f.write content}
     end
   end
 
@@ -209,11 +222,11 @@ class Converter
     FileUtils.mkdir_p File.dirname(cache_path)
     if File.exists?(cache_path)
       log_http_get url, true
-      File.read(cache_path)
+      File.read(cache_path, mode: 'rb')
     else
       log_http_get url, false
       content = open(url).read
-      File.open(cache_path, 'w') { |f| f.write content }
+      File.open(cache_path, 'wb') { |f| f.write content }
       content
     end
   end
@@ -236,17 +249,24 @@ class Converter
     @trees ||= get_json("#{GIT_DATA}/#@repo/git/trees/#@branch_sha")
   end
 
+  def bootstrap_font_files
+    @bootstrap_font_files ||= begin
+      files = get_json "#{GIT_DATA}/#@repo/git/trees/#{get_tree_sha('fonts')}"
+      files['tree'].select { |f| f['type'] == 'blob' && f['path'] =~ /\.(eot|svg|ttf|woff)$/ }.map { |f| f['path'] }
+    end
+  end
+
   def bootstrap_less_files
     @bootstrap_less_files ||= begin
       files = get_json "#{GIT_DATA}/#@repo/git/trees/#{get_tree_sha('less')}"
-      files['tree'].select{|f| f['type'] == 'blob' && f['path'] =~ /.less$/ }.map{|f| f['path'] }
+      files['tree'].select { |f| f['type'] == 'blob' && f['path'] =~ /\.less$/ }.map { |f| f['path'] }
     end
   end
 
   def bootstrap_js_files
     @bootstrap_js_files ||= begin
       files = get_json "#{GIT_DATA}/#@repo/git/trees/#{get_tree_sha('js')}"
-      files = files['tree'].select { |f| f['type'] == 'blob' && f['path'] =~ /.js$/ }.map { |f| f['path'] }
+      files = files['tree'].select { |f| f['type'] == 'blob' && f['path'] =~ /\.js$/ }.map { |f| f['path'] }
       files.sort_by { |f|
         case f
           # tooltip depends on popover and must be loaded earlier
