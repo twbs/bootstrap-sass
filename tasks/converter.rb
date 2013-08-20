@@ -99,7 +99,7 @@ class Converter
       when 'responsive-utilities.less'
         file = convert_to_scss(file)
         file = apply_mixin_parent_selector(file, '&\.(visible|hidden)')
-        file = apply_mixin_parent_selector(file, '(?:[^&]|^)\.(visible|hidden)')
+        file = apply_mixin_parent_selector(file, '(?<!&)\.(visible|hidden)')
         file = replace_rules(file, '  @media') { |r| unindent(r, 2) }
       when 'utilities.less'
         file = convert_to_scss(file)
