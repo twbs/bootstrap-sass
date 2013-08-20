@@ -255,28 +255,28 @@ class Converter
   # If a mixin is nested, it gets prefixed in the list (e.g. #gradient > .horizontal to 'gradient-horizontal')
   def read_shared_mixins!(mixins_file)
     log_status "  Reading shared mixins from mixins.less"
-    @mixins = get_mixin_names(mixins_file, silent: true)
+    @shared_mixins = get_mixin_names(mixins_file, silent: true)
     NESTED_MIXINS.each do |selector, prefix|
       # we use replace_rules without replacing anything just to use the parsing algorithm
       replace_rules(mixins_file, selector) { |rule|
-        @mixins += get_mixin_names(unwrap_rule_block(rule), silent: true).map { |name| "#{prefix}-#{name}" }
+        @shared_mixins += get_mixin_names(unindent(unwrap_rule_block(rule)), silent: true).map { |name| "#{prefix}-#{name}" }
         rule
       }
     end
-    @mixins.sort!
-    log_file_info "shared mixins: #{@mixins * ', '}"
-    @mixins
+    @shared_mixins.sort!
+    log_file_info "shared mixins: #{@shared_mixins * ', '}"
+    @shared_mixins
   end
 
   def get_mixin_names(file, opts = {})
-    names = get_css_selectors(file).join("\n" * 2).scan(/\.([\w-]+)\(#{LESS_MIXIN_DEF_ARGS_RE}\)[ ]*\{/).map(&:first).uniq.sort
+    names = get_css_selectors(file).join("\n" * 2).scan(/^\.([\w-]+)\(#{LESS_MIXIN_DEF_ARGS_RE}\)[ ]*\{/).map(&:first).uniq.sort
     log_file_info "mixin defs: #{names * ', '}" unless opts[:silent] || names.empty?
     names
   end
 
   def convert_to_scss(file)
     # mixins may also be defined in the file. get mixin names before doing any processing
-    mixin_names = (@mixins + get_mixin_names(file)).uniq
+    mixin_names = (@shared_mixins + get_mixin_names(file)).uniq
     file = replace_vars(file)
     file = replace_file_imports(file)
     file = replace_mixin_definitions file
@@ -551,16 +551,18 @@ class Converter
     less
   end
 
-  # Get a list of all top-level selectors with bodies {}
-  def get_css_selectors(css)
+  # Get a all top-level selectors (with {)
+  def get_css_selectors(css, opts = {})
     s         = CharStringScanner.new(css)
     selectors = []
-    while (brace = s.scan_next(RULE_OPEN_BRACE_RE))
-      pos     = s.pos
-      def_pos = css_def_pos(css, pos, -1)
-      sel     = css[def_pos.begin..pos - 1]
-      selectors << sel.dup.strip
-      s.pos    = close_brace_pos(css, pos - 1) + 1
+    while s.scan_next(RULE_OPEN_BRACE_RE)
+      brace_pos = s.pos
+      def_pos   = css_def_pos(css, brace_pos+1, -1)
+      sel = css[def_pos.begin..brace_pos - 1].dup
+      sel.strip! if opts[:strip]
+      selectors << sel
+      sel.dup.strip
+      s.pos    = close_brace_pos(css, brace_pos, 1) + 1
     end
     selectors
   end
@@ -697,7 +699,7 @@ class Converter
     end
 
     def pos=(i)
-      @s.pos = str_to_byte_pos @s.pos
+      @s.pos = str_to_byte_pos i
       i
     end
 
