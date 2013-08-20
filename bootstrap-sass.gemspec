@@ -11,7 +11,6 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/thomas-mcdonald/bootstrap-sass"
   s.license = "Apache 2.0"
 
-  s.add_development_dependency 'byebug'
   s.add_development_dependency 'compass'
   s.add_development_dependency 'term-ansicolor'
   s.add_development_dependency 'sass-rails', '~> 3.2'
