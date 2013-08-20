@@ -64,27 +64,16 @@ class Converter
     log_status "Processing stylesheets..."
     files = read_files('less', bootstrap_less_files)
 
-    # read common mixin definitions from mixins.less
-    mixins_file = files['mixins.less']
-    @mixins = get_mixin_names(mixins_file)
-    NESTED_MIXINS.each do |selector, prefix|
-      replace_rules(mixins_file, selector) { |rule|
-        @mixins += get_mixin_names(unwrap_rule_block rule).map { |name| "#{prefix}-#{name}" }
-        rule
-      }
-    end
+    # read common mixin definitions (incl. nested mixins) from mixins.less
+    read_shared_mixins! files['mixins.less']
 
     # convert each file
     files.each do |name, file|
       log_processing name
+      # apply common conversions
+      file = convert_to_scss(file)
       case name
-      when 'bootstrap.less'
-        file = replace_file_imports(file)
       when 'mixins.less'
-        file = replace_vars(file)
-        file = replace_escaping(file)
-        file = replace_mixin_definitions(file)
-        file = replace_mixins(file)
         NESTED_MIXINS.each do |selector, prefix|
           file = flatten_mixins(file, selector, prefix)
         end
@@ -97,50 +86,33 @@ class Converter
         file = replace_all file, /,\s*\.open \.dropdown-toggle& \{(.*?)\}/m,
                            " {\\1}\n  .open & { &.dropdown-toggle {\\1} }"
       when 'responsive-utilities.less'
-        file = convert_to_scss(file)
         file = apply_mixin_parent_selector(file, '&\.(visible|hidden)')
         file = apply_mixin_parent_selector(file, '(?<!&)\.(visible|hidden)')
         file = replace_rules(file, '  @media') { |r| unindent(r, 2) }
-      when 'utilities.less'
-        file = convert_to_scss(file)
       when 'variables.less'
-        file = convert_to_scss(file)
         file = insert_default_vars(file)
         file = replace_all file, /(\$icon-font-path:).*(!default)/, '\1 "bootstrap/" \2'
       when 'close.less'
-        file = convert_to_scss(file)
         # extract .close { button& {...} } rule
         file = extract_nested_rule file, 'button&'
       when 'modals.less'
-        file = convert_to_scss(file)
         file = replace_all file, /body&,(.*?)(\{.*?\})/m, "\\1\\2\nbody& \\2"
         file = extract_nested_rule file, 'body&'
       when 'dropdowns.less'
-        file = convert_to_scss(file)
         file = replace_all file, /(\s*)@extend \.pull-right-dropdown-menu;/, "\\1right: 0;\\1left: auto;"
       when 'forms.less'
-        file = convert_to_scss(file)
         file = extract_nested_rule file, 'textarea&'
         file = apply_mixin_parent_selector(file, '\.input-(?:sm|lg)')
       when 'navbar.less'
-        file = convert_to_scss(file)
         file = replace_all file, /(\s*)\.navbar-(right|left)\s*\{\s*@extend\s*\.pull-(right|left);\s*/, "\\1.navbar-\\2 {\\1  float: \\2 !important;\\1"
       when 'tables.less'
-        file = convert_to_scss(file)
         file = replace_all file, /(@include\s*table-row-variant\()(\w+)/, "\\1'\\2'"
       when 'list-group.less'
-        file = convert_to_scss(file)
         file = extract_nested_rule file, 'a&'
-      when 'theme.less'
-        file = convert_to_scss(file)
-        file = replace_file_imports(file)
       when 'glyphicons.less'
-        file = convert_to_scss(file)
         file = replace_rules(file, '@font-face') { |rule|
           replace_all rule, /url\(/, 'font-url('
         }
-      else
-        file = convert_to_scss(file)
       end
 
       name = name.sub(/\.less$/, '.scss')
@@ -278,6 +250,17 @@ class Converter
     end
   end
 
+  def read_shared_mixins!(mixins_file)
+    @mixins = get_mixin_names(mixins_file)
+    NESTED_MIXINS.each do |selector, prefix|
+      replace_rules(mixins_file, selector) { |rule|
+        @mixins += get_mixin_names(unwrap_rule_block rule).map { |name| "#{prefix}-#{name}" }
+        rule
+      }
+    end
+    @mixins
+  end
+
   def get_mixin_names(file)
     mixins      = []
     get_css_selectors(file).join("\n" * 2).scan(/\.([\w-]+)\(.*\)\s?\{?/) do |mixin|
@@ -287,9 +270,12 @@ class Converter
   end
 
   def convert_to_scss(file)
+    mixin_names = @mixins + get_mixin_names(file)
     file = replace_vars(file)
-    file = replace_mixins(file)
-    file = replace_mixin_definitions(file)
+    file = replace_file_imports(file)
+    file = replace_mixin_definitions file
+    file = replace_mixins file, mixin_names
+    # replace_less_extend does not seem to do anything. @glebm
     file = replace_less_extend(file)
     file = replace_spin(file)
     file = replace_image_urls(file)
@@ -306,7 +292,6 @@ class Converter
 
   # @import "file.less" to "#{target_path}file;"
   def replace_file_imports(less, target_path = 'bootstrap/')
-    log_transform target_path
     less.gsub %r([@\$]import ["|']([\w-]+).less["|'];),
               %Q(@import "#{target_path}\\1";)
   end
@@ -435,9 +420,14 @@ class Converter
   end
 
   def replace_vars(less)
-    less = less.gsub(/(?!@mixin|@media|@page|@keyframes|@font-face|@-\w)@/, '$')
-    # variables that would be ignored by gsub above: e.g. @page-header-border-color
-    less.gsub! /@(page[\w-]+)/, '$\1'
+    less = less.dup
+    # skip header comment
+    less =~ %r(\A/\*(.*?)\*/)m
+    from = $~ ? $~.to_s.length : 0
+    less[from..-1] = less[from..-1].
+        gsub(/(?!@mixin|@media|@page|@keyframes|@font-face|@-\w)@/, '$').
+        # variables that would be ignored by gsub above: e.g. @page-header-border-color
+        gsub(/@(page[\w-]+)/, '$\1')
     less
   end
 
@@ -700,7 +690,7 @@ class Converter
       puts bold "Convert Bootstrap LESS to SASS"
       puts " repo   : #{env[:repo]}"
       puts " branch : #{env[:branch]} #{dark "#{env[:repo]}/tree/#{env[:branch_sha]}"}"
-      puts " save to: SCSS @ #{@env[:save_at][:scss]} JS @ #{@env[:save_at][:js]}"
+      puts " save to: #{@env[:save_at].to_json}"
       puts " twbs cache: #{@env[:cache_path]}"
       puts dark "-" * 60
     end
