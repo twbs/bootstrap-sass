@@ -40,7 +40,7 @@ class Converter
     @logger     = Logger.new(repo: @repo_url, branch: @branch, branch_sha: @branch_sha, save_at: @save_at, cache_path: @cache_path)
   end
 
-  def_delegators :@logger, :log_status, :log_downloading, :log_processing, :log_transform, :log_processed, :log_http_get, :silence_log
+  def_delegators :@logger, :log_status, :log_processing, :log_transform, :log_file_info, :log_processed, :log_http_get_file, :log_http_get_files, :silence_log
 
   def process
     process_stylesheet_assets
@@ -153,9 +153,9 @@ class Converter
   def read_files(path, files)
     full_path = "#{GIT_RAW}/#@repo/#@branch_sha/#{path}"
     if (contents = read_cached_files(path, files))
-      log_downloading files, full_path, true
+      log_http_get_files files, full_path, true
     else
-      log_downloading files, full_path, false
+      log_http_get_files files, full_path, false
       contents = {}
       files.map do |name|
         Thread.start {
@@ -192,10 +192,10 @@ class Converter
     cache_path = "./#@cache_path#{URI(url).path}"
     FileUtils.mkdir_p File.dirname(cache_path)
     if File.exists?(cache_path)
-      log_http_get url, true
+      log_http_get_file url, true
       File.read(cache_path, mode: 'rb')
     else
-      log_http_get url, false
+      log_http_get_file url, false
       content = open(url).read
       File.open(cache_path, 'wb') { |f| f.write content }
       content
@@ -254,28 +254,29 @@ class Converter
   # Before doing any processing we read shared mixins from a file
   # If a mixin is nested, it gets prefixed in the list (e.g. #gradient > .horizontal to 'gradient-horizontal')
   def read_shared_mixins!(mixins_file)
-    @mixins = get_mixin_names(mixins_file)
+    log_status "  Reading shared mixins from mixins.less"
+    @mixins = get_mixin_names(mixins_file, silent: true)
     NESTED_MIXINS.each do |selector, prefix|
       # we use replace_rules without replacing anything just to use the parsing algorithm
       replace_rules(mixins_file, selector) { |rule|
-        @mixins += get_mixin_names(unwrap_rule_block rule).map { |name| "#{prefix}-#{name}" }
+        @mixins += get_mixin_names(unwrap_rule_block(rule), silent: true).map { |name| "#{prefix}-#{name}" }
         rule
       }
     end
+    @mixins.sort!
+    log_file_info "shared mixins: #{@mixins * ', '}"
     @mixins
   end
 
-  def get_mixin_names(file)
-    mixins      = []
-    get_css_selectors(file).join("\n" * 2).scan(/\.([\w-]+)\(.*\)\s?\{?/) do |mixin|
-      mixins << mixin.first
-    end
-    mixins
+  def get_mixin_names(file, opts = {})
+    names = get_css_selectors(file).join("\n" * 2).scan(/\.([\w-]+)\(#{LESS_MIXIN_DEF_ARGS_RE}\)[ ]*\{/).map(&:first).uniq.sort
+    log_file_info "mixin defs: #{names * ', '}" unless opts[:silent] || names.empty?
+    names
   end
 
   def convert_to_scss(file)
     # mixins may also be defined in the file. get mixin names before doing any processing
-    mixin_names = @mixins + get_mixin_names(file)
+    mixin_names = (@mixins + get_mixin_names(file)).uniq
     file = replace_vars(file)
     file = replace_file_imports(file)
     file = replace_mixin_definitions file
@@ -383,7 +384,7 @@ class Converter
   # Replaces the following:
   #  .mixin()          -> @include mixin()
   #  #scope > .mixin() -> @include scope-mixin()
-  def replace_mixins(less, mixins = @mixins + get_mixin_names(less))
+  def replace_mixins(less, mixin_names)
     mixin_pattern = /(\s+)(([#|\.][\w-]+\s*>\s*)*)\.([\w-]+\(.*\))(?!\s\{)/
 
     less.gsub(mixin_pattern) do |match|
@@ -393,7 +394,7 @@ class Converter
         scope = scope.scan(/[\w-]+/).join('-') + '-'
       end
       mixin_name = match.scan(/\.([\w-]+)\(.*\)\s?\{?/).first
-      if mixin_name && mixins.include?("#{scope}#{mixin_name.first}")
+      if mixin_name && mixin_names.include?("#{scope}#{mixin_name.first}")
         "#{matches.first}@include #{scope}#{matches.last}".gsub(/; \$/, ", $").sub(/;\)$/, ')')
       else
         "#{matches.first}@extend .#{scope}#{matches.last.gsub(/\(\)/, '')}"
@@ -533,7 +534,7 @@ class Converter
   def replace_rules(less, rule_prefix = SELECTOR_RE, options = {}, &block)
     options = {comments: true}.merge(options || {})
     less    = less.dup
-    s       = StringScanner.new(less)
+    s       = CharStringScanner.new(less)
     rule_re = /(?:#{rule_prefix}[^{]*#{RULE_OPEN_BRACE_RE})/
     if options[:comments]
       rule_start_re = /(?:#{COMMENT_RE}*)^#{rule_re}/
@@ -542,8 +543,8 @@ class Converter
     end
 
     positions = []
-    while (rule_start = scan_next(s, rule_start_re))
-      pos = byte_to_str_pos less, s.pos
+    while (rule_start = s.scan_next(rule_start_re))
+      pos = s.pos
       positions << (pos - rule_start.length..close_brace_pos(less, pos - 1))
     end
     replace_substrings_at(less, positions, &block)
@@ -552,14 +553,14 @@ class Converter
 
   # Get a list of all top-level selectors with bodies {}
   def get_css_selectors(css)
-    s         = StringScanner.new(css)
+    s         = CharStringScanner.new(css)
     selectors = []
-    while (brace = scan_next(s, RULE_OPEN_BRACE_RE))
-      pos     = byte_to_str_pos(css, s.pos)
+    while (brace = s.scan_next(RULE_OPEN_BRACE_RE))
+      pos     = s.pos
       def_pos = css_def_pos(css, pos, -1)
       sel     = css[def_pos.begin..pos - 1]
       selectors << sel.dup.strip
-      s.pos    = str_to_byte_pos(css, close_brace_pos(css, pos - 1) + 1)
+      s.pos    = close_brace_pos(css, pos - 1) + 1
     end
     selectors
   end
@@ -568,13 +569,13 @@ class Converter
   # replace_in_selector('a {a: {a: a} } a {}', /a/, 'b') => 'b {a: {a: a} } b {}'
   def replace_in_selector(css, pattern, sub)
     # scan for selector positions in css
-    s        = StringScanner.new(css)
+    s        = CharStringScanner.new(css)
     prev_pos = 0
     sel_pos  = []
-    while (brace = scan_next(s, RULE_OPEN_BRACE_RE))
-      pos = byte_to_str_pos css, s.pos
+    while (brace = s.scan_next(RULE_OPEN_BRACE_RE))
+      pos = s.pos
       sel_pos << (prev_pos .. pos - 1)
-      s.pos    = str_to_byte_pos(s.string, close_brace_pos(css, s.pos - 1) + 1)
+      s.pos    = close_brace_pos(css, s.pos - 1) + 1
       prev_pos = pos
     end
     replace_substrings_at(css, sel_pos) { |s| s.gsub(pattern, sub) }
@@ -590,18 +591,19 @@ class Converter
   RULE_CLOSE_BRACE_RE_REVERSE = /(?<![.'"])\}(?!\w)/
   BRACE_RE         = /#{RULE_OPEN_BRACE_RE}|#{RULE_CLOSE_BRACE_RE}/m
   BRACE_RE_REVERSE = /#{RULE_OPEN_BRACE_RE_REVERSE}|#{RULE_CLOSE_BRACE_RE_REVERSE}/m
-  SCSS_MIXIN_DEF_ARGS_RE = /[\w\-,\s$:]*/
+  SCSS_MIXIN_DEF_ARGS_RE = /[\w\-,\s$:#%]*/
+  LESS_MIXIN_DEF_ARGS_RE = /[\w\-,;\s@:#%]*/
 
   # replace first level properties in the css with yields
   # replace_properties("a { color: white }") { |props| props.gsub 'white', 'red' }
   def replace_properties(css, &block)
-    s = StringScanner.new(css)
+    s = CharStringScanner.new(css)
     s.skip_until /#{RULE_OPEN_BRACE_RE}\n?/
     prev_pos = s.pos
     depth = 0
     pos = []
-    while (b = scan_next(s, /#{SELECTOR_RE}#{RULE_OPEN_BRACE_RE}|#{RULE_CLOSE_BRACE_RE}/m))
-      s_pos = byte_to_str_pos(s.string, s.pos)
+    while (b = s.scan_next(/#{SELECTOR_RE}#{RULE_OPEN_BRACE_RE}|#{RULE_CLOSE_BRACE_RE}/m))
+      s_pos = s.pos
       depth += (b == '}' ? -1 : +1)
       if depth == 1
         if b == '}'
@@ -630,38 +632,24 @@ class Converter
 
   # next matching brace for brace at from
   def close_brace_pos(css, from, depth = 0)
-    s     = StringScanner.new(css[from..-1])
-    while (b = scan_next(s, BRACE_RE))
+    s     = CharStringScanner.new(css[from..-1])
+    while (b = s.scan_next(BRACE_RE))
       depth += (b == '}' ? -1 : +1)
       break if depth.zero?
     end
     raise "match not found for {" unless depth.zero?
-    from + byte_to_str_pos(s.string, s.pos) - 1
+    from + s.pos - 1
   end
 
   # opening brace position from +from+ (search backwards)
   def open_brace_pos(css, from, depth = 0)
-    s     = StringScanner.new(css[0..from].reverse)
-    while (b = scan_next(s, BRACE_RE_REVERSE))
+    s     = CharStringScanner.new(css[0..from].reverse)
+    while (b = s.scan_next(BRACE_RE_REVERSE))
       depth += (b == '{' ? +1 : -1)
       break if depth.zero?
     end
     raise "matching { brace not found" unless depth.zero?
-    from - byte_to_str_pos(s.string, s.pos) + 1
-  end
-
-  # advance scanner to pos after the next match of pattern and return the match
-  def scan_next(scanner, pattern)
-    return unless scanner.scan_until(pattern)
-    scanner.matched
-  end
-
-  def byte_to_str_pos(str, pos)
-    str.byteslice(0, pos).length
-  end
-
-  def str_to_byte_pos(str, pos)
-    str.slice(0, pos).bytesize
+    from - s.pos + 1
   end
 
   # insert substitutions into text at positions (Range or Fixnum)
@@ -687,6 +675,43 @@ class Converter
     JSON.parse get_file(url)
   end
 
+  # regular string scanner works with bytes
+  # this one works with chars and provides #scan_next
+  class CharStringScanner
+    extend Forwardable
+
+    def initialize(*args)
+      @s = StringScanner.new(*args)
+    end
+
+    def_delegators :@s, :scan_until, :skip_until, :string
+
+    # advance scanner to pos after the next match of pattern and return the match
+    def scan_next(pattern)
+      return unless @s.scan_until(pattern)
+      @s.matched
+    end
+
+    def pos
+      byte_to_str_pos @s.pos
+    end
+
+    def pos=(i)
+      @s.pos = str_to_byte_pos @s.pos
+      i
+    end
+
+    private
+
+    def byte_to_str_pos(pos)
+      @s.string.byteslice(0, pos).length
+    end
+
+    def str_to_byte_pos(pos)
+      @s.string.slice(0, pos).bytesize
+    end
+  end
+
   class Logger
     include Term::ANSIColor
 
@@ -704,17 +729,12 @@ class Converter
       puts bold status
     end
 
-    def log_transform(*args)
-      puts "#{cyan "    #{caller[1][/`.*'/][1..-2].sub(/^block in /, '')}"}#{cyan ": #{args * ', '}" unless args.empty?}"
+    def log_file_info(s)
+      puts "    #{magenta s}"
     end
 
-    def log_downloading(files, from, cached = false)
-      s = "  #{'CACHED ' if cached}GET #{files.length} files from #{from} #{files * ' '}..."
-      if cached
-        puts dark green s
-      else
-        puts dark cyan s
-      end
+    def log_transform(*args)
+      puts "#{cyan "    #{caller[1][/`.*'/][1..-2].sub(/^block in /, '')}"}#{cyan ": #{args * ', '}" unless args.empty?}"
     end
 
     def log_processing(name)
@@ -725,8 +745,17 @@ class Converter
       puts green "    #{name}"
     end
 
-    def log_http_get(url, cached = false)
+    def log_http_get_file(url, cached = false)
       s = "  #{'CACHED ' if cached}GET #{url}..."
+      if cached
+        puts dark green s
+      else
+        puts dark cyan s
+      end
+    end
+
+    def log_http_get_files(files, from, cached = false)
+      s = "  #{'CACHED ' if cached}GET #{files.length} files from #{from} #{files * ' '}..."
       if cached
         puts dark green s
       else
