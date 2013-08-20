@@ -13,11 +13,16 @@
 
 
   // Account for hiding of scrollbar
-  body&,
+  
   .navbar-fixed-top,
   .navbar-fixed-bottom {
     margin-right: 15px
   }
+// [converter] extracted body& to body.modal-open
+}
+
+body.modal-open {
+  margin-right: 15px
 }
 
 // Container that the modal scrolls within

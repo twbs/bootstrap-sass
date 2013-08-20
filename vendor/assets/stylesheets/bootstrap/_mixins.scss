@@ -411,17 +411,23 @@
   &:hover,
   &:focus,
   &:active,
-  &.active,
-  .open .dropdown-toggle& {
+  &.active {
     color: $color;
     background-color: darken($background, 8%);
         border-color: darken($border, 12%);
   }
+  .open & { &.dropdown-toggle {
+    color: $color;
+    background-color: darken($background, 8%);
+        border-color: darken($border, 12%);
+  } }
   &:active,
-  &.active,
-  .open .dropdown-toggle& {
+  &.active {
     background-image: none;
   }
+  .open & { &.dropdown-toggle {
+    background-image: none;
+  } }
   &.disabled,
   &[disabled],
   fieldset[disabled] & {

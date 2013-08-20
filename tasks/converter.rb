@@ -82,6 +82,8 @@ class Converter
         file = parameterize_mixin_parent_selector file, 'input-size'
         file = replace_ms_filters(file)
         file = replace_all file, /\.\$state/, '.#{$state}'
+        file = replace_all file, /,\s*\.open \.dropdown-toggle& \{(.*?)\}/m,
+                           " {\\1}\n  .open & { &.dropdown-toggle {\\1} }"
       when 'responsive-utilities.less'
         file = convert_to_scss(file)
         file = apply_mixin_parent_selector(file, '&\.(visible|hidden)')
@@ -97,6 +99,13 @@ class Converter
         file = convert_to_scss(file)
         # extract .close { button& {...} } rule
         file = extract_nested_rule file, 'button&'
+      when 'modals.less'
+        file = convert_to_scss(file)
+        file = replace_all file, /body&,(.*?)(\{.*?\})/m, "\\1\\2\nbody& \\2"
+        file = extract_nested_rule file, 'body&'
+      when 'dropdowns.less'
+        file = convert_to_scss(file)
+        file = replace_all file, /(\s*)@extend \.pull-right-dropdown-menu;/, "\\1right: 0;\\1left: auto;"
       when 'forms.less'
         file = convert_to_scss(file)
         file = extract_nested_rule file, 'textarea&'
@@ -214,6 +223,8 @@ class Converter
     cmd = "git ls-remote '#@repo_url' | awk '/#@branch/ {print $1}'"
     puts cmd
     @branch_sha ||= %x[#{cmd}].chomp
+    raise 'Could not get branch sha!' unless $?.success?
+    @branch_sha
   end
 
   # Get the sha of a dir
@@ -259,6 +270,7 @@ class Converter
   def convert_to_scss(file)
     file = replace_vars(file)
     file = replace_mixins(file)
+    file = replace_mixin_definitions(file)
     file = replace_less_extend(file)
     file = replace_spin(file)
     file = replace_image_urls(file)
@@ -363,7 +375,7 @@ class Converter
   #  .mixin()          -> @include mixin()
   #  #scope > .mixin() -> @include scope-mixin()
   def replace_mixins(less, mixins = @mixins + get_mixin_names(less))
-    mixin_pattern = /(\s+)(([#|\.][\w-]+\s*>\s*)*)\.([\w-]+\(.*\))/
+    mixin_pattern = /(\s+)(([#|\.][\w-]+\s*>\s*)*)\.([\w-]+\(.*\))(?!\s\{)/
 
     less.gsub(mixin_pattern) do |match|
       matches = match.scan(mixin_pattern).flatten
@@ -405,7 +417,7 @@ class Converter
   end
 
   def replace_vars(less)
-    less = less.gsub(/(?!@media|@page|@keyframes|@font-face|@-\w)@/, '$')
+    less = less.gsub(/(?!@mixin|@media|@page|@keyframes|@font-face|@-\w)@/, '$')
     # variables that would be ignored by gsub above: e.g. @page-header-border-color
     less.gsub! /@(page[\w-]+)/, '$\1'
     less

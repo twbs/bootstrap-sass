@@ -31,7 +31,7 @@
 }
 
 // Mixin for generating new styles
-@include btn-styles($btn-color: #555) {
+@mixin btn-styles($btn-color: #555) {
   @include gradient-vertical($start-color: $btn-color, $end-color: darken($btn-color, 10%));
   border-color: darken($btn-color, 12%);
 
@@ -142,7 +142,7 @@
 }
 
 // Mixin for generating new styles
-@include alert-styles($color) {
+@mixin alert-styles($color) {
   @include gradient-vertical($start-color: $color, $end-color: darken($color, 7.5%));
   border-color: darken($color, 15%);
 }
@@ -165,7 +165,7 @@
 }
 
 // Mixin for generating new styles
-@include progress-bar-styles($color) {
+@mixin progress-bar-styles($color) {
   @include gradient-vertical($start-color: $color, $end-color: darken($color, 10%));
 }
 
@@ -206,7 +206,7 @@
 }
 
 // Mixin for generating new styles
-@include panel-heading-styles($color) {
+@mixin panel-heading-styles($color) {
   @include gradient-vertical($start-color: $color, $end-color: darken($color, 5%));
 }
 
