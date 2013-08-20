@@ -102,7 +102,6 @@ class Converter
         file = apply_mixin_parent_selector(file, '(?:[^&]|^)\.(visible|hidden)')
         file = replace_rules(file, '  @media') { |r| unindent(r, 2) }
       when 'utilities.less'
-        file = replace_mixin_definitions(file)
         file = convert_to_scss(file)
       when 'variables.less'
         file = convert_to_scss(file)
@@ -430,7 +429,6 @@ class Converter
   end
 
   def replace_mixin_definitions(less)
-    log_transform
     less.gsub(/^(\s*)\.([\w-]+\(.*\))(\s*\{)/) { |match|
       "#{$1}@mixin #{$2.tr(';', ',')}#{$3}".sub(/,\)/, ')')
     }
