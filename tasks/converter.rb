@@ -107,7 +107,7 @@ class Converter
       when 'variables.less'
         file = convert_to_scss(file)
         file = insert_default_vars(file)
-        file = replace_all file, /(\$icon-font-path:).*(!default)/, '\1 "bootstrap" \2'
+        file = replace_all file, /(\$icon-font-path:).*(!default)/, '\1 "bootstrap/" \2'
       when 'close.less'
         file = convert_to_scss(file)
         # extract .close { button& {...} } rule
