@@ -84,7 +84,8 @@ class Converter
         file = replace_all file, /\.\$state/, '.#{$state}'
       when 'responsive-utilities.less'
         file = convert_to_scss(file)
-        file = apply_mixin_parent_selector(file, '\.(visible|hidden)')
+        file = apply_mixin_parent_selector(file, '&\.(visible|hidden)')
+        file = apply_mixin_parent_selector(file, '(?:[^&]|^)\.(visible|hidden)')
         file = replace_rules(file, '  @media') { |r| unindent(r, 2) }
       when 'utilities.less'
         file = replace_mixin_definitions(file)
@@ -103,7 +104,7 @@ class Converter
       when 'navbar.less'
         file = convert_to_scss(file)
         file = replace_all file, /(\s*)\.navbar-(right|left)\s*\{\s*@extend\s*\.pull-(right|left);\s*/, "\\1.navbar-\\2 {\\1  float: \\2 !important;\\1"
-        file = replace_all file, /(\s*)@extend \.pull-right-dropdown-menu;/, "\\1right: 0;\\1left: auto;"
+        # file = replace_all file, /(\s*)@extend \.pull-right-dropdown-menu;/, "\\1right: 0;\\1left: auto;"
       when 'tables.less'
         file = convert_to_scss(file)
         file = replace_all file, /(@include\s*table-row-variant\()(\w+)/, "\\1'\\2'"
@@ -113,6 +114,10 @@ class Converter
       when 'theme.less'
         file = convert_to_scss(file)
         file = replace_file_imports(file)
+      when 'glyphicons.less'
+        file = replace_rules(file, '@font-face') { |rule|
+          replace_all rule, /url\(/, 'font-url('
+        }
       else
         file = convert_to_scss(file)
       end
@@ -189,9 +194,26 @@ class Converter
     end
   end
 
+
+  def get_file(url)
+    cache_path = "./#@cache_path#{URI(url).path}"
+    FileUtils.mkdir_p File.dirname(cache_path)
+    if File.exists?(cache_path)
+      log_http_get url, true
+      File.read(cache_path)
+    else
+      log_http_get url, false
+      content = open(url).read
+      File.open(cache_path, 'w') { |f| f.write content }
+      content
+    end
+  end
+
   # get sha of the branch (= the latest commit)
   def get_branch_sha
-    @branch_sha ||= %x[git ls-remote '#@repo_url' | awk '/#@branch/ {print $1}'].chomp
+    cmd = "git ls-remote '#@repo_url' | awk '/#@branch/ {print $1}'"
+    puts cmd
+    @branch_sha ||= %x[#{cmd}].chomp
   end
 
   # Get the sha of a dir
@@ -287,10 +309,10 @@ class Converter
   # to:
   # .x { ... }
   # textarea.x { ... }
-  def extract_nested_rule(css, selector, new_selector = nil)
+  def extract_nested_rule(file, selector, new_selector = nil)
     matches = []
     # first find the rules, and remove them
-    css     = replace_rules(css, "\s*#{selector}", comments: true) { |rule, pos|
+    file = replace_rules(file, "\s*#{selector}", comments: true) { |rule, pos, css|
       matches << [rule, pos]
       new_selector ||= "#{get_selector(rule).sub(/&$/, '')}#{selector_for_pos(css, pos.begin)}"
       indent "// [converter] extracted #{get_selector(rule)} to #{new_selector}", indent_width(rule)
@@ -300,8 +322,8 @@ class Converter
     matches.each do |m|
       m[0].sub! /(#{COMMENT_RE}*)^(\s*).*?(\s*){/m, "\\1\\2#{new_selector}\\3{"
     end
-    replace_substrings_at css,
-                          matches.map { |_, pos| close_brace_pos(css, pos.begin, 1) + 1 },
+    replace_substrings_at file,
+                          matches.map { |_, pos| close_brace_pos(file, pos.begin, 1) + 1 },
                           matches.map { |rule, _| "\n\n" + unindent(rule) }
   end
 
@@ -310,14 +332,20 @@ class Converter
   # @include responsive-visibility('.visible-sm')
   def apply_mixin_parent_selector(file, rule_sel)
     log_transform rule_sel
-    replace_rules file, "(\s*)#{rule_sel}" do |rule|
-      next rule unless rule =~ /{\s*@include.*?;\s*}/m
-      rule =~ /\A\s+/ # keep indentation
-      # unwrap
-      rule = $~.to_s + rule.sub(/(#{COMMENT_RE}*)(#{SELECTOR_RE})\{(.*)\}/m, '\3')
+    replace_rules file, '\s*' + rule_sel, comments: false do |rule, rule_pos, css|
+      body = unwrap_rule_block(rule.dup).strip
+      next rule unless body =~ /^@include \w+/m || body =~ /^@media/ && body =~ /\{\s*@include/
+      rule =~ /(#{COMMENT_RE}*)(#{SELECTOR_RE})\{/
       cmt, sel  = $1, $2.strip
-      # inject param
-      rule.gsub(/(@include [\w-]+)\(([\$\w\-,\s]*)\)/) { "#{cmt}#{$1}('#{sel}'#{', ' if $2 && !$2.empty?}#{$2})"} .strip
+      # take one up selector chain if this is an &. selector
+      if sel.start_with?('&')
+        parent_sel = selector_for_pos(css, rule_pos.begin)
+        sel        = parent_sel + sel[1..-1]
+      end
+      # unwrap, and replace @include
+      unindent unwrap_rule_block(rule).gsub(/(@include [\w-]+)\(([\$\w\-,\s]*)\)/) {
+        "#{cmt}#{$1}('#{sel}'#{', ' if $2 && !$2.empty?}#{$2})"
+      }
     end
   end
 
@@ -366,7 +394,7 @@ class Converter
   # to:
   # a: b;
   def unwrap_rule_block(css)
-    replace_in_selector(css, /.*/, '').sub(/}\s*\z/m, '')
+    css[(css =~ RULE_OPEN_BRACE_RE) + 1..-1].sub(/\n?}\s*\z/m, '')
   end
 
   def replace_mixin_definitions(less)
@@ -477,22 +505,23 @@ class Converter
   # option :comments -- include immediately preceding comments in rule_block
   #
   # replace_rules(".a{ \n .b{} }", '.b') { |rule, pos| ">#{rule}<"  } #=> ".a{ \n >.b{}< }"
-  def replace_rules(less, rule_prefix = SELECTOR_RE, options = {})
+  def replace_rules(less, rule_prefix = SELECTOR_RE, options = {}, &block)
     options = {comments: true}.merge(options || {})
     less    = less.dup
     s       = StringScanner.new(less)
-    rule_re = "#{rule_prefix}[^{]*#{RULE_OPEN_BRACE_RE}"
+    rule_re = /(?:#{rule_prefix}[^{]*#{RULE_OPEN_BRACE_RE})/
     if options[:comments]
-      rule_start_re = /#{COMMENT_RE}*^#{rule_re}/
+      rule_start_re = /(?:#{COMMENT_RE}*)^#{rule_re}/
     else
       rule_start_re = /^#{rule_re}/
     end
 
+    positions = []
     while (rule_start = scan_next(s, rule_start_re))
       pos = byte_to_str_pos less, s.pos
-      rule_pos       = (pos - rule_start.length..close_brace_pos(less, pos - 1))
-      less[rule_pos] = yield(less[rule_pos], rule_pos)
+      positions << (pos - rule_start.length..close_brace_pos(less, pos - 1))
     end
+    replace_substrings_at(less, positions, &block)
     less
   end
 
@@ -617,8 +646,8 @@ class Converter
     offset = 0
     positions.each_with_index do |p, i|
       p = (p...p) if p.is_a?(Fixnum)
-      from = p.begin + offset
-      to = p.end + offset
+      from    = p.begin + offset
+      to      = p.end + offset
       p       = p.exclude_end? ? (from...to) : (from..to)
       # block returns the substitution, e.g.: { |text, pos| text[pos].upcase }
       r       = replacements ? replacements[i] : block.call(text[p], p, text)
@@ -631,11 +660,6 @@ class Converter
 
   def get_json(url)
     JSON.parse get_file(url)
-  end
-
-  def get_file(url)
-    log_http_get url
-    open(url).read
   end
 
   class Logger
@@ -660,7 +684,7 @@ class Converter
     end
 
     def log_downloading(files, from, cached = false)
-      s = " #{' CACHED ' if cached}GET #{files.length} files from #{from} #{files * ' '}..."
+      s = "  #{'CACHED ' if cached}GET #{files.length} files from #{from} #{files * ' '}..."
       if cached
         puts dark green s
       else
@@ -676,8 +700,13 @@ class Converter
       puts green "    #{name}"
     end
 
-    def log_http_get(url)
-      puts dark cyan "  GET #{url}..."
+    def log_http_get(url, cached = false)
+      s = "  #{'CACHED ' if cached}GET #{url}..."
+      if cached
+        puts dark green s
+      else
+        puts dark cyan s
+      end
     end
 
     def puts(*args)

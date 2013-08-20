@@ -148,9 +148,9 @@
 }
 
 // Apply the mixin to the alerts
-.alert            { @include alert-styles($alert-bg); }
 .alert-success    { @include alert-styles($alert-success-bg); }
 .alert-info       { @include alert-styles($alert-info-bg); }
+.alert-warning    { @include alert-styles($alert-warning-bg); }
 .alert-danger     { @include alert-styles($alert-danger-bg); }
 
 
@@ -211,7 +211,7 @@
 }
 
 // Apply the mixin to the panel headings only
-.panel-heading                    { @include panel-heading-styles($panel-heading-bg); }
+.panel-default > .panel-heading   { @include panel-heading-styles($panel-default-heading-bg); }
 .panel-primary > .panel-heading   { @include panel-heading-styles($panel-primary-heading-bg); }
 .panel-success > .panel-heading   { @include panel-heading-styles($panel-success-heading-bg); }
 .panel-info > .panel-heading      { @include panel-heading-styles($panel-info-heading-bg); }

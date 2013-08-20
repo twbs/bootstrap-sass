@@ -188,6 +188,7 @@ $dropdown-caret-color:           #000 !default;
 // Used for a bird's eye view of components dependent on the z-axis
 // Try to avoid customizing these :)
 
+$zindex-navbar:            1000 !default;
 $zindex-dropdown:          1000 !default;
 $zindex-popover:           1010 !default;
 $zindex-tooltip:           1030 !default;
@@ -351,9 +352,11 @@ $pager-disabled-color:                 $gray-light !default;
 // Jumbotron
 // -------------------------
 
+$jumbotron-padding:              30px !default;
+$jumbotron-color:                inherit !default;
 $jumbotron-bg:                   $gray-lighter !default;
+
 $jumbotron-heading-color:        inherit !default;
-$jumbotron-lead-color:           inherit !default;
 
 
 // Form states and alerts
@@ -439,21 +442,21 @@ $alert-padding:               15px !default;
 $alert-border-radius:         $border-radius-base !default;
 $alert-link-font-weight:      bold !default;
 
-$alert-bg:                    $state-warning-bg !default;
-$alert-text:                  $state-warning-text !default;
-$alert-border:                $state-warning-border !default;
-
 $alert-success-bg:            $state-success-bg !default;
 $alert-success-text:          $state-success-text !default;
 $alert-success-border:        $state-success-border !default;
 
-$alert-danger-bg:             $state-danger-bg !default;
-$alert-danger-text:           $state-danger-text !default;
-$alert-danger-border:         $state-danger-border !default;
-
 $alert-info-bg:               $state-info-bg !default;
 $alert-info-text:             $state-info-text !default;
 $alert-info-border:           $state-info-border !default;
+
+$alert-warning-bg:            $state-warning-bg !default;
+$alert-warning-text:          $state-warning-text !default;
+$alert-warning-border:        $state-warning-border !default;
+
+$alert-danger-bg:             $state-danger-bg !default;
+$alert-danger-text:           $state-danger-text !default;
+$alert-danger-border:         $state-danger-border !default;
 
 
 // Progress bars
@@ -486,10 +489,13 @@ $list-group-link-heading-color:  #333 !default;
 // Panels
 // -------------------------
 $panel-bg:                    #fff !default;
-$panel-border:                #ddd !default;
+$panel-inner-border:          #ddd !default;
 $panel-border-radius:         $border-radius-base !default;
-$panel-heading-bg:            #f5f5f5 !default;
 $panel-footer-bg:             #f5f5f5 !default;
+
+$panel-default-text:          $gray-dark !default;
+$panel-default-border:        #ddd !default;
+$panel-default-heading-bg:    #f5f5f5 !default;
 
 $panel-primary-text:          #fff !default;
 $panel-primary-border:        $brand-primary !default;
