@@ -15,6 +15,8 @@ gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.g
 
 `bundle install` and restart your server to make the files available.
 
+then include bootstrap in your application.css.scss file with `@import 'bootstrap';`
+
 ## Upstream Converter
 
 Keeping bootstrap-sass in sync with upstream changes from Bootstrap is an error prone and time consuming manual process.
