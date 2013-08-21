@@ -23,6 +23,12 @@ Import Bootstrap in an SCSS file (for example, `application.css.scss`) to get al
 @import "bootstrap";
 ```
 
+You can also include optional bootstrap theme:
+
+```css
+@import "bootstrap/theme";
+```
+
 ### Javascripts
 
 We have a helper that includes all Bootstrap javascripts. Put this in your Javascript manifest (usually in `application.js`) to 
