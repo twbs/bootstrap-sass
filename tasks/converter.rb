@@ -290,7 +290,56 @@ class Converter
     file = replace_escaping(file)
     file = convert_less_ampersand(file)
     file = deinterpolate_vararg_mixins(file)
+    file = replace_calculation_semantics(file)
     file
+  end
+
+  # margin: a -b
+  # LESS: sets 2 values
+  # SASS: sets 1 value (a-b)
+  # This wraps a and -b so they evaluates to 2 values in SASS
+  def replace_calculation_semantics(file)
+    # split_prop_val.call('(@navbar-padding-vertical / 2) -@navbar-padding-horizontal')
+    # #=> ["(navbar-padding-vertical / 2)", "-navbar-padding-horizontal"]
+    split_prop_val = proc { |val|
+      s = CharStringScanner.new(val)
+      r = []
+      buff = ''
+      d = 0
+      prop_char    = %r([\$\w\-/\*\+%!])
+      while (token = s.scan_next(/([\)\(]|\s+|#{prop_char}+)/))
+        buff << token
+        case token
+          when '('
+            d += 1
+          when ')'
+            d -= 1
+            if d == 0
+              r << buff
+              buff = ''
+            end
+          when /\s/
+            if d == 0 && !buff.strip.empty?
+              r << buff
+              buff = ''
+            end
+        end
+      end
+      r << buff unless buff.empty?
+      r.map(&:strip)
+    }
+
+    replace_rules file do |rule|
+      replace_properties rule do |props|
+        props.gsub /(?<!\w)([\w-]+):(.*?);/ do |m|
+          prop, vals = $1, split_prop_val.call($2)
+          next m unless vals.length == 2 && vals.any? { |v| v =~ /^[\+\-]/ }
+          transformed = vals.map { |v| v.strip =~ %r(^\(.*\)$) ? v : "(#{v})" }
+          log_transform "property #{prop}: #{transformed * ' '}"
+          "#{prop}: #{transformed * ' '};"
+        end
+      end
+    end
   end
 
   def save_file(path, content, mode='w')
