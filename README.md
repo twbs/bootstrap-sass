@@ -1,24 +1,21 @@
 # Bootstrap for Sass
 
-`bootstrap-sass` is an Sass-powered version of [Bootstrap](https://github.com/twbs/bootstrap), ready to drop right into your Sass powered applications.
+`bootstrap-sass` is an Sass-powered version of [Bootstrap][bootstrap], ready to drop right into your Sass powered applications.
 
-## Usage
+## Installation and Usage
 
-### Rails
+Please see the appropriate guide for your environment of choice:
 
-In your Gemfile:
+* [Rails][railsguide]
+* [Compass][compassguide]
+* ---[Sass][sassguide]--- (*supported soon*)
 
-```ruby
-gem 'sass-rails',   '~> 3.2.3'
-gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'
-```
+## Development
 
-`bundle install` and restart your server to make the files available.
+### Upstream Converter
 
-## Upstream Converter
-
-Keeping bootstrap-sass in sync with upstream changes from Bootstrap is an error prone and time consuming manual process.
-This branch is specifically concerned with automating that process as much as possible to allow a much faster release cycle.
+Keeping bootstrap-sass in sync with upstream changes from Bootstrap used to be an error prone and time consuming manual process.
+With Bootstrap 3 we have introduced a converter that automates this.
 
 Upstream changes to the Bootstrap project can now be pulled in using the `convert` rake task.
 
@@ -26,7 +23,7 @@ Here's an example run that would pull down the `3.0.0-wip` branch from the main 
 
     % bundle exec rake 'convert[3.0.0-wip]'
 
-The latest converter script is located [here](https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/tasks/converter.rb) and does the following:
+The latest converter script is located [here][converter] and does the following:
 
 * Converts upstream bootstrap LESS files to its matching SCSS file.
 * Copies all upstream JavaScript into `vendor/assets/javascripts/bootstrap`
@@ -36,5 +33,22 @@ The latest converter script is located [here](https://github.com/thomas-mcdonald
 This LESS to SCSS conversion is pretty good, but not perfect. So manual fixes to the resulting SCSS will be necessary for now.
 Please submit GitHub issues tagged with `conversion` to help track current shortcomings of the conversion process.
 
-## Who
-bootstrap-sass is a project by [Thomas McDonald](https://twitter.com/#!/thomasmcdonald_), with support from [other awesome people](https://github.com/thomas-mcdonald/bootstrap-sass/graphs/contributors).
+## Credits
+
+bootstrap-sass has a number of major contributors:
+
+<!-- feel free to make these link wherever you wish -->
+* [Thomas McDonald][tm]
+* Tristan Harward
+* Peter Gumeson
+* Gleb Mazovetskiy
+
+and a [significant number of other contributors][contrib].
+
+[bootstrap]: https://github.com/twbs/bootstrap
+[railsguide]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/docs/RAILS.md
+[compassguide]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/docs/COMPASS.md
+[sassguide]: #
+[converter]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/tasks/converter.rb
+[tm]: https://twitter.com/thomasmcdonald_
+[contrib]: https://github.com/thomas-mcdonald/bootstrap-sass/graphs/contributors
