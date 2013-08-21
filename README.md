@@ -46,8 +46,8 @@ bootstrap-sass has a number of major contributors:
 and a [significant number of other contributors][contrib].
 
 [bootstrap]: https://github.com/twbs/bootstrap
-[railsguide]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/docs/RAILS.md
-[compassguide]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/master/docs/COMPASS.md
+[railsguide]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/docs/RAILS.md
+[compassguide]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/docs/COMPASS.md
 [sassguide]: #
 [converter]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/tasks/converter.rb
 [tm]: https://twitter.com/thomasmcdonald_
