@@ -111,6 +111,7 @@ class Converter
         file = extract_nested_rule file, 'a&'
       when 'glyphicons.less'
         file = replace_rules(file, '@font-face') { |rule|
+          rule = replace_all rule, /(\$icon-font-\w+)/, '#{\1}'
           replace_all rule, /url\(/, 'font-url('
         }
       end
