@@ -19,7 +19,7 @@ With Bootstrap 3 we have introduced a converter that automates this.
 
 Upstream changes to the Bootstrap project can now be pulled in using the `convert` rake task.
 
-Here's an example run that would pull down the `3.0.0-wip` branch from the main twbs/bootstrap repo:
+Here's an example run that would pull down the `3.0.0-wip` branch from the main twbs/bootstrap repo (defaults to `master`):
 
     % bundle exec rake 'convert[3.0.0-wip]'
 
@@ -28,7 +28,8 @@ The latest converter script is located [here][converter] and does the following:
 * Converts upstream bootstrap LESS files to its matching SCSS file.
 * Copies all upstream JavaScript into `vendor/assets/javascripts/bootstrap`
 * Generates a javascript manifest at `vendor/assets/javascripts/bootstrap.js`
-* Copies all upstream font files into `vendor/assets/fonts`
+* Copies all upstream font files into `vendor/assets/fonts/bootstrap`
+* Sets `Bootstrap::BOOTSTRAP_SHA` in [version.rb][version] to the branch sha.
 
 This LESS to SCSS conversion is pretty good, but not perfect. So manual fixes to the resulting SCSS will be necessary for now.
 Please submit GitHub issues tagged with `conversion` to help track current shortcomings of the conversion process.
@@ -41,7 +42,7 @@ bootstrap-sass has a number of major contributors:
 * [Thomas McDonald][tm]
 * Tristan Harward
 * Peter Gumeson
-* Gleb Mazovetskiy
+* [Gleb Mazovetskiy][glebm]
 
 and a [significant number of other contributors][contrib].
 
@@ -51,4 +52,6 @@ and a [significant number of other contributors][contrib].
 [sassguide]: #
 [converter]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/tasks/converter.rb
 [tm]: https://twitter.com/thomasmcdonald_
+[glebm]: https://github.com/glebm
+[version]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/lib/bootstrap-sass/version.rb
 [contrib]: https://github.com/thomas-mcdonald/bootstrap-sass/graphs/contributors
