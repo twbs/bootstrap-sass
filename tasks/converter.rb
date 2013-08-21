@@ -333,7 +333,7 @@ class Converter
       replace_properties rule do |props|
         props.gsub /(?<!\w)([\w-]+):(.*?);/ do |m|
           prop, vals = $1, split_prop_val.call($2)
-          next m unless vals.length == 2 && vals.any? { |v| v =~ /^[\+\-]/ }
+          next m unless vals.length >= 2 && vals.any? { |v| v =~ /^[\+\-]\$/ }
           transformed = vals.map { |v| v.strip =~ %r(^\(.*\)$) ? v : "(#{v})" }
           log_transform "property #{prop}: #{transformed * ' '}"
           "#{prop}: #{transformed * ' '};"
