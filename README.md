@@ -31,8 +31,8 @@ The latest converter script is located [here][converter] and does the following:
 * Copies all upstream font files into `vendor/assets/fonts/bootstrap`
 * Sets `Bootstrap::BOOTSTRAP_SHA` in [version.rb][version] to the branch sha.
 
-This LESS to SCSS conversion is pretty good, but not perfect. So manual fixes to the resulting SCSS will be necessary for now.
-Please submit GitHub issues tagged with `conversion` to help track current shortcomings of the conversion process.
+This converter fully converts original LESS to SCSS. Conversion is automatic but requires instructions for certain transformations (see converter output for details).
+Please submit GitHub issues tagged with `conversion`.
 
 ## Credits
 
