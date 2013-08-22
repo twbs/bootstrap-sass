@@ -21,7 +21,7 @@ Upstream changes to the Bootstrap project can now be pulled in using the `conver
 
 Here's an example run that would pull down the `3.0.0-wip` branch from the main twbs/bootstrap repo (defaults to `master`):
 
-    % bundle exec rake 'convert[3.0.0-wip]'
+    bundle exec rake convert[3.0.0-wip]
 
 The latest converter script is located [here][converter] and does the following:
 
@@ -31,7 +31,7 @@ The latest converter script is located [here][converter] and does the following:
 * Copies all upstream font files into `vendor/assets/fonts/bootstrap`
 * Sets `Bootstrap::BOOTSTRAP_SHA` in [version.rb][version] to the branch sha.
 
-This converter fully converts original LESS to SCSS. Conversion is automatic but requires instructions for certain transformations (see converter output for details).
+This converter fully converts original LESS to SCSS. Conversion is automatic but requires instructions for certain transformations (see converter output).
 Please submit GitHub issues tagged with `conversion`.
 
 ## Credits
