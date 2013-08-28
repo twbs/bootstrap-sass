@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.3.2.2
+
+* Allow sass-rails `>= 3.2` - *Thomas McDonald*
+
+## 2.3.2.1
+
 ## 2.3.2.0
 
 * Update to Bootstrap 2.3.2 - *Dan Allen*

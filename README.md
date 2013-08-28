@@ -13,8 +13,8 @@ Enjoy.
 In your Gemfile:
 
 ```ruby
-gem 'sass-rails', '~> 3.2'
-gem 'bootstrap-sass', '~> 2.3.2.1'
+gem 'sass-rails', '=> 3.2'
+gem 'bootstrap-sass', '~> 2.3.2.2'
 ```
 
 `bundle install` and restart your server to make the files available.
@@ -117,7 +117,7 @@ Basically this means you should expect to append a separate patch version to the
 ### Bundler?
 
 ```ruby
-gem 'bootstrap-sass', '~> 2.3.2.1'
+gem 'bootstrap-sass', '~> 2.3.2.2'
 ```
 
 Don't use the standard `~> 2.x.y`. Your apps may break.
