@@ -4,7 +4,7 @@ module ActionView
       #
       # Creates the meta tag for Bootstrap with the specified parameters:
       #
-      #     <%= bootstrap_meta_tag %>
+      #     <%= viewport_meta_tag %>
       #
       # Renders:
       #
@@ -12,13 +12,13 @@ module ActionView
       #
       # You can change the content value by passing a hash as an argument:
       #
-      #     <%= bootstrap_meta_tag(:maximum_scale => "1.0") %>
+      #     <%= viewport_meta_tag(:maximum_scale => "1.0") %>
       #
       # Renders:
       #
       #     <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0" name="viewport" />
       #
-      def bootstrap_meta_tag(*args)
+      def viewport_meta_tag(*args)
         options = {
           width: "device-width",
           initial_scale: "1.0" }.merge(args[0] || {})
