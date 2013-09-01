@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'compass'
   s.add_development_dependency 'term-ansicolor'
   s.add_development_dependency 'sass-rails', '>= 3.2'
+  s.add_development_dependency 'actionpack', '~> 4'
   s.add_runtime_dependency     'sass',       '~> 3.2'
 
   s.files      = `git ls-files`.split("\n")
