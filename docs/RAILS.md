@@ -41,9 +41,9 @@ We have a helper that includes all Bootstrap javascripts. Put this in your Javas
 You can also load individual modules, provided you also require any dependencies. You can check dependencies in the [Bootstrap JS documentation][jsdocs].
 
 ```js
-//= require bootstrap-scrollspy
-//= require bootstrap-modal
-//= require bootstrap-dropdown
+//= require bootstrap/scrollspy
+//= require bootstrap/modal
+//= require bootstrap/dropdown
 ```
 
 [antirequire]: https://github.com/thomas-mcdonald/bootstrap-sass/issues/79#issuecomment-4428595
