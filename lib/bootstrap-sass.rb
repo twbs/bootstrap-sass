@@ -45,6 +45,7 @@ module Bootstrap
 
   def self.register_rails_engine
     require 'bootstrap-sass/engine'
+    require 'bootstrap-sass/form_helper'
   end
 end
 
