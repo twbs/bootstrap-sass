@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.0.0
+* Ported rake task from vwall/compass-twitter-bootstrap to convert Bootstrap upstream - *Peter Gumeson*
+* Moved javascripts from `bootstrap-component.js` to `bootstrap/component.js` - *Peter Gumeson*
+
 ## 2.3.2.2
 
 * Allow sass-rails `>= 3.2` - *Thomas McDonald*
