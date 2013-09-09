@@ -12,3 +12,4 @@ Gemfile.lock
 /vendor/bundle
 tmp/
 test/screenshots/
+test/dummy/log/test.log
