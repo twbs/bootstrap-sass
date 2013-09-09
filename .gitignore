@@ -11,3 +11,4 @@ Gemfile.lock
 /vendor/cache
 /vendor/bundle
 tmp/
+test/screenshots/
