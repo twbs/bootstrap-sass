@@ -54,11 +54,9 @@ bootstrap-sass is used to build some awesome projects all over the web, includin
 Michael Hartl's [Rails Tutorial](http://railstutorial.org/), [gitlabhq](http://gitlabhq.com/) and
 [kandan](http://kandanapp.com/).
 
-=======
 [railsguide]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/docs/RAILS.md
 [compassguide]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/docs/COMPASS.md
 [sassguide]: #
 [converter]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/tasks/converter.rb
 [version]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/lib/bootstrap-sass/version.rb
 [contrib]: https://github.com/thomas-mcdonald/bootstrap-sass/graphs/contributors
->>>>>>> 3
