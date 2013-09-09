@@ -577,7 +577,6 @@
     margin-left: percentage(($columns / $grid-columns));
   }
 }
-
 @mixin make-sm-column-push($columns) {
   @media (min-width: $screen-sm) {
     left: percentage(($columns / $grid-columns));
@@ -611,7 +610,6 @@
     margin-left: percentage(($columns / $grid-columns));
   }
 }
-
 @mixin make-md-column-push($columns) {
   @media (min-width: $screen-md) {
     left: percentage(($columns / $grid-columns));
