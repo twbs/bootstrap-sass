@@ -7,7 +7,7 @@
 In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `sass-rails` gem is present - it is added to new Rails applications by default
 
 ```ruby
-gem 'sass-rails', '=> 3.2' # sass-rails needs to be higher than 3.2
+gem 'sass-rails', '>= 3.2' # sass-rails needs to be higher than 3.2
 gem 'bootstrap-sass', '~> 2.3.2.1'
 ```
 
