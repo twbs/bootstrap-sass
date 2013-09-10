@@ -2,7 +2,13 @@ require 'capybara'
 module IntegrationTest
   include Capybara::DSL
 
+  def setup
+    super
+    %x[rm -rf test/dummy/tmp/cache]
+  end
+
   def teardown
+    super
     Capybara.reset_sessions!
     Capybara.use_default_driver
   end

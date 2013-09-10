@@ -7,7 +7,7 @@ class PagesTest < ActionDispatch::IntegrationTest
     visit root_path
     # ^ will raise on JS errors
 
-    assert_equal page.status_code, 200
+    assert_equal 200, page.status_code
 
     screenshot!
   end
