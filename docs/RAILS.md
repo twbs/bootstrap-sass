@@ -28,6 +28,15 @@ You can also include optional bootstrap theme:
 ```css
 @import "bootstrap/theme";
 ```
+A full list of bootstrap variables can be found [here](http://getbootstrap.com/customize/#less-variables). You can override these by simply redefining the variable before the `@import` directive.
+For example:
+```css
+$navbar-default-bg: #312312;
+$light-orange: #ff8c00;
+$navbar-default-color: $light-orange;
+
+@import "bootstrap";
+```
 
 ### Javascripts
 
