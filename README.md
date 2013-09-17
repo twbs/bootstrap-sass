@@ -67,6 +67,16 @@ You can also include optional bootstrap theme:
 @import "bootstrap/theme";
 ```
 
+The full list of bootstrap variables can be found [here](http://getbootstrap.com/customize/#less-variables). You can override these by simply redefining the variable before the `@import` directive.
+For example:
+```css
+$navbar-default-bg: #312312;
+$light-orange: #ff8c00;
+$navbar-default-color: $light-orange;
+
+@import "bootstrap";
+```
+
 For granular control over what is imported, instead of `@import "bootstrap"`, explicitly specify which modules and components should be included.
 
 Copy `bootstrap.scss` from the gem into the project's vendor/ as `bootstrap-custom.scss`.
