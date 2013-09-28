@@ -370,9 +370,9 @@ class Converter
       # insert param into mixin def
       mxn_css.sub!(/(@mixin [\w-]+)\(([\$\w\-,\s]*)\)/) { "#{$1}(#{param}#{', ' if $2 && !$2.empty?}#{$2})" }
       # wrap properties in #{$parent} { ... }
-      replace_properties(mxn_css) { |props| "  \#{#{param}} { #{props.strip} }\n  " }
+      replace_properties(mxn_css) { |props| props.strip.empty? ? props : "  \#{#{param}} { #{props.strip} }\n  " }
       # change nested& rules to nested#{$parent}
-      replace_rules(mxn_css, /.*[^\s ]&/) { |rule| replace_in_selector rule, /&/, "\#{#{param}}" }
+      replace_rules(mxn_css, /.*&[ ,]/) { |rule| replace_in_selector rule, /&/, "\#{#{param}}" }
     end
   end
 
@@ -643,8 +643,8 @@ class Converter
   RULE_CLOSE_BRACE_RE_REVERSE = /(?<![.'"])\}(?!\w)/
   BRACE_RE         = /#{RULE_OPEN_BRACE_RE}|#{RULE_CLOSE_BRACE_RE}/m
   BRACE_RE_REVERSE = /#{RULE_OPEN_BRACE_RE_REVERSE}|#{RULE_CLOSE_BRACE_RE_REVERSE}/m
-  SCSS_MIXIN_DEF_ARGS_RE = /[\w\-,\s$:#%]*/
-  LESS_MIXIN_DEF_ARGS_RE = /[\w\-,;\s@:#%]*/
+  SCSS_MIXIN_DEF_ARGS_RE = /[\w\-,\s$:#%()]*/
+  LESS_MIXIN_DEF_ARGS_RE = /[\w\-,;.\s@:#%()]*/
 
   # replace first level properties in the css with yields
   # replace_properties("a { color: white }") { |props| props.gsub 'white', 'red' }
