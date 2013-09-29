@@ -21,7 +21,13 @@ gem 'sass-rails', '>= 3.2' # sass-rails needs to be higher than 3.2
 gem 'bootstrap-sass', '~> 2.3.2.1'
 ```
 
-If you would like to use the beta Bootstrap 3 version of bootstrap-sass, use the master branch: `gem 'bootstrap-sass', :github => 'thomas-mcdonald/bootstrap-sass'`
+If you would like to use the beta Bootstrap 3 version of bootstrap-sass, use the master branch:
+
+```ruby
+# Experimental Bootstrap 3.0 beta -- use at your own risk.
+gem 'sass-rails', '>= 3.2'
+gem 'bootstrap-sass', :github => 'thomas-mcdonald/bootstrap-sass'
+```
 
 `bundle install` and restart your server to make the files available through the pipeline.
 
@@ -96,14 +102,15 @@ compass install bootstrap
 
 Raw Sass support is coming soon!
 
-## Development
+## Development and Contributing
 
 If you'd like to help with the development of bootstrap-sass itself, read this section.
 
 ### Upstream Converter
 
-Keeping bootstrap-sass in sync with upstream changes from Bootstrap used to be an error prone and time consuming manual process.
-With Bootstrap 3 we have introduced a converter that automates this.
+Keeping bootstrap-sass in sync with upstream changes from Bootstrap used to be an error prone and time consuming manual process. With Bootstrap 3 we have introduced a converter that automates this.
+
+**Note: if you're just looking to *use* Bootstrap 3, see the [installation](#installation) section above.**
 
 Upstream changes to the Bootstrap project can now be pulled in using the `convert` rake task.
 
