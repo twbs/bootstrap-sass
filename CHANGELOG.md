@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.2.3
+
+* Fix popover/tooltip selector option bug
+
 ## 2.3.2.2
 
 * Allow sass-rails `>= 3.2` - *Thomas McDonald*
