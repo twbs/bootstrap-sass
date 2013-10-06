@@ -6,18 +6,111 @@
 
 ## Installation and Usage
 
-Please see the appropriate guide for your environment of choice:
+Please see the appropriate guide for your environment of choice.
 
-* [Rails][railsguide]
-* [Compass][compassguide]
-* ---[Sass][sassguide]--- (*supported soon*)
+## Rails
 
-## Development
+`bootstrap-sass` is easy to drop into Rails with the asset pipeline.
+
+### Installation
+
+In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `sass-rails` gem is present - it is added to new Rails applications by default.
+
+```ruby
+gem 'sass-rails', '>= 3.2' # sass-rails needs to be higher than 3.2
+gem 'bootstrap-sass', '~> 2.3.2.1'
+```
+
+If you would like to use the beta Bootstrap 3 version of bootstrap-sass, use the master branch:
+
+```ruby
+# Experimental Bootstrap 3.0 beta -- use at your own risk.
+gem 'sass-rails', '>= 3.2'
+gem 'bootstrap-sass', :github => 'thomas-mcdonald/bootstrap-sass'
+```
+
+`bundle install` and restart your server to make the files available through the pipeline.
+
+### Usage
+
+#### CSS
+
+Import Bootstrap in an SCSS file (for example, `application.css.scss`) to get all of Bootstrap's styles, mixins and variables! We recommend against using `//= require` directives, since none of your other stylesheets will be [able to access][antirequire] the Bootstrap mixins or variables.
+
+```css
+@import "bootstrap";
+```
+
+You can also include optional bootstrap theme:
+
+```css
+@import "bootstrap/theme";
+```
+
+#### Javascript
+
+We have a helper that includes all Bootstrap javascripts. Put this in your Javascript manifest (usually in `application.js`) to
+
+```js
+// Loads all Bootstrap javascripts
+//= require bootstrap
+```
+
+You can also load individual modules, provided you also require any dependencies. You can check dependencies in the [Bootstrap JS documentation][jsdocs].
+
+```js
+//= require bootstrap/scrollspy
+//= require bootstrap/modal
+//= require bootstrap/dropdown
+```
+
+## Compass
+
+### New Compass Project
+
+Install the gem and create a new project using the gem.
+
+```console
+gem install bootstrap-sass
+compass create compass-project -r bootstrap-sass --using bootstrap
+```
+
+This will sort a few things out:
+
+* You'll get a starting `styles.scss` ready for your alterations, along with a copy of the variables file for easy modification.
+* You'll get a compiled stylesheet compiled & ready to drop into your application
+* We'll also copy the Bootstrap javascripts & images into their respective folders for you
+
+### Existing Compass Project
+
+Install the gem, add the require statement to the top of your configuration file, and install the extension.
+
+```console
+gem install bootstrap-sass
+```
+
+```ruby
+# In config.rb
+require 'bootstrap-sass'
+```
+
+```console
+compass install bootstrap
+```
+
+## Sass
+
+Raw Sass support is coming soon!
+
+## Development and Contributing
+
+If you'd like to help with the development of bootstrap-sass itself, read this section.
 
 ### Upstream Converter
 
-Keeping bootstrap-sass in sync with upstream changes from Bootstrap used to be an error prone and time consuming manual process.
-With Bootstrap 3 we have introduced a converter that automates this.
+Keeping bootstrap-sass in sync with upstream changes from Bootstrap used to be an error prone and time consuming manual process. With Bootstrap 3 we have introduced a converter that automates this.
+
+**Note: if you're just looking to *use* Bootstrap 3, see the [installation](#installation) section above.**
 
 Upstream changes to the Bootstrap project can now be pulled in using the `convert` rake task.
 
@@ -42,7 +135,7 @@ bootstrap-sass has a number of major contributors:
 
 <!-- feel free to make these link wherever you wish -->
 * [Thomas McDonald](https://twitter.com/thomasmcdonald_)
-* Tristan Harward
+* [Tristan Harward](http://www.trisweb.com)
 * Peter Gumeson
 * [Gleb Mazovetskiy](https://github.com/glebm)
 
@@ -54,9 +147,8 @@ bootstrap-sass is used to build some awesome projects all over the web, includin
 Michael Hartl's [Rails Tutorial](http://railstutorial.org/), [gitlabhq](http://gitlabhq.com/) and
 [kandan](http://kandanapp.com/).
 
-[railsguide]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/docs/RAILS.md
-[compassguide]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/docs/COMPASS.md
-[sassguide]: #
 [converter]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/tasks/converter.rb
 [version]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/lib/bootstrap-sass/version.rb
 [contrib]: https://github.com/thomas-mcdonald/bootstrap-sass/graphs/contributors
+[antirequire]: https://github.com/thomas-mcdonald/bootstrap-sass/issues/79#issuecomment-4428595
+[jsdocs]: http://getbootstrap.com/javascript/#transitions
