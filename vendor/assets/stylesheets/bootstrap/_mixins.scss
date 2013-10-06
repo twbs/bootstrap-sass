@@ -558,8 +558,7 @@
 // More easily include all the states for responsive-utilities.less.
 // [converter] $parent hack
 @mixin responsive-visibility($parent) {
-  #{$parent} {     display: block !important;
-   }
+  #{$parent} { display: block !important; }
   tr#{$parent} { display: table-row !important; }
   th#{$parent},
   td#{$parent} { display: table-cell !important; }
@@ -763,13 +762,11 @@
 
 // [converter] $parent hack
 @mixin input-size($parent, $input-height, $padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
-  #{$parent} {     height: $input-height;
+  #{$parent} { height: $input-height;
   padding: $padding-vertical $padding-horizontal;
   font-size: $font-size;
   line-height: $line-height;
-  border-radius: $border-radius;
-
-   }
+  border-radius: $border-radius; }
   select#{$parent} {
     height: $input-height;
     line-height: $input-height;
