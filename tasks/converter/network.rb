@@ -2,23 +2,16 @@ class Converter
   module Network
 
     def bootstrap_font_files
-      @bootstrap_font_files ||= begin
-        files = get_json "#{@git_data_api_host}/#@repo/git/trees/#{get_tree_sha('fonts')}"
-        files['tree'].select { |f| f['type'] == 'blob' && f['path'] =~ /\.(eot|svg|ttf|woff)$/ }.map { |f| f['path'] }
-      end
+      @bootstrap_font_files ||= get_paths_by_type('fonts', /\.(eot|svg|ttf|woff)$/)
     end
 
     def bootstrap_less_files
-      @bootstrap_less_files ||= begin
-        files = get_json "#{@git_data_api_host}/#@repo/git/trees/#{get_tree_sha('less')}"
-        files['tree'].select { |f| f['type'] == 'blob' && f['path'] =~ /\.less$/ }.map { |f| f['path'] }
-      end
+      @bootstrap_less_files ||= get_paths_by_type('less', /\.less$/)
     end
 
     def bootstrap_js_files
       @bootstrap_js_files ||= begin
-        files = get_json "#{@git_data_api_host}/#@repo/git/trees/#{get_tree_sha('js')}"
-        files = files['tree'].select { |f| f['type'] == 'blob' && f['path'] =~ /\.js$/ }.map { |f| f['path'] }
+        files = get_paths_by_type 'js', /\.js$/
         files.sort_by { |f|
           case f
             # tooltip depends on popover and must be loaded earlier
@@ -34,6 +27,11 @@ class Converter
     end
 
     protected
+
+    def get_paths_by_type(dir, file_re)
+      files = get_json "#{@git_data_api_host}/#@repo/git/trees/#{get_tree_sha(dir)}"
+      files['tree'].select { |f| f['type'] == 'blob' && f['path'] =~ file_re }.map { |f| f['path'] }
+    end
 
     def read_files(path, files)
       full_path = "#{@git_raw_host}/#@repo/#@branch_sha/#{path}"
