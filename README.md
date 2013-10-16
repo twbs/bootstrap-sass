@@ -4,15 +4,13 @@
 
 `bootstrap-sass` is an Sass-powered version of [Bootstrap](http://github.com/twbs/bootstrap), ready to drop right into your Sass powered applications.
 
-## Installation and Usage
+## Installation
 
-Please see the appropriate guide for your environment of choice.
+Please see the appropriate guide for your environment of choice:
 
-## Rails
+### a. Rails
 
 `bootstrap-sass` is easy to drop into Rails with the asset pipeline.
-
-### Installation
 
 In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `sass-rails` gem is present - it is added to new Rails applications by default.
 
@@ -26,10 +24,43 @@ If you would like to use the beta Bootstrap 3 version of bootstrap-sass, use the
 ```ruby
 # Experimental Bootstrap 3.0 beta -- use at your own risk.
 gem 'sass-rails', '>= 3.2'
-gem 'bootstrap-sass', :github => 'thomas-mcdonald/bootstrap-sass'
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 ```
 
 `bundle install` and restart your server to make the files available through the pipeline.
+
+## b. Compass (without Rails)
+
+Install the gem
+```console
+gem install bootstrap-sass
+```
+
+If you have an existing Compass project:
+
+```ruby
+# config.rb:
+require 'bootstrap-sass'
+```
+
+```console
+compass install bootstrap
+```
+
+If you are creating a new Compass project, you can generate it with bootstrap-sass support:
+
+```console
+compass create my-new-project -r bootstrap-sass --using bootstrap
+```
+
+This will create a new Compass project with the following files in it:
+
+[_variables.scss](/blob/master/templates/project/_variables.scss.erb) - all of bootstrap variables (override them here).
+[styles].scss(/blob/master/templates/project/styles.scss) - main project SCSS file. import `variables` and `bootstrap`.
+
+## Sass (without neither Compass nor Rails)
+
+Raw Sass support is coming soon!
 
 ### Usage
 
@@ -63,44 +94,6 @@ You can also load individual modules, provided you also require any dependencies
 //= require bootstrap/modal
 //= require bootstrap/dropdown
 ```
-
-## Compass
-
-### New Compass Project
-
-Install the gem and create a new project using the gem.
-
-```console
-gem install bootstrap-sass
-compass create compass-project -r bootstrap-sass --using bootstrap
-```
-
-This will sort a few things out:
-
-* You'll get a starting `styles.scss` ready for your alterations, along with a copy of the variables file for easy modification.
-* You'll get a compiled stylesheet compiled & ready to drop into your application
-* We'll also copy the Bootstrap javascripts & images into their respective folders for you
-
-### Existing Compass Project
-
-Install the gem, add the require statement to the top of your configuration file, and install the extension.
-
-```console
-gem install bootstrap-sass
-```
-
-```ruby
-# In config.rb
-require 'bootstrap-sass'
-```
-
-```console
-compass install bootstrap
-```
-
-## Sass
-
-Raw Sass support is coming soon!
 
 ## Development and Contributing
 
