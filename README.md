@@ -29,7 +29,7 @@ gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 
 `bundle install` and restart your server to make the files available through the pipeline.
 
-## b. Compass (without Rails)
+### b. Compass (no Rails)
 
 Install the gem
 ```console
@@ -55,16 +55,16 @@ compass create my-new-project -r bootstrap-sass --using bootstrap
 
 This will create a new Compass project with the following files in it:
 
-[_variables.scss](/blob/master/templates/project/_variables.scss.erb) - all of bootstrap variables (override them here).
-[styles].scss(/blob/master/templates/project/styles.scss) - main project SCSS file. import `variables` and `bootstrap`.
+* [_variables.scss](//templates/project/_variables.scss.erb) - all of bootstrap variables (override them here).
+* [styles.scss](/templates/project/styles.scss) - main project SCSS file, import `variables` and `bootstrap`.
 
-## Sass (without neither Compass nor Rails)
+### c. Sass (no Compass, no Rails)
 
 Raw Sass support is coming soon!
 
-### Usage
+## Usage
 
-#### CSS
+### CSS / SCSS / SASS
 
 Import Bootstrap in an SCSS file (for example, `application.css.scss`) to get all of Bootstrap's styles, mixins and variables! We recommend against using `//= require` directives, since none of your other stylesheets will be [able to access][antirequire] the Bootstrap mixins or variables.
 
@@ -78,7 +78,7 @@ You can also include optional bootstrap theme:
 @import "bootstrap/theme";
 ```
 
-#### Javascript
+### Javascript
 
 We have a helper that includes all Bootstrap javascripts. Put this in your Javascript manifest (usually in `application.js`) to
 
