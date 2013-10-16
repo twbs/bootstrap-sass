@@ -1,13 +1,13 @@
-description "Bootstrap for Sass"
+description 'Bootstrap for Sass'
 
 # Stylesheet importing bootstrap
 stylesheet 'styles.scss'
-stylesheet '_variables.scss'
 
-#
-# Other Bootstrap assets
-basedir = '../../vendor/assets'
+# SCSS:
+stylesheet '_variables.scss.erb', to: '_variables.scss', erb: true
 
+# JS:
+bs_javascripts = "../../vendor/assets/javascripts/bootstrap"
 %w(affix alert button carousel collapse dropdown modal popover scrollspy tab tooltip transition).each do |file|
-  javascript "#{basedir}/javascripts/bootstrap/#{file}.js", :to => "bootstrap/#{file}.js"
+  javascript "#{bs_javascripts}/#{file}.js", to: "bootstrap/#{file}.js"
 end
