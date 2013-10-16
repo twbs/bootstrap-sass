@@ -80,7 +80,8 @@ You can also include optional bootstrap theme:
 
 ### Javascript
 
-We have a helper that includes all Bootstrap javascripts. Put this in your Javascript manifest (usually in `application.js`) to
+We have a helper that includes all Bootstrap javascripts. If you use Rails (or Sprockets separately), 
+put this in your Javascript manifest (usually in `application.js`) to load the files in the [correct order](/vendor/assets/javascripts/bootstrap.js):
 
 ```js
 // Loads all Bootstrap javascripts
