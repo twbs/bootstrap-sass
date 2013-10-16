@@ -108,9 +108,14 @@ Keeping bootstrap-sass in sync with upstream changes from Bootstrap used to be a
 
 Upstream changes to the Bootstrap project can now be pulled in using the `convert` rake task.
 
-Here's an example run that would pull down the `3.0.0-wip` branch from the main twbs/bootstrap repo (defaults to `master`):
-
-    bundle exec rake convert[3.0.0-wip]
+Here's an example run that would pull down the master branch from the main [twbs/bootstrap](https://github.com/twbs/bootstrap) repo:
+    
+    rake convert
+    
+This will convert the latest LESS to SASS and update to the latest JS.
+To convert a specific branch or version, pass the branch name or the commit hash as the first task argument:
+    
+    rake convert[e8a1df5f060bf7e6631554648e0abde150aedbe4]
 
 The latest converter script is located [here][converter] and does the following:
 
