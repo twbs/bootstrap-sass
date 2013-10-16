@@ -5,10 +5,9 @@ rvm:
   - jruby
   - rbx-19mode
 gemfile:
+  - test/gemfiles/sass_3_3.gemfile
   - test/gemfiles/sass_3_2.gemfile
   - test/gemfiles/sass_head.gemfile
 matrix:
   allow_failures:
     - gemfile: test/gemfiles/sass_head.gemfile
-
-  
