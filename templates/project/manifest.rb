@@ -8,6 +8,7 @@ stylesheet '_variables.scss.erb', to: '_variables.scss', erb: true
 
 # JS:
 bs_javascripts = "../../vendor/assets/javascripts/bootstrap"
-%w(affix alert button carousel collapse dropdown modal popover scrollspy tab tooltip transition).each do |file|
-  javascript "#{bs_javascripts}/#{file}.js", to: "bootstrap/#{file}.js"
+Dir.glob File.expand_path("#{bs_javascripts}/*.js", File.dirname(__FILE__)) do |path|
+  file = File.basename(path)
+  javascript "#{bs_javascripts}/#{file}", to: "bootstrap/#{file}"
 end
