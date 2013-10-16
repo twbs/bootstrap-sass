@@ -55,7 +55,7 @@ compass create my-new-project -r bootstrap-sass --using bootstrap
 
 This will create a new Compass project with the following files in it:
 
-* [_variables.scss](//templates/project/_variables.scss.erb) - all of bootstrap variables (override them here).
+* [_variables.scss](/templates/project/_variables.scss.erb) - all of bootstrap variables (override them here).
 * [styles.scss](/templates/project/styles.scss) - main project SCSS file, import `variables` and `bootstrap`.
 
 ### c. Sass (no Compass, no Rails)
