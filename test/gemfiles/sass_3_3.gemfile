@@ -1,5 +1,5 @@
 source "https://rubygems.org"
 
-gem 'sass', '~> 3.3.0'
+gem 'sass', '~> 3.3.0.rc.1'
 
 gemspec path: '../../'
