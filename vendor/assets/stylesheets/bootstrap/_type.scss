@@ -7,13 +7,17 @@
 // -------------------------
 
 p {
-  margin: 0 0 ($line-height-base / 2);
+  margin: 0 0 ($line-height-computed / 2);
 }
 .lead {
-  margin-bottom: $line-height-base;
-  @include font-size(($font-size-base * 1.5));
+  margin-bottom: $line-height-computed;
+  font-size: ($font-size-base * 1.15);
   font-weight: 200;
-  line-height: 1.25;
+  line-height: 1.4;
+
+  @media (min-width: 768px) {
+    font-size: ($font-size-base * 1.5);
+  }
 }
 
 
@@ -23,27 +27,18 @@ p {
 // Ex: 14px base font * 85% = about 12px
 small   { font-size: 85%; }
 
-strong  { font-weight: bold; }
-em      { font-style: italic; }
+// Undo browser default styling
 cite    { font-style: normal; }
 
-// Utility classes
-.muted               { color: $grayLight; }
-a.muted:hover,
-a.muted:focus        { color: darken($grayLight, 10%); }
-
+// Contextual emphasis
+.text-muted          { color: $text-muted; }
+.text-primary        { color: $brand-primary; }
 .text-warning        { color: $state-warning-text; }
-a.text-warning:hover,
-a.text-warning:focus { color: darken($state-warning-text, 10%); }
-
-.text-error          { color: $state-error-text; }
-a.text-error:hover,
-a.text-error:focus   { color: darken($state-error-text, 10%); }
-
+.text-danger         { color: $state-danger-text; }
 .text-success        { color: $state-success-text; }
-a.text-success:hover,
-a.text-success:focus { color: darken($state-success-text, 10%); }
+.text-info           { color: $state-info-text; }
 
+// Alignment
 .text-left           { text-align: left; }
 .text-right          { text-align: right; }
 .text-center         { text-align: center; }
@@ -56,42 +51,37 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
-  line-height: $line-height-base;
-  text-rendering: optimizelegibility; // Fix the character spacing for headings
+  line-height: $headings-line-height;
   small {
     font-weight: normal;
     line-height: 1;
-    color: $grayLight;
+    color: $headings-small-color;
   }
 }
 
 h1,
 h2,
 h3 {
-  margin-top: $line-height-base;
-  margin-bottom: ($line-height-base / 2);
-  line-height: ($line-height-base * 2);
-}
-h3 {
-  line-height: ($line-height-base * 1.5);
+  margin-top: $line-height-computed;
+  margin-bottom: ($line-height-computed / 2);
 }
 h4,
 h5,
 h6 {
-  margin-top: ($line-height-base / 2);
-  margin-bottom: ($line-height-base / 2);
+  margin-top: ($line-height-computed / 2);
+  margin-bottom: ($line-height-computed / 2);
 }
 
-h1, .h1 { font-size: ($font-size-base * 2.75); font-size: 4rem; } // ~38px
-h2, .h2 { font-size: ($font-size-base * 2.25); font-size: 3rem; } // ~32px
-h3, .h3 { font-size: ($font-size-base * 1.75); font-size: 2.5rem; } // ~24px
-h4, .h4 { font-size: ($font-size-base * 1.25); font-size: 2rem; } // ~18px
-h5, .h5 { font-size:  $font-size-base; font-size: 1.6rem; }
-h6, .h6 { font-size: ($font-size-base * 0.85); font-size: 1.2rem; } // ~12px
+h1, .h1 { font-size: floor($font-size-base * 2.60); } // ~36px
+h2, .h2 { font-size: floor($font-size-base * 2.15); } // ~30px
+h3, .h3 { font-size: ceil($font-size-base * 1.70); } // ~24px
+h4, .h4 { font-size: ceil($font-size-base * 1.25); } // ~18px
+h5, .h5 { font-size:  $font-size-base; }
+h6, .h6 { font-size: ceil($font-size-base * 0.85); } // ~12px
 
-h1 small, .h1 small { font-size: ($font-size-base * 1.75); } // ~24px
-h2 small, .h2 small { font-size: ($font-size-base * 1.25); } // ~18px
-h3 small, .h3 small { font-size: $font-size-base; }
+h1 small, .h1 small { font-size: ceil($font-size-base * 1.70); } // ~24px
+h2 small, .h2 small { font-size: ceil($font-size-base * 1.25); } // ~18px
+h3 small, .h3 small,
 h4 small, .h4 small { font-size: $font-size-base; }
 
 
@@ -99,9 +89,9 @@ h4 small, .h4 small { font-size: $font-size-base; }
 // -------------------------
 
 .page-header {
-  padding-bottom: (($line-height-base / 2) - 1);
-  margin: ($line-height-base * 2) 0 $line-height-base;
-  border-bottom: 1px solid $grayLighter;
+  padding-bottom: (($line-height-computed / 2) - 1);
+  margin: ($line-height-computed * 2) 0 $line-height-computed;
+  border-bottom: 1px solid $page-header-border-color;
 }
 
 
@@ -112,37 +102,34 @@ h4 small, .h4 small { font-size: $font-size-base; }
 // Unordered and Ordered lists
 ul,
 ol {
-  padding: 0;
-  margin: 0 0 ($line-height-base / 2) 25px;
-}
-ul ul,
-ul ol,
-ol ol,
-ol ul {
-  margin-bottom: 0;
-}
-li {
-  line-height: $line-height-base;
+  margin-top: 0;
+  margin-bottom: ($line-height-computed / 2);
+  ul,
+  ol{
+    margin-bottom: 0;
+  }
 }
 
 // List options
-// Unstyled keeps list items block level, just removes list-style
-.list-unstyled,
-// Inline turns list items into inline-block
-.list-inline {
-  margin-left: 0;
+
+// Unstyled keeps list items block level, just removes default browser padding and list-style
+.list-unstyled {
+  padding-left: 0;
   list-style: none;
 }
-// Single-line list items
-.list-inline > li {
-  display: inline-block;
-  padding-left: 5px;
-  padding-right: 5px;
+// Inline turns list items into inline-block
+.list-inline {
+  @extend .list-unstyled;
+  > li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 
 // Description Lists
 dl {
-  margin-bottom: $line-height-base;
+  margin-bottom: $line-height-computed;
 }
 dt,
 dd {
@@ -152,41 +139,39 @@ dt {
   font-weight: bold;
 }
 dd {
-  margin-left: ($line-height-base / 2);
+  margin-left: 0; // Undo browser default
 }
-// Horizontal layout (like forms)
-.dl-horizontal {
-  @include clear_float(); // Ensure dl clears floats if empty dd elements present
-  dt {
-    float: left;
-    width: ($component-offset-horizontal - 20);
-    clear: left;
-    text-align: right;
-    @include text-overflow();
-  }
-  dd {
-    margin-left: $component-offset-horizontal;
+
+// Horizontal description lists
+//
+// Defaults to being stacked without any of the below styles applied, until the
+// grid breakpoint is reached (default of ~768px).
+
+@media (min-width: $grid-float-breakpoint) {
+  .dl-horizontal {
+    dt {
+      float: left;
+      width: ($component-offset-horizontal - 20);
+      clear: left;
+      text-align: right;
+      @include text-overflow();
+    }
+    dd {
+      margin-left: $component-offset-horizontal;
+      @include clearfix(); // Clear the floated `dt` if an empty `dd` is present
+    }
   }
 }
 
 // MISC
 // ----
 
-// Horizontal rules
-hr {
-  margin: $line-height-base 0;
-  border: 0;
-  border-top: 1px solid $hr-border;
-  border-bottom: 1px solid #fff;
-  border-bottom: 1px solid rgba(255,255,255,.5);
-}
-
 // Abbreviations and acronyms
 abbr[title],
-// Added data-* attribute to help out our tooltip plugin, per https://github.com/twitter/bootstrap/issues/5257
+// Added data-* attribute to help out our tooltip plugin, per https://github.com/twbs/bootstrap/issues/5257
 abbr[data-original-title] {
   cursor: help;
-  border-bottom: 1px dotted $grayLight;
+  border-bottom: 1px dotted $abbr-border-color;
 }
 abbr.initialism {
   font-size: 90%;
@@ -195,30 +180,31 @@ abbr.initialism {
 
 // Blockquotes
 blockquote {
-  padding: 0 0 0 15px;
-  margin: 0 0 $line-height-base;
-  border-left: 5px solid $grayLighter;
+  padding: ($line-height-computed / 2) $line-height-computed;
+  margin: 0 0 $line-height-computed;
+  border-left: 5px solid $blockquote-border-color;
   p {
-    margin-bottom: 0;
     font-size: ($font-size-base * 1.25);
     font-weight: 300;
     line-height: 1.25;
   }
+  p:last-child {
+    margin-bottom: 0;
+  }
   small {
     display: block;
     line-height: $line-height-base;
-    color: $grayLight;
+    color: $blockquote-small-color;
     &:before {
-      content: '\2014 \00A0';
+      content: '\2014 \00A0';// EM DASH, NBSP
     }
   }
 
   // Float right with text-align: right
   &.pull-right {
-    float: right;
     padding-right: 15px;
     padding-left: 0;
-    border-right: 5px solid $grayLighter;
+    border-right: 5px solid $blockquote-border-color;
     border-left: 0;
     p,
     small {
@@ -229,7 +215,7 @@ blockquote {
         content: '';
       }
       &:after {
-        content: '\00A0 \2014';
+        content: '\00A0 \2014';// NBSP, EM DASH
       }
     }
   }
@@ -246,7 +232,7 @@ blockquote:after {
 // Addresses
 address {
   display: block;
-  margin-bottom: $line-height-base;
+  margin-bottom: $line-height-computed;
   font-style: normal;
   line-height: $line-height-base;
 }
