@@ -1,5 +1,34 @@
 # Changelog
 
+## 3.0.0.0
+* Ported rake task from vwall/compass-twitter-bootstrap to convert Bootstrap upstream - *Peter Gumeson*
+* Moved javascripts from `bootstrap-component.js` to `bootstrap/component.js` - *Peter Gumeson*
+
+## 2.3.2.2
+
+* Allow sass-rails `>= 3.2` - *Thomas McDonald*
+
+## 2.3.2.1
+
+## 2.3.2.0
+
+* Update to Bootstrap 2.3.2 - *Dan Allen*
+
+## 2.3.1.3
+
+* Find the correct Sprockets context for the `image_path` function - *Tristan Harward, Gleb Mazovetskiy*
+
+## 2.3.1.2
+
+* Fix changes to image url - *Gleb Mazovetskiy*
+* Copy _variables into project on Compass install - *Phil Thompson*
+* Add `bootstrap-affix` to the Compass template file - *brief*
+
+## 2.3.1.1 (yanked)
+
+* Change how image_url is handled internally - *Tristan Harward*
+* Fix some font variables not having `!default` - *Thomas McDonald*
+
 ## 2.3.0.0
 * [#290] Update to Bootstrap 2.3.0 - *Tristan Harward*
 * Fix `rake:debug` with new file locations - *Thomas McDonald*

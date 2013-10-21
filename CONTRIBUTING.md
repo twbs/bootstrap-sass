@@ -1,4 +1,12 @@
-# Contributing to bootstrap-sass 
+# Contributing to bootstrap-sass
+
+## Asset Changes
+
+Any changes to `bootstrap-sass` assets (scss, javascripts, fonts) should be checked against the `convert` rake task.
+For usage instructions, see the [README](https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/README.md).
+
+If something is broken in the converter, it's preferable to update the converter along with the asset itself.
+
 
 ## Bugs
 
@@ -8,7 +16,7 @@ repository. Good bug reports are extremely helpful - thank you!
 Guidelines for bug reports:
 
 1. **Does it belong here?** &mdash; is this a problem with bootstrap-sass, or
-   it an issue with [twitter/bootstrap](https://github.com/twitter/bootstrap)?
+   it an issue with [twbs/bootstrap](https://github.com/twbs/bootstrap)?
    We only distribute a direct port and will not modify files if they're not
    changed upstream.
 
@@ -49,7 +57,7 @@ Example:
 
 **We will not accept pull requests that modify the SCSS beyond fixing bugs caused by *our* code!**
 
-Most pull requests should go to [twitter/bootstrap](https://github.com/twitter/bootstrap) or [jlong/sass-twitter-bootstrap](https://github.com/jlong/sass-twitter-bootstrap)
+Most pull requests should go to [twbs/bootstrap](https://github.com/twbs/bootstrap) or [jlong/sass-twitter-bootstrap](https://github.com/jlong/sass-twitter-bootstrap)
 
 Good pull requests - patches, improvements, new features - are a fantastic
 help. They should remain focused in scope and avoid containing unrelated

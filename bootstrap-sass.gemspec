@@ -1,6 +1,10 @@
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'bootstrap-sass/version'
+
 Gem::Specification.new do |s|
   s.name = "bootstrap-sass"
-  s.version = '2.3.1.0'
+  s.version = Bootstrap::VERSION
   s.authors = ["Thomas McDonald"]
   s.email = 'tom@conceptcoding.co.uk'
   s.summary = "Twitter's Bootstrap, converted to Sass and ready to drop into Rails or Compass"
@@ -8,8 +12,17 @@ Gem::Specification.new do |s|
   s.license = "Apache 2.0"
 
   s.add_development_dependency 'compass'
-  s.add_development_dependency 'sass-rails', '~> 3.2'
+  s.add_development_dependency 'term-ansicolor'
+  s.add_development_dependency 'sass-rails', '>= 3.2'
   s.add_runtime_dependency     'sass',       '~> 3.2'
 
-  s.files = Dir["vendor/**/*.{scss,js,png}"] + Dir["lib/**/*"] + Dir["templates/**/*"] + ["README.md", "LICENSE"]
+
+  s.add_development_dependency 'capybara'
+  s.add_development_dependency 'poltergeist'
+  s.add_development_dependency 'tzinfo'
+  s.add_development_dependency 'jquery-rails'
+  s.add_development_dependency 'slim-rails'
+
+  s.files      = `git ls-files`.split("\n")
+  s.test_files = `git ls-files -- test/*`.split("\n")
 end

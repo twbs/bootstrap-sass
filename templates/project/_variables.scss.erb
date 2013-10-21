@@ -1,0 +1,6 @@
+<% require 'bootstrap-sass/version' %>
+// Override Bootstrap variables here (defaults copied from bootstrap-sass version <%= Bootstrap::VERSION %>):
+<%=
+    scss = File.read('vendor/assets/stylesheets/bootstrap/_variables.scss')
+    scss.gsub(/^(?=\$)/, '//').gsub(/ !default/, '')
+%>

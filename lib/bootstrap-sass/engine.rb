@@ -1,7 +1,9 @@
 module Bootstrap
   module Rails
     class Engine < ::Rails::Engine
-      # Rails, will you please look in our vendor? kthx
+      initializer "bootstrap-sass.assets.precompile" do |app|
+        app.config.assets.precompile << %r(bootstrap/glyphicons-halflings-regular\.(?:eot|svg|ttf|woff)$)
+      end
     end
   end
 end
