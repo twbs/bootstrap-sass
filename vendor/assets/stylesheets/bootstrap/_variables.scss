@@ -216,7 +216,8 @@ $screen-lg:                  1200px !default;
 $screen-lg-desktop:          $screen-lg !default;
 
 // So media queries don't overlap when required, provide a maximum
-$screen-xs-max:              ($screen-sm - 1) !default;
+$screen-xs-max:              ($screen-xs - 1) !default;
+$screen-ms-max:              ($screen-sm - 1) !default;
 $screen-sm-max:              ($screen-md - 1) !default;
 $screen-md-max:              ($screen-lg - 1) !default;
 

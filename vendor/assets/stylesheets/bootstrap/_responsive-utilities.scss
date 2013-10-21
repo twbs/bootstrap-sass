@@ -40,6 +40,10 @@
   @include responsive-visibility('.visible-xs');
 }
 
+@media (min-width: $screen-ms) and (max-width: $screen-ms-max) {
+  @include responsive-visibility('.visible-xs.visible-sm');
+}
+
 @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
   @include responsive-visibility('.visible-xs.visible-sm');
 }
