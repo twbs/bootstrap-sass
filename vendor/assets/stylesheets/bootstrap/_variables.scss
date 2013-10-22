@@ -200,23 +200,27 @@ $zindex-modal:             1050 !default;
 // --------------------------------------------------
 
 // Extra small screen / phone
-$screen-xs:                  480px !default;
-$screen-phone:               $screen-xs !default;
+$screen-ms-min:              480px !default;
+$screen-ms:                  $screen-ms-min !default; // deprecated as of v3.0.1
+$screen-phone:               $screen-ms-min !default; // deprecated as of v3.0.1
 
 // Small screen / tablet
-$screen-sm:                  768px !default;
-$screen-tablet:              $screen-sm !default;
+$screen-sm-min:              768px !default;
+$screen-sm:                  $screen-sm-min !default; // deprecated as of v3.0.1
+$screen-tablet:              $screen-sm-min !default; // deprecated as of v3.0.1
 
 // Medium screen / desktop
-$screen-md:                  992px !default;
-$screen-desktop:             $screen-md !default;
+$screen-md-min:              992px !default;
+$screen-md:                  $screen-md-min !default; // deprecated as of v3.0.1
+$screen-desktop:             $screen-md-min !default; // deprecated as of v3.0.1
 
 // Large screen / wide desktop
-$screen-lg:                  1200px !default;
-$screen-lg-desktop:          $screen-lg !default;
+$screen-lg-min:              1200px !default;
+$screen-lg:                  $screen-lg-min !default; // deprecated as of v3.0.1
+$screen-lg-desktop:          $screen-lg-min !default; // deprecated as of v3.0.1
 
 // So media queries don't overlap when required, provide a maximum
-$screen-xs-max:              ($screen-xs - 1) !default;
+$screen-xs-max:              ($screen-ms - 1) !default;
 $screen-ms-max:              ($screen-sm - 1) !default;
 $screen-sm-max:              ($screen-md - 1) !default;
 $screen-md-max:              ($screen-lg - 1) !default;

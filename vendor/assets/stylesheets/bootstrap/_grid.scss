@@ -26,6 +26,18 @@
 .col-xs-10,
 .col-xs-11,
 .col-xs-12,
+.col-ms-1,
+.col-ms-2,
+.col-ms-3,
+.col-ms-4,
+.col-ms-5,
+.col-ms-6,
+.col-ms-7,
+.col-ms-8,
+.col-ms-9,
+.col-ms-10,
+.col-ms-11,
+.col-ms-12, 
 .col-sm-1,
 .col-sm-2,
 .col-sm-3,
@@ -110,27 +122,10 @@
 //
 // An additional set of breakpoints to target sizes in between 'xs' and 'sm'
 
-.col-ms-1,
-.col-ms-2,
-.col-ms-3,
-.col-ms-4,
-.col-ms-5,
-.col-ms-6,
-.col-ms-7,
-.col-ms-8,
-.col-ms-9,
-.col-ms-10,
-.col-ms-11,
-.col-ms-12 {
-  position: relative;
-  min-height: 1px;
-  padding-left: ($grid-gutter-width / 2);
-  padding-right: ($grid-gutter-width / 2);
-}
- 
-
 @media (min-width: 480px) {
-
+  .container {
+    max-width: $container-phone;
+  }
   .col-ms-1,
   .col-ms-2,
   .col-ms-3,
