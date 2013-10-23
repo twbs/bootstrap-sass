@@ -4,7 +4,11 @@ description 'Bootstrap for Sass'
 stylesheet 'styles.scss'
 
 # SCSS:
-stylesheet '_variables.scss.erb', to: '_variables.scss', erb: true
+bs_stylesheets = "../../vendor/assets/stylesheets/bootstrap"
+Dir.glob File.expand_path("#{bs_stylesheets}/_variables.scss", File.dirname(__FILE__)) do |path|
+    file = File.basename(path)
+    stylesheet "#{bs_stylesheets}/#{file}", to: "bootstrap/#{file}"
+end
 
 # JS:
 bs_javascripts = "../../vendor/assets/javascripts/bootstrap"
