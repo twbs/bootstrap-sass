@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
 gem 'sass', github: 'nex3/sass'
-gem 'compass', '~> 0.13.alpha.10'
+gem 'compass', '~> 0.12.2'
 
 gemspec path: '../../'
