@@ -4,7 +4,7 @@ description 'Bootstrap for Sass'
 stylesheet 'styles.scss'
 
 # SCSS:
-stylesheet '_variables.scss.erb', to: '_variables.scss', erb: true
+stylesheet '_variables.scss'
 
 # JS:
 bs_javascripts = "../../vendor/assets/javascripts/bootstrap"
