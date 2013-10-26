@@ -70,8 +70,11 @@ class Converter
             # extract .close { button& {...} } rule
             file = extract_nested_rule file, 'button&'
           when 'modals.less'
-            file = replace_all file, /body&,(.*?)(\{.*?\})/m, "\\1\\2\nbody& \\2"
-            file = extract_nested_rule file, 'body&'
+            # pre 3.0.1:
+            if file =~ /body&,/
+             file = replace_all file, /body&,(.*?)(\{.*?\})/m, "\\1\\2\nbody& \\2"
+             file = extract_nested_rule file, 'body&'
+            end
           when 'dropdowns.less'
             file = replace_all file, /(\s*)@extend \.pull-right-dropdown-menu;/, "\\1right: 0;\\1left: auto;"
           when 'forms.less'
