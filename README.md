@@ -67,6 +67,25 @@ You can also include optional bootstrap theme:
 @import "bootstrap/theme";
 ```
 
+For granular control over what is imported, instead of `@import "bootstrap"`, explicitly specify which modules and components should be included.
+
+Copy `bootstrap.scss` from the gem into the project's vendor/ as `bootstrap-custom.scss`.
+
+```bash
+cp $(bundle show bootstrap-sass)/vendor/assets/stylesheets/bootstrap/bootstrap.scss \
+   vendor/assets/stylesheets/bootstrap-custom.scss
+```
+
+Comment out the import statements you do not need from `bootstrap-custom.scss`.
+
+Finally, in your `application.sass`:
+
+```scss
+  @import 'bootstrap-custom';
+```
+
+NB: This file now needs to be manually kept up to date with structural changes from upstream.
+
 ### Javascript
 
 We have a helper that includes all Bootstrap javascripts. If you use Rails (or Sprockets separately), 
