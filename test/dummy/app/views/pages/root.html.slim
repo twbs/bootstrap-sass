@@ -2,10 +2,18 @@
   .panel.panel-primary
     h1 Dummy App
     .row
-      .col-sm-6
+      .col-sm-3
+        h2 3 columns
         ul.list-group
           li.list-group-item: a href='#one' One
           li.list-group-item: a href='#two' Two
           li.list-group-item: a href='#three' Three
-      .col-sm-6
+      .col-sm-3
+        h2 3 columns
         button.btn.btn-primary type='button' Button
+      .col-sm-6
+        h2 6 columns
+        .panel.panel-primary
+          .row
+            .col-xs-4.col-xs-push-4
+              .panel.panel-default: h3 This is col-xs-4 col-xs-push-4

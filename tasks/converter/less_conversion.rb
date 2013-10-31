@@ -40,6 +40,7 @@ class Converter
 
       # read common mixin definitions (incl. nested mixins) from mixins.less
       read_shared_mixins! files['mixins.less']
+      @shared_mixins << 'make-grid'
 
       # convert each file
       files.each do |name, file|
@@ -59,6 +60,7 @@ class Converter
             file = replace_all file, /\.\$state/, '.#{$state}'
             file = replace_all file, /,\s*\.open \.dropdown-toggle& \{(.*?)\}/m,
                                " {\\1}\n  .open & { &.dropdown-toggle {\\1} }"
+            file = convert_grid_mixins file
           when 'responsive-utilities.less'
             file = apply_mixin_parent_selector(file, '&\.(visible|hidden)')
             file = apply_mixin_parent_selector(file, '(?<!&)\.(visible|hidden)')
@@ -118,6 +120,53 @@ class Converter
       file        = convert_less_ampersand(file)
       file        = deinterpolate_vararg_mixins(file)
       file        = replace_calculation_semantics(file)
+      file
+    end
+
+    # convert grid mixins LESS when => SASS @if
+    def convert_grid_mixins(file)
+      file = replace_rules file, /@mixin make-grid-columns/, comments: false do |css, pos|
+        mxn_def = css.each_line.first
+        classes = if css =~ /-columns-float/
+                    '.col-#{$class}-#{$i}'
+                  else
+                    '.col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}'
+                  end
+        body = (css =~ /\$list \{\n(.*?)\n[ ]*\}/m) && $1
+        unindent <<-SASS, 8
+        // [converter] Grid converted to use SASS cycles (LESS uses recursive nested mixin defs not supported by SASS)
+        #{mxn_def.strip}
+          $list: '';
+          @for $i from 1 to $grid-columns {
+            $list: "#{classes}, \#{$list}";
+          }
+          $i: $grid-columns;
+          $list: "\#{$list}, #{classes}";
+          \#{$list} {
+        #{unindent body}
+          }
+        }
+        SASS
+      end
+      file = replace_rules file, /@mixin calc-grid/ do |css|
+        css = indent css.gsub(/.*when \((.*?)\) {/, '@if \1 {').gsub(/(?<=\$type) = (\w+)/, ' == \1').gsub(/(?<=-)(\$[a-z]+)/, '#{\1}')
+        if css =~ /== width/
+          css = "@mixin calc-grid($index, $class, $type) {\n#{css}"
+        elsif css =~ /== offset/
+          css += "\n}"
+        end
+        css
+      end
+      file = replace_rules file, /@mixin make-grid\(/ do |css|
+        unindent <<-SASS, 8
+        // [converter] This is defined recursively in LESS, but SASS supports real loops
+        @mixin make-grid($columns, $class, $type) {
+          @for $i from 1 through $columns {
+            @include calc-grid($i, $class, $type);
+          }
+        }
+        SASS
+      end
       file
     end
 
@@ -385,7 +434,8 @@ class Converter
 
     # indent by n spaces
     def indent(txt, n = 2)
-      "#{' ' * n}#{txt}"
+      spaces = ' ' * n
+      txt.gsub /^/, spaces
     end
 
     # get indent length from the first line of txt

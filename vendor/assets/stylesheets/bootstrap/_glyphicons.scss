@@ -14,7 +14,7 @@
   src: font-url('#{$icon-font-path}#{$icon-font-name}.eot?#iefix') format('embedded-opentype'),
        font-url('#{$icon-font-path}#{$icon-font-name}.woff') format('woff'),
        font-url('#{$icon-font-path}#{$icon-font-name}.ttf') format('truetype'),
-       font-url('#{$icon-font-path}#{$icon-font-name}.svg#glyphicons-halflingsregular') format('svg');
+       font-url('#{$icon-font-path}#{$icon-font-name}.svg#glyphicons_halflingsregular') format('svg');
 }
 
 // Catchall baseclass
@@ -27,8 +27,9 @@
   font-weight: normal;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-  &:empty{
+  &:empty {
     width: 1em;
   }
 }
