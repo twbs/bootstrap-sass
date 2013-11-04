@@ -57,19 +57,19 @@ This will create a new Compass project with the following files in it:
 
 Import Bootstrap in an SCSS file (for example, `application.css.scss`) to get all of Bootstrap's styles, mixins and variables! We recommend against using `//= require` directives, since none of your other stylesheets will be [able to access][antirequire] the Bootstrap mixins or variables.
 
-```css
+```scss
 @import "bootstrap";
 ```
 
 You can also include optional bootstrap theme:
 
-```css
+```scss
 @import "bootstrap/theme";
 ```
 
 The full list of bootstrap variables can be found [here](http://getbootstrap.com/customize/#less-variables). You can override these by simply redefining the variable before the `@import` directive.
 For example:
-```css
+```scss
 $navbar-default-bg: #312312;
 $light-orange: #ff8c00;
 $navbar-default-color: $light-orange;
