@@ -754,10 +754,10 @@
 @mixin make-grid-columns() {
   $list: '';
   @for $i from 1 to $grid-columns {
-    $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}, #{$list}";
+    $list: ".col-xs-#{$i}, .col-ms-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}, #{$list}";
   }
   $i: $grid-columns;
-  $list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
+  $list: "#{$list}, .col-xs-#{$i}, .col-ms-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
   #{$list} {
     position: relative;
     // Prevent columns from collapsing when empty
