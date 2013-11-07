@@ -1,8 +1,10 @@
 # Changelog
 
 ## 3.0.0.0
+
+* Fully automated (lots of string juggling) LESS -> Sass conversion. - *Gleb Mazovetskiy*
 * Ported rake task from vwall/compass-twitter-bootstrap to convert Bootstrap upstream - *Peter Gumeson*
-* Moved javascripts from `bootstrap-component.js` to `bootstrap/component.js` - *Peter Gumeson*
+* Moved javascripts to us `bootstrap-component.js` to `bootstrap/component.js` - *Peter Gumeson*
 
 ## 2.3.2.2
 

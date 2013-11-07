@@ -15,12 +15,17 @@ module Bootstrap
       register_rails_engine
     end
 
-    if !(rails? || compass?)
-      raise Bootstrap::FrameworkNotFound, "bootstrap-sass requires either Rails > 3.1 or Compass, neither of which are loaded"
+    unless rails? || compass?
+      raise Bootstrap::FrameworkNotFound,
+            'bootstrap-sass requires either Rails > 3.1 or Compass, neither of which are loaded'
     end
-    
-    stylesheets = File.expand_path(File.join("..", 'vendor', 'assets', 'stylesheets'))
-    ::Sass.load_paths << stylesheets
+
+    bs_stylesheets = File.expand_path(File.join('..', 'vendor', 'assets', 'stylesheets'))
+    ::Sass.load_paths << bs_stylesheets
+    if ::Sass::Script::Number.precision < 10
+      # see https://github.com/thomas-mcdonald/bootstrap-sass/issues/409
+      ::Sass::Script::Number.precision = 10
+    end
   end
 
   private

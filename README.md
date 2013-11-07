@@ -16,15 +16,7 @@ In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `s
 
 ```ruby
 gem 'sass-rails', '>= 3.2' # sass-rails needs to be higher than 3.2
-gem 'bootstrap-sass', '~> 2.3.2.1'
-```
-
-If you would like to use the beta Bootstrap 3 version of bootstrap-sass, use the master branch:
-
-```ruby
-# Experimental Bootstrap 3.0 beta -- use at your own risk.
-gem 'sass-rails', '>= 3.2'
-gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.0.1.0.rc'
 ```
 
 `bundle install` and restart your server to make the files available through the pipeline.
@@ -33,7 +25,7 @@ gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 
 Install the gem
 ```console
-gem install bootstrap-sass
+gem install bootstrap-sass --pre
 ```
 
 If you have an existing Compass project:
@@ -58,9 +50,6 @@ This will create a new Compass project with the following files in it:
 * [_variables.scss](/templates/project/_variables.scss.erb) - all of bootstrap variables (override them here).
 * [styles.scss](/templates/project/styles.scss) - main project SCSS file, import `variables` and `bootstrap`.
 
-### c. Sass (no Compass, no Rails)
-
-Raw Sass support is coming soon!
 
 ## Usage
 
@@ -68,15 +57,44 @@ Raw Sass support is coming soon!
 
 Import Bootstrap in an SCSS file (for example, `application.css.scss`) to get all of Bootstrap's styles, mixins and variables! We recommend against using `//= require` directives, since none of your other stylesheets will be [able to access][antirequire] the Bootstrap mixins or variables.
 
-```css
+```scss
 @import "bootstrap";
 ```
 
 You can also include optional bootstrap theme:
 
-```css
+```scss
 @import "bootstrap/theme";
 ```
+
+The full list of bootstrap variables can be found [here](http://getbootstrap.com/customize/#less-variables). You can override these by simply redefining the variable before the `@import` directive.
+For example:
+```scss
+$navbar-default-bg: #312312;
+$light-orange: #ff8c00;
+$navbar-default-color: $light-orange;
+
+@import "bootstrap";
+```
+
+For granular control over what is imported, instead of `@import "bootstrap"`, explicitly specify which modules and components should be included.
+
+Copy `bootstrap.scss` from the gem into the project's vendor/ as `bootstrap-custom.scss`.
+
+```bash
+cp $(bundle show bootstrap-sass)/vendor/assets/stylesheets/bootstrap/bootstrap.scss \
+   vendor/assets/stylesheets/bootstrap-custom.scss
+```
+
+Comment out the import statements you do not need from `bootstrap-custom.scss`.
+
+Finally, in your `application.sass`:
+
+```scss
+  @import 'bootstrap-custom';
+```
+
+NB: This file now needs to be manually kept up to date with structural changes from upstream.
 
 ### Javascript
 
