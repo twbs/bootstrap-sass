@@ -31,7 +31,7 @@ module Bootstrap
   private
 
   def self.gem_path
-    @gem_path ||= File.expand_path File.join('..', '..'), File.dirname(__FILE__)
+    @gem_path ||= File.expand_path File.join('..'), File.dirname(__FILE__)
   end
 
   def self.asset_pipeline?
