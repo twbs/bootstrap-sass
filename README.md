@@ -16,7 +16,7 @@ In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `s
 
 ```ruby
 gem 'sass-rails', '>= 3.2' # sass-rails needs to be higher than 3.2
-gem 'bootstrap-sass', '~> 3.0.1.0.rc'
+gem 'bootstrap-sass', '~> 3.0.2.0'
 ```
 
 `bundle install` and restart your server to make the files available through the pipeline.
@@ -24,8 +24,8 @@ gem 'bootstrap-sass', '~> 3.0.1.0.rc'
 ### b. Compass (no Rails)
 
 Install the gem
-```console
-gem install bootstrap-sass --pre
+```sh
+gem install bootstrap-sass
 ```
 
 If you have an existing Compass project:
