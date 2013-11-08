@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/thomas-mcdonald/bootstrap-sass.png?branch=master)](http://travis-ci.org/thomas-mcdonald/bootstrap-sass) [![Code Climate](https://codeclimate.com/github/thomas-mcdonald/bootstrap-sass.png)](https://codeclimate.com/github/thomas-mcdonald/bootstrap-sass)
 
-`bootstrap-sass` is an Sass-powered version of [Bootstrap](http://github.com/twbs/bootstrap), ready to drop right into your Sass powered applications.
+`bootstrap-sass` is a Sass-powered version of [Bootstrap](http://github.com/twbs/bootstrap), ready to drop right into your Sass powered applications.
 
 ## Installation
 
@@ -53,12 +53,10 @@ This will create a new Compass project with the following files in it:
 
 ## Usage
 
-This project is a direct semi-automated conversion of [twbs/bootstrap](https://github.com/twbs/bootstrap).
-Use the original [bootstrap documentation](http://getbootstrap.com/css/).
+### Sass
 
-### CSS / SCSS / SASS
-
-Import Bootstrap in an SCSS file (for example, `application.css.scss`) to get all of Bootstrap's styles, mixins and variables! We recommend against using `//= require` directives, since none of your other stylesheets will be [able to access][antirequire] the Bootstrap mixins or variables.
+Import Bootstrap into a Sass file (for example, `application.css.scss`) to get all of Bootstrap's styles, mixins and variables!
+We recommend against using `//= require` directives, since none of your other stylesheets will be [able to access][antirequire] the Bootstrap mixins or variables.
 
 ```scss
 @import "bootstrap";
@@ -80,24 +78,20 @@ $navbar-default-color: $light-orange;
 @import "bootstrap";
 ```
 
-For granular control over what is imported, instead of `@import "bootstrap"`, explicitly specify which modules and components should be included.
-
-Copy `bootstrap.scss` from the gem into the project's vendor/ as `bootstrap-custom.scss`.
+You can also import components explicitly. To start with a full list of modules copy this file from the gem:
 
 ```bash
 cp $(bundle show bootstrap-sass)/vendor/assets/stylesheets/bootstrap/bootstrap.scss \
    vendor/assets/stylesheets/bootstrap-custom.scss
 ```
 
-Comment out the import statements you do not need from `bootstrap-custom.scss`.
-
-Finally, in your `application.sass`:
+In your `application.sass`, replace `@import 'bootstrap'` with:
 
 ```scss
   @import 'bootstrap-custom';
 ```
 
-NB: This file now needs to be manually kept up to date with structural changes from upstream.
+Comment out any modules you don't need from `bootstrap-custom`.
 
 ### Javascript
 
