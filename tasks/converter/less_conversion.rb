@@ -71,12 +71,6 @@ class Converter
           when 'close.less'
             # extract .close { button& {...} } rule
             file = extract_nested_rule file, 'button&'
-          when 'modals.less'
-            # pre 3.0.1:
-            if file =~ /body&,/
-             file = replace_all file, /body&,(.*?)(\{.*?\})/m, "\\1\\2\nbody& \\2"
-             file = extract_nested_rule file, 'body&'
-            end
           when 'dropdowns.less'
             file = replace_all file, /(\s*)@extend \.pull-right-dropdown-menu;/, "\\1right: 0;\\1left: auto;"
           when 'forms.less'
@@ -86,7 +80,7 @@ class Converter
             file = replace_all file, /(\s*)\.navbar-(right|left)\s*\{\s*@extend\s*\.pull-(right|left);\s*/, "\\1.navbar-\\2 {\\1  float: \\2 !important;\\1"
           when 'tables.less'
             file = replace_all file, /(@include\s*table-row-variant\()(\w+)/, "\\1'\\2'"
-          when 'list-group.less'
+          when 'thumbnails.less'
             file = extract_nested_rule file, 'a&'
           when 'glyphicons.less'
             file = replace_rules(file, '@font-face') { |rule|
@@ -137,11 +131,11 @@ class Converter
         // [converter] Grid converted to use SASS cycles (LESS uses recursive nested mixin defs not supported by SASS)
         #{mxn_def.strip}
           $list: '';
-          @for $i from 1 to $grid-columns {
+          $i: 1;
+          $list: "#{classes}";
+          @for $i from 2 through $grid-columns {
             $list: "#{classes}, \#{$list}";
           }
-          $i: $grid-columns;
-          $list: "\#{$list}, #{classes}";
           \#{$list} {
         #{unindent body}
           }
@@ -149,7 +143,7 @@ class Converter
         SASS
       end
       file = replace_rules file, /@mixin calc-grid/ do |css|
-        css = indent css.gsub(/.*when \((.*?)\) {/, '@if \1 {').gsub(/(?<=\$type) = (\w+)/, ' == \1').gsub(/(?<=-)(\$[a-z]+)/, '#{\1}')
+        css = indent css.gsub(/.*when (.*?) {/, '@if \1 {').gsub(/(?<=\$type) = (\w+)/, ' == \1').gsub(/(?<=-)(\$[a-z]+)/, '#{\1}')
         if css =~ /== width/
           css = "@mixin calc-grid($index, $class, $type) {\n#{css}"
         elsif css =~ /== offset/
@@ -161,7 +155,7 @@ class Converter
         unindent <<-SASS, 8
         // [converter] This is defined recursively in LESS, but SASS supports real loops
         @mixin make-grid($columns, $class, $type) {
-          @for $i from 1 through $columns {
+          @for $i from 0 through $columns {
             @include calc-grid($i, $class, $type);
           }
         }
@@ -283,9 +277,10 @@ class Converter
       # first find the rules, and remove them
       file    = replace_rules(file, "\s*#{selector}", comments: true) { |rule, pos, css|
         matches << [rule, pos]
-        new_selector ||= "#{get_selector(rule).sub(/&$/, '')}#{selector_for_pos(css, pos.begin)}"
-        indent "// [converter] extracted #{get_selector(rule)} to #{new_selector}", indent_width(rule)
+        new_selector ||= "#{get_selector(rule).gsub(/&/, selector_for_pos(css, pos.begin))}"
+        indent "// [converter] extracted #{get_selector(rule)} to #{new_selector}".tr("\n", ' ').squeeze(' '), indent_width(rule)
       }
+      raise "extract_nested_rule: no such selector: #{selector}" if matches.empty?
       log_transform selector, new_selector
       # replace rule selector with new_selector
       matches.each do |m|
