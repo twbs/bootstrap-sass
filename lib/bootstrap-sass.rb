@@ -20,7 +20,7 @@ module Bootstrap
             'bootstrap-sass requires either Rails > 3.1 or Compass, neither of which are loaded'
     end
 
-    bs_stylesheets = File.expand_path(File.join('..', 'vendor', 'assets', 'stylesheets'))
+    bs_stylesheets = File.join(gem_path, 'vendor', 'assets', 'stylesheets')
     ::Sass.load_paths << bs_stylesheets
     if ::Sass::Script::Number.precision < 10
       # see https://github.com/thomas-mcdonald/bootstrap-sass/issues/409
@@ -29,6 +29,11 @@ module Bootstrap
   end
 
   private
+
+  def self.gem_path
+    @gem_path ||= File.expand_path File.join('..', '..'), File.dirname(__FILE__)
+  end
+
   def self.asset_pipeline?
     defined?(::Sprockets)
   end
@@ -42,10 +47,14 @@ module Bootstrap
   end
 
   def self.register_compass_extension
-    base = File.join(File.dirname(__FILE__), '..')
-    styles = File.join(base, 'vendor', 'assets', 'stylesheets')
-    templates = File.join(base, 'templates')
-    ::Compass::Frameworks.register('bootstrap', :path => base, :stylesheets_directory => styles, :templates_directory => templates)
+    styles    = File.join gem_path, 'vendor', 'assets', 'stylesheets'
+    templates = File.join gem_path, 'templates'
+    ::Compass::Frameworks.register(
+        'bootstrap',
+        :path                  => gem_path,
+        :stylesheets_directory => styles,
+        :templates_directory   => templates
+    )
   end
 
   def self.register_rails_engine
