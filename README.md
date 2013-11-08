@@ -53,6 +53,9 @@ This will create a new Compass project with the following files in it:
 
 ## Usage
 
+This project is a direct semi-automated conversion of [twbs/bootstrap](https://github.com/twbs/bootstrap).
+Use the original [bootstrap documentation](http://getbootstrap.com/css/).
+
 ### CSS / SCSS / SASS
 
 Import Bootstrap in an SCSS file (for example, `application.css.scss`) to get all of Bootstrap's styles, mixins and variables! We recommend against using `//= require` directives, since none of your other stylesheets will be [able to access][antirequire] the Bootstrap mixins or variables.
