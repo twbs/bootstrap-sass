@@ -24,27 +24,29 @@ module Bootstrap
       configure_sass
     end
 
+    def gem_path
+      @gem_path ||= File.expand_path File.join('..'), File.dirname(__FILE__)
+    end
+
+    def stylesheets_path
+      @stylesheets_path ||= File.join gem_path, 'vendor', 'assets', 'stylesheets'
+    end
+
     private
 
     def configure_sass
-      ::Sass.load_paths << File.join(gem_path, 'vendor', 'assets', 'stylesheets')
+      ::Sass.load_paths << stylesheets_path
 
       # bootstrap requires minimum precision of 10, see https://github.com/thomas-mcdonald/bootstrap-sass/issues/409
       ::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
     end
 
-    def gem_path
-      @gem_path ||= File.expand_path File.join('..'), File.dirname(__FILE__)
-    end
-
     def register_compass_extension
-      styles    = File.join gem_path, 'vendor', 'assets', 'stylesheets'
-      templates = File.join gem_path, 'templates'
       ::Compass::Frameworks.register(
           'bootstrap',
           :path                  => gem_path,
-          :stylesheets_directory => styles,
-          :templates_directory   => templates
+          :stylesheets_directory => stylesheets_path,
+          :templates_directory   => File.join(gem_path, 'templates')
       )
     end
 
