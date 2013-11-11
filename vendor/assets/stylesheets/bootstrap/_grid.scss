@@ -76,8 +76,6 @@
 //
 // Columns, offsets, pushes, and pulls for the large desktop device range.
 //
-// Note that `.col-lg-12` doesn't get floated on purpose--there's no need since
-// it's full-width.
 
 @media (min-width: $screen-lg-min) {
   .container {
