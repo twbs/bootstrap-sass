@@ -355,7 +355,7 @@ class Converter
       log_transform
       file.gsub(
           /filter: e\(%\("progid:DXImageTransform.Microsoft.gradient\(startColorstr='%d', endColorstr='%d', GradientType=(\d)\)",argb\(([\-$\w]+)\),argb\(([\-$\w]+)\)\)\);/,
-          %Q(filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='\#{twbs-ie-hex-str(\\2)}', endColorstr='\#{twbs-ie-hex-str(\\3)}', GradientType=\\1);)
+          %Q(filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='\#{ie-hex-str(\\2)}', endColorstr='\#{ie-hex-str(\\3)}', GradientType=\\1);)
       )
     end
 

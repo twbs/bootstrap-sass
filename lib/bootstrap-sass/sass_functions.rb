@@ -24,17 +24,16 @@ module Sass::Script::Functions
     Sass::Script::String.new(url, :string)
   end
   declare :twbs_asset_path, [:source]
-  
-  # LARS: Snatched from compass - 2011-11-29 - used for gradients in IE6-9
-  # returns an IE hex string for a color with an alpha channel
-  # suitable for passing to IE filters.
-  def twbs_ie_hex_str(color)
-    assert_type color, :Color
-    alpha = (color.alpha * 255).round
-    alphastr = alpha.to_s(16).rjust(2, '0')
-    Sass::Script::String.new("##{alphastr}#{color.send(:hex_str)[1..-1]}".upcase)
+
+  unless Sass::Script::Functions.instance_methods.include?(:ie_hex_str)
+    # polyfill sass < 3.2.6 (taken from sass 3.2.12):
+    def ie_hex_str(color)
+      assert_type color, :Color, :color
+      alpha = (color.alpha * 255).round.to_s(16).rjust(2, '0')
+      Sass::Script::String.new("##{alpha}#{color.send(:hex_str)[1..-1]}".upcase)
+    end
+    declare :ie_hex_str, [:color]
   end
-  declare :twbs_ie_hex_str, [:color]
 
   protected
 
