@@ -3,7 +3,9 @@ require_relative 'char_string_scanner'
 # This module transforms LESS into SCSS.
 # It is implemented via lots of string manipulation: scanning back and forwards for regexps and doing substitions.
 # Since it does not parse the LESS into an AST, bits of it may assume LESS to be formatted a certain way, and only limited,
-# static analysis can be performed. This approach has so far been enough to automatically convert all of twbs/bootstrap.
+# static analysis can be performed. This approach has so far been mostly enough to automatically convert most all of twbs/bootstrap.
+# There is some bootstrap-specific to make up for lack of certain features in Sass 3.2 (recursion, mixin namespacing)
+# and vice versa in LESS (vararg mixins).
 class Converter
   module LessConversion
     # Some regexps for matching bits of SCSS:
@@ -85,7 +87,7 @@ class Converter
           when 'glyphicons.less'
             file = replace_rules(file, '@font-face') { |rule|
               rule = replace_all rule, /(\$icon-font-\w+)/, '#{\1}'
-              replace_all rule, /url\(/, 'font-url('
+              replace_asset_url rule, :font
             }
         end
 
@@ -115,6 +117,10 @@ class Converter
       file        = deinterpolate_vararg_mixins(file)
       file        = replace_calculation_semantics(file)
       file
+    end
+
+    def replace_asset_url(rule, type)
+      replace_all rule, /url\((.*?)\)/, "url(twbs-#{type}-path(\\1))"
     end
 
     # convert grid mixins LESS when => SASS @if
@@ -349,7 +355,7 @@ class Converter
       log_transform
       file.gsub(
           /filter: e\(%\("progid:DXImageTransform.Microsoft.gradient\(startColorstr='%d', endColorstr='%d', GradientType=(\d)\)",argb\(([\-$\w]+)\),argb\(([\-$\w]+)\)\)\);/,
-          %Q(filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='\#{ie-hex-str(\\2)}', endColorstr='\#{ie-hex-str(\\3)}', GradientType=\\1);)
+          %Q(filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='\#{twbs-ie-hex-str(\\2)}', endColorstr='\#{twbs-ie-hex-str(\\3)}', GradientType=\\1);)
       )
     end
 
@@ -391,7 +397,7 @@ class Converter
     end
 
     def replace_image_urls(less)
-      less.gsub(/background-image: url\("?(.*?)"?\);/) { |s| "background-image: image-url(\"#{$1}\");" }
+      less.gsub(/background-image: url\("?(.*?)"?\);/) { |s| replace_asset_url s, :image }
     end
 
     def replace_image_paths(less)
