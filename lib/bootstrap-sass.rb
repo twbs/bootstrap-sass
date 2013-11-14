@@ -4,32 +4,49 @@ module Bootstrap
   class << self
     # Inspired by Kaminari
     def load!
-      if compass?
-        require 'bootstrap-sass/compass_functions'
-        register_compass_extension
-      elsif asset_pipeline?
-        require 'bootstrap-sass/sass_functions'
-      end
+      require 'bootstrap-sass/sass_functions'
+      register_compass_extension if compass?
 
       if rails?
         require 'sass-rails'
         register_rails_engine
       end
 
-      unless rails? || compass?
-        raise Bootstrap::FrameworkNotFound,
-              'bootstrap-sass requires either Rails > 3.1 or Compass, neither of which are loaded'
-      end
-
       configure_sass
     end
 
+    # Paths
     def gem_path
       @gem_path ||= File.expand_path '..', File.dirname(__FILE__)
     end
 
     def stylesheets_path
-      @stylesheets_path ||= File.join gem_path, 'vendor', 'assets', 'stylesheets'
+      File.join assets_path, 'stylesheets'
+    end
+
+    def fonts_path
+      File.join assets_path, 'fonts'
+    end
+
+    def javascripts_path
+      File.join assets_path, 'javascripts'
+    end
+
+    def assets_path
+      @assets_path ||= File.join gem_path, 'vendor', 'assets'
+    end
+
+    # Environment detection helpers
+    def asset_pipeline?
+      defined?(::Sprockets)
+    end
+
+    def compass?
+      defined?(::Compass)
+    end
+
+    def rails?
+      defined?(::Rails)
     end
 
     private
@@ -52,18 +69,6 @@ module Bootstrap
 
     def register_rails_engine
       require 'bootstrap-sass/engine'
-    end
-
-    def asset_pipeline?
-      defined?(::Sprockets)
-    end
-
-    def compass?
-      defined?(::Compass)
-    end
-
-    def rails?
-      defined?(::Rails)
     end
   end
 end
