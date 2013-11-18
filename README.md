@@ -148,6 +148,8 @@ You can also load individual modules, provided you also require any dependencies
 //= require bootstrap/dropdown
 ```
 
+---
+
 ## Development and Contributing
 
 If you'd like to help with the development of bootstrap-sass itself, read this section.
