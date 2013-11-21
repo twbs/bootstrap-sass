@@ -69,6 +69,10 @@ class Converter
             file = replace_rules(file, '  @media') { |r| unindent(r, 2) }
           when 'variables.less'
             file = insert_default_vars(file)
+            file = <<-SCSS + file
+// bootstrap specific variable. set to false if not using ruby + asset pipeline / compass.
+$bootstrap-sass-asset-helper: true !default;
+            SCSS
             file = replace_all file, /(\$icon-font-path:).*(!default)/, '\1 "bootstrap/" \2'
           when 'close.less'
             # extract .close { button& {...} } rule
@@ -111,7 +115,6 @@ class Converter
       file        = replace_less_extend(file)
       file        = replace_spin(file)
       file        = replace_image_urls(file)
-      file        = replace_image_paths(file)
       file        = replace_escaping(file)
       file        = convert_less_ampersand(file)
       file        = deinterpolate_vararg_mixins(file)
@@ -120,7 +123,7 @@ class Converter
     end
 
     def replace_asset_url(rule, type)
-      replace_all rule, /url\((.*?)\)/, "url(twbs-#{type}-path(\\1))"
+      replace_all rule, /url\((.*?)\)/, "url(if($bootstrap-sass-asset-helper, twbs-#{type}-path(\\1), \\1))"
     end
 
     # convert grid mixins LESS when => SASS @if
@@ -398,10 +401,6 @@ class Converter
 
     def replace_image_urls(less)
       less.gsub(/background-image: url\("?(.*?)"?\);/) { |s| replace_asset_url s, :image }
-    end
-
-    def replace_image_paths(less)
-      less.gsub('../img/', '')
     end
 
     def replace_escaping(less)

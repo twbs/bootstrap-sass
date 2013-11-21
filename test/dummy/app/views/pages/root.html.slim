@@ -1,7 +1,7 @@
 .container
   .panel.panel-primary
-    h1 Dummy App
-    .row
+    .panel-heading: h1 Dummy App
+    .panel-body: .row
       .col-sm-3
         h2 3 columns
         ul.list-group
@@ -11,6 +11,11 @@
       .col-sm-3
         h2 3 columns
         button.btn.btn-primary type='button' Button
+        h2 Icons
+        ul.list-inline
+          li: i.glyphicon.glyphicon-user
+          li: i.glyphicon.glyphicon-bullhorn
+          li: i.glyphicon.glyphicon-tint
       .col-sm-6
         h2 6 columns
         .panel.panel-primary

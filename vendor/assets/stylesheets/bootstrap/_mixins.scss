@@ -55,7 +55,8 @@
 // Placeholder text
 @mixin placeholder($color: $input-color-placeholder) {
   &:-moz-placeholder            { color: $color; } // Firefox 4-18
-  &::-moz-placeholder           { color: $color; } // Firefox 19+
+  &::-moz-placeholder           { color: $color;   // Firefox 19+
+                                  opacity: 1; } // See https://github.com/twbs/bootstrap/pull/11526
   &:-ms-input-placeholder       { color: $color; } // Internet Explorer 10+
   &::-webkit-input-placeholder  { color: $color; } // Safari and Chrome
 }
@@ -349,7 +350,7 @@
 // Short retina mixin for setting background-image and -size
 
 @mixin img-retina($file-1x, $file-2x, $width-1x, $height-1x) {
-  background-image: url(twbs-image-path("#{$file-1x}"));
+  background-image: url(if($bootstrap-sass-asset-helper, twbs-image-path("#{$file-1x}"), "#{$file-1x}"));
 
   @media
   only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -358,7 +359,7 @@
   only screen and (        min-device-pixel-ratio: 2),
   only screen and (                min-resolution: 192dpi),
   only screen and (                min-resolution: 2dppx) {
-    background-image: url(twbs-image-path("#{$file-2x}"));
+    background-image: url(if($bootstrap-sass-asset-helper, twbs-image-path("#{$file-2x}"), "#{$file-2x}"));
     background-size: $width-1x $height-1x;
   }
 }

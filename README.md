@@ -59,6 +59,13 @@ Require the gem, and load paths and Sass helpers will be configured automaticall
 require 'bootstrap-sass'
 ```
 
+When using outside ruby (e.g. as a bower package), disable ruby asset lookup helper:
+
+```sass
+$bootstrap-sass-asset-helper: false
+```
+
+
 #### JS and fonts
 
 If you are using Rails or Sprockets, see Usage.
