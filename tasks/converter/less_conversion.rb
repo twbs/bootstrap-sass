@@ -33,7 +33,7 @@ class Converter
 
     # These mixins will get vararg definitions in SCSS (not supported by LESS):
     VARARG_MIXINS               = %w(
-    transition transition-transform box-shadow
+    transition transition-duration transition-property transition-transform box-shadow
   )
 
     def process_stylesheet_assets
