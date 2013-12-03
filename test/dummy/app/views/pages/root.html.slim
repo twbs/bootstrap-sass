@@ -11,6 +11,7 @@
       .col-sm-3
         h2 3 columns
         button.btn.btn-primary type='button' Button
+        button.btn.btn-primary type='button' Button
         h2 Icons
         ul.list-inline
           li: i.glyphicon.glyphicon-user
@@ -18,7 +19,17 @@
           li: i.glyphicon.glyphicon-tint
       .col-sm-6
         h2 6 columns
-        .panel.panel-primary
+        .panel.panel-primary: .panel-body
           .row
             .col-xs-4.col-xs-push-4
               .panel.panel-default: h3 This is col-xs-4 col-xs-push-4
+
+          form.form-inline
+            .form-group
+              input.sr-only for="exampleInputEmail2" Email address
+              input.form-control#exampleInputEmail2 type="email" placeholder="Enter email"
+            .checkbox
+              label
+                input type="checkbox"
+                |  Remember me
+            button.btn.btn-default type="submit" Sign in
