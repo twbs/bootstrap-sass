@@ -2,4 +2,9 @@ source "https://rubygems.org"
 
 gem 'sass', '~> 3.2.0'
 
+platform :rbx do
+  gem 'rubysl', '~> 2.0'
+end
+
+
 gemspec path: '../../'
