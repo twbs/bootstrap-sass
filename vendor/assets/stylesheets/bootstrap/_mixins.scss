@@ -19,8 +19,8 @@
 @mixin clearfix() {
   &:before,
   &:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+    content: " "; // 1
+    display: table; // 2
   }
   &:after {
     clear: both;
@@ -30,8 +30,8 @@
 // WebKit-style focus
 @mixin tab-focus() {
   // Default
-  outline: thin dotted #333;
-  // WebKit
+  outline: thin dotted;
+  //Webkit
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -55,7 +55,8 @@
 // Placeholder text
 @mixin placeholder($color: $input-color-placeholder) {
   &:-moz-placeholder            { color: $color; } // Firefox 4-18
-  &::-moz-placeholder           { color: $color; } // Firefox 19+
+  &::-moz-placeholder           { color: $color;   // Firefox 19+
+                                  opacity: 1; } // See https://github.com/twbs/bootstrap/pull/11526
   &:-ms-input-placeholder       { color: $color; } // Internet Explorer 10+
   &::-webkit-input-placeholder  { color: $color; } // Safari and Chrome
 }
@@ -87,11 +88,7 @@
 }
 // New mixin to use as of v3.0.1
 @mixin text-hide() {
-  font: #{0/0} a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
+  @include hide-text();
 }
 
 
@@ -128,7 +125,7 @@
   -webkit-transition: $transition;
           transition: $transition;
 }
-@mixin transition-property($transition-property) {
+@mixin transition-property($transition-property...) {
   -webkit-transition-property: $transition-property;
           transition-property: $transition-property;
 }
@@ -136,7 +133,7 @@
   -webkit-transition-delay: $transition-delay;
           transition-delay: $transition-delay;
 }
-@mixin transition-duration($transition-duration) {
+@mixin transition-duration($transition-duration...) {
   -webkit-transition-duration: $transition-duration;
           transition-duration: $transition-duration;
 }
@@ -349,7 +346,7 @@
 // Short retina mixin for setting background-image and -size
 
 @mixin img-retina($file-1x, $file-2x, $width-1x, $height-1x) {
-  background-image: image-url("#{$file-1x}");
+  background-image: url(if($bootstrap-sass-asset-helper, twbs-image-path("#{$file-1x}"), "#{$file-1x}"));
 
   @media
   only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -358,7 +355,7 @@
   only screen and (        min-device-pixel-ratio: 2),
   only screen and (                min-resolution: 192dpi),
   only screen and (                min-resolution: 2dppx) {
-    background-image: image-url("#{$file-2x}");
+    background-image: url(if($bootstrap-sass-asset-helper, twbs-image-path("#{$file-2x}"), "#{$file-2x}"));
     background-size: $width-1x $height-1x;
   }
 }
@@ -401,9 +398,6 @@
     + .panel-collapse .panel-body {
       border-top-color: $border;
     }
-    & > .dropdown .caret {
-      border-color: $heading-text-color transparent;
-    }
   }
   & > .panel-footer {
     + .panel-collapse .panel-body {
@@ -429,27 +423,27 @@
 
 // Tables
 // -------------------------
-@mixin table-row-variant($state, $background, $border) {
+@mixin table-row-variant($state, $background) {
   // Exact selectors below required to override `.table-striped` and prevent
   // inheritance to nested tables.
-  .table > thead > tr,
-  .table > tbody > tr,
-  .table > tfoot > tr {
-    > td.#{$state},
-    > th.#{$state},
-    &.#{$state} > td,
-    &.#{$state} > th {
-      background-color: $background;
+  .table {
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr > .#{$state},
+      > .#{$state} > td,
+      > .#{$state} > th {
+        background-color: $background;
+      }
     }
   }
 
   // Hover states for `.table-hover`
   // Note: this is not available for cells or rows within `thead` or `tfoot`.
-  .table-hover > tbody > tr {
-    > td.#{$state}:hover,
-    > th.#{$state}:hover,
-    &.#{$state}:hover > td,
-    &.#{$state}:hover > th {
+  .table-hover > tbody {
+    > tr > .#{$state}:hover,
+    > .#{$state}:hover > td,
+    > .#{$state}:hover > th {
       background-color: darken($background, 5%);
     }
   }
@@ -495,6 +489,11 @@
       background-color: $background;
           border-color: $border;
     }
+  }
+
+  .badge {
+    color: $background;
+    background-color: #fff;
   }
 }
 

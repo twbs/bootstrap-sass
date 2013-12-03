@@ -8,9 +8,8 @@ end
 desc 'Dumps output to a CSS file for testing'
 task :debug do
   require 'sass'
-  require './lib/bootstrap-sass/compass_functions'
   require './lib/bootstrap-sass/sass_functions'
-  path = './vendor/assets/stylesheets'
+  path = Bootstrap.stylesheets_path
   %w(bootstrap).each do |file|
     engine = Sass::Engine.for_file("#{path}/#{file}.scss", syntax: :scss, load_paths: [path])
     File.open("./#{file}.css", 'w') { |f| f.write(engine.render) }
@@ -29,7 +28,6 @@ task :compile, :css_path do |t, args|
   lib_path = File.join(File.dirname(__FILE__), 'lib')
   $:.unshift(lib_path) unless $:.include?(lib_path)
   require 'sass'
-  require 'bootstrap-sass/compass_functions'
   require 'bootstrap-sass/sass_functions'
   require 'term/ansicolor'
 
