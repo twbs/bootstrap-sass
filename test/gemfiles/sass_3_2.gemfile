@@ -4,6 +4,7 @@ gem 'sass', '~> 3.2.0'
 
 platform :rbx do
   gem 'rubysl', '~> 2.0'
+  gem 'racc'
 end
 
 
