@@ -89,6 +89,7 @@ $bootstrap-sass-asset-helper: true !default;
           when 'thumbnails.less'
             file = extract_nested_rule file, 'a&'
           when 'glyphicons.less'
+            file  = replace_all file, /\#\{(url\(.*?\))}/, '\1'
             file = replace_rules(file, '@font-face') { |rule|
               rule = replace_all rule, /(\$icon-font-\w+)/, '#{\1}'
               replace_asset_url rule, :font
@@ -404,7 +405,7 @@ $bootstrap-sass-asset-helper: true !default;
     end
 
     def replace_escaping(less)
-      less = less.gsub(/\~"([^"]+)"/, '#{\1}') # Get rid of ~"" escape
+      less = less.gsub(/~"([^"]+)"/, '#{\1}') # Get rid of ~"" escape
       less.gsub!(/\$\{([^}]+)\}/, '$\1') # Get rid of @{} escape
       less.gsub!(/"([^"\n]*)(\$[\w\-]+)([^"\n]*)"/, '"\1#{\2}\3"') # interpolate variable in string, e.g. url("$file-1x") => url("#{$file-1x}")
       less.gsub(/(\W)e\(%\("?([^"]*)"?\)\)/, '\1\2') # Get rid of e(%("")) escape
@@ -420,7 +421,7 @@ $bootstrap-sass-asset-helper: true !default;
       regx = /^\.badge\s*\{[\s\/\w\(\)]+(&{1}-{1})\w.*?^}$/m
 
       tmp = ''
-      less.scan(/^(\s*&)(-[\w\[\]]+\s*{.+})$/) do |ampersand, css|
+      less.scan(/^(\s*&)(-[\w\[\]]+\s*\{.+})$/) do |ampersand, css|
         tmp << ".badge#{css}\n"
       end
 
