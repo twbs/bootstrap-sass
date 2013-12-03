@@ -3,4 +3,10 @@ source "https://rubygems.org"
 gem 'sass', github: 'nex3/sass'
 gem 'compass', '~> 0.12.2'
 
+
+platform :rbx do
+  gem 'rubysl', '~> 2.0'
+end
+
+
 gemspec path: '../../'
