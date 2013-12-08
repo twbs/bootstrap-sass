@@ -16,7 +16,7 @@ module Sass::Script::Functions
     url = if Bootstrap.asset_pipeline? && (context = sprockets_context)
             context.send(:"#{type}_path", source.value)
           elsif Bootstrap.compass?
-            send(:"#{type}_url", source, Sass::Script::Bool.new(true)).value
+            send(:"#{type}_url", source, Sass::Script::Bool.new(true)).value.sub /url\((.*)\)$/, '\1'
           end
 
     # sass-only
