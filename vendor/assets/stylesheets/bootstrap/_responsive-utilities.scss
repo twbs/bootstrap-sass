@@ -23,176 +23,193 @@
 
 
 // Visibility utilities
+// This partial is customized to accommodate for size 'ms' (xs -> ms -> sm -> md -> lg)
 
+// .visible-xs 
 @include responsive-invisibility('.visible-xs');
 @media (max-width: $screen-xs-max) {
   @include responsive-visibility('.visible-xs');
 }
-
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+@media (min-width: $screen-ms) and (max-width: $screen-ms-max) {
+  @include responsive-visibility('.visible-xs.visible-ms');
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
   @include responsive-visibility('.visible-xs.visible-sm');
 }
-
-
-@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
   @include responsive-visibility('.visible-xs.visible-md');
-}
-
-
-@media (min-width: $screen-lg-min) {
+}    
+@media (min-width: $screen-lg) {
   @include responsive-visibility('.visible-xs.visible-lg');
 }
 
+// .visible-ms 
+@include responsive-invisibility('.visible-ms');
+@media (max-width: $screen-xs-max) {
+  @include responsive-visibility('.visible-ms.visible-xs');
+}
+@media (min-width: $screen-ms) and (max-width: $screen-ms-max) {
+  @include responsive-visibility('.visible-ms');
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+  @include responsive-visibility('.visible-ms.visible-sm');
+}
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+  @include responsive-visibility('.visible-ms.visible-md');
+}    
+@media (min-width: $screen-lg) {
+  @include responsive-visibility('.visible-ms.visible-lg');
+}    
 
+// .visible-sm 
 @include responsive-invisibility('.visible-sm');
-
 @media (max-width: $screen-xs-max) {
   @include responsive-visibility('.visible-sm.visible-xs');
+}    
+@media (min-width: $screen-ms) and (max-width: $screen-ms-max) {
+  @include responsive-visibility('.visible-sm.visible-ms');
 }
-
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
   @include responsive-visibility('.visible-sm');
 }
-
-@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
   @include responsive-visibility('.visible-sm.visible-md');
-}
-
-
-@media (min-width: $screen-lg-min) {
+}    
+@media (min-width: $screen-lg) {
   @include responsive-visibility('.visible-sm.visible-lg');
 }
 
-
+// .visible-md 
 @include responsive-invisibility('.visible-md');
-
 @media (max-width: $screen-xs-max) {
   @include responsive-visibility('.visible-md.visible-xs');
 }
-
-
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+@media (min-width: $screen-ms) and (max-width: $screen-ms-max) {
+  @include responsive-visibility('.visible-md.visible-ms');
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
   @include responsive-visibility('.visible-md.visible-sm');
 }
-
-@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
   @include responsive-visibility('.visible-md');
 }
-
-@media (min-width: $screen-lg-min) {
+@media (min-width: $screen-lg) {
   @include responsive-visibility('.visible-md.visible-lg');
 }
 
-
+// .visible-lg
 @include responsive-invisibility('.visible-lg');
-
 @media (max-width: $screen-xs-max) {
   @include responsive-visibility('.visible-lg.visible-xs');
 }
-
-
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+@media (min-width: $screen-ms) and (max-width: $screen-ms-max) {
+  @include responsive-visibility('.visible-lg.visible-ms');
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
   @include responsive-visibility('.visible-lg.visible-sm');
 }
-
-
-@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
   @include responsive-visibility('.visible-lg.visible-md');
-}
-
-@media (min-width: $screen-lg-min) {
+}    
+@media (min-width: $screen-lg) {
   @include responsive-visibility('.visible-lg');
 }
 
+// .hidden-xs
 @include responsive-visibility('.hidden-xs');
 @media (max-width: $screen-xs-max) {
   @include responsive-invisibility('.hidden-xs');
 }
-
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+@media (min-width: $screen-ms) and (max-width: $screen-ms-max) {
+  @include responsive-invisibility('.hidden-xs.hidden-ms');
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
   @include responsive-invisibility('.hidden-xs.hidden-sm');
-}
-
-
-@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+}    
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
   @include responsive-invisibility('.hidden-xs.hidden-md');
-}
-
-
-@media (min-width: $screen-lg-min) {
+}    
+@media (min-width: $screen-lg) {
   @include responsive-invisibility('.hidden-xs.hidden-lg');
 }
 
+// .hidden-ms
+@include responsive-visibility('.hidden-ms');
+@media (max-width: $screen-xs-max) {
+  @include responsive-invisibility('.hidden-ms.hidden-xs');
+}
+@media (min-width: $screen-ms) and (max-width: $screen-ms-max) {
+  @include responsive-invisibility('.hidden-ms');
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+  @include responsive-invisibility('.hidden-ms.hidden-sm');
+}    
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+  @include responsive-invisibility('.hidden-ms.hidden-md');
+}    
+@media (min-width: $screen-lg) {
+  @include responsive-invisibility('.hidden-ms.hidden-lg');
+} 
 
+// .hidden-sm
 @include responsive-visibility('.hidden-sm');
-
 @media (max-width: $screen-xs-max) {
   @include responsive-invisibility('.hidden-sm.hidden-xs');
 }
-
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+@media (min-width: $screen-ms) and (max-width: $screen-ms-max) {
+  @include responsive-invisibility('.hidden-sm.hidden-ms');
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
   @include responsive-invisibility('.hidden-sm');
 }
-
-@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
   @include responsive-invisibility('.hidden-sm.hidden-md');
-}
-
-
-@media (min-width: $screen-lg-min) {
+}    
+@media (min-width: $screen-lg) {
   @include responsive-invisibility('.hidden-sm.hidden-lg');
 }
 
-
+// .hidden-md
 @include responsive-visibility('.hidden-md');
-
 @media (max-width: $screen-xs-max) {
   @include responsive-invisibility('.hidden-md.hidden-xs');
 }
-
-
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-  @include responsive-invisibility('.hidden-md.hidden-sm');
+@media (min-width: $screen-ms) and (max-width: $screen-ms-max) {
+  @include responsive-invisibility('.hidden-md.hidden-ms');
 }
-
-@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+  @include responsive-invisibility('.hidden-md.hidden-sm');
+}    
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
   @include responsive-invisibility('.hidden-md');
 }
-
-@media (min-width: $screen-lg-min) {
+@media (min-width: $screen-lg) {
   @include responsive-invisibility('.hidden-md.hidden-lg');
 }
 
-
+// .hidden-lg
 @include responsive-visibility('.hidden-lg');
-
 @media (max-width: $screen-xs-max) {
   @include responsive-invisibility('.hidden-lg.hidden-xs');
 }
-
-
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+@media (min-width: $screen-ms) and (max-width: $screen-ms-max) {
+  @include responsive-invisibility('.hidden-lg.hidden-ms');
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
   @include responsive-invisibility('.hidden-lg.hidden-sm');
-}
-
-
-@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+}    
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
   @include responsive-invisibility('.hidden-lg.hidden-md');
-}
+}    
+@media (min-width: $screen-lg) {
 
-@media (min-width: $screen-lg-min) {
   @include responsive-invisibility('.hidden-lg');
 }
 
 // Print utilities
 
 @include responsive-invisibility('.visible-print');
-
 @media print {
-
   @include responsive-visibility('.visible-print');
-
-
   @include responsive-invisibility('.hidden-print');
-
 }

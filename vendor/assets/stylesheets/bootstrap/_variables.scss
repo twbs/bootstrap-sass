@@ -210,10 +210,10 @@ $zindex-modal:             1050 !default;
 // --------------------------------------------------
 
 // Extra small screen / phone
-// Note: Deprecated $screen-xs and $screen-phone as of v3.0.1
-$screen-xs:                  480px !default;
-$screen-xs-min:              $screen-xs !default;
-$screen-phone:               $screen-xs-min !default;
+// Note: Deprecated $screen-ms and $screen-phone as of v3.0.1
+$screen-ms:                  480px !default;
+$screen-ms-min:              $screen-ms !default;
+$screen-phone:               $screen-ms-min !default;
 
 // Small screen / tablet
 // Note: Deprecated $screen-sm and $screen-tablet as of v3.0.1
@@ -234,7 +234,8 @@ $screen-lg-min:              $screen-lg !default;
 $screen-lg-desktop:          $screen-lg-min !default;
 
 // So media queries don't overlap when required, provide a maximum
-$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-xs-max:              ($screen-ms-min - 1) !default;
+$screen-ms-max:              ($screen-sm-min - 1) !default;
 $screen-sm-max:              ($screen-md-min - 1) !default;
 $screen-md-max:              ($screen-lg-min - 1) !default;
 
@@ -623,6 +624,10 @@ $component-offset-horizontal: 180px !default;
 
 // Container sizes
 // --------------------------------------------------
+
+// Small screen / phone (additional step between default and tablet)
+$container-phone:             ((480px + $grid-gutter-width)) !default;
+$container-ms:                $container-phone;
 
 // Small screen / tablet
 $container-tablet:             ((720px + $grid-gutter-width)) !default;

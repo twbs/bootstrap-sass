@@ -31,6 +31,23 @@
 @include make-grid($grid-columns, xs, offset);
 
 
+// Mid-Small grid
+//
+// An additional set of breakpoints to target sizes in between 'xs' and 'sm'
+ 
+@media (min-width: $screen-ms-min) {
+  .container {
+    max-width: $container-ms;
+  }
+
+  @include make-grid-columns-float(ms);
+  @include make-grid($grid-columns, ms, width);
+  @include make-grid($grid-columns, ms, pull);
+  @include make-grid($grid-columns, ms, push);
+  @include make-grid($grid-columns, ms, offset);
+}
+
+
 // Small grid
 //
 // Columns, offsets, pushes, and pulls for the small device range, from phones
@@ -41,7 +58,7 @@
 
 @media (min-width: $screen-sm-min) {
   .container {
-    width: $container-sm;
+    max-width: $container-sm;
   }
 
   @include make-grid-columns-float(sm);
@@ -61,7 +78,7 @@
 
 @media (min-width: $screen-md-min) {
   .container {
-    width: $container-md;
+    max-width: $container-md;
   }
 
   @include make-grid-columns-float(md);
@@ -81,7 +98,7 @@
 
 @media (min-width: $screen-lg-min) {
   .container {
-    width: $container-lg;
+    max-width: $container-lg;
   }
 
   @include make-grid-columns-float(lg);
