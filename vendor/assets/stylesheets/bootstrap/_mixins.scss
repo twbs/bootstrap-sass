@@ -77,14 +77,7 @@
 //
 // Source: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
 
-// Deprecated as of v3.0.1 (will be removed in v4)
-@mixin hide-text() {
-  font: #{0/0} a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
-}
+
 // New mixin to use as of v3.0.1
 @mixin text-hide() {
   font: #{0/0} a;
