@@ -816,6 +816,7 @@
 @mixin form-control-validation($text-color: #555, $border-color: #ccc, $background-color: #f5f5f5) {
   // Color the label and help text
   .help-block,
+  .help-inline,
   .control-label,
   .radio,
   .checkbox,
