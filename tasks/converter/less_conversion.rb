@@ -3,7 +3,9 @@ require_relative 'char_string_scanner'
 # This module transforms LESS into SCSS.
 # It is implemented via lots of string manipulation: scanning back and forwards for regexps and doing substitions.
 # Since it does not parse the LESS into an AST, bits of it may assume LESS to be formatted a certain way, and only limited,
-# static analysis can be performed. This approach has so far been enough to automatically convert all of twbs/bootstrap.
+# static analysis can be performed. This approach has so far been mostly enough to automatically convert most all of twbs/bootstrap.
+# There is some bootstrap-specific to make up for lack of certain features in Sass 3.2 (recursion, mixin namespacing)
+# and vice versa in LESS (vararg mixins).
 class Converter
   module LessConversion
     # Some regexps for matching bits of SCSS:
@@ -31,7 +33,7 @@ class Converter
 
     # These mixins will get vararg definitions in SCSS (not supported by LESS):
     VARARG_MIXINS               = %w(
-    transition transition-transform box-shadow
+    transition transition-duration transition-property transition-transform box-shadow
   )
 
     def process_stylesheet_assets
@@ -67,6 +69,10 @@ class Converter
             file = replace_rules(file, '  @media') { |r| unindent(r, 2) }
           when 'variables.less'
             file = insert_default_vars(file)
+            file = <<-SCSS + file
+// bootstrap specific variable. set to false if not using ruby + asset pipeline / compass.
+$bootstrap-sass-asset-helper: true !default;
+            SCSS
             file = replace_all file, /(\$icon-font-path:).*(!default)/, '\1 "bootstrap/" \2'
           when 'close.less'
             # extract .close { button& {...} } rule
@@ -83,9 +89,10 @@ class Converter
           when 'thumbnails.less'
             file = extract_nested_rule file, 'a&'
           when 'glyphicons.less'
+            file  = replace_all file, /\#\{(url\(.*?\))}/, '\1'
             file = replace_rules(file, '@font-face') { |rule|
               rule = replace_all rule, /(\$icon-font-\w+)/, '#{\1}'
-              replace_all rule, /url\(/, 'font-url('
+              replace_asset_url rule, :font
             }
         end
 
@@ -109,12 +116,15 @@ class Converter
       file        = replace_less_extend(file)
       file        = replace_spin(file)
       file        = replace_image_urls(file)
-      file        = replace_image_paths(file)
       file        = replace_escaping(file)
       file        = convert_less_ampersand(file)
       file        = deinterpolate_vararg_mixins(file)
       file        = replace_calculation_semantics(file)
       file
+    end
+
+    def replace_asset_url(rule, type)
+      replace_all rule, /url\((.*?)\)/, "url(if($bootstrap-sass-asset-helper, twbs-#{type}-path(\\1), \\1))"
     end
 
     # convert grid mixins LESS when => SASS @if
@@ -391,15 +401,11 @@ class Converter
     end
 
     def replace_image_urls(less)
-      less.gsub(/background-image: url\("?(.*?)"?\);/) { |s| "background-image: image-url(\"#{$1}\");" }
-    end
-
-    def replace_image_paths(less)
-      less.gsub('../img/', '')
+      less.gsub(/background-image: url\("?(.*?)"?\);/) { |s| replace_asset_url s, :image }
     end
 
     def replace_escaping(less)
-      less = less.gsub(/\~"([^"]+)"/, '#{\1}') # Get rid of ~"" escape
+      less = less.gsub(/~"([^"]+)"/, '#{\1}') # Get rid of ~"" escape
       less.gsub!(/\$\{([^}]+)\}/, '$\1') # Get rid of @{} escape
       less.gsub!(/"([^"\n]*)(\$[\w\-]+)([^"\n]*)"/, '"\1#{\2}\3"') # interpolate variable in string, e.g. url("$file-1x") => url("#{$file-1x}")
       less.gsub(/(\W)e\(%\("?([^"]*)"?\)\)/, '\1\2') # Get rid of e(%("")) escape
@@ -415,7 +421,7 @@ class Converter
       regx = /^\.badge\s*\{[\s\/\w\(\)]+(&{1}-{1})\w.*?^}$/m
 
       tmp = ''
-      less.scan(/^(\s*&)(-[\w\[\]]+\s*{.+})$/) do |ampersand, css|
+      less.scan(/^(\s*&)(-[\w\[\]]+\s*\{.+})$/) do |ampersand, css|
         tmp << ".badge#{css}\n"
       end
 
