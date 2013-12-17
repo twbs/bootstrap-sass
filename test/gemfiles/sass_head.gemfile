@@ -1,6 +1,14 @@
 source "https://rubygems.org"
 
-gem 'sass', github: 'nex3/sass'
-gem 'compass', '~> 0.12.2'
+gem 'sass', '~> 3.3.0.rc.2'
+gem 'compass', '~> 1.0.0.alpha.15'
+
+platform :rbx do
+  gem 'rubysl', '~> 2.0'
+  gem 'rubysl-test-unit', '~> 2.0'
+  gem 'rubysl-json', '~> 2.0'
+  gem 'racc'
+end
+
 
 gemspec path: '../../'

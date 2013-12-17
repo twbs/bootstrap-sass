@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.2.1
+
+* fix vendor paths for compass
+
 ## 3.0.0.0
 
 * Fully automated (lots of string juggling) LESS -> Sass conversion. - *Gleb Mazovetskiy*

@@ -1,9 +1,9 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'action_controller/railtie'
-require 'sprockets/railtie'
+require 'rails'
 
 Bundler.require(*Rails.groups)
+
 require 'sass-rails'
 require 'jquery-rails'
 require 'slim-rails'
