@@ -6,6 +6,9 @@
 .container {
   @include container-fixed();
 
+  @media (min-width: $screen-ms) {
+    width: $container-ms;
+  }
   @media (min-width: $screen-sm) {
     width: $container-sm;
   }
@@ -43,10 +46,6 @@
 // An additional set of breakpoints to target sizes in between 'xs' and 'sm'
  
 @media (min-width: $screen-ms-min) {
-  .container {
-    max-width: $container-ms;
-  }
-
   @include make-grid-columns-float(ms);
   @include make-grid($grid-columns, ms, width);
   @include make-grid($grid-columns, ms, pull);
@@ -61,10 +60,6 @@
 // to tablets.
 
 @media (min-width: $screen-sm-min) {
-  .container {
-    max-width: $container-sm;
-  }
-
   @include make-grid-columns-float(sm);
   @include make-grid($grid-columns, sm, width);
   @include make-grid($grid-columns, sm, pull);
@@ -78,10 +73,6 @@
 // Columns, offsets, pushes, and pulls for the desktop device range.
 
 @media (min-width: $screen-md-min) {
-  .container {
-    max-width: $container-md;
-  }
-
   @include make-grid-columns-float(md);
   @include make-grid($grid-columns, md, width);
   @include make-grid($grid-columns, md, pull);
@@ -95,10 +86,6 @@
 // Columns, offsets, pushes, and pulls for the large desktop device range.
 
 @media (min-width: $screen-lg-min) {
-  .container {
-    max-width: $container-lg;
-  }
-
   @include make-grid-columns-float(lg);
   @include make-grid($grid-columns, lg, width);
   @include make-grid($grid-columns, lg, pull);
