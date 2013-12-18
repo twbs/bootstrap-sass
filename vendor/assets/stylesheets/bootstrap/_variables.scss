@@ -47,20 +47,20 @@ $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !def
 $font-family-base:        $font-family-sans-serif !default;
 
 $font-size-base:          14px !default;
-$font-size-large:         ceil($font-size-base * 1.25) !default; // ~18px
-$font-size-small:         ceil($font-size-base * 0.85) !default; // ~12px
+$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
 
-$font-size-h1:            floor($font-size-base * 2.6) !default; // ~36px
-$font-size-h2:            floor($font-size-base * 2.15) !default; // ~30px
-$font-size-h3:            ceil($font-size-base * 1.7) !default; // ~24px
-$font-size-h4:            ceil($font-size-base * 1.25) !default; // ~18px
+$font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
+$font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
+$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
+$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-h5:            $font-size-base !default;
-$font-size-h6:            ceil($font-size-base * 0.85) !default; // ~12px
+$font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 
 $line-height-base:        1.428571429 !default; // 20/14
-$line-height-computed:    floor($font-size-base * $line-height-base) !default; // ~20px
+$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
 
-$headings-font-family:    $font-family-base !default;
+$headings-font-family:    inherit !default;
 $headings-font-weight:    500 !default;
 $headings-line-height:    1.1 !default;
 $headings-color:          inherit !default;
@@ -191,6 +191,9 @@ $dropdown-link-disabled-color:   $gray-light !default;
 
 $dropdown-header-color:          $gray-light !default;
 
+// Note: Deprecated $dropdown-caret-color as of v3.1.0
+$dropdown-caret-color:           #000 !default;
+
 
 // COMPONENT VARIABLES
 // --------------------------------------------------
@@ -266,7 +269,7 @@ $grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
 $navbar-height:                    50px !default;
 $navbar-margin-bottom:             $line-height-computed !default;
 $navbar-border-radius:             $border-radius-base !default;
-$navbar-padding-horizontal:        floor($grid-gutter-width / 2) !default;
+$navbar-padding-horizontal:        floor(($grid-gutter-width / 2)) !default;
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
 
 $navbar-default-color:             #777 !default;
@@ -289,7 +292,7 @@ $navbar-default-brand-hover-bg:            transparent !default;
 
 // Navbar toggle
 $navbar-default-toggle-hover-bg:           #ddd !default;
-$navbar-default-toggle-icon-bar-bg:        #ccc !default;
+$navbar-default-toggle-icon-bar-bg:        #888 !default;
 $navbar-default-toggle-border-color:       #ddd !default;
 
 
@@ -366,8 +369,16 @@ $pagination-disabled-color:            $gray-light !default;
 // Pager
 // -------------------------
 
+$pager-bg:                             $pagination-bg !default;
+$pager-border:                         $pagination-border !default;
 $pager-border-radius:                  15px !default;
-$pager-disabled-color:                 $gray-light !default;
+
+$pager-hover-bg:                       $pagination-hover-bg !default;
+
+$pager-active-bg:                      $pagination-active-bg !default;
+$pager-active-color:                   $pagination-active-color !default;
+
+$pager-disabled-color:                 $pagination-disabled-color !default;
 
 
 // Jumbotron
@@ -377,7 +388,7 @@ $jumbotron-padding:              30px !default;
 $jumbotron-color:                inherit !default;
 $jumbotron-bg:                   $gray-lighter !default;
 $jumbotron-heading-color:        inherit !default;
-$jumbotron-font-size:            ceil($font-size-base * 1.5) !default;
+$jumbotron-font-size:            ceil(($font-size-base * 1.5)) !default;
 
 
 // Form states and alerts
@@ -405,6 +416,7 @@ $state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%) !
 $tooltip-max-width:           200px !default;
 $tooltip-color:               #fff !default;
 $tooltip-bg:                  #000 !default;
+$tooltip-opacity:             .9 !default;
 
 $tooltip-arrow-width:         5px !default;
 $tooltip-arrow-color:         $tooltip-bg !default;
@@ -453,8 +465,12 @@ $modal-content-border-color:                   rgba(0,0,0,.2) !default;
 $modal-content-fallback-border-color:          #999 !default;
 
 $modal-backdrop-bg:           #000 !default;
+$modal-backdrop-opacity:      .5 !default;
 $modal-header-border-color:   #e5e5e5 !default;
 $modal-footer-border-color:   $modal-header-border-color !default;
+
+$modal-lg:                    900px !default;
+$modal-sm:                    300px !default;
 
 
 // Alerts
@@ -494,24 +510,26 @@ $progress-bar-info-bg:        $brand-info !default;
 
 // List group
 // -------------------------
-$list-group-bg:               #fff !default;
-$list-group-border:           #ddd !default;
-$list-group-border-radius:    $border-radius-base !default;
+$list-group-bg:                 #fff !default;
+$list-group-border:             #ddd !default;
+$list-group-border-radius:      $border-radius-base !default;
 
-$list-group-hover-bg:         #f5f5f5 !default;
-$list-group-active-color:     $component-active-color !default;
-$list-group-active-bg:        $component-active-bg !default;
-$list-group-active-border:    $list-group-active-bg !default;
+$list-group-hover-bg:           #f5f5f5 !default;
+$list-group-active-color:       $component-active-color !default;
+$list-group-active-bg:          $component-active-bg !default;
+$list-group-active-border:      $list-group-active-bg !default;
+$list-group-active-text-color:  lighten($list-group-active-bg, 40%) !default;
 
-$list-group-link-color:          #555 !default;
-$list-group-link-heading-color:  #333 !default;
-
+$list-group-link-color:         #555 !default;
+$list-group-link-heading-color: #333 !default;
 
 // Panels
 // -------------------------
 $panel-bg:                    #fff !default;
-$panel-inner-border:          #ddd !default;
+$panel-body-padding:          15px !default;
 $panel-border-radius:         $border-radius-base !default;
+
+$panel-inner-border:          #ddd !default;
 $panel-footer-bg:             #f5f5f5 !default;
 
 $panel-default-text:          $gray-dark !default;
@@ -553,6 +571,7 @@ $thumbnail-caption-padding:   9px !default;
 // Wells
 // -------------------------
 $well-bg:                     #f5f5f5 !default;
+$well-border:                 darken($well-bg, 7%) !default;
 
 
 // Badges
@@ -571,10 +590,12 @@ $badge-border-radius:         10px !default;
 
 // Breadcrumbs
 // -------------------------
-$breadcrumb-bg:               #f5f5f5 !default;
-$breadcrumb-color:            #ccc !default;
-$breadcrumb-active-color:     $gray-light !default;
-$breadcrumb-separator:        "/" !default;
+$breadcrumb-padding-vertical:   8px !default;
+$breadcrumb-padding-horizontal: 15px !default;
+$breadcrumb-bg:                 #f5f5f5 !default;
+$breadcrumb-color:              #ccc !default;
+$breadcrumb-active-color:       $gray-light !default;
+$breadcrumb-separator:          "/" !default;
 
 
 // Carousel
@@ -604,6 +625,9 @@ $close-text-shadow:           0 1px 0 #fff !default;
 // ------------------------
 $code-color:                  #c7254e !default;
 $code-bg:                     #f9f2f4 !default;
+
+$kbd-color:                   #fff !default;
+$kbd-bg:                      #333 !default;
 
 $pre-bg:                      #f5f5f5 !default;
 $pre-color:                   $gray-dark !default;

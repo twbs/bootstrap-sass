@@ -2,17 +2,25 @@
 // Grid system
 // --------------------------------------------------
 
-// Set the container width, and override it for fixed navbars in media queries
+
+// Container widths
+//
+// Set the container width, and override it for fixed navbars in media queries.
+
 .container {
   @include container-fixed();
 
+<<<<<<< HEAD
   @media (min-width: $screen-ms) {
     width: $container-ms;
   }
   @media (min-width: $screen-sm) {
+=======
+  @media (min-width: $screen-sm-min) {
+>>>>>>> 8369071... rake convert
     width: $container-sm;
   }
-  @media (min-width: $screen-md) {
+  @media (min-width: $screen-md-min) {
     width: $container-md;
   }
   @media (min-width: $screen-lg-min) {
@@ -20,12 +28,30 @@
   }
 }
 
-// mobile first defaults
+
+// Fluid container
+//
+// Utilizes the mixin meant for fixed width containers, but without any defined
+// width for fluid, full width layouts.
+
+.container-fluid {
+  @include container-fixed();
+}
+
+
+// Row
+//
+// Rows contain and clear the floats of your columns.
+
 .row {
   @include make-row();
 }
 
+
+// Columns
+//
 // Common styles for small and large grid columns
+
 @include make-grid-columns();
 
 
@@ -92,4 +118,3 @@
   @include make-grid($grid-columns, lg, push);
   @include make-grid($grid-columns, lg, offset);
 }
-
