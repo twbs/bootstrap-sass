@@ -74,8 +74,9 @@ class Converter
           when 'variables.less'
             file = insert_default_vars(file)
             file = <<-SCSS + file
-// bootstrap specific variable. set to false if not using ruby + asset pipeline / compass.
-$bootstrap-sass-asset-helper: true !default;
+// whether to use bootstrap-sass asset pipeline / compass integration
+// defaults to true if twbs-font-path function is present.
+$bootstrap-sass-asset-helper: (twbs-font-path('') != unquote("twbs-font-path('')")) !default;
             SCSS
             file = replace_all file, /(\$icon-font-path:).*(!default)/, '\1 "bootstrap/" \2'
           when 'close.less'
