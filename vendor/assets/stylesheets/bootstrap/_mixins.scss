@@ -794,11 +794,11 @@
 // [converter] Grid converted to use SASS cycles (LESS uses recursive nested mixin defs not supported by SASS)
 @mixin make-grid-columns() {
   $list: '';
-  @for $i from 1 to $grid-columns {
+  $i: 1;
+  $list: ".col-xs-#{$i}, .col-ms-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
+  @for $i from 2 through $grid-columns {
     $list: ".col-xs-#{$i}, .col-ms-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}, #{$list}";
   }
-  $i: $grid-columns;
-  $list: "#{$list}, .col-xs-#{$i}, .col-ms-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
   #{$list} {
     position: relative;
     // Prevent columns from collapsing when empty
