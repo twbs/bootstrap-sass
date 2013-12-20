@@ -36,18 +36,30 @@ class Converter
     transition transition-duration transition-property transition-transform box-shadow
   )
 
+    # Convert a snippet of bootstrap LESS to Scss
+    def convert_less(less)
+      load_shared
+      less = convert_to_scss(less)
+      less = yield(less) if block_given?
+      less
+    end
+
+    def load_shared
+      @shared_mixins ||= begin
+        log_status '  Reading shared mixins from mixins.less'
+        read_mixins read_files('less', ['mixins.less'])['mixins.less'], nested: NESTED_MIXINS
+      end
+    end
+
     def process_stylesheet_assets
       log_status 'Processing stylesheets...'
       files = read_files('less', bootstrap_less_files)
-
-      log_status '  Reading shared mixins from mixins.less'
-      @shared_mixins = read_mixins files['mixins.less'], nested: NESTED_MIXINS
 
       log_status '  Converting LESS files to Scss:'
       files.each do |name, file|
         log_processing name
         # apply common conversions
-        file = convert_to_scss(file)
+        file = convert_less(file)
         case name
           when 'mixins.less'
             NESTED_MIXINS.each do |selector, prefix|
@@ -102,15 +114,19 @@ $bootstrap-sass-asset-helper: (twbs-font-path('') != unquote("twbs-font-path('')
         end
 
         name    = name.sub(/\.less$/, '.scss')
-        save_at = @save_at[:scss]
-        path    = "#{save_at}/#{'_' unless name == 'bootstrap.scss'}#{name}"
+        save_to = @save_to[:scss]
+        path    = "#{save_to}/#{'_' unless name == 'bootstrap.scss'}#{name}"
         save_file(path, file)
         log_processed File.basename(path)
       end
     end
 
+    def bootstrap_less_files
+      @bootstrap_less_files ||= get_paths_by_type('less', /\.less$/)
+    end
+
     # apply general less to scss conversion
-    def convert_to_scss(file)
+      def convert_to_scss(file)
       # mixins may also be defined in the file. get mixin names before doing any processing
       mixin_names = (@shared_mixins + read_mixins(file)).uniq
       file        = replace_vars(file)
