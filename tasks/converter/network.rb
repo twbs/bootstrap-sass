@@ -87,7 +87,7 @@ class Converter
 
     # get sha of the branch (= the latest commit)
     def get_branch_sha
-      return @branch if @branch =~ /[0-9a-f]+/
+      return @branch if @branch =~ /\A[0-9a-f]+\z/
       cmd = "git ls-remote '#@repo_url' | awk '/#@branch/ {print $1}'"
       puts cmd
       @branch_sha ||= %x[#{cmd}].chomp
