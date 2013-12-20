@@ -37,14 +37,13 @@ class Converter
   )
 
     def process_stylesheet_assets
-      log_status "Processing stylesheets..."
+      log_status 'Processing stylesheets...'
       files = read_files('less', bootstrap_less_files)
 
-      # read common mixin definitions (incl. nested mixins) from mixins.less
-      read_shared_mixins! files['mixins.less']
-      @shared_mixins << 'make-grid'
+      log_status '  Reading shared mixins from mixins.less'
+      @shared_mixins = read_mixins files['mixins.less'], nested: NESTED_MIXINS
 
-      # convert each file
+      log_status '  Converting LESS files to Scss:'
       files.each do |name, file|
         log_processing name
         # apply common conversions
@@ -113,7 +112,7 @@ $bootstrap-sass-asset-helper: (twbs-font-path('') != unquote("twbs-font-path('')
     # apply general less to scss conversion
     def convert_to_scss(file)
       # mixins may also be defined in the file. get mixin names before doing any processing
-      mixin_names = (@shared_mixins + get_mixin_names(file)).uniq
+      mixin_names = (@shared_mixins + read_mixins(file)).uniq
       file        = replace_vars(file)
       file        = replace_file_imports(file)
       file        = replace_mixin_definitions file
@@ -184,23 +183,23 @@ $bootstrap-sass-asset-helper: (twbs-font-path('') != unquote("twbs-font-path('')
     # We need to keep a list of shared mixin names in order to convert the includes correctly
     # Before doing any processing we read shared mixins from a file
     # If a mixin is nested, it gets prefixed in the list (e.g. #gradient > .horizontal to 'gradient-horizontal')
-    def read_shared_mixins!(mixins_file)
-      log_status "  Reading shared mixins from mixins.less"
-      @shared_mixins = get_mixin_names(mixins_file, silent: true)
-      NESTED_MIXINS.each do |selector, prefix|
+    def read_mixins(mixins_file, nested: {})
+      mixins = get_mixin_names(mixins_file, silent: true)
+      nested.each do |selector, prefix|
         # we use replace_rules without replacing anything just to use the parsing algorithm
         replace_rules(mixins_file, selector) { |rule|
-          @shared_mixins += get_mixin_names(unindent(unwrap_rule_block(rule)), silent: true).map { |name| "#{prefix}-#{name}" }
+          mixins += get_mixin_names(unindent(unwrap_rule_block(rule)), silent: true).map { |name| "#{prefix}-#{name}" }
           rule
         }
       end
-      @shared_mixins.sort!
-      log_file_info "shared mixins: #{@shared_mixins * ', '}"
-      @shared_mixins
+      mixins.uniq!
+      mixins.sort!
+      log_file_info "mixins: #{mixins * ', '}" unless mixins.empty?
+      mixins
     end
 
     def get_mixin_names(file, opts = {})
-      names = get_css_selectors(file).join("\n" * 2).scan(/^\.([\w-]+)\(#{LESS_MIXIN_DEF_ARGS_RE}\)[ ]*\{/).map(&:first).uniq.sort
+      names = get_css_selectors(file).join("\n" * 2).scan(/^\.([\w-]+)\(#{LESS_MIXIN_DEF_ARGS_RE}\)(?: when.*?)?[ ]*\{/).map(&:first).uniq.sort
       log_file_info "mixin defs: #{names * ', '}" unless opts[:silent] || names.empty?
       names
     end
@@ -246,7 +245,7 @@ $bootstrap-sass-asset-helper: (twbs-font-path('') != unquote("twbs-font-path('')
             prop, vals = $1, split_prop_val.call($2)
             next m unless vals.length >= 2 && vals.any? { |v| v =~ /^[\+\-]\$/ }
             transformed = vals.map { |v| v.strip =~ %r(^\(.*\)$) ? v : "(#{v})" }
-            log_transform "property #{prop}: #{transformed * ' '}"
+            log_transform "property #{prop}: #{transformed * ' '}", from: 'wrap_calculation'
             "#{prop}: #{transformed * ' '};"
           end
         end
