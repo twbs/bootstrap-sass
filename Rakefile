@@ -19,8 +19,13 @@ end
 desc 'Convert bootstrap to bootstrap-sass'
 task :convert, :branch do |t, args|
   require './tasks/converter'
-  branch = args[:branch]
-  Converter.new(branch).process
+  Converter.new(branch: args[:branch]).process_bootstrap
+end
+
+desc 'LESS to stdin -> Sass to stdout'
+task :less_to_scss, :branch do |t, args|
+  require './tasks/converter'
+  puts Converter.new(branch: args[:branch]).convert_less(STDIN.read)
 end
 
 desc 'Compile bootstrap-sass to tmp/ (or first arg)'

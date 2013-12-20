@@ -2,16 +2,6 @@ class Converter
   class Logger
     include Term::ANSIColor
 
-    def initialize(env)
-      @env = env
-      puts bold "Convert Bootstrap LESS to SASS"
-      puts " repo   : #{env[:repo]}"
-      puts " branch : #{env[:branch]} #{dark "#{env[:repo]}/tree/#{env[:branch_sha]}"}"
-      puts " save to: #{@env[:save_at].to_json}"
-      puts " twbs cache: #{@env[:cache_path]}"
-      puts dark "-" * 60
-    end
-
     def log_status(status)
       puts bold status
     end
@@ -51,8 +41,10 @@ class Converter
     end
 
     def puts(*args)
-      STDOUT.puts *args unless @silence
+      STDERR.puts *args unless @silence
     end
+
+    alias log puts
 
     def silence_log
       @silence = true
