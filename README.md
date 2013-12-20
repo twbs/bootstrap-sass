@@ -1,6 +1,6 @@
 # Bootstrap for Sass
 
-[![Build Status](https://secure.travis-ci.org/thomas-mcdonald/bootstrap-sass.png?branch=master)](http://travis-ci.org/thomas-mcdonald/bootstrap-sass)
+[![Build Status](https://secure.travis-ci.org/twbs/bootstrap-sass.png?branch=master)](http://travis-ci.org/twbs/bootstrap-sass)
 
 `bootstrap-sass` is a Sass-powered version of [Bootstrap](http://github.com/twbs/bootstrap), ready to drop right into your Sass powered applications.
 
@@ -207,8 +207,8 @@ bootstrap-sass is used to build some awesome projects all over the web, includin
 Michael Hartl's [Rails Tutorial](http://railstutorial.org/), [gitlabhq](http://gitlabhq.com/) and
 [kandan](http://kandanapp.com/).
 
-[converter]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/tasks/converter.rb
-[version]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/lib/bootstrap-sass/version.rb
-[contrib]: https://github.com/thomas-mcdonald/bootstrap-sass/graphs/contributors
-[antirequire]: https://github.com/thomas-mcdonald/bootstrap-sass/issues/79#issuecomment-4428595
+[converter]: https://github.com/twbs/bootstrap-sass/blob/3/tasks/converter.rb
+[version]: https://github.com/twbs/bootstrap-sass/blob/3/lib/bootstrap-sass/version.rb
+[contrib]: https://github.com/twbs/bootstrap-sass/graphs/contributors
+[antirequire]: https://github.com/twbs/bootstrap-sass/issues/79#issuecomment-4428595
 [jsdocs]: http://getbootstrap.com/javascript/#transitions
