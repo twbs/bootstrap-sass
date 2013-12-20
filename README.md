@@ -59,7 +59,11 @@ Require the gem, and load paths and Sass helpers will be configured automaticall
 require 'bootstrap-sass'
 ```
 
-You can use bootstrap-sass as a Bower package as well.
+Using bootstrap-sass as a Bower package is still being tested. You can install it with:
+
+```bash
+bower install 'git://github.com/twbs/bootstrap-sass.git#v3.0.3.0'
+```
 
 #### JS and fonts
 
