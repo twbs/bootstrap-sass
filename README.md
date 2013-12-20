@@ -1,6 +1,6 @@
 # Bootstrap for Sass
 
-[![Build Status](https://secure.travis-ci.org/thomas-mcdonald/bootstrap-sass.png?branch=master)](http://travis-ci.org/thomas-mcdonald/bootstrap-sass)
+[![Build Status](https://secure.travis-ci.org/twbs/bootstrap-sass.png?branch=master)](http://travis-ci.org/twbs/bootstrap-sass)
 
 `bootstrap-sass` is a Sass-powered version of [Bootstrap](http://github.com/twbs/bootstrap), ready to drop right into your Sass powered applications.
 
@@ -59,12 +59,11 @@ Require the gem, and load paths and Sass helpers will be configured automaticall
 require 'bootstrap-sass'
 ```
 
-When using outside ruby (e.g. as a bower package), disable ruby asset lookup helper:
+Using bootstrap-sass as a Bower package is still being tested. You can install it with:
 
-```sass
-$bootstrap-sass-asset-helper: false
+```bash
+bower install 'git://github.com/twbs/bootstrap-sass.git#v3.0.3.0'
 ```
-
 
 #### JS and fonts
 
@@ -207,8 +206,8 @@ bootstrap-sass is used to build some awesome projects all over the web, includin
 Michael Hartl's [Rails Tutorial](http://railstutorial.org/), [gitlabhq](http://gitlabhq.com/) and
 [kandan](http://kandanapp.com/).
 
-[converter]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/tasks/converter.rb
-[version]: https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/lib/bootstrap-sass/version.rb
-[contrib]: https://github.com/thomas-mcdonald/bootstrap-sass/graphs/contributors
-[antirequire]: https://github.com/thomas-mcdonald/bootstrap-sass/issues/79#issuecomment-4428595
+[converter]: https://github.com/twbs/bootstrap-sass/blob/3/tasks/converter.rb
+[version]: https://github.com/twbs/bootstrap-sass/blob/3/lib/bootstrap-sass/version.rb
+[contrib]: https://github.com/twbs/bootstrap-sass/graphs/contributors
+[antirequire]: https://github.com/twbs/bootstrap-sass/issues/79#issuecomment-4428595
 [jsdocs]: http://getbootstrap.com/javascript/#transitions

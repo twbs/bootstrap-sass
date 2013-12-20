@@ -1,40 +1,14 @@
 class Converter
   module Network
-
-    def bootstrap_font_files
-      @bootstrap_font_files ||= get_paths_by_type('fonts', /\.(eot|svg|ttf|woff)$/)
-    end
-
-    def bootstrap_less_files
-      @bootstrap_less_files ||= get_paths_by_type('less', /\.less$/)
-    end
-
-    def bootstrap_js_files
-      @bootstrap_js_files ||= begin
-        files = get_paths_by_type 'js', /\.js$/
-        files.sort_by { |f|
-          case f
-            # tooltip depends on popover and must be loaded earlier
-            when /tooltip/ then
-              1
-            when /popover/ then
-              2
-            else
-              0
-          end
-        }
-      end
-    end
-
     protected
 
     def get_paths_by_type(dir, file_re)
-      files = get_json "#{@git_data_api_host}/#@repo/git/trees/#{get_tree_sha(dir)}"
+      files = get_json "https://api.github.com/repos/#@repo/git/trees/#{get_tree_sha(dir)}"
       files['tree'].select { |f| f['type'] == 'blob' && f['path'] =~ file_re }.map { |f| f['path'] }
     end
 
     def read_files(path, files)
-      full_path = "#{@git_raw_host}/#@repo/#@branch_sha/#{path}"
+      full_path = "https://raw.github.com/#@repo/#@branch_sha/#{path}"
       if (contents = read_cached_files(path, files))
         log_http_get_files files, full_path, true
       else
@@ -87,8 +61,9 @@ class Converter
 
     # get sha of the branch (= the latest commit)
     def get_branch_sha
-      cmd = "git ls-remote '#@repo_url' | awk '/#@branch/ {print $1}'"
-      puts cmd
+      return @branch if @branch =~ /\A[0-9a-f]+\z/
+      cmd = "git ls-remote 'https://github.com/#@repo' | awk '/#@branch/ {print $1}'"
+      log cmd
       @branch_sha ||= %x[#{cmd}].chomp
       raise 'Could not get branch sha!' unless $?.success?
       @branch_sha
@@ -100,7 +75,7 @@ class Converter
     end
 
     def get_trees
-      @trees ||= get_json("#{@git_data_api_host}/#@repo/git/trees/#@branch_sha")
+      @trees ||= get_json("https://api.github.com/repos/#@repo/git/trees/#@branch_sha")
     end
 
     def get_json(url)

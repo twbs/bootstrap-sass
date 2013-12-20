@@ -34,25 +34,31 @@ class Converter
   include JsConversion
   include FontsConversion
 
-  def initialize(branch)
-    @git_data_api_host = 'https://api.github.com/repos'
-    @git_raw_host  = 'https://raw.github.com'
-
-    @repo       = 'twbs/bootstrap'
-    @repo_url   = "https://github.com/#@repo"
+  def initialize(repo: 'twbs/bootstrap', branch: 'master', save_to: {}, cache_path: 'tmp/converter-cache-bootstrap')
+    @logger     = Logger.new
+    @repo       = repo
     @branch     = branch || 'master'
     @branch_sha = get_branch_sha
-    @save_at    = { js: 'vendor/assets/javascripts/bootstrap',
-                    scss: 'vendor/assets/stylesheets/bootstrap',
-                    fonts: 'vendor/assets/fonts/bootstrap' }
-    @save_at.each { |_,v| FileUtils.mkdir_p(v) }
-    @cache_path = 'tmp/converter-cache'
-    @logger     = Logger.new(repo: @repo_url, branch: @branch, branch_sha: @branch_sha, save_at: @save_at, cache_path: @cache_path)
+    @cache_path = cache_path
+    @repo_url   = "https://github.com/#@repo"
+    @save_to    = {
+        js:    'vendor/assets/javascripts/bootstrap',
+        scss:  'vendor/assets/stylesheets/bootstrap',
+        fonts: 'vendor/assets/fonts/bootstrap'}.merge(save_to)
   end
 
-  def_delegators :@logger, :log_status, :log_processing, :log_transform, :log_file_info, :log_processed, :log_http_get_file, :log_http_get_files, :silence_log
+  def_delegators :@logger, :log, :log_status, :log_processing, :log_transform, :log_file_info, :log_processed, :log_http_get_file, :log_http_get_files, :silence_log
 
-  def process
+  def process_bootstrap
+    log_status "Convert Bootstrap LESS to SASS"
+    puts " repo   : #@repo_url"
+    puts " branch : #@branch_sha #@repo_url/tree/#@branch"
+    puts " save to: #{@save_to.to_json}"
+    puts " twbs cache: #{@cache_path}"
+    puts '-' * 60
+
+    @save_to.each { |_, v| FileUtils.mkdir_p(v) }
+
     process_stylesheet_assets
     process_javascript_assets
     process_font_assets
@@ -65,7 +71,7 @@ class Converter
 
   # Update version.rb file with BOOTSTRAP_SHA
   def store_version
-    path = 'lib/bootstrap-sass/version.rb'
+    path    = 'lib/bootstrap-sass/version.rb'
     content = File.read(path).sub(/BOOTSTRAP_SHA\s*=\s*['"][\w]+['"]/, "BOOTSTRAP_SHA = '#@branch_sha'")
     File.open(path, 'w') { |f| f.write(content) }
   end

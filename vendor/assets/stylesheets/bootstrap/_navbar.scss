@@ -93,14 +93,17 @@
 //
 // When a container is present, change the behavior of the header and collapse.
 
-.container > .navbar-header,
-.container > .navbar-collapse {
-  margin-right: -$navbar-padding-horizontal;
-  margin-left:  -$navbar-padding-horizontal;
+.container,
+.container-fluid {
+  > .navbar-header,
+  > .navbar-collapse {
+    margin-right: -$navbar-padding-horizontal;
+    margin-left:  -$navbar-padding-horizontal;
 
-  @media (min-width: $grid-float-breakpoint) {
-    margin-right: 0;
-    margin-left:  0;
+    @media (min-width: $grid-float-breakpoint) {
+      margin-right: 0;
+      margin-left:  0;
+    }
   }
 }
 
@@ -158,8 +161,16 @@
     text-decoration: none;
   }
 
+  // Prevent Glyphicons from increasing height of navbar
+  > .glyphicon {
+    float: left;
+    margin-top: -2px;
+    margin-right: 5px;
+  }
+
   @media (min-width: $grid-float-breakpoint) {
-    .navbar > .container & {
+    .navbar > .container &,
+    .navbar > .container-fluid & {
       margin-left: -$navbar-padding-horizontal;
     }
   }
@@ -201,7 +212,7 @@
 
 // Navbar nav links
 //
-// Builds on top of the `.nav` components with it's own modifier class to make
+// Builds on top of the `.nav` components with its own modifier class to make
 // the nav the full height of the horizontal nav (above 768px).
 
 .navbar-nav {
@@ -327,13 +338,6 @@
 // Menu position and menu caret support for dropups via extra dropup class
 .navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
   @include border-bottom-radius(0);
-}
-
-// Right aligned menus need alt position
-.navbar-nav.pull-right > li > .dropdown-menu,
-.navbar-nav > li > .dropdown-menu.pull-right {
-  left: auto;
-  right: 0;
 }
 
 

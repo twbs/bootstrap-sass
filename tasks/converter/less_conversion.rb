@@ -9,9 +9,9 @@ require_relative 'char_string_scanner'
 class Converter
   module LessConversion
     # Some regexps for matching bits of SCSS:
-    selector_char               = '\[\]$\w\-{}#,.:&>@'
+    SELECTOR_CHAR               = '\[\]$\w\-{}#,.:&>@'
     # 1 selector (the part before the {)
-    SELECTOR_RE                 = /[#{selector_char}]+[#{selector_char}\s]*/
+    SELECTOR_RE                 = /[#{SELECTOR_CHAR}]+[#{SELECTOR_CHAR}\s]*/
     # 1 // comment
     COMMENT_RE                  = %r((?:^[ \t]*//[^\n]*\n))
     # 1 {, except when part of @{ and #{
@@ -36,19 +36,30 @@ class Converter
     transition transition-duration transition-property transition-transform box-shadow
   )
 
+    # Convert a snippet of bootstrap LESS to Scss
+    def convert_less(less)
+      load_shared
+      less = convert_to_scss(less)
+      less = yield(less) if block_given?
+      less
+    end
+
+    def load_shared
+      @shared_mixins ||= begin
+        log_status '  Reading shared mixins from mixins.less'
+        read_mixins read_files('less', ['mixins.less'])['mixins.less'], nested: NESTED_MIXINS
+      end
+    end
+
     def process_stylesheet_assets
-      log_status "Processing stylesheets..."
+      log_status 'Processing stylesheets...'
       files = read_files('less', bootstrap_less_files)
 
-      # read common mixin definitions (incl. nested mixins) from mixins.less
-      read_shared_mixins! files['mixins.less']
-      @shared_mixins << 'make-grid'
-
-      # convert each file
+      log_status '  Converting LESS files to Scss:'
       files.each do |name, file|
         log_processing name
         # apply common conversions
-        file = convert_to_scss(file)
+        file = convert_less(file)
         case name
           when 'mixins.less'
             NESTED_MIXINS.each do |selector, prefix|
@@ -56,10 +67,12 @@ class Converter
             end
             file = varargify_mixin_definitions(file, *VARARG_MIXINS)
             file = deinterpolate_vararg_mixins(file)
-            file = parameterize_mixin_parent_selector file, 'responsive-(in)?visibility'
-            file = parameterize_mixin_parent_selector file, 'input-size'
+            %w(responsive-(in)?visibility input-size).each do |mixin|
+              file = parameterize_mixin_parent_selector file, mixin
+            end
             file = replace_ms_filters(file)
-            file = replace_all file, /\.\$state/, '.#{$state}'
+            file = replace_all file, /(?<=[.-])\$state/, '#{$state}'
+            file = replace_rules(file, '  .list-group-item-') { |rule| extract_nested_rule rule, 'a&' }
             file = replace_all file, /,\s*\.open \.dropdown-toggle& \{(.*?)\}/m,
                                " {\\1}\n  .open & { &.dropdown-toggle {\\1} }"
             file = convert_grid_mixins file
@@ -67,18 +80,22 @@ class Converter
             file = apply_mixin_parent_selector(file, '&\.(visible|hidden)')
             file = apply_mixin_parent_selector(file, '(?<!&)\.(visible|hidden)')
             file = replace_rules(file, '  @media') { |r| unindent(r, 2) }
+          when 'type.less'
+            file = extract_nested_rule file, '  a&:'
           when 'variables.less'
             file = insert_default_vars(file)
             file = <<-SCSS + file
-// bootstrap specific variable. set to false if not using ruby + asset pipeline / compass.
-$bootstrap-sass-asset-helper: true !default;
+// whether to use bootstrap-sass asset pipeline / compass integration
+// defaults to true if twbs-font-path function is present.
+$bootstrap-sass-asset-helper: (twbs-font-path('') != unquote("twbs-font-path('')")) !default;
             SCSS
             file = replace_all file, /(\$icon-font-path:).*(!default)/, '\1 "bootstrap/" \2'
           when 'close.less'
             # extract .close { button& {...} } rule
             file = extract_nested_rule file, 'button&'
           when 'dropdowns.less'
-            file = replace_all file, /(\s*)@extend \.pull-right-dropdown-menu;/, "\\1right: 0;\\1left: auto;"
+            file = replace_all file, /(\s*)@extend \.dropdown-menu-right;/, '\1right: 0;\1left: auto;'
+            file = replace_all file, /(\s*)@extend \.dropdown-menu-left;/, '\left: 0;\right: auto;'
           when 'forms.less'
             file = extract_nested_rule file, 'textarea&'
             file = apply_mixin_parent_selector(file, '\.input-(?:sm|lg)')
@@ -89,7 +106,7 @@ $bootstrap-sass-asset-helper: true !default;
           when 'thumbnails.less'
             file = extract_nested_rule file, 'a&'
           when 'glyphicons.less'
-            file  = replace_all file, /\#\{(url\(.*?\))}/, '\1'
+            file = replace_all file, /\#\{(url\(.*?\))}/, '\1'
             file = replace_rules(file, '@font-face') { |rule|
               rule = replace_all rule, /(\$icon-font-\w+)/, '#{\1}'
               replace_asset_url rule, :font
@@ -97,17 +114,21 @@ $bootstrap-sass-asset-helper: true !default;
         end
 
         name    = name.sub(/\.less$/, '.scss')
-        save_at = @save_at[:scss]
-        path    = "#{save_at}/#{'_' unless name == 'bootstrap.scss'}#{name}"
+        save_to = @save_to[:scss]
+        path    = "#{save_to}/#{'_' unless name == 'bootstrap.scss'}#{name}"
         save_file(path, file)
         log_processed File.basename(path)
       end
     end
 
+    def bootstrap_less_files
+      @bootstrap_less_files ||= get_paths_by_type('less', /\.less$/)
+    end
+
     # apply general less to scss conversion
-    def convert_to_scss(file)
+      def convert_to_scss(file)
       # mixins may also be defined in the file. get mixin names before doing any processing
-      mixin_names = (@shared_mixins + get_mixin_names(file)).uniq
+      mixin_names = (@shared_mixins + read_mixins(file)).uniq
       file        = replace_vars(file)
       file        = replace_file_imports(file)
       file        = replace_mixin_definitions file
@@ -178,23 +199,23 @@ $bootstrap-sass-asset-helper: true !default;
     # We need to keep a list of shared mixin names in order to convert the includes correctly
     # Before doing any processing we read shared mixins from a file
     # If a mixin is nested, it gets prefixed in the list (e.g. #gradient > .horizontal to 'gradient-horizontal')
-    def read_shared_mixins!(mixins_file)
-      log_status "  Reading shared mixins from mixins.less"
-      @shared_mixins = get_mixin_names(mixins_file, silent: true)
-      NESTED_MIXINS.each do |selector, prefix|
+    def read_mixins(mixins_file, nested: {})
+      mixins = get_mixin_names(mixins_file, silent: true)
+      nested.each do |selector, prefix|
         # we use replace_rules without replacing anything just to use the parsing algorithm
         replace_rules(mixins_file, selector) { |rule|
-          @shared_mixins += get_mixin_names(unindent(unwrap_rule_block(rule)), silent: true).map { |name| "#{prefix}-#{name}" }
+          mixins += get_mixin_names(unindent(unwrap_rule_block(rule)), silent: true).map { |name| "#{prefix}-#{name}" }
           rule
         }
       end
-      @shared_mixins.sort!
-      log_file_info "shared mixins: #{@shared_mixins * ', '}"
-      @shared_mixins
+      mixins.uniq!
+      mixins.sort!
+      log_file_info "mixins: #{mixins * ', '}" unless mixins.empty?
+      mixins
     end
 
     def get_mixin_names(file, opts = {})
-      names = get_css_selectors(file).join("\n" * 2).scan(/^\.([\w-]+)\(#{LESS_MIXIN_DEF_ARGS_RE}\)[ ]*\{/).map(&:first).uniq.sort
+      names = get_css_selectors(file).join("\n" * 2).scan(/^\.([\w-]+)\(#{LESS_MIXIN_DEF_ARGS_RE}\)(?: when.*?)?[ ]*\{/).map(&:first).uniq.sort
       log_file_info "mixin defs: #{names * ', '}" unless opts[:silent] || names.empty?
       names
     end
@@ -240,7 +261,7 @@ $bootstrap-sass-asset-helper: true !default;
             prop, vals = $1, split_prop_val.call($2)
             next m unless vals.length >= 2 && vals.any? { |v| v =~ /^[\+\-]\$/ }
             transformed = vals.map { |v| v.strip =~ %r(^\(.*\)$) ? v : "(#{v})" }
-            log_transform "property #{prop}: #{transformed * ' '}"
+            log_transform "property #{prop}: #{transformed * ' '}", from: 'wrap_calculation'
             "#{prop}: #{transformed * ' '};"
           end
         end
@@ -266,7 +287,7 @@ $bootstrap-sass-asset-helper: true !default;
     def parameterize_mixin_parent_selector(file, rule_sel)
       log_transform rule_sel
       param = '$parent'
-      replace_rules(file, '^[ \t]*@mixin\s*' + rule_sel) do |mxn_css|
+      replace_rules(file, '^\s*@mixin\s*' + rule_sel) do |mxn_css|
         mxn_css.sub! /(?=@mixin)/, "// [converter] $parent hack\n"
         # insert param into mixin def
         mxn_css.sub!(/(@mixin [\w-]+)\(([\$\w\-,\s]*)\)/) { "#{$1}(#{param}#{', ' if $2 && !$2.empty?}#{$2})" }
@@ -309,7 +330,7 @@ $bootstrap-sass-asset-helper: true !default;
       replace_rules file, '\s*' + rule_sel, comments: false do |rule, rule_pos, css|
         body = unwrap_rule_block(rule.dup).strip
         next rule unless body =~ /^@include \w+/m || body =~ /^@media/ && body =~ /\{\s*@include/
-        rule =~ /(#{COMMENT_RE}*)(#{SELECTOR_RE})\{/
+        rule =~ /(#{COMMENT_RE}*)([#{SELECTOR_CHAR}]+?)\s*#{RULE_OPEN_BRACE_RE}/
         cmt, sel = $1, $2.strip
         # take one up selector chain if this is an &. selector
         if sel.start_with?('&')
@@ -334,12 +355,13 @@ $bootstrap-sass-asset-helper: true !default;
     end
 
     # Replaces the following:
-    #  .mixin()          -> @include mixin()
-    #  #scope > .mixin() -> @include scope-mixin()
+    #  .mixin()             -> @include mixin()
+    #  #scope > .mixin()    -> @include scope-mixin()
+    #  &:extend(.mixin all) -> @include mixin()
     def replace_mixins(less, mixin_names)
       mixin_pattern = /(\s+)(([#|\.][\w-]+\s*>\s*)*)\.([\w-]+\(.*\))(?!\s\{)/
 
-      less.gsub(mixin_pattern) do |match|
+      less = less.gsub(mixin_pattern) do |match|
         matches = match.scan(mixin_pattern).flatten
         scope   = matches[1] || ''
         if scope != ''
@@ -350,6 +372,17 @@ $bootstrap-sass-asset-helper: true !default;
           "#{matches.first}@include #{scope}#{matches.last}".gsub(/; \$/, ", $").sub(/;\)$/, ')')
         else
           "#{matches.first}@extend .#{scope}#{matches.last.gsub(/\(\)/, '')}"
+        end
+      end
+
+      less.gsub /&:extend\((#{SELECTOR_RE}) all\)/ do
+        selector = $1
+        selector =~ /\.([\w-]+)/
+        mixin    = $1
+        if mixin && mixin_names.include?(mixin)
+          "@include #{mixin}()"
+        else
+          "@extend #{selector}"
         end
       end
     end
@@ -484,7 +517,7 @@ $bootstrap-sass-asset-helper: true !default;
       options = {comments: true}.merge(options || {})
       less    = less.dup
       s       = CharStringScanner.new(less)
-      rule_re = /(?:#{rule_prefix}[^{]*#{RULE_OPEN_BRACE_RE})/
+      rule_re = /(?:#{rule_prefix}[#{SELECTOR_CHAR})=(\s]*?#{RULE_OPEN_BRACE_RE})/
       if options[:comments]
         rule_start_re = /(?:#{COMMENT_RE}*)^#{rule_re}/
       else
@@ -564,7 +597,7 @@ $bootstrap-sass-asset-helper: true !default;
     # get the pos of css def at pos (search backwards)
     def css_def_pos(css, pos, depth = -1)
       to       = open_brace_pos(css, pos, depth)
-      prev_def = to - (css[0..to].reverse.index('}') || to) + 1
+      prev_def = to - (css[0..to].reverse.index(RULE_CLOSE_BRACE_RE_REVERSE) || to) + 1
       from     = prev_def + 1 + (css[prev_def + 1..-1] =~ %r(^\s*[^\s/]))
       (from..to - 1)
     end
