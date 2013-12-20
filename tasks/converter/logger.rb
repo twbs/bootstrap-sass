@@ -20,8 +20,8 @@ class Converter
       puts "    #{magenta s}"
     end
 
-    def log_transform(*args)
-      puts "#{cyan "    #{caller[1][/`.*'/][1..-2].sub(/^block in /, '')}"}#{cyan ": #{args * ', '}" unless args.empty?}"
+    def log_transform(*args, from: caller[1][/`.*'/][1..-2].sub(/^block in /, ''))
+      puts "    #{cyan from}#{cyan ": #{args * ', '}" unless args.empty?}"
     end
 
     def log_processing(name)
