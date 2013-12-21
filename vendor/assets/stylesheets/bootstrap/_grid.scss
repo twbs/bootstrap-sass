@@ -10,14 +10,10 @@
 .container {
   @include container-fixed();
 
-<<<<<<< HEAD
-  @media (min-width: $screen-ms) {
+  @media (min-width: $screen-ms-min) {
     width: $container-ms;
   }
-  @media (min-width: $screen-sm) {
-=======
   @media (min-width: $screen-sm-min) {
->>>>>>> 8369071... rake convert
     width: $container-sm;
   }
   @media (min-width: $screen-md-min) {
