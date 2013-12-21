@@ -84,10 +84,11 @@ class Converter
             file = extract_nested_rule file, '  a&:'
           when 'variables.less'
             file = insert_default_vars(file)
-            file = <<-SCSS + file
-// whether to use bootstrap-sass asset pipeline / compass integration
-// defaults to true if twbs-font-path function is present.
-$bootstrap-sass-asset-helper: (twbs-font-path('') != unquote("twbs-font-path('')")) !default;
+            file = unindent <<-SCSS + file, 14
+              // a flag to toggle asset pipeline / compass integration
+              // defaults to true if twbs-font-path function is present (no function => twbs-font-path('') parsed as string == right side)
+              // in Sass 3.3 this can be improved with: function-exists(twbs-font-path)
+              $bootstrap-sass-asset-helper: (twbs-font-path('') != unquote("twbs-font-path('')")) !default;
             SCSS
             file = replace_all file, /(\$icon-font-path:).*(!default)/, '\1 "bootstrap/" \2'
           when 'close.less'
@@ -126,21 +127,19 @@ $bootstrap-sass-asset-helper: (twbs-font-path('') != unquote("twbs-font-path('')
     end
 
     # apply general less to scss conversion
-      def convert_to_scss(file)
-      # mixins may also be defined in the file. get mixin names before doing any processing
-      mixin_names = (@shared_mixins + read_mixins(file)).uniq
-      file        = replace_vars(file)
-      file        = replace_file_imports(file)
-      file        = replace_mixin_definitions file
-      file        = replace_mixins file, mixin_names
-      # replace_less_extend does not seem to do anything. @glebm
-      file        = replace_less_extend(file)
-      file        = replace_spin(file)
-      file        = replace_image_urls(file)
-      file        = replace_escaping(file)
-      file        = convert_less_ampersand(file)
-      file        = deinterpolate_vararg_mixins(file)
-      file        = replace_calculation_semantics(file)
+    def convert_to_scss(file)
+      # get local mixin names before converting the definitions
+      mixins = @shared_mixins + read_mixins(file)
+      file   = replace_vars(file)
+      file   = replace_file_imports(file)
+      file   = replace_mixin_definitions(file)
+      file   = replace_mixins(file, mixins)
+      file   = replace_spin(file)
+      file   = replace_image_urls(file)
+      file   = replace_escaping(file)
+      file   = convert_less_ampersand(file)
+      file   = deinterpolate_vararg_mixins(file)
+      file   = replace_calculation_semantics(file)
       file
     end
 
@@ -354,7 +353,7 @@ $bootstrap-sass-asset-helper: (twbs-font-path('') != unquote("twbs-font-path('')
       end
     end
 
-    # Replaces the following:
+    # @include and @extend from LESS:
     #  .mixin()             -> @include mixin()
     #  #scope > .mixin()    -> @include scope-mixin()
     #  &:extend(.mixin all) -> @include mixin()
@@ -420,13 +419,6 @@ $bootstrap-sass-asset-helper: (twbs-font-path('') != unquote("twbs-font-path('')
           # variables that would be ignored by gsub above: e.g. @page-header-border-color
           gsub(/@(page[\w-]+)/, '$\1')
       less
-    end
-
-    # #gradient > .horizontal()
-    # to:
-    # @include .horizontal-gradient()
-    def replace_less_extend(less)
-      less.gsub(/\#(\w+) \> \.([\w-]*)(\(.*\));?/, '@include \1-\2\3;')
     end
 
     def replace_spin(less)
