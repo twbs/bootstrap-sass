@@ -27,9 +27,11 @@
 
 // .visible-xs 
 @include responsive-invisibility('.visible-xs');
+
 @media (max-width: $screen-xs-max) {
   @include responsive-visibility('.visible-xs');
 }
+<<<<<<< HEAD
 @media (min-width: $screen-ms) and (max-width: $screen-ms-max) {
   @include responsive-visibility('.visible-xs.visible-ms');
 }
@@ -202,14 +204,19 @@
   @include responsive-invisibility('.hidden-lg.hidden-md');
 }    
 @media (min-width: $screen-lg) {
-
-  @include responsive-invisibility('.hidden-lg');
+@include responsive-invisibility('.hidden-lg');
 }
 
+
 // Print utilities
+//
+// Media queries are placed on the inside to be mixin-friendly.
 
 @include responsive-invisibility('.visible-print');
 @media print {
   @include responsive-visibility('.visible-print');
+}
+
+@media print {
   @include responsive-invisibility('.hidden-print');
 }
