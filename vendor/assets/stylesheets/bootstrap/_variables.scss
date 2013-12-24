@@ -1,5 +1,7 @@
-// bootstrap specific variable. set to false if not using ruby + asset pipeline / compass.
-$bootstrap-sass-asset-helper: true !default;
+// a flag to toggle asset pipeline / compass integration
+// defaults to true if twbs-font-path function is present (no function => twbs-font-path('') parsed as string == right side)
+// in Sass 3.3 this can be improved with: function-exists(twbs-font-path)
+$bootstrap-sass-asset-helper: (twbs-font-path('') != unquote("twbs-font-path('')")) !default;
 //
 // Variables
 // --------------------------------------------------
