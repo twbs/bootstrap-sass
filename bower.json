@@ -16,5 +16,7 @@
     "sass"
   ],
   "license": "MIT",
-  "include": ['vendor', 'bower.json', 'README.md', 'LICENSE']
+  "ignore": [
+    "**/.*", "lib", "tasks", "templates", "test", "*.gemspec", "Rakefile", "Gemfile"
+  ]
 }

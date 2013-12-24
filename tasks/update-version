@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+# Set bower.json and ruby gem versions
+
+new_version        = ARGV[0] || begin
+  STDERR.puts 'update-version: Usage: update-version <new_version>'
+  exit 64
+end
+new_version_semver = new_version.gsub /(\d+\.\d+\.\d+).([a-z]*\d+)/, '\1-\2'
+new_version_rb     = new_version_semver.tr '-', '.'
+
+$: << File.expand_path('../lib', File.dirname(__FILE__))
+require 'bootstrap-sass/version'
+version_rb         = Bootstrap::VERSION
+
+Dir.chdir File.expand_path('..', File.dirname(__FILE__)) do
+  %w(lib/bootstrap-sass/version.rb README.md).each do |path|
+    src = File.read(path)
+    File.write path, src.gsub(version_rb, new_version_rb)
+  end
+  %w(bower.json).each do |path|
+    src = File.read(path)
+    File.write path, src.gsub(/#{version_rb}/, new_version_semver)
+  end
+end
