@@ -89,6 +89,7 @@ output {
   font-size: $font-size-base;
   line-height: $line-height-base;
   color: $input-color;
+  vertical-align: middle;
 }
 
 
@@ -122,6 +123,7 @@ output {
   font-size: $font-size-base;
   line-height: $line-height-base;
   color: $input-color;
+  vertical-align: middle;
   background-color: $input-bg;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid $input-border;
@@ -157,14 +159,6 @@ textarea.form-control {
   height: auto;
 }
 
-// Special styles for iOS date input
-//
-// In Mobile Safari, date inputs require a pixel line-height that matches the
-// given height of the input.
-input[type="date"] {
-  line-height: $input-height-base;
-}
-
 
 // Form groups
 //
@@ -187,8 +181,10 @@ input[type="date"] {
   margin-top: 10px;
   margin-bottom: 10px;
   padding-left: 20px;
+  vertical-align: middle;
   label {
     display: inline;
+    margin-bottom: 0;
     font-weight: normal;
     cursor: pointer;
   }
@@ -236,11 +232,7 @@ input[type="checkbox"],
   }
 }
 
-
 // Form control sizing
-//
-// Build on `.form-control` with modifier classes to decrease or increase the
-// height and font-size of form controls.
 
 @include input-size('.input-sm', $input-height-small, $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
 
@@ -251,35 +243,15 @@ input[type="checkbox"],
 //
 // Apply contextual and semantic states to individual form controls.
 
-.has-feedback {
-  // Enable absolute positioning
-  position: relative;
-
-  // Ensure icons don't overlap text
-  .form-control {
-    padding-right: ($input-height-base * 1.25);
-  }
-
-  // Feedback icon (requires .glyphicon classes)
-  .form-control-feedback {
-    position: absolute;
-    top: ($line-height-computed + 5); // Height of the `label` and its margin
-    right: 0;
-    display: block;
-    width: $input-height-base;
-    height: $input-height-base;
-    line-height: $input-height-base;
-    text-align: center;
-  }
-}
-
-// Feedback states
+// Warning
 .has-warning {
   @include form-control-validation($state-warning-text, $state-warning-text, $state-warning-bg);
 }
+// Error
 .has-error {
   @include form-control-validation($state-danger-text, $state-danger-text, $state-danger-bg);
 }
+// Success
 .has-success {
   @include form-control-validation($state-success-text, $state-success-text, $state-success-bg);
 }
@@ -325,7 +297,7 @@ input[type="checkbox"],
   // Kick in the inline
   @media (min-width: $screen-sm) {
     // Inline-block all the things for "inline"
-    .form-group {
+    .form-group  {
       display: inline-block;
       margin-bottom: 0;
       vertical-align: middle;
@@ -334,13 +306,11 @@ input[type="checkbox"],
     // In navbar-form, allow folks to *not* use `.form-group`
     .form-control {
       display: inline-block;
-      width: auto; // Prevent labels from stacking above inputs in `.form-group`
-      vertical-align: middle;
     }
 
-    .control-label {
-      margin-bottom: 0;
-      vertical-align: middle;
+    // Override `width: 100%;` when not within a `.form-group`
+    select.form-control {
+      width: auto;
     }
 
     // Remove default margin on radios/checkboxes that were used for stacking, and
@@ -352,20 +322,11 @@ input[type="checkbox"],
       margin-top: 0;
       margin-bottom: 0;
       padding-left: 0;
-      vertical-align: middle;
     }
     .radio input[type="radio"],
     .checkbox input[type="checkbox"] {
       float: none;
       margin-left: 0;
-    }
-
-    // Validation states
-    //
-    // Reposition the icon because it's now within a grid column and columns have
-    // `position: relative;` on them. Also accounts for the grid gutter padding.
-    .has-feedback .form-control-feedback {
-      top: 0;
     }
   }
 }
@@ -392,7 +353,7 @@ input[type="checkbox"],
   // and other content below items
   .radio,
   .checkbox {
-    min-height: ($line-height-computed + ($padding-base-vertical + 1));
+    min-height: $line-height-computed + ($padding-base-vertical + 1);
   }
 
   // Make form groups behave like rows
@@ -409,14 +370,5 @@ input[type="checkbox"],
     .control-label {
       text-align: right;
     }
-  }
-
-  // Validation states
-  //
-  // Reposition the icon because it's now within a grid column and columns have
-  // `position: relative;` on them. Also accounts for the grid gutter padding.
-  .has-feedback .form-control-feedback {
-    top: 0;
-    right: ($grid-gutter-width / 2);
   }
 }

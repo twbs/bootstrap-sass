@@ -141,7 +141,6 @@ table {
   td,
   th {
     &[class*="col-"] {
-      position: static; // Prevent border hiding in Firefox and IE9/10 (see https://github.com/twbs/bootstrap/issues/11623)
       float: none;
       display: table-cell;
     }
@@ -157,9 +156,8 @@ table {
 // Generate the contextual variants
 @include table-row-variant('active', $table-bg-active);
 @include table-row-variant('success', $state-success-bg);
-@include table-row-variant('warning', $state-warning-bg);
 @include table-row-variant('danger', $state-danger-bg);
-@include table-row-variant('info', $state-info-bg);
+@include table-row-variant('warning', $state-warning-bg);
 
 
 // Responsive tables

@@ -147,17 +147,17 @@
 // Transformations
 @mixin rotate($degrees) {
   -webkit-transform: rotate($degrees);
-      -ms-transform: rotate($degrees); // IE9 only
+      -ms-transform: rotate($degrees); // IE9+
           transform: rotate($degrees);
 }
-@mixin scale($ratio, $ratio-y...) {
-  -webkit-transform: scale($ratio, $ratio-y);
-      -ms-transform: scale($ratio, $ratio-y); // IE9 only
-          transform: scale($ratio, $ratio-y);
+@mixin scale($ratio) {
+  -webkit-transform: scale($ratio);
+      -ms-transform: scale($ratio); // IE9+
+          transform: scale($ratio);
 }
 @mixin translate($x, $y) {
   -webkit-transform: translate($x, $y);
-      -ms-transform: translate($x, $y); // IE9 only
+      -ms-transform: translate($x, $y); // IE9+
           transform: translate($x, $y);
 }
 @mixin skew($x, $y) {
@@ -172,12 +172,12 @@
 
 @mixin rotateX($degrees) {
   -webkit-transform: rotateX($degrees);
-      -ms-transform: rotateX($degrees); // IE9 only
+      -ms-transform: rotateX($degrees); // IE9+
           transform: rotateX($degrees);
 }
 @mixin rotateY($degrees) {
   -webkit-transform: rotateY($degrees);
-      -ms-transform: rotateY($degrees); // IE9 only
+      -ms-transform: rotateY($degrees); // IE9+
           transform: rotateY($degrees);
 }
 @mixin perspective($perspective) {
@@ -193,7 +193,6 @@
 @mixin transform-origin($origin) {
   -webkit-transform-origin: $origin;
      -moz-transform-origin: $origin;
-      -ms-transform-origin: $origin; // IE9 only
           transform-origin: $origin;
 }
 
@@ -201,30 +200,6 @@
 @mixin animation($animation) {
   -webkit-animation: $animation;
           animation: $animation;
-}
-@mixin animation-name($name) {
-  -webkit-animation-name: $name;
-          animation-name: $name;
-}
-@mixin animation-duration($duration) {
-  -webkit-animation-duration: $duration;
-          animation-duration: $duration;
-}
-@mixin animation-timing-function($timing-function) {
-  -webkit-animation-timing-function: $timing-function;
-          animation-timing-function: $timing-function;
-}
-@mixin animation-delay($delay) {
-  -webkit-animation-delay: $delay;
-          animation-delay: $delay;
-}
-@mixin animation-iteration-count($iteration-count) {
-  -webkit-animation-iteration-count: $iteration-count;
-          animation-iteration-count: $iteration-count;
-}
-@mixin animation-direction($direction) {
-  -webkit-animation-direction: $direction;
-          animation-direction: $direction;
 }
 
 // Backface visibility
@@ -438,55 +413,25 @@
 @mixin table-row-variant($state, $background) {
   // Exact selectors below required to override `.table-striped` and prevent
   // inheritance to nested tables.
-  .table > thead > tr,
-  .table > tbody > tr,
-  .table > tfoot > tr {
-    > td.#{$state},
-    > th.#{$state},
-    &.#{$state} > td,
-    &.#{$state} > th {
-      background-color: $background;
+  .table {
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr > .#{$state},
+      > .#{$state} > td,
+      > .#{$state} > th {
+        background-color: $background;
+      }
     }
   }
 
   // Hover states for `.table-hover`
   // Note: this is not available for cells or rows within `thead` or `tfoot`.
-  .table-hover > tbody > tr {
-    > td.#{$state}:hover,
-    > th.#{$state}:hover,
-    &.#{$state}:hover > td,
-    &.#{$state}:hover > th {
+  .table-hover > tbody {
+    > tr > .#{$state}:hover,
+    > .#{$state}:hover > td,
+    > .#{$state}:hover > th {
       background-color: darken($background, 5%);
-    }
-  }
-}
-
-// List Groups
-// -------------------------
-@mixin list-group-item-variant($state, $background, $color) {
-  .list-group-item-#{$state} {
-    color: $color;
-    background-color: $background;
-
-    // [converter] extracted a& to a.list-group-item-#{$state}
-  }
-
-  a.list-group-item-#{$state} {
-    color: $color;
-
-    .list-group-item-heading { color: inherit; }
-
-    &:hover,
-    &:focus {
-      color: $color;
-      background-color: darken($background, 5%);
-    }
-    &.active,
-    &.active:hover,
-    &.active:focus {
-      color: #fff;
-      background-color: $color;
-      border-color: $color;
     }
   }
 }
@@ -535,7 +480,7 @@
 
   .badge {
     color: $background;
-    background-color: $color;
+    background-color: #fff;
   }
 }
 
@@ -647,39 +592,30 @@
   position: relative;
   float: left;
   width: percentage(($columns / $grid-columns));
+  // Prevent columns from collapsing when empty
   min-height: 1px;
+  // Inner gutter via padding
   padding-left:  ($gutter / 2);
   padding-right: ($gutter / 2);
 }
-@mixin make-xs-column-offset($columns) {
-  @media (min-width: $screen-xs-min) {
-    margin-left: percentage(($columns / $grid-columns));
-  }
-}
-@mixin make-xs-column-push($columns) {
-  @media (min-width: $screen-xs-min) {
-    left: percentage(($columns / $grid-columns));
-  }
-}
-@mixin make-xs-column-pull($columns) {
-  @media (min-width: $screen-xs-min) {
-    right: percentage(($columns / $grid-columns));
-  }
-}
-
 
 // Generate the small columns
 @mixin make-sm-column($columns, $gutter: $grid-gutter-width) {
   position: relative;
+  // Prevent columns from collapsing when empty
   min-height: 1px;
+  // Inner gutter via padding
   padding-left:  ($gutter / 2);
   padding-right: ($gutter / 2);
 
+  // Calculate width based on number of columns available
   @media (min-width: $screen-sm-min) {
     float: left;
     width: percentage(($columns / $grid-columns));
   }
 }
+
+// Generate the small column offsets
 @mixin make-sm-column-offset($columns) {
   @media (min-width: $screen-sm-min) {
     margin-left: percentage(($columns / $grid-columns));
@@ -696,19 +632,23 @@
   }
 }
 
-
 // Generate the medium columns
 @mixin make-md-column($columns, $gutter: $grid-gutter-width) {
   position: relative;
+  // Prevent columns from collapsing when empty
   min-height: 1px;
+  // Inner gutter via padding
   padding-left:  ($gutter / 2);
   padding-right: ($gutter / 2);
 
+  // Calculate width based on number of columns available
   @media (min-width: $screen-md-min) {
     float: left;
     width: percentage(($columns / $grid-columns));
   }
 }
+
+// Generate the medium column offsets
 @mixin make-md-column-offset($columns) {
   @media (min-width: $screen-md-min) {
     margin-left: percentage(($columns / $grid-columns));
@@ -725,19 +665,23 @@
   }
 }
 
-
 // Generate the large columns
 @mixin make-lg-column($columns, $gutter: $grid-gutter-width) {
   position: relative;
+  // Prevent columns from collapsing when empty
   min-height: 1px;
+  // Inner gutter via padding
   padding-left:  ($gutter / 2);
   padding-right: ($gutter / 2);
 
+  // Calculate width based on number of columns available
   @media (min-width: $screen-lg-min) {
     float: left;
     width: percentage(($columns / $grid-columns));
   }
 }
+
+// Generate the large column offsets
 @mixin make-lg-column-offset($columns) {
   @media (min-width: $screen-lg-min) {
     margin-left: percentage(($columns / $grid-columns));
@@ -855,10 +799,6 @@
     color: $text-color;
     border-color: $border-color;
     background-color: $background-color;
-  }
-  // Optional feedack icon
-  .form-control-feedback {
-    color: $text-color;
   }
 }
 
