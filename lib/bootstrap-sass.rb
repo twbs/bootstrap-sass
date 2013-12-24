@@ -1,6 +1,4 @@
 module Bootstrap
-  class FrameworkNotFound < StandardError; end
-
   class << self
     # Inspired by Kaminari
     def load!
