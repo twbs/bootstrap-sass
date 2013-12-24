@@ -11,15 +11,16 @@ new_version_rb     = new_version_semver.tr '-', '.'
 
 $: << File.expand_path('../lib', File.dirname(__FILE__))
 require 'bootstrap-sass/version'
-version_rb         = Bootstrap::VERSION
+version_rb     = Bootstrap::VERSION
+version_semver = version_rb.reverse.split('.', 2).join('-').reverse
 
 Dir.chdir File.expand_path('..', File.dirname(__FILE__)) do
   %w(lib/bootstrap-sass/version.rb README.md).each do |path|
     src = File.read(path)
-    File.write path, src.gsub(version_rb, new_version_rb)
+    File.write path, src.gsub(version_rb, new_version_rb).gsub(version_semver, new_version_semver)
   end
   %w(bower.json).each do |path|
     src = File.read(path)
-    File.write path, src.gsub(/#{version_rb}/, new_version_semver)
+    File.write path, src.gsub(/version_semver/, new_version_semver)
   end
 end
