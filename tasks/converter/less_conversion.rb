@@ -268,7 +268,7 @@ class Converter
     end
 
     # @import "file.less" to "#{target_path}file;"
-    def replace_file_imports(less, target_path = 'bootstrap/')
+    def replace_file_imports(less, target_path = '')
       less.gsub %r([@\$]import ["|']([\w-]+).less["|'];),
                 %Q(@import "#{target_path}\\1";)
     end

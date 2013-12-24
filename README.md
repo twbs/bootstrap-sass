@@ -128,13 +128,18 @@ cp $(bundle show bootstrap-sass)/vendor/assets/stylesheets/bootstrap/bootstrap.s
    app/assets/stylesheets/bootstrap-custom.scss
 ```
 
-In your `application.sass`, replace `@import 'bootstrap'` with:
+Replace all paths in `bootstrap-custom` to point to bootstrap, and comment out components you do not want:
+
+```diff
+-@import "variables";
++@import "bootstrap/variables";
+```
+
+In `application.sass`, replace `@import 'bootstrap'` with:
 
 ```scss
   @import 'bootstrap-custom';
 ```
-
-Comment out any modules you don't need from `bootstrap-custom`.
 
 ### Javascript
 
