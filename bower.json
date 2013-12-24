@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-sass",
-  "version": "3.0.3-p0",
+  "version": "3.0.3-0",
   "homepage": "https://github.com/twbs/bootstrap-sass",
   "authors": [
     "Thomas McDonald",
@@ -16,10 +16,5 @@
     "sass"
   ],
   "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "test",
-    "tasks",
-    "templates"
-  ]
+  "include": ['vendor', 'bower.json', 'README.md', 'LICENSE']
 }
