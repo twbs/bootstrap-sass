@@ -21,6 +21,6 @@ Dir.chdir File.expand_path('..', File.dirname(__FILE__)) do
   end
   %w(bower.json).each do |path|
     src = File.read(path)
-    File.write path, src.gsub(/version_semver/, new_version_semver)
+    File.write path, src.gsub(version_semver, new_version_semver)
   end
 end
