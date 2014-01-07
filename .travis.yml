@@ -7,6 +7,8 @@ rvm:
 gemfile:
   - test/gemfiles/sass_3_2.gemfile
   - test/gemfiles/sass_head.gemfile
+before_install:
+  - "npm install node-sass"
 matrix:
   allow_failures:
     - gemfile: test/gemfiles/sass_head.gemfile
