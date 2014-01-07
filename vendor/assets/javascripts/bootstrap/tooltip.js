@@ -3,12 +3,13 @@
  * http://getbootstrap.com/javascript/#tooltip
  * Inspired by the original jQuery.tipsy by Jason Frame
  * ========================================================================
- * Copyright 2013 Twitter, Inc.
+ * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
 
-+function ($) { 'use strict';
++function ($) {
+  'use strict';
 
   // TOOLTIP PUBLIC CLASS DEFINITION
   // ===============================
@@ -211,7 +212,7 @@
 
     // $.fn.offset doesn't round pixel values
     // so we use setOffset directly with our own function B-0
-    jQuery.offset.setOffset($tip[0], $.extend({
+    $.offset.setOffset($tip[0], $.extend({
       using: function (props) {
         $tip.css({
           top: Math.round(props.top),
