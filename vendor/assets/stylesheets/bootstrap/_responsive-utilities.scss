@@ -31,7 +31,6 @@
 @media (max-width: $screen-xs-max) {
   @include responsive-visibility('.visible-xs');
 }
-<<<<<<< HEAD
 @media (min-width: $screen-ms) and (max-width: $screen-ms-max) {
   @include responsive-visibility('.visible-xs.visible-ms');
 }
