@@ -62,7 +62,7 @@ require 'bootstrap-sass'
 Using bootstrap-sass as a Bower package is still being tested. You can install it with:
 
 ```bash
-bower install 'git://github.com/twbs/bootstrap-sass.git#v3.0.3.0'
+bower install 'git://github.com/twbs/bootstrap-sass.git#v3.0.3-0'
 ```
 
 #### JS and fonts
@@ -124,17 +124,18 @@ $navbar-default-color: $light-orange;
 You can also import components explicitly. To start with a full list of modules copy this file from the gem:
 
 ```bash
-cp $(bundle show bootstrap-sass)/vendor/assets/stylesheets/bootstrap/bootstrap.scss \
-   app/assets/stylesheets/bootstrap-custom.scss
+# copy and prepend "bootstrap/" to the @import paths:
+sed 's/@import "/@import "bootstrap\//' \
+ $(bundle show bootstrap-sass)/vendor/assets/stylesheets/bootstrap/bootstrap.scss > \
+ app/assets/stylesheets/bootstrap-custom.scss
 ```
+Comment out components you do not want from `bootstrap-custom`.
 
-In your `application.sass`, replace `@import 'bootstrap'` with:
+In `application.sass`, replace `@import 'bootstrap'` with:
 
 ```scss
   @import 'bootstrap-custom';
 ```
-
-Comment out any modules you don't need from `bootstrap-custom`.
 
 ### Javascript
 

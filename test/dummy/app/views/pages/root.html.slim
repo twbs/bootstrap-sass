@@ -10,13 +10,19 @@
           li.list-group-item: a href='#three' Three
       .col-sm-3
         h2 3 columns
-        button.btn.btn-primary type='button' Button
-        button.btn.btn-primary type='button' Button
+        .btn-group
+          button.btn.btn-primary type='button' Button
+          button.btn.btn-primary type='button' Button
         h2 Icons
         ul.list-inline
           li: i.glyphicon.glyphicon-user
           li: i.glyphicon.glyphicon-bullhorn
           li: i.glyphicon.glyphicon-tint
+        table.table
+          caption Table
+          tr
+            td.danger Danger!
+            td.success Success!
       .col-sm-6
         h2 6 columns
         .panel.panel-primary: .panel-body
