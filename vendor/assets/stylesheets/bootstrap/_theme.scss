@@ -63,9 +63,9 @@
 .btn-default { @include btn-styles($btn-default-bg); text-shadow: 0 1px 0 #fff; border-color: #ccc; }
 .btn-primary { @include btn-styles($btn-primary-bg); }
 .btn-success { @include btn-styles($btn-success-bg); }
+.btn-info    { @include btn-styles($btn-info-bg); }
 .btn-warning { @include btn-styles($btn-warning-bg); }
 .btn-danger  { @include btn-styles($btn-danger-bg); }
-.btn-info    { @include btn-styles($btn-info-bg); }
 
 
 
