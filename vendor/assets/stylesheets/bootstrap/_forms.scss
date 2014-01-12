@@ -47,9 +47,15 @@ input[type="checkbox"] {
   line-height: normal;
 }
 
-// Set the height of select and file controls to match text inputs
+// Set the height of file controls to match text inputs
 input[type="file"] {
   display: block;
+}
+
+// Make range inputs behave like textual form controls
+input[type="range"] {
+  display: block;
+  width: 100%;
 }
 
 // Make multiple select elements height not fixed
@@ -65,7 +71,7 @@ select optgroup {
   font-family: inherit;
 }
 
-// Focus for select, file, radio, and checkbox
+// Focus for file, radio, and checkbox
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
