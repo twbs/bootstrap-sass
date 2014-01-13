@@ -109,7 +109,7 @@ class Converter
           when 'glyphicons.less'
             file = replace_all file, /\#\{(url\(.*?\))}/, '\1'
             file = replace_rules(file, '@font-face') { |rule|
-              rule = replace_all rule, /(\$icon-font-\w+)/, '#{\1}'
+              rule = replace_all rule, /(\$icon-font(?:-\w+)+)/, '#{\1}'
               replace_asset_url rule, :font
             }
         end
