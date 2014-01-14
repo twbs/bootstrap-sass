@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors  = ["Thomas McDonald"]
   s.email    = 'tom@conceptcoding.co.uk'
   s.summary  = "Twitter's Bootstrap, converted to Sass and ready to drop into Rails or Compass"
-  s.homepage = "http://github.com/thomas-mcdonald/bootstrap-sass"
+  s.homepage = "https://github.com/twbs/bootstrap-sass"
   s.license  = 'MIT'
 
   s.add_development_dependency 'compass'
