@@ -52,7 +52,7 @@ module Bootstrap
     def configure_sass
       ::Sass.load_paths << stylesheets_path
 
-      # bootstrap requires minimum precision of 10, see https://github.com/thomas-mcdonald/bootstrap-sass/issues/409
+      # bootstrap requires minimum precision of 10, see https://github.com/twbs/bootstrap-sass/issues/409
       ::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
     end
 

@@ -3,7 +3,7 @@
 ## Asset Changes
 
 Any changes to `bootstrap-sass` assets (scss, javascripts, fonts) should be checked against the `convert` rake task.
-For usage instructions, see the [README](https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/README.md).
+For usage instructions, see the [README](https://github.com/twbs/bootstrap-sass/blob/3/README.md).
 
 If something is broken in the converter, it's preferable to update the converter along with the asset itself.
 
@@ -50,7 +50,7 @@ Example:
 > causing the bug, and potential solutions (and your opinions on their
 > merits).
 
-**[File a bug report](https://github.com/thomas-mcdonald/bootstrap-sass/issues/)**
+**[File a bug report](https://github.com/twbs/bootstrap-sass/issues/)**
 
 
 ## Pull requests
