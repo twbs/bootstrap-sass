@@ -11,7 +11,7 @@ class SprocketsRailsTest < ActiveSupport::TestCase
       next unless path =~ /\.(css|js)$/
       File.open(path, 'r') do |f|
         f.read.scan /url\("?[^"]+\.(?:jpg|png|eot|woff|ttf|svg)[^"]*"?\)/ do |m|
-          assert_match /-[0-9a-f]{12,}\.$/, m
+          assert_match /-[0-9a-f]{12,}\./, m
         end
       end
     end
