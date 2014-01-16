@@ -6,7 +6,7 @@ require 'shellwords'
 class SprocketsRailsTest < ActiveSupport::TestCase
 
   def test_sprockets_digest_asset_refs
-    system "cd #{Shellwords.escape Rails.root} && bundle exec rake assets:precompile GEMFILE=#{Bootstrap.gem_path}/Gemfile RAILS_ENV=production"
+    system "cd #{Shellwords.escape Rails.root.to_s} && bundle exec rake assets:precompile GEMFILE=#{Bootstrap.gem_path}/Gemfile RAILS_ENV=production"
     Dir.glob(Rails.root.join('public', 'assets', 'app*.*')) do |path|
       next unless path =~ /\.(css|js)$/
       File.open(path, 'r') do |f|
