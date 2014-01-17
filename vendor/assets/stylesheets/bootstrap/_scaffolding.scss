@@ -5,7 +5,9 @@
 
 // Reset the box-sizing
 
-*,
+* {
+  @include box-sizing(border-box);
+}
 *:before,
 *:after {
   @include box-sizing(border-box);
