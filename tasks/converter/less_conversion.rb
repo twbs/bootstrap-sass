@@ -93,7 +93,7 @@ class Converter
             # extract .close { button& {...} } rule
             file = extract_nested_rule file, 'button&'
           when 'dropdowns.less'
-            file = replace_all file, /(\s*)@extend \.dropdown-menu-right;/, '1right: 0;\1left: auto;'
+            file = replace_all file, /(\s*)@extend \.dropdown-menu-right;/, 'right: 0;\1left: auto;'
             file = replace_all file, /(\s*)@extend \.dropdown-menu-left;/, 'left: 0;right: auto;'
           when 'forms.less'
             file = extract_nested_rule file, 'textarea&'

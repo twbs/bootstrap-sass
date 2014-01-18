@@ -200,7 +200,7 @@
 
 @media (min-width: $grid-float-breakpoint) {
   .navbar-right {
-    .dropdown-menu {1right: 0;
+    .dropdown-menu {right: 0;
       left: auto;
     }
     // Necessary for overrides of the default right aligned menu.
