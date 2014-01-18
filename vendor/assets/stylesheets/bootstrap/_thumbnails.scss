@@ -21,7 +21,10 @@
     margin-right: auto;
   }
 
-  // [converter] extracted a&:hover, a&:focus, a&.active to a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active
+  // Add a hover state for linked versions only
+  a:hover,
+  a:focus,
+  // [converter] extracted a&.active to a.thumbnail.active
 
   // Image captions
   .caption {
@@ -30,9 +33,6 @@
   }
 }
 
-// Add a hover state for linked versions only
-a.thumbnail:hover,
-a.thumbnail:focus,
 a.thumbnail.active {
   border-color: $link-color;
 }

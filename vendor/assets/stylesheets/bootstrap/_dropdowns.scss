@@ -200,13 +200,12 @@
 
 @media (min-width: $grid-float-breakpoint) {
   .navbar-right {
-    .dropdown-menu {
-      right: 0;
+    .dropdown-menu {1right: 0;
       left: auto;
     }
     // Necessary for overrides of the default right aligned menu.
     // Will remove come v4 in all likelihood.
-    .dropdown-menu-left {\left: 0;\right: auto;
+    .dropdown-menu-left {left: 0;right: auto;
     }
   }
 }

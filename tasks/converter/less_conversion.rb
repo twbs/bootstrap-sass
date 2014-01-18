@@ -80,8 +80,6 @@ class Converter
             file = apply_mixin_parent_selector(file, '&\.(visible|hidden)')
             file = apply_mixin_parent_selector(file, '(?<!&)\.(visible|hidden)')
             file = replace_rules(file, '  @media') { |r| unindent(r, 2) }
-          when 'type.less'
-            file = extract_nested_rule file, '  a&:'
           when 'variables.less'
             file = insert_default_vars(file)
             file = unindent <<-SCSS + file, 14
@@ -95,8 +93,8 @@ class Converter
             # extract .close { button& {...} } rule
             file = extract_nested_rule file, 'button&'
           when 'dropdowns.less'
-            file = replace_all file, /(\s*)@extend \.dropdown-menu-right;/, '\1right: 0;\1left: auto;'
-            file = replace_all file, /(\s*)@extend \.dropdown-menu-left;/, '\left: 0;\right: auto;'
+            file = replace_all file, /(\s*)@extend \.dropdown-menu-right;/, '1right: 0;\1left: auto;'
+            file = replace_all file, /(\s*)@extend \.dropdown-menu-left;/, 'left: 0;right: auto;'
           when 'forms.less'
             file = extract_nested_rule file, 'textarea&'
             file = apply_mixin_parent_selector(file, '\.input-(?:sm|lg)')
@@ -140,7 +138,13 @@ class Converter
       file   = convert_less_ampersand(file)
       file   = deinterpolate_vararg_mixins(file)
       file   = replace_calculation_semantics(file)
+      file   = replace_redundant_ampersands(file)
       file
+    end
+
+    # a&:hover => a:hover
+    def replace_redundant_ampersands(file)
+      file.gsub /([\w+])&([:\w]+)/, '\1\2'
     end
 
     def replace_asset_url(rule, type)

@@ -584,6 +584,24 @@
   }
 }
 
+// Contextual backgrounds
+// -------------------------
+@mixin bg-variant($color) {
+  background-color: $color;
+  a:hover {
+    background-color: darken($color, 10%);
+  }
+}
+
+// Typography
+// -------------------------
+@mixin text-emphasis-variant($color) {
+  color: $color;
+  a:hover {
+    color: darken($color, 10%);
+  }
+}
+
 // Navbar vertical align
 // -------------------------
 // Vertically center elements in the navbar.

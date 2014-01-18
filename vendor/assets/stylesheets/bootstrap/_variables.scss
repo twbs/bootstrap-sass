@@ -62,7 +62,7 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 
 //** Unit-less `line-height` for use in components like buttons.
 $line-height-base:        1.428571429 !default; // 20/14
-//** Computed "line-height" (`font-size` &times; `line-height`) for use with `margin`, `padding`, etc.
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 $line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
 
 //** By default, this inherits from the `<body>`.
@@ -552,7 +552,7 @@ $modal-title-line-height:     $line-height-base !default;
 $modal-content-bg:                             #fff !default;
 //** Modal content border color
 $modal-content-border-color:                   rgba(0,0,0,.2) !default;
-//** Modal content border color <strong>for IE8</strong>
+//** Modal content border color **for IE8**
 $modal-content-fallback-border-color:          #999 !default;
 
 //** Modal backdrop background color
@@ -565,6 +565,7 @@ $modal-header-border-color:   #e5e5e5 !default;
 $modal-footer-border-color:   $modal-header-border-color !default;
 
 $modal-lg:                    900px !default;
+$modal-md:                    600px !default;
 $modal-sm:                    300px !default;
 
 
