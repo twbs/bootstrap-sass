@@ -93,8 +93,8 @@ class Converter
             # extract .close { button& {...} } rule
             file = extract_nested_rule file, 'button&'
           when 'dropdowns.less'
-            file = replace_all file, /(\s*)@extend \.dropdown-menu-right;/, 'right: 0;\1left: auto;'
-            file = replace_all file, /(\s*)@extend \.dropdown-menu-left;/, 'left: 0;right: auto;'
+            file = replace_all file, /@extend \.dropdown-menu-right;/, 'right: 0; left: auto;'
+            file = replace_all file, /@extend \.dropdown-menu-left;/, 'left: 0; right: auto;'
           when 'forms.less'
             file = extract_nested_rule file, 'textarea&'
             file = apply_mixin_parent_selector(file, '\.input-(?:sm|lg)')
