@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.0.0
+
+* compiles with libsass master
+
 ## 3.0.2.1
 
 * fix vendor paths for compass

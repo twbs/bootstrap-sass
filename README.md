@@ -16,7 +16,7 @@ In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `s
 
 ```ruby
 gem 'sass-rails', '>= 3.2' # sass-rails needs to be higher than 3.2
-gem 'bootstrap-sass', '~> 3.0.3.0'
+gem 'bootstrap-sass', '~> 3.1.0'
 ```
 
 `bundle install` and restart your server to make the files available through the pipeline.
@@ -62,7 +62,7 @@ require 'bootstrap-sass'
 Using bootstrap-sass as a Bower package is still being tested. You can install it with:
 
 ```bash
-bower install 'git://github.com/twbs/bootstrap-sass.git#v3.0.3-0'
+bower install 'git://github.com/twbs/bootstrap-sass.git#v3.1.0'
 ```
 
 #### JS and fonts
