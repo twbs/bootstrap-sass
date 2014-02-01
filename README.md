@@ -50,6 +50,8 @@ This will create a new Compass project with the following files in it:
 * [_variables.scss](/templates/project/_variables.scss.erb) - all of bootstrap variables (override them here).
 * [styles.scss](/templates/project/styles.scss) - main project SCSS file, import `variables` and `bootstrap`.
 
+Some bootstrap-sass mixins may conflict with the Compass ones.
+If this happens, change the import order so that Compass mixins are loaded later.
 
 ### c. Sass-only (no Compass, nor Rails)
 
@@ -64,6 +66,8 @@ Using bootstrap-sass as a Bower package is still being tested. You can install i
 ```bash
 bower install 'git://github.com/twbs/bootstrap-sass.git#v3.1.0'
 ```
+
+The files are located at [vendor/assets](/vendor/assets).
 
 #### JS and fonts
 
