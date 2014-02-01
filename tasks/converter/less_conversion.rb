@@ -67,7 +67,7 @@ class Converter
             end
             file = varargify_mixin_definitions(file, *VARARG_MIXINS)
             file = deinterpolate_vararg_mixins(file)
-            %w(responsive-(in)?visibility input-size).each do |mixin|
+            %w(responsive-(in)?visibility input-size text-emphasis-variant bg-variant).each do |mixin|
               file = parameterize_mixin_parent_selector file, mixin
             end
             file = replace_ms_filters(file)
@@ -110,6 +110,10 @@ class Converter
               rule = replace_all rule, /(\$icon-font(?:-\w+)+)/, '#{\1}'
               replace_asset_url rule, :font
             }
+          when 'type.less'
+            file = apply_mixin_parent_selector(file, '\.(text|bg)-(success|primary|info|warning|danger)')
+            # .bg-primary will not get patched automatically as it includes an additional rule. fudge for now
+            file = replace_all(file, "  @include bg-variant($brand-primary);\n}", "}\n@include bg-variant('.bg-primary', $brand-primary);")
         end
 
         name    = name.sub(/\.less$/, '.scss')
@@ -138,13 +142,7 @@ class Converter
       file   = convert_less_ampersand(file)
       file   = deinterpolate_vararg_mixins(file)
       file   = replace_calculation_semantics(file)
-      file   = replace_redundant_ampersands(file)
       file
-    end
-
-    # a&:hover => a:hover
-    def replace_redundant_ampersands(file)
-      file.gsub /([\w+])&([:\w]+)/, '\1\2'
     end
 
     def replace_asset_url(rule, type)
@@ -297,7 +295,7 @@ class Converter
         # wrap properties in #{$parent} { ... }
         replace_properties(mxn_css) { |props| props.strip.empty? ? props : "  \#{#{param}} { #{props.strip} }\n  " }
         # change nested& rules to nested#{$parent}
-        replace_rules(mxn_css, /.*&[ ,]/) { |rule| replace_in_selector rule, /&/, "\#{#{param}}" }
+        replace_rules(mxn_css, /.*&[ ,:]/) { |rule| replace_in_selector rule, /&/, "\#{#{param}}" }
       end
     end
 

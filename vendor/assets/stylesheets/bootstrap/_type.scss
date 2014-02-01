@@ -91,21 +91,16 @@ cite    { font-style: normal; }
 .text-muted {
   color: $text-muted;
 }
-.text-primary {
-  @include text-emphasis-variant($brand-primary);
-}
-.text-success {
-  @include text-emphasis-variant($state-success-text);
-}
-.text-info {
-  @include text-emphasis-variant($state-info-text);
-}
-.text-warning {
-  @include text-emphasis-variant($state-warning-text);
-}
-.text-danger {
-  @include text-emphasis-variant($state-danger-text);
-}
+
+@include text-emphasis-variant('.text-primary', $brand-primary);
+
+@include text-emphasis-variant('.text-success', $state-success-text);
+
+@include text-emphasis-variant('.text-info', $state-info-text);
+
+@include text-emphasis-variant('.text-warning', $state-warning-text);
+
+@include text-emphasis-variant('.text-danger', $state-danger-text);
 
 // Contextual backgrounds
 // For now we'll leave these alongside the text classes until v4 when we can
@@ -114,20 +109,16 @@ cite    { font-style: normal; }
   // Given the contrast here, this is the only class to have its color inverted
   // automatically.
   color: #fff;
-  @include bg-variant($brand-primary);
 }
-.bg-success {
-  @include bg-variant($state-success-bg);
-}
-.bg-info {
-  @include bg-variant($state-info-bg);
-}
-.bg-warning {
-  @include bg-variant($state-warning-bg);
-}
-.bg-danger {
-  @include bg-variant($state-danger-bg);
-}
+@include bg-variant('.bg-primary', $brand-primary);
+
+@include bg-variant('.bg-success', $state-success-bg);
+
+@include bg-variant('.bg-info', $state-info-bg);
+
+@include bg-variant('.bg-warning', $state-warning-bg);
+
+@include bg-variant('.bg-danger', $state-danger-bg);
 
 
 // Page header

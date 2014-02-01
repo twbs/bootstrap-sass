@@ -590,18 +590,20 @@
 
 // Contextual backgrounds
 // -------------------------
-@mixin bg-variant($color) {
-  background-color: $color;
-  a:hover {
+// [converter] $parent hack
+@mixin bg-variant($parent, $color) {
+  #{$parent} { background-color: $color; }
+  a#{$parent}:hover {
     background-color: darken($color, 10%);
   }
 }
 
 // Typography
 // -------------------------
-@mixin text-emphasis-variant($color) {
-  color: $color;
-  a:hover {
+// [converter] $parent hack
+@mixin text-emphasis-variant($parent, $color) {
+  #{$parent} { color: $color; }
+  a#{$parent}:hover {
     color: darken($color, 10%);
   }
 }
