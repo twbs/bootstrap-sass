@@ -154,10 +154,10 @@
       -ms-transform: rotate($degrees); // IE9 only
           transform: rotate($degrees);
 }
-@mixin scale($ratio, $ratio-y...) {
-  -webkit-transform: scale($ratio, $ratio-y);
-      -ms-transform: scale($ratio, $ratio-y); // IE9 only
-          transform: scale($ratio, $ratio-y);
+@mixin scale($scale-args...) {
+  -webkit-transform: scale($scale-args);
+      -ms-transform: scale($scale-args); // IE9 only
+          transform: scale($scale-args);
 }
 @mixin translate($x, $y) {
   -webkit-transform: translate($x, $y);

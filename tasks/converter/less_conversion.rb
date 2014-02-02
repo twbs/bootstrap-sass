@@ -75,6 +75,11 @@ class Converter
             file = replace_rules(file, '  .list-group-item-') { |rule| extract_nested_rule rule, 'a&' }
             file = replace_all file, /,\s*\.open \.dropdown-toggle& \{(.*?)\}/m,
                                " {\\1}\n  .open & { &.dropdown-toggle {\\1} }"
+
+            # make +scale(one_argument) compatible with Sass list handling
+            # see https://github.com/twbs/bootstrap-sass/issues/518
+            file = replace_all file, '$ratio, $ratio-y', '$scale-args'
+
             file = convert_grid_mixins file
           when 'responsive-utilities.less'
             file = apply_mixin_parent_selector(file, '&\.(visible|hidden)')
