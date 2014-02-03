@@ -3,7 +3,7 @@ rvm:
   - 2.0.0
   - 1.9.3
   - jruby
-  - rbx
+  - rbx-2.2.4
 gemfile:
   - test/gemfiles/sass_3_2.gemfile
   - test/gemfiles/sass_head.gemfile
