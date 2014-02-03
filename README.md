@@ -64,7 +64,7 @@ require 'bootstrap-sass'
 Using bootstrap-sass as a Bower package is still being tested. You can install it with:
 
 ```bash
-bower install 'git://github.com/twbs/bootstrap-sass.git#v3.1.0'
+bower install git://github.com/twbs/bootstrap-sass.git#v3.1.0
 ```
 
 The files are located at [vendor/assets](/vendor/assets).
