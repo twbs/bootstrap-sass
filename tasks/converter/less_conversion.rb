@@ -1,11 +1,9 @@
 require_relative 'char_string_scanner'
 
-# This module transforms LESS into SCSS.
-# It is implemented via lots of string manipulation: scanning back and forwards for regexps and doing substitions.
-# Since it does not parse the LESS into an AST, bits of it may assume LESS to be formatted a certain way, and only limited,
-# static analysis can be performed. This approach has so far been mostly enough to automatically convert most all of twbs/bootstrap.
-# There is some bootstrap-specific to make up for lack of certain features in Sass 3.2 (recursion, mixin namespacing)
-# and vice versa in LESS (vararg mixins).
+# This is the script used to automatically convert all of twbs/bootstrap LESS to Sass.
+#
+# Most differences are fixed by regexps and other forms of string substitution.
+# There are Bootstrap-specific workarounds for the lack of parent selectors, recursion, mixin namespaces, extend within @media, etc in Sass 3.2.
 class Converter
   module LessConversion
     # Some regexps for matching bits of SCSS:
