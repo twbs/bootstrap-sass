@@ -8,7 +8,7 @@
 
 Please see the appropriate guide for your environment of choice:
 
-### a. Rails
+### a. Ruby on Rails
 
 `bootstrap-sass` is easy to drop into Rails with the asset pipeline.
 
@@ -21,7 +21,7 @@ gem 'bootstrap-sass', '~> 3.1.0'
 
 `bundle install` and restart your server to make the files available through the pipeline.
 
-### b. Compass (no Rails)
+### b. Compass without Rails
 
 Install the gem
 ```sh
@@ -53,7 +53,7 @@ This will create a new Compass project with the following files in it:
 Some bootstrap-sass mixins may conflict with the Compass ones.
 If this happens, change the import order so that Compass mixins are loaded later.
 
-### c. Sass-only (no Compass, nor Rails)
+### c. Ruby without Compass / Rails
 
 Require the gem, and load paths and Sass helpers will be configured automatically:
 
@@ -61,13 +61,17 @@ Require the gem, and load paths and Sass helpers will be configured automaticall
 require 'bootstrap-sass'
 ```
 
-Using bootstrap-sass as a Bower package is still being tested. You can install it with:
+### d. Bower
+
+Using bootstrap-sass as a Bower package is still being tested and requires libsass master. You can install it with:
 
 ```bash
 bower install git://github.com/twbs/bootstrap-sass.git
 ```
 
-The files are located at [vendor/assets](/vendor/assets).
+`bootstrap-sass` is taken so make sure you use the Git URL above.
+
+Sass, JS, and all other assets are located at [vendor/assets](/vendor/assets).
 
 #### JS and fonts
 
