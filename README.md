@@ -12,7 +12,7 @@ Please see the appropriate guide for your environment of choice:
 
 `bootstrap-sass` is easy to drop into Rails with the asset pipeline.
 
-In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `sass-rails` gem is present - it is added to new Rails applications by default.
+In your Gemfile you need to add the `bootstrap-sass` gem with the rest of your _defaults gems_ (__not within your assets group__) and ensure that the `sass-rails` gem is present - it is added to new Rails applications by default.
 
 ```ruby
 gem 'sass-rails', '>= 3.2' # sass-rails needs to be higher than 3.2
