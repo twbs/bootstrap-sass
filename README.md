@@ -211,8 +211,8 @@ bootstrap-sass is used to build some awesome projects all over the web, includin
 Michael Hartl's [Rails Tutorial](http://railstutorial.org/), [gitlabhq](http://gitlabhq.com/) and
 [kandan](http://kandanapp.com/).
 
-[converter]: https://github.com/twbs/bootstrap-sass/blob/3/tasks/converter.rb
-[version]: https://github.com/twbs/bootstrap-sass/blob/3/lib/bootstrap-sass/version.rb
+[converter]: https://github.com/twbs/bootstrap-sass/blob/master/tasks/converter/less_conversion.rb
+[version]: https://github.com/twbs/bootstrap-sass/blob/master/lib/bootstrap-sass/version.rb
 [contrib]: https://github.com/twbs/bootstrap-sass/graphs/contributors
 [antirequire]: https://github.com/twbs/bootstrap-sass/issues/79#issuecomment-4428595
 [jsdocs]: http://getbootstrap.com/javascript/#transitions
