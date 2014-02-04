@@ -21,6 +21,14 @@ gem 'bootstrap-sass', '~> 3.1.0'
 
 `bundle install` and restart your server to make the files available through the pipeline.
 
+If you are still on Rails 3, move the gems out of the assets group, set `config.initialize_on_precompile = true`,
+and use the backported asset pipeline gems:
+
+```ruby
+gem 'sprockets-rails', '=2.0.0.backport1'
+gem 'sprockets', '= 2.2.2.backport2'
+```
+
 ### b. Compass without Rails
 
 Install the gem
