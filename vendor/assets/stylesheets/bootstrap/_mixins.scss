@@ -592,7 +592,9 @@
 // -------------------------
 // [converter] $parent hack
 @mixin bg-variant($parent, $color) {
-  #{$parent} { background-color: $color; }
+  #{$parent} {
+    background-color: $color;
+  }
   a#{$parent}:hover {
     background-color: darken($color, 10%);
   }
@@ -602,7 +604,9 @@
 // -------------------------
 // [converter] $parent hack
 @mixin text-emphasis-variant($parent, $color) {
-  #{$parent} { color: $color; }
+  #{$parent} {
+    color: $color;
+  }
   a#{$parent}:hover {
     color: darken($color, 10%);
   }
@@ -631,7 +635,9 @@
 // More easily include all the states for responsive-utilities.less.
 // [converter] $parent hack
 @mixin responsive-visibility($parent) {
-  #{$parent} { display: block !important; }
+  #{$parent} {
+    display: block !important;
+  }
   table#{$parent}  { display: table; }
   tr#{$parent}     { display: table-row !important; }
   th#{$parent},
@@ -640,10 +646,9 @@
 
 // [converter] $parent hack
 @mixin responsive-invisibility($parent) {
-    #{$parent},
-  tr#{$parent},
-  th#{$parent},
-  td#{$parent} { display: none !important; }
+  #{$parent} {
+    display: none !important;
+  }
 }
 
 
@@ -916,11 +921,14 @@
 
 // [converter] $parent hack
 @mixin input-size($parent, $input-height, $padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
-  #{$parent} { height: $input-height;
-  padding: $padding-vertical $padding-horizontal;
-  font-size: $font-size;
-  line-height: $line-height;
-  border-radius: $border-radius; }
+  #{$parent} {
+    height: $input-height;
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+    border-radius: $border-radius;
+  }
+
   select#{$parent} {
     height: $input-height;
     line-height: $input-height;
