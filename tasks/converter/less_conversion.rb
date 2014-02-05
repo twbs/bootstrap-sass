@@ -80,9 +80,7 @@ class Converter
 
             file = convert_grid_mixins file
           when 'responsive-utilities.less'
-            file = apply_mixin_parent_selector(file, '&\.(visible|hidden)')
-            file = apply_mixin_parent_selector(file, '(?<!&)\.(visible|hidden)')
-            file = replace_rules(file, '  @media') { |r| unindent(r, 2) }
+            file = apply_mixin_parent_selector file, '\.(?:visible|hidden)'
           when 'variables.less'
             file = insert_default_vars(file)
             file = unindent <<-SCSS + file, 14
@@ -296,7 +294,11 @@ class Converter
         # insert param into mixin def
         mxn_css.sub!(/(@mixin [\w-]+)\(([\$\w\-,\s]*)\)/) { "#{$1}(#{param}#{', ' if $2 && !$2.empty?}#{$2})" }
         # wrap properties in #{$parent} { ... }
-        replace_properties(mxn_css) { |props| props.strip.empty? ? props : "  \#{#{param}} { #{props.strip} }\n  " }
+        replace_properties(mxn_css) { |props|
+          next props if props.strip.empty?
+          spacer = ' ' * indent_width(props)
+          "#{spacer}\#{#{param}} {\n#{indent(props.sub(/\s+\z/, ''), 2)}\n#{spacer}}"
+        }
         # change nested& rules to nested#{$parent}
         replace_rules(mxn_css, /.*&[ ,:]/) { |rule| replace_in_selector rule, /&/, "\#{#{param}}" }
       end
@@ -334,7 +336,7 @@ class Converter
       replace_rules file, '\s*' + rule_sel, comments: false do |rule, rule_pos, css|
         body = unwrap_rule_block(rule.dup).strip
         next rule unless body =~ /^@include \w+/m || body =~ /^@media/ && body =~ /\{\s*@include/
-        rule =~ /(#{COMMENT_RE}*)([#{SELECTOR_CHAR}]+?)\s*#{RULE_OPEN_BRACE_RE}/
+        rule =~ /(#{COMMENT_RE}*)([#{SELECTOR_CHAR}\s*]+?)#{RULE_OPEN_BRACE_RE}/
         cmt, sel = $1, $2.strip
         # take one up selector chain if this is an &. selector
         if sel.start_with?('&')
@@ -343,7 +345,8 @@ class Converter
         end
         # unwrap, and replace @include
         unindent unwrap_rule_block(rule).gsub(/(@include [\w-]+)\(([\$\w\-,\s]*)\)/) {
-          "#{cmt}#{$1}('#{sel}'#{', ' if $2 && !$2.empty?}#{$2})"
+          args = $2
+          "#{cmt}#{$1}('#{sel.gsub(/\s+/, ' ')}'#{', ' if args && !args.empty?}#{args})"
         }
       end
     end
@@ -568,21 +571,10 @@ class Converter
     def replace_properties(css, &block)
       s = CharStringScanner.new(css)
       s.skip_until /#{RULE_OPEN_BRACE_RE}\n?/
-      prev_pos = s.pos
-      depth    = 0
-      pos      = []
-      while (b = s.scan_next(/#{SELECTOR_RE}#{RULE_OPEN_BRACE_RE}|#{RULE_CLOSE_BRACE_RE}/m))
-        s_pos = s.pos
-        depth += (b == '}' ? -1 : +1)
-        if depth == 1
-          if b == '}'
-            prev_pos = s_pos
-          else
-            pos << (prev_pos .. s_pos - b.length - 1)
-          end
-        end
-      end
-      replace_substrings_at css, pos, &block
+      from = s.pos
+      m = s.scan_next(/\s*#{SELECTOR_RE}#{RULE_OPEN_BRACE_RE}/) || s.scan_next(/\s*#{RULE_CLOSE_BRACE_RE}/)
+      to = s.pos - m.length - 1
+      replace_substrings_at css, [(from .. to)], &block
     end
 
 
