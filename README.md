@@ -138,9 +138,7 @@ $navbar-default-color: $light-orange;
 You can also import components explicitly. To start with a full list of modules copy this file from the gem:
 
 ```bash
-# copy and prepend "bootstrap/" to the @import paths:
-sed 's/@import "/@import "bootstrap\//' \
- $(bundle show bootstrap-sass)/vendor/assets/stylesheets/bootstrap.scss > \
+cp $(bundle show bootstrap-sass)/vendor/assets/stylesheets/bootstrap.scss \
  app/assets/stylesheets/bootstrap-custom.scss
 ```
 Comment out components you do not want from `bootstrap-custom`.
