@@ -52,6 +52,7 @@ class Converter
     def process_stylesheet_assets
       log_status 'Processing stylesheets...'
       files = read_files('less', bootstrap_less_files)
+      save_to = @save_to[:scss]
 
       log_status '  Converting LESS files to Scss:'
       files.each do |name, file|
@@ -118,11 +119,14 @@ class Converter
         end
 
         name    = name.sub(/\.less$/, '.scss')
-        save_to = @save_to[:scss]
         path    = "#{save_to}/#{'_' unless name == 'bootstrap.scss'}#{name}"
         save_file(path, file)
         log_processed File.basename(path)
       end
+
+      # generate imports valid relative to both load path and file directory
+      save_file File.expand_path("#{save_to}/../bootstrap.scss"),
+                File.read("#{save_to}/bootstrap.scss").gsub(/ "/, ' "bootstrap/')
     end
 
     def bootstrap_less_files

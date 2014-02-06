@@ -24,16 +24,7 @@ gem 'bootstrap-sass', '~> 3.1.0'
 
 #### Rails 3.2.x
 
-bootstrap-sass requires a newer version of the asset pipeline than the one that ships with Rails 3.2.x.
-You can use these backports of the new pipeline on Rails 3.2.x:
-
-```ruby
-gem 'sprockets-rails', '~> 2.0.0.backport1'
-gem 'sprockets', '~> 2.2.2.backport2'
-gem 'sass-rails', github: 'guilleiguaran/sass-rails', branch: 'backport'
-```
-
-Make sure that all the gems are moved out of the `:assets` group, and `config.assets.initialize_on_precompile` is set to `true`.
+For Rails 3.2.x, make sure that all the gems are moved out of the `:assets` group, and `config.assets.initialize_on_precompile` is set to `true`.
 
 
 ### b. Compass without Rails
@@ -149,7 +140,7 @@ You can also import components explicitly. To start with a full list of modules 
 ```bash
 # copy and prepend "bootstrap/" to the @import paths:
 sed 's/@import "/@import "bootstrap\//' \
- $(bundle show bootstrap-sass)/vendor/assets/stylesheets/bootstrap/bootstrap.scss > \
+ $(bundle show bootstrap-sass)/vendor/assets/stylesheets/bootstrap.scss > \
  app/assets/stylesheets/bootstrap-custom.scss
 ```
 Comment out components you do not want from `bootstrap-custom`.
