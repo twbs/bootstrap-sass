@@ -386,7 +386,7 @@ class Converter
         end
       end
 
-      less.gsub /&:extend\((#{SELECTOR_RE}) all\)/ do
+      less.gsub /&:extend\((#{SELECTOR_RE})(?: all)?\)/ do
         selector = $1
         selector =~ /\.([\w-]+)/
         mixin    = $1
