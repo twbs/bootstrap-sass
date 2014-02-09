@@ -19,8 +19,12 @@
   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
   @include user-select(none);
 
-  &:focus {
-    @include tab-focus();
+  &,
+  &:active,
+  &.active {
+    &:focus {
+      @include tab-focus();
+    }
   }
 
   &:hover,
