@@ -154,46 +154,49 @@ class Converter
       replace_all rule, /url\((.*?)\)/, "url(if($bootstrap-sass-asset-helper, twbs-#{type}-path(\\1), \\1))"
     end
 
+    # convert recursively evaluated selector $list to @for loop
+    def mixin_all_grid_columns(css, selector: raise('pass class'), from: 1, to: raise('pass to'))
+      mxn_def = css.each_line.first.strip
+      step_body = (css =~ /\$list \{\n(.*?)\n[ ]*\}/m) && $1
+<<-SASS
+// [converter] This is defined recursively in LESS, but Sass supports real loops
+#{mxn_def}
+  $list: '';
+  $i: #{from};
+  $list: "#{selector}";
+  @for $i from (#{from} + 1) through #{to} {
+    $list: "\#{$list}, #{selector}";
+  }
+  \#{$list} {
+#{unindent step_body, 2}
+  }
+}
+SASS
+    end
+
     # convert grid mixins LESS when => SASS @if
     def convert_grid_mixins(file)
       file = replace_rules file, /@mixin make-grid-columns/, comments: false do |css, pos|
-        mxn_def = css.each_line.first
-        classes = if css =~ /-columns-float/
-                    '.col-#{$class}-#{$i}'
-                  else
-                    '.col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}'
-                  end
-        body = (css =~ /\$list \{\n(.*?)\n[ ]*\}/m) && $1
-        unindent <<-SASS, 8
-        // [converter] Grid converted to use SASS cycles (LESS uses recursive nested mixin defs not supported by SASS)
-        #{mxn_def.strip}
-          $list: '';
-          $i: 1;
-          $list: "#{classes}";
-          @for $i from 2 through $grid-columns {
-            $list: "#{classes}, \#{$list}";
-          }
-          \#{$list} {
-        #{unindent body}
-          }
-        }
-        SASS
+        mixin_all_grid_columns css, selector: '.col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}', to: '$grid-columns'
       end
-      file = replace_rules file, /@mixin calc-grid/ do |css|
+      file = replace_rules file, /@mixin float-grid-columns/, comments: false do |css, pos|
+        mixin_all_grid_columns css, selector: '.col-#{$class}-#{$i}', to: '$grid-columns'
+      end
+      file = replace_rules file, /@mixin calc-grid-column/ do |css|
         css = indent css.gsub(/.*when (.*?) {/, '@if \1 {').gsub(/(?<=\$type) = (\w+)/, ' == \1').gsub(/(?<=-)(\$[a-z]+)/, '#{\1}')
         if css =~ /== width/
-          css = "@mixin calc-grid($index, $class, $type) {\n#{css}"
+          css = "@mixin calc-grid-column($index, $class, $type) {\n#{css}"
         elsif css =~ /== offset/
           css += "\n}"
         end
         css
       end
-      file = replace_rules file, /@mixin make-grid\(/ do |css|
+      file = replace_rules file, /@mixin loop-grid-columns/ do |css|
         unindent <<-SASS, 8
-        // [converter] This is defined recursively in LESS, but SASS supports real loops
-        @mixin make-grid($columns, $class, $type) {
+        // [converter] This is defined recursively in LESS, but Sass supports real loops
+        @mixin loop-grid-columns($columns, $class, $type) {
           @for $i from 0 through $columns {
-            @include calc-grid($i, $class, $type);
+            @include calc-grid-column($i, $class, $type);
           }
         }
         SASS
