@@ -79,11 +79,18 @@ bower install git://github.com/twbs/bootstrap-sass.git
 
 Sass, JS, and all other assets are located at [vendor/assets](/vendor/assets).
 
+bootstrap-sass requires minimum [Sass number precision][sass-precision] of 10 (default is 5).
+When using ruby Sass compiler with the bower version you can enforce the limit with:
+
+```ruby
+::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
+```
+
 #### JS and fonts
 
-If you are using Rails or Sprockets, see Usage.
+Assets are discovered automatically on Rails, Sprockets, and Compass, using native asset path helpers.
 
-If none of Rails/Sprockets/Compass were detected the fonts will be referenced as:
+Otherwise the fonts are referenced as:
 
 ```sass
 "#{$icon-font-path}/#{$icon-font-name}.eot"
@@ -91,21 +98,13 @@ If none of Rails/Sprockets/Compass were detected the fonts will be referenced as
 
 `$icon-font-path` defaults to `bootstrap/`.
 
-When not using an asset pipeline, you have to copy fonts and javascripts from the gem.
+When not using an asset pipeline, you can copy fonts and JS from bootstrap-sass, they are located at [vendor/assets](/vendor/assets):
 
 ```bash
 mkdir public/fonts
 cp -r $(bundle show bootstrap-sass)/vendor/assets/fonts/ public/fonts/
 mkdir public/javascripts
 cp -r $(bundle show bootstrap-sass)/vendor/assets/javascripts/ public/javascripts/
-```
-
-In ruby you can get the assets' location in the filesystem like this:
-
-```ruby
-Bootstrap.stylesheets_path
-Bootstrap.fonts_path
-Bootstrap.javascripts_path
 ```
 
 ## Usage
@@ -224,3 +223,4 @@ Michael Hartl's [Rails Tutorial](http://railstutorial.org/), [gitlabhq](http://g
 [contrib]: https://github.com/twbs/bootstrap-sass/graphs/contributors
 [antirequire]: https://github.com/twbs/bootstrap-sass/issues/79#issuecomment-4428595
 [jsdocs]: http://getbootstrap.com/javascript/#transitions
+[sass-precision]: http://sass-lang.com/documentation/Sass/Script/Number.html#precision-class_method
