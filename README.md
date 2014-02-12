@@ -79,7 +79,9 @@ bower install git://github.com/twbs/bootstrap-sass.git
 
 Sass, JS, and all other assets are located at [vendor/assets](/vendor/assets).
 
-bootstrap-sass requires minimum [Sass number precision][sass-precision] of 10 (default is 5).
+bootstrap-sass [requires](https://github.com/twbs/bootstrap-sass/issues/409) minimum [Sass number precision][sass-precision] of 10 (default is 5).
+
+
 When using ruby Sass compiler with the bower version you can enforce the limit with:
 
 ```ruby
