@@ -16,7 +16,7 @@ In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `s
 
 ```ruby
 gem 'sass-rails', '>= 3.2' # sass-rails needs to be higher than 3.2
-gem 'bootstrap-sass', '~> 3.1.0'
+gem 'bootstrap-sass', '~> 3.1.1'
 ```
 
 `bundle install` and restart your server to make the files available through the pipeline.
