@@ -1,0 +1,6 @@
+@import "bootstrap/variables"
+
+<% require 'bootstrap-sass/version' %>
+// Override Bootstrap variables here (defaults from bootstrap-sass v<%= Bootstrap::VERSION %>):
+
+<%= File.read(@template[:options][:bs_variables_path]).gsub(/^(?=\$)/, '// ').gsub(/ !default;/, '') %>
