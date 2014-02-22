@@ -186,7 +186,7 @@ Here's an example run that would pull down the master branch from the main [twbs
 
     rake convert
 
-This will convert the latest LESS to SASS and update to the latest JS.
+This will convert the latest LESS to Sass and update to the latest JS.
 To convert a specific branch or version, pass the branch name or the commit hash as the first task argument:
 
     rake convert[e8a1df5f060bf7e6631554648e0abde150aedbe4]
