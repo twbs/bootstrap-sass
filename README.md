@@ -53,8 +53,8 @@ bundle exec compass create my-new-project -r bootstrap-sass --using bootstrap
 
 This will create a new Compass project with the following files in it:
 
-* [_variables.scss](/templates/project/_variables.scss.erb) - all of bootstrap variables (override them here).
-* [styles.scss](/templates/project/styles.scss) - main project SCSS file, import `variables` and `bootstrap`.
+* [_variables.scss](/templates/project/_variables.sass.erb) - all of bootstrap variables (override them here).
+* [styles.scss](/templates/project/styles.sass) - main project SCSS file, import `variables` and `bootstrap`.
 
 Some bootstrap-sass mixins may conflict with the Compass ones.
 If this happens, change the import order so that Compass mixins are loaded later.
@@ -152,7 +152,7 @@ In `application.sass`, replace `@import 'bootstrap'` with:
 
 ### Javascript
 
-We have a helper that includes all Bootstrap javascripts. If you use Rails (or Sprockets separately), 
+We have a helper that includes all Bootstrap javascripts. If you use Rails (or Sprockets separately),
 put this in your Javascript manifest (usually in `application.js`) to load the files in the [correct order](/vendor/assets/javascripts/bootstrap.js):
 
 ```js
@@ -183,12 +183,12 @@ Keeping bootstrap-sass in sync with upstream changes from Bootstrap used to be a
 Upstream changes to the Bootstrap project can now be pulled in using the `convert` rake task.
 
 Here's an example run that would pull down the master branch from the main [twbs/bootstrap](https://github.com/twbs/bootstrap) repo:
-    
+
     rake convert
-    
+
 This will convert the latest LESS to SASS and update to the latest JS.
 To convert a specific branch or version, pass the branch name or the commit hash as the first task argument:
-    
+
     rake convert[e8a1df5f060bf7e6631554648e0abde150aedbe4]
 
 The latest converter script is located [here][converter] and does the following:
