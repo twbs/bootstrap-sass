@@ -24,8 +24,7 @@ gem 'bootstrap-sass', '~> 3.1.1'
 
 #### Rails 3.2.x
 
-For Rails 3.2.x, make sure that all the gems are moved out of the `:assets` group, and `config.assets.initialize_on_precompile` is set to `true`.
-
+For Rails 3.2.x, make sure that all the gems are moved out of the `:assets` group.
 
 ### b. Compass without Rails
 
