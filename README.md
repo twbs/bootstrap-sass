@@ -71,10 +71,10 @@ require 'bootstrap-sass'
 Using bootstrap-sass as a Bower package is still being tested and requires libsass master. You can install it with:
 
 ```bash
-bower install git://github.com/twbs/bootstrap-sass.git
+bower install twbs/bootstrap-sass
 ```
 
-`bootstrap-sass` is taken so make sure you use the Git URL above.
+`bootstrap-sass` is taken so make sure you use the command above.
 
 Sass, JS, and all other assets are located at [vendor/assets](/vendor/assets).
 
