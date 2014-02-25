@@ -106,7 +106,7 @@ class Converter
           when 'thumbnails.less'
             file = extract_nested_rule file, 'a&'
           when 'glyphicons.less'
-            file = bootstrap_font_files.map { |p| %Q(//= depend_on_asset "#{File.basename(p)}") } * "\n" + "\n" + file
+            file = bootstrap_font_files.map { |p| %Q(//= depend_on_asset "bootstrap/#{File.basename(p)}") } * "\n" + "\n" + file
             file = replace_all file, /\#\{(url\(.*?\))}/, '\1'
             file = replace_rules(file, '@font-face') { |rule|
               rule = replace_all rule, /(\$icon-font(?:-\w+)+)/, '#{\1}'
