@@ -43,7 +43,7 @@ task :compile, :css_path do |t, args|
     puts Term::ANSIColor.cyan("  #{save_path}") + '...'
     engine    = Sass::Engine.for_file("#{path}/#{file}.scss", syntax: :scss, load_paths: [path])
     css       = engine.render
-    File.mkdir('tmp') unless File.directory?('tmp')
+    Dir.mkdir('tmp') unless File.directory?('tmp')
     File.open(save_path, 'w') { |f| f.write css }
   end
 end
