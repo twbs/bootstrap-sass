@@ -148,31 +148,45 @@
 }
 
 // Transformations
-@mixin rotate($degrees) {
-  -webkit-transform: rotate($degrees);
-      -ms-transform: rotate($degrees); // IE9 only
-          transform: rotate($degrees);
+@mixin scale($ratio...) {
+  -webkit-transform: scale($ratio);
+      -ms-transform: scale($ratio); // IE9 only
+          transform: scale($ratio);
 }
-@mixin scale($scale-args...) {
-  -webkit-transform: scale($scale-args);
-      -ms-transform: scale($scale-args); // IE9 only
-          transform: scale($scale-args);
+@mixin scale($ratioX, $ratioY...) {
+  -webkit-transform: scale($ratioX, $ratioY);
+      -ms-transform: scale($ratioX, $ratioY); // IE9 only
+          transform: scale($ratioX, $ratioY);
 }
-@mixin translate($x, $y) {
-  -webkit-transform: translate($x, $y);
-      -ms-transform: translate($x, $y); // IE9 only
-          transform: translate($x, $y);
+@mixin scaleX($ratio) {
+  -webkit-transform: scaleX($ratio);
+      -ms-transform: scaleX($ratio); // IE9 only
+          transform: scaleX($ratio);
+}
+@mixin scaleY($ratio) {
+  -webkit-transform: scaleY($ratio);
+      -ms-transform: scaleY($ratio); // IE9 only
+          transform: scaleY($ratio);
 }
 @mixin skew($x, $y) {
   -webkit-transform: skew($x, $y);
       -ms-transform: skewX($x) skewY($y); // See https://github.com/twbs/bootstrap/issues/4885; IE9+
           transform: skew($x, $y);
 }
+@mixin translate($x, $y) {
+  -webkit-transform: translate($x, $y);
+      -ms-transform: translate($x, $y); // IE9 only
+          transform: translate($x, $y);
+}
 @mixin translate3d($x, $y, $z) {
   -webkit-transform: translate3d($x, $y, $z);
           transform: translate3d($x, $y, $z);
 }
-
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+      -ms-transform: rotate($degrees); // IE9 only
+          transform: rotate($degrees);
+}
 @mixin rotateX($degrees) {
   -webkit-transform: rotateX($degrees);
       -ms-transform: rotateX($degrees); // IE9 only
@@ -409,12 +423,12 @@
     background-color: $heading-bg-color;
     border-color: $heading-border;
 
-    + .panel-collapse .panel-body {
+    + .panel-collapse > .panel-body {
       border-top-color: $border;
     }
   }
   & > .panel-footer {
-    + .panel-collapse .panel-body {
+    + .panel-collapse > .panel-body {
       border-bottom-color: $border;
     }
   }
