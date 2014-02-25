@@ -59,9 +59,9 @@ class Converter
 
     @save_to.each { |_, v| FileUtils.mkdir_p(v) }
 
+    process_font_assets
     process_stylesheet_assets
     process_javascript_assets
-    process_font_assets
     store_version
   end
 

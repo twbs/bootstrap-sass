@@ -31,7 +31,7 @@ class Converter
 
     # These mixins will get vararg definitions in SCSS (not supported by LESS):
     VARARG_MIXINS               = %w(
-    transition transition-duration transition-property transition-transform box-shadow
+    scale transition transition-duration transition-property transition-transform box-shadow
   )
 
     # Convert a snippet of bootstrap LESS to Scss
@@ -75,9 +75,8 @@ class Converter
             file = replace_all file, /,\s*\.open \.dropdown-toggle& \{(.*?)\}/m,
                                " {\\1}\n  .open & { &.dropdown-toggle {\\1} }"
 
-            # make +scale(one_argument) compatible with Sass list handling
-            # see https://github.com/twbs/bootstrap-sass/issues/518
-            file = replace_all file, '$ratio, $ratio-y', '$scale-args'
+            # remove second scale mixins as this is handled via vararg in the first one
+            file = replace_rules(file, '.scale(@ratioX; @ratioY)') {}
 
             file = convert_grid_mixins file
           when 'responsive-utilities.less'
@@ -107,6 +106,7 @@ class Converter
           when 'thumbnails.less'
             file = extract_nested_rule file, 'a&'
           when 'glyphicons.less'
+            file = bootstrap_font_files.map { |p| %Q(//= depend_on_asset "#{File.basename(p)}") } * "\n" + "\n" + file
             file = replace_all file, /\#\{(url\(.*?\))}/, '\1'
             file = replace_rules(file, '@font-face') { |rule|
               rule = replace_all rule, /(\$icon-font(?:-\w+)+)/, '#{\1}'
