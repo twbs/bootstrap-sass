@@ -94,7 +94,7 @@ Assets are discovered automatically on Rails, Sprockets, and Compass, using nati
 Otherwise the fonts are referenced as:
 
 ```sass
-"#{$icon-font-path}/#{$icon-font-name}.eot"
+"#{$icon-font-path}#{$icon-font-name}.eot"
 ```
 
 `$icon-font-path` defaults to `bootstrap/`.
