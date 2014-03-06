@@ -243,6 +243,10 @@
   -webkit-animation-direction: $direction;
           animation-direction: $direction;
 }
+@mixin animation-fill-mode($fill-mode) {
+  -webkit-animation-fill-mode: $fill-mode;
+          animation-fill-mode: $fill-mode;
+}
 
 // Backface visibility
 // Prevent browsers from flickering when using CSS 3D transforms.
@@ -371,7 +375,8 @@
 
 // Retina images
 //
-// Short retina mixin for setting background-image and -size
+// Short retina mixin for setting background-image and -size. Note that the
+// spelling of `min--moz-device-pixel-ratio` is intentional.
 
 @mixin img-retina($file-1x, $file-2x, $width-1x, $height-1x) {
   background-image: url(if($bootstrap-sass-asset-helper, twbs-image-path("#{$file-1x}"), "#{$file-1x}"));
@@ -693,19 +698,13 @@
   padding-right: ($gutter / 2);
 }
 @mixin make-xs-column-offset($columns) {
-  @media (min-width: $screen-xs-min) {
-    margin-left: percentage(($columns / $grid-columns));
-  }
+  margin-left: percentage(($columns / $grid-columns));
 }
 @mixin make-xs-column-push($columns) {
-  @media (min-width: $screen-xs-min) {
-    left: percentage(($columns / $grid-columns));
-  }
+  left: percentage(($columns / $grid-columns));
 }
 @mixin make-xs-column-pull($columns) {
-  @media (min-width: $screen-xs-min) {
-    right: percentage(($columns / $grid-columns));
-  }
+  right: percentage(($columns / $grid-columns));
 }
 
 
@@ -840,14 +839,24 @@
       width: percentage(($index / $grid-columns));
     }
   }
-  @if ($type == push) {
+  @if ($type == push) and ($index > 0) {
     .col-#{$class}-push-#{$index} {
       left: percentage(($index / $grid-columns));
     }
   }
-  @if ($type == pull) {
+  @if ($type == push) and ($index == 0) {
+    .col-#{$class}-push-0 {
+      left: auto;
+    }
+  }
+  @if ($type == pull) and ($index > 0) {
     .col-#{$class}-pull-#{$index} {
       right: percentage(($index / $grid-columns));
+    }
+  }
+  @if ($type == pull) and ($index == 0) {
+    .col-#{$class}-pull-0 {
+      right: auto;
     }
   }
   @if ($type == offset) {
