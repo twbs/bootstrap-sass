@@ -144,6 +144,7 @@ class Converter
       file   = replace_mixin_definitions(file)
       file   = replace_mixins(file, mixins)
       file   = replace_spin(file)
+      file   = replace_fadein(file)
       file   = replace_image_urls(file)
       file   = replace_escaping(file)
       file   = convert_less_ampersand(file)
@@ -440,6 +441,10 @@ SASS
 
     def replace_spin(less)
       less.gsub(/(?![\-$@.])spin(?!-)/, 'adjust-hue')
+    end
+
+    def replace_fadein(less)
+      less.gsub(/(?![\-$@.])fadein\((.*?),\s*(.*?)%\)/) { "rgba(#{$1}, #{$2.to_i / 100.0})" }
     end
 
     def replace_image_urls(less)
