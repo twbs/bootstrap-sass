@@ -79,6 +79,8 @@ class Converter
             file = replace_rules(file, '.scale(@ratioX; @ratioY)') {}
 
             file = convert_grid_mixins file
+          when 'component-animations.less'
+            file = extract_nested_rule file, "#{SELECTOR_RE}&\\.in"
           when 'responsive-utilities.less'
             file = apply_mixin_parent_selector file, '\.(?:visible|hidden)'
           when 'variables.less'
@@ -183,7 +185,7 @@ SASS
         mixin_all_grid_columns css, selector: '.col-#{$class}-#{$i}', to: '$grid-columns'
       end
       file = replace_rules file, /@mixin calc-grid-column/ do |css|
-        css = indent css.gsub(/.*when (.*?) {/, '@if \1 {').gsub(/(?<=\$type) = (\w+)/, ' == \1').gsub(/(?<=-)(\$[a-z]+)/, '#{\1}')
+        css = indent css.gsub(/.*when (.*?) {/, '@if \1 {').gsub(/(\$[\w-]+)\s+=\s+(\w+)/, '\1 == \2').gsub(/(?<=-)(\$[a-z]+)/, '#{\1}')
         if css =~ /== width/
           css = "@mixin calc-grid-column($index, $class, $type) {\n#{css}"
         elsif css =~ /== offset/
@@ -320,15 +322,15 @@ SASS
       matches = []
       # first find the rules, and remove them
       file    = replace_rules(file, "\s*#{selector}", comments: true) { |rule, pos, css|
-        matches << [rule, pos]
-        new_selector ||= "#{get_selector(rule).gsub(/&/, selector_for_pos(css, pos.begin))}"
-        indent "// [converter] extracted #{get_selector(rule)} to #{new_selector}".tr("\n", ' ').squeeze(' '), indent_width(rule)
+        new_sel = new_selector || "#{get_selector(rule).gsub(/&/, selector_for_pos(css, pos.begin))}"
+        matches << [rule, pos, new_sel]
+        indent "// [converter] extracted #{get_selector(rule)} to #{new_sel}".tr("\n", ' ').squeeze(' '), indent_width(rule)
       }
       raise "extract_nested_rule: no such selector: #{selector}" if matches.empty?
-      log_transform selector, new_selector
       # replace rule selector with new_selector
       matches.each do |m|
-        m[0].sub! /(#{COMMENT_RE}*)^(\s*).*?(\s*){/m, "\\1\\2#{new_selector}\\3{"
+        m[0].sub! /(#{COMMENT_RE}*)^(\s*).*?(\s*){/m, "\\1\\2#{m[2]}\\3{"
+        log_transform selector, m[2]
       end
       replace_substrings_at file,
                             matches.map { |_, pos| close_brace_pos(file, pos.begin, 1) + 1 },
