@@ -26,7 +26,7 @@ class Converter
     SCSS_MIXIN_DEF_ARGS_RE      = /[\w\-,\s$:#%()]*/
     LESS_MIXIN_DEF_ARGS_RE      = /[\w\-,;.\s@:#%()]*/
 
-    # These mixins are nested (not supported by SCSS), and need to flattened:
+    # These mixins will get vararg definitions in SCSS (not supported by LESS):
     NESTED_MIXINS               = {'#gradient' => 'gradient'}
 
     # These mixins will get vararg definitions in SCSS (not supported by LESS):
@@ -45,7 +45,7 @@ class Converter
     def load_shared
       @shared_mixins ||= begin
         log_status '  Reading shared mixins from mixins.less'
-        read_mixins read_files('less', ['mixins.less'])['mixins.less'], nested: NESTED_MIXINS
+        read_mixins read_files('less', bootstrap_less_files.grep(/mixins\//)).values.join("\n"), nested: NESTED_MIXINS
       end
     end
 
@@ -59,25 +59,29 @@ class Converter
         log_processing name
         # apply common conversions
         file = convert_less(file)
+        if name.start_with?('mixins/')
+          file = varargify_mixin_definitions(file, *VARARG_MIXINS)
+          %w(responsive-(in)?visibility input-size text-emphasis-variant bg-variant).each do |mixin|
+            file = parameterize_mixin_parent_selector file, mixin if file =~ /#{mixin}/
+          end
+          NESTED_MIXINS.each do |sel, name|
+            file = flatten_mixins(file, sel, name) if /#{Regexp.escape(sel)}/ =~ file
+          end
+          file = replace_all file, /(?<=[.-])\$state/, '#{$state}' if file =~ /[.-]\$state/
+        end
         case name
-          when 'mixins.less'
-            NESTED_MIXINS.each do |selector, prefix|
-              file = flatten_mixins(file, selector, prefix)
-            end
-            file = varargify_mixin_definitions(file, *VARARG_MIXINS)
-            file = deinterpolate_vararg_mixins(file)
-            %w(responsive-(in)?visibility input-size text-emphasis-variant bg-variant).each do |mixin|
-              file = parameterize_mixin_parent_selector file, mixin
-            end
-            file = replace_ms_filters(file)
-            file = replace_all file, /(?<=[.-])\$state/, '#{$state}'
+          when 'mixins/buttons.less'
+            file = replace_all file, /\.open \.dropdown-toggle& \{(.*?)\}/m,
+                               ".open & { &.dropdown-toggle {\\1} }"
+          when 'mixins/list-group.less'
             file = replace_rules(file, '  .list-group-item-') { |rule| extract_nested_rule rule, 'a&' }
-            file = replace_all file, /,\s*\.open \.dropdown-toggle& \{(.*?)\}/m,
-                               " {\\1}\n  .open & { &.dropdown-toggle {\\1} }"
-
+          when 'mixins/gradients.less'
+            file = replace_ms_filters(file)
+            file = deinterpolate_vararg_mixins(file)
+          when 'mixins/vendor-prefixes.less'
             # remove second scale mixins as this is handled via vararg in the first one
             file = replace_rules(file, '.scale(@ratioX; @ratioY)') {}
-
+          when 'mixins/grid-framework.less'
             file = convert_grid_mixins file
           when 'component-animations.less'
             file = extract_nested_rule file, "#{SELECTOR_RE}&\\.in"
@@ -105,7 +109,7 @@ class Converter
             file = replace_all file, /(\s*)\.navbar-(right|left)\s*\{\s*@extend\s*\.pull-(right|left);\s*/, "\\1.navbar-\\2 {\\1  float: \\2 !important;\\1"
           when 'tables.less'
             file = replace_all file, /(@include\s*table-row-variant\()(\w+)/, "\\1'\\2'"
-          when 'thumbnails.less'
+          when 'thumbnails.less', 'labels.less', 'badges.less'
             file = extract_nested_rule file, 'a&'
           when 'glyphicons.less'
             file = bootstrap_font_files.map { |p| %Q(//= depend_on_asset "bootstrap/#{File.basename(p)}") } * "\n" + "\n" + file
@@ -121,7 +125,10 @@ class Converter
         end
 
         name    = name.sub(/\.less$/, '.scss')
-        path    = "#{save_to}/#{'_' unless name == 'bootstrap.scss'}#{name}"
+        path    = File.join save_to, name
+        unless name == 'bootstrap.scss'
+          path = File.join File.dirname(path), '_' + File.basename(path)
+        end
         save_file(path, file)
         log_processed File.basename(path)
       end
@@ -132,7 +139,9 @@ class Converter
     end
 
     def bootstrap_less_files
-      @bootstrap_less_files ||= get_paths_by_type('less', /\.less$/)
+      @bootstrap_less_files ||= get_paths_by_type('less', /\.less$/) +
+        get_paths_by_type('mixins', /\.less$/,
+                          get_tree(get_tree_sha('mixins', get_tree(get_tree_sha('less'))))).map { |p| "mixins/#{p}" }
     end
 
     # apply general less to scss conversion
@@ -140,7 +149,6 @@ class Converter
       # get local mixin names before converting the definitions
       mixins = @shared_mixins + read_mixins(file)
       file   = replace_vars(file)
-      file   = replace_file_imports(file)
       file   = replace_mixin_definitions(file)
       file   = replace_mixins(file, mixins)
       file   = replace_spin(file)
@@ -150,6 +158,7 @@ class Converter
       file   = convert_less_ampersand(file)
       file   = deinterpolate_vararg_mixins(file)
       file   = replace_calculation_semantics(file)
+      file   = replace_file_imports(file)
       file
     end
 
@@ -282,7 +291,7 @@ SASS
 
     # @import "file.less" to "#{target_path}file;"
     def replace_file_imports(less, target_path = '')
-      less.gsub %r([@\$]import ["|']([\w-]+).less["|'];),
+      less.gsub %r([@\$]import ["|']([\w\-/]+).less["|'];),
                 %Q(@import "#{target_path}\\1";)
     end
 
@@ -518,7 +527,8 @@ SASS
 
     # get full selector for rule_block
     def get_selector(rule_block)
-      /^\s*(#{SELECTOR_RE}?)\s*\{/.match(rule_block) && $1 && $1.strip
+      sel = /^\s*(#{SELECTOR_RE}?)\s*\{/.match(rule_block) && $1 && $1.strip
+      sel.sub /\s*\{\n\s.*/m, ''
     end
 
     # replace CSS rule blocks matching rule_prefix with yield(rule_block, rule_pos)

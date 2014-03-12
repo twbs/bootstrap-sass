@@ -2,9 +2,8 @@ class Converter
   module Network
     protected
 
-    def get_paths_by_type(dir, file_re)
-      files = get_json "https://api.github.com/repos/#@repo/git/trees/#{get_tree_sha(dir)}"
-      files['tree'].select { |f| f['type'] == 'blob' && f['path'] =~ file_re }.map { |f| f['path'] }
+    def get_paths_by_type(dir, file_re, tree = get_tree(get_tree_sha(dir)))
+      tree['tree'].select { |f| f['type'] == 'blob' && f['path'] =~ file_re }.map { |f| f['path'] }
     end
 
     def read_files(path, files)
@@ -38,8 +37,8 @@ class Converter
 
     def write_cached_files(path, files)
       full_path = "./#@cache_path/#@branch_sha/#{path}"
-      FileUtils.mkdir_p full_path
       files.each do |name, content|
+        FileUtils.mkdir_p File.dirname(File.join(full_path, name))
         File.open("#{full_path}/#{name}", 'wb') { |f| f.write content }
       end
     end
@@ -70,12 +69,16 @@ class Converter
     end
 
     # Get the sha of a dir
-    def get_tree_sha(dir)
-      get_trees['tree'].find { |t| t['path'] == dir }['sha']
+    def get_tree_sha(dir, tree = get_trees)
+      tree['tree'].find { |t| t['path'] == dir }['sha']
     end
 
     def get_trees
-      @trees ||= get_json("https://api.github.com/repos/#@repo/git/trees/#@branch_sha")
+      @trees ||= get_tree(@branch_sha)
+    end
+
+    def get_tree(sha)
+      get_json("https://api.github.com/repos/#@repo/git/trees/#{sha}")
     end
 
     def get_json(url)

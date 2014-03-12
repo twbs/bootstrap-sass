@@ -66,6 +66,8 @@ class Converter
   end
 
   def save_file(path, content, mode='w')
+    dir = File.dirname(path)
+    FileUtils.mkdir_p(dir) unless File.directory?(dir)
     File.open(path, mode) { |file| file.write(content) }
   end
 
