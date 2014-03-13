@@ -68,13 +68,15 @@ require 'bootstrap-sass'
 
 ### d. Bower
 
-Using bootstrap-sass as a Bower package is still being tested and requires libsass master. You can install it with:
+Using bootstrap-sass as a Bower package is still being tested. It is compatible with node-sass 0.8.3+. You can install it with:
 
 ```bash
 bower install twbs/bootstrap-sass
 ```
 
 `bootstrap-sass` is taken so make sure you use the command above.
+
+If you use mincer with node-sass, see this [mincer + node-sass recipe](https://github.com/twbs/bootstrap-sass/issues/551).
 
 Sass, JS, and all other assets are located at [vendor/assets](/vendor/assets).
 
@@ -86,6 +88,8 @@ When using ruby Sass compiler with the bower version you can enforce the limit w
 ```ruby
 ::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
 ```
+
+There is [no way to set precision yet](https://github.com/hcatlin/libsass/issues/287) in libsass.
 
 #### JS and fonts
 
