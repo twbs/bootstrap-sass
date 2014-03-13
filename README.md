@@ -66,7 +66,7 @@ Require the gem, and load paths and Sass helpers will be configured automaticall
 require 'bootstrap-sass'
 ```
 
-### d. Bower
+### d. Node.js / Bower
 
 Using bootstrap-sass as a Bower package is still being tested. It is compatible with node-sass 0.8.3+. You can install it with:
 
@@ -76,7 +76,7 @@ bower install twbs/bootstrap-sass
 
 `bootstrap-sass` is taken so make sure you use the command above.
 
-If you use mincer with node-sass, see this [mincer + node-sass recipe](https://github.com/twbs/bootstrap-sass/issues/551).
+If you use [mincer][mincer] with node-sass, see this [mincer + node-sass recipe](https://github.com/twbs/bootstrap-sass/issues/551).
 
 Sass, JS, and all other assets are located at [vendor/assets](/vendor/assets).
 
@@ -229,3 +229,4 @@ Michael Hartl's [Rails Tutorial](http://railstutorial.org/), [gitlabhq](http://g
 [antirequire]: https://github.com/twbs/bootstrap-sass/issues/79#issuecomment-4428595
 [jsdocs]: http://getbootstrap.com/javascript/#transitions
 [sass-precision]: http://sass-lang.com/documentation/Sass/Script/Number.html#precision-class_method
+[mincer]: https://github.com/nodeca/mincer
