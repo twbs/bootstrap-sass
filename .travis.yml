@@ -9,7 +9,7 @@ gemfile:
   - test/gemfiles/sass_3_3.gemfile
   - test/gemfiles/sass_head.gemfile
 before_install:
-  - "npm install node-sass"
+  - "npm install node-sass mincer ejs"
 matrix:
   allow_failures:
     - gemfile: test/gemfiles/sass_head.gemfile
