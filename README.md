@@ -76,12 +76,23 @@ bower install twbs/bootstrap-sass
 
 `bootstrap-sass` is taken so make sure you use the command above.
 
-If you use [mincer][mincer] with node-sass, see this [mincer + node-sass recipe](https://github.com/twbs/bootstrap-sass/issues/551).
-
 Sass, JS, and all other assets are located at [vendor/assets](/vendor/assets).
 
-bootstrap-sass [requires](https://github.com/twbs/bootstrap-sass/issues/409) minimum [Sass number precision][sass-precision] of 10 (default is 5).
+#### Mincer
 
+If you use [mincer][mincer] with node-sass, import bootstrap like so:
+
+```scss
+// Import mincer asset paths helper integration
+@import "bootstrap-mincer";
+@import "bootstrap";
+```
+
+See also this [example manifest.js](/test/dummy_node_mincer/manifest.js) for mincer.
+
+#### Number precision
+
+bootstrap-sass [requires](https://github.com/twbs/bootstrap-sass/issues/409) minimum [Sass number precision][sass-precision] of 10 (default is 5).
 
 When using ruby Sass compiler with the bower version you can enforce the limit with:
 
@@ -93,7 +104,7 @@ There is [no way to set precision yet](https://github.com/hcatlin/libsass/issues
 
 #### JS and fonts
 
-Assets are discovered automatically on Rails, Sprockets, and Compass, using native asset path helpers.
+Assets are discovered automatically on Rails, Sprockets, Compass, and Node + Mincer, using native asset path helpers.
 
 Otherwise the fonts are referenced as:
 
