@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem 'sass', git: 'https://github.com/nex3/sass'
 gem 'compass', git: 'https://github.com/chriseppstein/compass', branch: 'master'
+gem 'sass-rails', '~> 4.0.2'
 
 platform :rbx do
   gem 'rubysl', '~> 2.0'
