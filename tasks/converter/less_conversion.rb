@@ -71,7 +71,7 @@ class Converter
         end
         case name
           when 'mixins/buttons.less'
-            file = replace_all file, /(\.open \.dropdown-toggle)(&)/m, '\1 \2'
+            file = replace_all file, /(\.open) (\.dropdown-toggle)&/m, '\1 &\2'
           when 'mixins/list-group.less'
             file = replace_rules(file, '  .list-group-item-') { |rule| extract_nested_rule rule, 'a&' }
           when 'mixins/gradients.less'
