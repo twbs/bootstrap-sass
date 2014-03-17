@@ -71,8 +71,7 @@ class Converter
         end
         case name
           when 'mixins/buttons.less'
-            file = replace_all file, /\.open \.dropdown-toggle& \{(.*?)\}/m,
-                               ".open & { &.dropdown-toggle {\\1} }"
+            file = replace_all file, /(\.open \.dropdown-toggle)(&)/m, '\1 \2'
           when 'mixins/list-group.less'
             file = replace_rules(file, '  .list-group-item-') { |rule| extract_nested_rule rule, 'a&' }
           when 'mixins/gradients.less'
@@ -504,11 +503,14 @@ SASS
     # to:
     # @mixin transition($transition...) {
     def varargify_mixin_definitions(scss, *mixins)
-      log_transform *mixins
       scss = scss.dup
+      replaced = []
       mixins.each do |mixin|
-        scss.gsub! /(@mixin\s*#{Regexp.quote(mixin)})\((#{SCSS_MIXIN_DEF_ARGS_RE})\)/, '\1(\2...)'
+        if scss.gsub! /(@mixin\s*#{Regexp.quote(mixin)})\((#{SCSS_MIXIN_DEF_ARGS_RE})\)/, '\1(\2...)'
+          replaced << mixin
+        end
       end
+      log_transform *replaced unless replaced.empty?
       scss
     end
 
