@@ -80,7 +80,7 @@ Sass, JS, and all other assets are located at [vendor/assets](/vendor/assets).
 
 #### Mincer
 
-If you use [mincer][mincer] with node-sass, import bootstrap like so:
+If you use [mincer][mincer] with node-sass, import bootstrap into a `.css.ejs.scss` file  like so:
 
 ```scss
 // Import mincer asset paths helper integration
