@@ -18,5 +18,8 @@
   "license": "MIT",
   "ignore": [
     "**/.*", "lib", "tasks", "templates", "test", "*.gemspec", "Rakefile", "Gemfile"
-  ]
+  ],
+  "dependencies": {
+      "raster.gs": ">=1.1.5"
+  }
 }
