@@ -15,7 +15,7 @@ Please see the appropriate guide for your environment of choice:
 In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `sass-rails` gem is present - it is added to new Rails applications by default.
 
 ```ruby
-gem 'sass-rails', '>= 3.2' # sass-rails needs to be higher than 3.2
+gem 'sass-rails', '>= 3.2'
 gem 'bootstrap-sass', '~> 3.1.1'
 ```
 
@@ -100,7 +100,7 @@ When using ruby Sass compiler with the bower version you can enforce the limit w
 ::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
 ```
 
-There is [no way to set precision yet](https://github.com/hcatlin/libsass/issues/287) in libsass.
+Precision option is now available in libsass, but it has not made into node-sass yet.
 
 #### JS and fonts
 
