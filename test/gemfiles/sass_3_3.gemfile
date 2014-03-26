@@ -1,8 +1,7 @@
 source "https://rubygems.org"
 
-gem 'sass', '~> 3.3.2'
+gem 'sass', '~> 3.3.4'
 gem 'compass', '~> 1.0.0.alpha.19'
-gem 'sass-rails', '~> 4.0.2'
 
 platform :rbx do
   gem 'rubysl', '~> 2.0'

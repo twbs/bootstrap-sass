@@ -1,13 +1,10 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails'
-
+require 'rails/all'
 Bundler.require(*Rails.groups)
-
-require 'sass-rails'
-require 'jquery-rails'
-require 'slim-rails'
 require 'bootstrap-sass'
+require 'slim-rails'
+require 'jquery-rails'
 
 module Dummy
   class Application < Rails::Application

@@ -6,7 +6,6 @@ module Bootstrap
       register_compass_extension if compass?
 
       if rails?
-        require 'sass-rails'
         register_rails_engine
       end
 
