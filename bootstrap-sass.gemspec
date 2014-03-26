@@ -11,17 +11,20 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/twbs/bootstrap-sass"
   s.license  = 'MIT'
 
-  s.add_development_dependency 'compass'
-  s.add_development_dependency 'term-ansicolor'
-  s.add_development_dependency 'sass-rails', '>= 3.2'
   s.add_runtime_dependency 'sass', '~> 3.2'
 
-  s.add_development_dependency 'capybara'
-  s.add_development_dependency 'poltergeist'
-  s.add_development_dependency 'tzinfo'
-  s.add_development_dependency 'jquery-rails'
+  # Dummy Rails app dependencies
+  s.add_development_dependency 'sprockets-rails', '>= 2.0.1'
+  s.add_development_dependency 'jquery-rails', '>= 3.1.0'
   s.add_development_dependency 'slim-rails'
   s.add_development_dependency 'uglifier'
+  # Compass dummy app
+  s.add_development_dependency 'compass'
+  # Integration testing
+  s.add_development_dependency 'capybara'
+  s.add_development_dependency 'poltergeist'
+  # Converter
+  s.add_development_dependency 'term-ansicolor'
 
   s.files      = `git ls-files`.split("\n")
   s.test_files = `git ls-files -- test/*`.split("\n")
