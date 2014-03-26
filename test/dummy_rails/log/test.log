@@ -1,0 +1,3054 @@
+Started GET "/" for 127.0.0.1 at 2013-10-06 16:10:02 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.3ms)
+Completed 200 OK in 40ms (Views: 38.7ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-10-06 16:10:02 +0200
+Compiled application.css  (2352ms)  (pid 20756)
+Served asset /application.css - 200 OK (2365ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-10-06 16:10:04 +0200
+Compiled jquery.js  (4ms)  (pid 20756)
+Compiled bootstrap/affix.js  (0ms)  (pid 20756)
+Compiled bootstrap/alert.js  (0ms)  (pid 20756)
+Compiled bootstrap/button.js  (0ms)  (pid 20756)
+Compiled bootstrap/carousel.js  (0ms)  (pid 20756)
+Compiled bootstrap/collapse.js  (0ms)  (pid 20756)
+Compiled bootstrap/dropdown.js  (0ms)  (pid 20756)
+Compiled bootstrap/tab.js  (0ms)  (pid 20756)
+Compiled bootstrap/transition.js  (0ms)  (pid 20756)
+Compiled bootstrap/scrollspy.js  (0ms)  (pid 20756)
+Compiled bootstrap/modal.js  (0ms)  (pid 20756)
+Compiled bootstrap/tooltip.js  (0ms)  (pid 20756)
+Compiled bootstrap/popover.js  (0ms)  (pid 20756)
+Compiled bootstrap.js  (76ms)  (pid 20756)
+Compiled application.js  (95ms)  (pid 20756)
+Served asset /application.js - 200 OK (109ms)
+Started GET "/" for 127.0.0.1 at 2013-10-06 16:10:28 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (16.4ms)
+Completed 200 OK in 25ms (Views: 25.0ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-10-06 16:10:28 +0200
+Compiled application.css  (2342ms)  (pid 20874)
+Served asset /application.css - 200 OK (2355ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-10-06 16:10:30 +0200
+Compiled jquery.js  (4ms)  (pid 20874)
+Compiled bootstrap/affix.js  (0ms)  (pid 20874)
+Compiled bootstrap/alert.js  (0ms)  (pid 20874)
+Compiled bootstrap/button.js  (0ms)  (pid 20874)
+Compiled bootstrap/carousel.js  (0ms)  (pid 20874)
+Compiled bootstrap/collapse.js  (0ms)  (pid 20874)
+Compiled bootstrap/dropdown.js  (0ms)  (pid 20874)
+Compiled bootstrap/tab.js  (0ms)  (pid 20874)
+Compiled bootstrap/transition.js  (0ms)  (pid 20874)
+Compiled bootstrap/scrollspy.js  (0ms)  (pid 20874)
+Compiled bootstrap/modal.js  (0ms)  (pid 20874)
+Compiled bootstrap/tooltip.js  (0ms)  (pid 20874)
+Compiled bootstrap/popover.js  (0ms)  (pid 20874)
+Compiled bootstrap.js  (77ms)  (pid 20874)
+Compiled application.js  (99ms)  (pid 20874)
+Served asset /application.js - 200 OK (114ms)
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-10-06 16:18:12 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (106.2ms)
+Completed   in 31845ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-10-06 16:18:53 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (45.2ms)
+Completed 200 OK in 3416ms (Views: 3416.0ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-10-06 16:18:57 +0200
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-10-06 16:18:57 +0200
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-10-06 16:19:20 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (42.9ms)
+Completed 200 OK in 3404ms (Views: 3403.8ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-10-06 16:19:24 +0200
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-10-06 16:19:24 +0200
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-07 07:29:40 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (21.2ms)
+Completed 200 OK in 3426ms (Views: 3426.0ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-07 07:29:44 +0200
+Started GET "/assets/application.js" for ::1 at 2013-10-07 07:29:44 +0200
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-16 20:48:58 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (21.1ms)
+Completed 200 OK in 3064ms (Views: 3064.0ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-16 20:49:01 +0200
+Started GET "/assets/application.js" for ::1 at 2013-10-16 20:49:01 +0200
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-16 21:54:49 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (19.6ms)
+Completed 200 OK in 3267ms (Views: 3266.2ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-16 21:54:52 +0200
+Started GET "/assets/application.js" for ::1 at 2013-10-16 21:54:52 +0200
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-16 22:16:27 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (18.0ms)
+Completed 200 OK in 3293ms (Views: 3292.9ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-16 22:16:30 +0200
+Started GET "/assets/application.js" for ::1 at 2013-10-16 22:16:30 +0200
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-16 22:16:57 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (19.9ms)
+Completed 200 OK in 3153ms (Views: 3152.4ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-16 22:17:01 +0200
+Started GET "/assets/application.js" for ::1 at 2013-10-16 22:17:01 +0200
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-16 22:17:46 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (22.0ms)
+Completed 200 OK in 3147ms (Views: 3146.6ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-16 22:17:49 +0200
+Started GET "/assets/application.js" for ::1 at 2013-10-16 22:17:49 +0200
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-16 22:18:17 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (19.5ms)
+Completed 200 OK in 4337ms (Views: 4336.2ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-16 22:18:21 +0200
+Started GET "/assets/application.js" for ::1 at 2013-10-16 22:18:21 +0200
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-16 22:18:44 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (18.6ms)
+Completed 200 OK in 3652ms (Views: 3651.4ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-16 22:18:48 +0200
+Started GET "/assets/application.js" for ::1 at 2013-10-16 22:18:48 +0200
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-16 22:19:07 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.4ms)
+Completed 200 OK in 3950ms (Views: 3949.4ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-16 22:19:11 +0200
+Started GET "/assets/application.js" for ::1 at 2013-10-16 22:19:11 +0200
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-24 17:56:02 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (21.7ms)
+Completed 200 OK in 3834ms (Views: 3833.5ms)
+Started GET "/assets/application.js" for ::1 at 2013-10-24 17:56:06 +0200
+Started GET "/assets/application.css" for ::1 at 2013-10-24 17:56:06 +0200
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-24 17:56:18 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (19.1ms)
+Completed 200 OK in 3449ms (Views: 3448.6ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-24 17:56:21 +0200
+Started GET "/assets/application.js" for ::1 at 2013-10-24 17:56:21 +0200
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-24 18:48:35 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (21.6ms)
+Completed 200 OK in 3888ms (Views: 3887.8ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-24 18:48:39 +0200
+Started GET "/assets/application.js" for ::1 at 2013-10-24 18:48:39 +0200
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-26 21:04:18 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (18.4ms)
+Completed 500 Internal Server Error in 389ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-26 21:32:39 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (19.0ms)
+Completed 200 OK in 3410ms (Views: 3409.6ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-26 21:32:42 +0200
+Started GET "/assets/application.js" for ::1 at 2013-10-26 21:32:42 +0200
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-26 21:33:30 +0200
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (28.8ms)
+Completed 200 OK in 4279ms (Views: 4278.3ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-26 21:33:34 +0200
+Started GET "/assets/application.js" for ::1 at 2013-10-26 21:33:34 +0200
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 16:53:25 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (18.4ms)
+Completed 500 Internal Server Error in 359ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 16:55:01 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (15.9ms)
+Completed 500 Internal Server Error in 404ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 16:58:08 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (19.9ms)
+Completed 500 Internal Server Error in 618ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 17:12:07 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (16.6ms)
+Completed 500 Internal Server Error in 345ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 17:12:59 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (15.9ms)
+Completed 500 Internal Server Error in 543ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 17:14:20 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (17.1ms)
+Completed 500 Internal Server Error in 540ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 17:15:17 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (15.6ms)
+Completed 500 Internal Server Error in 551ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 17:17:20 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (16.2ms)
+Completed 500 Internal Server Error in 557ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 17:17:45 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (17.7ms)
+Completed 500 Internal Server Error in 561ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 17:29:48 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (16.7ms)
+Completed 500 Internal Server Error in 346ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 17:32:04 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (16.3ms)
+Completed 500 Internal Server Error in 379ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 17:32:47 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (18.1ms)
+Completed 200 OK in 3401ms (Views: 3400.4ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-31 17:32:51 +0100
+Started GET "/assets/application.js" for ::1 at 2013-10-31 17:32:51 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 17:34:33 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (18.3ms)
+Completed 200 OK in 4360ms (Views: 4360.1ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-31 17:34:38 +0100
+Started GET "/assets/application.js" for ::1 at 2013-10-31 17:34:38 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 17:35:50 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (20.3ms)
+Completed 200 OK in 3124ms (Views: 3124.0ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-31 17:35:53 +0100
+Started GET "/assets/application.js" for ::1 at 2013-10-31 17:35:53 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 17:37:56 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (19.2ms)
+Completed 200 OK in 4159ms (Views: 4157.7ms)
+Started GET "/assets/application.js" for ::1 at 2013-10-31 17:38:00 +0100
+Started GET "/assets/application.css" for ::1 at 2013-10-31 17:38:00 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 17:38:26 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (64.3ms)
+Completed 200 OK in 3868ms (Views: 3867.6ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-31 17:38:30 +0100
+Started GET "/assets/application.js" for ::1 at 2013-10-31 17:38:30 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 17:38:40 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (17.3ms)
+Completed 200 OK in 3941ms (Views: 3941.1ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-31 17:38:44 +0100
+Started GET "/assets/application.js" for ::1 at 2013-10-31 17:38:44 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 17:39:07 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (19.6ms)
+Completed 200 OK in 3134ms (Views: 3133.5ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-31 17:39:10 +0100
+Started GET "/assets/application.js" for ::1 at 2013-10-31 17:39:10 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-10-31 17:41:58 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (18.1ms)
+Completed 200 OK in 3045ms (Views: 3044.2ms)
+Started GET "/assets/application.css" for ::1 at 2013-10-31 17:42:01 +0100
+Started GET "/assets/application.js" for ::1 at 2013-10-31 17:42:01 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-10-31 17:43:06 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (47.0ms)
+Completed 200 OK in 4281ms (Views: 4280.3ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-10-31 17:43:10 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-10-31 17:43:10 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-10-31 17:44:18 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (30.7ms)
+Completed 200 OK in 3167ms (Views: 3166.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-10-31 17:44:22 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-10-31 17:44:22 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-08 06:05:05 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (38.6ms)
+Completed 500 Internal Server Error in 1340ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-08 06:07:18 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (41.9ms)
+Completed 500 Internal Server Error in 1271ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-08 06:16:37 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (19.7ms)
+Completed 200 OK in 3025ms (Views: 3024.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-08 06:16:40 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-08 06:16:40 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-08 23:35:07 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (33.8ms)
+Completed 200 OK in 4821ms (Views: 4820.8ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-08 23:35:12 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-08 23:35:12 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-08 23:36:38 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (21.9ms)
+Completed 200 OK in 3466ms (Views: 3465.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-08 23:36:41 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-08 23:36:41 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-08 23:43:57 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (26.2ms)
+Completed 200 OK in 3854ms (Views: 3853.3ms)
+Started GET "/assets/application.css" for ::1 at 2013-11-08 23:44:01 +0100
+Started GET "/assets/application.js" for ::1 at 2013-11-08 23:44:01 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-10 05:11:22 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (26.7ms)
+Completed 200 OK in 3806ms (Views: 3805.7ms)
+Started GET "/assets/application.css" for ::1 at 2013-11-10 05:11:26 +0100
+Started GET "/assets/application.js" for ::1 at 2013-11-10 05:11:26 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-10 05:19:15 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (29.3ms)
+Completed 200 OK in 3549ms (Views: 3548.7ms)
+Started GET "/assets/application.css" for ::1 at 2013-11-10 05:19:18 +0100
+Started GET "/assets/application.js" for ::1 at 2013-11-10 05:19:18 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-10 05:21:37 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (36.8ms)
+Completed 200 OK in 4794ms (Views: 4793.0ms)
+Started GET "/assets/application.css" for ::1 at 2013-11-10 05:21:42 +0100
+Started GET "/assets/application.js" for ::1 at 2013-11-10 05:21:42 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 17:39:40 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (36.1ms)
+Completed 200 OK in 4565ms (Views: 4565.0ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 17:39:45 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 17:39:45 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 17:41:02 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (50.3ms)
+Completed 200 OK in 5816ms (Views: 5816.0ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 17:41:08 +0100
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 17:41:08 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 17:41:26 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (58.6ms)
+Completed 200 OK in 4424ms (Views: 4423.1ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 17:41:31 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 17:41:31 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 17:42:52 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (203.7ms)
+Completed   in 14644ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 17:43:17 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (147.7ms)
+Completed   in 12555ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 17:43:46 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (64.7ms)
+Completed 200 OK in 4063ms (Views: 4062.7ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 17:43:50 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 17:43:50 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 17:45:26 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (52.4ms)
+Completed 200 OK in 5035ms (Views: 5034.4ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 17:45:31 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 17:45:31 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 17:46:01 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (58.7ms)
+Completed 500 Internal Server Error in 1300ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 17:46:45 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (54.0ms)
+Completed 500 Internal Server Error in 1296ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 17:47:40 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (53.8ms)
+Completed 200 OK in 4158ms (Views: 4157.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 17:47:44 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 17:47:44 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 17:49:30 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (38.9ms)
+Completed 200 OK in 4494ms (Views: 4493.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 17:49:35 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 17:49:35 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 17:49:48 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (36.1ms)
+Completed 200 OK in 6356ms (Views: 6355.2ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 17:49:55 +0100
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 17:49:55 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 17:51:45 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (26.9ms)
+Completed 200 OK in 4382ms (Views: 4381.7ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 17:51:50 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 17:51:50 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 18:04:40 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (30.5ms)
+Completed 200 OK in 4446ms (Views: 4445.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 18:04:45 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 18:04:45 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 18:09:16 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (44.7ms)
+Completed 200 OK in 6104ms (Views: 6103.5ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 18:09:22 +0100
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 18:09:22 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 18:09:48 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (29.8ms)
+Completed 200 OK in 5079ms (Views: 5078.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 18:09:53 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 18:09:53 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 18:12:59 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.7ms)
+Completed 200 OK in 4990ms (Views: 4989.1ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 18:13:04 +0100
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 18:13:04 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 18:13:58 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.7ms)
+Completed 200 OK in 4323ms (Views: 4322.8ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 18:14:03 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 18:14:03 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 18:15:18 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (24.1ms)
+Completed 200 OK in 4917ms (Views: 4916.7ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 18:15:23 +0100
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 18:15:23 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 18:17:11 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.6ms)
+Completed 200 OK in 4320ms (Views: 4320.0ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 18:17:16 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 18:17:16 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 18:17:42 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (26.4ms)
+Completed 200 OK in 4757ms (Views: 4756.7ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 18:17:47 +0100
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 18:17:47 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 18:19:31 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (29.0ms)
+Completed 200 OK in 4866ms (Views: 4865.3ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 18:19:36 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 18:19:36 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 18:19:49 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (24.7ms)
+Completed 200 OK in 3999ms (Views: 3998.9ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 18:19:53 +0100
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 18:19:53 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 18:20:29 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (28.6ms)
+Completed 200 OK in 5678ms (Views: 5677.2ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 18:20:35 +0100
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 18:20:35 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 18:22:10 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (33.0ms)
+Completed 200 OK in 4492ms (Views: 4491.0ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 18:22:15 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 18:22:15 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 18:23:20 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (27.6ms)
+Completed 200 OK in 4259ms (Views: 4258.1ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 18:23:24 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 18:23:24 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-14 18:34:41 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (28.2ms)
+Completed 500 Internal Server Error in 1801ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-14 18:35:27 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.3ms)
+Completed 500 Internal Server Error in 1377ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-14 18:43:46 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (29.6ms)
+Completed 200 OK in 4061ms (Views: 4059.9ms)
+Started GET "/assets/application.css" for ::1 at 2013-11-14 18:43:50 +0100
+Started GET "/assets/application.js" for ::1 at 2013-11-14 18:43:50 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-14 18:48:42 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.2ms)
+Completed 200 OK in 3925ms (Views: 3924.5ms)
+Started GET "/assets/application.css" for ::1 at 2013-11-14 18:48:46 +0100
+Started GET "/assets/application.js" for ::1 at 2013-11-14 18:48:46 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-14 18:49:38 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (34.4ms)
+Completed 200 OK in 4993ms (Views: 4992.1ms)
+Started GET "/assets/application.css" for ::1 at 2013-11-14 18:49:43 +0100
+Started GET "/assets/application.js" for ::1 at 2013-11-14 18:49:43 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-14 19:33:52 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (22.5ms)
+Completed 200 OK in 3576ms (Views: 3576.0ms)
+Started GET "/assets/application.css" for ::1 at 2013-11-14 19:33:56 +0100
+Started GET "/assets/application.js" for ::1 at 2013-11-14 19:33:56 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 19:52:13 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (34.5ms)
+Completed 200 OK in 4627ms (Views: 4626.2ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 19:52:17 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 19:52:17 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 19:57:58 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (33.0ms)
+Completed 200 OK in 3793ms (Views: 3792.1ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 19:58:02 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 19:58:02 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 21:04:29 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.8ms)
+Completed 200 OK in 4492ms (Views: 4491.4ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 21:04:33 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 21:04:33 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 21:05:10 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (22.4ms)
+Completed 200 OK in 3869ms (Views: 3868.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 21:05:14 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 21:05:14 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-14 21:05:29 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (24.0ms)
+Completed 200 OK in 3535ms (Views: 3534.4ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-14 21:05:32 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-14 21:05:32 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-14 21:23:44 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.2ms)
+Completed 200 OK in 3699ms (Views: 3698.4ms)
+Started GET "/assets/application.css" for ::1 at 2013-11-14 21:23:48 +0100
+Started GET "/assets/application.js" for ::1 at 2013-11-14 21:23:48 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-14 21:41:48 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (23.0ms)
+Completed 200 OK in 3316ms (Views: 3315.7ms)
+Started GET "/assets/application.css" for ::1 at 2013-11-14 21:41:52 +0100
+Started GET "/assets/application.js" for ::1 at 2013-11-14 21:41:52 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-14 22:26:28 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.7ms)
+Completed 200 OK in 3741ms (Views: 3740.8ms)
+Started GET "/assets/application.css" for ::1 at 2013-11-14 22:26:32 +0100
+Started GET "/assets/application.js" for ::1 at 2013-11-14 22:26:32 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-14 22:31:23 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (23.9ms)
+Completed 200 OK in 3754ms (Views: 3754.0ms)
+Started GET "/assets/application.css" for ::1 at 2013-11-14 22:31:27 +0100
+Started GET "/assets/application.js" for ::1 at 2013-11-14 22:31:27 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-21 07:42:06 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (24.0ms)
+Completed 500 Internal Server Error in 1500ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-21 07:44:09 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.7ms)
+Completed 500 Internal Server Error in 487ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-21 07:45:27 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (23.5ms)
+Completed 200 OK in 4477ms (Views: 4476.1ms)
+Started GET "/assets/application.css" for ::1 at 2013-11-21 07:45:31 +0100
+Started GET "/assets/application.js" for ::1 at 2013-11-21 07:45:31 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-21 07:46:55 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (27.2ms)
+Completed 200 OK in 4853ms (Views: 4852.2ms)
+Started GET "/assets/application.css" for ::1 at 2013-11-21 07:47:00 +0100
+Started GET "/assets/application.js" for ::1 at 2013-11-21 07:47:00 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-21 07:47:58 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (28.8ms)
+Completed 200 OK in 4999ms (Views: 4998.5ms)
+Started GET "/assets/application.css" for ::1 at 2013-11-21 07:48:03 +0100
+Started GET "/assets/application.js" for ::1 at 2013-11-21 07:48:03 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-21 07:49:48 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (33.7ms)
+Completed 200 OK in 4528ms (Views: 4526.7ms)
+Started GET "/assets/application.css" for ::1 at 2013-11-21 07:49:53 +0100
+Started GET "/assets/application.js" for ::1 at 2013-11-21 07:49:53 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-11-21 07:49:53 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-11-21 07:50:36 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (36.3ms)
+Completed 200 OK in 4569ms (Views: 4568.6ms)
+Started GET "/assets/application.js" for ::1 at 2013-11-21 07:50:40 +0100
+Started GET "/assets/application.css" for ::1 at 2013-11-21 07:50:41 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-11-21 07:50:41 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-22 14:07:34 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (22.4ms)
+Completed 200 OK in 3558ms (Views: 3557.9ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-22 14:07:38 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-22 14:07:38 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2013-11-22 14:07:38 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-22 14:16:13 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (34.3ms)
+Completed 200 OK in 4383ms (Views: 4382.8ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-22 14:16:17 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-22 14:16:17 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2013-11-22 14:16:17 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-22 14:16:30 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (31.1ms)
+Completed 200 OK in 4221ms (Views: 4221.0ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-22 14:16:34 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-22 14:16:34 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2013-11-22 14:16:34 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-11-22 14:17:22 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.9ms)
+Completed 200 OK in 3567ms (Views: 3566.8ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-11-22 14:17:26 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-11-22 14:17:26 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2013-11-22 14:17:26 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-03 13:22:19 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.5ms)
+Completed 200 OK in 3353ms (Views: 3352.6ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-03 13:22:22 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-03 13:22:22 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-03 13:22:22 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-03 13:23:27 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (23.5ms)
+Completed 200 OK in 3681ms (Views: 3681.0ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-03 13:23:31 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-03 13:23:31 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-03 13:23:31 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-03 15:39:00 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (135.8ms)
+Completed 200 OK in 11368ms (Views: 11365.7ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-03 15:39:12 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-03 15:39:12 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-03 15:39:12 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2013-12-05 15:16:12 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (26.7ms)
+Completed 200 OK in 3377ms (Views: 3376.9ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-12-05 15:16:16 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-12-05 15:16:16 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2013-12-05 15:16:16 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-08 21:48:36 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (24.8ms)
+Completed 200 OK in 4679ms (Views: 4678.5ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-08 21:48:41 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-08 21:48:41 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-08 21:48:41 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-08 22:02:50 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (23.9ms)
+Warning. Error encountered while saving cache df94eb687156f7ab3b66f7ade5944450b5aed9e1/application.css.sassc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache aecd65d05c91682fadb24edc8f14056e671da83a/bootstrap.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/bootstrap.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_variables.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_mixins.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_normalize.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_print.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_scaffolding.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_type.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_code.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_grid.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_tables.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_forms.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_buttons.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_component-animations.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_glyphicons.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_dropdowns.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_button-groups.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_input-groups.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_navs.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_navbar.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_breadcrumbs.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_pagination.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_pager.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_labels.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_badges.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_jumbotron.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_thumbnails.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_alerts.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_progress-bars.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_media.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_list-group.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_panels.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_wells.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_close.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_modals.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_tooltip.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_popovers.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_carousel.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_utilities.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_responsive-utilities.scssc: can't dump anonymous class #<Class:0x007f94973337f8>
+
+Completed 200 OK in 3119ms (Views: 3118.8ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-08 22:02:53 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-08 22:02:53 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-08 22:02:53 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-08 22:05:27 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (21.6ms)
+Warning. Error encountered while saving cache df94eb687156f7ab3b66f7ade5944450b5aed9e1/application.css.sassc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache aecd65d05c91682fadb24edc8f14056e671da83a/bootstrap.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/bootstrap.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_variables.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_mixins.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_normalize.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_print.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_scaffolding.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_type.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_code.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_grid.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_tables.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_forms.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_buttons.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_component-animations.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_glyphicons.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_dropdowns.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_button-groups.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_input-groups.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_navs.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_navbar.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_breadcrumbs.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_pagination.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_pager.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_labels.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_badges.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_jumbotron.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_thumbnails.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_alerts.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_progress-bars.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_media.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_list-group.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_panels.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_wells.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_close.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_modals.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_tooltip.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_popovers.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_carousel.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_utilities.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Warning. Error encountered while saving cache 06c374661793daacb6ac9e2b546221023f4bb789/_responsive-utilities.scssc: can't dump anonymous class #<Class:0x007fd06052ba88>
+
+Completed 200 OK in 3063ms (Views: 3062.3ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-08 22:05:30 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-08 22:05:30 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-08 22:05:30 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-18 15:24:49 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (21.9ms)
+Completed 500 Internal Server Error in 327ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-18 15:31:04 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (32.8ms)
+Completed 500 Internal Server Error in 460ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-18 15:54:47 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (32.7ms)
+Completed 500 Internal Server Error in 468ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-18 18:26:20 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (24.2ms)
+Completed 500 Internal Server Error in 542ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-18 18:29:38 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (22.5ms)
+Completed 500 Internal Server Error in 573ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-18 18:29:47 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (36.9ms)
+Completed 500 Internal Server Error in 795ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-18 18:31:44 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (23.8ms)
+Completed 500 Internal Server Error in 1657ms
+DEPRECATION WARNING on line 204 of /Users/glebm/bootstrap-sass/vendor/assets/stylesheets/bootstrap/_dropdowns.scss:
+  @extending an outer selector from within @media is deprecated.
+  You may only @extend selectors within the same directive.
+  This will be an error in Sass 3.3.
+  It can only work once @extend is supported natively in the browser.
+
+
+DEPRECATION WARNING on line 209 of /Users/glebm/bootstrap-sass/vendor/assets/stylesheets/bootstrap/_dropdowns.scss:
+  @extending an outer selector from within @media is deprecated.
+  You may only @extend selectors within the same directive.
+  This will be an error in Sass 3.3.
+  It can only work once @extend is supported natively in the browser.
+
+
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-18 18:43:22 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (57.4ms)
+DEPRECATION WARNING on line 204 of /Users/glebm/bootstrap-sass/vendor/assets/stylesheets/bootstrap/_dropdowns.scss:
+  @extending an outer selector from within @media is deprecated.
+  You may only @extend selectors within the same directive.
+  This will be an error in Sass 3.3.
+  It can only work once @extend is supported natively in the browser.
+
+
+DEPRECATION WARNING on line 209 of /Users/glebm/bootstrap-sass/vendor/assets/stylesheets/bootstrap/_dropdowns.scss:
+  @extending an outer selector from within @media is deprecated.
+  You may only @extend selectors within the same directive.
+  This will be an error in Sass 3.3.
+  It can only work once @extend is supported natively in the browser.
+
+
+Completed 200 OK in 3250ms (Views: 3250.2ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-18 18:43:25 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-18 18:43:25 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-18 18:43:26 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-18 18:45:30 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (22.4ms)
+Completed 200 OK in 2901ms (Views: 2900.8ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-18 18:45:33 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-18 18:45:33 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-18 18:45:33 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-18 23:43:12 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (31.9ms)
+Completed 200 OK in 3853ms (Views: 3852.2ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-18 23:43:16 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-18 23:43:16 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-18 23:43:16 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-20 18:01:05 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (528.1ms)
+Completed 500 Internal Server Error in 1864ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-20 18:02:06 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (24.1ms)
+Completed 500 Internal Server Error in 243ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-20 18:02:31 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.8ms)
+Completed 200 OK in 3307ms (Views: 3306.8ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-20 18:02:34 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-20 18:02:34 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-20 18:02:34 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-20 18:06:24 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (24.4ms)
+Completed 200 OK in 3399ms (Views: 3398.4ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-20 18:06:28 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-20 18:06:28 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-20 18:06:28 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-20 22:18:02 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (51.5ms)
+Completed 200 OK in 7390ms (Views: 7389.6ms)
+Started GET "/assets/application.js" for ::1 at 2013-12-20 22:18:09 +0100
+Started GET "/assets/application.css" for ::1 at 2013-12-20 22:18:09 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-20 22:18:09 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-20 23:19:19 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (80.5ms)
+Completed 200 OK in 19074ms (Views: 19073.1ms)
+Started GET "/assets/application.js" for ::1 at 2013-12-20 23:19:38 +0100
+Started GET "/assets/application.css" for ::1 at 2013-12-20 23:19:38 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-20 23:19:38 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-20 23:20:23 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (53.0ms)
+Completed 200 OK in 15068ms (Views: 15067.3ms)
+Started GET "/assets/application.js" for ::1 at 2013-12-20 23:20:38 +0100
+Started GET "/assets/application.css" for ::1 at 2013-12-20 23:20:38 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-20 23:20:38 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-21 05:39:31 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (23.4ms)
+Completed 500 Internal Server Error in 65ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-21 05:40:58 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (23.0ms)
+Completed 500 Internal Server Error in 248ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-21 05:51:02 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (27.5ms)
+Completed 200 OK in 3583ms (Views: 3583.1ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-21 05:51:06 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-21 05:51:06 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-21 05:51:06 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-21 05:54:49 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (29.2ms)
+Completed 200 OK in 3904ms (Views: 3903.4ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-21 05:54:53 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-21 05:54:53 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-21 05:54:53 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-24 05:03:34 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (30.5ms)
+Completed 200 OK in 4311ms (Views: 4311.1ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-24 05:03:38 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-24 05:03:38 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-24 05:03:39 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-24 05:15:20 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (36.9ms)
+Completed 200 OK in 4230ms (Views: 4229.8ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-24 05:15:25 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-24 05:15:25 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-24 05:15:25 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-24 05:29:55 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (120.4ms)
+Completed 200 OK in 12868ms (Views: 12867.4ms)
+Started GET "/assets/application.js" for ::1 at 2013-12-24 05:30:08 +0100
+Started GET "/assets/application.css" for ::1 at 2013-12-24 05:30:08 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-24 05:30:09 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-24 05:39:45 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (61.6ms)
+Completed 500 Internal Server Error in 4656ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-24 05:40:37 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (34.9ms)
+Completed 500 Internal Server Error in 4653ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-24 05:41:25 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (32.2ms)
+Completed 500 Internal Server Error in 4003ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-24 05:48:02 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (29.4ms)
+Completed 200 OK in 6608ms (Views: 6607.3ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-24 05:48:09 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-24 05:48:09 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-24 05:48:09 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-24 05:48:38 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (31.2ms)
+Completed 200 OK in 6600ms (Views: 6599.6ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-24 05:48:45 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-24 05:48:45 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-24 05:48:45 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-24 15:57:17 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (40.6ms)
+Completed 200 OK in 4426ms (Views: 4425.6ms)
+Started GET "/assets/application.js" for ::1 at 2013-12-24 15:57:21 +0100
+Started GET "/assets/application.css" for ::1 at 2013-12-24 15:57:21 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-24 15:57:21 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-24 16:25:50 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (22.9ms)
+Completed 200 OK in 3123ms (Views: 3123.2ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-24 16:25:53 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-24 16:25:53 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-24 16:25:53 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2013-12-24 16:27:00 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (22.5ms)
+Completed 200 OK in 3085ms (Views: 3084.7ms)
+Started GET "/assets/application.css" for ::1 at 2013-12-24 16:27:03 +0100
+Started GET "/assets/application.js" for ::1 at 2013-12-24 16:27:03 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2013-12-24 16:27:03 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-01 16:38:51 +0300
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (50.5ms)
+Completed 200 OK in 3300ms (Views: 3299.7ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-01 16:38:54 +0300
+Started GET "/assets/application.js" for ::1 at 2014-01-01 16:38:54 +0300
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-01 16:38:54 +0300
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-01 16:45:17 +0300
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (34.7ms)
+Completed 200 OK in 4072ms (Views: 4071.2ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-01 16:45:21 +0300
+Started GET "/assets/application.js" for ::1 at 2014-01-01 16:45:21 +0300
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-01 16:45:21 +0300
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-01 16:57:50 +0300
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (29.3ms)
+Completed 200 OK in 4239ms (Views: 4239.0ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-01 16:57:54 +0300
+Started GET "/assets/application.js" for ::1 at 2014-01-01 16:57:54 +0300
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-01 16:57:54 +0300
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-07 15:17:27 +0300
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (29.3ms)
+Completed 200 OK in 3528ms (Views: 3527.3ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-07 15:17:31 +0300
+Started GET "/assets/application.js" for ::1 at 2014-01-07 15:17:31 +0300
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-07 15:17:31 +0300
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-09 15:46:57 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (26.0ms)
+Completed 200 OK in 3140ms (Views: 3139.6ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-09 15:47:01 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-09 15:47:01 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-09 15:47:01 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-11 21:36:49 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (51.7ms)
+Completed 500 Internal Server Error in 1437ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-13 23:14:15 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (32.7ms)
+Completed 500 Internal Server Error in 1187ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-13 23:16:47 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (35.6ms)
+Completed 500 Internal Server Error in 1723ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-13 23:17:16 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.1ms)
+Completed 200 OK in 3143ms (Views: 3142.8ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-13 23:17:19 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-13 23:17:19 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-13 23:17:19 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-14 15:20:45 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (156.0ms)
+Completed 200 OK in 12219ms (Views: 12216.5ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-14 15:20:58 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-14 15:20:58 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-14 15:20:58 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 17:43:33 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (43.1ms)
+Completed 200 OK in 4685ms (Views: 4685.0ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-16 17:43:38 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-16 17:43:38 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 17:43:38 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 17:43:57 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (26.8ms)
+Completed 200 OK in 4546ms (Views: 4545.4ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-16 17:44:02 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-16 17:44:02 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 17:44:02 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 17:44:32 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (26.7ms)
+Completed 200 OK in 3579ms (Views: 3578.4ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-16 17:44:36 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-16 17:44:36 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 17:44:36 +0100
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+----------------------------------------
+CompilationTest: test_precompilation_md5
+----------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 17:45:51 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (27.6ms)
+Completed 200 OK in 3192ms (Views: 3191.2ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-16 17:45:55 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-16 17:45:55 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 17:45:55 +0100
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+----------------------------------------
+CompilationTest: test_precompilation_md5
+----------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 17:48:46 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (27.6ms)
+Completed 200 OK in 4323ms (Views: 4322.4ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-16 17:48:50 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-16 17:48:50 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 17:48:50 +0100
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+----------------------------------------
+CompilationTest: test_precompilation_md5
+----------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 17:49:44 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (26.1ms)
+Completed   in 1557ms
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+----------------------------------------
+CompilationTest: test_precompilation_md5
+----------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 17:49:54 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (28.4ms)
+Completed 200 OK in 4343ms (Views: 4342.4ms)
+Started GET "/assets/application.js" for ::1 at 2014-01-16 17:49:58 +0100
+Started GET "/assets/application.css" for ::1 at 2014-01-16 17:49:58 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 17:49:58 +0100
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+----------------------------------------
+CompilationTest: test_precompilation_md5
+----------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 17:50:42 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (38.3ms)
+Completed   in 2499ms
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+----------------------------------------
+CompilationTest: test_precompilation_md5
+----------------------------------------
+Warning. Error encountered while reading cache 06c374661793daacb6ac9e2b546221023f4bb789/_tooltip.scssc: end of file reached
+
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 17:50:55 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.1ms)
+Completed 200 OK in 34ms (Views: 34.2ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-16 17:50:55 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-16 17:50:55 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 17:50:56 +0100
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+----------------------------------------
+CompilationTest: test_precompilation_md5
+----------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 17:51:40 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (56.2ms)
+Completed 200 OK in 74ms (Views: 73.4ms)
+Started GET "/assets/application.js" for ::1 at 2014-01-16 17:51:40 +0100
+Started GET "/assets/application.css" for ::1 at 2014-01-16 17:51:40 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 17:51:41 +0100
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+----------------------------------------
+CompilationTest: test_precompilation_md5
+----------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 17:51:57 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (26.5ms)
+Completed 200 OK in 35ms (Views: 34.3ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-16 17:51:57 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-16 17:51:57 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 17:51:57 +0100
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+----------------------------------------
+CompilationTest: test_precompilation_md5
+----------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 17:53:13 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (29.2ms)
+Completed 200 OK in 37ms (Views: 36.8ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-16 17:53:13 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-16 17:53:13 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 17:53:13 +0100
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+----------------------------------------
+CompilationTest: test_precompilation_md5
+----------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 17:53:47 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (48.1ms)
+Completed 200 OK in 62ms (Views: 61.0ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-16 17:53:47 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-16 17:53:47 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 17:53:47 +0100
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+----------------------------------------
+CompilationTest: test_precompilation_md5
+----------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 17:54:42 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (41.7ms)
+Completed 200 OK in 51ms (Views: 50.6ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-16 17:54:42 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-16 17:54:42 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 17:54:42 +0100
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+----------------------------------------
+CompilationTest: test_precompilation_md5
+----------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 18:00:31 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (246.5ms)
+Completed 200 OK in 264ms (Views: 262.8ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-16 18:00:31 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-16 18:00:31 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 18:00:32 +0100
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+----------------------------------------
+CompilationTest: test_precompilation_md5
+----------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 18:01:29 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (28.5ms)
+Completed 200 OK in 36ms (Views: 35.7ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-16 18:01:29 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-16 18:01:29 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 18:01:29 +0100
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+----------------------------------------
+CompilationTest: test_precompilation_md5
+----------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 18:01:55 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (27.7ms)
+Completed 200 OK in 36ms (Views: 35.6ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-16 18:01:55 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-16 18:01:55 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 18:01:55 +0100
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+----------------------------------------
+CompilationTest: test_precompilation_md5
+----------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 18:02:32 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (37.8ms)
+Completed 200 OK in 50ms (Views: 49.4ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-16 18:02:32 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-16 18:02:32 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 18:02:32 +0100
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+----------------------------------------
+CompilationTest: test_precompilation_md5
+----------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 18:02:58 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (40.8ms)
+Completed 200 OK in 55ms (Views: 54.1ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-16 18:02:58 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-16 18:02:58 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 18:02:59 +0100
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 18:03:52 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (39.6ms)
+Completed 200 OK in 52ms (Views: 51.7ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-16 18:03:52 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-16 18:03:52 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 18:03:52 +0100
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for ::1 at 2014-01-16 18:22:44 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (29.6ms)
+Completed 200 OK in 41ms (Views: 40.7ms)
+Started GET "/assets/application.css" for ::1 at 2014-01-16 18:22:44 +0100
+Started GET "/assets/application.js" for ::1 at 2014-01-16 18:22:44 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for ::1 at 2014-01-16 18:22:44 +0100
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+-------------------------------------------------
+CompilationTest: test_sprockets_digest_asset_refs
+-------------------------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+---------------------------------
+CompilationTest: test_compilation
+---------------------------------
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-01-16 18:59:26 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (36.1ms)
+Completed 200 OK in 4176ms (Views: 4175.8ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-01-16 18:59:30 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-16 18:59:30 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-01-16 18:59:30 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-01-16 19:01:17 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (29.6ms)
+Completed 200 OK in 3174ms (Views: 3173.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-01-16 19:01:21 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-16 19:01:21 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-01-16 19:01:21 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-01-16 21:25:44 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (27.1ms)
+Completed 200 OK in 3368ms (Views: 3367.8ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-01-16 21:25:47 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-16 21:25:47 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-01-16 21:25:47 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-01-17 16:07:26 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (53.4ms)
+Completed 200 OK in 3820ms (Views: 3819.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-01-17 16:07:30 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-17 16:07:30 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-01-17 16:07:30 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-01-18 23:53:00 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (33.8ms)
+Completed 500 Internal Server Error in 512ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-01-18 23:57:16 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (24.5ms)
+Completed 500 Internal Server Error in 1001ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-01-18 23:57:44 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (52.5ms)
+Completed 200 OK in 3195ms (Views: 3194.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-01-18 23:57:47 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-18 23:57:47 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-01-18 23:57:47 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-01-19 00:06:50 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (49.9ms)
+Completed 200 OK in 3500ms (Views: 3499.2ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-01-19 00:06:53 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-19 00:06:53 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-01-19 00:06:53 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-01-23 13:02:37 -0400
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (110.2ms)
+Completed 200 OK in 7985ms (Views: 7984.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-01-23 13:02:45 -0400
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-23 13:02:45 -0400
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-01-23 13:02:45 -0400
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-01-23 13:32:29 -0400
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (27.8ms)
+Completed 200 OK in 5588ms (Views: 5587.8ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-23 13:32:35 -0400
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-01-23 13:32:35 -0400
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-01-23 13:32:35 -0400
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-01-23 13:36:13 -0400
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (53.3ms)
+Completed 200 OK in 4307ms (Views: 4306.9ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-01-23 13:36:17 -0400
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-23 13:36:17 -0400
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-01-23 13:36:17 -0400
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-01-27 21:15:36 -0400
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (28.9ms)
+Completed 200 OK in 3845ms (Views: 3845.0ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-01-27 21:15:39 -0400
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-27 21:15:39 -0400
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-01-27 21:15:40 -0400
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-01-28 13:20:18 -0400
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (26.8ms)
+Completed 200 OK in 3375ms (Views: 3374.8ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-01-28 13:20:21 -0400
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-28 13:20:21 -0400
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-01-28 13:20:21 -0400
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-01-29 17:39:29 -0400
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (30.9ms)
+Completed 200 OK in 3253ms (Views: 3253.0ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-01-29 17:39:33 -0400
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-29 17:39:33 -0400
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-01-29 17:39:33 -0400
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-01-30 11:56:46 -0400
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (257.2ms)
+Completed 200 OK in 28932ms (Views: 28929.2ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-30 11:57:15 -0400
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-01-30 11:57:15 -0400
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-01-30 11:57:16 -0400
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-01-30 11:59:31 -0400
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (56.7ms)
+Completed 200 OK in 3477ms (Views: 3476.3ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-01-30 11:59:35 -0400
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-30 11:59:35 -0400
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-01-30 11:59:35 -0400
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-01-30 12:54:29 -0400
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (72.4ms)
+Completed 200 OK in 4232ms (Views: 4231.0ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-01-30 12:54:33 -0400
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-01-30 12:54:33 -0400
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-01-30 12:54:33 -0400
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-01 08:30:48 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (27.4ms)
+Completed 200 OK in 3851ms (Views: 3850.1ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-01 08:30:52 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-01 08:30:52 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-01 08:30:52 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-02 13:18:54 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (53.3ms)
+Completed 200 OK in 3574ms (Views: 3573.2ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-02 13:18:57 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-02 13:18:57 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-02 13:18:58 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-04 15:05:24 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (26.7ms)
+Completed 200 OK in 3403ms (Views: 3402.8ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-04 15:05:27 +0100
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-04 15:05:27 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-04 15:05:27 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-05 19:30:44 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (51.0ms)
+Completed 500 Internal Server Error in 436ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-05 19:44:44 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (28.0ms)
+Completed 500 Internal Server Error in 1727ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-05 20:21:58 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (26.7ms)
+Completed 200 OK in 3772ms (Views: 3771.4ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-05 20:22:01 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-05 20:22:01 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-05 20:22:02 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-06 01:09:19 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (72.4ms)
+Completed 200 OK in 5638ms (Views: 5637.6ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-06 01:09:24 +0100
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-06 01:09:24 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-06 01:09:24 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-06 01:09:51 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (49.3ms)
+Completed 200 OK in 3819ms (Views: 3818.8ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-06 01:09:55 +0100
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-06 01:09:55 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-06 01:09:55 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-06 01:11:18 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (76.5ms)
+Completed 200 OK in 5329ms (Views: 5328.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-06 01:11:24 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-06 01:11:24 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-06 01:11:24 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-06 01:35:09 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (50.6ms)
+Completed 200 OK in 3893ms (Views: 3892.9ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-06 01:35:12 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-06 01:35:12 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-06 01:35:13 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-08 19:56:11 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (75.7ms)
+Completed 200 OK in 10753ms (Views: 10751.9ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-08 19:56:22 +0100
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-08 19:56:22 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-08 19:56:22 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-11 21:12:27 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (33.9ms)
+Completed 500 Internal Server Error in 962ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-11 21:13:47 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (66.5ms)
+Completed 500 Internal Server Error in 1675ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-11 21:15:02 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (59.9ms)
+Completed 200 OK in 7742ms (Views: 7741.8ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-11 21:15:10 +0100
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-11 21:15:10 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-11 21:15:10 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-11 22:39:06 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (55.7ms)
+Completed 200 OK in 13726ms (Views: 13725.7ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-11 22:39:20 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-11 22:39:20 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-11 22:39:20 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-11 22:40:57 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (80.3ms)
+Completed 200 OK in 6206ms (Views: 6205.3ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-11 22:41:03 +0100
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-11 22:41:03 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-11 22:41:03 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-13 18:24:59 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (63.9ms)
+Completed 200 OK in 4142ms (Views: 4141.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-13 18:25:03 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-13 18:25:03 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-13 18:25:03 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-13 22:24:26 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (52.8ms)
+Completed 200 OK in 3346ms (Views: 3345.8ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-13 22:24:29 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-13 22:24:29 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-13 22:24:29 +0100
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-13 22:25:07 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (55.0ms)
+Completed 200 OK in 3223ms (Views: 3223.0ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-13 22:25:10 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-13 22:25:10 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-13 22:25:10 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-13 22:33:13 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (73.0ms)
+Completed 200 OK in 5892ms (Views: 5891.0ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-13 22:33:19 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-13 22:33:19 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-13 22:33:19 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-13 22:34:39 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (39.4ms)
+Completed   in 4081ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-13 22:34:59 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (70.9ms)
+Completed 200 OK in 4933ms (Views: 4932.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-13 22:35:04 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-13 22:35:04 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-13 22:35:04 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-13 22:35:55 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (26.4ms)
+Completed 200 OK in 3279ms (Views: 3278.8ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-13 22:35:58 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-13 22:35:58 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-13 22:35:58 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-25 01:03:40 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (65.3ms)
+Completed 500 Internal Server Error in 1028ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-02-25 01:04:34 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (54.4ms)
+Completed 200 OK in 4334ms (Views: 4333.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-02-25 01:04:39 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-02-25 01:04:39 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-25 01:04:39 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-06 13:07:29 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (37.1ms)
+Completed 500 Internal Server Error in 495ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-06 13:10:05 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (23.2ms)
+Completed 500 Internal Server Error in 1150ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-06 13:15:57 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (35.0ms)
+Completed 200 OK in 3554ms (Views: 3553.1ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-06 13:16:01 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-06 13:16:01 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-06 13:16:01 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-06 13:17:45 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (42.3ms)
+Completed 200 OK in 3481ms (Views: 3480.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-06 13:17:48 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-06 13:17:48 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-06 13:17:49 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-06 13:20:19 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (28.1ms)
+Completed 200 OK in 3462ms (Views: 3461.9ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-06 13:20:22 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-06 13:20:22 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-06 13:20:22 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-07 14:46:52 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (49.5ms)
+Completed 200 OK in 3771ms (Views: 3770.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-07 14:46:56 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-07 14:46:56 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-07 14:46:56 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-12 19:30:12 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (24.5ms)
+Completed 500 Internal Server Error in 1137ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-12 19:52:55 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (33.4ms)
+Completed 500 Internal Server Error in 493ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-12 19:54:07 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (22.9ms)
+Completed 500 Internal Server Error in 449ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-12 19:58:07 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.8ms)
+Completed 500 Internal Server Error in 495ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-12 20:00:51 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (27.1ms)
+Completed 500 Internal Server Error in 1472ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-12 20:11:25 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (61.9ms)
+Completed 500 Internal Server Error in 1989ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-12 20:13:38 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (35.9ms)
+Completed 200 OK in 3773ms (Views: 3772.1ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-12 20:13:42 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-12 20:13:42 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-12 20:13:42 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-13 16:36:39 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (39.8ms)
+Completed 200 OK in 5028ms (Views: 5027.1ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-13 16:36:44 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-13 16:36:44 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-13 16:36:44 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-13 21:52:11 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (26.4ms)
+Completed 500 Internal Server Error in 49ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-13 21:53:41 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (24.4ms)
+Completed 500 Internal Server Error in 43ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-13 21:54:07 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (22.0ms)
+Completed 500 Internal Server Error in 40ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-13 21:54:13 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (21.5ms)
+Completed 500 Internal Server Error in 42ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-14 21:59:43 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.5ms)
+Completed 500 Internal Server Error in 50ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-14 22:01:13 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (22.9ms)
+Completed 500 Internal Server Error in 43ms
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-14 22:03:31 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (82.9ms)
+Completed 200 OK in 5712ms (Views: 5712.1ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-14 22:03:37 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-14 22:03:37 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-14 22:03:37 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-14 22:07:22 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (28.8ms)
+Completed 200 OK in 4799ms (Views: 4799.2ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-14 22:07:27 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-14 22:07:27 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-14 22:07:27 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-17 08:41:02 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (41.8ms)
+Completed 200 OK in 4683ms (Views: 4682.2ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-17 08:41:06 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-17 08:41:06 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-17 08:41:06 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-17 10:36:58 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (24.5ms)
+Completed 500 Internal Server Error in 371ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-17 10:37:43 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (48.2ms)
+Completed 500 Internal Server Error in 669ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-17 10:38:36 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (31.9ms)
+Completed 200 OK in 5770ms (Views: 5769.4ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-17 10:38:41 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-17 10:38:41 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-17 10:38:41 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-17 10:41:24 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (29.2ms)
+Completed 200 OK in 5991ms (Views: 5990.1ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-17 10:41:30 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-17 10:41:30 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-17 10:41:30 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-17 10:43:23 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (32.9ms)
+Completed 200 OK in 3873ms (Views: 3872.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-17 10:43:27 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-17 10:43:27 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-17 10:43:27 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-24 09:08:40 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (36.2ms)
+Completed 200 OK in 4543ms (Views: 4542.2ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-24 09:08:45 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-24 09:08:45 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-24 09:08:45 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-24 09:12:05 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (27.0ms)
+Completed 200 OK in 4105ms (Views: 4104.8ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-24 09:12:09 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-24 09:12:09 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-24 09:12:09 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-26 08:02:27 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (27.2ms)
+Completed 200 OK in 4467ms (Views: 4467.1ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-26 08:02:31 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-26 08:02:31 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-26 08:02:31 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-26 08:38:59 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (28.0ms)
+Completed 200 OK in 38ms (Views: 37.3ms)
+Started GET "/stylesheets/application.css" for 127.0.0.1 at 2014-03-26 08:38:59 +0100
+Started GET "/javascripts/application.js" for 127.0.0.1 at 2014-03-26 08:38:59 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-26 08:39:50 +0100
+Processing by PagesController#root as HTML
+Completed 500 Internal Server Error in 11ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-26 08:42:10 +0100
+Processing by PagesController#root as HTML
+Completed 500 Internal Server Error in 6ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-26 08:42:38 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (27.3ms)
+Completed 200 OK in 35ms (Views: 34.5ms)
+Started GET "/stylesheets/application.css" for 127.0.0.1 at 2014-03-26 08:42:38 +0100
+Started GET "/javascripts/application.js" for 127.0.0.1 at 2014-03-26 08:42:38 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-26 08:43:35 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (31.6ms)
+Completed 200 OK in 43ms (Views: 42.7ms)
+Started GET "/stylesheets/application.css" for 127.0.0.1 at 2014-03-26 08:43:35 +0100
+Started GET "/javascripts/application.js" for 127.0.0.1 at 2014-03-26 08:43:35 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-26 08:44:51 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (25.9ms)
+Completed 200 OK in 35ms (Views: 34.3ms)
+Started GET "/stylesheets/application.css" for 127.0.0.1 at 2014-03-26 08:44:51 +0100
+Started GET "/javascripts/application.js" for 127.0.0.1 at 2014-03-26 08:44:51 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-26 08:48:15 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (34.9ms)
+Completed 500 Internal Server Error in 2108ms
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-26 08:48:39 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (28.7ms)
+Completed 200 OK in 2173ms (Views: 2172.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-26 08:48:41 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-26 08:48:41 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-26 08:48:41 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-26 08:49:38 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (28.6ms)
+Completed 200 OK in 2259ms (Views: 2258.5ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-26 08:49:40 +0100
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-26 08:49:40 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-26 08:49:40 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-26 08:51:28 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (27.1ms)
+Completed 200 OK in 2666ms (Views: 2665.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-26 08:51:30 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-26 08:51:30 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-26 08:51:30 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-26 08:52:31 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (30.4ms)
+Completed 200 OK in 2588ms (Views: 2587.9ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-26 08:52:34 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-26 08:52:34 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-26 08:52:34 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
+--------------------------
+PagesTest: test_visit_root
+--------------------------
+Started GET "/" for 127.0.0.1 at 2014-03-26 08:56:39 +0100
+Processing by PagesController#root as HTML
+  Rendered pages/root.html.slim within layouts/application (28.0ms)
+Completed 200 OK in 2350ms (Views: 2349.2ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2014-03-26 08:56:41 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2014-03-26 08:56:41 +0100
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-26 08:56:42 +0100
+----------------------------------------------------
+SprocketsRailsTest: test_sprockets_digest_asset_refs
+----------------------------------------------------
