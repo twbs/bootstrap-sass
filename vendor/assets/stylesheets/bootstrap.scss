@@ -1,3 +1,7 @@
+// Grid system
+@import '../../../bower_components/raster.gs/src/raster';
+@import '../../../bower_components/raster.gs/src/default';
+
 // Core variables and mixins
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
@@ -11,7 +15,7 @@
 @import "bootstrap/scaffolding";
 @import "bootstrap/type";
 @import "bootstrap/code";
-@import "bootstrap/grid";
+//@import "bootstrap/grid";
 @import "bootstrap/tables";
 @import "bootstrap/forms";
 @import "bootstrap/buttons";
