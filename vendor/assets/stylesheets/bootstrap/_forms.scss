@@ -31,6 +31,7 @@ legend {
 
 label {
   display: inline-block;
+  max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
   margin-bottom: 5px;
   font-weight: bold;
 }
@@ -289,6 +290,7 @@ input[type="checkbox"],
   position: absolute;
   top: ($line-height-computed + 5); // Height of the `label` and its margin
   right: 0;
+  z-index: 2; // Ensure icon is above input groups
   display: block;
   width: $input-height-base;
   height: $input-height-base;
