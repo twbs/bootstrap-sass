@@ -48,6 +48,12 @@ If you are creating a new Compass project, you can generate it with bootstrap-sa
 bundle exec compass create my-new-project -r bootstrap-sass --using bootstrap
 ```
 
+or, alternatively, if you're not using a Gemfile for your dependencies:
+
+```console
+compass create my-new-project -r bootstrap-sass --using bootstrap
+```
+
 This will create a new Compass project with the following files in it:
 
 * [_variables.scss](/templates/project/_variables.sass.erb) - all of bootstrap variables (override them here).
