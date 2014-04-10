@@ -75,7 +75,7 @@ require 'bootstrap-sass'
 Using bootstrap-sass as a Bower package is still being tested. It is compatible with node-sass 0.8.3+. You can install it with:
 
 ```bash
-bower install twbs/bootstrap-sass
+bower install bootstrap-sass-official
 ```
 
 `bootstrap-sass` is taken so make sure you use the command above.
