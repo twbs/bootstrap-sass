@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Twitter.Bootstrap.Sass</id>
+        <version>3.1.02</version>
+        <title>Bootstrap Sass Source</title>
+        <authors>Thomas McDonald</authors>
+        <owners>James Mosier</owners>
+        <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+        <projectUrl>https://github.com/twbs/bootstrap-sass</projectUrl>
+        <iconUrl>http://twitter.github.io/bootstrap/assets/ico/favicon.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>bootstrap-sass is a Sass-powered version of Bootstrap, ready to drop right into your Sass powered applications.</description>
+        <releaseNotes>Initial release</releaseNotes>
+        <copyright>Copyright 2014</copyright>
+        <tags>bootstrap sass mvc</tags>
+    </metadata>
+    <files>
+        <file src="content\fonts\*" target="content\fonts" />
+        <file src="content\sass\**" target="content\sass" />             
+        <file src="content\Scripts\**" target="content\Scripts" />
+    </files>
+</package>
