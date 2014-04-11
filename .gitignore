@@ -19,3 +19,4 @@ test/dummy/log/*.log
 # Ignore Nuget Package files in content
 /nuget/content
 /nuget/*.nupkg
+/nuget/NuGet.exe
