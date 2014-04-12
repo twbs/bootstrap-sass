@@ -9,7 +9,21 @@
     "Gleb Mazovetskiy"
   ],
   "description": "bootstrap-sass is a Sass-powered version of Bootstrap, ready to drop right into your Sass powered applications.",
-  "main": ["vendor/assets/stylesheets/bootstrap.scss", "vendor/assets/javascripts/bootstrap.js"],
+  "main": [
+    "vendor/assets/stylesheets/bootstrap.scss",
+    "vendor/assets/javascripts/bootstrap/affix.js",
+    "vendor/assets/javascripts/bootstrap/alert.js",
+    "vendor/assets/javascripts/bootstrap/button.js",
+    "vendor/assets/javascripts/bootstrap/carousel.js",
+    "vendor/assets/javascripts/bootstrap/collapse.js",
+    "vendor/assets/javascripts/bootstrap/dropdown.js",
+    "vendor/assets/javascripts/bootstrap/tab.js",
+    "vendor/assets/javascripts/bootstrap/transition.js",
+    "vendor/assets/javascripts/bootstrap/scrollspy.js",
+    "vendor/assets/javascripts/bootstrap/modal.js",
+    "vendor/assets/javascripts/bootstrap/tooltip.js",
+    "vendor/assets/javascripts/bootstrap/popover.js"
+  ],
   "keywords": [
     "twbs",
     "bootstrap",
