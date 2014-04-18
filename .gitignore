@@ -15,3 +15,7 @@ test/screenshots/
 test/dummy/log/*.log
 
 .DS_Store
+
+# Ignore Nuget Package files in content
+/nuget/*.nupkg
+/nuget/NuGet.exe
