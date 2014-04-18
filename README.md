@@ -22,7 +22,9 @@ gem 'bootstrap-sass', '~> 3.1.1'
 
 #### Rails 3.2.x
 
-For Rails 3.2.x, make sure that all the gems are moved out of the `:assets` group.
+For Rails 3.2.x, make sure bootstrap-sass is moved out of the `:assets` group.
+This is because, by default, assets group gems are not required in `production`.
+However, for pre-compilation to succeed in production, `bootstrap-sass` gem must be required.
 
 ### b. Compass without Rails
 
