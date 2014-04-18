@@ -18,8 +18,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'jquery-rails', '>= 3.1.0'
   s.add_development_dependency 'slim-rails'
   s.add_development_dependency 'uglifier'
-  # Explicitly specify test-unit because for ruby implementations that only ship with minitest
-  s.add_development_dependency 'test-unit'
   # Compass dummy app
   s.add_development_dependency 'compass'
   # Integration testing
