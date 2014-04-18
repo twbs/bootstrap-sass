@@ -9,3 +9,7 @@ platform :rbx do
   gem 'racc'
 end
 
+platform :jruby do
+  gem 'test-unit'
+end
+
