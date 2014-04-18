@@ -1,3 +1,8 @@
+$webclient = New-Object System.Net.WebClient
+$url = "http://nuget.org/nuget.exe"
+$file = "./nuget.exe"
+$webclient.DownloadFile($url,$file)
+
 .\nuget update -self
 .\nuget pack Package.nuspec
 
