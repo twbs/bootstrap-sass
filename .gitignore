@@ -12,6 +12,6 @@ Gemfile.lock
 /vendor/bundle
 tmp/
 test/screenshots/
-test/dummy/log/*.log
+test/dummy_rails/log/*.log
 
 .DS_Store
