@@ -22,9 +22,20 @@ gem 'bootstrap-sass', '~> 3.1.1'
 
 #### Rails 3.2.x
 
-For Rails 3.2.x, make sure bootstrap-sass is moved out of the `:assets` group.
-This is because, by default, assets group gems are not required in `production`.
+Rails 3.2 is [no longer maintained for bugfixes](http://guides.rubyonrails.org/maintenance_policy.html), and you should upgrade as soon as possible.
+
+If you must use it, make sure bootstrap-sass is moved out of the `:assets` group.
+This is because, by default in Rails 3.2, assets group gems are not required in `production`.
 However, for pre-compilation to succeed in production, `bootstrap-sass` gem must be required.
+
+Starting with bootstrap-sass v3.1.1.1, due to the structural changes from upstream you will need
+backported asset pipeline gems on Rails 3.2. There is more on why this is necessary in #523 and #578.
+
+```ruby
+gem 'sprockets-rails', '=2.0.0.backport1'
+gem 'sprockets', '=2.2.2.backport2'
+gem 'sass-rails', github: 'guilleiguaran/sass-rails', branch: 'backport'
+```
 
 ### b. Compass without Rails
 
