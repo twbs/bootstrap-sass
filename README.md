@@ -28,8 +28,9 @@ If you must use it, make sure bootstrap-sass is moved out of the `:assets` group
 This is because, by default in Rails 3.2, assets group gems are not required in `production`.
 However, for pre-compilation to succeed in production, `bootstrap-sass` gem must be required.
 
-Starting with bootstrap-sass v3.1.1.1, due to the structural changes from upstream you will need
-backported asset pipeline gems on Rails 3.2. There is more on why this is necessary in #523 and #578.
+Starting with bootstrap-sass v3.1.1.1, due to the structural changes from upstream you will need these
+backported asset pipeline gems on Rails 3.2. There is more on why this is necessary in
+https://github.com/twbs/bootstrap-sass/issues/523 and https://github.com/twbs/bootstrap-sass/issues/578.
 
 ```ruby
 gem 'sprockets-rails', '=2.0.0.backport1'
