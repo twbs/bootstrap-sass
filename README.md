@@ -96,6 +96,9 @@ bower install bootstrap-sass-official
 
 Sass, JS, and all other assets are located at [vendor/assets](/vendor/assets).
 
+By default, `bower.json` main field list only the main `bootstrap.scss` and all the static assets (fonts and JS).
+This is compatible by default with asset managers such as [wiredep](https://github.com/taptapship/wiredep).
+
 #### Mincer
 
 If you use [mincer][mincer] with node-sass, import bootstrap into a `.css.ejs.scss` file  like so:

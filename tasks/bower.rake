@@ -19,7 +19,8 @@ namespace :bower do
         line.strip if line.sub!(%r(//\s*=\s*require\s*(.*)\s*), 'vendor/assets/javascripts/\1.js')
       end.compact
 
-      spec['main'] = find_files.(Bootstrap.stylesheets_path) +
+      spec['main'] =
+          find_files.(File.join(Bootstrap.stylesheets_path, 'bootstrap.scss')) +
           find_files.(Bootstrap.fonts_path) +
           js_paths
 
