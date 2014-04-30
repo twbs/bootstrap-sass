@@ -452,7 +452,7 @@ SASS
     end
 
     def replace_fadein(less)
-      less.gsub(/(?![\-$@.])fadein\((.*?),\s*(.*?)%\)/) { "rgba(#{$1}, #{$2.to_i / 100.0})" }
+      less.gsub(/(?![\-$@.])fadein\((.*?),\s*(.*?)%\)/) { "fade_in(#{$1}, #{$2.to_i / 100.0})" }
     end
 
     def replace_image_urls(less)
