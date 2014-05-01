@@ -1,3 +1,6 @@
+lib_path = File.join(File.dirname(__FILE__), 'lib')
+$:.unshift(lib_path) unless $:.include?(lib_path)
+
 load './tasks/bower.rake'
 
 require 'rake/testtask'
@@ -32,8 +35,6 @@ end
 
 desc 'Compile bootstrap-sass to tmp/ (or first arg)'
 task :compile, :css_path do |t, args|
-  lib_path = File.join(File.dirname(__FILE__), 'lib')
-  $:.unshift(lib_path) unless $:.include?(lib_path)
   require 'sass'
   require 'bootstrap-sass/sass_functions'
   require 'term/ansicolor'
