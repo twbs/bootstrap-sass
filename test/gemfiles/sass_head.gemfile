@@ -3,15 +3,4 @@ source "https://rubygems.org"
 gem 'sass', git: 'https://github.com/nex3/sass'
 gem 'compass', git: 'https://github.com/chriseppstein/compass', branch: 'master'
 
-platform :rbx do
-  gem 'rubysl', '~> 2.0'
-  gem 'rubysl-test-unit', '~> 2.0'
-  gem 'json', '>= 1.8.1'
-  gem 'racc'
-end
-
-platform :jruby do
-  gem 'test-unit'
-end
-
 gemspec path: '../../'

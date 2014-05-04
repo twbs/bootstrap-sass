@@ -1,17 +1,6 @@
 source "https://rubygems.org"
 
-gem 'sass', '~> 3.3.4'
+gem 'sass', '~> 3.3.6'
 gem 'compass', '~> 1.0.0.alpha.19'
-
-platform :rbx do
-  gem 'rubysl', '~> 2.0'
-  gem 'rubysl-test-unit', '~> 2.0'
-  gem 'json', '>= 1.8.1'
-  gem 'racc'
-end
-
-platform :jruby do
-  gem 'test-unit'
-end
 
 gemspec path: '../../'
