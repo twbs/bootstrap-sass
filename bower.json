@@ -43,5 +43,8 @@
     "*.gemspec",
     "Rakefile",
     "Gemfile"
-  ]
+  ],
+  "dependencies": {
+    "jquery": ">= 1.9.0"
+  }
 }
