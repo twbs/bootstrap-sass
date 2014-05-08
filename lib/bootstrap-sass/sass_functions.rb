@@ -39,9 +39,12 @@ module Sass::Script::Functions
   protected
 
   def sprockets_context
-    # Modern way to get context:
+    # Modern Rails way to get context:
     if options.key?(:sprockets)
       options[:sprockets][:context]
+    # Sprockets-sass context:
+    elsif options.key?(:custom)
+      options[:custom][:sprockets_context]
     # Compatibility with sprockets pre 2.10.0:
     elsif (importer = options[:importer]) && importer.respond_to?(:context)
       importer.context
