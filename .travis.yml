@@ -13,3 +13,5 @@ before_install:
 matrix:
   allow_failures:
     - gemfile: test/gemfiles/sass_head.gemfile
+notifications:
+  slack: heybb:3n88HHilXn76ji9vV4gL819Y
