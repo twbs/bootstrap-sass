@@ -1,0 +1,25 @@
+// Media query mixins
+
+@mixin screen-xs() {
+  @media (max-width: $screen-xs-max) { @content; }
+}
+
+@mixin screen-sm() {
+  @media (min-width: $screen-sm-min) { @content; }
+}
+
+@mixin screen-sm-max() {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) { @content; }
+}
+
+@mixin screen-md() {
+  @media (min-width: $screen-md-min) { @content; }
+}
+
+@mixin screen-md-max() {
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) { @content; }
+}
+
+@mixin screen-lg() {
+  @media (min-width: $screen-lg-min) { @content; }
+}
