@@ -111,7 +111,7 @@
   @include box-shadow($shadow);
 
   .navbar-nav > .active > a {
-    @include gradient-vertical($start-color: darken($navbar-default-bg, 5%), $end-color: darken($navbar-default-bg, 2%));
+    @include gradient-vertical($start-color: darken($navbar-default-link-active-bg, 5%), $end-color: darken($navbar-default-link-active-bg, 2%));
     @include box-shadow(inset 0 3px 9px rgba(0,0,0,.075));
   }
 }
@@ -126,7 +126,7 @@
   @include reset-filter(); // Remove gradient in IE<10 to fix bug where dropdowns don't get triggered
 
   .navbar-nav > .active > a {
-    @include gradient-vertical($start-color: $navbar-inverse-bg, $end-color: lighten($navbar-inverse-bg, 2.5%));
+    @include gradient-vertical($start-color: $navbar-inverse-link-active-bg, $end-color: lighten($navbar-inverse-link-active-bg, 2.5%));
     @include box-shadow(inset 0 3px 9px rgba(0,0,0,.25));
   }
 
