@@ -66,6 +66,7 @@ module Bootstrap
 
     def register_rails_engine
       require 'bootstrap-sass/engine'
+      require 'autoprefixer-rails'
     end
   end
 end
