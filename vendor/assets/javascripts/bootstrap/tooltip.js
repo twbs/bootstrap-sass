@@ -25,6 +25,8 @@
     this.init('tooltip', element, options)
   }
 
+  Tooltip.VERSION  = '3.1.1'
+
   Tooltip.DEFAULTS = {
     animation: true,
     placement: 'top',
@@ -148,7 +150,11 @@
 
       var $tip = this.tip()
 
+      var tipId = this.getUID(this.type)
+
       this.setContent()
+      $tip.attr('id', tipId)
+      this.$element.attr('aria-describedby', tipId)
 
       if (this.options.animation) $tip.addClass('fade')
 
@@ -164,6 +170,7 @@
         .detach()
         .css({ top: 0, left: 0, display: 'block' })
         .addClass(placement)
+        .data('bs.' + this.type, this)
 
       this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
 
@@ -271,6 +278,8 @@
     var $tip = this.tip()
     var e    = $.Event('hide.bs.' + this.type)
 
+    this.$element.removeAttr('aria-describedby')
+
     function complete() {
       if (that.hoverState != 'in') $tip.detach()
       that.$element.trigger('hidden.bs.' + that.type)
@@ -360,6 +369,12 @@
       || (typeof o.title == 'function' ? o.title.call($e[0]) :  o.title)
 
     return title
+  }
+
+  Tooltip.prototype.getUID = function (prefix) {
+    do prefix += ~~(Math.random() * 1000000)
+    while (document.getElementById(prefix))
+    return prefix
   }
 
   Tooltip.prototype.tip = function () {

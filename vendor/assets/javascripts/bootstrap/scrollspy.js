@@ -32,6 +32,8 @@
     this.process()
   }
 
+  ScrollSpy.VERSION  = '3.1.1'
+
   ScrollSpy.DEFAULTS = {
     offset: 10
   }
@@ -46,6 +48,7 @@
 
     this.$body
       .find(this.selector)
+      .filter(':visible')
       .map(function () {
         var $el   = $(this)
         var href  = $el.data('target') || $el.attr('href')
@@ -66,7 +69,7 @@
   ScrollSpy.prototype.process = function () {
     var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
     var scrollHeight = this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
-    var maxScroll    = scrollHeight - this.$scrollElement.height()
+    var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
     var offsets      = this.offsets
     var targets      = this.targets
     var activeTarget = this.activeTarget
