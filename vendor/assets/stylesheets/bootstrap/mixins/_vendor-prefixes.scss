@@ -112,12 +112,7 @@
        -o-transform: scale($ratio);
           transform: scale($ratio);
 }
-@mixin scale($ratioX, $ratioY...) {
-  -webkit-transform: scale($ratioX, $ratioY);
-      -ms-transform: scale($ratioX, $ratioY); // IE9 only
-       -o-transform: scale($ratioX, $ratioY);
-          transform: scale($ratioX, $ratioY);
-}
+
 @mixin scaleX($ratio) {
   -webkit-transform: scaleX($ratio);
       -ms-transform: scaleX($ratio); // IE9 only

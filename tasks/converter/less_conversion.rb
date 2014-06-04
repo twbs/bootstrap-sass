@@ -79,7 +79,7 @@ class Converter
             file = deinterpolate_vararg_mixins(file)
           when 'mixins/vendor-prefixes.less'
             # remove second scale mixins as this is handled via vararg in the first one
-            file = replace_rules(file, '.scale(@ratioX; @ratioY)') {}
+            file = replace_rules(file, Regexp.escape('@mixin scale($ratioX, $ratioY...)')) { '' }
           when 'mixins/grid-framework.less'
             file = convert_grid_mixins file
           when 'component-animations.less'
