@@ -410,6 +410,7 @@
   .navbar-nav {
     > li > a {
       color: $navbar-default-link-color;
+      background-color: $navbar-default-link-bg;
 
       &:hover,
       &:focus {
@@ -544,6 +545,7 @@
   .navbar-nav {
     > li > a {
       color: $navbar-inverse-link-color;
+      background-color: $navbar-inverse-link-bg;
 
       &:hover,
       &:focus {
