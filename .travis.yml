@@ -12,6 +12,8 @@ before_install:
   - "npm install node-sass mincer ejs"
 matrix:
   allow_failures:
+    # rbx has issues https://github.com/rubinius/rubinius/issues/3060
+    - rbx-2
     - gemfile: test/gemfiles/sass_head.gemfile
 notifications:
   slack: heybb:3n88HHilXn76ji9vV4gL819Y
