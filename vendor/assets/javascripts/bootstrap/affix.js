@@ -7,136 +7,142 @@
  * ======================================================================== */
 
 
-+function ($) {
-  'use strict';
++function () { 'use strict';
 
-  // AFFIX CLASS DEFINITION
-  // ======================
+  (function (o_o) {
+    typeof define  == 'function' && define.amd ? define(['jquery'], o_o) :
+    typeof exports == 'object' ? o_o(require('jquery')) : o_o(jQuery)
+  })(function ($) {
 
-  var Affix = function (element, options) {
-    this.options = $.extend({}, Affix.DEFAULTS, options)
+    // AFFIX CLASS DEFINITION
+    // ======================
 
-    this.$target = $(this.options.target)
-      .on('scroll.bs.affix.data-api', $.proxy(this.checkPosition, this))
-      .on('click.bs.affix.data-api',  $.proxy(this.checkPositionWithEventLoop, this))
+    var Affix = function (element, options) {
+      this.options = $.extend({}, Affix.DEFAULTS, options)
 
-    this.$element     = $(element)
-    this.affixed      =
-    this.unpin        =
-    this.pinnedOffset = null
+      this.$target = $(this.options.target)
+        .on('scroll.bs.affix.data-api', $.proxy(this.checkPosition, this))
+        .on('click.bs.affix.data-api',  $.proxy(this.checkPositionWithEventLoop, this))
 
-    this.checkPosition()
-  }
+      this.$element     = $(element)
+      this.affixed      =
+      this.unpin        =
+      this.pinnedOffset = null
 
-  Affix.VERSION  = '3.1.1'
+      this.checkPosition()
+    }
 
-  Affix.RESET    = 'affix affix-top affix-bottom'
+    Affix.VERSION  = '3.1.1'
 
-  Affix.DEFAULTS = {
-    offset: 0,
-    target: window
-  }
+    Affix.RESET    = 'affix affix-top affix-bottom'
 
-  Affix.prototype.getPinnedOffset = function () {
-    if (this.pinnedOffset) return this.pinnedOffset
-    this.$element.removeClass(Affix.RESET).addClass('affix')
-    var scrollTop = this.$target.scrollTop()
-    var position  = this.$element.offset()
-    return (this.pinnedOffset = position.top - scrollTop)
-  }
+    Affix.DEFAULTS = {
+      offset: 0,
+      target: window
+    }
 
-  Affix.prototype.checkPositionWithEventLoop = function () {
-    setTimeout($.proxy(this.checkPosition, this), 1)
-  }
+    Affix.prototype.getPinnedOffset = function () {
+      if (this.pinnedOffset) return this.pinnedOffset
+      this.$element.removeClass(Affix.RESET).addClass('affix')
+      var scrollTop = this.$target.scrollTop()
+      var position  = this.$element.offset()
+      return (this.pinnedOffset = position.top - scrollTop)
+    }
 
-  Affix.prototype.checkPosition = function () {
-    if (!this.$element.is(':visible')) return
+    Affix.prototype.checkPositionWithEventLoop = function () {
+      setTimeout($.proxy(this.checkPosition, this), 1)
+    }
 
-    var scrollHeight = $(document).height()
-    var scrollTop    = this.$target.scrollTop()
-    var position     = this.$element.offset()
-    var offset       = this.options.offset
-    var offsetTop    = offset.top
-    var offsetBottom = offset.bottom
+    Affix.prototype.checkPosition = function () {
+      if (!this.$element.is(':visible')) return
 
-    if (typeof offset != 'object')         offsetBottom = offsetTop = offset
-    if (typeof offsetTop == 'function')    offsetTop    = offset.top(this.$element)
-    if (typeof offsetBottom == 'function') offsetBottom = offset.bottom(this.$element)
+      var scrollHeight = $(document).height()
+      var scrollTop    = this.$target.scrollTop()
+      var position     = this.$element.offset()
+      var offset       = this.options.offset
+      var offsetTop    = offset.top
+      var offsetBottom = offset.bottom
 
-    var affix = this.unpin   != null && (scrollTop + this.unpin <= position.top) ? false :
-                offsetBottom != null && (position.top + this.$element.height() >= scrollHeight - offsetBottom) ? 'bottom' :
-                offsetTop    != null && (scrollTop <= offsetTop) ? 'top' : false
+      if (typeof offset != 'object')         offsetBottom = offsetTop = offset
+      if (typeof offsetTop == 'function')    offsetTop    = offset.top(this.$element)
+      if (typeof offsetBottom == 'function') offsetBottom = offset.bottom(this.$element)
 
-    if (this.affixed === affix) return
-    if (this.unpin != null) this.$element.css('top', '')
+      var affix = this.unpin   != null && (scrollTop + this.unpin <= position.top) ? false :
+                  offsetBottom != null && (position.top + this.$element.height() >= scrollHeight - offsetBottom) ? 'bottom' :
+                  offsetTop    != null && (scrollTop <= offsetTop) ? 'top' : false
 
-    var affixType = 'affix' + (affix ? '-' + affix : '')
-    var e         = $.Event(affixType + '.bs.affix')
+      if (this.affixed === affix) return
+      if (this.unpin != null) this.$element.css('top', '')
 
-    this.$element.trigger(e)
+      var affixType = 'affix' + (affix ? '-' + affix : '')
+      var e         = $.Event(affixType + '.bs.affix')
 
-    if (e.isDefaultPrevented()) return
+      this.$element.trigger(e)
 
-    this.affixed = affix
-    this.unpin = affix == 'bottom' ? this.getPinnedOffset() : null
+      if (e.isDefaultPrevented()) return
 
-    this.$element
-      .removeClass(Affix.RESET)
-      .addClass(affixType)
-      .trigger($.Event(affixType.replace('affix', 'affixed')))
+      this.affixed = affix
+      this.unpin = affix == 'bottom' ? this.getPinnedOffset() : null
 
-    if (affix == 'bottom') {
-      this.$element.offset({
-        top: scrollHeight - this.$element.height() - offsetBottom
+      this.$element
+        .removeClass(Affix.RESET)
+        .addClass(affixType)
+        .trigger($.Event(affixType.replace('affix', 'affixed')))
+
+      if (affix == 'bottom') {
+        this.$element.offset({
+          top: scrollHeight - this.$element.height() - offsetBottom
+        })
+      }
+    }
+
+
+    // AFFIX PLUGIN DEFINITION
+    // =======================
+
+    function Plugin(option) {
+      return this.each(function () {
+        var $this   = $(this)
+        var data    = $this.data('bs.affix')
+        var options = typeof option == 'object' && option
+
+        if (!data) $this.data('bs.affix', (data = new Affix(this, options)))
+        if (typeof option == 'string') data[option]()
       })
     }
-  }
+
+    var old = $.fn.affix
+
+    $.fn.affix             = Plugin
+    $.fn.affix.Constructor = Affix
 
 
-  // AFFIX PLUGIN DEFINITION
-  // =======================
+    // AFFIX NO CONFLICT
+    // =================
 
-  function Plugin(option) {
-    return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.affix')
-      var options = typeof option == 'object' && option
+    $.fn.affix.noConflict = function () {
+      $.fn.affix = old
+      return this
+    }
 
-      if (!data) $this.data('bs.affix', (data = new Affix(this, options)))
-      if (typeof option == 'string') data[option]()
+
+    // AFFIX DATA-API
+    // ==============
+
+    $(window).on('load', function () {
+      $('[data-spy="affix"]').each(function () {
+        var $spy = $(this)
+        var data = $spy.data()
+
+        data.offset = data.offset || {}
+
+        if (data.offsetBottom) data.offset.bottom = data.offsetBottom
+        if (data.offsetTop)    data.offset.top    = data.offsetTop
+
+        Plugin.call($spy, data)
+      })
     })
-  }
 
-  var old = $.fn.affix
-
-  $.fn.affix             = Plugin
-  $.fn.affix.Constructor = Affix
-
-
-  // AFFIX NO CONFLICT
-  // =================
-
-  $.fn.affix.noConflict = function () {
-    $.fn.affix = old
-    return this
-  }
-
-
-  // AFFIX DATA-API
-  // ==============
-
-  $(window).on('load', function () {
-    $('[data-spy="affix"]').each(function () {
-      var $spy = $(this)
-      var data = $spy.data()
-
-      data.offset = data.offset || {}
-
-      if (data.offsetBottom) data.offset.bottom = data.offsetBottom
-      if (data.offsetTop)    data.offset.top    = data.offsetTop
-
-      Plugin.call($spy, data)
-    })
   })
 
-}(jQuery);
+}();
