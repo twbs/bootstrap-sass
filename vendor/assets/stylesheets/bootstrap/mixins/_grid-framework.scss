@@ -4,10 +4,7 @@
 // any value of `$grid-columns`.
 
 // [converter] This is defined recursively in LESS, but Sass supports real loops
-@mixin make-grid-columns() {
-  $list: '';
-  $i: 1;
-  $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
+@mixin make-grid-columns($i: 1, $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}") {
   @for $i from (1 + 1) through $grid-columns {
     $list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
   }
@@ -23,10 +20,7 @@
 
 
 // [converter] This is defined recursively in LESS, but Sass supports real loops
-@mixin float-grid-columns($class) {
-  $list: '';
-  $i: 1;
-  $list: ".col-#{$class}-#{$i}";
+@mixin float-grid-columns($class, $i: 1, $list: ".col-#{$class}-#{$i}") {
   @for $i from (1 + 1) through $grid-columns {
     $list: "#{$list}, .col-#{$class}-#{$i}";
   }
