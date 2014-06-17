@@ -12,7 +12,7 @@ class Converter
       content = ''
       bootstrap_js_files.each do |name|
         name = name.gsub(/\.js$/, '')
-        content << "//= require bootstrap/#{name}\n"
+        content << "//= require ./bootstrap/#{name}\n"
       end
       path = 'vendor/assets/javascripts/bootstrap.js'
       save_file(path, content)
