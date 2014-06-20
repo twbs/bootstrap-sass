@@ -121,7 +121,7 @@ When using ruby Sass compiler with the bower version you can enforce the limit w
 ::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
 ```
 
-Precision option is now available in libsass, but it has not made into node-sass yet.
+Note that libsass and node-sass do not currently support the precision option, due to an open bug ([bug #364](https://github.com/sass/libsass/issues/364)) in libsass.
 
 #### JS and fonts
 
