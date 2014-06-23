@@ -174,7 +174,6 @@
         $tip
           .detach()
           .css({ top: 0, left: 0, display: 'block' })
-          .addClass(placement)
           .data('bs.' + this.type, this)
 
         this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
@@ -182,22 +181,37 @@
         var pos          = this.getPosition()
         var actualWidth  = $tip[0].offsetWidth
         var actualHeight = $tip[0].offsetHeight
+        var possible_placements = placement.split(' ')
 
         if (autoPlace) {
-          var orgPlacement = placement
-          var $parent      = this.$element.parent()
-          var parentDim    = this.getPosition($parent)
-
-          placement = placement == 'bottom' && pos.top   + pos.height       + actualHeight - parentDim.scroll > parentDim.height ? 'top'    :
-                      placement == 'top'    && pos.top   - parentDim.scroll - actualHeight < 0                                   ? 'bottom' :
-                      placement == 'right'  && pos.right + actualWidth      > parentDim.width                                    ? 'left'   :
-                      placement == 'left'   && pos.left  - actualWidth      < parentDim.left                                     ? 'right'  :
-                      placement
-
-          $tip
-            .removeClass(orgPlacement)
-            .addClass(placement)
+          switch (placement)
+          {
+            case 'bottom': possible_placements.push('top'); break
+            case 'top':    possible_placements.push('bottom'); break
+            case 'right':  possible_placements.push('left'); break
+            case 'left':   possible_placements.push('right'); break
+          }
         }
+
+        var $parent      = this.$element.parent()
+        var parentDim    = this.getPosition($parent)
+
+        for (var i = 0; i < possible_placements.length; i++) {
+          var try_placement = possible_placements[i];
+
+          if (
+            (i == possible_placements.length - 1) ||
+            (try_placement == 'bottom' && pos.top   + pos.height       + actualHeight - parentDim.scroll < parentDim.height) ||
+            (try_placement == 'top'    && pos.top   - parentDim.scroll - actualHeight > 0) ||
+            (try_placement == 'right'  && pos.right + actualWidth      < parentDim.right) ||
+            (try_placement == 'left'   && pos.left  - actualWidth      > parentDim.left)
+          ) {
+            placement = try_placement
+            break
+          }
+        }
+
+        $tip.addClass(placement)
 
         var calculatedOffset = this.getCalculatedOffset(placement, pos, actualWidth, actualHeight)
 
