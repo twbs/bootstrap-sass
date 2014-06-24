@@ -3,23 +3,24 @@ description 'Bootstrap for Sass'
 # Stylesheet importing bootstrap
 stylesheet 'styles.sass'
 
-# SCSS:
+manifest = Pathname.new(File.dirname(__FILE__))
+assets   = File.expand_path('../../assets', manifest)
 
-assets = '../../assets'
-
+# Provide variables files
 bs_stylesheets = "#{assets}/stylesheets/bootstrap"
-stylesheet '_bootstrap-variables.sass.erb', :to => '_bootstrap-variables.sass', :erb => true,
-           :bs_variables_path => File.expand_path("#{bs_stylesheets}/_variables.scss", File.dirname(__FILE__))
+stylesheet '_bootstrap-variables.sass.erb',
+           :erb               => true,
+           :to                => '_bootstrap-variables.sass',
+           :bs_variables_path => File.expand_path("#{bs_stylesheets}/_variables.scss", manifest)
 
-# JS:
-bs_javascripts = "#{assets}/javascripts/bootstrap"
-Dir.glob File.expand_path("#{bs_javascripts}/*.js", File.dirname(__FILE__)) do |path|
-  file = File.basename(path)
-  javascript "#{bs_javascripts}/#{file}", :to => "bootstrap/#{file}"
-end
-
-bs_fonts = "#{assets}/fonts/bootstrap"
-Dir.glob File.expand_path("#{bs_fonts}/*", File.dirname(__FILE__)) do |path|
-  file = File.basename(path)
-  font "#{bs_fonts}/#{file}", :to => "bootstrap/#{file}"
+# Copy JS and fonts
+{:javascript => 'javascripts',
+ :font       => 'fonts'
+}.each do |method, dir|
+  root = Pathname.new(assets).join(dir)
+  Dir.glob root.join('**', '*.*') do |path|
+    path = Pathname.new(path)
+    send method, path.relative_path_from(manifest).to_s,
+         :to => path.relative_path_from(root).to_s
+  end
 end
