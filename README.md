@@ -19,14 +19,26 @@ gem 'bootstrap-sass', '~> 3.1.1'
 
 `bundle install` and restart your server to make the files available through the pipeline.
 
+In `app/assets/application.css.sass`:
+
+```scss
+// Import sprockets asset paths helper integration
+@import "bootstrap-sprockets";
+@import "bootstrap";
+```
+
+Use `@import`, not `//= require`, in Sass, otherwise your other stylesheets will not be [able to access][antirequire] the Bootstrap mixins or variables.
+
+In `app/assets/application.js`:
+
+```js
+//= require jquery
+//= require bootstrap-sprockets
+```
 
 #### Rails 3.2.x
 
 Rails 3.2 is [no longer maintained for bugfixes](http://guides.rubyonrails.org/maintenance_policy.html), and you should upgrade as soon as possible.
-
-If you must use it, make sure bootstrap-sass is moved out of the `:assets` group.
-This is because, by default in Rails 3.2, assets group gems are not required in `production`.
-However, for pre-compilation to succeed in production, `bootstrap-sass` gem must be required.
 
 Starting with bootstrap-sass v3.1.1.1, due to the structural changes from upstream you will need these
 backported asset pipeline gems on Rails 3.2. There is more on why this is necessary in
@@ -76,15 +88,7 @@ This will create a new Compass project with the following files in it:
 Some bootstrap-sass mixins may conflict with the Compass ones.
 If this happens, change the import order so that Compass mixins are loaded later.
 
-### c. Ruby without Compass / Rails
-
-Require the gem, and load paths and Sass helpers will be configured automatically:
-
-```ruby
-require 'bootstrap-sass'
-```
-
-### d. Node.js / Bower
+### c. Node.js / Bower
 
 Using bootstrap-sass as a Bower package is still being tested. It is compatible with node-sass 0.8.3+. You can install it with:
 
@@ -101,12 +105,18 @@ This is compatible by default with asset managers such as [wiredep](https://gith
 
 #### Mincer
 
-If you use [mincer][mincer] with node-sass, import bootstrap into a `.css.ejs.scss` file  like so:
+If you use [mincer][mincer] with node-sass, import bootstrap into like so:
+
+In application.*css.ejs.scss*
 
 ```scss
 // Import mincer asset paths helper integration
 @import "bootstrap-mincer";
 @import "bootstrap";
+```
+
+```js
+//= require bootstrap-sprockets
 ```
 
 See also this [example manifest.js](/test/dummy_node_mincer/manifest.js) for mincer.
@@ -125,7 +135,7 @@ Note that libsass and node-sass do not currently support the precision option, d
 
 #### JS and fonts
 
-Assets are discovered automatically on Rails, Sprockets, Compass, and Node + Mincer, using native asset path helpers.
+Native asset path helper integrations are provided for Sprockets, Compass, and Node + Mincer.
 
 Otherwise the fonts are referenced as:
 
@@ -149,7 +159,6 @@ cp -r $(bundle show bootstrap-sass)/assets/javascripts/ public/javascripts/
 ### Sass
 
 Import Bootstrap into a Sass file (for example, `application.css.scss`) to get all of Bootstrap's styles, mixins and variables!
-We recommend against using `//= require` directives, since none of your other stylesheets will be [able to access][antirequire] the Bootstrap mixins or variables.
 
 ```scss
 @import "bootstrap";
