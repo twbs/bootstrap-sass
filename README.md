@@ -164,13 +164,13 @@ Note that libsass and node-sass do not currently support the precision option, d
 Using [Autoprefixer][autoprefixer] with Bootstrap is recommended.
 [Autoprefixer][autoprefixer] adds vendor prefixes to CSS rules using values from [Can I Use](http://caniuse.com/).
 
-### JavaScript
+#### JavaScript
 
 [`assets/javascripts/bootstrap.js`](/assets/javascripts/bootstrap.js) contains all of Bootstrap JavaScript,
 concatenated in the [correct order](/assets/javascripts/bootstrap-sprockets.js).
 
 
-### JavaScript with Sprockets or Mincer
+#### JavaScript with Sprockets or Mincer
 
 If you use Sprockets or Mincer, you can require `bootstrap-sprockets` instead to load the individual modules:
 
