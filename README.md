@@ -27,7 +27,7 @@ In `app/assets/application.css.sass`:
 @import "bootstrap";
 ```
 
-Use `@import`, not `//= require`, in Sass, otherwise your other stylesheets will not be [able to access][antirequire] the Bootstrap mixins or variables.
+Always use `@import` in Sass, not `//= require`, otherwise your other stylesheets will not be [able to access][antirequire] the Bootstrap mixins or variables.
 
 In `app/assets/application.js`:
 
@@ -107,7 +107,7 @@ This is compatible by default with asset managers such as [wiredep](https://gith
 
 If you use [mincer][mincer] with node-sass, import bootstrap into like so:
 
-In application.*css.ejs.scss*
+In application**.css.ejs.scss**
 
 ```scss
 // Import mincer asset paths helper integration
@@ -158,7 +158,7 @@ cp -r $(bundle show bootstrap-sass)/assets/javascripts/ public/javascripts/
 
 ### Sass
 
-Import Bootstrap into a Sass file (for example, `application.css.scss`) to get all of Bootstrap's styles, mixins and variables!
+Import Bootstrap into a Sass file (for example, application**.css.scss**) to get all of Bootstrap's styles, mixins and variables!
 
 ```scss
 @import "bootstrap";
