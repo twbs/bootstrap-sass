@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   # Dummy Rails app dependencies
   s.add_development_dependency 'json', '>= 1.8.1'
   s.add_development_dependency 'sprockets-rails', '>= 2.1.3'
+  s.add_development_dependency 'autoprefixer-rails', '~> 1.1'
   s.add_development_dependency 'jquery-rails', '>= 3.1.0'
   s.add_development_dependency 'slim-rails'
   s.add_development_dependency 'uglifier'
