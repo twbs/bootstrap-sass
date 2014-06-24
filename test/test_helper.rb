@@ -3,7 +3,7 @@ ENV['RAILS_ENV'] = ENV['RACK_ENV'] = 'test'
 $:.unshift("#{File.dirname(__FILE__)}/..")
 require File.expand_path('dummy_rails/config/environment', File.dirname(__FILE__))
 
-require 'test/unit'
+require 'test-unit'
 
 require 'sass'
 
