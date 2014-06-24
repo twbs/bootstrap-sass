@@ -2,7 +2,6 @@ module Bootstrap
   class << self
     # Inspired by Kaminari
     def load!
-      require 'bootstrap-sass/sass_functions'
       register_compass_extension if compass?
 
       if rails?
@@ -30,7 +29,7 @@ module Bootstrap
     end
 
     def assets_path
-      @assets_path ||= File.join gem_path, 'vendor', 'assets'
+      @assets_path ||= File.join gem_path, 'assets'
     end
 
     # Environment detection helpers
@@ -49,6 +48,8 @@ module Bootstrap
     private
 
     def configure_sass
+      require 'sass' unless defined?(::Sass)
+
       ::Sass.load_paths << stylesheets_path
 
       # bootstrap requires minimum precision of 10, see https://github.com/twbs/bootstrap-sass/issues/409

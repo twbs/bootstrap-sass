@@ -5,7 +5,7 @@ stylesheet 'styles.sass'
 
 # SCSS:
 
-assets = '../../vendor/assets'
+assets = '../../assets'
 
 bs_stylesheets = "#{assets}/stylesheets/bootstrap"
 stylesheet '_bootstrap-variables.sass.erb', :to => '_bootstrap-variables.sass', :erb => true,

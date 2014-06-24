@@ -6,7 +6,6 @@ require File.expand_path('dummy_rails/config/environment', File.dirname(__FILE__
 require 'test/unit'
 
 require 'sass'
-require 'lib/bootstrap-sass/sass_functions'
 
 require 'rails/test_help'
 

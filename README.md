@@ -94,7 +94,7 @@ bower install bootstrap-sass-official
 
 `bootstrap-sass` is taken so make sure you use the command above.
 
-Sass, JS, and all other assets are located at [vendor/assets](/vendor/assets).
+Sass, JS, and all other assets are located at [assets](/assets).
 
 By default, `bower.json` main field list only the main `bootstrap.scss` and all the static assets (fonts and JS).
 This is compatible by default with asset managers such as [wiredep](https://github.com/taptapship/wiredep).
@@ -135,13 +135,13 @@ Otherwise the fonts are referenced as:
 
 `$icon-font-path` defaults to `bootstrap/`.
 
-When not using an asset pipeline, you can copy fonts and JS from bootstrap-sass, they are located at [vendor/assets](/vendor/assets):
+When not using an asset pipeline, you can copy fonts and JS from bootstrap-sass, they are located at [assets](/assets):
 
 ```bash
 mkdir public/fonts
-cp -r $(bundle show bootstrap-sass)/vendor/assets/fonts/ public/fonts/
+cp -r $(bundle show bootstrap-sass)/assets/fonts/ public/fonts/
 mkdir public/javascripts
-cp -r $(bundle show bootstrap-sass)/vendor/assets/javascripts/ public/javascripts/
+cp -r $(bundle show bootstrap-sass)/assets/javascripts/ public/javascripts/
 ```
 
 ## Usage
@@ -174,7 +174,7 @@ $navbar-default-color: $light-orange;
 You can also import components explicitly. To start with a full list of modules copy this file from the gem:
 
 ```bash
-cp $(bundle show bootstrap-sass)/vendor/assets/stylesheets/bootstrap.scss \
+cp $(bundle show bootstrap-sass)/assets/stylesheets/bootstrap.scss \
  app/assets/stylesheets/bootstrap-custom.scss
 ```
 Comment out components you do not want from `bootstrap-custom`.
@@ -188,7 +188,7 @@ In `application.sass`, replace `@import 'bootstrap'` with:
 ### Javascript
 
 We have a helper that includes all Bootstrap javascripts. If you use Rails (or Sprockets separately),
-put this in your Javascript manifest (usually in `application.js`) to load the files in the [correct order](/vendor/assets/javascripts/bootstrap.js):
+put this in your Javascript manifest (usually in `application.js`) to load the files in the [correct order](/assets/javascripts/bootstrap.js):
 
 ```js
 // Loads all Bootstrap javascripts
@@ -229,9 +229,9 @@ To convert a specific branch or version, pass the branch name or the commit hash
 The latest converter script is located [here][converter] and does the following:
 
 * Converts upstream bootstrap LESS files to its matching SCSS file.
-* Copies all upstream JavaScript into `vendor/assets/javascripts/bootstrap`
-* Generates a javascript manifest at `vendor/assets/javascripts/bootstrap.js`
-* Copies all upstream font files into `vendor/assets/fonts/bootstrap`
+* Copies all upstream JavaScript into `assets/javascripts/bootstrap`
+* Generates a javascript manifest at `assets/javascripts/bootstrap.js`
+* Copies all upstream font files into `assets/fonts/bootstrap`
 * Sets `Bootstrap::BOOTSTRAP_SHA` in [version.rb][version] to the branch sha.
 
 This converter fully converts original LESS to SCSS. Conversion is automatic but requires instructions for certain transformations (see converter output).

@@ -14,7 +14,7 @@ class Converter
         name = name.gsub(/\.js$/, '')
         content << "//= require ./bootstrap/#{name}\n"
       end
-      path = 'vendor/assets/javascripts/bootstrap.js'
+      path = 'assets/javascripts/bootstrap.js'
       save_file(path, content)
       log_processed path
     end
