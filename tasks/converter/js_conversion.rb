@@ -3,20 +3,26 @@ class Converter
     def process_javascript_assets
       log_status 'Processing javascripts...'
       save_to = @save_to[:js]
+      contents = {}
       read_files('js', bootstrap_js_files).each do |name, file|
+        contents[name] = file
         save_file("#{save_to}/#{name}", file)
       end
       log_processed "#{bootstrap_js_files * ' '}"
 
       log_status 'Updating javascript manifest'
-      content = ''
+      manifest = ''
+      cat = ''
       bootstrap_js_files.each do |name|
+        cat << contents[name] + "\n"
         name = name.gsub(/\.js$/, '')
-        content << "//= require ./bootstrap/#{name}\n"
+        manifest << "//= require ./bootstrap/#{name}\n"
       end
-      path = 'assets/javascripts/bootstrap.js'
-      save_file(path, content)
-      log_processed path
+      {'assets/javascripts/bootstrap-sprockets.js' => manifest,
+       'assets/javascripts/bootstrap.js' => cat}.each do |path, content|
+        save_file path, content
+        log_processed path
+      end
     end
 
     def bootstrap_js_files

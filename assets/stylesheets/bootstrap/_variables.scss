@@ -14,7 +14,7 @@ $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")
 $gray-darker:            lighten(#000, 13.5%) !default; // #222
 $gray-dark:              lighten(#000, 20%) !default;   // #333
 $gray:                   lighten(#000, 33.5%) !default; // #555
-$gray-light:             lighten(#000, 60%) !default;   // #999
+$gray-light:             lighten(#000, 46.7%) !default; // #777
 $gray-lighter:           lighten(#000, 93.5%) !default; // #eee
 
 $brand-primary:         #428bca !default;
@@ -851,3 +851,6 @@ $hr-border:                   $gray-lighter !default;
 
 //** Horizontal offset for forms and lists.
 $component-offset-horizontal: 180px !default;
+
+//** Width of horizontal description list titles
+$dl-horizontal-offset:        $component-offset-horizontal !default;
