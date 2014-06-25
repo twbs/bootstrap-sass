@@ -826,6 +826,8 @@ $pre-scrollable-max-height:   340px !default;
 //
 //##
 
+//** Horizontal offset for forms and lists.
+$component-offset-horizontal: 180px !default;
 //** Text muted color
 $text-muted:                  $gray-light !default;
 //** Abbreviations and acronyms border color
@@ -840,17 +842,9 @@ $blockquote-font-size:        ($font-size-base * 1.25) !default;
 $blockquote-border-color:     $gray-lighter !default;
 //** Page header border color
 $page-header-border-color:    $gray-lighter !default;
-
-
-//== Miscellaneous
-//
-//##
-
+//** Width of horizontal description list titles
+$dl-horizontal-offset:        $component-offset-horizontal !default;
 //** Horizontal line color.
 $hr-border:                   $gray-lighter !default;
 
-//** Horizontal offset for forms and lists.
-$component-offset-horizontal: 180px !default;
 
-//** Width of horizontal description list titles
-$dl-horizontal-offset:        $component-offset-horizontal !default;
