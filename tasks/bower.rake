@@ -12,11 +12,11 @@ namespace :bower do
   }
 
   desc 'update main and version in bower.json'
-  task :spec do
+  task :generate do
     Dir.chdir Bootstrap.gem_path do
       spec       = JSON.parse(File.read 'bower.json')
-      js_paths   = File.read(File.join Bootstrap.javascripts_path, 'bootstrap.js').lines.map do |line|
-        line.strip if line.sub!(%r(//\s*=\s*require\s*(.*)\s*), 'assets/javascripts/\1.js')
+      js_paths   = File.read(File.join Bootstrap.javascripts_path, 'bootstrap-sprockets.js').lines.map do |line|
+        line.strip if line.sub!(%r(//\s*=\s*require\s*(?:./)?(.*)\s*), 'assets/javascripts/\1.js')
       end.compact
 
       spec['main'] =
