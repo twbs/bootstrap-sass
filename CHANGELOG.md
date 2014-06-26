@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.2.0.0 (unreleased)
+## 3.2.0.0
 
 - Assets (Sass, JS, fonts) moved from `vendor/assets` to `assets`. `bootstrap.js` now contains concatenated JS.
 - Compass generator now copies JS and fonts, and provides a better default `styles.sass`.
