@@ -6,7 +6,7 @@
 - Compass generator now copies JS and fonts, and provides a better default `styles.sass`.
 - Compass, Sprockets, and Mincer asset path helpers are now provided in pure Sass: `bootstrap-compass`, `bootstrap-sprockets`, and `bootstrap-mincer`.
 Asset path helpers must be imported before `bootstrap`, more in Readme.
-- Sprockets / Mincer JS manifest has been moved to `bootstrap-mincer.js`.
+- Sprockets / Mincer JS manifest has been moved to `bootstrap-sprockets.js`.
 It can be required without adding Bootstrap JS directory to load path, as it now uses relative paths.
 - Sprockets: `depend_on_asset` (`glyphicons.scss`) has been changed to `depend_on` to work around an issue with `depend_on_asset`.
 [More information](https://github.com/twbs/bootstrap-sass/issues/592#issuecomment-46570286).
