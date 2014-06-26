@@ -7,7 +7,7 @@ class Converter
     end
 
     def read_files(path, files)
-      full_path = "https://raw.github.com/#@repo/#@branch_sha/#{path}"
+      full_path = "https://raw.githubusercontent.com/#@repo/#@branch_sha/#{path}"
       if (contents = read_cached_files(path, files))
         log_http_get_files files, full_path, true
       else
