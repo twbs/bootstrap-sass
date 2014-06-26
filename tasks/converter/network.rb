@@ -8,19 +8,16 @@ class Converter
 
     def read_files(path, files)
       full_path = "https://raw.githubusercontent.com/#@repo/#@branch_sha/#{path}"
-      if (contents = read_cached_files(path, files))
-        log_http_get_files files, full_path, true
-      else
-        log_http_get_files files, full_path, false
-        contents = {}
-        files.map do |name|
-          Thread.start {
-            content = open("#{full_path}/#{name}").read
-            Thread.exclusive { contents[name] = content }
-          }
-        end.each(&:join)
-        write_cached_files path, contents
-      end
+      contents = read_cached_files(path, files)
+      log_http_get_files contents.keys, full_path, true if contents.keys
+      files -= contents.keys
+      log_http_get_files files, full_path, false
+      files.map do |name|
+        Thread.start {
+          content = open("#{full_path}/#{name}").read
+          Thread.exclusive { write_cached_files path, name => content }
+        }
+      end.each(&:join)
       contents
     end
 
@@ -29,7 +26,8 @@ class Converter
       contents  = {}
       if File.directory?(full_path)
         files.each do |name|
-          contents[name] = File.read("#{full_path}/#{name}", mode: 'rb') || ''
+          path = "#{full_path}/#{name}"
+          contents[name] = File.read(path, mode: 'rb') if File.exists?(path)
         end
         contents
       end
