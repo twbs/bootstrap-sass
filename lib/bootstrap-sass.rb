@@ -48,7 +48,7 @@ module Bootstrap
     private
 
     def configure_sass
-      require 'sass' unless defined?(::Sass)
+      require 'sass'
 
       ::Sass.load_paths << stylesheets_path
 
