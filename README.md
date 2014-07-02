@@ -29,8 +29,8 @@ gem 'autoprefixer-rails'
 In `app/assets/application.css.sass`:
 
 ```sass
-@import "bootstrap-sprockets"
-@import "bootstrap"
+@import "bootstrap-sprockets";
+@import "bootstrap";
 ```
 
 Do not use `//= require` in Sass or your other stylesheets will not be [able to access][antirequire] the Bootstrap mixins or variables.
