@@ -26,9 +26,9 @@ gem 'autoprefixer-rails'
 
 `bundle install` and restart your server to make the files available through the pipeline.
 
-In `app/assets/application.css.sass`:
+In `app/assets/application.css.scss`:
 
-```sass
+```scss
 @import "bootstrap-sprockets";
 @import "bootstrap";
 ```
@@ -141,8 +141,8 @@ You can also import components explicitly. To start with a full list of modules 
 Then comment out components you do not want from `bootstrap-custom`.
 In the application Sass file, replace `@import 'bootstrap'` with:
 
-```sass
-@import 'bootstrap-custom'
+```scss
+@import 'bootstrap-custom';
 ```
 
 #### Sass: Number Precision
@@ -192,7 +192,7 @@ You can check dependencies in the [Bootstrap JS documentation][jsdocs].
 
 The fonts are referenced as:
 
-```sass
+```scss
 "#{$icon-font-path}#{$icon-font-name}.eot"
 ```
 
@@ -200,9 +200,9 @@ The fonts are referenced as:
 
 When using with Compass, Sprockets, or Mincer, make sure to import the relevant path helpers before Bootstrap itself, for example:.
 
-```sass
-@import bootstrap-compass
-@import bootstrap
+```scss
+@import "bootstrap-compass";
+@import "bootstrap";
 ```
 
 ## Usage
