@@ -111,7 +111,7 @@ class Converter
           when 'thumbnails.less', 'labels.less', 'badges.less'
             file = extract_nested_rule file, 'a&'
           when 'glyphicons.less'
-            file = bootstrap_font_files.map { |p| %Q(//= depend_on_asset "bootstrap/#{File.basename(p)}") } * "\n" + "\n" + file
+            file = bootstrap_font_files.map { |p| %Q(//= depend_on "bootstrap/#{File.basename(p)}") } * "\n" + "\n" + file
             file = replace_rules(file, '@font-face') { |rule|
               rule = replace_all rule, /(\$icon-font(?:-\w+)+)/, '#{\1}'
               replace_asset_url rule, :font
@@ -167,13 +167,17 @@ class Converter
     # convert recursively evaluated selector $list to @for loop
     def mixin_all_grid_columns(css, selector: raise('pass class'), from: 1, to: raise('pass to'))
       mxn_def = css.each_line.first.strip
+      # inject local variables as default arguments
+      # this is to avoid overwriting outer variables with the same name with Sass <= 3.3
+      # see also: https://github.com/twbs/bootstrap-sass/issues/636
+      locals = <<-SASS.strip
+        $i: #{from}, $list: "#{selector}"
+      SASS
+      mxn_def.sub!(/(\(?)(\)\s*\{)/) {  "#{$1}#{', ' if $1.empty?}#{locals}#{$2}" }
       step_body = (css =~ /\$list \{\n(.*?)\n[ ]*\}/m) && $1
 <<-SASS
 // [converter] This is defined recursively in LESS, but Sass supports real loops
 #{mxn_def}
-  $list: '';
-  $i: #{from};
-  $list: "#{selector}";
   @for $i from (#{from} + 1) through #{to} {
     $list: "\#{$list}, #{selector}";
   }

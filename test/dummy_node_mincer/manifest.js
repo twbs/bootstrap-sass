@@ -39,10 +39,10 @@ var environment = new Mincer.Environment(process.cwd());
 
 // Include bootstrap scss load path
 var bootstrapPath = '../../';
-environment.appendPath(bootstrapPath + 'vendor/assets/stylesheets');
+environment.appendPath(bootstrapPath + 'assets/stylesheets');
 
 // Include fonts load path
-environment.appendPath(bootstrapPath + 'vendor/assets/fonts');
+environment.appendPath(bootstrapPath + 'assets/fonts');
 
 // Include dir with assets, root just for test
 environment.appendPath('./');

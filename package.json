@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-sass",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "description": "bootstrap-sass is a Sass-powered version of Bootstrap, ready to drop right into your Sass powered applications.",
   "main": "index.js",
   "repository": {

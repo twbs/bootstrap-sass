@@ -4,7 +4,7 @@ module IntegrationTest
 
   def setup
     super
-    %x[rm -rf test/dummy/tmp/cache]
+    %x[rm -rf test/dummy_rails/tmp/cache]
   end
 
   def teardown
@@ -13,17 +13,10 @@ module IntegrationTest
     Capybara.use_default_driver
   end
 
-  def after_teardown
-    if @passed.blank?
-      screenshot!
-      puts "Failed at: #{current_url}"
-    end
-  end
-
   def screenshot!
     screenshot_dir = File.expand_path('../../tmp/', File.dirname(__FILE__))
-    page.driver.render(File.join(screenshot_dir, "#{@__name__}.png"), :full => true)
+    page.driver.render(File.join(screenshot_dir, "#{name}.png"), :full => true)
     source = page.evaluate_script("document.getElementsByTagName('html')[0].outerHTML") rescue nil
-    File.open(File.join(screenshot_dir, "#{@__name__}.html"), 'w') { |f| f.write(source) } if source
+    File.open(File.join(screenshot_dir, "#{name}.html"), 'w') { |f| f.write(source) } if source
   end
 end

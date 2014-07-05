@@ -13,7 +13,6 @@ end
 desc 'Dumps output to a CSS file for testing'
 task :debug do
   require 'sass'
-  require './lib/bootstrap-sass/sass_functions'
   path = Bootstrap.stylesheets_path
   %w(bootstrap).each do |file|
     engine = Sass::Engine.for_file("#{path}/#{file}.scss", syntax: :scss, load_paths: [path])
@@ -36,10 +35,9 @@ end
 desc 'Compile bootstrap-sass to tmp/ (or first arg)'
 task :compile, :css_path do |t, args|
   require 'sass'
-  require 'bootstrap-sass/sass_functions'
   require 'term/ansicolor'
 
-  path = 'vendor/assets/stylesheets'
+  path = 'assets/stylesheets'
   css_path = args.with_defaults(css_path: 'tmp')[:css_path]
   puts Term::ANSIColor.bold "Compiling SCSS in #{path}"
   Dir.mkdir(css_path) unless File.directory?(css_path)

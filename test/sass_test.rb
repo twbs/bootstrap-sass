@@ -9,6 +9,7 @@ class SassTest < Test::Unit::TestCase
 
   def setup
     Dir.chdir DUMMY_PATH do
+      %x[rm -rf .sass-cache/]
       %x[bundle]
     end
     css_path = File.join Bootstrap.gem_path, 'tmp/bootstrap-sass-only.css'
