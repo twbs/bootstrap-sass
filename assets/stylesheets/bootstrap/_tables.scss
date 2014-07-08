@@ -2,14 +2,20 @@
 // Tables
 // --------------------------------------------------
 
-
 table {
   background-color: $table-bg;
 }
 th {
   text-align: left;
 }
-
+caption {
+  background-color: $table-caption-bg;
+  color: $table-caption-color;
+  font-size: $font-size-h4;
+  font-weight: bold;
+  text-align: left;
+  padding: $padding-base-vertical $padding-base-horizontal;
+}
 
 // Baseline styles
 
