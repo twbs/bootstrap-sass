@@ -88,18 +88,16 @@ class Converter
             file = apply_mixin_parent_selector file, '\.(?:visible|hidden)'
           when 'variables.less'
             file = insert_default_vars(file)
-            file = unindent <<-SCSS + file, 14
-              // a flag to toggle asset pipeline / compass integration
-              // defaults to true if twbs-font-path function is present (no function => twbs-font-path('') parsed as string == right side)
-              // in Sass 3.3 this can be improved with: function-exists(twbs-font-path)
-              $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")')) !default;
+            file = unindent <<-SCSS + "\n" + file, 14
+              // When true, asset path helpers are used, otherwise regular `url()`` is used.
+              // When there no function is defined, `fn('')` is parsed as string that equals the right hand side
+              // NB: in Sass 3.3 there is a native function: function-exists(twbs-font-path)
+              $bootstrap-sass-asset-helper: #{sass_fn_exists('twbs-font-path')} !default;
             SCSS
-            file = replace_all file, %r{(\$icon-font-path): \s*"(.*)" (!default);}, <<-SCSS
-
-// [converter] Asset helpers such as Sprockets and Node.js Mincer do not resolve relative paths
-\\1: if($bootstrap-sass-asset-helper, "bootstrap/", "\\2bootstrap/") \\3;
-SCSS
-                               '\1: if($bootstrap-sass-asset-helper, "bootstrap/", "\2bootstrap/")\3'
+            file = replace_all file, %r{(\$icon-font-path): \s*"(.*)" (!default);},  "\n" + unindent(<<-SCSS, 14)
+              // [converter] Asset helpers such as Sprockets and Node.js Mincer do not resolve relative paths
+              \\1: if($bootstrap-sass-asset-helper, "bootstrap/", "\\2bootstrap/") \\3;
+            SCSS
           when 'close.less'
             # extract .close { button& {...} } rule
             file = extract_nested_rule file, 'button&'
@@ -163,6 +161,10 @@ SCSS
       file   = replace_calculation_semantics(file)
       file   = replace_file_imports(file)
       file
+    end
+
+    def sass_fn_exists(fn)
+      %Q{(#{fn}("") != unquote('#{fn}("")'))}
     end
 
     def replace_asset_url(rule, type)
