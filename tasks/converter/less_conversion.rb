@@ -94,7 +94,12 @@ class Converter
               // in Sass 3.3 this can be improved with: function-exists(twbs-font-path)
               $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")')) !default;
             SCSS
-            file = replace_all file, /(\$icon-font-path:\s+".*)(" !default)/, '\1bootstrap/\2'
+            file = replace_all file, %r{(\$icon-font-path): \s*"(.*)" (!default);}, <<-SCSS
+
+// [converter] Asset helpers such as Sprockets and Node.js Mincer do not resolve relative paths
+\\1: if($bootstrap-sass-asset-helper, "bootstrap/", "\\2bootstrap/") \\3;
+SCSS
+                               '\1: if($bootstrap-sass-asset-helper, "bootstrap/", "\2bootstrap/")\3'
           when 'close.less'
             # extract .close { button& {...} } rule
             file = extract_nested_rule file, 'button&'

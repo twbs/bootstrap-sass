@@ -196,9 +196,9 @@ The fonts are referenced as:
 "#{$icon-font-path}#{$icon-font-name}.eot"
 ```
 
-`$icon-font-path` defaults to `bootstrap/`.
+`$icon-font-path` defaults to `bootstrap/` if asset path helpers are used, and `../fonts/bootstrap/` otherwise.
 
-When using with Compass, Sprockets, or Mincer, make sure to import the relevant path helpers before Bootstrap itself, for example:.
+When using bootstrap-sass with Compass, Sprockets, or Mincer, you **must** import the relevant path helpers before Bootstrap itself, for example:
 
 ```scss
 @import "bootstrap-compass";
