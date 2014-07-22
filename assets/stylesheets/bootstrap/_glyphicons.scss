@@ -11,10 +11,4 @@
 //
 // <a href="#"><span class="glyphicon glyphicon-star"></span> Star</a>
 
-// Import the fonts mixin
-//@import "fonts";
-
-//Import Map
-//@import "icons_map";
-
-@include fonts('Glyphicons Halflings','../fonts','glyphicon','glyphicons-halflings-regular',$icons);
+@include fonts($icon-font-family,$icon-font-class,$icons);

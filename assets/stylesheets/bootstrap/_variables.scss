@@ -82,6 +82,10 @@ $icon-font-path: "bootstrap/" !default;
 $icon-font-name:          "glyphicons-halflings-regular" !default;
 //** Element ID within SVG icon file.
 $icon-font-svg-id:        "glyphicons_halflingsregular" !default;
+//** Font Family for icons
+$icon-font-family: "Glyphicons Halflings" !default;
+//** Font top level class
+$icon-font-class: "glyphicon" !default;
 
 
 //== Components
