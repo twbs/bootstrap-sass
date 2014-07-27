@@ -26,7 +26,7 @@ gem 'autoprefixer-rails'
 
 `bundle install` and restart your server to make the files available through the pipeline.
 
-In `app/assets/application.css.scss`:
+In `app/assets/stylesheets/application.css.scss`:
 
 ```scss
 @import "bootstrap-sprockets";
@@ -35,7 +35,7 @@ In `app/assets/application.css.scss`:
 
 Do not use `//= require` in Sass or your other stylesheets will not be [able to access][antirequire] the Bootstrap mixins or variables.
 
-In `app/assets/application.js`:
+In `app/assets/javascripts/application.js`:
 
 ```js
 //= require jquery
