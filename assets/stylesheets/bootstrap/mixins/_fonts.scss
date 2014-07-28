@@ -1,0 +1,41 @@
+@mixin fonts($font-family,$class,$icons) {
+	@font-face {
+			font-family: "#{$font-family}";
+			src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot'), '#{$icon-font-path}#{$icon-font-name}.eot'));
+			src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot?#iefix'), '#{$icon-font-path}#{$icon-font-name}.eot?#iefix')) format('embedded-opentype'),
+					 url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.woff'), '#{$icon-font-path}#{$icon-font-name}.woff')) format('woff'),
+					 url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.ttf'), '#{$icon-font-path}#{$icon-font-name}.ttf')) format('truetype'),
+					 url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}'), '#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}')) format('svg');
+		}
+		
+	.#{$class} {
+			position: relative;
+			top: 1px;
+			display: inline-block;
+			font-family: "#{$font-family}";
+			-webkit-font-smoothing: antialiased;
+			font-style: normal;
+			font-weight: normal;
+			line-height: 1;
+			-moz-osx-font-smoothing: grayscale;
+			
+			&:empty {
+					width: 1em;
+			}
+			
+			@each $icons, $content in $icons{
+					&-#{$icons}{ 
+							&:before{
+									content: #{$content};
+							}
+					}
+			}	
+	}
+}
+	
+
+
+
+
+
+
