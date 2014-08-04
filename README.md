@@ -8,7 +8,7 @@ Please see the appropriate guide for your environment of choice:
 
 * [Ruby on Rails](#a-ruby-on-rails).
 * [Compass](#b-compass-without-rails) not on Rails.
-* [Bower](#c-bower) not on Rails.
+* [Bower](#c-bower).
 
 ### a. Ruby on Rails
 
@@ -37,10 +37,8 @@ Import Bootstrap styles in `app/assets/stylesheets/application.css.scss`:
 @import "bootstrap";
 ```
 
-Make sure the file has `.css.scss` extension (or `.css.sass` for Sass syntax).
-
-If you have just generated a new Rails app, it may have an `application.css` file instead.
-If this file exists, it will be served instead of Sass, so remove it:
+Make sure the file has `.css.scss` extension (or `.css.sass` for Sass syntax). If you have just generated a new Rails app,
+it may come with a `.css` file instead. If this file exists, it will be served instead of Sass, so remove it:
 
 ```console
 $ rm app/assets/stylesheets/application.css
@@ -57,7 +55,7 @@ Require Bootstrap Javascripts in `app/assets/javascripts/application.js`:
 
 #### Bower with Rails
 
-When using bootstrap-sass Bower package in Rails, ensure [minimum number precision](#sass-number-precision):
+When using [bootstrap-sass Bower package](#c-bower) in Rails, ensure [minimum Sass number precision](#sass-number-precision):
 
 ```ruby
 # e.g. config/initializers/sass.rb
