@@ -26,21 +26,41 @@ gem 'autoprefixer-rails'
 
 `bundle install` and restart your server to make the files available through the pipeline.
 
-In `app/assets/stylesheets/application.css.scss`:
+Import Bootstrap styles in `app/assets/stylesheets/application.css.scss`:
 
 ```scss
 @import "bootstrap-sprockets";
 @import "bootstrap";
 ```
 
+Make sure the file has `.css.scss` extension (or `.css.sass` for Sass syntax).
+
+If you have just generated a new Rails app, it may have an `application.css` file instead.
+If this file exists, it will be served instead of Sass, so remove it:
+
+```console
+$ rm app/assets/stylesheets/application.css
+```
+
 Do not use `//= require` in Sass or your other stylesheets will not be [able to access][antirequire] the Bootstrap mixins or variables.
 
-In `app/assets/javascripts/application.js`:
+Require Bootstrap Javascripts in `app/assets/javascripts/application.js`:
 
 ```js
 //= require jquery
 //= require bootstrap-sprockets
 ```
+
+#### Bower with Rails
+
+When using bootstrap-sass Bower package in Rails, ensure [minimum number precision](#sass-number-precision):
+
+```ruby
+# e.g. config/initializers/sass.rb
+::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
+```
+
+`bootstrap-sprockets` must be imported before `bootstrap` for the icon fonts to work.
 
 #### Rails 3.2.x
 
