@@ -6,6 +6,10 @@
 
 Please see the appropriate guide for your environment of choice:
 
+* [Ruby on Rails](#a-ruby-on-rails).
+* [Compass](#b-compass-without-rails) not on Rails.
+* [Bower](#c-bower) not on Rails.
+
 ### a. Ruby on Rails
 
 `bootstrap-sass` is easy to drop into Rails with the asset pipeline.
