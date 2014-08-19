@@ -4,7 +4,7 @@ require 'fileutils'
 class CompilationTest < Test::Unit::TestCase
   def test_compilation
     path = 'assets/stylesheets'
-    %w(bootstrap bootstrap/_theme).each do |file|
+    %w(_bootstrap bootstrap/_theme).each do |file|
       engine = Sass::Engine.for_file("#{path}/#{file}.scss", syntax: :scss, load_paths: [path])
       assert_nothing_raised do
         FileUtils.mkdir_p("tmp/#{File.dirname(file)}")

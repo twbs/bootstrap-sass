@@ -125,18 +125,15 @@ class Converter
             file = replace_all(file, "  @include bg-variant($brand-primary);\n}", "}\n@include bg-variant('.bg-primary', $brand-primary);")
         end
 
-        name    = name.sub(/\.less$/, '.scss')
-        path    = File.join save_to, name
-        unless name == 'bootstrap.scss'
-          path = File.join File.dirname(path), '_' + File.basename(path)
-        end
+        path = File.join save_to, name.sub(/\.less$/, '.scss')
+        path = File.join File.dirname(path), '_' + File.basename(path)
         save_file(path, file)
         log_processed File.basename(path)
       end
 
-      # generate imports valid relative to both load path and file directory
-      save_file File.expand_path("#{save_to}/../bootstrap.scss"),
-                File.read("#{save_to}/bootstrap.scss").gsub(/ "/, ' "bootstrap/')
+      # move bootstrap/_bootstrap.scss to _bootstrap.scss adjusting import paths
+      save_file File.expand_path("#{save_to}/../_bootstrap.scss"),
+                File.read("#{save_to}/_bootstrap.scss").gsub(/ "/, ' "bootstrap/')
     end
 
     def bootstrap_less_files

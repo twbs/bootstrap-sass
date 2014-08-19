@@ -159,8 +159,8 @@ See also this [example manifest.js](/test/dummy_node_mincer/manifest.js) for min
 By default all of Bootstrap is imported.
 
 You can also import components explicitly. To start with a full list of modules copy
-[`bootstrap.scss`](assets/stylesheets/bootstrap.scss) file into your assets as `bootstrap-custom.scss`.
-Then comment out components you do not want from `bootstrap-custom`.
+[`_bootstrap.scss`](assets/stylesheets/_bootstrap.scss) file into your assets as `_bootstrap-custom.scss`.
+Then comment out components you do not want from `_bootstrap-custom`.
 In the application Sass file, replace `@import 'bootstrap'` with:
 
 ```scss

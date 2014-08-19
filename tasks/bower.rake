@@ -20,7 +20,7 @@ namespace :bower do
       end.compact
 
       spec['main'] =
-          find_files.(File.join(Bootstrap.stylesheets_path, 'bootstrap.scss')) +
+          find_files.(File.join(Bootstrap.stylesheets_path, '_bootstrap.scss')) +
           find_files.(Bootstrap.fonts_path) +
           js_paths
 
