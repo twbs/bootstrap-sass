@@ -3,6 +3,7 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 require 'slim-rails'
 require 'jquery-rails'
+require 'compass'
 require 'bootstrap-sass'
 require 'uglifier'
 

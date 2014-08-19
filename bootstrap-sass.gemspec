@@ -25,8 +25,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'jquery-rails', '>= 3.1.0'
   s.add_development_dependency 'slim-rails'
   s.add_development_dependency 'uglifier'
-  # Compass dummy app
-  s.add_development_dependency 'compass'
   # Converter
   s.add_development_dependency 'term-ansicolor'
 

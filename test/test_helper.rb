@@ -1,23 +1,13 @@
-ENV['RAILS_ENV'] = ENV['RACK_ENV'] = 'test'
-
 $:.unshift("#{File.dirname(__FILE__)}/..")
-require File.expand_path('dummy_rails/config/environment', File.dirname(__FILE__))
 
 require 'test-unit'
-
 require 'sass'
-
-require 'compass'
-require 'compass-import-once' if defined?(Compass::Core)
-
-require 'rails/test_help'
 
 Dir[File.expand_path('./support/**/*.rb', File.dirname(__FILE__))].each do |file|
   require file
 end
 
 #= Capybara + Poltergeist
-require 'capybara/rails'
 require 'capybara/poltergeist'
 
 Capybara.register_driver :poltergeist do |app|
