@@ -132,8 +132,10 @@ class Converter
       end
 
       # move bootstrap/_bootstrap.scss to _bootstrap.scss adjusting import paths
-      save_file File.expand_path("#{save_to}/../_bootstrap.scss"),
-                File.read("#{save_to}/_bootstrap.scss").gsub(/ "/, ' "bootstrap/')
+      main_from = "#{save_to}/_bootstrap.scss"
+      main_to   = File.expand_path("#{save_to}/../_bootstrap.scss")
+      save_file main_to, File.read(main_from).gsub(/ "/, ' "bootstrap/')
+      File.delete(main_from)
     end
 
     def bootstrap_less_files
