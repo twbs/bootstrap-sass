@@ -15,6 +15,7 @@ Capybara.register_driver :poltergeist do |app|
       app,
       # inspector:   '/Applications/Chromium.app/Contents/MacOS/Chromium', # open in inspector: page.driver.debug
       window_size: [1280, 1024],
+      timeout: 90,
       js_errors: true, debug: true
   )
 end
