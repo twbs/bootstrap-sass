@@ -199,7 +199,7 @@
     if (e) e.preventDefault()
 
     if (!$parent.length) {
-      $parent = $this.hasClass('alert') ? $this : $this.parent()
+      $parent = $this.closest('.alert')
     }
 
     $parent.trigger(e = $.Event('close.bs.alert'))
@@ -1907,7 +1907,7 @@
     var isBody = el.tagName == 'BODY'
     var isSvg  = window.SVGElement && el instanceof window.SVGElement
 
-    var elRect    = el.getBoundingClientRect ? el.getBoundingClientRect() : null
+    var elRect    = el.getBoundingClientRect()
     var elOffset  = isBody ? { top: 0, left: 0 } : $element.offset()
     var scroll    = { scroll: isBody ? document.documentElement.scrollTop || document.body.scrollTop : $element.scrollTop() }
     var outerDims = isSvg ? {} : {
@@ -2097,7 +2097,7 @@
     var content = this.getContent()
 
     $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
-    $tip.find('.popover-content').empty()[ // we use append for html objects to maintain js events
+    $tip.find('.popover-content').children().detach().end()[ // we use append for html objects to maintain js events
       this.options.html ? (typeof content == 'string' ? 'html' : 'append') : 'text'
     ](content)
 
