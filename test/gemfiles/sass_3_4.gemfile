@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
-gem 'sass', '~> 3.3.14'
+gem 'sass', '~> 3.4.0'
 gem 'compass', '~> 1.0.0'
 gem 'compass-import-once', '~> 1.0.5'
 
 gemspec path: '../../'
+

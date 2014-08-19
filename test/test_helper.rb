@@ -7,9 +7,14 @@ require 'test-unit'
 
 require 'sass'
 
+require 'compass'
+require 'compass-import-once' if defined?(Compass::Core)
+
 require 'rails/test_help'
 
-Dir[File.expand_path("./support/**/*.rb", File.dirname(__FILE__))].each { |f| require f }
+Dir[File.expand_path('./support/**/*.rb', File.dirname(__FILE__))].each do |file|
+  require file
+end
 
 #= Capybara + Poltergeist
 require 'capybara/rails'
