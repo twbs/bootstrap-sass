@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
 gem 'sass', '~> 3.3.14'
-gem 'compass', '~> 1.0.0', require: false
+gem 'compass', '~> 1.0.1', require: false
 
 gemspec path: '../../'
