@@ -1,11 +1,16 @@
-$:.unshift("#{File.dirname(__FILE__)}/..")
+require 'minitest/autorun'
+require 'minitest/reporters'
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-require 'test-unit'
-require 'sass'
+require 'active_support/core_ext/kernel/reporting'
 
-Dir[File.expand_path('./support/**/*.rb', File.dirname(__FILE__))].each do |file|
-  require file
+Dir.chdir 'test' do
+  Dir['support/**/*.rb'].each do |file|
+    require file
+  end
 end
+
+GEM_PATH = File.expand_path('../', File.dirname(__FILE__))
 
 #= Capybara + Poltergeist
 require 'capybara/poltergeist'
@@ -16,7 +21,7 @@ Capybara.register_driver :poltergeist do |app|
       # inspector:   '/Applications/Chromium.app/Contents/MacOS/Chromium', # open in inspector: page.driver.debug
       window_size: [1280, 1024],
       timeout: 90,
-      js_errors: true, debug: true
+      js_errors: true
   )
 end
 

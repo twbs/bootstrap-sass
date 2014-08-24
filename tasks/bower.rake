@@ -1,5 +1,4 @@
 require 'find'
-require 'bootstrap-sass'
 require 'json'
 require 'pathname'
 
@@ -13,6 +12,7 @@ namespace :bower do
 
   desc 'update main and version in bower.json'
   task :generate do
+    require 'bootstrap-sass'
     Dir.chdir Bootstrap.gem_path do
       spec       = JSON.parse(File.read 'bower.json')
       js_paths   = File.read(File.join Bootstrap.javascripts_path, 'bootstrap-sprockets.js').lines.map do |line|

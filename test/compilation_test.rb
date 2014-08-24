@@ -1,17 +1,17 @@
 require 'test_helper'
 require 'fileutils'
+require 'sass'
 
-class CompilationTest < Test::Unit::TestCase
+class CompilationTest < Minitest::Test
   def test_compilation
     path = 'assets/stylesheets'
     %w(_bootstrap bootstrap/_theme).each do |file|
       engine = Sass::Engine.for_file("#{path}/#{file}.scss", syntax: :scss, load_paths: [path])
-      assert_nothing_raised do
-        FileUtils.mkdir_p("tmp/#{File.dirname(file)}")
-        File.open("tmp/#{file}.css", 'w') { |f|
-          f.write engine.render
-        }
-      end
+      FileUtils.mkdir_p("tmp/#{File.dirname(file)}")
+      File.open("tmp/#{file}.css", 'w') { |f|
+        f.write engine.render
+      }
+      assert true # nothing was raised
     end
   end
 end

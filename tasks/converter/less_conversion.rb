@@ -89,7 +89,7 @@ class Converter
           when 'variables.less'
             file = insert_default_vars(file)
             file = unindent <<-SCSS + "\n" + file, 14
-              // When true, asset path helpers are used, otherwise regular `url()`` is used.
+              // When true, asset path helpers are used, otherwise the regular CSS `url()` is used.
               // When there no function is defined, `fn('')` is parsed as string that equals the right hand side
               // NB: in Sass 3.3 there is a native function: function-exists(twbs-font-path)
               $bootstrap-sass-asset-helper: #{sass_fn_exists('twbs-font-path')} !default;
