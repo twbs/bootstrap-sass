@@ -6,7 +6,7 @@ require 'active_support/core_ext/kernel/reporting'
 
 Dir.chdir 'test' do
   Dir['support/**/*.rb'].each do |file|
-    load file
+    require file[0..-4] # strip .rb suffix
   end
 end
 
