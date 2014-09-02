@@ -1,18 +1,18 @@
-ENV['RAILS_ENV'] = ENV['RACK_ENV'] = 'test'
+require 'minitest/autorun'
+require 'minitest/reporters'
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-$:.unshift("#{File.dirname(__FILE__)}/..")
-require File.expand_path('dummy_rails/config/environment', File.dirname(__FILE__))
+require 'active_support/core_ext/kernel/reporting'
 
-require 'test-unit'
+Dir.chdir 'test' do
+  Dir['support/**/*.rb'].each do |file|
+    require file
+  end
+end
 
-require 'sass'
-
-require 'rails/test_help'
-
-Dir[File.expand_path("./support/**/*.rb", File.dirname(__FILE__))].each { |f| require f }
+GEM_PATH = File.expand_path('../', File.dirname(__FILE__))
 
 #= Capybara + Poltergeist
-require 'capybara/rails'
 require 'capybara/poltergeist'
 
 Capybara.register_driver :poltergeist do |app|
@@ -20,7 +20,8 @@ Capybara.register_driver :poltergeist do |app|
       app,
       # inspector:   '/Applications/Chromium.app/Contents/MacOS/Chromium', # open in inspector: page.driver.debug
       window_size: [1280, 1024],
-      js_errors: true, debug: true
+      timeout: 90,
+      js_errors: true
   )
 end
 

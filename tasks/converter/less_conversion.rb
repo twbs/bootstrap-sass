@@ -89,7 +89,7 @@ class Converter
           when 'variables.less'
             file = insert_default_vars(file)
             file = unindent <<-SCSS + "\n" + file, 14
-              // When true, asset path helpers are used, otherwise regular `url()`` is used.
+              // When true, asset path helpers are used, otherwise the regular CSS `url()` is used.
               // When there no function is defined, `fn('')` is parsed as string that equals the right hand side
               // NB: in Sass 3.3 there is a native function: function-exists(twbs-font-path)
               $bootstrap-sass-asset-helper: #{sass_fn_exists('twbs-font-path')} !default;
@@ -125,18 +125,17 @@ class Converter
             file = replace_all(file, "  @include bg-variant($brand-primary);\n}", "}\n@include bg-variant('.bg-primary', $brand-primary);")
         end
 
-        name    = name.sub(/\.less$/, '.scss')
-        path    = File.join save_to, name
-        unless name == 'bootstrap.scss'
-          path = File.join File.dirname(path), '_' + File.basename(path)
-        end
+        path = File.join save_to, name.sub(/\.less$/, '.scss')
+        path = File.join File.dirname(path), '_' + File.basename(path)
         save_file(path, file)
         log_processed File.basename(path)
       end
 
-      # generate imports valid relative to both load path and file directory
-      save_file File.expand_path("#{save_to}/../bootstrap.scss"),
-                File.read("#{save_to}/bootstrap.scss").gsub(/ "/, ' "bootstrap/')
+      # move bootstrap/_bootstrap.scss to _bootstrap.scss adjusting import paths
+      main_from = "#{save_to}/_bootstrap.scss"
+      main_to   = File.expand_path("#{save_to}/../_bootstrap.scss")
+      save_file main_to, File.read(main_from).gsub(/ "/, ' "bootstrap/')
+      File.delete(main_from)
     end
 
     def bootstrap_less_files
