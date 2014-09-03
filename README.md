@@ -253,6 +253,12 @@ $navbar-default-color: $light-orange;
 @import "bootstrap";
 ```
 
+## Version
+
+`bootstrap-sass` version reflects the upstream version, with an additional number for Sass-specific changes.
+
+Always refer to [CHANGELOG.md](/CHANGELOG.md) when upgrading.
+
 ---
 
 ## Development and Contributing
