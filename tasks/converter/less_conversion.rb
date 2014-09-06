@@ -114,7 +114,6 @@ class Converter
           when 'thumbnails.less', 'labels.less', 'badges.less'
             file = extract_nested_rule file, 'a&'
           when 'glyphicons.less'
-            file = bootstrap_font_files.map { |p| %Q(//= depend_on "bootstrap/#{File.basename(p)}") } * "\n" + "\n" + file
             file = replace_rules(file, '@font-face') { |rule|
               rule = replace_all rule, /(\$icon-font(?:-\w+)+)/, '#{\1}'
               replace_asset_url rule, :font

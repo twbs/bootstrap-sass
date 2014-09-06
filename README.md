@@ -64,6 +64,10 @@ When using [bootstrap-sass Bower package](#c-bower) in Rails, ensure [minimum Sa
 
 `bootstrap-sprockets` must be imported before `bootstrap` for the icon fonts to work.
 
+#### Rails 4.x
+
+Please make sure `sprockets-rails` is at least v2.1.4.
+
 #### Rails 3.2.x
 
 Rails 3.2 is [no longer maintained for bugfixes](http://guides.rubyonrails.org/maintenance_policy.html), and you should upgrade as soon as possible.
