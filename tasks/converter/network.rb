@@ -1,3 +1,4 @@
+require 'shellwords'
 class Converter
   module Network
     protected
@@ -58,12 +59,17 @@ class Converter
 
     # get sha of the branch (= the latest commit)
     def get_branch_sha
-      return @branch if @branch =~ /\A[0-9a-f]+\z/
-      cmd = "git ls-remote 'https://github.com/#@repo' | awk '/#@branch/ {print $1}'"
-      log cmd
-      @branch_sha ||= %x[#{cmd}].chomp
-      raise 'Could not get branch sha!' unless $?.success?
-      @branch_sha
+      @branch_sha ||= begin
+        if %x[git rev-parse #@branch].chomp == @branch
+          @branch
+        else
+          cmd = "git ls-remote #{Shellwords.escape "https://github.com/#@repo"} #@branch"
+          log cmd
+          result = %x[#{cmd}]
+          raise 'Could not get branch sha!' unless $?.success? && !result.empty?
+          result.split(/\s+/).first
+        end
+      end
     end
 
     # Get the sha of a dir
