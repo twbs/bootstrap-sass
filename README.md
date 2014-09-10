@@ -33,6 +33,7 @@ gem 'autoprefixer-rails'
 Import Bootstrap styles in `app/assets/stylesheets/application.css.scss`:
 
 ```scss
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
 ```
