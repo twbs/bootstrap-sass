@@ -3,7 +3,7 @@
 ## Asset Changes
 
 Any changes to `bootstrap-sass` assets (scss, javascripts, fonts) should be checked against the `convert` rake task.
-For usage instructions, see the [README](https://github.com/twbs/bootstrap-sass/blob/3/README.md).
+For usage instructions, see the [README](/README.md).
 
 If something is broken in the converter, it's preferable to update the converter along with the asset itself.
 
