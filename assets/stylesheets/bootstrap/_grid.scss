@@ -8,7 +8,7 @@
 // Set the container width, and override it for fixed navbars in media queries.
 
 .container {
-  @include container-fixed();
+  @include container-fixed;
 
   @media (min-width: $screen-sm-min) {
     width: $container-sm;
@@ -28,7 +28,7 @@
 // width for fluid, full width layouts.
 
 .container-fluid {
-  @include container-fixed();
+  @include container-fixed;
 }
 
 
@@ -37,7 +37,7 @@
 // Rows contain and clear the floats of your columns.
 
 .row {
-  @include make-row();
+  @include make-row;
 }
 
 
@@ -45,7 +45,7 @@
 //
 // Common styles for small and large grid columns
 
-@include make-grid-columns();
+@include make-grid-columns;
 
 
 // Extra small grid

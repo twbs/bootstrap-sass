@@ -158,15 +158,20 @@ ol {
 
 // List options
 
-// Unstyled keeps list items block level, just removes default browser padding and list-style
-.list-unstyled {
+// [converter] extracted from `.list-unstyled` for libsass compatibility
+@mixin list-unstyled {
   padding-left: 0;
   list-style: none;
 }
+// [converter] extracted as `@mixin list-unstyled` for libsass compatibility
+.list-unstyled {
+  @include list-unstyled;
+}
+
 
 // Inline turns list items into inline-block
 .list-inline {
-  @extend .list-unstyled;
+  @include list-unstyled;
   margin-left: -5px;
 
   > li {
@@ -199,7 +204,7 @@ dd {
 
 .dl-horizontal {
   dd {
-    @include clearfix(); // Clear the floated `dt` if an empty `dd` is present
+    @include clearfix; // Clear the floated `dt` if an empty `dd` is present
   }
 
   @media (min-width: $grid-float-breakpoint) {
@@ -208,7 +213,7 @@ dd {
       width: ($dl-horizontal-offset - 20);
       clear: left;
       text-align: right;
-      @include text-overflow();
+      @include text-overflow;
     }
     dd {
       margin-left: $dl-horizontal-offset;

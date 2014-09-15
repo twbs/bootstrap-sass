@@ -16,7 +16,7 @@
 
   > img,
   a > img {
-    @include img-responsive();
+    @include img-responsive;
     margin-left: auto;
     margin-right: auto;
   }

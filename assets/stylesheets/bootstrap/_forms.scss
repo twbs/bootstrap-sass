@@ -77,7 +77,7 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  @include tab-focus();
+  @include tab-focus;
 }
 
 // Adjust output element
@@ -128,10 +128,10 @@ output {
   @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
 
   // Customize the `:focus` state to imitate native WebKit styles.
-  @include form-control-focus();
+  @include form-control-focus;
 
   // Placeholder
-  @include placeholder();
+  @include placeholder;
 
   // Disabled and read-only inputs
   //
@@ -414,7 +414,8 @@ input[type="checkbox"] {
 //
 // Heads up! This is mixin-ed into `.navbar-form` in navbars.less.
 
-.form-inline {
+// [converter] extracted from `.form-inline` for libsass compatibility
+@mixin form-inline {
 
   // Kick in the inline
   @media (min-width: $screen-sm-min) {
@@ -484,6 +485,11 @@ input[type="checkbox"] {
     }
   }
 }
+// [converter] extracted as `@mixin form-inline` for libsass compatibility
+.form-inline {
+  @include form-inline;
+}
+
 
 
 // Horizontal forms
@@ -513,7 +519,7 @@ input[type="checkbox"] {
 
   // Make form groups behave like rows
   .form-group {
-    @include make-row();
+    @include make-row;
   }
 
   // Reset spacing and right align labels, but scope to media queries so that

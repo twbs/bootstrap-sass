@@ -17,5 +17,5 @@
 
 // New mixin to use as of v3.0.1
 @mixin text-hide() {
-  @include hide-text();
+  @include hide-text;
 }
