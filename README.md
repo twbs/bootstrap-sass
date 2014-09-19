@@ -56,14 +56,24 @@ Require Bootstrap Javascripts in `app/assets/javascripts/application.js`:
 
 #### Bower with Rails
 
-When using [bootstrap-sass Bower package](#c-bower) in Rails, ensure [minimum Sass number precision](#sass-number-precision):
+When using [bootstrap-sass Bower package](#c-bower) instead of the gem in Rails, add Bootstrap asset paths:
 
 ```ruby
-# e.g. config/initializers/sass.rb
-::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
+# config/application.rb
+# bootstrap-sass asset paths
+root.join('vendor/assets/bower_components/bootstrap-sass/assets').tap do |path|
+  config.sass.load_paths << path.join('stylesheets')
+  config.assets.paths += %w(javascripts fonts images).map(&path.method(:join))
+end
 ```
 
-`bootstrap-sprockets` must be imported before `bootstrap` for the icon fonts to work.
+Then, ensure [minimum Sass number precision](#sass-number-precision):
+
+```ruby
+# config/initializers/sass.rb
+# Minimum precision required by bootstrap-sass
+::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
+```
 
 #### Rails 4.x
 
