@@ -1780,7 +1780,7 @@
         var parentDim    = this.getPosition($parent)
 
         placement = placement == 'bottom' && pos.top   + pos.height       + actualHeight - parentDim.scroll > parentDim.height ? 'top'    :
-                    placement == 'top'    && pos.top   - parentDim.scroll - actualHeight < 0                                   ? 'bottom' :
+                    placement == 'top'    && pos.top   - parentDim.scroll - actualHeight < parentDim.top                       ? 'bottom' :
                     placement == 'right'  && pos.right + actualWidth      > parentDim.width                                    ? 'left'   :
                     placement == 'left'   && pos.left  - actualWidth      < parentDim.left                                     ? 'right'  :
                     placement
@@ -1993,14 +1993,6 @@
 
   Tooltip.prototype.arrow = function () {
     return (this.$arrow = this.$arrow || this.tip().find('.tooltip-arrow'))
-  }
-
-  Tooltip.prototype.validate = function () {
-    if (!this.$element[0].parentNode) {
-      this.hide()
-      this.$element = null
-      this.options  = null
-    }
   }
 
   Tooltip.prototype.enable = function () {
