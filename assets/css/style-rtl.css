@@ -6097,14 +6097,14 @@ a.thumbnail.active {
 /* line 41, ../stylesheets/bootstrap/_alerts.scss */
 .alert-dismissable,
 .alert-dismissible {
-  padding-right: 35px;
+  padding-left: 35px;
 }
 /* line 45, ../stylesheets/bootstrap/_alerts.scss */
 .alert-dismissable .close,
 .alert-dismissible .close {
   position: relative;
   top: -2px;
-  right: -21px;
+  left: -21px;
   color: inherit;
 }
 
