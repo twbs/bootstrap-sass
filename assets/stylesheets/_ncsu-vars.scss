@@ -1,10 +1,18 @@
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+$gray-darker:            lighten(#000, 13.5%) !default; // #222
+$gray-dark:              lighten(#000, 20%) !default;   // #333
+$gray:                   lighten(#000, 33.5%) !default; // #555
 $gray-light:             lighten(#000, 60%) !default;   // #999
+$gray-lighter:           lighten(#000, 93.5%) !default; // #eee
 
 //** NC State brand colors.
 
 $brand-red:				#cc0000 !default;
 $brand-reynolds:        #990000 !default;
-$brand-orange:          #d15122 !default;
+$brand-orange:          #d14905 !default;
 $brand-yellow:         	#FDD726 !default;
 $brand-green:         	#7D8C1F;
 $brand-blue:         	#427E93;
@@ -18,7 +26,18 @@ $brand-info:            $brand-blue !default;
 $brand-warning:         $brand-orange !default;
 $brand-danger:          $brand-reynolds !default;
 
+//== Scaffolding
+//
+// ## Settings for some of the most global styles.
 
+//** Background color for `<body>`.
+$body-bg:               #fff !default;
+//** Global text color on `<body>`.
+$text-color:            $gray-dark !default;
+
+//** Global textual link color.
+$link-color:            $brand-primary !default;
+//** Link hover color set via `darken()` function.
 $link-hover-color:      darken($link-color, 10%) !default;
 
 // Typography additions
@@ -30,6 +49,9 @@ $glyph-icons:			  "ncsu-icons";
 $font-family-sans-serif:  $univers !default;
 $font-family-serif:       $glypha-roman !default;
 
+$font-size-base:          14px !default;
+$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
 
 $font-size-h1:            floor(($font-size-base * 3.75)) !default; // ~52px
 $font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
@@ -115,4 +137,93 @@ $state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 4%) !
 //** Padding applied to the modal body
 $modal-inner-padding:         20px !default;
 
+
+
+//** NCSU List Changes
+ol{
+  padding-left: 32px;
+}
+
+ul{
+  list-style: none;
+  padding-left: 1.3em;
+  line-height: 1.6em;
+
+  li {
+
+    &:before {
+      font-family: 'ncsu-icons';
+      content: "i";
+      speak: none;
+      color: $brand-primary;
+      padding-right: 0.3em;
+      margin-left: -1.3em;
+    }
+
+    li {
+      &:before {
+        color: #999;
+      }
+      li {
+        &:before {
+          content: none;
+        }
+        background: url("../img/gray-square.gif") no-repeat 1px 6px;
+      }
+    }
+  }
+}
+/*Advanced styling to nested ol/ul inside of an opposite list type */
+ul {
+  li{
+    ol {
+      li {
+        &:before {
+          content: none;
+        }
+      }
+      ul {
+        li {
+          &:before {
+            font-family: 'ncsu-icons';
+            content: "i";
+            speak: none;
+            color: #999;
+            padding-right: 0.3em;
+            margin-left: -1.3em;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.ncstate-padded-list {
+  li {
+    margin: 10px 0px;
+  }
+}
+
+//** NCSU Font Changes
 @import url('https://cdn.ncsu.edu/brand-assets/fonts/include.css');
+
+//** NCSU Glyphicons
+
+//-- Iconography
+//
+//## Specify custom locations of the include Glyphicons icon font. Useful for those including Bootstrap via Bower.
+
+$icon-font-path:          "https://cdn.ncsu.edu/brand-assets/icons/" !default;
+$icon-font-name:          "ncsu-icons" !default;
+$icon-font-svg-id:        "ncsu-icons" !default;
+
+@font-face {
+  font-family: 'ncsu-icons';
+  src: url('#{$icon-font-path}#{$icon-font-name}.eot');
+  src: url('#{$icon-font-path}#{$icon-font-name}.eot?#iefix') format('embedded-opentype'),
+  url('#{$icon-font-path}#{$icon-font-name}.woff') format('woff'),
+  url('#{$icon-font-path}#{$icon-font-name}.ttf') format('truetype'),
+  url('#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}') format('svg');
+}
+

@@ -16,3 +16,4 @@ test/screenshots/
 test/dummy_rails/log/*.log
 
 .DS_Store
+.idea/
