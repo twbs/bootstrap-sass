@@ -1,0 +1,229 @@
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+$gray-darker:            lighten(#000, 13.5%) !default; // #222
+$gray-dark:              lighten(#000, 20%) !default;   // #333
+$gray:                   lighten(#000, 33.5%) !default; // #555
+$gray-light:             lighten(#000, 60%) !default;   // #999
+$gray-lighter:           lighten(#000, 93.5%) !default; // #eee
+
+//** NC State brand colors.
+
+$brand-red:				#cc0000 !default;
+$brand-reynolds:        #990000 !default;
+$brand-orange:          #d14905 !default;
+$brand-yellow:         	#FDD726 !default;
+$brand-green:         	#7D8C1F;
+$brand-blue:         	#427E93;
+$brand-indigo:          #4156a1;
+
+//** Bootstrap colors.
+
+$brand-primary:         $brand-red !default;
+$brand-success:         $brand-green !default;
+$brand-info:            $brand-blue !default;
+$brand-warning:         $brand-orange !default;
+$brand-danger:          $brand-reynolds !default;
+
+//== Scaffolding
+//
+// ## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+$body-bg:               #fff !default;
+//** Global text color on `<body>`.
+$text-color:            $gray-dark !default;
+
+//** Global textual link color.
+$link-color:            $brand-primary !default;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      darken($link-color, 10%) !default;
+
+// Typography additions
+$univers: 		  		  "UniversRoman", Arial, sans-serif;
+$univers-condensed: 	  "UniversCondensed", Arial, sans-serif;
+$glypha-roman:			  "Glypha LT W01 55 Roman", Georgia, serif;
+$glyph-icons:			  "ncsu-icons";
+
+$font-family-sans-serif:  $univers !default;
+$font-family-serif:       $glypha-roman !default;
+
+$font-size-base:          14px !default;
+$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+
+$font-size-h1:            floor(($font-size-base * 3.75)) !default; // ~52px
+$font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
+$font-size-h3:            ceil(($font-size-base * 1.5)) !default; // ~21px
+$font-size-h4:            ceil(($font-size-base * 1.375)) !default; // ~20px
+$font-size-h5:            $font-size-base !default;
+$font-size-h6:            $font-size-base !default;
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base:        1.6 !default; // 20/14
+
+$headings-line-height:    1.3 !default;
+
+// Square off border radius
+$border-radius-base:        1px !default;
+$border-radius-large:       1px !default;
+$border-radius-small:       1px !default;
+
+
+//Table tweaks
+$table-bg-accent:               #eeeeee !default;
+$table-border-color:            #eee !default;
+
+// NC State Button variables
+
+$btn-red-color:               #fff;
+$btn-red-bg:                  $brand-red;
+$btn-red-active:      	  	  darken($brand-red, 10%);
+$btn-red-disabled:    	      lighten($brand-red, 20%);
+
+$btn-reynolds-color:          #fff;
+$btn-reynolds-bg:             $brand-reynolds;
+$btn-reynolds-active:         darken($brand-reynolds, 10%);
+$btn-reynolds-disabled:       lighten($brand-reynolds, 20%);
+
+$btn-orange-color:            #fff;
+$btn-orange-bg:               $brand-orange;
+$btn-orange-disabled:         lighten($brand-orange, 20%);
+
+$btn-yellow-color:            #000;
+$btn-yellow-bg:               $brand-yellow;
+$btn-yellow-active:           darken($brand-yellow, 20%);
+$btn-yellow-disabled:         lighten($brand-yellow, 20%);
+
+$btn-green-color:             #fff;
+$btn-green-bg:                $brand-green;
+$btn-green-active:            darken($brand-green, 10%);
+$btn-green-disabled:          lighten($brand-green, 20%);
+
+$btn-blue-color:              #fff;
+$btn-blue-bg:                 $brand-blue;
+$btn-blue-active:             darken($brand-blue, 10%);
+$btn-blue-disabled:           lighten($brand-blue, 20%);
+
+$btn-indigo-color:            #fff;
+$btn-indigo-bg:               $brand-indigo;
+$btn-indigo-active:           darken($brand-indigo, 10%);
+$btn-indigo-disabled:         lighten($brand-indigo, 20%);
+
+//Navbar Tweaks
+
+
+//== Form states and alerts
+//
+//## Define colors for form feedback states and, by default, alerts.
+
+$state-success-text:             darken($brand-green, 20%) !default;
+$state-success-bg:               lighten($brand-green, 30%) !default;
+$state-success-border:           darken(adjust-hue($state-success-bg, -10), 8%) !default;
+
+$state-info-text:                darken($brand-blue, 20%) !default;
+$state-info-bg:                  lighten($brand-blue, 30%) !default;
+$state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
+
+$state-warning-text:             darken($brand-orange, 20%) !default;
+$state-warning-bg:               lighten($brand-orange, 30%) !default;
+$state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 1%) !default;
+
+$state-danger-text:              darken($brand-reynolds, 20%) !default;
+$state-danger-bg:                lighten($brand-reynolds, 30%) !default;
+$state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 4%) !default;
+
+//** Padding applied to the modal body
+$modal-inner-padding:         20px !default;
+
+
+
+//** NCSU List Changes
+ol{
+  padding-left: 32px;
+}
+
+ul{
+  list-style: none;
+  padding-left: 1.3em;
+  line-height: 1.6em;
+
+  li {
+
+    &:before {
+      font-family: 'ncsu-icons';
+      content: "i";
+      speak: none;
+      color: $brand-primary;
+      padding-right: 0.3em;
+      margin-left: -1.3em;
+    }
+
+    li {
+      &:before {
+        color: #999;
+      }
+      li {
+        &:before {
+          content: none;
+        }
+        background: url("../img/gray-square.gif") no-repeat 1px 6px;
+      }
+    }
+  }
+}
+/*Advanced styling to nested ol/ul inside of an opposite list type */
+ul {
+  li{
+    ol {
+      li {
+        &:before {
+          content: none;
+        }
+      }
+      ul {
+        li {
+          &:before {
+            font-family: 'ncsu-icons';
+            content: "i";
+            speak: none;
+            color: #999;
+            padding-right: 0.3em;
+            margin-left: -1.3em;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.ncstate-padded-list {
+  li {
+    margin: 10px 0px;
+  }
+}
+
+//** NCSU Font Changes
+@import url('https://cdn.ncsu.edu/brand-assets/fonts/include.css');
+
+//** NCSU Glyphicons
+
+//-- Iconography
+//
+//## Specify custom locations of the include Glyphicons icon font. Useful for those including Bootstrap via Bower.
+
+$icon-font-path:          "https://cdn.ncsu.edu/brand-assets/icons/" !default;
+$icon-font-name:          "ncsu-icons" !default;
+$icon-font-svg-id:        "ncsu-icons" !default;
+
+@font-face {
+  font-family: 'ncsu-icons';
+  src: url('#{$icon-font-path}#{$icon-font-name}.eot');
+  src: url('#{$icon-font-path}#{$icon-font-name}.eot?#iefix') format('embedded-opentype'),
+  url('#{$icon-font-path}#{$icon-font-name}.woff') format('woff'),
+  url('#{$icon-font-path}#{$icon-font-name}.ttf') format('truetype'),
+  url('#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}') format('svg');
+}
+
