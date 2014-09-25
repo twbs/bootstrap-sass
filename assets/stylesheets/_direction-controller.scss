@@ -1,0 +1,58 @@
+//
+// Direction Controller Functions
+// Github: https://github.com/parhumm/Sass-Direction-Controller/
+//
+
+// Choose Your Site Language Direction: ltr or rtl?
+$text-direction: ltr 	!default;
+
+$start: left;
+$end: right;
+
+// Mixin and Functions
+@if $text-direction != ltr {
+	$start: right;
+	$end: left;
+}
+
+// dir-check function check if direction equal ltr return first parametr, else return secound parameter
+@function dir-check($a, $b) {
+	@if $text-direction == ltr {
+		@return $a;
+	} @else {
+		@return $b;
+	}
+}
+
+// dir-values Reorder right and left positions in padding/margin values list
+@function dir-values($values) {
+	@if $text-direction == rtl and length($values) == 4 {
+		@return nth($values, 1) nth($values, 4) nth($values, 3) nth($values, 2);
+	}
+	@else {
+		@return $values;
+	}
+}
+
+// br-values Reorder right and left positions in border-radius values list
+@function br-values($values) {
+	@if $text-direction == rtl and length($values) == 4 {
+		@return nth($values, 2) nth($values, 1) nth($values, 4) nth($values, 3);
+	}
+	@else {
+		@return $values;
+	}
+}
+
+// These Mixins check your direction and display @content
+@mixin if-ltr { 
+	@if $text-direction == ltr {
+		@content;
+	}
+}
+
+@mixin if-rtl {
+	@if $text-direction != ltr {
+		@content;
+	}
+}
