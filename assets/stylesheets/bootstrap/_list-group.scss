@@ -10,7 +10,7 @@
 .list-group {
   // No need to set list-style: none; since .list-group-item is block level
   margin-bottom: 20px;
-  padding-left: 0; // reset padding because ul and ol
+  padding-#{$start}: 0; // reset padding because ul and ol
 }
 
 
@@ -38,10 +38,10 @@
 
   // Align badges within list items
   > .badge {
-    float: right;
+    float: $end;
   }
   > .badge + .badge {
-    margin-right: 5px;
+    margin-#{$end}: 5px;
   }
 }
 
