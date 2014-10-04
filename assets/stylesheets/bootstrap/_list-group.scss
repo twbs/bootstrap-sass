@@ -38,10 +38,10 @@
 
   // Align badges within list items
   > .badge {
-    float: #{$end};
+    float: right;
   }
   > .badge + .badge {
-    margin-#{$end}: 5px;
+    margin-right: 5px;
   }
 }
 

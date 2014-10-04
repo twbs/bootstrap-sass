@@ -49,7 +49,7 @@
 
 .navbar-collapse {
   overflow-x: visible;
-  padding-#{$end}: $navbar-padding-horizontal;
+  padding-right: $navbar-padding-horizontal;
   padding-left:  $navbar-padding-horizontal;
   border-top: 1px solid transparent;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
@@ -82,7 +82,7 @@
     .navbar-static-top &,
     .navbar-fixed-bottom & {
       padding-left: 0;
-      padding-#{$end}: 0;
+      padding-right: 0;
     }
   }
 }
@@ -107,11 +107,11 @@
 .container-fluid {
   > .navbar-header,
   > .navbar-collapse {
-    margin-#{$end}: -$navbar-padding-horizontal;
+    margin-right: -$navbar-padding-horizontal;
     margin-left:  -$navbar-padding-horizontal;
 
     @media (min-width: $grid-float-breakpoint) {
-      margin-#{$end}: 0;
+      margin-right: 0;
       margin-left:  0;
     }
   }
@@ -138,7 +138,7 @@
 .navbar-fixed-top,
 .navbar-fixed-bottom {
   position: fixed;
-  #{$end}: 0;
+  right: 0;
   left: 0;
   z-index: $zindex-navbar-fixed;
   @include translate3d(0, 0, 0);
@@ -189,8 +189,8 @@
 
 .navbar-toggle {
   position: relative;
-  float: #{$end};
-  margin-#{$end}: $navbar-padding-horizontal;
+  float: right;
+  margin-right: $navbar-padding-horizontal;
   padding: 9px 10px;
   @include navbar-vertical-align(34px);
   background-color: transparent;
@@ -272,8 +272,8 @@
       }
     }
 
-    &.navbar-#{$end}:last-child {
-      margin-#{$end}: -$navbar-padding-horizontal;
+    &.navbar-right:last-child {
+      margin-right: -$navbar-padding-horizontal;
     }
   }
 }
@@ -289,8 +289,8 @@
   .navbar-left {
     float: left !important;
   }
-  .navbar-#{$end} {
-    float: #{$end} !important;
+  .navbar-right {
+    float: right !important;
   }
 }
 
@@ -302,7 +302,7 @@
 
 .navbar-form {
   margin-left: -$navbar-padding-horizontal;
-  margin-#{$end}: -$navbar-padding-horizontal;
+  margin-right: -$navbar-padding-horizontal;
   padding: 10px $navbar-padding-horizontal;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
@@ -326,14 +326,14 @@
     width: auto;
     border: 0;
     margin-left: 0;
-    margin-#{$end}: 0;
+    margin-right: 0;
     padding-top: 0;
     padding-bottom: 0;
     @include box-shadow(none);
 
     // Outdent the form if last child to line up with content down the page
-    &.navbar-#{$end}:last-child {
-      margin-#{$end}: -$navbar-padding-horizontal;
+    &.navbar-right:last-child {
+      margin-right: -$navbar-padding-horizontal;
     }
   }
 }
@@ -378,11 +378,11 @@
   @media (min-width: $grid-float-breakpoint) {
     float: left;
     margin-left: $navbar-padding-horizontal;
-    margin-#{$end}: $navbar-padding-horizontal;
+    margin-right: $navbar-padding-horizontal;
 
     // Outdent the form if last child to line up with content down the page
-    &.navbar-#{$end}:last-child {
-      margin-#{$end}: 0;
+    &.navbar-right:last-child {
+      margin-right: 0;
     }
   }
 }

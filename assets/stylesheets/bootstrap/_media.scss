@@ -38,9 +38,9 @@
 
 .media {
   > .pull-left {
-    margin-#{$end}: 10px;
+    margin-right: 10px;
   }
-  > .pull-#{$end} {
+  > .pull-right {
     margin-left: 10px;
   }
 }
