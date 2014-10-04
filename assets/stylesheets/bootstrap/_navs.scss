@@ -82,7 +82,7 @@
 
     // Actual tabs (as links)
     > a {
-      margin-right: 2px;
+      margin-#{$end}: 2px;
       line-height: $line-height-base;
       border: 1px solid transparent;
       border-radius: $border-radius-base $border-radius-base 0 0;
@@ -192,7 +192,7 @@
 
   > li > a {
     // Override margin from .nav-tabs
-    margin-right: 0;
+    margin-#{$end}: 0;
     border-radius: $border-radius-base;
   }
 

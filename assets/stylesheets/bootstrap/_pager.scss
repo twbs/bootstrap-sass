@@ -30,7 +30,7 @@
   .next {
     > a,
     > span {
-      float: right;
+      float: #{$end};
     }
   }
 

@@ -18,7 +18,7 @@
   overflow: hidden;
   position: fixed;
   top: 0;
-  right: 0;
+  #{$end}: 0;
   bottom: 0;
   left: 0;
   z-index: $zindex-modal;
@@ -64,7 +64,7 @@
 .modal-backdrop {
   position: fixed;
   top: 0;
-  right: 0;
+  #{$end}: 0;
   bottom: 0;
   left: 0;
   z-index: $zindex-modal-background;
@@ -102,7 +102,7 @@
 // Footer (for actions)
 .modal-footer {
   padding: $modal-inner-padding;
-  text-align: right; // right align buttons
+  text-align: #{$end}; // right align buttons
   border-top: 1px solid $modal-footer-border-color;
   @include clearfix(); // clear it in case folks use .pull-* classes on buttons
 
