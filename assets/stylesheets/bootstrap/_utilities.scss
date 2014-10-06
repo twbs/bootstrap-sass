@@ -13,10 +13,10 @@
   @include center-block();
 }
 .pull-right {
-  float: #{$start} !important;
+  float: right !important;
 }
 .pull-left {
-  float: #{$end} !important;
+  float: left !important;
 }
 
 
