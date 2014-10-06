@@ -42,53 +42,53 @@
 .tooltip {
   &.top .tooltip-arrow {
     bottom: 0;
-    #{$end}: 50%;
-    margin-#{$end}: -$tooltip-arrow-width;
+    left: 50%;
+    margin-left: -$tooltip-arrow-width;
     border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
     border-top-color: $tooltip-arrow-color;
   }
   &.top-left .tooltip-arrow {
     bottom: 0;
-    #{$end}: $tooltip-arrow-width;
+    left: $tooltip-arrow-width;
     border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
     border-top-color: $tooltip-arrow-color;
   }
   &.top-right .tooltip-arrow {
     bottom: 0;
-    #{$start}: $tooltip-arrow-width;
+    right: $tooltip-arrow-width;
     border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
     border-top-color: $tooltip-arrow-color;
   }
   &.right .tooltip-arrow {
     top: 50%;
-    #{$end}: 0;
+    left: 0;
     margin-top: -$tooltip-arrow-width;
     border-width: $tooltip-arrow-width $tooltip-arrow-width $tooltip-arrow-width 0;
-    border-#{$start}-color: $tooltip-arrow-color;
+    border-right-color: $tooltip-arrow-color;
   }
   &.left .tooltip-arrow {
     top: 50%;
-    #{$start}: 0;
+    right: 0;
     margin-top: -$tooltip-arrow-width;
     border-width: $tooltip-arrow-width 0 $tooltip-arrow-width $tooltip-arrow-width;
-    border-#{$end}-color: $tooltip-arrow-color;
+    border-left-color: $tooltip-arrow-color;
   }
   &.bottom .tooltip-arrow {
     top: 0;
     left: 50%;
-    margin-#{$end}: -$tooltip-arrow-width;
+    margin-left: -$tooltip-arrow-width;
     border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
     border-bottom-color: $tooltip-arrow-color;
   }
   &.bottom-left .tooltip-arrow {
     top: 0;
-    #{$end}: $tooltip-arrow-width;
+    left: $tooltip-arrow-width;
     border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
     border-bottom-color: $tooltip-arrow-color;
   }
   &.bottom-right .tooltip-arrow {
     top: 0;
-    #{$start}: $tooltip-arrow-width;
+    right: $tooltip-arrow-width;
     border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
     border-bottom-color: $tooltip-arrow-color;
   }
