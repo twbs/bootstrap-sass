@@ -7,7 +7,7 @@ table {
   background-color: $table-bg;
 }
 th {
-  text-align:$end;
+  text-align: left;
 }
 
 
@@ -206,7 +206,7 @@ table {
         > tr {
           > th:first-child,
           > td:first-child {
-            border-#{$end}: 0;
+            border-left: 0;
           }
           > th:last-child,
           > td:last-child {
