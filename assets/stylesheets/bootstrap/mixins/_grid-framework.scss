@@ -13,8 +13,8 @@
     // Prevent columns from collapsing when empty
     min-height: 1px;
     // Inner gutter via padding
-    padding-left:  ($grid-gutter-width / 2);
-    padding-right: ($grid-gutter-width / 2);
+    padding-#{$start}:  ($grid-gutter-width / 2);
+      padding-#{$end}: ($grid-gutter-width / 2);
   }
 }
 
@@ -25,7 +25,7 @@
     $list: "#{$list}, .col-#{$class}-#{$i}";
   }
   #{$list} {
-    float: left;
+      float: $start;
   }
 }
 
@@ -38,27 +38,27 @@
   }
   @if ($type == push) and ($index > 0) {
     .col-#{$class}-push-#{$index} {
-      left: percentage(($index / $grid-columns));
+        #{$start}: percentage(($index / $grid-columns));
     }
   }
   @if ($type == push) and ($index == 0) {
     .col-#{$class}-push-0 {
-      left: auto;
+        #{$start}: auto;
     }
   }
   @if ($type == pull) and ($index > 0) {
     .col-#{$class}-pull-#{$index} {
-      right: percentage(($index / $grid-columns));
+        #{$end}: percentage(($index / $grid-columns));
     }
   }
   @if ($type == pull) and ($index == 0) {
     .col-#{$class}-pull-0 {
-      right: auto;
+        #{$end}: auto;
     }
   }
   @if ($type == offset) {
     .col-#{$class}-offset-#{$index} {
-      margin-left: percentage(($index / $grid-columns));
+        margin-#{$start}: percentage(($index / $grid-columns));
     }
   }
 }
