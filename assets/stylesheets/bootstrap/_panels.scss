@@ -111,11 +111,11 @@
       > tr:first-child {
         td:first-child,
         th:first-child {
-          border-top-left-radius: ($panel-border-radius - 1);
+            border-top-#{$start}-radius: ($panel-border-radius - 1);
         }
         td:last-child,
         th:last-child {
-          border-top-right-radius: ($panel-border-radius - 1);
+            border-top-#{$end}-radius: ($panel-border-radius - 1);
         }
       }
     }
@@ -130,11 +130,11 @@
       > tr:last-child {
         td:first-child,
         th:first-child {
-          border-bottom-left-radius: ($panel-border-radius - 1);
+          border-bottom-#{$start}-radius: ($panel-border-radius - 1);
         }
         td:last-child,
         th:last-child {
-          border-bottom-right-radius: ($panel-border-radius - 1);
+          border-bottom-#{$end}-radius: ($panel-border-radius - 1);
         }
       }
     }
@@ -156,11 +156,11 @@
       > tr {
         > th:first-child,
         > td:first-child {
-          border-left: 0;
+          border-#{$start}: 0;
         }
         > th:last-child,
         > td:last-child {
-          border-right: 0;
+          border-#{$end}: 0;
         }
       }
     }
