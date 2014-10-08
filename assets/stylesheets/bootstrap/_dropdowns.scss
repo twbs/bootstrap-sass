@@ -11,8 +11,8 @@
   margin-#{$start}: 2px;
   vertical-align: middle;
   border-top:   $caret-width-base solid;
-    border- #{$end}: $caret-width-base solid transparent;
-    border-#{$start}:  $caret-width-base solid transparent;
+  border-#{$end}: $caret-width-base solid transparent;
+  border-#{$start}:  $caret-width-base solid transparent;
 }
 
 // The dropdown wrapper (div)
@@ -51,7 +51,7 @@
   // Deprecated as of 3.1.0 in favor of `.dropdown-menu-[dir]`
   &.pull-right {
     #{$end}: 0;
-      #{$start}: auto;
+    #{$start}: auto;
   }
 
   // Dividers (basically an hr) within the dropdown
