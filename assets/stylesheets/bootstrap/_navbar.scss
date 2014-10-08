@@ -247,7 +247,7 @@
       box-shadow: none;
       > li > a,
       .dropdown-header {
-        padding: 5px 15px 5px 25px;
+        padding: dir-values(5px 15px 5px 25px);
       }
       > li > a {
         line-height: $line-height-computed;
