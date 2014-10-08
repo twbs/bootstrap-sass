@@ -85,7 +85,7 @@
       margin-#{$end}: 2px;
       line-height: $line-height-base;
       border: 1px solid transparent;
-      border-radius: $border-radius-base $border-radius-base 0 0;
+      border-radius: br-values($border-radius-base $border-radius-base 0 0);
       &:hover {
         border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
       }
@@ -205,7 +205,7 @@
   @media (min-width: $screen-sm-min) {
     > li > a {
       border-bottom: 1px solid $nav-tabs-justified-link-border-color;
-      border-radius: $border-radius-base $border-radius-base 0 0;
+      border-radius: br-values($border-radius-base $border-radius-base 0 0);
     }
     > .active > a,
     > .active > a:hover,
