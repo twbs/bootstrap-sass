@@ -1,18 +1,29 @@
-//
-// Direction Controller Functions
-// Github: https://github.com/parhumm/Sass-Direction-Controller/
-//
+// Name: Direction Controller Functions
+// URI: https://github.com/parhumm/Sass-Direction-Controller/
+// Description: An approach to write a css code for once and create tow version of it RTL or LTR just with change one variable value
+// Version: 1.0.0
+// Author: Parhum Khoshbakht
+// Author URI: https://github.com/parhumm/
+// License: The MIT License (MIT)
+// License URI: https://github.com/parhumm/Sass-Direction-Controller/blob/master/LICENSE
 
-// Choose Your Site Language Direction: ltr or rtl?
-$text-direction: ltr 	!default;
 
-$start: left;
-$end: right;
+// Choose Your Site Language Direction: LTR or RTL.
+// Default is LTR
+$text-direction:		ltr		!default;
+
+// Write your base sass for RTL or LTR.
+// Default is for LTR
+$default-float:			left	!default;
+$opposite-direction:	right	!default;
+
+$start: $default-float;
+$end: $opposite-direction;
 
 // Mixin and Functions
 @if $text-direction != ltr {
-	$start: right;
-	$end: left;
+	$start: $opposite-direction;
+	$end: $default-float;
 }
 
 // dir-check function check if direction equal ltr return first parametr, else return secound parameter
@@ -24,7 +35,7 @@ $end: right;
 	}
 }
 
-// dir-values Reorder right and left positions in padding/margin values list
+// dir-values Reorder $opposite-direction and $default-float positions in padding/margin values list
 @function dir-values($values) {
 	@if $text-direction == rtl and length($values) == 4 {
 		@return nth($values, 1) nth($values, 4) nth($values, 3) nth($values, 2);
@@ -34,7 +45,7 @@ $end: right;
 	}
 }
 
-// br-values Reorder right and left positions in border-radius values list
+// br-values Reorder $opposite-direction and $default-float positions in border-radius values list
 @function br-values($values) {
 	@if $text-direction == rtl and length($values) == 4 {
 		@return nth($values, 2) nth($values, 1) nth($values, 4) nth($values, 3);
