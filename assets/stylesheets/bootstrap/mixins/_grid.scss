@@ -5,7 +5,7 @@
 // Centered container element
 @mixin container-fixed($gutter: $grid-gutter-width) {
     margin-#{$end}: auto;
-  margin-#{$start}: auto;
+    margin-#{$start}: auto;
     padding-#{$start}:  ($gutter / 2);
     padding-#{$end}: ($gutter / 2);
   @include clearfix();
@@ -20,10 +20,10 @@
 
 // Generate the extra small columns
 @mixin make-xs-column($columns, $gutter: $grid-gutter-width) {
-  position: relative;
+    position: relative;
     float: $start;
-  width: percentage(($columns / $grid-columns));
-  min-height: 1px;
+    width: percentage(($columns / $grid-columns));
+    min-height: 1px;
     padding-#{$start}:  ($gutter / 2);
     padding-#{$end}: ($gutter / 2);
 }
@@ -98,7 +98,7 @@
   position: relative;
   min-height: 1px;
     padding-#{$start}:  ($gutter / 2);
-    padding- #{$end}: ($gutter / 2);
+    padding-#{$end}: ($gutter / 2);
 
   @media (min-width: $screen-lg-min) {
       float: $start;
