@@ -51,7 +51,7 @@ input[type="search"] {
 // Position radios and checkboxes better
 input[type="radio"],
 input[type="checkbox"] {
-  margin: 4px 0 0;
+  margin: dir-values(4px 0 0);
   margin-top: 1px \9; // IE8-9
   line-height: normal;
 }
@@ -226,7 +226,7 @@ input[type="month"] {
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
   position: absolute;
-    margin-#{$start}: -20px;
+  margin-#{$start}: -20px;
   margin-top: 4px \9;
 }
 
@@ -239,7 +239,7 @@ input[type="month"] {
 .radio-inline,
 .checkbox-inline {
   display: inline-block;
-    padding-#{$start}: 20px;
+  padding-#{$start}: 20px;
   margin-bottom: 0;
   vertical-align: middle;
   font-weight: normal;
@@ -248,7 +248,7 @@ input[type="month"] {
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
   margin-top: 0;
-    margin-#{$start}: 10px; // space out consecutive inline controls
+  margin-#{$start}: 10px; // space out consecutive inline controls
 }
 
 // Apply same disabled cursor tweak as for inputs
@@ -330,7 +330,7 @@ input[type="checkbox"] {
 .form-control-feedback {
   position: absolute;
   top: ($line-height-computed + 5); // Height of the `label` and its margin
-    #{$end}: 0;
+  #{$end}: 0;
   z-index: 2; // Ensure icon is above input groups
   display: block;
   width: $input-height-base;
