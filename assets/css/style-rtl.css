@@ -669,7 +669,7 @@ th {
 }
 
 /* line 95, ../stylesheets/bootstrap/_glyphicons.scss */
-.glyphicon-align-left:before {
+.glyphicon-align-right:before {
   content: "\e052";
 }
 
@@ -679,7 +679,7 @@ th {
 }
 
 /* line 97, ../stylesheets/bootstrap/_glyphicons.scss */
-.glyphicon-align-right:before {
+.glyphicon-align-left:before {
   content: "\e054";
 }
 
@@ -694,12 +694,12 @@ th {
 }
 
 /* line 100, ../stylesheets/bootstrap/_glyphicons.scss */
-.glyphicon-indent-left:before {
+.glyphicon-indent-right:before {
   content: "\e057";
 }
 
 /* line 101, ../stylesheets/bootstrap/_glyphicons.scss */
-.glyphicon-indent-right:before {
+.glyphicon-indent-left:before {
   content: "\e058";
 }
 
@@ -799,12 +799,12 @@ th {
 }
 
 /* line 121, ../stylesheets/bootstrap/_glyphicons.scss */
-.glyphicon-chevron-left:before {
+.glyphicon-chevron-right:before {
   content: "\e079";
 }
 
 /* line 122, ../stylesheets/bootstrap/_glyphicons.scss */
-.glyphicon-chevron-right:before {
+.glyphicon-chevron-left:before {
   content: "\e080";
 }
 
@@ -859,12 +859,12 @@ th {
 }
 
 /* line 133, ../stylesheets/bootstrap/_glyphicons.scss */
-.glyphicon-arrow-left:before {
+.glyphicon-arrow-right:before {
   content: "\e091";
 }
 
 /* line 134, ../stylesheets/bootstrap/_glyphicons.scss */
-.glyphicon-arrow-right:before {
+.glyphicon-arrow-left:before {
   content: "\e092";
 }
 
@@ -1024,12 +1024,12 @@ th {
 }
 
 /* line 166, ../stylesheets/bootstrap/_glyphicons.scss */
-.glyphicon-hand-right:before {
+.glyphicon-hand-left:before {
   content: "\e127";
 }
 
 /* line 167, ../stylesheets/bootstrap/_glyphicons.scss */
-.glyphicon-hand-left:before {
+.glyphicon-hand-right:before {
   content: "\e128";
 }
 
@@ -1044,12 +1044,12 @@ th {
 }
 
 /* line 170, ../stylesheets/bootstrap/_glyphicons.scss */
-.glyphicon-circle-arrow-right:before {
+.glyphicon-circle-arrow-left:before {
   content: "\e131";
 }
 
 /* line 171, ../stylesheets/bootstrap/_glyphicons.scss */
-.glyphicon-circle-arrow-left:before {
+.glyphicon-circle-arrow-right:before {
   content: "\e132";
 }
 
@@ -1651,12 +1651,12 @@ mark,
 
 /* line 95, ../stylesheets/bootstrap/_type.scss */
 .text-left {
-  text-align: left;
+  text-align: right;
 }
 
 /* line 96, ../stylesheets/bootstrap/_type.scss */
 .text-right {
-  text-align: right;
+  text-align: left;
 }
 
 /* line 97, ../stylesheets/bootstrap/_type.scss */
@@ -1822,19 +1822,19 @@ ol ol {
 
 /* line 167, ../stylesheets/bootstrap/_type.scss */
 .list-unstyled, .list-inline {
-  padding-left: 0;
+  padding-right: 0;
   list-style: none;
 }
 
 /* line 173, ../stylesheets/bootstrap/_type.scss */
 .list-inline {
-  margin-left: -5px;
+  margin-right: -5px;
 }
 /* line 177, ../stylesheets/bootstrap/_type.scss */
 .list-inline > li {
   display: inline-block;
-  padding-left: 5px;
   padding-right: 5px;
+  padding-left: 5px;
 }
 
 /* line 185, ../stylesheets/bootstrap/_type.scss */
@@ -1856,7 +1856,7 @@ dt {
 
 /* line 196, ../stylesheets/bootstrap/_type.scss */
 dd {
-  margin-left: 0;
+  margin-right: 0;
 }
 
 /* line 15, ../stylesheets/bootstrap/mixins/_clearfix.scss */
@@ -1871,17 +1871,17 @@ dd {
 @media (min-width: 768px) {
   /* line 211, ../stylesheets/bootstrap/_type.scss */
   .dl-horizontal dt {
-    float: left;
+    float: right;
     width: 160px;
-    clear: left;
-    text-align: right;
+    clear: right;
+    text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
   /* line 218, ../stylesheets/bootstrap/_type.scss */
   .dl-horizontal dd {
-    margin-left: 180px;
+    margin-right: 180px;
   }
 }
 
@@ -1903,7 +1903,7 @@ blockquote {
   padding: 10px 20px;
   margin: 0 0 20px;
   font-size: 17.5px;
-  border-left: 5px solid #eeeeee;
+  border-right: 5px solid #eeeeee;
 }
 /* line 250, ../stylesheets/bootstrap/_type.scss */
 blockquote p:last-child,
@@ -1930,11 +1930,11 @@ blockquote .small:before {
 /* line 275, ../stylesheets/bootstrap/_type.scss */
 .blockquote-reverse,
 blockquote.pull-right {
-  padding-right: 15px;
-  padding-left: 0;
-  border-right: 5px solid #eeeeee;
-  border-left: 0;
-  text-align: right;
+  padding-left: 15px;
+  padding-right: 0;
+  border-left: 5px solid #eeeeee;
+  border-right: 0;
+  text-align: left;
 }
 /* line 286, ../stylesheets/bootstrap/_type.scss */
 .blockquote-reverse footer:before,
@@ -2033,10 +2033,10 @@ pre code {
 
 /* line 10, ../stylesheets/bootstrap/_grid.scss */
 .container {
-  margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
+  margin-right: auto;
   padding-right: 15px;
+  padding-left: 15px;
 }
 /* line 15, ../stylesheets/bootstrap/mixins/_clearfix.scss */
 .container:before, .container:after {
@@ -2068,10 +2068,10 @@ pre code {
 
 /* line 30, ../stylesheets/bootstrap/_grid.scss */
 .container-fluid {
-  margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
+  margin-right: auto;
   padding-right: 15px;
+  padding-left: 15px;
 }
 /* line 15, ../stylesheets/bootstrap/mixins/_clearfix.scss */
 .container-fluid:before, .container-fluid:after {
@@ -2085,8 +2085,8 @@ pre code {
 
 /* line 39, ../stylesheets/bootstrap/_grid.scss */
 .row {
-  margin-left: -15px;
   margin-right: -15px;
+  margin-left: -15px;
 }
 /* line 15, ../stylesheets/bootstrap/mixins/_clearfix.scss */
 .row:before, .row:after {
@@ -2102,13 +2102,13 @@ pre code {
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
-  padding-left: 15px;
   padding-right: 15px;
+  padding-left: 15px;
 }
 
 /* line 27, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
-  float: left;
+  float: right;
 }
 
 /* line 35, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
@@ -2173,203 +2173,203 @@ pre code {
 
 /* line 55, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-pull-0 {
-  right: auto;
+  left: auto;
 }
 
 /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-pull-1 {
-  right: 8.33333%;
+  left: 8.33333%;
 }
 
 /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-pull-2 {
-  right: 16.66667%;
+  left: 16.66667%;
 }
 
 /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-pull-3 {
-  right: 25%;
+  left: 25%;
 }
 
 /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-pull-4 {
-  right: 33.33333%;
+  left: 33.33333%;
 }
 
 /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-pull-5 {
-  right: 41.66667%;
+  left: 41.66667%;
 }
 
 /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-pull-6 {
-  right: 50%;
+  left: 50%;
 }
 
 /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-pull-7 {
-  right: 58.33333%;
+  left: 58.33333%;
 }
 
 /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-pull-8 {
-  right: 66.66667%;
+  left: 66.66667%;
 }
 
 /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-pull-9 {
-  right: 75%;
+  left: 75%;
 }
 
 /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-pull-10 {
-  right: 83.33333%;
+  left: 83.33333%;
 }
 
 /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-pull-11 {
-  right: 91.66667%;
+  left: 91.66667%;
 }
 
 /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-pull-12 {
-  right: 100%;
+  left: 100%;
 }
 
 /* line 45, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-push-0 {
-  left: auto;
+  right: auto;
 }
 
 /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-push-1 {
-  left: 8.33333%;
+  right: 8.33333%;
 }
 
 /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-push-2 {
-  left: 16.66667%;
+  right: 16.66667%;
 }
 
 /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-push-3 {
-  left: 25%;
+  right: 25%;
 }
 
 /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-push-4 {
-  left: 33.33333%;
+  right: 33.33333%;
 }
 
 /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-push-5 {
-  left: 41.66667%;
+  right: 41.66667%;
 }
 
 /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-push-6 {
-  left: 50%;
+  right: 50%;
 }
 
 /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-push-7 {
-  left: 58.33333%;
+  right: 58.33333%;
 }
 
 /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-push-8 {
-  left: 66.66667%;
+  right: 66.66667%;
 }
 
 /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-push-9 {
-  left: 75%;
+  right: 75%;
 }
 
 /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-push-10 {
-  left: 83.33333%;
+  right: 83.33333%;
 }
 
 /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-push-11 {
-  left: 91.66667%;
+  right: 91.66667%;
 }
 
 /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-push-12 {
-  left: 100%;
+  right: 100%;
 }
 
 /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-offset-0 {
-  margin-left: 0%;
+  margin-right: 0%;
 }
 
 /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-offset-1 {
-  margin-left: 8.33333%;
+  margin-right: 8.33333%;
 }
 
 /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-offset-2 {
-  margin-left: 16.66667%;
+  margin-right: 16.66667%;
 }
 
 /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-offset-3 {
-  margin-left: 25%;
+  margin-right: 25%;
 }
 
 /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-offset-4 {
-  margin-left: 33.33333%;
+  margin-right: 33.33333%;
 }
 
 /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-offset-5 {
-  margin-left: 41.66667%;
+  margin-right: 41.66667%;
 }
 
 /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-offset-6 {
-  margin-left: 50%;
+  margin-right: 50%;
 }
 
 /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-offset-7 {
-  margin-left: 58.33333%;
+  margin-right: 58.33333%;
 }
 
 /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-offset-8 {
-  margin-left: 66.66667%;
+  margin-right: 66.66667%;
 }
 
 /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-offset-9 {
-  margin-left: 75%;
+  margin-right: 75%;
 }
 
 /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-offset-10 {
-  margin-left: 83.33333%;
+  margin-right: 83.33333%;
 }
 
 /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-offset-11 {
-  margin-left: 91.66667%;
+  margin-right: 91.66667%;
 }
 
 /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
 .col-xs-offset-12 {
-  margin-left: 100%;
+  margin-right: 100%;
 }
 
 @media (min-width: 768px) {
   /* line 27, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
-    float: left;
+    float: right;
   }
 
   /* line 35, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
@@ -2434,203 +2434,203 @@ pre code {
 
   /* line 55, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-pull-0 {
-    right: auto;
+    left: auto;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-pull-1 {
-    right: 8.33333%;
+    left: 8.33333%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-pull-2 {
-    right: 16.66667%;
+    left: 16.66667%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-pull-3 {
-    right: 25%;
+    left: 25%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-pull-4 {
-    right: 33.33333%;
+    left: 33.33333%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-pull-5 {
-    right: 41.66667%;
+    left: 41.66667%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-pull-6 {
-    right: 50%;
+    left: 50%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-pull-7 {
-    right: 58.33333%;
+    left: 58.33333%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-pull-8 {
-    right: 66.66667%;
+    left: 66.66667%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-pull-9 {
-    right: 75%;
+    left: 75%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-pull-10 {
-    right: 83.33333%;
+    left: 83.33333%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-pull-11 {
-    right: 91.66667%;
+    left: 91.66667%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-pull-12 {
-    right: 100%;
+    left: 100%;
   }
 
   /* line 45, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-push-0 {
-    left: auto;
+    right: auto;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-push-1 {
-    left: 8.33333%;
+    right: 8.33333%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-push-2 {
-    left: 16.66667%;
+    right: 16.66667%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-push-3 {
-    left: 25%;
+    right: 25%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-push-4 {
-    left: 33.33333%;
+    right: 33.33333%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-push-5 {
-    left: 41.66667%;
+    right: 41.66667%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-push-6 {
-    left: 50%;
+    right: 50%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-push-7 {
-    left: 58.33333%;
+    right: 58.33333%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-push-8 {
-    left: 66.66667%;
+    right: 66.66667%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-push-9 {
-    left: 75%;
+    right: 75%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-push-10 {
-    left: 83.33333%;
+    right: 83.33333%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-push-11 {
-    left: 91.66667%;
+    right: 91.66667%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-push-12 {
-    left: 100%;
+    right: 100%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-offset-0 {
-    margin-left: 0%;
+    margin-right: 0%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-offset-1 {
-    margin-left: 8.33333%;
+    margin-right: 8.33333%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-offset-2 {
-    margin-left: 16.66667%;
+    margin-right: 16.66667%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-offset-3 {
-    margin-left: 25%;
+    margin-right: 25%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-offset-4 {
-    margin-left: 33.33333%;
+    margin-right: 33.33333%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-offset-5 {
-    margin-left: 41.66667%;
+    margin-right: 41.66667%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-offset-6 {
-    margin-left: 50%;
+    margin-right: 50%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-offset-7 {
-    margin-left: 58.33333%;
+    margin-right: 58.33333%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-offset-8 {
-    margin-left: 66.66667%;
+    margin-right: 66.66667%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-offset-9 {
-    margin-left: 75%;
+    margin-right: 75%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-offset-10 {
-    margin-left: 83.33333%;
+    margin-right: 83.33333%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-offset-11 {
-    margin-left: 91.66667%;
+    margin-right: 91.66667%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-sm-offset-12 {
-    margin-left: 100%;
+    margin-right: 100%;
   }
 }
 @media (min-width: 992px) {
   /* line 27, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
-    float: left;
+    float: right;
   }
 
   /* line 35, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
@@ -2695,203 +2695,203 @@ pre code {
 
   /* line 55, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-pull-0 {
-    right: auto;
+    left: auto;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-pull-1 {
-    right: 8.33333%;
+    left: 8.33333%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-pull-2 {
-    right: 16.66667%;
+    left: 16.66667%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-pull-3 {
-    right: 25%;
+    left: 25%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-pull-4 {
-    right: 33.33333%;
+    left: 33.33333%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-pull-5 {
-    right: 41.66667%;
+    left: 41.66667%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-pull-6 {
-    right: 50%;
+    left: 50%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-pull-7 {
-    right: 58.33333%;
+    left: 58.33333%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-pull-8 {
-    right: 66.66667%;
+    left: 66.66667%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-pull-9 {
-    right: 75%;
+    left: 75%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-pull-10 {
-    right: 83.33333%;
+    left: 83.33333%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-pull-11 {
-    right: 91.66667%;
+    left: 91.66667%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-pull-12 {
-    right: 100%;
+    left: 100%;
   }
 
   /* line 45, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-push-0 {
-    left: auto;
+    right: auto;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-push-1 {
-    left: 8.33333%;
+    right: 8.33333%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-push-2 {
-    left: 16.66667%;
+    right: 16.66667%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-push-3 {
-    left: 25%;
+    right: 25%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-push-4 {
-    left: 33.33333%;
+    right: 33.33333%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-push-5 {
-    left: 41.66667%;
+    right: 41.66667%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-push-6 {
-    left: 50%;
+    right: 50%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-push-7 {
-    left: 58.33333%;
+    right: 58.33333%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-push-8 {
-    left: 66.66667%;
+    right: 66.66667%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-push-9 {
-    left: 75%;
+    right: 75%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-push-10 {
-    left: 83.33333%;
+    right: 83.33333%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-push-11 {
-    left: 91.66667%;
+    right: 91.66667%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-push-12 {
-    left: 100%;
+    right: 100%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-offset-0 {
-    margin-left: 0%;
+    margin-right: 0%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-offset-1 {
-    margin-left: 8.33333%;
+    margin-right: 8.33333%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-offset-2 {
-    margin-left: 16.66667%;
+    margin-right: 16.66667%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-offset-3 {
-    margin-left: 25%;
+    margin-right: 25%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-offset-4 {
-    margin-left: 33.33333%;
+    margin-right: 33.33333%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-offset-5 {
-    margin-left: 41.66667%;
+    margin-right: 41.66667%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-offset-6 {
-    margin-left: 50%;
+    margin-right: 50%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-offset-7 {
-    margin-left: 58.33333%;
+    margin-right: 58.33333%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-offset-8 {
-    margin-left: 66.66667%;
+    margin-right: 66.66667%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-offset-9 {
-    margin-left: 75%;
+    margin-right: 75%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-offset-10 {
-    margin-left: 83.33333%;
+    margin-right: 83.33333%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-offset-11 {
-    margin-left: 91.66667%;
+    margin-right: 91.66667%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-md-offset-12 {
-    margin-left: 100%;
+    margin-right: 100%;
   }
 }
 @media (min-width: 1200px) {
   /* line 27, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
-    float: left;
+    float: right;
   }
 
   /* line 35, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
@@ -2956,197 +2956,197 @@ pre code {
 
   /* line 55, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-pull-0 {
-    right: auto;
+    left: auto;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-pull-1 {
-    right: 8.33333%;
+    left: 8.33333%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-pull-2 {
-    right: 16.66667%;
+    left: 16.66667%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-pull-3 {
-    right: 25%;
+    left: 25%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-pull-4 {
-    right: 33.33333%;
+    left: 33.33333%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-pull-5 {
-    right: 41.66667%;
+    left: 41.66667%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-pull-6 {
-    right: 50%;
+    left: 50%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-pull-7 {
-    right: 58.33333%;
+    left: 58.33333%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-pull-8 {
-    right: 66.66667%;
+    left: 66.66667%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-pull-9 {
-    right: 75%;
+    left: 75%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-pull-10 {
-    right: 83.33333%;
+    left: 83.33333%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-pull-11 {
-    right: 91.66667%;
+    left: 91.66667%;
   }
 
   /* line 50, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-pull-12 {
-    right: 100%;
+    left: 100%;
   }
 
   /* line 45, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-push-0 {
-    left: auto;
+    right: auto;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-push-1 {
-    left: 8.33333%;
+    right: 8.33333%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-push-2 {
-    left: 16.66667%;
+    right: 16.66667%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-push-3 {
-    left: 25%;
+    right: 25%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-push-4 {
-    left: 33.33333%;
+    right: 33.33333%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-push-5 {
-    left: 41.66667%;
+    right: 41.66667%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-push-6 {
-    left: 50%;
+    right: 50%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-push-7 {
-    left: 58.33333%;
+    right: 58.33333%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-push-8 {
-    left: 66.66667%;
+    right: 66.66667%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-push-9 {
-    left: 75%;
+    right: 75%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-push-10 {
-    left: 83.33333%;
+    right: 83.33333%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-push-11 {
-    left: 91.66667%;
+    right: 91.66667%;
   }
 
   /* line 40, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-push-12 {
-    left: 100%;
+    right: 100%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-offset-0 {
-    margin-left: 0%;
+    margin-right: 0%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-offset-1 {
-    margin-left: 8.33333%;
+    margin-right: 8.33333%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-offset-2 {
-    margin-left: 16.66667%;
+    margin-right: 16.66667%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-offset-3 {
-    margin-left: 25%;
+    margin-right: 25%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-offset-4 {
-    margin-left: 33.33333%;
+    margin-right: 33.33333%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-offset-5 {
-    margin-left: 41.66667%;
+    margin-right: 41.66667%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-offset-6 {
-    margin-left: 50%;
+    margin-right: 50%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-offset-7 {
-    margin-left: 58.33333%;
+    margin-right: 58.33333%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-offset-8 {
-    margin-left: 66.66667%;
+    margin-right: 66.66667%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-offset-9 {
-    margin-left: 75%;
+    margin-right: 75%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-offset-10 {
-    margin-left: 83.33333%;
+    margin-right: 83.33333%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-offset-11 {
-    margin-left: 91.66667%;
+    margin-right: 91.66667%;
   }
 
   /* line 60, ../stylesheets/bootstrap/mixins/_grid-framework.scss */
   .col-lg-offset-12 {
-    margin-left: 100%;
+    margin-right: 100%;
   }
 }
 /* line 6, ../stylesheets/bootstrap/_tables.scss */
@@ -3156,7 +3156,7 @@ table {
 
 /* line 9, ../stylesheets/bootstrap/_tables.scss */
 th {
-  text-align: left;
+  text-align: right;
 }
 
 /* line 16, ../stylesheets/bootstrap/_tables.scss */
@@ -3391,7 +3391,7 @@ table th[class*="col-"] {
   .table-responsive > .table-bordered > tbody > tr > td:first-child,
   .table-responsive > .table-bordered > tfoot > tr > th:first-child,
   .table-responsive > .table-bordered > tfoot > tr > td:first-child {
-    border-left: 0;
+    border-right: 0;
   }
   /* line 212, ../stylesheets/bootstrap/_tables.scss */
   .table-responsive > .table-bordered > thead > tr > th:last-child,
@@ -3400,7 +3400,7 @@ table th[class*="col-"] {
   .table-responsive > .table-bordered > tbody > tr > td:last-child,
   .table-responsive > .table-bordered > tfoot > tr > th:last-child,
   .table-responsive > .table-bordered > tfoot > tr > td:last-child {
-    border-right: 0;
+    border-left: 0;
   }
   /* line 225, ../stylesheets/bootstrap/_tables.scss */
   .table-responsive > .table-bordered > tbody > tr:last-child > th,
@@ -3614,7 +3614,7 @@ input[type="month"].input-lg,
 /* line 217, ../stylesheets/bootstrap/_forms.scss */
 .radio label,
 .checkbox label {
-  padding-left: 20px;
+  padding-right: 20px;
   margin-bottom: 0;
   font-weight: normal;
   cursor: pointer;
@@ -3626,7 +3626,7 @@ input[type="month"].input-lg,
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
   position: absolute;
-  margin-left: -20px;
+  margin-right: -20px;
   margin-top: 4px \9;
 }
 
@@ -3640,7 +3640,7 @@ input[type="month"].input-lg,
 .radio-inline,
 .checkbox-inline {
   display: inline-block;
-  padding-left: 20px;
+  padding-right: 20px;
   margin-bottom: 0;
   vertical-align: middle;
   font-weight: normal;
@@ -3651,7 +3651,7 @@ input[type="month"].input-lg,
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
   margin-top: 0;
-  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /* line 262, ../stylesheets/bootstrap/_forms.scss */
@@ -3688,8 +3688,8 @@ input[type="checkbox"] {
 .input-group-lg > .input-group-btn > .form-control-static.btn, .form-control-static.input-sm, .form-horizontal .form-group-sm .form-control-static.form-control, .input-group-sm > .form-control-static.form-control,
 .input-group-sm > .form-control-static.input-group-addon,
 .input-group-sm > .input-group-btn > .form-control-static.btn {
-  padding-left: 0;
   padding-right: 0;
+  padding-left: 0;
 }
 
 /* line 67, ../stylesheets/bootstrap/mixins/_forms.scss */
@@ -3760,14 +3760,14 @@ select[multiple].input-lg,
 }
 /* line 325, ../stylesheets/bootstrap/_forms.scss */
 .has-feedback .form-control {
-  padding-right: 42.5px;
+  padding-left: 42.5px;
 }
 
 /* line 330, ../stylesheets/bootstrap/_forms.scss */
 .form-control-feedback {
   position: absolute;
   top: 25px;
-  right: 0;
+  left: 0;
   z-index: 2;
   display: block;
   width: 34px;
@@ -3951,14 +3951,14 @@ select[multiple].input-lg,
   .form-inline .radio label, .navbar-form .radio label,
   .form-inline .checkbox label,
   .navbar-form .checkbox label {
-    padding-left: 0;
+    padding-right: 0;
   }
   /* line 449, ../stylesheets/bootstrap/_forms.scss */
   .form-inline .radio input[type="radio"], .navbar-form .radio input[type="radio"],
   .form-inline .checkbox input[type="checkbox"],
   .navbar-form .checkbox input[type="checkbox"] {
     position: relative;
-    margin-left: 0;
+    margin-right: 0;
   }
   /* line 458, ../stylesheets/bootstrap/_forms.scss */
   .form-inline .has-feedback .form-control-feedback, .navbar-form .has-feedback .form-control-feedback {
@@ -3982,8 +3982,8 @@ select[multiple].input-lg,
 }
 /* line 491, ../stylesheets/bootstrap/_forms.scss */
 .form-horizontal .form-group {
-  margin-left: -15px;
   margin-right: -15px;
+  margin-left: -15px;
 }
 /* line 15, ../stylesheets/bootstrap/mixins/_clearfix.scss */
 .form-horizontal .form-group:before, .form-horizontal .form-group:after {
@@ -3997,7 +3997,7 @@ select[multiple].input-lg,
 @media (min-width: 768px) {
   /* line 498, ../stylesheets/bootstrap/_forms.scss */
   .form-horizontal .control-label {
-    text-align: right;
+    text-align: left;
     margin-bottom: 0;
     padding-top: 7px;
   }
@@ -4005,7 +4005,7 @@ select[multiple].input-lg,
 /* line 509, ../stylesheets/bootstrap/_forms.scss */
 .form-horizontal .has-feedback .form-control-feedback {
   top: 0;
-  right: 15px;
+  left: 15px;
 }
 @media (min-width: 768px) {
   /* line 520, ../stylesheets/bootstrap/_forms.scss */
@@ -4347,11 +4347,11 @@ tbody.collapse.in {
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: 2px;
+  margin-right: 2px;
   vertical-align: middle;
   border-top: 4px solid;
-  border-right: 4px solid transparent;
   border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
 }
 
 /* line 19, ../stylesheets/bootstrap/_dropdowns.scss */
@@ -4368,16 +4368,16 @@ tbody.collapse.in {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 0;
   z-index: 1000;
   display: none;
-  float: left;
+  float: right;
   min-width: 160px;
   padding: 5px 0;
   margin: 2px 0 0;
   list-style: none;
   font-size: 14px;
-  text-align: left;
+  text-align: right;
   background-color: white;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -4388,8 +4388,8 @@ tbody.collapse.in {
 }
 /* line 52, ../stylesheets/bootstrap/_dropdowns.scss */
 .dropdown-menu.pull-right {
-  right: 0;
-  left: auto;
+  left: 0;
+  right: auto;
 }
 /* line 58, ../stylesheets/bootstrap/_dropdowns.scss */
 .dropdown-menu .divider {
@@ -4449,14 +4449,14 @@ tbody.collapse.in {
 
 /* line 136, ../stylesheets/bootstrap/_dropdowns.scss */
 .dropdown-menu-right {
-  left: auto;
-  right: 0;
+  right: auto;
+  left: 0;
 }
 
 /* line 146, ../stylesheets/bootstrap/_dropdowns.scss */
 .dropdown-menu-left {
-  left: 0;
-  right: auto;
+  right: 0;
+  left: auto;
 }
 
 /* line 152, ../stylesheets/bootstrap/_dropdowns.scss */
@@ -4472,8 +4472,8 @@ tbody.collapse.in {
 /* line 162, ../stylesheets/bootstrap/_dropdowns.scss */
 .dropdown-backdrop {
   position: fixed;
-  left: 0;
   right: 0;
+  left: 0;
   bottom: 0;
   top: 0;
   z-index: 990;
@@ -4481,8 +4481,8 @@ tbody.collapse.in {
 
 /* line 172, ../stylesheets/bootstrap/_dropdowns.scss */
 .pull-right > .dropdown-menu {
-  right: 0;
-  left: auto;
+  left: 0;
+  right: auto;
 }
 
 /* line 185, ../stylesheets/bootstrap/_dropdowns.scss */
@@ -4503,13 +4503,13 @@ tbody.collapse.in {
 @media (min-width: 768px) {
   /* line 205, ../stylesheets/bootstrap/_dropdowns.scss */
   .navbar-right .dropdown-menu {
-    right: 0;
-    left: auto;
+    left: 0;
+    right: auto;
   }
   /* line 210, ../stylesheets/bootstrap/_dropdowns.scss */
   .navbar-right .dropdown-menu-left {
-    left: 0;
-    right: auto;
+    right: 0;
+    left: auto;
   }
 }
 /* line 7, ../stylesheets/bootstrap/_button-groups.scss */
@@ -4523,7 +4523,7 @@ tbody.collapse.in {
 .btn-group > .btn,
 .btn-group-vertical > .btn {
   position: relative;
-  float: left;
+  float: right;
 }
 /* line 18, ../stylesheets/bootstrap/_button-groups.scss */
 .btn-group > .btn:hover, .btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active,
@@ -4544,12 +4544,12 @@ tbody.collapse.in {
 .btn-group .btn + .btn-group,
 .btn-group .btn-group + .btn,
 .btn-group .btn-group + .btn-group {
-  margin-left: -1px;
+  margin-right: -1px;
 }
 
 /* line 39, ../stylesheets/bootstrap/_button-groups.scss */
 .btn-toolbar {
-  margin-left: -5px;
+  margin-right: -5px;
 }
 /* line 15, ../stylesheets/bootstrap/mixins/_clearfix.scss */
 .btn-toolbar:before, .btn-toolbar:after {
@@ -4563,13 +4563,13 @@ tbody.collapse.in {
 /* line 44, ../stylesheets/bootstrap/_button-groups.scss */
 .btn-toolbar .btn-group,
 .btn-toolbar .input-group {
-  float: left;
+  float: right;
 }
 /* line 49, ../stylesheets/bootstrap/_button-groups.scss */
 .btn-toolbar > .btn,
 .btn-toolbar > .btn-group,
 .btn-toolbar > .input-group {
-  margin-left: 5px;
+  margin-right: 5px;
 }
 
 /* line 54, ../stylesheets/bootstrap/_button-groups.scss */
@@ -4579,24 +4579,24 @@ tbody.collapse.in {
 
 /* line 59, ../stylesheets/bootstrap/_button-groups.scss */
 .btn-group > .btn:first-child {
-  margin-left: 0;
+  margin-right: 0;
 }
 /* line 61, ../stylesheets/bootstrap/_button-groups.scss */
 .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
 }
 
 /* line 67, ../stylesheets/bootstrap/_button-groups.scss */
 .btn-group > .btn:last-child:not(:first-child),
 .btn-group > .dropdown-toggle:not(:first-child) {
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
 }
 
 /* line 72, ../stylesheets/bootstrap/_button-groups.scss */
 .btn-group > .btn-group {
-  float: left;
+  float: right;
 }
 
 /* line 75, ../stylesheets/bootstrap/_button-groups.scss */
@@ -4607,14 +4607,14 @@ tbody.collapse.in {
 /* line 80, ../stylesheets/bootstrap/_button-groups.scss */
 .btn-group > .btn-group:first-child > .btn:last-child,
 .btn-group > .btn-group:first-child > .dropdown-toggle {
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
 }
 
 /* line 84, ../stylesheets/bootstrap/_button-groups.scss */
 .btn-group > .btn-group:last-child > .btn:first-child {
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
 }
 
 /* line 90, ../stylesheets/bootstrap/_button-groups.scss */
@@ -4625,14 +4625,14 @@ tbody.collapse.in {
 
 /* line 108, ../stylesheets/bootstrap/_button-groups.scss */
 .btn-group > .btn + .dropdown-toggle {
-  padding-left: 8px;
   padding-right: 8px;
+  padding-left: 8px;
 }
 
 /* line 112, ../stylesheets/bootstrap/_button-groups.scss */
 .btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle {
-  padding-left: 12px;
   padding-right: 12px;
+  padding-left: 12px;
 }
 
 /* line 119, ../stylesheets/bootstrap/_button-groups.scss */
@@ -4648,7 +4648,7 @@ tbody.collapse.in {
 
 /* line 130, ../stylesheets/bootstrap/_button-groups.scss */
 .btn .caret {
-  margin-left: 0;
+  margin-right: 0;
 }
 
 /* line 134, ../stylesheets/bootstrap/_button-groups.scss */
@@ -4690,7 +4690,7 @@ tbody.collapse.in {
 .btn-group-vertical > .btn-group + .btn,
 .btn-group-vertical > .btn-group + .btn-group {
   margin-top: -1px;
-  margin-left: 0;
+  margin-right: 0;
 }
 
 /* line 175, ../stylesheets/bootstrap/_button-groups.scss */
@@ -4699,15 +4699,15 @@ tbody.collapse.in {
 }
 /* line 178, ../stylesheets/bootstrap/_button-groups.scss */
 .btn-group-vertical > .btn:first-child:not(:last-child) {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 0;
+  border-top-left-radius: 4px;
   border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 /* line 182, ../stylesheets/bootstrap/_button-groups.scss */
 .btn-group-vertical > .btn:last-child:not(:first-child) {
-  border-bottom-left-radius: 4px;
-  border-top-right-radius: 0;
+  border-bottom-right-radius: 4px;
   border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 /* line 187, ../stylesheets/bootstrap/_button-groups.scss */
@@ -4718,14 +4718,14 @@ tbody.collapse.in {
 /* line 192, ../stylesheets/bootstrap/_button-groups.scss */
 .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child,
 .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
-  border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 /* line 196, ../stylesheets/bootstrap/_button-groups.scss */
 .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
-  border-top-right-radius: 0;
   border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 /* line 205, ../stylesheets/bootstrap/_button-groups.scss */
@@ -4748,7 +4748,7 @@ tbody.collapse.in {
 }
 /* line 220, ../stylesheets/bootstrap/_button-groups.scss */
 .btn-group-justified > .btn-group .dropdown-menu {
-  left: auto;
+  right: auto;
 }
 
 /* line 236, ../stylesheets/bootstrap/_button-groups.scss */
@@ -4769,14 +4769,14 @@ tbody.collapse.in {
 /* line 13, ../stylesheets/bootstrap/_input-groups.scss */
 .input-group[class*="col-"] {
   float: none;
-  padding-left: 0;
   padding-right: 0;
+  padding-left: 0;
 }
 /* line 19, ../stylesheets/bootstrap/_input-groups.scss */
 .input-group .form-control {
   position: relative;
   z-index: 2;
-  float: left;
+  float: right;
   width: 100%;
   margin-bottom: 0;
 }
@@ -4844,13 +4844,13 @@ tbody.collapse.in {
 .input-group-btn:first-child > .dropdown-toggle,
 .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
 .input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
 }
 
 /* line 113, ../stylesheets/bootstrap/_input-groups.scss */
 .input-group-addon:first-child {
-  border-right: 0;
+  border-left: 0;
 }
 
 /* line 122, ../stylesheets/bootstrap/_input-groups.scss */
@@ -4861,13 +4861,13 @@ tbody.collapse.in {
 .input-group-btn:last-child > .dropdown-toggle,
 .input-group-btn:first-child > .btn:not(:first-child),
 .input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
 }
 
 /* line 125, ../stylesheets/bootstrap/_input-groups.scss */
 .input-group-addon:last-child {
-  border-left: 0;
+  border-right: 0;
 }
 
 /* line 131, ../stylesheets/bootstrap/_input-groups.scss */
@@ -4882,7 +4882,7 @@ tbody.collapse.in {
 }
 /* line 142, ../stylesheets/bootstrap/_input-groups.scss */
 .input-group-btn > .btn + .btn {
-  margin-left: -1px;
+  margin-right: -1px;
 }
 /* line 148, ../stylesheets/bootstrap/_input-groups.scss */
 .input-group-btn > .btn:hover, .input-group-btn > .btn:focus, .input-group-btn > .btn:active {
@@ -4891,18 +4891,18 @@ tbody.collapse.in {
 /* line 156, ../stylesheets/bootstrap/_input-groups.scss */
 .input-group-btn:first-child > .btn,
 .input-group-btn:first-child > .btn-group {
-  margin-right: -1px;
+  margin-left: -1px;
 }
 /* line 162, ../stylesheets/bootstrap/_input-groups.scss */
 .input-group-btn:last-child > .btn,
 .input-group-btn:last-child > .btn-group {
-  margin-left: -1px;
+  margin-right: -1px;
 }
 
 /* line 9, ../stylesheets/bootstrap/_navs.scss */
 .nav {
   margin-bottom: 0;
-  padding-left: 0;
+  padding-right: 0;
   list-style: none;
 }
 /* line 15, ../stylesheets/bootstrap/mixins/_clearfix.scss */
@@ -4964,12 +4964,12 @@ tbody.collapse.in {
 }
 /* line 78, ../stylesheets/bootstrap/_navs.scss */
 .nav-tabs > li {
-  float: left;
+  float: right;
   margin-bottom: -1px;
 }
 /* line 84, ../stylesheets/bootstrap/_navs.scss */
 .nav-tabs > li > a {
-  margin-right: 2px;
+  margin-left: 2px;
   line-height: 1.42857;
   border: 1px solid transparent;
   border-radius: 4px 4px 0 0;
@@ -4989,7 +4989,7 @@ tbody.collapse.in {
 
 /* line 118, ../stylesheets/bootstrap/_navs.scss */
 .nav-pills > li {
-  float: left;
+  float: right;
 }
 /* line 122, ../stylesheets/bootstrap/_navs.scss */
 .nav-pills > li > a {
@@ -4997,7 +4997,7 @@ tbody.collapse.in {
 }
 /* line 125, ../stylesheets/bootstrap/_navs.scss */
 .nav-pills > li + li {
-  margin-left: 2px;
+  margin-right: 2px;
 }
 /* line 133, ../stylesheets/bootstrap/_navs.scss */
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
@@ -5012,7 +5012,7 @@ tbody.collapse.in {
 /* line 146, ../stylesheets/bootstrap/_navs.scss */
 .nav-stacked > li + li {
   margin-top: 2px;
-  margin-left: 0;
+  margin-right: 0;
 }
 
 /* line 160, ../stylesheets/bootstrap/_navs.scss */
@@ -5031,7 +5031,7 @@ tbody.collapse.in {
 /* line 171, ../stylesheets/bootstrap/_navs.scss */
 .nav-justified > .dropdown .dropdown-menu {
   top: auto;
-  left: auto;
+  right: auto;
 }
 @media (min-width: 768px) {
   /* line 177, ../stylesheets/bootstrap/_navs.scss */
@@ -5051,7 +5051,7 @@ tbody.collapse.in {
 }
 /* line 193, ../stylesheets/bootstrap/_navs.scss */
 .nav-tabs-justified > li > a, .nav-tabs.nav-justified > li > a {
-  margin-right: 0;
+  margin-left: 0;
   border-radius: 4px;
 }
 /* line 201, ../stylesheets/bootstrap/_navs.scss */
@@ -5090,8 +5090,8 @@ tbody.collapse.in {
 /* line 237, ../stylesheets/bootstrap/_navs.scss */
 .nav-tabs .dropdown-menu {
   margin-top: -1px;
-  border-top-right-radius: 0;
   border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 /* line 11, ../stylesheets/bootstrap/_navbar.scss */
@@ -5129,15 +5129,15 @@ tbody.collapse.in {
 @media (min-width: 768px) {
   /* line 31, ../stylesheets/bootstrap/_navbar.scss */
   .navbar-header {
-    float: left;
+    float: right;
   }
 }
 
 /* line 50, ../stylesheets/bootstrap/_navbar.scss */
 .navbar-collapse {
   overflow-x: visible;
-  padding-right: 15px;
   padding-left: 15px;
+  padding-right: 15px;
   border-top: 1px solid transparent;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   -webkit-overflow-scrolling: touch;
@@ -5175,8 +5175,8 @@ tbody.collapse.in {
   }
   /* line 83, ../stylesheets/bootstrap/_navbar.scss */
   .navbar-fixed-top .navbar-collapse, .navbar-static-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
-    padding-left: 0;
     padding-right: 0;
+    padding-left: 0;
   }
 }
 
@@ -5198,8 +5198,8 @@ tbody.collapse.in {
 .container > .navbar-collapse,
 .container-fluid > .navbar-header,
 .container-fluid > .navbar-collapse {
-  margin-right: -15px;
   margin-left: -15px;
+  margin-right: -15px;
 }
 @media (min-width: 768px) {
   /* line 109, ../stylesheets/bootstrap/_navbar.scss */
@@ -5207,8 +5207,8 @@ tbody.collapse.in {
   .container > .navbar-collapse,
   .container-fluid > .navbar-header,
   .container-fluid > .navbar-collapse {
-    margin-right: 0;
     margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -5228,8 +5228,8 @@ tbody.collapse.in {
 .navbar-fixed-top,
 .navbar-fixed-bottom {
   position: fixed;
-  right: 0;
   left: 0;
+  right: 0;
   z-index: 1030;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
@@ -5257,7 +5257,7 @@ tbody.collapse.in {
 
 /* line 164, ../stylesheets/bootstrap/_navbar.scss */
 .navbar-brand {
-  float: left;
+  float: right;
   padding: 15px 15px;
   font-size: 18px;
   line-height: 20px;
@@ -5270,15 +5270,15 @@ tbody.collapse.in {
 @media (min-width: 768px) {
   /* line 178, ../stylesheets/bootstrap/_navbar.scss */
   .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
-    margin-left: -15px;
+    margin-right: -15px;
   }
 }
 
 /* line 190, ../stylesheets/bootstrap/_navbar.scss */
 .navbar-toggle {
   position: relative;
-  float: right;
-  margin-right: 15px;
+  float: left;
+  margin-left: 15px;
   padding: 9px 10px;
   margin-top: 8px;
   margin-bottom: 8px;
@@ -5333,7 +5333,7 @@ tbody.collapse.in {
   /* line 249, ../stylesheets/bootstrap/_navbar.scss */
   .navbar-nav .open .dropdown-menu > li > a,
   .navbar-nav .open .dropdown-menu .dropdown-header {
-    padding: 5px 15px 5px 25px;
+    padding: 5px 25px 5px 15px;
   }
   /* line 252, ../stylesheets/bootstrap/_navbar.scss */
   .navbar-nav .open .dropdown-menu > li > a {
@@ -5347,12 +5347,12 @@ tbody.collapse.in {
 @media (min-width: 768px) {
   /* line 229, ../stylesheets/bootstrap/_navbar.scss */
   .navbar-nav {
-    float: left;
+    float: right;
     margin: 0;
   }
   /* line 267, ../stylesheets/bootstrap/_navbar.scss */
   .navbar-nav > li {
-    float: left;
+    float: right;
   }
   /* line 269, ../stylesheets/bootstrap/_navbar.scss */
   .navbar-nav > li > a {
@@ -5361,25 +5361,25 @@ tbody.collapse.in {
   }
   /* line 275, ../stylesheets/bootstrap/_navbar.scss */
   .navbar-nav.navbar-right:last-child {
-    margin-right: -15px;
+    margin-left: -15px;
   }
 }
 
 @media (min-width: 768px) {
   /* line 289, ../stylesheets/bootstrap/_navbar.scss */
   .navbar-left {
-    float: left !important;
+    float: right !important;
   }
 
   /* line 292, ../stylesheets/bootstrap/_navbar.scss */
   .navbar-right {
-    float: right !important;
+    float: left !important;
   }
 }
 /* line 303, ../stylesheets/bootstrap/_navbar.scss */
 .navbar-form {
-  margin-left: -15px;
   margin-right: -15px;
+  margin-left: -15px;
   padding: 10px 15px;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
@@ -5399,8 +5399,8 @@ tbody.collapse.in {
   .navbar-form {
     width: auto;
     border: 0;
-    margin-left: 0;
     margin-right: 0;
+    margin-left: 0;
     padding-top: 0;
     padding-bottom: 0;
     -webkit-box-shadow: none;
@@ -5408,21 +5408,21 @@ tbody.collapse.in {
   }
   /* line 335, ../stylesheets/bootstrap/_navbar.scss */
   .navbar-form.navbar-right:last-child {
-    margin-right: -15px;
+    margin-left: -15px;
   }
 }
 
 /* line 345, ../stylesheets/bootstrap/_navbar.scss */
 .navbar-nav > li > .dropdown-menu {
   margin-top: 0;
-  border-top-right-radius: 0;
   border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 /* line 350, ../stylesheets/bootstrap/_navbar.scss */
 .navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
-  border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 /* line 359, ../stylesheets/bootstrap/_navbar.scss */
@@ -5449,13 +5449,13 @@ tbody.collapse.in {
 @media (min-width: 768px) {
   /* line 375, ../stylesheets/bootstrap/_navbar.scss */
   .navbar-text {
-    float: left;
-    margin-left: 15px;
+    float: right;
     margin-right: 15px;
+    margin-left: 15px;
   }
   /* line 384, ../stylesheets/bootstrap/_navbar.scss */
   .navbar-text.navbar-right:last-child {
-    margin-right: 0;
+    margin-left: 0;
   }
 }
 
@@ -5695,7 +5695,7 @@ tbody.collapse.in {
 /* line 4, ../stylesheets/bootstrap/_pagination.scss */
 .pagination {
   display: inline-block;
-  padding-left: 0;
+  padding-right: 0;
   margin: 20px 0;
   border-radius: 4px;
 }
@@ -5707,27 +5707,27 @@ tbody.collapse.in {
 .pagination > li > a,
 .pagination > li > span {
   position: relative;
-  float: left;
+  float: right;
   padding: 6px 12px;
   line-height: 1.42857;
   text-decoration: none;
   color: #428bca;
   background-color: white;
   border: 1px solid #dddddd;
-  margin-left: -1px;
+  margin-right: -1px;
 }
 /* line 26, ../stylesheets/bootstrap/_pagination.scss */
 .pagination > li:first-child > a,
 .pagination > li:first-child > span {
-  margin-left: 0;
-  border-bottom-left-radius: 4px;
-  border-top-left-radius: 4px;
+  margin-right: 0;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
 }
 /* line 33, ../stylesheets/bootstrap/_pagination.scss */
 .pagination > li:last-child > a,
 .pagination > li:last-child > span {
-  border-bottom-right-radius: 4px;
-  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
 }
 /* line 42, ../stylesheets/bootstrap/_pagination.scss */
 .pagination > li > a:hover, .pagination > li > a:focus,
@@ -5770,14 +5770,14 @@ tbody.collapse.in {
 /* line 12, ../stylesheets/bootstrap/mixins/_pagination.scss */
 .pagination-lg > li:first-child > a,
 .pagination-lg > li:first-child > span {
-  border-bottom-left-radius: 6px;
-  border-top-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
 }
 /* line 18, ../stylesheets/bootstrap/mixins/_pagination.scss */
 .pagination-lg > li:last-child > a,
 .pagination-lg > li:last-child > span {
-  border-bottom-right-radius: 6px;
-  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
 }
 
 /* line 6, ../stylesheets/bootstrap/mixins/_pagination.scss */
@@ -5789,19 +5789,19 @@ tbody.collapse.in {
 /* line 12, ../stylesheets/bootstrap/mixins/_pagination.scss */
 .pagination-sm > li:first-child > a,
 .pagination-sm > li:first-child > span {
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
 }
 /* line 18, ../stylesheets/bootstrap/mixins/_pagination.scss */
 .pagination-sm > li:last-child > a,
 .pagination-sm > li:last-child > span {
-  border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
 }
 
 /* line 6, ../stylesheets/bootstrap/_pager.scss */
 .pager {
-  padding-left: 0;
+  padding-right: 0;
   margin: 20px 0;
   list-style: none;
   text-align: center;
@@ -5837,12 +5837,12 @@ tbody.collapse.in {
 /* line 32, ../stylesheets/bootstrap/_pager.scss */
 .pager .next > a,
 .pager .next > span {
-  float: right;
+  float: left;
 }
 /* line 39, ../stylesheets/bootstrap/_pager.scss */
 .pager .previous > a,
 .pager .previous > span {
-  float: left;
+  float: right;
 }
 /* line 48, ../stylesheets/bootstrap/_pager.scss */
 .pager .disabled > a,
@@ -5974,7 +5974,7 @@ a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
 }
 /* line 44, ../stylesheets/bootstrap/_badges.scss */
 .nav-pills > li > a > .badge {
-  margin-left: 3px;
+  margin-right: 3px;
 }
 
 /* line 52, ../stylesheets/bootstrap/_badges.scss */
@@ -6022,8 +6022,8 @@ a.badge:hover, a.badge:focus {
   }
   /* line 38, ../stylesheets/bootstrap/_jumbotron.scss */
   .container .jumbotron {
-    padding-left: 60px;
     padding-right: 60px;
+    padding-left: 60px;
   }
   /* line 44, ../stylesheets/bootstrap/_jumbotron.scss */
   .jumbotron h1,
@@ -6052,8 +6052,8 @@ a.badge:hover, a.badge:focus {
   width: 100% \9;
   max-width: 100%;
   height: auto;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
 }
 /* line 27, ../stylesheets/bootstrap/_thumbnails.scss */
 .thumbnail .caption {
@@ -6097,14 +6097,14 @@ a.thumbnail.active {
 /* line 41, ../stylesheets/bootstrap/_alerts.scss */
 .alert-dismissable,
 .alert-dismissible {
-  padding-right: 35px;
+  padding-left: 35px;
 }
 /* line 45, ../stylesheets/bootstrap/_alerts.scss */
 .alert-dismissable .close,
 .alert-dismissible .close {
   position: relative;
   top: -2px;
-  right: -21px;
+  left: -21px;
   color: inherit;
 }
 
@@ -6205,7 +6205,7 @@ a.thumbnail.active {
 
 /* line 37, ../stylesheets/bootstrap/_progress-bars.scss */
 .progress-bar {
-  float: left;
+  float: right;
   width: 0%;
   height: 100%;
   font-size: 12px;
@@ -6324,23 +6324,23 @@ a.thumbnail.active {
 
 /* line 40, ../stylesheets/bootstrap/_media.scss */
 .media > .pull-left {
-  margin-right: 10px;
+  margin-left: 10px;
 }
 /* line 43, ../stylesheets/bootstrap/_media.scss */
 .media > .pull-right {
-  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /* line 53, ../stylesheets/bootstrap/_media.scss */
 .media-list {
-  padding-left: 0;
+  padding-right: 0;
   list-style: none;
 }
 
 /* line 10, ../stylesheets/bootstrap/_list-group.scss */
 .list-group {
   margin-bottom: 20px;
-  padding-left: 0;
+  padding-right: 0;
 }
 
 /* line 21, ../stylesheets/bootstrap/_list-group.scss */
@@ -6354,22 +6354,22 @@ a.thumbnail.active {
 }
 /* line 31, ../stylesheets/bootstrap/_list-group.scss */
 .list-group-item:first-child {
-  border-top-right-radius: 4px;
   border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 /* line 34, ../stylesheets/bootstrap/_list-group.scss */
 .list-group-item:last-child {
   margin-bottom: 0;
-  border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 /* line 40, ../stylesheets/bootstrap/_list-group.scss */
 .list-group-item > .badge {
-  float: right;
+  float: left;
 }
 /* line 43, ../stylesheets/bootstrap/_list-group.scss */
 .list-group-item > .badge + .badge {
-  margin-right: 5px;
+  margin-left: 5px;
 }
 
 /* line 54, ../stylesheets/bootstrap/_list-group.scss */
@@ -6566,8 +6566,8 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .panel-heading {
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
-  border-top-right-radius: 3px;
   border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 /* line 27, ../stylesheets/bootstrap/_panels.scss */
 .panel-heading > .dropdown .dropdown-toggle {
@@ -6591,8 +6591,8 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
   padding: 10px 15px;
   background-color: whitesmoke;
   border-top: 1px solid #dddddd;
-  border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 
 /* line 59, ../stylesheets/bootstrap/_panels.scss */
@@ -6607,14 +6607,14 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 /* line 69, ../stylesheets/bootstrap/_panels.scss */
 .panel > .list-group:first-child .list-group-item:first-child {
   border-top: 0;
-  border-top-right-radius: 3px;
   border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 /* line 76, ../stylesheets/bootstrap/_panels.scss */
 .panel > .list-group:last-child .list-group-item:last-child {
   border-bottom: 0;
-  border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 
 /* line 85, ../stylesheets/bootstrap/_panels.scss */
@@ -6636,8 +6636,8 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 /* line 106, ../stylesheets/bootstrap/_panels.scss */
 .panel > .table:first-child,
 .panel > .table-responsive:first-child > .table:first-child {
-  border-top-right-radius: 3px;
   border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 /* line 113, ../stylesheets/bootstrap/_panels.scss */
 .panel > .table:first-child > thead:first-child > tr:first-child td:first-child,
@@ -6648,7 +6648,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
 .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child,
 .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child {
-  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 /* line 117, ../stylesheets/bootstrap/_panels.scss */
 .panel > .table:first-child > thead:first-child > tr:first-child td:last-child,
@@ -6659,13 +6659,13 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
 .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child,
 .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child {
-  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
 }
 /* line 125, ../stylesheets/bootstrap/_panels.scss */
 .panel > .table:last-child,
 .panel > .table-responsive:last-child > .table:last-child {
-  border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 /* line 132, ../stylesheets/bootstrap/_panels.scss */
 .panel > .table:last-child > tbody:last-child > tr:last-child td:first-child,
@@ -6676,7 +6676,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
 .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
 .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child {
-  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 /* line 136, ../stylesheets/bootstrap/_panels.scss */
 .panel > .table:last-child > tbody:last-child > tr:last-child td:last-child,
@@ -6687,7 +6687,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
 .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
 .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child {
-  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 /* line 143, ../stylesheets/bootstrap/_panels.scss */
 .panel > .panel-body + .table,
@@ -6717,7 +6717,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .panel > .table-responsive > .table-bordered > tbody > tr > td:first-child,
 .panel > .table-responsive > .table-bordered > tfoot > tr > th:first-child,
 .panel > .table-responsive > .table-bordered > tfoot > tr > td:first-child {
-  border-left: 0;
+  border-right: 0;
 }
 /* line 162, ../stylesheets/bootstrap/_panels.scss */
 .panel > .table-bordered > thead > tr > th:last-child,
@@ -6732,7 +6732,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .panel > .table-responsive > .table-bordered > tbody > tr > td:last-child,
 .panel > .table-responsive > .table-bordered > tfoot > tr > th:last-child,
 .panel > .table-responsive > .table-bordered > tfoot > tr > td:last-child {
-  border-right: 0;
+  border-left: 0;
 }
 /* line 171, ../stylesheets/bootstrap/_panels.scss */
 .panel > .table-bordered > thead > tr:first-child > td,
@@ -6951,7 +6951,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .embed-responsive object {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   bottom: 0;
   height: 100%;
   width: 100%;
@@ -6997,7 +6997,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 
 /* line 6, ../stylesheets/bootstrap/_close.scss */
 .close {
-  float: right;
+  float: left;
   font-size: 21px;
   font-weight: bold;
   line-height: 1;
@@ -7035,9 +7035,9 @@ button.close {
   overflow: hidden;
   position: fixed;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
   z-index: 1050;
   -webkit-overflow-scrolling: touch;
   outline: 0;
@@ -7087,9 +7087,9 @@ button.close {
 .modal-backdrop {
   position: fixed;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
   z-index: 1040;
   background-color: black;
 }
@@ -7131,7 +7131,7 @@ button.close {
 /* line 103, ../stylesheets/bootstrap/_modals.scss */
 .modal-footer {
   padding: 15px;
-  text-align: right;
+  text-align: left;
   border-top: 1px solid #e5e5e5;
 }
 /* line 15, ../stylesheets/bootstrap/mixins/_clearfix.scss */
@@ -7145,16 +7145,16 @@ button.close {
 }
 /* line 110, ../stylesheets/bootstrap/_modals.scss */
 .modal-footer .btn + .btn {
-  margin-left: 5px;
+  margin-right: 5px;
   margin-bottom: 0;
 }
 /* line 115, ../stylesheets/bootstrap/_modals.scss */
 .modal-footer .btn-group .btn + .btn {
-  margin-left: -1px;
+  margin-right: -1px;
 }
 /* line 119, ../stylesheets/bootstrap/_modals.scss */
 .modal-footer .btn-block + .btn-block {
-  margin-left: 0;
+  margin-right: 0;
 }
 
 /* line 125, ../stylesheets/bootstrap/_modals.scss */
@@ -7213,7 +7213,7 @@ button.close {
 }
 /* line 18, ../stylesheets/bootstrap/_tooltip.scss */
 .tooltip.right {
-  margin-left: 3px;
+  margin-right: 3px;
   padding: 0 5px;
 }
 /* line 19, ../stylesheets/bootstrap/_tooltip.scss */
@@ -7223,7 +7223,7 @@ button.close {
 }
 /* line 20, ../stylesheets/bootstrap/_tooltip.scss */
 .tooltip.left {
-  margin-left: -3px;
+  margin-right: -3px;
   padding: 0 5px;
 }
 
@@ -7250,60 +7250,60 @@ button.close {
 /* line 43, ../stylesheets/bootstrap/_tooltip.scss */
 .tooltip.top .tooltip-arrow {
   bottom: 0;
-  left: 50%;
-  margin-left: -5px;
+  right: 50%;
+  margin-right: -5px;
   border-width: 5px 5px 0;
   border-top-color: black;
 }
 /* line 50, ../stylesheets/bootstrap/_tooltip.scss */
 .tooltip.top-left .tooltip-arrow {
   bottom: 0;
-  left: 5px;
+  right: 5px;
   border-width: 5px 5px 0;
   border-top-color: black;
 }
 /* line 56, ../stylesheets/bootstrap/_tooltip.scss */
 .tooltip.top-right .tooltip-arrow {
   bottom: 0;
-  right: 5px;
+  left: 5px;
   border-width: 5px 5px 0;
   border-top-color: black;
 }
 /* line 62, ../stylesheets/bootstrap/_tooltip.scss */
 .tooltip.right .tooltip-arrow {
   top: 50%;
-  left: 0;
+  right: 0;
   margin-top: -5px;
   border-width: 5px 5px 5px 0;
-  border-right-color: black;
+  border-left-color: black;
 }
 /* line 69, ../stylesheets/bootstrap/_tooltip.scss */
 .tooltip.left .tooltip-arrow {
   top: 50%;
-  right: 0;
+  left: 0;
   margin-top: -5px;
   border-width: 5px 0 5px 5px;
-  border-left-color: black;
+  border-right-color: black;
 }
 /* line 76, ../stylesheets/bootstrap/_tooltip.scss */
 .tooltip.bottom .tooltip-arrow {
   top: 0;
-  left: 50%;
-  margin-left: -5px;
+  right: 50%;
+  margin-right: -5px;
   border-width: 0 5px 5px;
   border-bottom-color: black;
 }
 /* line 83, ../stylesheets/bootstrap/_tooltip.scss */
 .tooltip.bottom-left .tooltip-arrow {
   top: 0;
-  left: 5px;
+  right: 5px;
   border-width: 0 5px 5px;
   border-bottom-color: black;
 }
 /* line 89, ../stylesheets/bootstrap/_tooltip.scss */
 .tooltip.bottom-right .tooltip-arrow {
   top: 0;
-  right: 5px;
+  left: 5px;
   border-width: 0 5px 5px;
   border-bottom-color: black;
 }
@@ -7312,12 +7312,12 @@ button.close {
 .popover {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: 1060;
   display: none;
   max-width: 276px;
   padding: 1px;
-  text-align: left;
+  text-align: right;
   background-color: white;
   background-clip: padding-box;
   border: 1px solid #cccccc;
@@ -7333,7 +7333,7 @@ button.close {
 }
 /* line 27, ../stylesheets/bootstrap/_popovers.scss */
 .popover.right {
-  margin-left: 10px;
+  margin-right: 10px;
 }
 /* line 28, ../stylesheets/bootstrap/_popovers.scss */
 .popover.bottom {
@@ -7341,7 +7341,7 @@ button.close {
 }
 /* line 29, ../stylesheets/bootstrap/_popovers.scss */
 .popover.left {
-  margin-left: -10px;
+  margin-right: -10px;
 }
 
 /* line 32, ../stylesheets/bootstrap/_popovers.scss */
@@ -7384,8 +7384,8 @@ button.close {
 
 /* line 71, ../stylesheets/bootstrap/_popovers.scss */
 .popover.top > .arrow {
-  left: 50%;
-  margin-left: -11px;
+  right: 50%;
+  margin-right: -11px;
   border-bottom-width: 0;
   border-top-color: #999999;
   border-top-color: rgba(0, 0, 0, 0.25);
@@ -7395,31 +7395,31 @@ button.close {
 .popover.top > .arrow:after {
   content: " ";
   bottom: 1px;
-  margin-left: -10px;
+  margin-right: -10px;
   border-bottom-width: 0;
   border-top-color: white;
 }
 /* line 86, ../stylesheets/bootstrap/_popovers.scss */
 .popover.right > .arrow {
   top: 50%;
-  left: -11px;
+  right: -11px;
   margin-top: -11px;
-  border-left-width: 0;
-  border-right-color: #999999;
-  border-right-color: rgba(0, 0, 0, 0.25);
+  border-right-width: 0;
+  border-left-color: #999999;
+  border-left-color: rgba(0, 0, 0, 0.25);
 }
 /* line 93, ../stylesheets/bootstrap/_popovers.scss */
 .popover.right > .arrow:after {
   content: " ";
-  left: 1px;
+  right: 1px;
   bottom: -10px;
-  border-left-width: 0;
-  border-right-color: white;
+  border-right-width: 0;
+  border-left-color: white;
 }
 /* line 101, ../stylesheets/bootstrap/_popovers.scss */
 .popover.bottom > .arrow {
-  left: 50%;
-  margin-left: -11px;
+  right: 50%;
+  margin-right: -11px;
   border-top-width: 0;
   border-bottom-color: #999999;
   border-bottom-color: rgba(0, 0, 0, 0.25);
@@ -7429,25 +7429,25 @@ button.close {
 .popover.bottom > .arrow:after {
   content: " ";
   top: 1px;
-  margin-left: -10px;
+  margin-right: -10px;
   border-top-width: 0;
   border-bottom-color: white;
 }
 /* line 117, ../stylesheets/bootstrap/_popovers.scss */
 .popover.left > .arrow {
   top: 50%;
-  right: -11px;
+  left: -11px;
   margin-top: -11px;
-  border-right-width: 0;
-  border-left-color: #999999;
-  border-left-color: rgba(0, 0, 0, 0.25);
+  border-left-width: 0;
+  border-right-color: #999999;
+  border-right-color: rgba(0, 0, 0, 0.25);
 }
 /* line 124, ../stylesheets/bootstrap/_popovers.scss */
 .popover.left > .arrow:after {
   content: " ";
-  right: 1px;
-  border-right-width: 0;
-  border-left-color: white;
+  left: 1px;
+  border-left-width: 0;
+  border-right-color: white;
   bottom: -10px;
 }
 
@@ -7487,7 +7487,7 @@ button.close {
 }
 /* line 35, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-inner > .active {
-  left: 0;
+  right: 0;
 }
 /* line 40, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-inner > .next,
@@ -7498,31 +7498,31 @@ button.close {
 }
 /* line 46, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-inner > .next {
-  left: 100%;
+  right: 100%;
 }
 /* line 49, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-inner > .prev {
-  left: -100%;
+  right: -100%;
 }
 /* line 53, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-inner > .next.left,
 .carousel-inner > .prev.right {
-  left: 0;
+  right: 0;
 }
 /* line 57, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-inner > .active.left {
-  left: -100%;
+  right: -100%;
 }
 /* line 60, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-inner > .active.right {
-  left: 100%;
+  right: 100%;
 }
 
 /* line 69, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-control {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   bottom: 0;
   width: 15%;
   opacity: 0.5;
@@ -7534,19 +7534,19 @@ button.close {
 }
 /* line 84, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-control.left {
-  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
-  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: -o-linear-gradient(right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
 }
 /* line 87, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-control.right {
-  left: auto;
-  right: 0;
-  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
-  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  right: auto;
+  left: 0;
+  background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-image: -o-linear-gradient(right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
 }
@@ -7571,14 +7571,14 @@ button.close {
 /* line 113, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-control .icon-prev,
 .carousel-control .glyphicon-chevron-left {
-  left: 50%;
-  margin-left: -10px;
+  right: 50%;
+  margin-right: -10px;
 }
 /* line 118, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-control .icon-next,
 .carousel-control .glyphicon-chevron-right {
-  right: 50%;
-  margin-right: -10px;
+  left: 50%;
+  margin-left: -10px;
 }
 /* line 123, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-control .icon-prev,
@@ -7590,22 +7590,22 @@ button.close {
 }
 /* line 132, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-control .icon-prev:before {
-  content: '\2039';
+  content: "\203a";
 }
 /* line 137, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-control .icon-next:before {
-  content: '\203a';
+  content: "\2039";
 }
 
 /* line 148, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-indicators {
   position: absolute;
   bottom: 10px;
-  left: 50%;
+  right: 50%;
   z-index: 15;
   width: 60%;
-  margin-left: -30%;
-  padding-left: 0;
+  margin-right: -30%;
+  padding-right: 0;
   list-style: none;
   text-align: center;
 }
@@ -7633,8 +7633,8 @@ button.close {
 /* line 191, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-caption {
   position: absolute;
-  left: 15%;
   right: 15%;
+  left: 15%;
   bottom: 20px;
   z-index: 10;
   padding-top: 20px;
@@ -7662,18 +7662,18 @@ button.close {
   /* line 223, ../stylesheets/bootstrap/_carousel.scss */
   .carousel-control .glyphicon-chevron-left,
   .carousel-control .icon-prev {
-    margin-left: -15px;
+    margin-right: -15px;
   }
   /* line 227, ../stylesheets/bootstrap/_carousel.scss */
   .carousel-control .glyphicon-chevron-right,
   .carousel-control .icon-next {
-    margin-right: -15px;
+    margin-left: -15px;
   }
 
   /* line 233, ../stylesheets/bootstrap/_carousel.scss */
   .carousel-caption {
-    left: 20%;
     right: 20%;
+    left: 20%;
     padding-bottom: 30px;
   }
 
@@ -7695,18 +7695,18 @@ button.close {
 /* line 12, ../stylesheets/bootstrap/_utilities.scss */
 .center-block {
   display: block;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
 }
 
 /* line 15, ../stylesheets/bootstrap/_utilities.scss */
 .pull-right {
-  float: right !important;
+  float: left !important;
 }
 
 /* line 18, ../stylesheets/bootstrap/_utilities.scss */
 .pull-left {
-  float: left !important;
+  float: right !important;
 }
 
 /* line 27, ../stylesheets/bootstrap/_utilities.scss */

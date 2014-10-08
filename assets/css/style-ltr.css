@@ -7590,11 +7590,11 @@ button.close {
 }
 /* line 132, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-control .icon-prev:before {
-  content: '\2039';
+  content: "\2039";
 }
 /* line 137, ../stylesheets/bootstrap/_carousel.scss */
 .carousel-control .icon-next:before {
-  content: '\203a';
+  content: "\203a";
 }
 
 /* line 148, ../stylesheets/bootstrap/_carousel.scss */
