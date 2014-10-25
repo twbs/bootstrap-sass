@@ -3,10 +3,7 @@ module Bootstrap
     # Inspired by Kaminari
     def load!
       register_compass_extension if compass?
-
-      if rails?
-        register_rails_engine
-      end
+      register_rails_engine      if rails?
 
       configure_sass
     end
