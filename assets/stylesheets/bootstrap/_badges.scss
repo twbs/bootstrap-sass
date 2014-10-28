@@ -42,7 +42,7 @@
     background-color: $badge-active-bg;
   }
   .nav-pills > li > a > & {
-    margin-left: 3px;
+      margin-#{$start}: 3px;
   }
 }
 
