@@ -20,3 +20,6 @@ notifications:
 env:
   global:
   - VERBOSE=1
+script:
+  - bundle exec rake
+  - sh test/*.sh
