@@ -142,6 +142,11 @@ class Converter
       main_to   = File.expand_path("#{save_to}/../_bootstrap.scss")
       save_file main_to, File.read(main_from).gsub(/ "/, ' "bootstrap/')
       File.delete(main_from)
+
+      # generate variables template
+      save_file 'templates/project/_bootstrap-variables.sass',
+                "// Override Bootstrap variables here (defaults from bootstrap-sass v<%= Bootstrap::VERSION %>):\n\n" +
+                    File.read("#{save_to}/_variables.scss").gsub(/^(?=\$)/, '// ').gsub(/ !default;/, '')
     end
 
     def bootstrap_less_files
