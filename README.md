@@ -37,6 +37,8 @@ Import Bootstrap styles in `app/assets/stylesheets/application.css.scss`:
 @import "bootstrap";
 ```
 
+`bootstrap-sprockets` must be imported before `bootstrap` for the icon fonts to work.
+
 Make sure the file has `.css.scss` extension (or `.css.sass` for Sass syntax). If you have just generated a new Rails app,
 it may come with a `.css` file instead. If this file exists, it will be served instead of Sass, so remove it:
 
@@ -61,8 +63,6 @@ When using [bootstrap-sass Bower package](#c-bower) in Rails, ensure [minimum Sa
 # e.g. config/initializers/sass.rb
 ::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
 ```
-
-`bootstrap-sprockets` must be imported before `bootstrap` for the icon fonts to work.
 
 #### Rails 3.2.x
 
