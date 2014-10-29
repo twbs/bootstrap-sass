@@ -141,7 +141,7 @@ output {
   &[disabled],
   &[readonly],
   fieldset[disabled] & {
-    cursor: not-allowed;
+    cursor: $cursor-disabled;
     background-color: $input-bg-disabled;
     opacity: 1; // iOS fix for unreadable disabled content
   }
@@ -277,7 +277,7 @@ input[type="checkbox"] {
   &[disabled],
   &.disabled,
   fieldset[disabled] & {
-    cursor: not-allowed;
+    cursor: $cursor-disabled;
   }
 }
 // These classes are used directly on <label>s
@@ -285,7 +285,7 @@ input[type="checkbox"] {
 .checkbox-inline {
   &.disabled,
   fieldset[disabled] & {
-    cursor: not-allowed;
+    cursor: $cursor-disabled;
   }
 }
 // These classes are used on elements with <label> descendants
@@ -294,7 +294,7 @@ input[type="checkbox"] {
   &.disabled,
   fieldset[disabled] & {
     label {
-      cursor: not-allowed;
+      cursor: $cursor-disabled;
     }
   }
 }

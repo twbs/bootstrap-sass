@@ -111,7 +111,7 @@
     background-color: transparent;
     background-image: none; // Remove CSS gradient
     @include reset-filter;
-    cursor: not-allowed;
+    cursor: $cursor-disabled;
   }
 }
 
