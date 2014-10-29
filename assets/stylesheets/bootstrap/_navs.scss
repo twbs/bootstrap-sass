@@ -10,7 +10,7 @@
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   list-style: none;
-  @include clearfix();
+  @include clearfix;
 
   > li {
     position: relative;
@@ -36,7 +36,7 @@
         color: $nav-disabled-link-hover-color;
         text-decoration: none;
         background-color: transparent;
-        cursor: not-allowed;
+        cursor: $cursor-disabled;
       }
     }
   }
@@ -57,7 +57,7 @@
   // we missed it. We don't currently support this anywhere, but in the interest
   // of maintaining backward compatibility in case you use it, it's deprecated.
   .nav-divider {
-    @include nav-divider();
+    @include nav-divider;
   }
 
   // Prevent IE8 from misplacing imgs
@@ -223,9 +223,11 @@
 .tab-content {
   > .tab-pane {
     display: none;
+    visibility: hidden;
   }
   > .active {
     display: block;
+    visibility: visible;
   }
 }
 

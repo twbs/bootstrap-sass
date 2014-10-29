@@ -1,12 +1,12 @@
 language: ruby
 rvm:
-  - 2.1.1
-  - 2.0.0
+  - 2.1.2
   - jruby
   - rbx-2
 gemfile:
   - test/gemfiles/sass_3_2.gemfile
   - test/gemfiles/sass_3_3.gemfile
+  - test/gemfiles/sass_3_4.gemfile
   - test/gemfiles/sass_head.gemfile
 before_install:
   - "npm install"
@@ -17,3 +17,9 @@ matrix:
     - gemfile: test/gemfiles/sass_head.gemfile
 notifications:
   slack: heybb:3n88HHilXn76ji9vV4gL819Y
+env:
+  global:
+  - VERBOSE=1
+script:
+  - bundle exec rake
+  - sh test/*.sh

@@ -17,7 +17,7 @@ Please see the appropriate guide for your environment of choice:
 In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `sass-rails` gem is present - it is added to new Rails applications by default.
 
 ```ruby
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass', '~> 3.3.0'
 gem 'sass-rails', '>= 3.2'
 ```
 
@@ -33,6 +33,7 @@ gem 'autoprefixer-rails'
 Import Bootstrap styles in `app/assets/stylesheets/application.css.scss`:
 
 ```scss
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
 ```
@@ -57,12 +58,28 @@ Require Bootstrap Javascripts in `app/assets/javascripts/application.js`:
 
 #### Bower with Rails
 
-When using [bootstrap-sass Bower package](#c-bower) in Rails, ensure [minimum Sass number precision](#sass-number-precision):
+When using [bootstrap-sass Bower package](#c-bower) instead of the gem in Rails, add Bootstrap asset paths:
 
 ```ruby
-# e.g. config/initializers/sass.rb
+# config/application.rb
+# bootstrap-sass asset paths
+root.join('vendor/assets/bower_components/bootstrap-sass/assets').tap do |path|
+  config.sass.load_paths << path.join('stylesheets')
+  config.assets.paths += %w(javascripts fonts images).map(&path.method(:join))
+end
+```
+
+Then, ensure [minimum Sass number precision](#sass-number-precision):
+
+```ruby
+# config/initializers/sass.rb
+# Minimum precision required by bootstrap-sass
 ::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
 ```
+
+#### Rails 4.x
+
+Please make sure `sprockets-rails` is at least v2.1.4.
 
 #### Rails 3.2.x
 
@@ -159,8 +176,8 @@ See also this [example manifest.js](/test/dummy_node_mincer/manifest.js) for min
 By default all of Bootstrap is imported.
 
 You can also import components explicitly. To start with a full list of modules copy
-[`bootstrap.scss`](assets/stylesheets/_bootstrap.scss) file into your assets as `bootstrap-custom.scss`.
-Then comment out components you do not want from `bootstrap-custom`.
+[`_bootstrap.scss`](assets/stylesheets/_bootstrap.scss) file into your assets as `_bootstrap-custom.scss`.
+Then comment out components you do not want from `_bootstrap-custom`.
 In the application Sass file, replace `@import 'bootstrap'` with:
 
 ```scss

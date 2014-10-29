@@ -8,7 +8,7 @@
   margin: $line-height-computed 0;
   list-style: none;
   text-align: center;
-  @include clearfix();
+  @include clearfix;
   li {
     display: inline;
     > a,
@@ -48,8 +48,7 @@
     > span {
       color: $pager-disabled-color;
       background-color: $pager-bg;
-      cursor: not-allowed;
+      cursor: $cursor-disabled;
     }
   }
-
 }

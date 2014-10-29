@@ -12,11 +12,11 @@
   background-color: $thumbnail-bg;
   border: 1px solid $thumbnail-border;
   border-radius: $thumbnail-border-radius;
-  @include transition(all .2s ease-in-out);
+  @include transition(border .2s ease-in-out);
 
   > img,
   a > img {
-    @include img-responsive();
+    @include img-responsive;
     margin-left: auto;
     margin-right: auto;
   }

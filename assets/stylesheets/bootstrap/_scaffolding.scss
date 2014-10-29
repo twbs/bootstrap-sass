@@ -52,11 +52,11 @@ a {
   &:hover,
   &:focus {
     color: $link-hover-color;
-    text-decoration: underline;
+    text-decoration: $link-hover-decoration;
   }
 
   &:focus {
-    @include tab-focus();
+    @include tab-focus;
   }
 }
 
@@ -79,7 +79,7 @@ img {
 
 // Responsive images (ensure images don't scale beyond their parents)
 .img-responsive {
-  @include img-responsive();
+  @include img-responsive;
 }
 
 // Rounded corners

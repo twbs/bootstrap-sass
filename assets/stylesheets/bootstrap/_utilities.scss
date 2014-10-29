@@ -7,10 +7,10 @@
 // -------------------------
 
 .clearfix {
-  @include clearfix();
+  @include clearfix;
 }
 .center-block {
-  @include center-block();
+  @include center-block;
 }
 .pull-right {
   float: right !important;
@@ -34,7 +34,7 @@
   visibility: hidden;
 }
 .text-hide {
-  @include text-hide();
+  @include text-hide;
 }
 
 
@@ -53,5 +53,4 @@
 
 .affix {
   position: fixed;
-  @include translate3d(0, 0, 0);
 }

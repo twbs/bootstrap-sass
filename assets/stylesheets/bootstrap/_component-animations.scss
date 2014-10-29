@@ -17,8 +17,9 @@
 
 .collapse {
   display: none;
+  visibility: hidden;
 
-  &.in      { display: block; }
+  &.in      { display: block; visibility: visible; }
   // [converter] extracted tr&.in to tr.collapse.in
   // [converter] extracted tbody&.in to tbody.collapse.in
 }
@@ -31,5 +32,7 @@ tbody.collapse.in { display: table-row-group; }
   position: relative;
   height: 0;
   overflow: hidden;
-  @include transition(height .35s ease);
+  @include transition-property(height, visibility);
+  @include transition-duration(.35s);
+  @include transition-timing-function(ease);
 }

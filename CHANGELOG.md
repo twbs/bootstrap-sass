@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.3.0
+
+* Improve libsass compatibility
+* Support using Bower package with Rails
+
 ## 3.2.0.2
 
 Main bootstrap file is now a partial (_bootstrap.scss), for compatibility with Compass 1+.
