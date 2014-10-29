@@ -53,6 +53,8 @@ module Bootstrap
     end
 
     def register_compass_extension
+      require 'bootstrap-sass/version'
+
       ::Compass::Frameworks.register(
           'bootstrap',
           :version               => Bootstrap::VERSION,
