@@ -14,5 +14,5 @@ Gemfile.lock
 tmp/
 test/screenshots/
 test/dummy_rails/log/*.log
-
+test/dummy_rails/public/assets/
 .DS_Store
