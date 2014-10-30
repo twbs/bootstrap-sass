@@ -1,3 +1,4 @@
+require 'bootstrap-sass/version'
 module Bootstrap
   class << self
     # Inspired by Kaminari
