@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.3.0.1
+
+* Fix loading issue with the ruby gem version
+
 ## 3.3.0
 
 * Improve libsass compatibility
