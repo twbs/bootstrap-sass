@@ -58,7 +58,7 @@ Require Bootstrap Javascripts in `app/assets/javascripts/application.js`:
 
 #### Bower with Rails
 
-When using [bootstrap-sass Bower package](#c-bower) instead of the gem in Rails, configure Bootstrap asset paths:
+When using [bootstrap-sass Bower package](#c-bower) instead of the gem in Rails, configure asset paths:
 
 ```ruby
 # config/application.rb
@@ -76,7 +76,7 @@ end
 
 Replace Bootstrap `@import` statements in `application.css.scss` with:
 
-```sass
+```scss
 $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
