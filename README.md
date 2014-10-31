@@ -58,23 +58,34 @@ Require Bootstrap Javascripts in `app/assets/javascripts/application.js`:
 
 #### Bower with Rails
 
-When using [bootstrap-sass Bower package](#c-bower) instead of the gem in Rails, add Bootstrap asset paths:
+When using [bootstrap-sass Bower package](#c-bower) instead of the gem in Rails, configure Bootstrap asset paths:
 
 ```ruby
 # config/application.rb
-# bootstrap-sass asset paths
-root.join('vendor/assets/bower_components/bootstrap-sass/assets').tap do |path|
-  config.sass.load_paths << path.join('stylesheets')
-  config.assets.paths += %w(javascripts fonts images).map(&path.method(:join))
+# Bower asset paths
+root.join('vendor', 'assets', 'bower_components').to_s.tap do |bower_path|
+  config.sass.load_paths << bower_path
+  config.assets.paths << bower_path
+end
+# Precompile Bootstrap fonts
+config.assets.precompile << %r(bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular\.(?:eot|svg|ttf|woff)$)
+# Minimum Sass number precision required by bootstrap-sass
+::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
 end
 ```
 
-Then, ensure [minimum Sass number precision](#sass-number-precision):
+Replace Bootstrap `@import` statements in `application.css.scss` with:
 
-```ruby
-# config/initializers/sass.rb
-# Minimum precision required by bootstrap-sass
-::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
+```sass
+$icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
+@import "bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
+@import "bootstrap-sass/assets/stylesheets/bootstrap";
+```
+
+Replace Bootstrap `require` directive in `application.js` with:
+
+```js
+//= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
 ```
 
 #### Rails 4.x
