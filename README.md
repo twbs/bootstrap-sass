@@ -58,10 +58,9 @@ Require Bootstrap Javascripts in `app/assets/javascripts/application.js`:
 
 #### Bower with Rails
 
-When using [bootstrap-sass Bower package](#c-bower) instead of the gem in Rails, configure asset paths:
+When using [bootstrap-sass Bower package](#c-bower) instead of the gem in Rails, configure assets in `config/application.rb`:
 
 ```ruby
-# config/application.rb
 # Bower asset paths
 root.join('vendor', 'assets', 'bower_components').to_s.tap do |bower_path|
   config.sass.load_paths << bower_path
