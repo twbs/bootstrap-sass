@@ -149,9 +149,9 @@ This is compatible by default with asset managers such as [wiredep](https://gith
 
 #### Node.js Mincer
 
-If you use [mincer][mincer] with node-sass, import bootstrap into like so:
+If you use [mincer][mincer] with node-sass, import bootstrap like so:
 
-In `application.css.ejs.scss` (NB **.css.ejs.css**):
+In `application.css.ejs.scss` (NB **.css.ejs.scss**):
 
 ```scss
 // Import mincer asset paths helper integration
