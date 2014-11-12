@@ -1,4 +1,4 @@
 module Bootstrap
-  VERSION = '3.3.0.1'
-  BOOTSTRAP_SHA = '07c1881bc27eacba74f4d975ca3428a24abd4940'
+  VERSION = '3.3.1.0'
+  BOOTSTRAP_SHA = '9a7e365c2c4360335d25246dac11afb1f577210a'
 end

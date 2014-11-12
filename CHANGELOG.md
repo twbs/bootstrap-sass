@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.3.1.0
+
+* Variables override template at templates/project/_bootstrap-variables.sass
+* Readme: Bower + Rails configuration
+
 ## 3.3.0.1
 
 * Fix loading issue with the ruby gem version
