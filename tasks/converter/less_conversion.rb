@@ -384,8 +384,10 @@ SASS
         end
         # unwrap, and replace @include
         unindent unwrap_rule_block(rule).gsub(/(@include [\w-]+)\(?([\$\w\-,\s]*)\)?/) {
-          args = $2
-          "#{cmt}#{$1}('#{sel.gsub(/\s+/, ' ')}'#{', ' if args && !args.empty?}#{args})"
+          name, args = $1, $2
+          sel.gsub(/\s+/, ' ').split(/,\s*/ ).map { |sel_part|
+            "#{cmt}#{name}('#{sel_part}'#{', ' if args && !args.empty?}#{args})"
+          }.join(";\n")
         }
       end
     end
