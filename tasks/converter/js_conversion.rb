@@ -12,14 +12,13 @@ class Converter
 
       log_status 'Updating javascript manifest'
       manifest = ''
-      cat = ''
       bootstrap_js_files.each do |name|
-        cat << contents[name] + "\n"
         name = name.gsub(/\.js$/, '')
         manifest << "//= require ./bootstrap/#{name}\n"
       end
+      dist_js = read_files('dist/js', ['bootstrap.js'])['bootstrap.js']
       {'assets/javascripts/bootstrap-sprockets.js' => manifest,
-       'assets/javascripts/bootstrap.js' => cat}.each do |path, content|
+       'assets/javascripts/bootstrap.js' => dist_js}.each do |path, content|
         save_file path, content
         log_processed path
       end
