@@ -27,8 +27,8 @@
 
     // WebKit CSS3 transforms for supported devices
     @media all and (transform-3d), (-webkit-transform-3d) {
-      @include transition-transform(~'0.6s ease-in-out');
-      @include backface-visibility(~'hidden');
+      @include transition-transform(0.6s ease-in-out);
+      @include backface-visibility(hidden);
       @include perspective(1000);
 
       &.next,
