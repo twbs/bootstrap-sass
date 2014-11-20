@@ -134,7 +134,7 @@ If this happens, change the import order so that Compass mixins are loaded later
 
 ### c. Bower
 
-Using bootstrap-sass as a Bower package is still being tested. It is compatible with node-sass 0.8.3+. You can install it with:
+Using bootstrap-sass as a Bower package is still being tested. It is compatible with node-sass 1.2.3+. You can install it with:
 
 ```console
 $ bower install bootstrap-sass-official
