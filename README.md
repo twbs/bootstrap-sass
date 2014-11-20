@@ -194,9 +194,6 @@ When using ruby Sass compiler standalone or with the Bower version you can set i
 ::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
 ```
 
-Note that libsass and node-sass do not currently support the precision option, due to an open bug ([bug #364](https://github.com/sass/libsass/issues/364)) in libsass.
-
-
 #### Sass: Autoprefixer
 
 Using [Autoprefixer][autoprefixer] with Bootstrap is recommended.
