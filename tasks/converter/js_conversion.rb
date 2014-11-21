@@ -16,9 +16,12 @@ class Converter
         name = name.gsub(/\.js$/, '')
         manifest << "//= require ./bootstrap/#{name}\n"
       end
-      dist_js = read_files('dist/js', ['bootstrap.js'])['bootstrap.js']
-      {'assets/javascripts/bootstrap-sprockets.js' => manifest,
-       'assets/javascripts/bootstrap.js' => dist_js}.each do |path, content|
+      dist_js = read_files('dist/js', %w(bootstrap.js bootstrap.min.js))
+      {
+          'assets/javascripts/bootstrap-sprockets.js' => manifest,
+          'assets/javascripts/bootstrap.js'           => dist_js['bootstrap.js'],
+          'assets/javascripts/bootstrap.min.js'       => dist_js['bootstrap.min.js'],
+      }.each do |path, content|
         save_file path, content
         log_processed path
       end
