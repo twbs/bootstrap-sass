@@ -78,7 +78,7 @@
 
   select#{$parent} {
     height: $input-height;
-    line-height: $input-height;
+    line-height: $line-height;
   }
 
   textarea#{$parent},
