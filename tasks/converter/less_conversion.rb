@@ -110,6 +110,9 @@ class Converter
           when 'forms.less'
             file = extract_nested_rule file, 'textarea&'
             file = apply_mixin_parent_selector(file, '\.input-(?:sm|lg)')
+            file = replace_rules file, /\.form-group-(?:sm|lg)/ do |rule|
+              apply_mixin_parent_selector rule, '.form-control'
+            end
           when 'navbar.less'
             file = replace_all file, /(\s*)\.navbar-(right|left)\s*\{\s*@extend\s*\.pull-(right|left);\s*/, "\\1.navbar-\\2 {\\1  float: \\2 !important;\\1"
           when 'tables.less'
