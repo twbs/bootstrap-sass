@@ -30,10 +30,6 @@ module Bootstrap
     end
 
     # Environment detection helpers
-    def asset_pipeline?
-      defined?(::Sprockets)
-    end
-
     def compass?
       defined?(::Compass)
     end
