@@ -95,14 +95,10 @@ class Converter
             file = apply_mixin_parent_selector file, '\.(?:visible|hidden)'
           when 'variables.less'
             file = insert_default_vars(file)
-            file = unindent <<-SCSS + "\n" + file, 14
-              // When true, asset path helpers are used, otherwise the regular CSS `url()` is used.
-              // When there no function is defined, `fn('')` is parsed as string that equals the right hand side
-              // NB: in Sass 3.3 there is a native function: function-exists(twbs-font-path)
-              $bootstrap-sass-asset-helper: #{sass_fn_exists('twbs-font-path')} !default;
-            SCSS
+            file = ['$bootstrap-sass-asset-helper: false !default;', file].join("\n")
             file = replace_all file, %r{(\$icon-font-path): \s*"(.*)" (!default);}, "\n" + unindent(<<-SCSS, 14)
-              // [converter] Asset helpers such as Sprockets and Node.js Mincer do not resolve relative paths
+              // [converter] If $bootstrap-sass-asset-helper if used, provide path relative to the assets load path.
+              // [converter] This is because some asset helpers, such as Sprockets, do not work with file-relative paths.
               \\1: if($bootstrap-sass-asset-helper, "bootstrap/", "\\2bootstrap/") \\3;
             SCSS
           when 'close.less'
@@ -146,7 +142,7 @@ class Converter
       # generate variables template
       save_file 'templates/project/_bootstrap-variables.sass',
                 "// Override Bootstrap variables here (defaults from bootstrap-sass v#{Bootstrap::VERSION}):\n\n" +
-                    File.read("#{save_to}/_variables.scss").gsub(/^(?=\$)/, '// ').gsub(/ !default;/, '')
+                    File.read("#{save_to}/_variables.scss").lines[1..-1].join.gsub(/^(?=\$)/, '// ').gsub(/ !default;/, '')
     end
 
     def bootstrap_less_files

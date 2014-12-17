@@ -1,10 +1,5 @@
 // Override Bootstrap variables here (defaults from bootstrap-sass v3.3.1.0):
 
-// When true, asset path helpers are used, otherwise the regular CSS `url()` is used.
-// When there no function is defined, `fn('')` is parsed as string that equals the right hand side
-// NB: in Sass 3.3 there is a native function: function-exists(twbs-font-path)
-// $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")'))
-
 //
 // Variables
 // --------------------------------------------------
@@ -84,7 +79,8 @@
 
 //** Load fonts from this directory.
 
-// [converter] Asset helpers such as Sprockets and Node.js Mincer do not resolve relative paths
+// [converter] If $bootstrap-sass-asset-helper if used, provide path relative to the assets load path.
+// [converter] This is because some asset helpers, such as Sprockets, do not work with file-relative paths.
 // $icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../fonts/bootstrap/")
 
 //** File name for all font files.
