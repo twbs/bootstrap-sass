@@ -1,8 +1,6 @@
 language: ruby
 rvm:
-  - 2.1.2
-  - jruby
-  - rbx-2
+  - 2.1.5
 gemfile:
   - test/gemfiles/sass_3_2.gemfile
   - test/gemfiles/sass_3_3.gemfile
