@@ -16,7 +16,7 @@ class SprocketsRailsTest < Minitest::Test
     assert compiled, 'Could not precompile assets'
     Dir.glob(File.join(root, 'public', 'assets', 'app*.{css,js}')) do |path|
       File.open(path, 'r') do |f|
-        f.read.scan /url\("?[^"]+\.(?:jpg|png|eot|woff|ttf|svg)[^"]*"?\)/ do |m|
+        f.read.scan /url\("?[^"]+\.(?:jpg|png|eot|woff2?|ttf|svg)[^"]*"?\)/ do |m|
           assert_match /-[0-9a-f]{12,}\./, m
         end
       end

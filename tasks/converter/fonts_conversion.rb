@@ -10,7 +10,7 @@ class Converter
     end
 
     def bootstrap_font_files
-      @bootstrap_font_files ||= get_paths_by_type('fonts', /\.(eot|svg|ttf|woff)$/)
+      @bootstrap_font_files ||= get_paths_by_type('fonts', /\.(eot|svg|ttf|woff2?)$/)
     end
   end
 end
