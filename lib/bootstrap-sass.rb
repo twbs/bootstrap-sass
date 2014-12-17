@@ -4,7 +4,13 @@ module Bootstrap
     # Inspired by Kaminari
     def load!
       register_compass_extension if compass?
-      register_rails_engine      if rails?
+
+      if rails?
+        register_rails_engine
+      elsif sprockets?
+        register_sprockets
+      end
+
       configure_sass
     end
 
@@ -30,7 +36,7 @@ module Bootstrap
     end
 
     # Environment detection helpers
-    def asset_pipeline?
+    def sprockets?
       defined?(::Sprockets)
     end
 
@@ -65,6 +71,12 @@ module Bootstrap
 
     def register_rails_engine
       require 'bootstrap-sass/engine'
+    end
+
+    def register_sprockets
+      Sprockets.append_path(stylesheets_path)
+      Sprockets.append_path(fonts_path)
+      Sprockets.append_path(javascripts_path)
     end
   end
 end
