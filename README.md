@@ -96,21 +96,25 @@ bootstrap-sass is no longer compatible with Rails 3. The latest version of boots
 
 ### b. Compass without Rails
 
-Install the gem
-```sh
-gem install bootstrap-sass
+Install the gem:
+
+```console
+$ gem install bootstrap-sass
 ```
 
 If you have an existing Compass project:
 
-```ruby
-# config.rb:
-require 'bootstrap-sass'
-```
+1. Require `bootstrap-sass` in `config.rb`:
 
-```console
-$ bundle exec compass install bootstrap
-```
+    ```ruby
+    require 'bootstrap-sass'
+    ```
+
+2. Install Bootstrap with:
+
+    ```console
+    $ bundle exec compass install bootstrap -r bootstrap-sass
+    ```
 
 If you are creating a new Compass project, you can generate it with bootstrap-sass support:
 
