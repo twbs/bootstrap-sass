@@ -202,7 +202,7 @@ class Converter
 SASS
     end
 
-    # convert grid mixins LESS when => SASS @if
+    # convert grid mixins LESS when => Sass @if
     def convert_grid_mixins(file)
       file = replace_rules file, /@mixin make-grid-columns/, comments: false do |css, pos|
         mixin_all_grid_columns css, selector: '.col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}', to: '$grid-columns'
@@ -259,8 +259,8 @@ SASS
 
     # margin: a -b
     # LESS: sets 2 values
-    # SASS: sets 1 value (a-b)
-    # This wraps a and -b so they evaluates to 2 values in SASS
+    # Sass: sets 1 value (a-b)
+    # This wraps a and -b so they evaluates to 2 values in Sass
     def replace_calculation_semantics(file)
       # split_prop_val.call('(@navbar-padding-vertical / 2) -@navbar-padding-horizontal')
       # #=> ["(navbar-padding-vertical / 2)", "-navbar-padding-horizontal"]
@@ -447,7 +447,7 @@ SASS
       end
     end
 
-    # change Microsoft filters to SASS calling convention
+    # change Microsoft filters to Sass calling convention
     def replace_ms_filters(file)
       log_transform
       file.gsub(

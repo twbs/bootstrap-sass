@@ -50,7 +50,7 @@ class Converter
   def_delegators :@logger, :log, :log_status, :log_processing, :log_transform, :log_file_info, :log_processed, :log_http_get_file, :log_http_get_files, :silence_log
 
   def process_bootstrap
-    log_status "Convert Bootstrap LESS to SASS"
+    log_status "Convert Bootstrap LESS to Sass"
     puts " repo   : #@repo_url"
     puts " branch : #@branch_sha #@repo_url/tree/#@branch"
     puts " save to: #{@save_to.to_json}"
