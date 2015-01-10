@@ -1,4 +1,4 @@
-# Bootstrap for Sass [![Gem Version](https://badge.fury.io/rb/bootstrap-sass.svg)](http://badge.fury.io/rb/bootstrap-sass) [![Bower Version](https://badge.fury.io/bo/bootstrap-sass-official.svg)](http://badge.fury.io/bo/bootstrap-sass-official) [![Build Status](http://img.shields.io/travis/twbs/bootstrap-sass.svg)](http://travis-ci.org/twbs/bootstrap-sass)
+# Bootstrap for Sass [![Gem Version](https://badge.fury.io/rb/bootstrap-sass.svg)](http://badge.fury.io/rb/bootstrap-sass) [![Bower Version](https://badge.fury.io/bo/bootstrap-sass.svg)](http://badge.fury.io/bo/bootstrap-sass) [![Build Status](http://img.shields.io/travis/twbs/bootstrap-sass.svg)](http://travis-ci.org/twbs/bootstrap-sass)
 
 `bootstrap-sass` is a Sass-powered version of [Bootstrap](http://github.com/twbs/bootstrap), ready to drop right into your Sass powered applications.
 
@@ -67,7 +67,7 @@ root.join('vendor', 'assets', 'bower_components').to_s.tap do |bower_path|
   config.assets.paths << bower_path
 end
 # Precompile Bootstrap fonts
-config.assets.precompile << %r(bootstrap-sass/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff)$)
+config.assets.precompile << %r(bootstrap-sass/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff2?)$)
 # Minimum Sass number precision required by bootstrap-sass
 ::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
 ```
@@ -141,10 +141,8 @@ If this happens, change the import order so that Compass mixins are loaded later
 bootstrap-sass Bower package is compatible with node-sass 1.2.3+. You can install it with:
 
 ```console
-$ bower install bootstrap-sass-official
+$ bower install bootstrap-sass
 ```
-
-`bootstrap-sass` is taken so make sure you use the command above.
 
 Sass, JS, and all other assets are located at [assets](/assets).
 
