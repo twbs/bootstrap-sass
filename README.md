@@ -21,7 +21,7 @@ gem 'bootstrap-sass', '~> 3.3.1'
 gem 'sass-rails', '>= 3.2'
 ```
 
-It is also recommended to use [Autoprefixer](https://github.com/ai/autoprefixer-rails) with Bootstrap
+Bootstrap requires the use of [Autoprefixer](https://github.com/ai/autoprefixer-rails)
 to add browser vendor prefixes automatically. Simply add the gem:
 
 ```ruby
@@ -200,7 +200,7 @@ When using ruby Sass compiler standalone or with the Bower version you can set i
 
 #### Sass: Autoprefixer
 
-Using [Autoprefixer][autoprefixer] with Bootstrap is recommended.
+Bootstrap requires the use of [Autoprefixer][autoprefixer].
 [Autoprefixer][autoprefixer] adds vendor prefixes to CSS rules using values from [Can I Use](http://caniuse.com/).
 
 #### JavaScript
