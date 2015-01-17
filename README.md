@@ -41,11 +41,13 @@ Import Bootstrap styles in `app/assets/stylesheets/application.css.scss`:
 `bootstrap-sprockets` must be imported before `bootstrap` for the icon fonts to work.
 
 Make sure the file has `.css.scss` extension (or `.css.sass` for Sass syntax). If you have just generated a new Rails app,
-it may come with a `.css` file instead. If this file exists, it will be served instead of Sass, so remove it:
+it may come with a `.css` file instead. If this file exists, it will be served instead of Sass, so rename it:
 
 ```console
-$ rm app/assets/stylesheets/application.css
+$ mv app/assets/stylesheets/application.css app/assets/stylesheets/application.css.scss
 ```
+
+Then, remove all the `//= require` and `//= require_tree` statements from the file. Instead, use `@import` to import Sass files.
 
 Do not use `//= require` in Sass or your other stylesheets will not be [able to access][antirequire] the Bootstrap mixins or variables.
 
