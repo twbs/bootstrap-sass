@@ -26,5 +26,7 @@ Dummy::Application.configure do
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
 
+  config.active_support.test_order = :random
+
   config.active_support.deprecation = :stderr
 end

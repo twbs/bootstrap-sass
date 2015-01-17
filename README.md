@@ -21,13 +21,6 @@ gem 'bootstrap-sass', '~> 3.3.1'
 gem 'sass-rails', '>= 3.2'
 ```
 
-Bootstrap requires the use of [Autoprefixer](https://github.com/ai/autoprefixer-rails)
-to add browser vendor prefixes automatically. Simply add the gem:
-
-```ruby
-gem 'autoprefixer-rails'
-```
-
 `bundle install` and restart your server to make the files available through the pipeline.
 
 Import Bootstrap styles in `app/assets/stylesheets/application.css.scss`:
