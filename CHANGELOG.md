@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.3.2.1
+
+* Fix glyphicons regression (revert 443d5b49eac84aec1cb2f8ea173554327bfc8c14)
+
 ## 3.3.2.0
 
 * Autoprefixer is now required, and `autoprefixer-rails` is now a dependency for the ruby gem. [#824](https://github.com/twbs/bootstrap-sass/issues/824)
