@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.3.2.0
+
+* Autoprefixer is now required, and `autoprefixer-rails` is now a dependency for the ruby gem. [#824](https://github.com/twbs/bootstrap-sass/issues/824)
+* Minimum precision reduced from 10 to 8 [#821](https://github.com/twbs/bootstrap-sass/issues/821)
+* Requiring bootstrap JS from npm now works [#812](https://github.com/twbs/bootstrap-sass/issues/812)
+* Fix Sass 3.4.x + IE10 compatibility issue [#803](https://github.com/twbs/bootstrap-sass/issues/803)
+* Provide minified JS bundle [#777](https://github.com/twbs/bootstrap-sass/issues/777)
+* Bower package is now at bootstrap-sass [#813](https://github.com/twbs/bootstrap-sass/issues/813)
+
+
 ## 3.3.1.0
 
 * Variables override template at templates/project/_bootstrap-variables.sass
