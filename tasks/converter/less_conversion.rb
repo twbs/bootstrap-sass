@@ -170,7 +170,6 @@ class Converter
       file   = deinterpolate_vararg_mixins(file)
       file   = replace_calculation_semantics(file)
       file   = replace_file_imports(file)
-      file   = unquote_utf8_escape_sequences(file)
       file
     end
 
@@ -313,12 +312,6 @@ SASS
     def replace_file_imports(less, target_path = '')
       less.gsub %r([@\$]import ["|']([\w\-/]+).less["|'];),
                 %Q(@import "#{target_path}\\1";)
-    end
-
-    # Unquote escape sequences, e.g. content: "#{$sep}\00a0" to content: #{$sep}\00a0
-    # Works around Sass 3.4 issue: https://github.com/sass/sass/issues/1395
-    def unquote_utf8_escape_sequences(scss)
-      scss.gsub /\"((?:#\{[^}]+\})?\\[a-f0-9]{4,}?)\"/, '\1'
     end
 
     def replace_all(file, regex, replacement = nil, &block)
