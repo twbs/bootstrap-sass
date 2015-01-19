@@ -136,7 +136,7 @@ If this happens, change the import order so that Compass mixins are loaded later
 bootstrap-sass Bower package is compatible with node-sass 1.2.3+. You can install it with:
 
 ```console
-$ bower install bootstrap-sass
+$ bower install bootstrap-sass\#v3.3.2+1
 ```
 
 Sass, JS, and all other assets are located at [assets](/assets).
