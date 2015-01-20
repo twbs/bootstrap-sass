@@ -21,7 +21,7 @@ namespace :bower do
           find_files.(Bootstrap.fonts_path) +
           %w(assets/javascripts/bootstrap.js)
 
-      spec['version'] = Bootstrap::VERSION[0..-3]
+      spec['version'] = Bootstrap::VERSION
 
       File.open('bower.json', 'w') do |f|
         f.puts JSON.pretty_generate(spec)

@@ -17,7 +17,7 @@ Please see the appropriate guide for your environment of choice:
 In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `sass-rails` gem is present - it is added to new Rails applications by default.
 
 ```ruby
-gem 'bootstrap-sass', '~> 3.3.2'
+gem 'bootstrap-sass', '~> 3.3.3'
 gem 'sass-rails', '>= 3.2'
 ```
 
@@ -136,7 +136,7 @@ If this happens, change the import order so that Compass mixins are loaded later
 bootstrap-sass Bower package is compatible with node-sass 1.2.3+. You can install it with:
 
 ```console
-$ bower install bootstrap-sass\#v3.3.2+1
+$ bower install bootstrap-sass
 ```
 
 Sass, JS, and all other assets are located at [assets](/assets).

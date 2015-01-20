@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.3.3
+
+This is a re-packaged release of 3.3.2.1 (v3.3.2+1).
+
+Versions are now strictly semver.
+The PATCH version may be ahead of the upstream.
+
+Framework version: Bootstrap **v3.3.2**.
+
 ## 3.3.2.1
 
 * Fix glyphicons regression (revert 443d5b49eac84aec1cb2f8ea173554327bfc8c14)
