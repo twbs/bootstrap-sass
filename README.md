@@ -23,7 +23,7 @@ gem 'sass-rails', '>= 3.2'
 
 `bundle install` and restart your server to make the files available through the pipeline.
 
-Import Bootstrap styles in `app/assets/stylesheets/application.css.scss`:
+Import Bootstrap styles in `app/assets/stylesheets/application.scss`:
 
 ```scss
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
@@ -33,11 +33,11 @@ Import Bootstrap styles in `app/assets/stylesheets/application.css.scss`:
 
 `bootstrap-sprockets` must be imported before `bootstrap` for the icon fonts to work.
 
-Make sure the file has `.css.scss` extension (or `.css.sass` for Sass syntax). If you have just generated a new Rails app,
+Make sure the file has `.scss` extension (or `.sass` for Sass syntax). If you have just generated a new Rails app,
 it may come with a `.css` file instead. If this file exists, it will be served instead of Sass, so rename it:
 
 ```console
-$ mv app/assets/stylesheets/application.css app/assets/stylesheets/application.css.scss
+$ mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss
 ```
 
 Then, remove all the `//= require` and `//= require_tree` statements from the file. Instead, use `@import` to import Sass files.
@@ -67,7 +67,7 @@ config.assets.precompile << %r(bootstrap-sass/assets/fonts/bootstrap/[\w-]+\.(?:
 ::Sass::Script::Number.precision = [8, ::Sass::Script::Number.precision].max
 ```
 
-Replace Bootstrap `@import` statements in `application.css.scss` with:
+Replace Bootstrap `@import` statements in `application.scss` with:
 
 ```scss
 $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
@@ -241,7 +241,7 @@ When using bootstrap-sass with Compass, Sprockets, or Mincer, you **must** impor
 
 ### Sass
 
-Import Bootstrap into a Sass file (for example, application.css.scss) to get all of Bootstrap's styles, mixins and variables!
+Import Bootstrap into a Sass file (for example, application.scss) to get all of Bootstrap's styles, mixins and variables!
 
 ```scss
 @import "bootstrap";
