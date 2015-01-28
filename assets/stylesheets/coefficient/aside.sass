@@ -1,0 +1,31 @@
+.page-aside
+  background: none repeat scroll 0 0 $white
+  width: 280px
+  height: 100%
+  position: relative
+  display: table-cell
+  border-right: 1px solid #E9E9E9
+  .header
+    padding: 15px 20px 20px
+  .content
+    padding: 0
+  .app-nav
+    display: block
+    visibility: visible
+    padding: 0
+
+@media (max-width: 767px)
+  .page-aside
+    width: 100%
+    display: block
+    height: auto
+    position: relative
+    .app-nav
+      margin-top: 0
+      border-bottom: 1px solid #E5E5E5
+      &.collapse
+        display: none
+      &.in
+        display: block
+    .content
+      border-bottom: 1px solid #E5E5E5
