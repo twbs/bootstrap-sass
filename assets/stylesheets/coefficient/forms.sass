@@ -11,35 +11,15 @@ label
   font-size: 12px
   border-radius: 1px
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset
+  &:focus
+    border-color: #2598f9
 
-.input-group .btn
-  margin: 0 !important
-  margin-left: -1px !important
-  padding-bottom: 6px
-  padding-top: 6px
-  box-shadow: none
-  line-height: 20px
+/* Error */
+.form-has-error
+  color: $danger
 
-.input-group-btn > .btn + .btn
-  margin-left: -5px !important
-
-.input-group-lg > .input-group-addon
-  line-height: 0.33
-  border-radius: 3px 0 0 3px
-  -webkit-border-radius: 3px 0 0 3px
-
-.input-group-addon
-  border-radius: 2px
-  -webkit-border-radius: 2px
-  padding: 6px 11px
-
-.form-control:focus
-  border-color: #2598f9
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset
-
-select.form-control,
-textarea.form-control
-  padding: 6px 8px
-
-.input-group
-  margin-bottom: 15px
+.has-error
+  position: relative
+  .error-message
+    color: $danger
+    font-size: 11px
