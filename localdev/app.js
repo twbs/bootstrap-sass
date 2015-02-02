@@ -3,14 +3,14 @@
  **/
 
 var http = require('http')
-	, fs = require('fs')
+  , fs = require('fs')
   , path = require('path')
-	, connect = require('connect')
-	, sass = require('node-sass-middleware')
+  , connect = require('connect')
+  , sass = require('node-sass-middleware')
   , template = require('ejs-template');
 
 var srcPath = path.normalize(__dirname + '/../assets/stylesheets/coefficient')
-	, destPath = __dirname + '/public/stylesheets';
+  , destPath = __dirname + '/public/stylesheets';
 
 /**
  * Create the server
@@ -22,8 +22,8 @@ var server = connect.createServer(sass({
     , debug: true
     , outputStyle: 'expanded'
     , prefix:  '/stylesheets'
-  	}),
-	connect.static(__dirname + '/public')
+    }),
+  connect.static(__dirname + '/public')
 );
 
 
