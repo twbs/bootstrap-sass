@@ -19,6 +19,7 @@ var srcPath = path.normalize(__dirname + '/../assets/stylesheets/coefficient')
 var server = connect.createServer(sass({
             src: srcPath
         , dest: destPath
+        , force: true
         , debug: true
         , outputStyle: 'expanded'
         , prefix:    '/stylesheets'
