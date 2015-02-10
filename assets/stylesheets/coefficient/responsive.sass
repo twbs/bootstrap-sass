@@ -1,4 +1,8 @@
 /* Responsive CSS */
+@media (min-width: 980px)
+  .cl-sidebar
+    .cl-vnavigation
+      display: block !important
 
 // Common tablet vertical size
 @media (min-width: 768px) and (max-width: 979px)
@@ -15,6 +19,13 @@
   /* Sidebar */
   .cl-sidebar
     width: 55px
+
+    .cl-vnavigation
+      display: block !important
+
+      li
+        ul
+          display: none !important
 
     // Hiding search/collapse button
     .collapse-button,

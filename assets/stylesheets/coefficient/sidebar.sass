@@ -54,29 +54,6 @@
       width: 0
       height: 0
 
-#cl-wrapper.animate-collapse
-  .cl-sidebar
-    -webkit-transition: width 300ms linear
-    /* Chrome 1-25, Safari 3.2+ */
-    -moz-transition: width 300ms linear
-    /* Firefox 4-15 */
-    -o-transition: width 300ms linear
-    /* Opera 10.50–12.00 */
-    transition: width 500ms linear
-  #pcont
-    transition: margin 500ms ease
-  .cl-vnavigation li a
-    span
-      -webkit-transition: opacity 500ms linear
-      -moz-transition: opacity 500ms linear
-      -o-transition: opacity 500ms linear
-      transition: opacity 500ms linear
-    i
-      -webkit-transition: margin 500ms linear, font-size 500ms linear
-      -moz-transition: margin 500ms linear, font-size 500ms linear
-      -o-transition: margin 500ms linear, font-size 500ms linear
-      transition: margin 500ms linear, font-size 500ms linear
-
 .cl-sidebar .collapse-button
   background: #1F2126
   position: fixed
@@ -109,6 +86,7 @@
     width: 216px
     background: #272930
     margin-top: 48px
+    overflow-y: scroll
     .content
       outline: none
   &.sb-collapsed.fixed-menu .menu-space

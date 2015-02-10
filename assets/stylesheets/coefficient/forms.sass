@@ -5,21 +5,54 @@ label
 
 .form-group
   margin-top: 10px
+  margin-bottom: 28px
+  position: relative
 
 .form-control
   padding: 6px 8px
   font-size: 12px
   border-radius: 1px
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset
+  height: 42px
   &:focus
     border-color: #2598f9
+
+.helper-text
+  position: absolute
+  font-size: 11px
+
+
+
+/* Password Strength Meter */
+.password-strength
+  position: absolute
+  height: 3px
+  bottom: 1px
+  background: #cccccc
+  width: 100%
+  .password-strength-meter
+    height: 3px
+    margin: 0 1px
+    width: 1%
+
+$strengths: (weak: $danger, medium: $warning, strong: $success)
+
+@each $strength, $color in $strengths
+  .password-strength-meter
+    &.strength-#{$strength}
+      background-color: $color
+  .helper-text
+    .strength-#{$strength}
+      color: $color
+
+
 
 /* Error */
 .form-has-error
   color: $danger
 
 .has-error
-  position: relative
   .error-message
     color: $danger
     font-size: 11px
+    position: absolute
