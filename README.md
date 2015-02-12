@@ -265,7 +265,19 @@ $navbar-default-color: $light-orange;
 
 ## Version
 
-`bootstrap-sass` version reflects the upstream version, with an additional number for Sass-specific changes.
+Bootstrap for Sass version may differ from the upstream version in the last number, known as
+[MINOR](http://semver.org/spec/v2.0.0.html). The minor version may be ahead of the corresponding upstream minor.
+This happens when we need to release Sass-specific changes.
+
+Before v3.3.2, Bootstrap for Sass version used to reflect the upstream version, with an additional number for
+Sass-specific changes. This was changed due to Bower and npm compatibility issues.
+
+The upstream versions vs the Bootstrap for Sass versions are:
+
+| Upstream |    Sass |
+|---------:|--------:|
+|    3.3.2 |   3.3.3 |
+| <= 3.3.1 | 3.3.1.x |
 
 Always refer to [CHANGELOG.md](/CHANGELOG.md) when upgrading.
 
