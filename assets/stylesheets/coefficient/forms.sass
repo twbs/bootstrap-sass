@@ -17,10 +17,36 @@ label
   &:focus
     border-color: #2598f9
 
+.input-group
+  padding: 0 0 12px
+  border-radius: 1px
+  &:focus
+    border-color: #2598f9
+  .input-group-addon
+    border-radius: 1px
+
 .helper-text
   position: absolute
   font-size: 11px
 
+
+/* Address Specific */
+.group-cluster
+  .cluster-cell
+    display: table-cell
+    padding-left: 10px
+    &.cluster-cell-half
+      width: 50%
+    &.cluster-cell-third
+      width: 33%
+    &.cluster-cell-quarter
+      width: 25%
+  .cluster-row
+    display: table
+    width: 100%
+    margin-top: 10px
+    div:first-child
+      padding-left: 0
 
 
 /* Password Strength Meter */
