@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>My Profile</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/coefficient/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+
+    <% include profile-sidebar.html.ejs %>
+
+    <div class="page-head">
+       <h2>My Profile</h2>
+    </div>
+    <div class="cl-mcont">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="block-flat">
+            <div class="content">
+              <div class="form-group">
+                <label>Profile Image</label>
+                <div class="profile-image">
+                  <a href="#">
+                    <img src="https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg">
+                    <div class="edit-profile-image">Click to edit</div>
+                  </a>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" class="form-control" placeholder="user1234@dougs_doughnuts.com" disabled>
+              </div>
+              <div class="form-group group-cluster">
+                <div class="cluster-row">
+                  <div class="cluster-cell cluster-cell-half">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" placeholder="First Name">
+                  </div>
+                  <div class="cluster-cell cluster-cell-half">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" placeholder="Last Name">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Job Title</label>
+                <input type="text" class="form-control" placeholder="Job Title">
+              </div>
+              <div class="form-group">
+                <label>Telephone</label>
+                <input type="text" class="form-control" placeholder="(999) 999-9999">
+              </div>
+              <label>Web Links</label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-google-plus"></i></span>
+                <input type="text" class="form-control" placeholder="Enter the URL of your Google+ Profile">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-facebook-square"></i></span>
+                <input type="text" class="form-control" placeholder="Enter the URL of your Facebook Page">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-twitter"></i></span>
+                <input type="text" class="form-control" placeholder="Enter the URL of your Twitter Page">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-linkedin"></i></span>
+                <input type="text" class="form-control" placeholder="Enter the URL of your LinkedIn Profile">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <button type="button" class="btn btn-primary">Update</button>
+          <button type="button" class="btn btn-default">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+        });
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>
