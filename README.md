@@ -51,6 +51,11 @@ Require Bootstrap Javascripts in `app/assets/javascripts/application.js`:
 //= require bootstrap-sprockets
 ```
 
+`bootstrap-sprockets` and `bootstrap` [should not both be included](https://github.com/twbs/bootstrap-sass/issues/829#issuecomment-75153827) in `application.js`.
+
+`bootstrap-sprockets` provides individual Bootstrap Javascript files (`alert.js` or `dropdown.js`, for example), while
+`bootstrap` provides a concatenated file containing all Bootstrap Javascripts.
+
 #### Bower with Rails
 
 When using [bootstrap-sass Bower package](#c-bower) instead of the gem in Rails, configure assets in `config/application.rb`:
