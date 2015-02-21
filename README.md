@@ -333,7 +333,7 @@ and a [significant number of other contributors][contrib].
 
 ## You're in good company
 bootstrap-sass is used to build some awesome projects all over the web, including
-[Diaspora](http://diasporaproject.org/), [rails_admin](https://github.com/sferik/rails_admin),
+[Diaspora](https://diasporafoundation.org/), [rails_admin](https://github.com/sferik/rails_admin),
 Michael Hartl's [Rails Tutorial](http://railstutorial.org/), [gitlabhq](http://gitlabhq.com/) and
 [kandan](http://kandanapp.com/).
 
