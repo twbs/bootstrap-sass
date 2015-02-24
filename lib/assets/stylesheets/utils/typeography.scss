@@ -1,21 +1,47 @@
-//@font-face {
-//  font-family: 'Museo';
-//  src: asset-url("museo-500.eot");
-//  src: asset-url("museo-500.eot#iefix") format('embedded-opentype'),
-//  asset-url("museo-500.ttf") format('truetype'), asset-url("museo-500.woff") format('woff');
-//  font-weight: normal;
-//  font-style: normal;
-//}
-//@font-face {
-//  font-family: 'Museo';
-//  src: asset-url("museo-700.eot");
-//  src: asset-url("museo-700.eot#iefix") format('embedded-opentype'),
-//  asset-url("museo-700.ttf") format('truetype'), asset-url("museo-700.woff") format('woff');
-//  font-weight: bold;
-//  font-style: normal;
-//}
-//
-//h1, h2, h3, h4, h5, h6, th { font-family: 'Museo', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
-h1, h2, h3, h4, h5, h6, th { font-family: 'Droid Sans', Ubuntu , 'Open Sans', Helvetica, Arial, sans-serif; }
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,800italic,700,300,600,800,400);
 
-a { color: #0096db; }
+h1, h2, h3, h4, h5, h6, th, p { color: $header-text-color; }
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 34px;
+}
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 29px;
+  font-weight: 400;
+  line-height: 31px;
+}
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 26px;
+}
+h4 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 24px;
+}
+h5 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 23px;
+}
+h6 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+}
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+a { color: $link-color; }
