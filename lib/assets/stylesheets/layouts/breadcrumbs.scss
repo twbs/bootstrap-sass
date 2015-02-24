@@ -1,0 +1,11 @@
+.breadcrumbs > li.active > a { color: $breadcrumb-active-color; }
+.breadcrumbs > li a { color: $breadcrumb-color; @include transition(.1s 0 all); }
+.breadcrumbs > li a:hover { color: $breadcrumb-color; }
+.breadcrumbs > li:after {
+  color: $breadcrumb-active-color;
+  padding: 0 10px;
+  content: "/";
+}
+.breadcrumbs > li:last-child:after {
+  content: "";
+}

@@ -14,6 +14,9 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'sass', '>= 3.2.19'
   s.add_runtime_dependency 'autoprefixer-rails', '>= 5.0.0.1'
 
+  # Verve
+  s.add_runtime_dependency 'bourbon', '~> 4.2.0'
+
   # Testing dependencies
   s.add_development_dependency 'minitest', '~> 5.4.0'
   s.add_development_dependency 'minitest-reporters', '~> 1.0.5'
@@ -30,6 +33,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'uglifier'
   # Converter
   s.add_development_dependency 'term-ansicolor'
+
 
   s.files      = `git ls-files`.split("\n")
   s.test_files = `git ls-files -- test/*`.split("\n")

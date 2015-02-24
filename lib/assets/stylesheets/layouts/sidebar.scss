@@ -1,0 +1,106 @@
+
+/*
+ * Sidebar
+ */
+
+/* variables */
+$darkest-gray: #e5e8ec;
+$lightest-gray: #f5f7f8;
+$verve-blue: #183b5b;
+
+.sidebar {
+  position: fixed;
+  top: 44px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  background-color: $lightest-gray;
+  border-right: 1px solid $darkest-gray;
+  @media (max-width: $screen-sm-min) {
+    .nav-sidebar a.accordion-toggle.collapsed span {
+      display:none;
+    }
+    .nav-sidebar a.accordion-toggle {
+      padding-right: 0;
+    }
+    .nav-sidebar a.accordion-toggle .glyphicon {
+      margin-right: 0;
+      border-right: 0;
+    }
+    
+    .nav-sidebar .accordion-body .active .caret {
+      display: none;
+    }
+  }
+}
+
+.sidebar .accordion-toggle {
+  border-bottom: 1px solid $darkest-gray;
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding: 0 0 0 20px;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus,
+.nav-sidebar .accordion-body {
+  color: $verve-blue;
+  background: $lightest-gray;
+  padding-left: 40px;
+}
+
+.nav-sidebar .accordion-body {
+  list-style: none;
+  background-color: $darkest-gray;
+  padding-bottom: 10px;
+}
+
+.nav-sidebar .accordion-body li {
+  margin: 0;
+  padding: 5px 0 5px 35px;
+}
+
+.nav-sidebar i.glyphicon {
+  margin: 0 10px 0 0;
+  padding: 15px;
+  border-right: 1px solid $darkest-gray;
+}
+
+.nav-sidebar .accordion-toggle i.caret {
+  @extend .pull-right;
+  margin: 17px 5px 17px 5px;
+}
+
+.nav-sidebar .accordion-toggle.collapsed i.caret {
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid;
+  border-top: 4px solid transparent;
+}
+
+/* notch */
+.nav-sidebar ul li.active { position: relative; }
+.nav-sidebar ul li.active .caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: top;
+  border-top: 14px solid transparent;
+  border-right: 14px solid #fff;
+  border-left: 0px solid #fff;
+  border-bottom: 14px solid transparent;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2000;
+}

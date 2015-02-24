@@ -1,0 +1,16 @@
+// Sticky footer
+.footer{
+  padding: 60px 0 0;
+  position: relative;
+  z-index: 1100;
+  footer{
+    height: 42px;
+    background-color: $navbar-default-bg;
+    line-height: 42px;
+    padding: 0 18px;
+  }
+}
+.footer p{ color: white; margin-bottom: 0; float: left; }
+.footer .navbar-collapse{ float: right; }
+.footer .navbar-nav > li a{ color: $navbar-inverse-link-color;  }
+.footer .navbar-nav > li a:hover { background: none; color: $navbar-inverse-link-hover-color; }

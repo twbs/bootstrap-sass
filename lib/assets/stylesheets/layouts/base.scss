@@ -1,0 +1,10 @@
+body{
+  color: #324859;
+  margin-bottom: 0; // needed for sticky footer
+  text-rendering: optimizeLegibility;
+}
+body > .container-fluid { padding-top: 76px; }
+body > .container-fluid .main{ padding-left: 13px; }
+
+ul.unstyled{ list-style: none; margin: 0px; padding: 0px; }
+ul.inline > li {display: inline-block; }
