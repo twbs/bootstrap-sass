@@ -1,18 +1,15 @@
 // Sticky footer
 .footer{
-  bottom: 0px;
-  padding: 60px 0 0;
-  position: relative;
-  width: 100%;
-  z-index: 1100;
-  footer{
-    height: 42px;
-    background-color: $navbar-default-bg;
-    line-height: 42px;
-    padding: 0 18px;
-  }
+  height: 42px;
+  background-color: $navbar-default-bg;
+  padding: 0px;
 }
-.footer p{ color: white; margin-bottom: 0; float: left; }
+.footer footer {
+  padding: 0px 18px;
+  position: relative;
+}
+.footer footer .navbar-collapse.collapse{ padding-right: 0px; }
+.footer p{ color: white; line-height: 42px; margin-bottom: 0; float: left; }
 .footer .navbar-collapse{ float: right; }
 .footer .navbar-nav > li a{ color: $navbar-inverse-link-color;  }
 .footer .navbar-nav > li a:hover { background: none; color: $navbar-inverse-link-hover-color; }

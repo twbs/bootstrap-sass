@@ -99,7 +99,7 @@
 }
 .navbar-nav > li .dropdown-menu.products > li > ul > li:last-child > a span{ margin-bottom: 0px; }
 .navbar-nav > li .dropdown-menu.products > li > ul > li > a:hover span{ color: $link-hover-color; @include transition(.1s 0 all); }
-.navbar-nav > li .dropdown-menu.products > li > ul > li > a h6 { font-weight: 800; margin: 0px; }
+.navbar-nav > li .dropdown-menu.products > li > ul > li > a h6 { font-size: 12px; font-weight: 800; line-height: 12px; margin: 0px; }
 .navbar-nav > li .dropdown-menu.products > li > ul > li > a:hover h6 { color: $link-hover-color; }
 .navbar-nav > li .dropdown-menu.products > li > ul > li > a p { margin: 0px; }
 
@@ -146,7 +146,7 @@
   color: $gray-light;
   line-height: 18px;
 }
-.navbar-nav > li .dropdown-menu.profile > li:first-child { margin-bottom: 60px; }
+.navbar-nav > li .dropdown-menu.profile > li:first-child { margin-bottom: 60px; width: 100%; }
 .navbar-nav > li .dropdown-menu.profile > li:last-child { text-align: center; }
 .navbar-nav > li .dropdown-menu.profile > li > .btn span { margin-right: 7px; }
 .navbar-nav > li .dropdown-menu.profile > li > .btn:first-child { margin-right: 14px; }

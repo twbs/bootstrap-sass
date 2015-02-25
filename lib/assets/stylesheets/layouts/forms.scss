@@ -5,7 +5,14 @@
 .form-horizontal .form-group select{ width: 306px; }
 .form-horizontal .form-group .input-group .form-control,
 .form-horizontal .form-group .input-group .form-control { width: 267px; }
-.form-horizontal .form-group label[data-required=true]:after {
+.form-horizontal .form-group .input-group input{
+  height: 34px;
+  width: 267px;
+  @extend .form-control;
+  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px !important;
+}
+.form-horizontal .form-group  label[data-required=true]:after {
   color: $brand-danger;
   content: "*";
   right: 5px;

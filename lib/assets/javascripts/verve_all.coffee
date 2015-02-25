@@ -1,10 +1,11 @@
 #= require jquery_ujs
 #= require select2
+#= require picker
 #= require_self
 
 $ document
 .ready ->
-  $ '.js-example-placeholder-single'
+  $ ".js-example-basic-multiple, .js-example-placeholder-single"
   .select2
     placeholder: 'Please Select'
     allowCenter: true
@@ -21,6 +22,7 @@ $ document
         .attr 'placeholder', 'Required'
         ecount++
     false if ecount > 0
+
 #
 #$(document).ready(function(){
 #  $('.js-example-placeholder-single').select2({
