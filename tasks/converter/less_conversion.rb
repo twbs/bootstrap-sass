@@ -1,4 +1,5 @@
 require_relative 'char_string_scanner'
+require 'bootstrap-sass/version'
 
 # This is the script used to automatically convert all of twbs/bootstrap LESS to Sass.
 #

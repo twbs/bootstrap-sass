@@ -40,13 +40,24 @@ task :compile, :css_path do |t, args|
   css_path = args.with_defaults(css_path: 'tmp')[:css_path]
   puts Term::ANSIColor.bold "Compiling SCSS in #{path}"
   Dir.mkdir(css_path) unless File.directory?(css_path)
-  %w(bootstrap bootstrap/_theme).each do |file|
+  %w(_bootstrap bootstrap/_theme).each do |file|
     save_path = "#{css_path}/#{file.sub(/(^|\/)?_+/, '\1').sub('/', '-')}.css"
     puts Term::ANSIColor.cyan("  #{save_path}") + '...'
     engine    = Sass::Engine.for_file("#{path}/#{file}.scss", syntax: :scss, load_paths: [path])
     css       = engine.render
     File.open(save_path, 'w') { |f| f.write css }
   end
+end
+
+desc 'Start a dummy (test) Rails app server'
+task :dummy_rails do
+  require 'rack'
+  require 'term/ansicolor'
+  port = ENV['PORT'] || 9292
+  puts %Q(Starting on #{Term::ANSIColor.cyan "http://localhost:#{port}"})
+  Rack::Server.start(
+    config: 'test/dummy_rails/config.ru',
+    Port: port)
 end
 
 task default: :test
