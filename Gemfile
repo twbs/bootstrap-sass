@@ -6,5 +6,6 @@ gemspec
 gem 'compass', require: false
 
 group :development do
+  gem 'jekyll'
   gem 'byebug', platforms: [:mri_21, :mri_22], require: false
 end
