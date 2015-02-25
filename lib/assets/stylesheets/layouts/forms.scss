@@ -1,0 +1,55 @@
+.form-horizontal{ margin-top: 40px; }
+.form-horizontal .form-group { margin-bottom: 40px; }
+.form-horizontal .form-group input,
+.form-horizontal .form-group textarea,
+.form-horizontal .form-group select{ width: 306px; }
+.form-horizontal .form-group .input-group .form-control,
+.form-horizontal .form-group .input-group .form-control { width: 267px; }
+.form-horizontal .form-group label[data-required=true]:after {
+  color: $brand-danger;
+  content: "*";
+  right: 5px;
+  position: absolute;
+}
+.nav-tabs.nav-forms > li {
+  min-width: 175px;
+}
+.nav-tabs.nav-forms { border-bottom: 0px; }
+.nav-tabs.nav-forms > li > a { margin-right: 0px; }
+.nav-tabs.nav-forms > li.active > a,
+.nav-tabs.nav-forms > li.active > a:hover,
+.nav-tabs.nav-forms > li.active > a:focus {
+  border-top: 4px solid $brand-text-color;
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+  padding-left: 0;
+}
+.nav-tabs.nav-forms > li > a,
+.nav-tabs.nav-forms > li > a:hover,
+.nav-tabs.nav-forms > li > a:focus {
+  background: transparent;
+  border: 0px;
+  border-top: 4px solid $gray-lighter;
+  border-radius: 0;
+  border-left: 0;
+  padding-left: 0;
+  border-right: 0;
+  padding-left: 0px;
+}
+.nav-tabs.nav-forms > li > a,
+.nav-tabs.nav-forms > li > a:hover,
+.nav-tabs.nav-forms > li > a:focus,
+.nav-tabs.nav-forms > li > a > p,
+.nav-tabs.nav-forms > li > a:hover > p,
+.nav-tabs.nav-forms > li > a:focus > p {
+  color: $gray-lighter;
+}
+.nav-tabs.nav-forms > li.active > a,
+.nav-tabs.nav-forms > li.active > a:hover,
+.nav-tabs.nav-forms > li.active > a:focus,
+.nav-tabs.nav-forms > li.active > a > p,
+.nav-tabs.nav-forms > li.active > a:hover > p,
+.nav-tabs.nav-forms > li.active > a:focus > p{
+  color: $brand-text-color;
+}

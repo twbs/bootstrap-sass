@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
 
   # Verve
   s.add_runtime_dependency 'bourbon', '~> 4.2.0'
+  s.add_runtime_dependency  'select2-rails', '~> 3.5.9.3'
 
   # Testing dependencies
   s.add_development_dependency 'minitest', '~> 5.4.0'

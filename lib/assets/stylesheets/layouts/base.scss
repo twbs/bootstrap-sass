@@ -3,8 +3,16 @@ body{
   margin-bottom: 0; // needed for sticky footer
   text-rendering: optimizeLegibility;
 }
-body > .container-fluid { padding-top: 76px; }
+body > .container-fluid {
+  padding-top: 76px;
+  h1 { margin-bottom: 40px; }
+}
 body > .container-fluid .main{ padding-left: 13px; }
+.wrap {
+  position: relative;
+  height: auto;
+  min-height: 100%;
+}
 
 ul.unstyled{ list-style: none; margin: 0px; padding: 0px; }
 ul.inline > li {display: inline-block; }

@@ -1,7 +1,9 @@
 // Sticky footer
 .footer{
+  bottom: 0px;
   padding: 60px 0 0;
   position: relative;
+  width: 100%;
   z-index: 1100;
   footer{
     height: 42px;
