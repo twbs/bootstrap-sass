@@ -3,6 +3,8 @@
   height: 42px;
   background-color: $navbar-default-bg;
   padding: 0px;
+  position: relative;
+  z-index: 10000;
 }
 .footer footer {
   padding: 0px 18px;
