@@ -32,6 +32,7 @@ class MenuController
     $ ui
     .click ->
       _self.stateToOpen()
+      _self.iconOpen()
       _self.open()
 
   open: ->
