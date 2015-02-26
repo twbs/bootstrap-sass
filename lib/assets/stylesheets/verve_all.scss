@@ -1,6 +1,3 @@
 @import "utils/manifest";
-@import "layouts/**/*";
-@import "components/**/*";
-
-@import "select2";
-@import "select2-bootstrap";
+@import "layouts/manifest";
+@import "components/manifest";
