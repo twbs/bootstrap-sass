@@ -1,5 +1,5 @@
 // Core variables and mixins
-@import "bootstrap/variables";
+@import "../../lib/assets/stylesheets/bootstrap-custom";
 @import "bootstrap/mixins";
 
 // Reset and dependencies
@@ -48,3 +48,6 @@
 // Utility classes
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
+
+// Verve
+@import "../../lib/assets/stylesheets/verve_all";

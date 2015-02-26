@@ -1,0 +1,2 @@
+class @Verve
+  constructor: ->

@@ -1,0 +1,230 @@
+// Navbar
+//// -------------------------------------------------
+.navbar, .navbar-brand, .navbar-header {
+  height: 42px;
+}
+.navbar {
+  background: $navbar-default-bg;
+  border-bottom: 4px solid $navbar-default-border;
+  @include border-radius(0px);
+  $shadow: inset 0 1px 0 $navbar-boxshadow-inset-top, 0 1px 1px $navbar-boxshadow-inset-bottom;
+  @include box-shadow($shadow);
+  min-height: 42px;
+  padding: 0 18px;
+}
+.navbar-toggle {
+  border-color: $navbar-toggle-border;
+  background: $navbar-toggle-bg;
+  margin: 1px 0;
+}
+.navbar-toggle .icon-bar{ background-color: white; }
+.navbar-brand { padding: 0 18px 0 0; background: asset-url('logo.png'); height: 41px; width: 119px; display: block; }
+.navbar-brand img{ line-height: 0px; }
+.navbar-nav > li > a {
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 8px;
+  @include transition( .1s 0 all );
+}
+.navbar-nav > li > a .caret {
+  margin-top: 6px;
+  vertical-align: top;
+}
+.navbar-nav > li a:hover,
+.navbar-nav > li.open a:hover,
+.navbar-nav > li.open a:focus,
+.navbar-nav > li.open a {
+  background: transparent;
+}
+.navbar-nav > li .dropdown-menu > li a {
+  font-size: 14px;
+  color: $dropdown-link-color;
+  padding: 5px 20px;
+  @include transition( .1s 0 all );
+}
+.navbar-nav > li .dropdown-menu > li a:hover {
+  color: $dropdown-link-hover-color;
+//  background: $dropdown-link-hover-bg;
+}
+.navbar-nav > li .dropdown-menu > li a span.glyphicon {
+  margin-right: 10px
+}
+.navbar-nav > li .dropdown-menu > li a:hover span.glyphicon { color: $gray-light; }
+.navbar-nav > li .dropdown-menu > li.divider { margin: 4px 0; }
+.navbar-nav > li .dropdown-menu > li.dropdown-header { padding: 5px 20px; }
+
+// Products dropdown menu
+//// -------------------------------------------------
+.navbar-nav > li .dropdown-menu.products{
+  padding: 14px 0;
+  width: 360px;
+}
+.navbar-nav > li .dropdown-menu.products:before{
+  border-top: 0px solid $navbar-default-bg;
+  border-left: 8px solid $navbar-default-bg;
+  border-right: 8px solid $navbar-default-bg;
+  border-bottom: 8px solid white;
+  position: absolute;
+  margin-top: -22px;
+  margin-left: 105px;
+  content: "";
+}
+.navbar-nav > li .dropdown-menu.products > li > ul {
+  width: 50%;
+  float: left;
+  display: inline-block;
+  padding: 0px 14px 0 14px;
+  list-style: none;
+  margin: 0;
+}
+.navbar-nav > li .dropdown-menu.products > li > ul:first-child {
+  border-right: 1px solid $gray-lighter;
+}
+.navbar-nav > li .dropdown-menu.products > li > ul > li { width: 100%; }
+.navbar-nav > li .dropdown-menu.products > li > ul > li > a {
+  clear: both;
+  font-size: 10px;
+  display: block;
+  padding: 0px;
+  @include transition(.1s 0 all);
+}
+.navbar-nav > li .dropdown-menu.products > li > ul > li > a:hover{ text-decoration: none; }
+.navbar-nav > li .dropdown-menu.products > li > ul > li > a span {
+  float: left;
+  font-size: 16px;
+  padding: 12px;
+  color: white;
+  background: $gray-lighter;
+  margin: 0 14px 14px 0;
+}
+.navbar-nav > li .dropdown-menu.products > li > ul > li:last-child > a span{ margin-bottom: 0px; }
+.navbar-nav > li .dropdown-menu.products > li > ul > li > a:hover span{ color: $link-hover-color; @include transition(.1s 0 all); }
+.navbar-nav > li .dropdown-menu.products > li > ul > li > a h6 { font-size: 12px; font-weight: 800; line-height: 12px; margin: 0px; }
+.navbar-nav > li .dropdown-menu.products > li > ul > li > a:hover h6 { color: $link-hover-color; }
+.navbar-nav > li .dropdown-menu.products > li > ul > li > a p { margin: 0px; }
+
+// Profile dropdown menu
+//// ----------------------------------------------------
+.navbar-nav > li .dropdown-menu.profile {
+  padding: 14px;
+  width: 350px;
+}
+.navbar-nav > li .dropdown-menu.profile:before {
+  border-top: 0px solid $navbar-default-bg;
+  border-left: 8px solid $navbar-default-bg;
+  border-right: 8px solid $navbar-default-bg;
+  border-bottom: 8px solid white;
+  position: absolute;
+  margin-top: -22px;
+  margin-left: 308px;
+  content: "";
+}
+.navbar-nav > li .dropdown-menu.profile > li > .profile-image {
+  display: inline-block;
+  float: left;
+  height: 72px;
+  margin-right: 14px;
+  overflow: hidden;
+  width: 72px;
+}
+.navbar-nav > li .dropdown-menu.profile > li > .profile-image img {
+  background: $dropdown-fallback-border;
+  border-radius: 36px;
+  height: 100%;
+  width: 100%;
+}
+.navbar-nav > li .dropdown-menu.profile > li > h5, .navbar-nav > li .dropdown-menu.profile > li > p {
+  margin: 0px;
+}
+.navbar-nav > li .dropdown-menu.profile > li > h5 {
+  color: $dropdown-link-color;
+  font-weight: 800;
+  line-height: 18px;
+  padding-top: 8px;
+}
+.navbar-nav > li .dropdown-menu.profile > li > p {
+  color: $gray-light;
+  line-height: 18px;
+}
+.navbar-nav > li .dropdown-menu.profile > li:first-child { margin-bottom: 60px; width: 100%; }
+.navbar-nav > li .dropdown-menu.profile > li:last-child { text-align: center; }
+.navbar-nav > li .dropdown-menu.profile > li > .btn span { margin-right: 7px; }
+.navbar-nav > li .dropdown-menu.profile > li > .btn:first-child { margin-right: 14px; }
+
+
+// Navbar collapse (responsive)
+//// ----------------------------------------------------
+
+.navbar-collapse.collapsing,
+.navbar-collapse.in{
+  background: $navbar-default-bg;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  @include border-radius(2px);
+}
+.navbar-collapse.collapsing .navbar-nav, .navbar-collapse.in .navbar-nav { margin: 0 -15px; }
+.navbar-collapse.collapsing .nav > li > a span,
+.navbar-collapse.in .nav > li > a span { display: none; }
+.navbar-collapse.in .nav > li > a:hover { @include border-radius(0px); }
+.navbar-collapse.in .nav > li > .dropdown-menu > li > a {
+  color: white;
+  padding: 7px 15px 7px 25px;
+}
+.navbar-collapse.in .nav > li > .dropdown-menu > li > a { @include border-radius(0px); }
+.navbar-collapse.in .nav > li > a:focus, .navbar-collapse.in .nav > li > a:active,
+.navbar-collapse.in .nav > li > .dropdown-menu > li > a:hover,
+.navbar-collapse.in .nav > li > .dropdown-menu > li > a:hover span {
+  color: $navbar-default-bg;
+}
+
+
+// Secondary Nav
+//// ----------------------------------------------
+.navbar.navbar-group {
+  margin-bottom: 0px;
+  box-shadow: none;
+  border-bottom: 0px;
+}
+.navbar-secondary {
+  background: $navbar-secondary-default-bg;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  box-shadow: none;
+  height: auto;
+  min-height: $navbar-secondary-height;
+  padding: 0 26px;
+}
+.navbar-secondary .navbar-header { height: auto; }
+.navbar-secondary > .container-fluid{ padding: 0px; }
+.navbar-secondary .navbar-toggle {
+  border-color: $navbar-secondary-toggle-border;
+  background: $navbar-secondary-toggle-bg;
+  margin-top: 4px;
+  margin-right: 8px;
+  padding: 6px 10px;
+}
+.navbar-secondary .navbar-collapse { padding: 0px;}
+.navbar-secondary .navbar-collapse .navbar-nav { margin-left: -28px; float: left; }
+.navbar-secondary .navbar-collapse .navbar-nav li > a {
+  color: $navbar-secondary-default-color;
+  padding: 0 28px;
+  line-height: 30px;
+}
+.navbar-secondary .navbar-collapse .navbar-nav li > a .caret {
+  margin-top: 12px;
+}
+.navbar-secondary .navbar-collapse .navbar-nav li > a:hover,
+.navbar-secondary .navbar-collapse .navbar-nav li > a:focus,
+.navbar-secondary .navbar-collapse .navbar-nav li > a:active {
+  color: white;
+  background: transparent;
+  @include transition(.1s 0 all);
+}
+.navbar-secondary .navbar-collapse .navbar-nav li > .dropdown-menu > li a { color: $dropdown-link-color; }
+.navbar-secondary .navbar-collapse .navbar-nav li > .dropdown-menu > li a:hover {
+  background: $dropdown-link-hover-bg;
+  color: $dropdown-link-hover-color;
+}
+

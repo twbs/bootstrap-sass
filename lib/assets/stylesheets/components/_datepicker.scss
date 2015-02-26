@@ -1,0 +1,26 @@
+.ui-datepicker {
+  background: white;
+  border: 1px solid $gray-lighter;
+  margin-top: 10px;
+  &:before{
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid $gray-lighter;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    position: absolute;
+    margin-top: -17px;
+    background-clip: padding-box;
+    box-sizing: border-box;
+  }
+  &:after{
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid white;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    position: absolute;
+    margin-top: -184px;
+    background-clip: padding-box;
+    box-sizing: border-box;
+  }
+}
+.ui-datepicker-calendar > tbody > tr > td:hover { background: $gray-lighter; border-radius: 2px; }
