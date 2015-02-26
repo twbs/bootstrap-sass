@@ -18,6 +18,16 @@
   right: 5px;
   position: absolute;
 }
+.form-horizontal .form-group .form-control.error,
+.form-horizontal .form-group input.error {
+  border: 1px solid $brand-danger;
+  box-shadow: inset 0 0 0 1px rgba(185, 55, 69, 0.1);
+  &::-webkit-input-placeholder { color: $brand-danger; }
+  &:-moz-placeholder { /* Firefox 18- */color: $brand-danger; }
+  &::-moz-placeholder {  /* Firefox 19+ */color: $brand-danger; }
+  &:-ms-input-placeholder { color: $brand-danger; }
+}
+
 .nav-tabs.nav-forms > li {
   min-width: 175px;
 }
