@@ -1,0 +1,35 @@
+#slideout_inner
+  position: fixed
+  top: 50px
+  right: -350px
+  -webkit-transition-duration: 0.3s
+  -moz-transition-duration: 0.3s
+  -o-transition-duration: 0.3s
+  transition-duration: 0.3s
+  height: 100%
+  background: #ffffff
+  z-index: 99
+  width: 350px
+  height: 100%
+  border-left: 2px solid #CCCCCC
+
+#slideout.active
+  #slideout_inner
+    right: 0
+
+.slideout_wrap
+  padding: 20px
+  .header
+    padding: 3px 0
+    border-bottom: 1px solid #DADADA
+  h3
+    margin-top: 3px
+    font-family: "Raleway", Helvetica, sans-serif;
+    font-weight: 200
+  .content
+    padding: 15px 3px 0 3px
+
+.slidein
+  padding: 5px
+  cursor: pointer
+  float: left

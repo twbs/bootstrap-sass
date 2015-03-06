@@ -1,11 +1,20 @@
 $table-border-color: #dadada
 
+.pre-table
+  display: table
+  width: 100%
+  .num-rows-option
+    display: table-cell
+    text-align: right
+    vertical-align: middle
+
 /* Tables */
 table
   border-collapse: collapse
   width: 100%
   thead
     border: 1px solid $table-border-color
+    border-bottom: 2px solid $table-border-color
     th
       font-size: 13px
       font-weight: 200
@@ -15,10 +24,44 @@ table
     td
       padding: 7px 8px
       font-size: 12px
-      border-left: 1px solid $table-border-color
       border-bottom: 1px solid $table-border-color
+      &:first-child
+        border-left: 1px solid $table-border-color
       &:last-child
         border-right: 1px solid $table-border-color
 
+  &.datatable
+    tr:nth-child(2n)
+      background-color: #F8F8F8
+
   .no-border
     border: 0
+
+.fa-sort-up.active,
+.fa-sort-down.active
+  color: $primary
+
+/* Pagination */
+.pagination
+  display: block
+  text-align: right
+  overflow: hidden
+  border-radius: 0
+  ul
+    padding: 0
+    overflow: hidden
+    float: right
+  .pagination-item
+    margin: 0
+    padding: 5px 10px
+    border: 1px solid $table-border-color
+    list-style: none
+    float: left
+    &.inactive
+      color: #CCCCCC
+    &.current
+      background-color: #CCCCCC
+      font-weight: 600
+    &:hover:not(.inactive)
+      background-color: #CCCCCC
+      cursor: pointer
