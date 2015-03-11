@@ -71,7 +71,12 @@ $strengths: (weak: $danger, medium: $warning, strong: $success)
     .strength-#{$strength}
       color: $color
 
+$widths: (weak: 20%, medium: 50%, strong: 90%)
 
+@each $strength, $width in $widths
+  .password-strength-meter
+    &.strength-#{$strength}
+      width: $width
 
 /* Error */
 .form-has-error
