@@ -1,3 +1,42 @@
+# Verve Bootstrap with Sass
+
+## Installation
+
+Add `bootstrap-sass` to your Gemfile and point to the repo at git
+
+    gem 'bootstrap-sass', git: 'git@github.com:VerveWireless/bootstrap-sass.git'
+    
+Add the following runtime dependency
+    
+    gem 'select2-rails', '~> 3.5.9.3'
+
+Run bundle install
+    
+## Rails Setup
+
+Add the following to your application.scss
+
+    ```scss
+    // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+    @import "bootstrap-sprockets";
+    @import "bootstrap";
+    ```
+    
+Add the following to your application.js
+    
+    //= require bootstrap-sprockets
+    //= require verve_all
+    
+Or if you would like to use coffeescript syntax
+        
+    #= require bootstrap-sprockets
+    #= require verve_all
+
+Restart your rails server...
+   
+    
+
+
 # Bootstrap for Sass [![Gem Version](https://badge.fury.io/rb/bootstrap-sass.svg)](http://badge.fury.io/rb/bootstrap-sass) [![Bower Version](https://badge.fury.io/bo/bootstrap-sass.svg)](http://badge.fury.io/bo/bootstrap-sass) [![Build Status](http://img.shields.io/travis/twbs/bootstrap-sass.svg)](http://travis-ci.org/twbs/bootstrap-sass)
 
 `bootstrap-sass` is a Sass-powered version of [Bootstrap](http://github.com/twbs/bootstrap), ready to drop right into your Sass powered applications.
