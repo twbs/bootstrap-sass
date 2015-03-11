@@ -33,8 +33,43 @@ Or if you would like to use coffeescript syntax
     #= require verve_all
 
 Restart your rails server...
+
    
-    
+## Views
+
+### application.html
+
+Update your `application.html.erb` to read the look like the following. This will give you a basic setup with a header, sidebar, and footer components.
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>StyleGuide</title>
+      <%= stylesheet_link_tag    'application', media: 'all' %>
+      <%= javascript_include_tag 'application' %>
+      <%= csrf_meta_tags %>
+    </head>
+    <body>
+    <div class="wrap">
+      <%= render 'layouts/navigation' %>
+      <div class="container-fluid">
+        <div class="row">
+          <%= render 'layouts/sidebar' %>
+          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 col-xs-offset-2 main">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= render 'layouts/footer' %>
+    </body>
+    </html>
+
+## Components
+
+Download and run the sample rails app [here](https://github.com/VerveWireless/bootstrap-sass/compare/master...VerveWireless:development?expand=1) for a full list of components and sample page views.
+Bellow are a few of the common components that you may use in your application.
+ 
 
 
 # Bootstrap for Sass [![Gem Version](https://badge.fury.io/rb/bootstrap-sass.svg)](http://badge.fury.io/rb/bootstrap-sass) [![Bower Version](https://badge.fury.io/bo/bootstrap-sass.svg)](http://badge.fury.io/bo/bootstrap-sass) [![Build Status](http://img.shields.io/travis/twbs/bootstrap-sass.svg)](http://travis-ci.org/twbs/bootstrap-sass)

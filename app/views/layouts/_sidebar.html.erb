@@ -1,4 +1,38 @@
-
+<%
+   # menu_items ||= nil
+  menu_items = [
+    {
+      icon: 'dashboard',
+      name: 'Reports',
+      link: '#',
+      sub_menu: [
+        {
+          name: 'VLM Programming Direct',
+          link: '#'
+        },
+        {
+          name: 'Geo-temporal',
+          link: '#'
+        }
+      ]
+    },
+    {
+      icon: 'reports',
+      name: 'API',
+      link: '#',
+      sub_menu: [
+        {
+          name: 'VLM Programming Direct',
+          link: '#'
+        },
+        {
+          name: 'Geo-temporal',
+          link: '#'
+        }
+      ]
+    }
+  ]
+%>
 <div class="col-sm-3 col-md-2 accordion sidebar" id="acd1">
   <div class="accordion-group">
       <div class="accordion-heading" id="menu-controller">
@@ -9,11 +43,12 @@
         </ul>
       </div>
   </div>
+  <%= sidebar_menu view, menu_items %>
   <div class="accordion-group">
     <div class="accordion-heading">
       <ul class="nav nav-stacked nav-sidebar">
         <li>
-          <a href="#overview" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#acd1" data-target="#reports-accordion">
+          <a href="#" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#acd1" data-target="#reports-accordion">
             <i class="glyphicon glyphicon-dashboard"></i><span>Reports <i class="caret"></i></span>
           </a>
           <ul id="reports-accordion" class="accordion-body collapse">
@@ -29,7 +64,7 @@
     <div class="accordion-heading">
       <ul class="nav nav-stacked nav-sidebar">
         <li>
-          <a href="#overview" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#acd1" data-target="#api-accordion">
+          <a href="#" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#acd1" data-target="#api-accordion">
             <i class="glyphicon glyphicon-record"></i><span>API <i class="caret"></i></span>
           </a>
           <ul id="api-accordion" class="accordion-body collapse">
@@ -45,7 +80,7 @@
     <div class="accordion-heading">
       <ul class="nav nav-stacked nav-sidebar">
         <li>
-          <a href="#overview" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#acd1" data-target="#schedules-accordion">
+          <a href="#" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#acd1" data-target="#schedules-accordion">
             <i class="glyphicon glyphicon-folder-open"></i><span>Schedules <i class="caret"></i></span>
           </a>
           <ul id="schedules-accordion" class="accordion-body collapse">
@@ -61,7 +96,7 @@
     <div class="accordion-heading">
       <ul class="nav nav-stacked nav-sidebar">
         <li>
-          <a href="#overview" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#acd1" data-target="#samples-accordion">
+          <a href="#" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#acd1" data-target="#samples-accordion">
             <i class="glyphicon glyphicon-folder-open"></i><span>Samples <i class="caret"></i></span>
           </a>
           <ul id="samples-accordion" class="accordion-body collapse">
