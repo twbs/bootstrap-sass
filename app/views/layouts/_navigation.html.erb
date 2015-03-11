@@ -67,12 +67,15 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">user@vervemobile.com <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= user.email %> <b class="caret"></b></a>
           <ul class="dropdown-menu inline profile">
             <li>
-              <div class="profile-image"><%= image_tag("logo.png") %></div>
-              <h5>Myron Robertson</h5>
-              <p>myron@vervemobile.com<br>Logged in as: Admin</p>
+
+              <% if user %>
+              <div class="profile-image"><%= image_tag "https://secure.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}.png?s=20", class: "gravatar" %></div>
+              <h5><%= user.name %></h5>
+              <p><%= user.email %><br>Logged in as: Admin</p>
+              <% end %>
             </li>
             <li>
               <button href="#" class="btn btn-default"><span class="glyphicon glyphicon-th-list"></span>Logout</button>
