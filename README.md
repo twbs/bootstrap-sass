@@ -346,6 +346,6 @@ Michael Hartl's [Rails Tutorial](http://railstutorial.org/), [gitlabhq](http://g
 [contrib]: https://github.com/twbs/bootstrap-sass/graphs/contributors
 [antirequire]: https://github.com/twbs/bootstrap-sass/issues/79#issuecomment-4428595
 [jsdocs]: http://getbootstrap.com/javascript/#transitions
-[sass-precision]: http://sass-lang.com/documentation/Sass/Script/Number.html#precision-class_method
+[sass-precision]: http://sass-lang.com/documentation/Sass/Script/Value/Number.html#precision-class_method
 [mincer]: https://github.com/nodeca/mincer
 [autoprefixer]: https://github.com/ai/autoprefixer
