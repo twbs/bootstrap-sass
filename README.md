@@ -339,7 +339,7 @@ and a [significant number of other contributors][contrib].
 bootstrap-sass is used to build some awesome projects all over the web, including
 [Diaspora](https://diasporafoundation.org/), [rails_admin](https://github.com/sferik/rails_admin),
 Michael Hartl's [Rails Tutorial](http://railstutorial.org/), [gitlabhq](http://gitlabhq.com/) and
-[kandan](http://kandanapp.com/).
+[kandan](http://kandan.io/).
 
 [converter]: https://github.com/twbs/bootstrap-sass/blob/master/tasks/converter/less_conversion.rb
 [version]: https://github.com/twbs/bootstrap-sass/blob/master/lib/bootstrap-sass/version.rb
