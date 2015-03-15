@@ -73,7 +73,7 @@ end
 # Precompile Bootstrap fonts
 config.assets.precompile << %r(bootstrap-sass/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff2?)$)
 # Minimum Sass number precision required by bootstrap-sass
-::Sass::Script::Number.precision = [8, ::Sass::Script::Number.precision].max
+::Sass::Script::Value::Number.precision = [8, ::Sass::Script::Value::Number.precision].max
 ```
 
 Replace Bootstrap `@import` statements in `application.scss` with:
@@ -197,7 +197,7 @@ Precision is set for Rails and Compass automatically.
 When using ruby Sass compiler standalone or with the Bower version you can set it with:
 
 ```ruby
-::Sass::Script::Number.precision = [8, ::Sass::Script::Number.precision].max
+::Sass::Script::Value::Number.precision = [8, ::Sass::Script::Value::Number.precision].max
 ```
 
 #### Sass: Autoprefixer
@@ -346,6 +346,6 @@ Michael Hartl's [Rails Tutorial](http://railstutorial.org/), [gitlabhq](http://g
 [contrib]: https://github.com/twbs/bootstrap-sass/graphs/contributors
 [antirequire]: https://github.com/twbs/bootstrap-sass/issues/79#issuecomment-4428595
 [jsdocs]: http://getbootstrap.com/javascript/#transitions
-[sass-precision]: http://sass-lang.com/documentation/Sass/Script/Number.html#precision-class_method
+[sass-precision]: http://sass-lang.com/documentation/Sass/Script/Value/Number.html#precision%3D-class_method
 [mincer]: https://github.com/nodeca/mincer
 [autoprefixer]: https://github.com/ai/autoprefixer
