@@ -69,7 +69,98 @@ Update your `application.html.erb` to read the look like the following. This wil
 
 Download and run the sample rails app [here](https://github.com/VerveWireless/bootstrap-sass/compare/master...VerveWireless:development?expand=1) for a full list of components and sample page views.
 Bellow are a few of the common components that you may use in your application.
- 
+
+## Helpers
+
+### Sidebar helper
+
+The sidebar helper provides a simple method to use for building out a left navigation. To use this method you will need to modify the `application.erb` code from above as follows.
+
+    <div class="wrap">
+      [remove] <%= render 'layouts/navigation' %> [/remove]
+      [add]
+      <div class="col-sm-3 col-md-2 accordion sidebar" id="acd1">
+        <div class="accordion-group">
+            <div class="accordion-heading" id="menu-controller">
+              <ul class="nav nav-stacked nav-sidebar">
+                <li>
+                  <a class="accordion-toggle collapsed"><i class="glyphicon glyphicon-plus"></i></a>
+                </li>
+              </ul>
+            </div>
+        </div>
+        <%= render_menu self, menu_items %>
+      </div>
+      [/add]
+      <div class="container-fluid">
+        <div class="row">
+          <%= render 'layouts/sidebar' %>
+          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 col-xs-offset-2 main">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+#### Methods
+
+    render_menu( Object, Array)
+    
+#### Params
+    
+    (type) Object: ActionView object is used for template helpers to write html tags
+    
+    (type) Array: An array of objects to use to generate links and sub-menu items
+    
+    \javascript
+    Example: [
+               {
+                 icon: 'dashboard',
+                 name: 'Reports',
+                 url: '#',
+                 sub_menu: [
+                   {
+                     name: 'VLM Programming Direct',
+                     url: '#'
+                   },
+                   {
+                     name: 'Geo-temporal',
+                     url: '#'
+                   }
+                 ]
+               },
+               {
+                 icon: 'reports',
+                 name: 'API',
+                 url: '#',
+                 active: true,
+                 sub_menu: [
+                   {
+                     name: 'VLM Programming Direct',
+                     url: '#',
+                     active: true
+                   },
+                   {
+                     name: 'Geo-temporal',
+                     url: '#'
+                   }
+                 ]
+               }
+             ]
+
+#### Description
+    
+| name      |  type    | description                                                                                                                                                                                                   | required  |  default value |
+|-----------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|----------------|
+| icon      |  string  | Name of icon will be appended to the glyphicon class name.<br/><br/><b>Example</b>: icon: 'reports'<br/><br/><b>Response with</b>: glyphicon-reports<br/><br/>CSS styleing is handled through bootstrap.      |  y        |                |
+| name      |  string  | Name to be used in the link.                                                                                                                                                                                  |  y        |                |
+| active    |  boolean | Ads an active class for the active url. This logic is not maintained within the gem, but can be set within the application.                                                                                   |  n        |  false         |
+| url       |  string  | Url for the link.                                                                                                                                                                                             |  n        |  #             |
+| sub_menu  |  array   | An array of link objects. Sub-menu links do not support icon usage.                                                                                                                                           |  n        |                |
+
+
+    
+    
 
 
 # Bootstrap for Sass [![Gem Version](https://badge.fury.io/rb/bootstrap-sass.svg)](http://badge.fury.io/rb/bootstrap-sass) [![Bower Version](https://badge.fury.io/bo/bootstrap-sass.svg)](http://badge.fury.io/bo/bootstrap-sass) [![Build Status](http://img.shields.io/travis/twbs/bootstrap-sass.svg)](http://travis-ci.org/twbs/bootstrap-sass)

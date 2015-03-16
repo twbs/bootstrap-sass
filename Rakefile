@@ -9,6 +9,9 @@ task :test do |t|
   Dir.glob('./test/**/*_test.rb').each { |file| require file }
 end
 
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new('spec')
+
 desc 'Dumps output to a CSS file for testing'
 task :debug do
   require 'sass'
