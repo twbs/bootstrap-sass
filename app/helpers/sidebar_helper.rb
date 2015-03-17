@@ -11,9 +11,9 @@ module SidebarHelper
       end
     end
 
-    def render_menu_items
-      menu = menu_items.map do |item, index|
-        render_accordion_group render_accordion_heading render_nav_ul render_nav_link(item, index)
+    def render_menu_items i=0
+      menu = menu_items.map do |item|
+        render_accordion_group render_accordion_heading render_nav_ul render_nav_link(item, i+=1)
       end.join.html_safe
       menu
     end
@@ -30,7 +30,7 @@ module SidebarHelper
       template.content_tag(:ul, class: 'nav nav-stacked nav-sidebar') { args }
     end
 
-    def render_nav_link link, index=nil
+    def render_nav_link link, index=0
       url = link[:url] || '#'
       nav_link =  template.link_to link[:name], href: url, class: 'accordion-toggle collapsed', data: {toggle: 'collapse', parent: 'verve-sb-acd1', target: "#sidebar-accordion-#{index}" } do
                     render_icon(link[:icon]) + "#{link[:name]}"
