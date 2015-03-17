@@ -19,6 +19,10 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'select2-rails', '~> 3.5.9.3'
   s.add_runtime_dependency 'jquery-ui-sass-rails', '~> 4.0.3.0'
   s.add_development_dependency 'bourbon', '~> 4.2.0'
+  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'pry'
+  s.add_development_dependency 'actionview', '~> 4.2.0'
 
   # Testing dependencies
   s.add_development_dependency 'minitest-reporters', '~> 1.0.5'
@@ -39,5 +43,5 @@ Gem::Specification.new do |s|
 
 
   s.files      = `git ls-files`.split("\n")
-  s.test_files = `git ls-files -- test/*`.split("\n")
+  s.test_files = `git ls-files -- test/*`.split("\n") + `git ls-files -- test/*`.split("\n")
 end

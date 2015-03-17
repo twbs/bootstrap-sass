@@ -19,3 +19,5 @@ test/dummy_rails/public/assets/
 node_modules
 
 .idea
+.ruby-version
+.ruby-gemset

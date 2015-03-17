@@ -1,4 +1,5 @@
 #= require jquery_ujs
+#= require jquery.ui.datepicker
 #= require select2
 #= require picker
 #= require ns
