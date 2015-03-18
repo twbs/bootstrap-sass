@@ -29,7 +29,7 @@ class Converter
 
     def bootstrap_js_files
       @bootstrap_js_files ||= begin
-        files = get_paths_by_type 'js', /\.js$/
+        files = get_paths_by_type('js', /\.js$/).reject { |path| path =~ %r(^tests/) }
         files.sort_by { |f|
           case f
             # tooltip depends on popover and must be loaded earlier
