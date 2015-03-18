@@ -143,11 +143,11 @@
 .btn-block {
   display: block;
   width: 100%;
-}
 
-// Vertically space out multiple block buttons
-.btn-block + .btn-block {
-  margin-top: 5px;
+  // Vertically space out multiple block buttons
+  & + & {
+    margin-top: 5px;
+  }
 }
 
 // Specificity overrides
