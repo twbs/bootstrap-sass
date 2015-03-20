@@ -67,11 +67,10 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= user.email %> <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= user.email unless user.nil? %> <b class="caret"></b></a>
           <ul class="dropdown-menu inline profile">
             <li>
-
-              <% if user %>
+              <% unless user.nil? %>
               <div class="profile-image"><%= image_tag "https://secure.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}.png?s=20", class: "gravatar" %></div>
               <h5><%= user.name %></h5>
               <p><%= user.email %><br>Logged in as: Admin</p>
