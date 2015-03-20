@@ -9,6 +9,7 @@ Add `bootstrap-sass` to your Gemfile and point to the repo at git
 Add the following runtime dependency
     
     gem 'select2-rails', '~> 3.5.9.3'
+    gem 'jquery-ui-sass-rails', '~> 4.0.3.0'
 
 Run bundle install
     
@@ -89,7 +90,7 @@ The sidebar helper provides a simple method to use for building out a left navig
               </ul>
             </div>
         </div>
-        <%= render_menu self, menu_items %>
+        <%= SidebarHelper.render_menu self, menu_items %>
       </div>
       [/add]
       <div class="container-fluid">
@@ -159,6 +160,28 @@ The sidebar helper provides a simple method to use for building out a left navig
 | sub_menu  |  array   | An array of link objects. Sub-menu links do not support icon usage.                                                                                                                                           |  n        |                |
 
 
+Sample navigation.yml format. This is a template that can be used for setting up your yml file. Your application logic will have to set the default active states so that it is dynamic per page load. View the sample app for out implementation.
+
+    ---
+    # Menu Items
+    - icon: 'dashboard'
+      name: 'Reports'
+      url: '#'
+      sub_menu:
+        - name: 'VLM Programming Direct'
+          url: '#'
+        - name: 'Geo-temporal'
+          url: '#'
+    - icon: 'reports'
+      name: 'API'
+      url: '#'
+      active: true
+      sub_menu:
+        - name: 'VLM Programming Direct'
+          url: '#'
+          active: true
+        - name: 'Geo-temporal'
+          url: '#'
     
     
 
