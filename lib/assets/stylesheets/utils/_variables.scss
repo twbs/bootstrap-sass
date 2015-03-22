@@ -24,6 +24,7 @@ $brand-success:         #3ea169 !default;
 $brand-info:            $brand-primary !default;
 $brand-warning:         #f8cb3a !default;
 $brand-danger:          #b93745 !default;
+$brand-secondary:       #31608D !default;
 
 //== Scaffolding
 //
@@ -373,6 +374,7 @@ $navbar-default-brand-hover-bg:            transparent !default;
 $navbar-default-toggle-hover-bg:           rgb(13, 53, 91) !default;
 $navbar-default-toggle-icon-bar-bg:        white !default;
 $navbar-default-toggle-border-color:       rgb(13, 53, 91) !default;
+$navbar-rule-color:                         #cecece !default;
 
 
 // Inverted navbar
@@ -445,6 +447,11 @@ $nav-pills-border-radius:                   $border-radius-base !default;
 $nav-pills-active-link-hover-bg:            $component-active-bg !default;
 $nav-pills-active-link-hover-color:         $component-active-color !default;
 
+//== Sidebar
+$nav-sidebar-link-color:                    #6d6d6d !default;
+$nav-sidebar-link-color-active:             $brand-secondary !default;
+$nav-sidebar-background-color:              #f5f7f8 !default;
+$nav-sidebar-accordion-background-color:    #e5e8ec !default;
 
 //== Pagination
 //

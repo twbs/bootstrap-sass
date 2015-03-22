@@ -3,11 +3,6 @@
  * Sidebar
  */
 
-/* variables */
-$darkest-gray: #e5e8ec;
-$lightest-gray: #f5f7f8;
-$verve-blue: #183b5b;
-
 .sidebar {
   position: fixed;
   top: 44px;
@@ -18,8 +13,8 @@ $verve-blue: #183b5b;
   padding: 0;
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-  background-color: $lightest-gray;
-  border-right: 1px solid $darkest-gray;
+  background-color: $nav-sidebar-background-color;
+  border-right: 1px solid $navbar-rule-color;
   @media (max-width: $screen-sm-min) {
     .nav-sidebar a.accordion-toggle.collapsed span {
       display:none;
@@ -27,7 +22,7 @@ $verve-blue: #183b5b;
     .nav-sidebar a.accordion-toggle {
       padding-right: 0;
     }
-    .nav-sidebar a.accordion-toggle .glyphicon {
+    .nav-sidebar a.accordion-toggle .fa {
       margin-right: 0;
       border-right: 0;
     }
@@ -39,7 +34,8 @@ $verve-blue: #183b5b;
 }
 
 .sidebar .accordion-toggle {
-  border-bottom: 1px solid $darkest-gray;
+  border-bottom: 1px solid $navbar-rule-color;
+  color: $nav-sidebar-link-color;
 }
 
 /* Sidebar navigation */
@@ -52,55 +48,79 @@ $verve-blue: #183b5b;
 
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
-.nav-sidebar > .active > a:focus,
-.nav-sidebar .accordion-body {
-  color: $verve-blue;
-  background: $lightest-gray;
+.nav-sidebar > .active > a:focus {
+  color:  $nav-sidebar-link-color-active;
+  background: white;
   padding-left: 40px;
 }
 
 .nav-sidebar .accordion-body {
   list-style: none;
-  background-color: $darkest-gray;
-  padding-bottom: 10px;
+  background-color: $nav-sidebar-accordion-background-color;
+  padding-bottom: 0px;
+  padding-left: 0px;
 }
 
 .nav-sidebar .accordion-body li {
   margin: 0;
-  padding: 5px 0 5px 35px;
+  padding: 11px 0 11px 38px;
+  border-bottom: 1px solid $navbar-rule-color;
+  &.active{
+    background-color: white;
+  }
 }
-
-.nav-sidebar i.glyphicon {
-  margin: 0 10px 0 0;
-  padding: 15px;
-  border-right: 1px solid $darkest-gray;
+.nav-sidebar .accordion-body li > a{ color: $nav-sidebar-link-color; }
+.nav-sidebar .accordion-body li:hover,
+.nav-sidebar .accordion-body li:hover > a,
+.nav-sidebar .accordion-body li.active,
+.nav-sidebar .accordion-body li.active > a {
+  color: $nav-sidebar-link-color-active;
+  background-color: white;
 }
-
-.nav-sidebar .accordion-toggle i.caret {
-  @extend .pull-right;
-  margin: 17px 5px 17px 5px;
+.nav-sidebar .accordion-body li > a:hover,
+.nav-sidebar .accordion-body li > a:focus,
+.nav-sidebar .accordion-body .active > a,
+.nav-sidebar .accordion-body .active > a:hover,
+.nav-sidebar .accordion-body .active > a:focus {
+  color: $nav-sidebar-link-color;
+  background-color: white;
 }
-
-.nav-sidebar .accordion-toggle.collapsed i.caret {
-  border-bottom: 4px solid transparent;
-  border-left: 4px solid;
+.nav-sidebar .accordion-body li > a > .caret {
   border-top: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-left: 4px solid;
+  border-bottom: 4px solid transparent;
+  padding-right: 14px;
 }
 
+.nav-sidebar i.fa {
+  font-size: 24px;
+  padding: 7px 14px 7px 7px;
+  vertical-align: middle;
+}
+
+.nav-sidebar .accordion-toggle i.fa.fa-chevron-down,
+.nav-sidebar .accordion-toggle i.fa.fa-chevron-left {
+  @extend .pull-right;
+  margin: 0;
+  font-size: 14px;
+  padding: 12px 7px 12px 0px;
+}
+
+.nav-sidebar .accordion-toggle.collapsed i.fa.fa-chevron-left {
+  display: none;
+}
+.nav-sidebar .accordion-toggle {
+  &.collpased{
+    i.fa.fa-chevron-left{ display: none; }
+  }
+  &[aria-expanded="true"] {
+    background-color: white;
+    color: $nav-sidebar-link-color-active;
+    i.fa.fa-chevron-down {
+      display: none;
+    }
+  }
+}
 /* notch */
 .nav-sidebar ul li.active { position: relative; }
-.nav-sidebar ul li.active .caret {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  vertical-align: top;
-  border-top: 14px solid transparent;
-  border-right: 14px solid #fff;
-  border-left: 0px solid #fff;
-  border-bottom: 14px solid transparent;
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2000;
-}
