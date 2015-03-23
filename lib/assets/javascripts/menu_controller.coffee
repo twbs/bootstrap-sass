@@ -56,13 +56,13 @@ class MenuController
   iconOpen: ->
     @menuController
     .find('i')
-    .removeClass 'glyphicon-plus'
-    .addClass 'glyphicon-minus'
+    .removeClass 'fa-plus-square'
+    .addClass 'fa-minus-square'
 
   iconClose: ->
     @menuController.find('i')
-    .removeClass 'glyphicon-minus'
-    .addClass 'glyphicon-plus'
+    .removeClass 'fa-minus-square'
+    .addClass 'fa-plus-square'
 
   handler: ->
     _self = @

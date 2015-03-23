@@ -97,7 +97,12 @@
   padding: 7px 14px 7px 7px;
   vertical-align: middle;
 }
-
+.nav-sidebar .accordion-toggle i.fa.fa-minus-square,
+.nav-sidebar .accordion-toggle i.fa.fa-plus-square {
+  font-size: 14px;
+  padding: 11px 8px 11px 0;
+}
+.nav-sidebar .accordion-toggle.open-close-btn { text-align: right; }
 .nav-sidebar .accordion-toggle i.fa.fa-chevron-down,
 .nav-sidebar .accordion-toggle i.fa.fa-chevron-left {
   @extend .pull-right;
