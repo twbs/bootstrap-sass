@@ -5,7 +5,7 @@ class MenuController
 
   expandSidebar: ->
     $ '.sidebar'
-    .css 'width', 248
+    .css 'width', 211
 
   collapseLabels: ->
     _self = @
