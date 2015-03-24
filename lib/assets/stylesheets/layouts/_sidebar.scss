@@ -68,7 +68,10 @@
     background-color: white;
   }
 }
-.nav-sidebar .accordion-body li > a{ color: $nav-sidebar-link-color; }
+.nav-sidebar .accordion-body li > a { 
+  color: $nav-sidebar-link-color; 
+  display: block; 
+}
 .nav-sidebar .accordion-body li:hover,
 .nav-sidebar .accordion-body li:hover > a,
 .nav-sidebar .accordion-body li.active,
