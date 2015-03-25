@@ -1,0 +1,382 @@
+//colors
+$white: #fff;
+$color_blue_bayoux_approx: #52697e;
+$color_celeste_approx: #ccc;
+$color_gallery_approx: #eee;
+$color_polo_blue_approx: #8fb0cf;
+$color_waterloo__approx: #778398;
+
+//fonts
+$font_0: Arial;
+$font_1: Helvetica;
+$font_2: sans-serif;
+
+//urls
+$url_0: url(../assets/colorpicker_images/select.png);
+$url_1: url(../assets/colorpicker_images/select2.png);
+$url_2: url(../assets/colorpicker_images/custom_background.png);
+$url_3: url(../assets/colorpicker_images/custom_indic.gif);
+$url_4: url(../assets/colorpicker_images/custom_hex.png);
+$url_5: url(../assets/colorpicker_images/custom_rgb_r.png);
+$url_6: url(../assets/colorpicker_images/custom_rgb_g.png);
+$url_7: url(../assets/colorpicker_images/custom_rgb_b.png);
+$url_8: url(../assets/colorpicker_images/custom_hsb_s.png);
+$url_9: url(../assets/colorpicker_images/custom_hsb_h.png);
+$url_10: url(../assets/colorpicker_images/custom_hsb_b.png);
+$url_11: url(../assets/colorpicker_images/custom_submit.png);
+
+//@extend-elements
+//original selectors
+//html, body
+%extend_1 {
+	background-color: $white;
+	font-family: $font_0, $font_1, $font_2;
+	font-size: 12px;
+	line-height: 18px;
+	color: $color_blue_bayoux_approx;
+}
+
+
+body {
+	margin: 0;
+	padding: 0;
+	@extend %extend_1;
+	overflow: auto;
+}
+div {
+	margin: 0;
+	padding: 0;
+}
+dl {
+	margin: 0;
+	padding: 0;
+}
+dt {
+	margin: 0;
+	padding: 0;
+}
+dd {
+	margin: 0;
+	padding: 0;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+li {
+	margin: 0;
+	padding: 0;
+}
+h1 {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font-weight: normal;
+	font-size: 21px;
+	height: 47px;
+	line-height: 47px;
+	text-transform: uppercase;
+}
+h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font-weight: normal;
+}
+h3 {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font-weight: normal;
+}
+h4 {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font-weight: normal;
+}
+h5 {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font-weight: normal;
+}
+h6 {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font-weight: normal;
+}
+pre {
+	margin: 0;
+	padding: 0;
+}
+form {
+	margin: 0;
+	padding: 0;
+}
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+input {
+	margin: 0;
+	padding: 0;
+}
+textarea {
+	margin: 0;
+	padding: 0;
+}
+p {
+	margin: 0;
+	padding: 0;
+}
+blockquote {
+	margin: 0;
+	padding: 0;
+}
+th {
+	margin: 0;
+	padding: 0;
+	font-style: normal;
+	font-weight: normal;
+	text-align: left;
+}
+td {
+	margin: 0;
+	padding: 0;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+img {
+	border: 0;
+}
+address {
+	font-style: normal;
+	font-weight: normal;
+}
+caption {
+	font-style: normal;
+	font-weight: normal;
+	text-align: left;
+}
+cite {
+	font-style: normal;
+	font-weight: normal;
+}
+code {
+	font-style: normal;
+	font-weight: normal;
+}
+dfn {
+	font-style: normal;
+	font-weight: normal;
+}
+em {
+	font-style: normal;
+	font-weight: normal;
+}
+strong {
+	font-style: normal;
+	font-weight: normal;
+}
+var {
+	font-style: normal;
+	font-weight: normal;
+}
+q {
+	&:before {
+		content: '';
+	}
+	&:after {
+		content: '';
+	}
+}
+abbr {
+	border: 0;
+}
+acronym {
+	border: 0;
+}
+html {
+	@extend %extend_1;
+}
+.wrapper {
+	width: 700px;
+	margin: 0 auto;
+	text-align: left;
+}
+.navigationTabs {
+	height: 23px;
+	line-height: 23px;
+	border-bottom: 1px solid $color_celeste_approx;
+	li {
+		float: left;
+		height: 23px;
+		line-height: 23px;
+		padding-right: 3px;
+		a {
+			float: left;
+			dispaly: block;
+			height: 23px;
+			line-height: 23px;
+			padding: 0 10px;
+			overflow: hidden;
+			color: $color_blue_bayoux_approx;
+			background-color: $color_gallery_approx;
+			position: relative;
+			text-decoration: none;
+			&:hover {
+				background-color: $color_gallery_approx;
+			}
+			&.active {
+				background-color: $white;
+				border: 1px solid $color_celeste_approx;
+				border-bottom: 0 solid;
+			}
+		}
+	}
+}
+.tabsContent {
+	border: 1px solid $color_celeste_approx;
+	border-top: 0 solid;
+	width: 698px;
+	overflow: hidden;
+}
+.tab {
+	padding: 16px;
+	display: none;
+	h2 {
+		font-weight: bold;
+		font-size: 16px;
+	}
+	h3 {
+		font-weight: bold;
+		font-size: 14px;
+		margin-top: 20px;
+	}
+	p {
+		margin-top: 16px;
+		clear: both;
+	}
+	ul {
+		margin-top: 16px;
+		list-style: disc;
+	}
+	li {
+		margin: 10px 0 0 35px;
+	}
+	a {
+		color: $color_polo_blue_approx;
+	}
+	strong {
+		font-weight: bold;
+	}
+	pre {
+		font-size: 11px;
+		margin-top: 20px;
+		width: 668px;
+		overflow: auto;
+		clear: both;
+	}
+	table {
+		width: 100%;
+		td {
+			padding: 6px 10px 6px 0;
+			vertical-align: top;
+		}
+	}
+	dt {
+		margin-top: 16px;
+	}
+}
+#colorSelector {
+	position: relative;
+	width: 36px;
+	height: 36px;
+	background: $url_0;
+	div {
+		position: absolute;
+		top: 3px;
+		left: 3px;
+		width: 30px;
+		height: 30px;
+		background: $url_0 center;
+	}
+}
+#colorSelector2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 36px;
+	height: 36px;
+	background: $url_1;
+	div {
+		position: absolute;
+		top: 4px;
+		left: 4px;
+		width: 28px;
+		height: 28px;
+		background: $url_1 center;
+	}
+}
+#colorpickerHolder2 {
+	top: 32px;
+	left: 0;
+	width: 356px;
+	height: 0;
+	overflow: hidden;
+	position: absolute;
+	.colorpicker {
+		background-image: $url_2;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		input {
+			color: $color_waterloo__approx;
+		}
+	}
+	.colorpicker_hex {
+		background-image: $url_4;
+	}
+	.colorpicker_rgb_r {
+		background-image: $url_5;
+	}
+	.colorpicker_rgb_g {
+		background-image: $url_6;
+	}
+	.colorpicker_rgb_b {
+		background-image: $url_7;
+	}
+	.colorpicker_hsb_s {
+		background-image: $url_8;
+		display: none;
+	}
+	.colorpicker_hsb_h {
+		background-image: $url_9;
+		display: none;
+	}
+	.colorpicker_hsb_b {
+		background-image: $url_10;
+		display: none;
+	}
+	.colorpicker_submit {
+		background-image: $url_11;
+	}
+	.colorpicker_hue div {
+		background-image: $url_3;
+	}
+}
+#customWidget {
+	position: relative;
+	height: 36px;
+}
