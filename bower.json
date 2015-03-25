@@ -1,14 +1,12 @@
 {
-  "name": "bootstrap-sass",
+  "name": "VerveWireless/verve-bootstrap-sass",
   "version": "3.3.3",
-  "homepage": "https://github.com/twbs/bootstrap-sass",
+  "homepage": "https://github.com/VerveWireless/verve-bootstrap-sass",
   "authors": [
-    "Thomas McDonald",
-    "Tristan Harward",
-    "Peter Gumeson",
-    "Gleb Mazovetskiy"
+    "Myron Robertson",
+    "Grace Blackburn"
   ],
-  "description": "bootstrap-sass is a Sass-powered version of Bootstrap, ready to drop right into your Sass powered applications.",
+  "description": "verve-bootstrap-sass is a fork of the bootstrap sass for Verve Wireless.",
   "main": [
     "assets/stylesheets/_bootstrap.scss",
     "assets/fonts/bootstrap/glyphicons-halflings-regular.eot",

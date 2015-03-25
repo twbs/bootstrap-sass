@@ -1,30 +1,18 @@
 {
-    "name": "twbs/bootstrap-sass",
-    "description": "bootstrap-sass is a Sass-powered version of Bootstrap, ready to drop right into your Sass powered applications.",
+    "name": "VerveWireless/verve-bootstrap-sass",
+    "description": "verve-bootstrap-sass is a fork of bootstrap-sass for Verve Wireless.",
     "keywords": ["bootstrap", "css", "sass"],
-    "homepage": "http://github.com/twbs/bootstrap-sass",
+    "homepage": "https://github.com/VerveWireless/verve-bootstrap-sass",
     "authors": [
         {
-            "name": "Thomas McDonald"
+            "name": "Myron Robertson"
         },
         {
-            "name": "Tristan Harward"
-        },
-        {
-            "name": "Peter Gumeson"
-        },
-        {
-            "name": "Gleb Mazovetskiy"
-        },
-        {
-            "name": "Mark Otto"
-        },
-        {
-            "name": "Jacob Thornton"
+            "name": "Grace Blackburn"
         }
     ],
     "support": {
-        "issues": "https://github.com/twbs/bootstrap-sass/issues"
+        "issues": "https://github.com/VerveWireless/verve-bootstrap-sass/issues"
     },
     "license": "MIT",
     "extra": {

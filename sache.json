@@ -1,5 +1,5 @@
 {
-    "name": "bootstrap-sass",
-    "description": "bootstrap-sass is a Sass-powered version of Bootstrap, ready to drop right into your Sass powered applications",
+    "name": "verve-bootstrap-sass",
+    "description": "verve-bootstrap-sass is a fork of bootstrap-sass for Verve Wireless",
     "tags": ["bootstrap", "grid", "typography", "buttons", "ui", "responsive-web-design"]
 }
