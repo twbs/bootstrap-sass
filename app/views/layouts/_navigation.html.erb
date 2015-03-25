@@ -77,10 +77,10 @@
               <% end %>
             </li>
             <li>
-              <%= button_to "#", html_options = {class: "btn btn-default" } do %>
+              <%= link_to sessions_destroy_path, html_options = {class: "btn btn-default", id: "btn-logout" } do %>
               <span class="glyphicon glyphicon-th-list"></span>Logout
               <% end %>
-              <button href="#" class="btn btn-default"><span class="glyphicon glyphicon-th-list"></span>Settings</button>
+              <a href="#" class="btn btn-default" id="btn-settings"><span class="glyphicon glyphicon-th-list"></span>Settings</a>
             </li>
           </ul>
         </li>
