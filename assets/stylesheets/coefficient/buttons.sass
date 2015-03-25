@@ -9,6 +9,8 @@
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12), 1px 1px 0 rgba(255, 255, 255, 0.2) inset
   &:focus
     outline: none
+  &.progress-button
+    padding: 0
 
 .btn-full
   display: block
@@ -52,3 +54,153 @@ $buttons: (default: ($white, #cccccc, #e6e6e6, #adadad), primary: ($primary, #36
 .btn-xs
   padding: 2px 6px
   font-size: 11px
+
+
+/* TEMPORARY FOR PROGRESS BUTTON */
+@font-face
+  font-family: 'FontAwesome'
+  src: url('../fonts/fontawesome-webfont.eot?v=4.2.0')
+  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format("embedded-opentype"), url('../fonts/fontawesome-webfont.woff?v=4.2.0') format("woff"), url('../fonts/fontawesome-webfont.ttf?v=4.2.0') format("truetype"), url('../fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format("svg")
+  font-weight: normal
+  font-style: normal
+
+/* General styles for all types of buttons */
+.progress-button
+  position: relative;
+  display: inline-block;
+
+.progress-button[disabled],
+.progress-button[disabled].state-loading
+  cursor: default;
+  opacity: .9
+
+.progress-button .content
+  position: relative;
+  display: block;
+  padding: 7px 11px !important
+
+.progress-button .content::before,
+.progress-button .content::after
+  position: absolute;
+  right: 20px;
+  color: #362C66;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s 0.3s;
+  transition: opacity 0.3s 0.3s;
+  font-family: "FontAwesome";
+  padding: 7px 0
+
+.progress-button .content::after
+  color: #ffffff;
+
+.progress-button .content::before
+  content: "\f00c"; /* Checkmark for success */
+
+.progress-button .content::after
+  content: "\f071"; /* Alert for error */
+
+.progress-button.state-success .content::before,
+.progress-button.state-error .content::after
+  opacity: 1;
+
+.notransition
+  -webkit-transition: none !important;
+  transition: none !important;
+
+.progress-button .progress
+  background: #362C66;
+
+.progress-button .progress-inner
+  position: absolute;
+  left: 0;
+  background: #362C66;
+
+.progress-button[data-horizontal] .progress-inner
+  top: 0;
+  width: 0;
+  height: 100%;
+  -webkit-transition: width 0.3s, opacity 0.3s;
+  transition: width 0.3s, opacity 0.3s;
+
+/* Individual styles */
+/* Choose the effect(s) you want, delete the rest */
+
+/* Fill horizontal */
+/* ====================== */
+
+.progress-button[data-style="fill"][data-horizontal]
+  overflow: hidden;
+
+.progress-button[data-style="fill"][data-horizontal] .content
+  z-index: 10;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+
+.progress-button[data-style="fill"][data-horizontal] .content::before,
+.progress-button[data-style="fill"][data-horizontal] .content::after
+  top: 100%;
+  right: auto;
+  left: 50%;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+
+.progress-button[data-style="fill"][data-horizontal].state-success .content,
+.progress-button[data-style="fill"][data-horizontal].state-error .content
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+
+/* slide down */
+/* ====================== */
+
+.progress-button[data-style="slide-down"]
+  padding: 0;
+  overflow: visible;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+.progress-button[data-style="slide-down"] .content
+  z-index: 10;
+  padding: 0 60px;
+  background: #1d9650;
+
+.progress-button[data-style="slide-down"] .progress
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+
+.progress-button[data-style="slide-down"].state-loading .progress
+  -webkit-transform: translateY(10px);
+  transform: translateY(10px);
+
+/* top-line */
+/* ====================== */
+
+.progress-button[data-style="top-line"] .progress-inner
+  height: 3px;
+
+.progress-button[data-style="top-line"] .content::before,
+.progress-button[data-style="top-line"] .content::after
+  right: auto;
+  left: 100%;
+  margin-left: 25px;
+
+/* lateral-lines */
+/* ====================== */
+
+.progress-button[data-style="lateral-lines"] .progress-inner
+  width: 100%;
+  border-right: 3px solid #0e7138;
+  border-left: 3px solid #0e7138;
+  background: transparent;
+
+.progress-button[data-style="lateral-lines"] .content::before,
+.progress-button[data-style="lateral-lines"] .content::after
+  right: auto;
+  left: 100%;
+  margin-left: 25px;
