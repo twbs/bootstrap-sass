@@ -1,4 +1,4 @@
-require 'bootstrap-sass/version'
+require 'verve-bootstrap-sass/version'
 module Bootstrap
   class << self
     # Inspired by Kaminari
@@ -70,7 +70,7 @@ module Bootstrap
     end
 
     def register_rails_engine
-      require 'bootstrap-sass/engine'
+      require 'verve-bootstrap-sass/engine'
     end
 
     def register_sprockets
