@@ -5,6 +5,10 @@ require 'verve-bootstrap-sass/version'
 Gem::Specification.new do |s|
   s.name     = "verve-bootstrap-sass"
   s.version  = Bootstrap::VERSION
+  s.authors  = ["Myron Robertson", "Grace Blackburn"]
+  s.email    = 'myron@vervewireless.com'
+  s.summary  = "verve-bootstrap-sass is a fork of the bootstrap-sass project for Verve Wireless"
+  s.homepage = "https://github.com/VerveWireless/verve-bootstrap-sass"
   s.license  = 'MIT'
 
   s.add_runtime_dependency 'sass', '>= 3.2.19'
