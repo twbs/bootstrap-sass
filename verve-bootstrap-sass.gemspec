@@ -5,10 +5,6 @@ require 'verve-bootstrap-sass/version'
 Gem::Specification.new do |s|
   s.name     = "verve-bootstrap-sass"
   s.version  = Bootstrap::VERSION
-  s.authors  = ["Thomas McDonald"]
-  s.email    = 'tom@conceptcoding.co.uk'
-  s.summary  = "Twitter's Bootstrap, converted to Sass and ready to drop into Rails or Compass"
-  s.homepage = "https://github.com/twbs/bootstrap-sass"
   s.license  = 'MIT'
 
   s.add_runtime_dependency 'sass', '>= 3.2.19'
