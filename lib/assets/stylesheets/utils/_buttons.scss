@@ -28,6 +28,7 @@
   @include reset-filter(); // Disable gradients for IE9 because filter bleeds through rounded corners
   background-repeat: repeat-x;
   border-color: darken($btn-color, 14%);
+  display: inline-block;
 
   &:hover,
   &:focus  {
@@ -52,7 +53,7 @@
 }
 
 // Apply the mixin to the buttons
-.btn-default { @include btn-styles($btn-default-bg); text-shadow: 0 1px 0 #fff; border-color: #ccc; }
+.navbar-nav > li.open a.btn-default, .btn-default { @include btn-styles($btn-default-bg); text-shadow: 0 1px 0 #fff; border-color: #ccc; }
 .btn-primary { @include btn-styles($btn-primary-bg); }
 .btn-success { @include btn-styles($btn-success-bg); }
 .btn-info    { @include btn-styles($btn-info-bg); }
