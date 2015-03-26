@@ -20,6 +20,7 @@
   <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
   <script type="text/javascript" src="javascripts/coefficient/general.js"></script>
+  <script type="text/javascript" src="javascripts/coefficient/modernizr.custom.js"></script>
 
 </head>
 <body>
@@ -52,7 +53,7 @@
                 <label>Email Address</label>
                 <input type="email" class="form-control" placeholder="user1234@dougs_doughnuts.com">
               </div>
-              <button type="button" class="btn btn-primary">Invite</button>
+              <button type="button" class="btn btn-primary progress-button">Invite</button>
               <button type="button" onclick="slidein();" class="btn btn-default">Cancel</button>
             </div>
           </div>
@@ -92,7 +93,7 @@
                   <th>Status <i class="fa fa-sort-down active"></i></th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="user-table">
                 <tr>
                   <td>Vincent Ramirez</td>
                   <td>v.ramirez@company.com</td>
@@ -173,6 +174,28 @@
           //initialize the javascript
           App.init();
         });
+    </script>
+
+    <script type="text/javascript" src="javascripts/coefficient/classie.js"></script>
+    <script type="text/javascript" src="javascripts/coefficient/progressButton.js"></script>
+
+    <script>
+      [].slice.call( document.querySelectorAll( 'button.progress-button' ) ).forEach( function( bttn ) {
+        new ProgressButton( bttn, {
+          callback : function( instance ) {
+            var progress = 0,
+              interval = setInterval( function() {
+                progress = Math.min( progress + Math.random() * 0.25, 1 );
+                instance._setProgress( progress );
+
+                if( progress === 1 ) {
+                  instance._stop(1);
+                  clearInterval( interval );
+                }
+              }, 200 );
+          }
+        } );
+      } );
     </script>
 
 

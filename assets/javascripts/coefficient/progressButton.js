@@ -4,12 +4,12 @@
  *
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
- * 
+ *
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
 ;( function( window ) {
-	
+
 	'use strict';
 
 	// https://gist.github.com/edankwan/4389601
@@ -29,7 +29,7 @@
 	});
 
 	function extend( a, b ) {
-		for( var key in b ) { 
+		for( var key in b ) {
 			if( b.hasOwnProperty( key ) ) {
 				a[key] = b[key];
 			}
@@ -110,7 +110,7 @@
 			this.button.appendChild( textEl );
 			this.button.appendChild( progressEl );
 		}
-		
+
 		// the element that serves as the progress bar
 		this.progress = progressInnerEl;
 
@@ -148,17 +148,17 @@
 						this.removeEventListener( transEndEventName, onEndTransFn );
 						self._stop();
 					};
-					
+
 					if( support.transitions ) {
 						self.progress.addEventListener( transEndEventName, onEndTransFn );
 					}
 					else {
 						onEndTransFn.call();
 					}
-					
+
 				}
-			}, 
-			self.button.getAttribute( 'data-style' ) === 'fill' || 
+			},
+			self.button.getAttribute( 'data-style' ) === 'fill' ||
 			self.button.getAttribute( 'data-style' ) === 'top-line' ||
 			self.button.getAttribute( 'data-style' ) === 'lateral-lines' ? 0 : 200 ); // TODO: change timeout to transitionend event callback
 		} );
@@ -184,8 +184,8 @@
 			else {
 				onEndTransFn.call();
 			}
-			
-			
+
+
 			// add class state-success to the button
 			if( typeof status === 'number' ) {
 				var statusClass = status >= 0 ? 'state-success' : 'state-error';
@@ -195,6 +195,16 @@
 					classie.remove( self.button, statusClass );
 					self._enable();
 				}, self.options.statusTime );
+
+				// TODO: TEMPORARY CODE - ADDING NEW LOCATION/USER FOR DEMO PURPOSES
+		        var newLocation = $('<tr class="new-item new"><td>0000</td><td>New Store</td><td>Austin</td><td>TX</td><td>Active</td></tr>');
+		        $("#location-table").prepend(newLocation);
+		        newLocation.focus();
+		        newLocation.removeClass("new");
+		        var newUser = $('<tr class="new-item new"><td>New User</td><td>newuser@company.com</td><td>Active</td></tr>');
+		        $("#user-table").prepend(newUser);
+		        newUser.focus();
+		        newUser.removeClass("new");
 			}
 			else {
 				self._enable();

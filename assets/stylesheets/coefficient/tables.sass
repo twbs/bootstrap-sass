@@ -42,6 +42,9 @@ table
 .fa-sort-down.active
   color: $primary
 
+.empty_table
+  padding: 10px
+
 /* Pagination */
 .pagination
   display: block
@@ -64,3 +67,19 @@ table
     &:hover:not(.inactive)
       background-color: #CCCCCC
       cursor: pointer
+
+#location-table,
+#user-table
+  a
+    display: block
+    color: #464646
+  tr
+    background-color: transparent;
+    -moz-transition: background-color 4s;
+    -webkit-transition: background-color 4s;
+    -o-transition: background-color 4s;
+    transition: background-color 4s;
+  tr.new
+    background-color: #5BC0DE;
+  tr:hover
+    cursor: pointer
