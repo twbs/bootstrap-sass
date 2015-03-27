@@ -197,14 +197,10 @@
 				}, self.options.statusTime );
 
 				// TODO: TEMPORARY CODE - ADDING NEW LOCATION/USER FOR DEMO PURPOSES
-		        var newLocation = $('<tr class="new-item new"><td>0000</td><td>New Store</td><td>Austin</td><td>TX</td><td>Active</td></tr>');
-		        $("#location-table").prepend(newLocation);
-		        newLocation.focus();
-		        newLocation.removeClass("new");
-		        var newUser = $('<tr class="new-item new"><td>New User</td><td>newuser@company.com</td><td>Active</td></tr>');
-		        $("#user-table").prepend(newUser);
-		        newUser.focus();
-		        newUser.removeClass("new");
+				var newLocation = $('<p>Store Name has been added. <a href="locationspublic.html">View store page</a></p>');
+				var newUser = $('<p>Insert Name Here has been invited.</p>');
+				$("#recently-added.recent-locations").prepend(newLocation);
+				$("#recently-added.recent-users").prepend(newUser);
 			}
 			else {
 				self._enable();
