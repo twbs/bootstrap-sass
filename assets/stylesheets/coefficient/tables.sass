@@ -34,6 +34,13 @@ table
   &.datatable
     tr:nth-child(2n)
       background-color: #F8F8F8
+    a
+      display: block
+      color: #464646
+    tbody
+      tr:hover:not(.disabled)
+        background-color: rgba(0, 121, 194, 0.1);
+        cursor: pointer
 
   .no-border
     border: 0
@@ -41,6 +48,9 @@ table
 .fa-sort-up.active,
 .fa-sort-down.active
   color: $primary
+
+.empty_table
+  padding: 10px
 
 /* Pagination */
 .pagination
