@@ -56,7 +56,8 @@ $buttons: (default: ($white, #cccccc, #e6e6e6, #adadad), primary: ($primary, #36
   font-size: 11px
 
 
-/* TEMPORARY FOR PROGRESS BUTTON */
+// PROGRESS BUTTON STYLING
+// TODO: Figure out where FontAwesome font face declaration should go
 @font-face
   font-family: 'FontAwesome'
   src: url('../fonts/fontawesome-webfont.eot?v=4.2.0')
@@ -122,9 +123,6 @@ $buttons: (default: ($white, #cccccc, #e6e6e6, #adadad), primary: ($primary, #36
   -webkit-transition: width 0.3s, opacity 0.3s;
   transition: width 0.3s, opacity 0.3s;
 
-/* Individual styles */
-/* Choose the effect(s) you want, delete the rest */
-
 /* Fill horizontal */
 /* ====================== */
 
@@ -150,57 +148,3 @@ $buttons: (default: ($white, #cccccc, #e6e6e6, #adadad), primary: ($primary, #36
 .progress-button[data-style="fill"][data-horizontal].state-error .content
   -webkit-transform: translateY(-100%);
   transform: translateY(-100%);
-
-/* slide down */
-/* ====================== */
-
-.progress-button[data-style="slide-down"]
-  padding: 0;
-  overflow: visible;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-
-.progress-button[data-style="slide-down"] .content
-  z-index: 10;
-  padding: 0 60px;
-  background: #1d9650;
-
-.progress-button[data-style="slide-down"] .progress
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-transition: -webkit-transform 0.2s;
-  transition: transform 0.2s;
-
-.progress-button[data-style="slide-down"].state-loading .progress
-  -webkit-transform: translateY(10px);
-  transform: translateY(10px);
-
-/* top-line */
-/* ====================== */
-
-.progress-button[data-style="top-line"] .progress-inner
-  height: 3px;
-
-.progress-button[data-style="top-line"] .content::before,
-.progress-button[data-style="top-line"] .content::after
-  right: auto;
-  left: 100%;
-  margin-left: 25px;
-
-/* lateral-lines */
-/* ====================== */
-
-.progress-button[data-style="lateral-lines"] .progress-inner
-  width: 100%;
-  border-right: 3px solid #0e7138;
-  border-left: 3px solid #0e7138;
-  background: transparent;
-
-.progress-button[data-style="lateral-lines"] .content::before,
-.progress-button[data-style="lateral-lines"] .content::after
-  right: auto;
-  left: 100%;
-  margin-left: 25px;
