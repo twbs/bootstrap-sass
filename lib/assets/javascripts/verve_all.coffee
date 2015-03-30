@@ -12,12 +12,3 @@
 $ document
 .ready ->
   Verve.MenuController.init()
-
-  $ ".js-example-basic-multiple, .js-example-placeholder-single"
-  .select2
-    placeholder: 'Please Select'
-    allowCenter: true
-
-  $ "input.range-picker"
-  .datepick
-    rangeSelect: true

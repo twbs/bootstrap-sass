@@ -258,6 +258,16 @@ View the datePick.js documentation [here](http://keith-wood.name/datepick.html)
 
     <input type="text" class="range-picker" id="" />
 
+### Select2
+
+Select2 adds search functionality as well as additional styling for select and multi select drop downs.
+
+#### Usage
+
+    $('#your-element').select2()
+    
+Additional options and api documentation for usage can be found at [https://select2.github.io/](https://select2.github.io/) 
+
 
 
 This gem was forked from [bootstrap-sass](https://github.com/twbs/bootstrap-sass). View there documentation for more information on usage. 
