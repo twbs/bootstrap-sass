@@ -16,7 +16,6 @@ Gem::Specification.new do |s|
 
   # Verve
 
-  s.add_runtime_dependency 'select2-rails', '~> 3.5.9.3'
   s.add_runtime_dependency 'jquery-ui-sass-rails', '~> 4.0.3.0'
   s.add_development_dependency 'bourbon', '~> 4.2.0'
   s.add_development_dependency 'rspec'

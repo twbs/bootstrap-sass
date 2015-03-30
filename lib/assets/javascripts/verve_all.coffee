@@ -1,6 +1,6 @@
 #= require jquery_ujs
 #= require jquery.ui.datepicker
-#= require select2
+#= require select2-4.0.0-rc.2/js/select2
 #= require picker
 #= require jquery.plugin
 #= require jquery.datepick
