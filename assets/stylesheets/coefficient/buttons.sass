@@ -67,84 +67,84 @@ $buttons: (default: ($white, #cccccc, #e6e6e6, #adadad), primary: ($primary, #36
 
 /* General styles for all types of buttons */
 .progress-button
-  position: relative;
-  display: inline-block;
+  position: relative
+  display: inline-block
 
 .progress-button[disabled],
 .progress-button[disabled].state-loading
-  cursor: default;
+  cursor: default
   opacity: .9
 
 .progress-button .content
-  position: relative;
-  display: block;
+  position: relative
+  display: block
   padding: 7px 11px !important
 
 .progress-button .content::before,
 .progress-button .content::after
-  position: absolute;
-  right: 20px;
-  color: #362C66;
-  opacity: 0;
-  -webkit-transition: opacity 0.3s 0.3s;
-  transition: opacity 0.3s 0.3s;
-  font-family: "FontAwesome";
+  position: absolute
+  right: 20px
+  color: #362C66
+  opacity: 0
+  -webkit-transition: opacity 0.3s 0.3s
+  transition: opacity 0.3s 0.3s
+  font-family: "FontAwesome"
   padding: 7px 0
 
 .progress-button .content::after
-  color: #ffffff;
+  color: #ffffff
 
 .progress-button .content::before
-  content: "\f00c"; /* Checkmark for success */
+  content: "\f00c" /* Checkmark for success */
 
 .progress-button .content::after
-  content: "\f071"; /* Alert for error */
+  content: "\f071" /* Alert for error */
 
 .progress-button.state-success .content::before,
 .progress-button.state-error .content::after
-  opacity: 1;
+  opacity: 1
 
 .notransition
-  -webkit-transition: none !important;
-  transition: none !important;
+  -webkit-transition: none !important
+  transition: none !important
 
 .progress-button .progress
-  background: #362C66;
+  background: #362C66
 
 .progress-button .progress-inner
-  position: absolute;
-  left: 0;
-  background: #362C66;
+  position: absolute
+  left: 0
+  background: #362C66
 
 .progress-button[data-horizontal] .progress-inner
-  top: 0;
-  width: 0;
-  height: 100%;
-  -webkit-transition: width 0.3s, opacity 0.3s;
-  transition: width 0.3s, opacity 0.3s;
+  top: 0
+  width: 0
+  height: 100%
+  -webkit-transition: width 0.3s, opacity 0.3s
+  transition: width 0.3s, opacity 0.3s
 
 /* Fill horizontal */
 /* ====================== */
 
 .progress-button[data-style="fill"][data-horizontal]
-  overflow: hidden;
+  overflow: hidden
 
 .progress-button[data-style="fill"][data-horizontal] .content
-  z-index: 10;
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
+  z-index: 10
+  -webkit-transition: -webkit-transform 0.3s
+  transition: transform 0.3s
 
 .progress-button[data-style="fill"][data-horizontal] .content::before,
 .progress-button[data-style="fill"][data-horizontal] .content::after
-  top: 100%;
-  right: auto;
-  left: 50%;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
+  top: 100%
+  right: auto
+  left: 50%
+  -webkit-transition: opacity 0.3s
+  transition: opacity 0.3s
+  -webkit-transform: translateX(-50%)
+  transform: translateX(-50%)
 
 .progress-button[data-style="fill"][data-horizontal].state-success .content,
 .progress-button[data-style="fill"][data-horizontal].state-error .content
-  -webkit-transform: translateY(-100%);
-  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%)
+  transform: translateY(-100%)

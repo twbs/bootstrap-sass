@@ -31,12 +31,14 @@ var server = connect.createServer(sass({
 /**
  * Handle static files
  **/
-var assetsPath = path.normalize(__dirname + '/../assets/')
-var vendorAssetsPath = path.normalize(__dirname + '/../vendor/assets/')
+var assetsPath = path.normalize(__dirname + '/../assets/');
+var imagesPath = path.normalize(__dirname + '/../assets/images');
+var vendorAssetsPath = path.normalize(__dirname + '/../vendor/assets/');
 
 server.use(connect.static(__dirname + '/'));
 server.use(connect.static(vendorAssetsPath));
 server.use(connect.static(assetsPath));
+server.use(connect.static(imagesPath));
 
 /**
  * EJS
