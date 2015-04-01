@@ -30,10 +30,48 @@
     <% include wp-sidebar.html.ejs %>
 
     <div class="cl-mcont">
-      <h3 class="text-center">Content goes here!</h3>
-    </div>
+      <div class="col-sm-12">
+        <div class="block-flat">
+          <div class="header">
+            <h3>Blank Page</h3>
+          </div>
+          <div class="content">
+            <p>
+              In order to create a blank page in the node application, simple copy and paste the contents below. There are currently no uses for blank pages at the moment, but rather blank pages with page titles. See <a href="pages-blank-header.html">pages-blank-header</a> for markup. This could be used in the future though.
+            </p>
+            <pre><code class="html">&#x3C;% include header.html.ejs %&#x3E;
 
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+&#x3C;div id=&#x22;cl-wrapper&#x22; class=&#x22;fixed-menu&#x22;&#x3E;
+  &#x3C;% include wp-sidebar.html.ejs %&#x3E; &#x3C;!-- Include appropriate sidebar --&#x3E;
+
+  &#x3C;div class=&#x22;cl-mcont&#x22;&#x3E;
+    &#x3C;div class=&#x22;col-sm-12&#x22;&#x3E; &#x3C;!-- See grid system for more information about the column classes --&#x3E;
+      &#x3C;div class=&#x22;block-flat&#x22;&#x3E;
+        &#x3C;div class=&#x22;header&#x22;&#x3E;
+          &#x3C;h3&#x3E;Section title goes here&#x3C;/h3&#x3E;
+        &#x3C;/div&#x3E;
+        &#x3C;div class=&#x22;content&#x22;&#x3E;
+          Content goes here
+        &#x3C;/div&#x3E;
+      &#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+  &#x3C;/div&#x3E;
+
+  &#x3C;!-- Bootstrap core JavaScript
+  ================================================== --&#x3E;
+  &#x3C;!-- Placed at the end of the document so the pages load faster --&#x3E;
+  &#x3C;script type=&#x22;text/javascript&#x22;&#x3E;
+  $(document).ready(function(){
+        //initialize the javascript
+        App.init();
+      });
+  &#x3C;/script&#x3E;
+  &#x3C;script src=&#x22;node_modules/bootstrap/dist/js/bootstrap.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;/div&#x3E;</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -42,8 +80,8 @@
     $(document).ready(function(){
           //initialize the javascript
           App.init();
-          App.maps();
         });
+        hljs.initHighlightingOnLoad();
     </script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </div>

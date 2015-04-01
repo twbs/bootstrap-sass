@@ -38,10 +38,54 @@
       </ol>
     </div>
     <div class="cl-mcont">
-      <h3 class="text-center">Content goes here!</h3>
-    </div>
+      <div class="col-sm-12">
+        <div class="block-flat">
+          <div class="header">
+            <h3>Section title goes here</h3>
+          </div>
+          <div class="content">
+            <p>
+              Code for the basic layout of CoEFFICIENT. There should be a page title (if not, use <a href="pages-blank.html">pages-blank</a> tempalte instead.) If no breadcrumbs are necessary, remove the <code>&#x3C;ol&#x3E;</code> tag completely.
+            </p>
+            <pre><code class="html">&#x3C;% include header.html.ejs %&#x3E;
 
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+&#x3C;div id=&#x22;cl-wrapper&#x22; class=&#x22;fixed-menu&#x22;&#x3E;
+  &#x3C;% include wp-sidebar.html.ejs %&#x3E; &#x3C;!-- Include appropriate sidebar --&#x3E;
+
+  &#x3C;div class=&#x22;page-head&#x22;&#x3E;
+    &#x3C;h2&#x3E;Blank Page&#x3C;/h2&#x3E;
+    &#x3C;ol class=&#x22;breadcrumb&#x22;&#x3E; &#x3C;!-- Remove section if breadcrumb is unnecessary --&#x3E;
+      &#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Home&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+      &#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Category&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+      &#x3C;li class=&#x22;active&#x22;&#x3E;Sub Category&#x3C;/li&#x3E;
+    &#x3C;/ol&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;cl-mcont&#x22;&#x3E;
+    &#x3C;div class=&#x22;col-sm-12&#x22;&#x3E; &#x3C;!-- See grid system for more information about the column classes --&#x3E;
+      &#x3C;div class=&#x22;block-flat&#x22;&#x3E;
+        &#x3C;h3&#x3E;Section title goes here&#x3C;/h3&#x3E;
+      &#x3C;/div&#x3E;
+      &#x3C;div class=&#x22;content&#x22;&#x3E;
+        Content goes here
+      &#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+  &#x3C;/div&#x3E;>
+
+  &#x3C;!-- Bootstrap core JavaScript
+  ================================================== --&#x3E;
+  &#x3C;!-- Placed at the end of the document so the pages load faster --&#x3E;
+  &#x3C;script type=&#x22;text/javascript&#x22;&#x3E;
+  $(document).ready(function(){
+        //initialize the javascript
+        App.init();
+      });
+  &#x3C;/script&#x3E;
+  &#x3C;script src=&#x22;node_modules/bootstrap/dist/js/bootstrap.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;/div&#x3E;</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -50,8 +94,8 @@
     $(document).ready(function(){
           //initialize the javascript
           App.init();
-          App.maps();
         });
+        hljs.initHighlightingOnLoad();
     </script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </div>

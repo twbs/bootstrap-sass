@@ -39,109 +39,163 @@
     </div>
     <div class="cl-mcont">
       <div class="row">
-        <div class="col-sm-6 col-md-6">
-          <div class="block-flat">
-            <div class="header">
-              <h3>Basic Form</h3>
-            </div>
-            <div class="content">
-              <form role="form">
-                <div class="form-group">
-                  <label>Email address</label> <input type="email" placeholder="enter your email address" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label>Password</label> <input type="password" placeholder="enter your password" class="form-control">
-                  <!--
-                  <div class="password-strength">
-                    <div class="password-strength-meter strength-strong" style="width: 90%"></div>
-                  </div>
-                  <div class="helper-text">password strength: <span class="strength-strong">strong</span></div>
-                  -->
-                </div>
-                <div class="checkbox">
-                  <label> <input type="checkbox"> Remember me </label>
-                </div>
-                <button class="btn btn-primary" type="submit">Submit</button>
-                <button class="btn btn-default">Cancel</button>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-6">
-          <div class="block-flat">
-            <div class="header">
-              <h3>Auth Pages Form</h3>
-            </div>
-            <div class="content">
-              <form role="form">
-                <div class="form-group">
-                  <label>Email address</label> <input type="email" placeholder="enter your email address" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label>Password</label> <input type="password" placeholder="enter your password" class="form-control">
-                </div>
-                <div class="form-group">
-                  <br/>
-                  <input type="submit" class="btn btn-full btn-flat btn-primary" value="Sign In"/>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
         <div class="col-md-6">
-
           <div class="block-flat">
             <div class="header">
               <h3>Basic Elements</h3>
             </div>
             <div class="content">
-               <form action="#" style="border-radius: 0px;">
+              <p>
+                Basic input fields guidelines:
+                <ul>
+                  <li>Label should be propercasing</li>
+                  <li>Placeholder text is same as the label</li>
+                  <li>If there are further instructions (ie, required), this should be in the placeholder only following the label in parenthesis.</li>
+                  <li>Textareas do not need placeholder text, but can contain instructional text if necessary</li>
+                </ul>
+              </p>
+              <form action="#" style="border-radius: 0px;">
                 <div class="form-group">
-                  <label>Input Text</label>
-                  <input type="text" class="form-control">
+                  <label>Text Input</label>
+                  <input type="text" class="form-control" placeholder="Placeholder Text">
                 </div>
                 <div class="form-group">
-                  <label>Input Password</label>
-                  <input type="password" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label>Placeholder Input</label>
-                  <input type="text" class="form-control" placeholder="Placeholder text">
+                  <label>Password (For Login)</label>
+                  <input type="password" placeholder="Password (For Login)" class="form-control">
                 </div>
                 <div class="form-group">
                   <label>Disabled Input</label>
-                  <input type="text" disabled="disabled" class="form-control" placeholder="Disabled input text">
+                  <input type="text" disabled="disabled" class="form-control" placeholder="Disabled Input">
                 </div>
                 <div class="form-group">
                   <label>Readonly Input</label>
-                  <input type="text" readonly="readonly" class="form-control" value="Readonly input text">
+                  <input type="text" readonly="readonly" class="form-control" value="Readonly Input">
                 </div>
                 <div class="form-group">
                   <label>Textarea</label>
-                  <textarea class="form-control"></textarea>
+                  <textarea class="form-control" placeholder="50 characters minimum"></textarea>
                 </div>
               </form>
+
+              <pre><code class="html">&lt;label&gt;Text Input&lt;/label&gt;
+&lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Placeholder text&quot;&gt;
+
+&#x3C;label&#x3E;Password&#x3C;/label&#x3E;
+&#x3C;input type=&#x22;password&#x22; placeholder=&#x22;Password&#x22; class=&#x22;form-control&#x22;&#x3E;
+
+&#x3C;label&#x3E;Disabled Input&#x3C;/label&#x3E;
+&#x3C;input type=&#x22;text&#x22; disabled=&#x22;disabled&#x22; class=&#x22;form-control&#x22; placeholder=&#x22;Disabled Input&#x22;&#x3E;
+
+&#x3C;label&#x3E;Readonly Input&#x3C;/label&#x3E;
+&#x3C;input type=&#x22;text&#x22; readonly=&#x22;readonly&#x22; class=&#x22;form-control&#x22; value=&#x22;Readonly Input&#x22;&#x3E;
+
+&#x3C;label&#x3E;Textarea&#x3C;/label&#x3E;
+&#x3C;textarea class=&#x22;form-control&#x22; placeholder=&#x22;50 characters minimum&#x22;&#x3E;&#x3C;/textarea&#x3E;</code></pre>
             </div>
           </div>
 
           <div class="block-flat">
             <div class="header">
-              <h3>Select & Option Elements</h3>
+              <h3>Password Creation</h3>
             </div>
             <div class="content">
-              <form class="group-border-dashed" action="#" style="border-radius: 0px;">
+              <p>
+                Password creation guidelines:
+                <ul>
+                  <li>On load, password strength meter should not appear</li>
+                  <li>On edit of password field, strength meter should start to reflect password strength (color and text update). Possible strengths are weak, medium, strong</li>
+                  <li>There are no restrictions for creating a password, we simply inform the user of their password strength.</li>
+                  <li>On blur of password field, if there is no password, display error message instead of helper-text. See error message section.</li>
+                  <li>On blur of confirm password field, if passwords don't match, display error message.</li>
+                </ul>
+              </p>
+              <form action="#" style="border-radius: 0">
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" placeholder="Password (On Load)" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" placeholder="Password (Weak Example)" class="form-control">
+                  <div class="password-strength">
+                    <div class="password-strength-meter strength-weak" style="width: 10%"></div>
+                  </div>
+                  <div class="helper-text">Password Strength: <span class="strength-weak">Weak</span></div>
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" placeholder="Password (Medium Example)" class="form-control">
+                  <div class="password-strength">
+                    <div class="password-strength-meter strength-medium" style="width: 50%"></div>
+                  </div>
+                  <div class="helper-text">Password Strength: <span class="strength-medium">Medium</span></div>
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" placeholder="Password (Strong Example)" class="form-control">
+                  <div class="password-strength">
+                    <div class="password-strength-meter strength-strong" style="width: 100%"></div>
+                  </div>
+                  <div class="helper-text">Password Strength: <span class="strength-strong">Strong</span></div>
+                </div>
+                <div class="form-group has-error">
+                  <label>Confirm Password</label>
+                  <input type="password" placeholder="Confirm Password" class="form-control">
+                  <div class="error-message">Passwords must match</div>
+                </div>
+              </form>
+              <pre><code class="html">&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Password&#x3C;/label&#x3E;
+  &#x3C;input type=&#x22;password&#x22; placeholder=&#x22;Password (On Load)&#x22; class=&#x22;form-control&#x22;&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Password&#x3C;/label&#x3E;
+  &#x3C;input type=&#x22;password&#x22; placeholder=&#x22;Password (Weak Example)&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;div class=&#x22;password-strength&#x22;&#x3E;
+    &#x3C;div class=&#x22;password-strength-meter strength-weak&#x22; style=&#x22;width: 10%&#x22;&#x3E;&#x3C;/div&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;helper-text&#x22;&#x3E;Password Strength: &#x3C;span class=&#x22;strength-weak&#x22;&#x3E;Weak&#x3C;/span&#x3E;&#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Password&#x3C;/label&#x3E;
+  &#x3C;input type=&#x22;password&#x22; placeholder=&#x22;Password (Medium Example)&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;div class=&#x22;password-strength&#x22;&#x3E;
+    &#x3C;div class=&#x22;password-strength-meter strength-medium&#x22; style=&#x22;width: 50%&#x22;&#x3E;&#x3C;/div&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;helper-text&#x22;&#x3E;Password Strength: &#x3C;span class=&#x22;strength-medium&#x22;&#x3E;Medium&#x3C;/span&#x3E;&#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Password&#x3C;/label&#x3E;
+  &#x3C;input type=&#x22;password&#x22; placeholder=&#x22;Password (Strong Example)&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;div class=&#x22;password-strength&#x22;&#x3E;
+    &#x3C;div class=&#x22;password-strength-meter strength-strong&#x22; style=&#x22;width: 100%&#x22;&#x3E;&#x3C;/div&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;helper-text&#x22;&#x3E;Password Strength: &#x3C;span class=&#x22;strength-strong&#x22;&#x3E;Strong&#x3C;/span&#x3E;&#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group has-error&#x22;&#x3E;
+  &#x3C;label&#x3E;Confirm Password&#x3C;/label&#x3E;
+  &#x3C;input type=&#x22;password&#x22; placeholder=&#x22;Confirm Password&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;div class=&#x22;error-message&#x22;&#x3E;Passwords must match&#x3C;/div&#x3E;
+&#x3C;/div&#x3E;</code></pre>
+            </div>
+          </div>
+
+          <div class="block-flat">
+            <div class="header">
+              <h3>Select &amp; Option Elements</h3>
+            </div>
+            <div class="content">
+              <form action="#" style="border-radius: 0px;">
                 <div class="form-group">
                   <label>Basic Select</label>
                   <select class="form-control">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -151,7 +205,6 @@
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -195,30 +248,284 @@
                   </div>
                 </div>
               </form>
+              <pre><code class="html">&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Basic Select&#x3C;/label&#x3E;
+  &#x3C;select class=&#x22;form-control&#x22;&#x3E;
+    &#x3C;option&#x3E;1&#x3C;/option&#x3E;
+    &#x3C;option&#x3E;2&#x3C;/option&#x3E;
+    &#x3C;option&#x3E;3&#x3C;/option&#x3E;
+  &#x3C;/select&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Multiple Select&#x3C;/label&#x3E;
+  &#x3C;select multiple class=&#x22;form-control&#x22;&#x3E;
+    &#x3C;option&#x3E;1&#x3C;/option&#x3E;
+    &#x3C;option&#x3E;2&#x3C;/option&#x3E;
+    &#x3C;option&#x3E;3&#x3C;/option&#x3E;
+    &#x3C;option&#x3E;4&#x3C;/option&#x3E;
+  &#x3C;/select&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Radio&#x3C;/label&#x3E;
+  &#x3C;div class=&#x22;radio&#x22;&#x3E;
+    &#x3C;label&#x3E; &#x3C;input type=&#x22;radio&#x22; checked=&#x22;&#x22; name=&#x22;rad1&#x22;&#x3E; Option 1&#x3C;/label&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;radio&#x22;&#x3E;
+    &#x3C;label&#x3E; &#x3C;input type=&#x22;radio&#x22; name=&#x22;rad1&#x22;&#x3E; Option 2&#x3C;/label&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;radio&#x22;&#x3E;
+    &#x3C;label&#x3E; &#x3C;input type=&#x22;radio&#x22; name=&#x22;rad1&#x22;&#x3E; Option 3&#x3C;/label&#x3E;
+  &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Inline Radio&#x3C;/label&#x3E;
+  &#x3C;div&#x3E;
+    &#x3C;label class=&#x22;radio-inline&#x22;&#x3E; &#x3C;input type=&#x22;radio&#x22; checked=&#x22;&#x22; name=&#x22;rad1&#x22;&#x3E; Option 1&#x3C;/label&#x3E;
+    &#x3C;label class=&#x22;radio-inline&#x22;&#x3E; &#x3C;input type=&#x22;radio&#x22; name=&#x22;rad1&#x22;&#x3E; Option 2&#x3C;/label&#x3E;
+    &#x3C;label class=&#x22;radio-inline&#x22;&#x3E; &#x3C;input type=&#x22;radio&#x22; name=&#x22;rad1&#x22;&#x3E; Option 3&#x3C;/label&#x3E;
+  &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Checkbox&#x3C;/label&#x3E;
+  &#x3C;div class=&#x22;checkbox&#x22;&#x3E;
+    &#x3C;label&#x3E; &#x3C;input type=&#x22;checkbox&#x22; checked=&#x22;&#x22; name=&#x22;check1&#x22;&#x3E; Option 1&#x3C;/label&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;checkbox&#x22;&#x3E;
+    &#x3C;label&#x3E; &#x3C;input type=&#x22;checkbox&#x22; name=&#x22;check2&#x22;&#x3E; Option 2&#x3C;/label&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;checkbox&#x22;&#x3E;
+    &#x3C;label&#x3E; &#x3C;input type=&#x22;checkbox&#x22; name=&#x22;check3&#x22;&#x3E; Option 3&#x3C;/label&#x3E;
+  &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Inline Checkbox&#x3C;/label&#x3E;
+  &#x3C;div&#x3E;
+    &#x3C;label class=&#x22;checkbox-inline&#x22;&#x3E; &#x3C;input type=&#x22;checkbox&#x22; checked=&#x22;&#x22; name=&#x22;rad1&#x22;&#x3E; Option 1&#x3C;/label&#x3E;
+    &#x3C;label class=&#x22;checkbox-inline&#x22;&#x3E; &#x3C;input type=&#x22;checkbox&#x22; name=&#x22;rad1&#x22;&#x3E; Option 2&#x3C;/label&#x3E;
+    &#x3C;label class=&#x22;checkbox-inline&#x22;&#x3E; &#x3C;input type=&#x22;checkbox&#x22; name=&#x22;rad1&#x22;&#x3E; Option 3&#x3C;/label&#x3E;
+  &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Forms</h3>
+            </div>
+            <div class="content">
+              <p>
+                Within the application, forms should follow the format:
+                <ul>
+                  <li>Labels are always stacked on top of the input</li>
+                  <li>Each input should be wrapped in a form-group</li>
+                  <li>It is possible to group certain inputs together (such as addresses) in to a .group-cluster which allows for inline field inputs. This should be less common.</li>
+                  <li>Button display should be: Primary | Secondary, if applicable | Tertiary</li>
+                  <li>Buttons should be left aligned, veritcally in line with input buttons.</li>
+                </ul>
+              </p>
+              <form role="form">
+                <div class="form-group">
+                  <label>Email Address</label>
+                  <input type="email" readonly="readonly" placeholder="syang@square-root.com" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" placeholder="Name" class="form-control">
+                </div>
+                <div class="form-group group-cluster">
+                  <label>Street Address</label>
+                  <input type="text" class="form-control" placeholder="Street Address">
+                  <div class="cluster-row">
+                    <div class="cluster-cell cluster-cell-half">
+                      <label>City</label>
+                      <input type="text" class="form-control" placeholder="City">
+                    </div>
+                    <div class="cluster-cell cluster-cell-quarter">
+                      <label>State</label>
+                      <select class="form-control">
+                        <option value="AL">AL</option>
+                        <option value="AK">AK</option>
+                        <option value="AZ">AZ</option>
+                        <option value="AR">AR</option>
+                        <option value="CA">CA</option>
+                        <option value="CO">CO</option>
+                        <option value="CT">CT</option>
+                        <option value="DE">DE</option>
+                        <option value="DC">DC</option>
+                        <option value="FL">FL</option>
+                        <option value="GA">GA</option>
+                        <option value="HI">HI</option>
+                        <option value="ID">ID</option>
+                        <option value="IL">IL</option>
+                        <option value="IN">IN</option>
+                        <option value="IA">IA</option>
+                        <option value="KS">KS</option>
+                        <option value="KY">KY</option>
+                        <option value="LA">LA</option>
+                        <option value="ME">ME</option>
+                        <option value="MD">MD</option>
+                        <option value="MA">MA</option>
+                        <option value="MI">MI</option>
+                        <option value="MN">MN</option>
+                        <option value="MS">MS</option>
+                        <option value="MO">MO</option>
+                        <option value="MT">MT</option>
+                        <option value="NE">NE</option>
+                        <option value="NV">NV</option>
+                        <option value="NH">NH</option>
+                        <option value="NJ">NJ</option>
+                        <option value="NM">NM</option>
+                        <option value="NY">NY</option>
+                        <option value="NC">NC</option>
+                        <option value="ND">ND</option>
+                        <option value="OH">OH</option>
+                        <option value="OK">OK</option>
+                        <option value="OR">OR</option>
+                        <option value="PA">PA</option>
+                        <option value="RI">RI</option>
+                        <option value="SC">SC</option>
+                        <option value="SD">SD</option>
+                        <option value="TN">TN</option>
+                        <option value="TX">TX</option>
+                        <option value="UT">UT</option>
+                        <option value="VT">VT</option>
+                        <option value="VA">VA</option>
+                        <option value="WA">WA</option>
+                        <option value="WV">WV</option>
+                        <option value="WI">WI</option>
+                        <option value="WY">WY</option>
+                      </select>
+                    </div>
+                    <div class="cluster-cell cluster-cell-quarter">
+                      <label>Zipcode</label>
+                      <input type="text" class="form-control" placeholder="Zipcode">
+                    </div>
+                  </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Update</button>
+                <button class="btn btn-default">Cancel</button>
+              </form>
+              <pre><code class="html">&#x3C;form role=&#x22;form&#x22;&#x3E;
+  &#x3C;div class=&#x22;form-group&#x22;&#x3E;
+    &#x3C;label&#x3E;Email Address&#x3C;/label&#x3E;
+    &#x3C;input type=&#x22;email&#x22; readonly=&#x22;readonly&#x22; placeholder=&#x22;syang@square-root.com&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;form-group&#x22;&#x3E;
+    &#x3C;label&#x3E;Name&#x3C;/label&#x3E;
+    &#x3C;input type=&#x22;text&#x22; placeholder=&#x22;Name&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;form-group group-cluster&#x22;&#x3E;
+    &#x3C;label&#x3E;Street Address&#x3C;/label&#x3E;
+    &#x3C;input type=&#x22;text&#x22; class=&#x22;form-control&#x22; placeholder=&#x22;Street Address&#x22;&#x3E;
+    &#x3C;div class=&#x22;cluster-row&#x22;&#x3E;
+      &#x3C;div class=&#x22;cluster-cell cluster-cell-half&#x22;&#x3E;
+        &#x3C;label&#x3E;City&#x3C;/label&#x3E;
+        &#x3C;input type=&#x22;text&#x22; class=&#x22;form-control&#x22; placeholder=&#x22;City&#x22;&#x3E;
+      &#x3C;/div&#x3E;
+      &#x3C;div class=&#x22;cluster-cell cluster-cell-quarter&#x22;&#x3E;
+        &#x3C;label&#x3E;State&#x3C;/label&#x3E;
+        &#x3C;select class=&#x22;form-control&#x22;&#x3E;
+          &#x3C;option value=&#x22;AL&#x22;&#x3E;AL&#x3C;/option&#x3E;
+          &#x3C;!-- omitting the rest of dropdown list to save space --&#x3E;
+        &#x3C;/select&#x3E;
+      &#x3C;/div&#x3E;
+      &#x3C;div class=&#x22;cluster-cell cluster-cell-quarter&#x22;&#x3E;
+        &#x3C;label&#x3E;Zipcode&#x3C;/label&#x3E;
+        &#x3C;input type=&#x22;text&#x22; class=&#x22;form-control&#x22; placeholder=&#x22;Zipcode&#x22;&#x3E;
+      &#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;button class=&#x22;btn btn-primary&#x22; type=&#x22;submit&#x22;&#x3E;Update&#x3C;/button&#x3E;
+  &#x3C;button class=&#x22;btn btn-default&#x22;&#x3E;Cancel&#x3C;/button&#x3E;
+&#x3C;/form&#x3E;</code></pre>
             </div>
           </div>
 
-        </div>
-        <div class="col-md-6">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Auth Pages Form</h3>
+            </div>
+            <div class="content">
+              <p>
+                The auth page form should only be used outside of the application - for login, resetting password, etc. pages. The format is slightly different in that:
+                <ul>
+                  <li>An <code>.auth-header</code> section can include supplementary information or instructions for form</li>
+                  <li>There is always only one action button at the end of the form.</li>
+                  <li>The action button should only ever advance you. Any 'return' type actions should be text links after the form in the <code>.auth-footer</code> section.</li>
+                </ul>
+              </p>
+              <div class="auth-subheader">
+                Enter your email and we will send you instructions on how to reset your password.
+              </div>
+              <div class="block-flat">
+                <div class="content">
+                  <form role="form">
+                    <div class="form-group">
+                      <label>Email Address</label> <input type="email" placeholder="Email Address" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <br/>
+                      <input type="submit" class="btn btn-full btn-flat btn-primary" value="Send" />
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="auth-footer">
+                Already know your account? <a href="login.html">Log in</a>.
+              </div>
+              <pre><code class="html">&#x3C;div class=&#x22;auth-subheader&#x22;&#x3E;
+  Enter your email and we will send you instructions on how to reset your password.
+&#x3C;/div&#x3E;
+&#x3C;div class=&#x22;block-flat&#x22;&#x3E;
+  &#x3C;div class=&#x22;content&#x22;&#x3E;
+    &#x3C;form role=&#x22;form&#x22;&#x3E;
+      &#x3C;div class=&#x22;form-group&#x22;&#x3E;
+        &#x3C;label&#x3E;Email Address&#x3C;/label&#x3E; &#x3C;input type=&#x22;email&#x22; placeholder=&#x22;Email Address&#x22; class=&#x22;form-control&#x22;&#x3E;
+      &#x3C;/div&#x3E;
+      &#x3C;div class=&#x22;form-group&#x22;&#x3E;
+        &#x3C;br/&#x3E;
+        &#x3C;input type=&#x22;submit&#x22; class=&#x22;btn btn-full btn-flat btn-primary&#x22; value=&#x22;Send&#x22; /&#x3E;
+      &#x3C;/div&#x3E;
+    &#x3C;/form&#x3E;
+  &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+&#x3C;div class=&#x22;auth-footer&#x22;&#x3E;
+  Already know your account? &#x3C;a href=&#x22;login.html&#x22;&#x3E;Log in&#x3C;/a&#x3E;.
+&#x3C;/div&#x3E;</code></pre>
+            </div>
+          </div>
+
           <div class="block-flat">
             <div class="header">
               <h3>Input Level Errors</h3>
             </div>
             <div class="content">
+              <p>
+                Input level errors refer to on the spot checks for each field to give immediate feedback that a form submission will fail if not fixed.
+              </p>
+              <p>Input level error guidelines:
+                <ul>
+                  <li>Each field should be checked onBlur</li>
+                  <li>If an input has an error - ie, invalid email, blank required field, etc. - an error message and <code>.has-error</code> class should be added to the form group. See below for full markup.</li>
+                </ul>
+              </p>
               <form role="form">
                 <div class="form-group has-error">
-                  <label>Email address</label> <input type="email" placeholder="enter your email address" class="form-control">
-                  <div class="error-message">please enter a valid email address.</div>
+                  <label>Email Address</label> <input type="email" placeholder="Email Address" class="form-control">
+                  <div class="error-message">Please enter a valid email address.</div>
                 </div>
-                <div class="form-group">
-                  <label>Password</label> <input type="password" placeholder="enter your password" class="form-control">
-                </div>
-                <div class="checkbox">
-                  <label> <input type="checkbox"> Remember me </label>
-                </div>
-                <button class="btn btn-primary" type="submit">Submit</button>
-                <button class="btn btn-default">Cancel</button>
               </form>
+              <pre><code class="html">&#x3C;div class=&#x22;form-group has-error&#x22;&#x3E;
+  &#x3C;label&#x3E;Email Address&#x3C;/label&#x3E; &#x3C;input type=&#x22;email&#x22; placeholder=&#x22;Email Address&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;div class=&#x22;error-message&#x22;&#x3E;Please enter a valid email address.&#x3C;/div&#x3E;
+&#x3C;/div&#x3E;</code></pre>
             </div>
           </div>
 
@@ -227,19 +534,43 @@
               <h3>Form Level Errors</h3>
             </div>
             <div class="content">
+              <p>
+                Form level errors are errors that will only be known once the form has been submitted.
+              </p>
+              <p>
+                Form level error guidelines:
+                <ul>
+                  <li>Once the form has been submitted, and there is an error - ie, email/password combination incorrect - a p tag with .form-has-error class and error message should appear above the form itself. See below for full markup.</li>
+                  <li>Form fields should remain filled out.</li>
+                  <li>Form should focus on first field that would cause the issue.</li>
+                </ul>
+              </p>
               <form role="form">
-                <p class="form-has-error">We didn't recognize your email and password combination. Please try again.</p>
+                <p class="form-has-error">Sorry, we didn't recognize your email address or password. Please try again.</p>
                 <div class="form-group">
-                  <label>Email address</label> <input type="email" placeholder="enter your email address" class="form-control">
+                  <label>Email address</label> <input type="email" placeholder="Email Address" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label>Password</label> <input type="password" placeholder="enter your password" class="form-control">
+                  <label>Password</label> <input type="password" placeholder="Password" class="form-control">
                 </div>
                 <div class="form-group">
                   <br/>
                   <input type="submit" class="btn btn-full btn-flat btn-primary" value="Sign In"/>
                 </div>
               </form>
+              <pre><code class="html">&#x3C;form role=&#x22;form&#x22;&#x3E;
+  &#x3C;p class=&#x22;form-has-error&#x22;&#x3E;Sorry, we didn&#x27;t recognize your email address or password. Please try again.&#x3C;/p&#x3E;
+  &#x3C;div class=&#x22;form-group&#x22;&#x3E;
+    &#x3C;label&#x3E;Email address&#x3C;/label&#x3E; &#x3C;input type=&#x22;email&#x22; placeholder=&#x22;Email Address&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;form-group&#x22;&#x3E;
+    &#x3C;label&#x3E;Password&#x3C;/label&#x3E; &#x3C;input type=&#x22;password&#x22; placeholder=&#x22;Password&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;form-group&#x22;&#x3E;
+    &#x3C;br/&#x3E;
+    &#x3C;input type=&#x22;submit&#x22; class=&#x22;btn btn-full btn-flat btn-primary&#x22; value=&#x22;Sign In&#x22;/&#x3E;
+  &#x3C;/div&#x3E;
+&#x3C;/form&#x3E;</code></pre>
             </div>
           </div>
         </div>
@@ -254,6 +585,7 @@
           //initialize the javascript
           App.init();
         });
+        hljs.initHighlightingOnLoad();
     </script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </div>

@@ -50,14 +50,14 @@
               <h3>Icon Size</h3>
             </div>
             <div class="content">
-              <div class="row">
-                <div class="col-md-12">
-                  <p><i class="fa fa-camera-retro fa-lg"></i> fa-lg</p>
-                  <p><i class="fa fa-camera-retro fa-2x"></i> fa-2x</p>
-                  <p><i class="fa fa-camera-retro fa-3x"></i> fa-3x</p>
-                  <p><i class="fa fa-camera-retro fa-4x"></i> fa-4x</p>
-                </div>
-              </div>
+              <span style="margin-right: 10px;"><i class="fa fa-camera-retro fa-lg"></i></span>
+              <span style="margin-right: 10px;"><i class="fa fa-camera-retro fa-2x"></i></span>
+              <span style="margin-right: 10px;"><i class="fa fa-camera-retro fa-3x"></i></span>
+              <span style="margin-right: 10px;"><i class="fa fa-camera-retro fa-4x"></i></span>
+              <pre><code class="html">&lt;i class=&quot;fa fa-camera-retro fa-lg&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fa fa-camera-retro fa-2x&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fa fa-camera-retro fa-3x&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fa fa-camera-retro fa-4x&quot;&gt;&lt;/i&gt;</code></pre>
             </div>
           </div>
         </div>
@@ -68,19 +68,19 @@
               <h3>Icon Orientation</h3>
             </div>
             <div class="content">
-              <div class="row">
-                <div class="col-md-12">
-                  <p style="font-size: 14px; line-height:28px;">
-                  <i class="fa fa-shield"></i>&nbsp; normal<br>
-                  <i class="fa fa-shield fa-rotate-90"></i>&nbsp; fa-rotate-90<br>
-                  <i class="fa fa-shield fa-rotate-180"></i>&nbsp; fa-rotate-180<br>
-                  <i class="fa fa-shield fa-rotate-270"></i>&nbsp; fa-rotate-270<br>
-                  <i class="fa fa-shield fa-flip-horizontal"></i>&nbsp; fa-flip-horizontal<br>
-                  <i class="fa fa-shield fa-flip-vertical"></i>&nbsp; fa-flip-vertical
-                  </p>
-                </div>
-              </div>
-
+              <span style="margin-right: 10px;"><i class="fa fa-shield"></i> normal</span>
+              <span style="margin-right: 10px;"><i class="fa fa-shield fa-rotate-90"></i> rotated 90&deg;</span>
+              <span style="margin-right: 10px;"><i class="fa fa-shield fa-rotate-180"></i> rotated 180&deg;</span>
+              <span style="margin-right: 10px;"><i class="fa fa-shield fa-rotate-270"></i> rotated 270&deg;</span>
+              <br/>
+              <span style="margin-right: 10px;"><i class="fa fa-shield fa-flip-horizontal"></i> flipped horizontal</span>
+              <span style="margin-right: 10px;"><i class="fa fa-shield fa-flip-vertical"></i> flipped vertical</span>
+              <pre><code class="html">&lt;i class=&quot;fa fa-shield&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fa fa-shield fa-rotate-90&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fa fa-shield fa-rotate-180&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fa fa-shield fa-rotate-270&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fa fa-shield fa-flip-horizontal&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fa fa-shield fa-flip-vertical&quot;&gt;&lt;/i&gt;</code></pre>
             </div>
           </div>
         </div>
@@ -94,37 +94,63 @@
             </div>
             <div class="content">
               <div class="row">
-                <div class="col-md-3 col-sm-4">
-                  <div class="margin-bottom">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-square-o fa-stack-2x"></i>
-                    <i class="fa fa-twitter fa-stack-1x"></i>
-                  </span>
-                  fa-twitter on fa-square-o<br>
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
-                  </span>
-                  fa-flag on fa-circle<br>
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-square fa-stack-2x"></i>
-                    <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
-                  </span>
-                  fa-terminal on fa-square<br>
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-camera fa-stack-1x"></i>
-                    <i class="fa fa-ban fa-stack-2x text-danger"></i>
-                  </span>
-                  fa-ban on fa-camera
-                  </div>
-                </div>
-                <div class="col-md-9 col-sm-8">
+                <div class="col-sm-12">
                   <p>
                   To stack multiple icons, use the <code>fa-stack</code> class on the parent, the <code>fa-stack-1x</code>
                   for the regularly sized icon, and <code>fa-stack-2x</code> for the larger icon. <code>fa-inverse</code>
                   can be used as an alternative icon color. You can even throw <a href="#larger">larger icon</a> classes on the parent
                   to get further control of sizing.
                   </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3 col-sm-4">
+                  <div style="padding-top: 20px">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-square-o fa-stack-2x"></i>
+                      <i class="fa fa-twitter fa-stack-1x"></i>
+                    </span>
+                    fa-twitter on fa-square-o
+                  </div>
+                  <div style="padding-top: 20px">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
+                    </span>
+                    fa-flag on fa-circle
+                  </div>
+                  <div style="padding-top: 20px">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-square fa-stack-2x"></i>
+                      <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+                    </span>
+                    fa-terminal on fa-square
+                  </div>
+                  <div style="padding-top: 20px">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-camera fa-stack-1x"></i>
+                      <i class="fa fa-ban fa-stack-2x text-danger"></i>
+                    </span>
+                    fa-ban on fa-camera
+                  </div>
+                </div>
+                <div class="col-md-9 col-sm-8">
+                  <pre><code class="html">&lt;span class=&quot;fa-stack fa-lg&quot;&gt;
+  &lt;i class=&quot;fa fa-square-o fa-stack-2x&quot;&gt;&lt;/i&gt;
+  &lt;i class=&quot;fa fa-twitter fa-stack-1x&quot;&gt;&lt;/i&gt;
+&lt;/span&gt;
+&lt;span class=&quot;fa-stack fa-lg&quot;&gt;
+  &lt;i class=&quot;fa fa-circle fa-stack-2x&quot;&gt;&lt;/i&gt;
+  &lt;i class=&quot;fa fa-flag fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
+&lt;/span&gt;
+&lt;span class=&quot;fa-stack fa-lg&quot;&gt;
+  &lt;i class=&quot;fa fa-square fa-stack-2x&quot;&gt;&lt;/i&gt;
+  &lt;i class=&quot;fa fa-terminal fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
+&lt;/span&gt;
+&lt;span class=&quot;fa-stack fa-lg&quot;&gt;
+  &lt;i class=&quot;fa fa-camera fa-stack-1x&quot;&gt;&lt;/i&gt;
+  &lt;i class=&quot;fa fa-ban fa-stack-2x text-danger&quot;&gt;&lt;/i&gt;
+&lt;/span&gt;</code></pre>
                 </div>
               </div>
             </div>
@@ -136,6 +162,10 @@
               <h3>Web Application Icons</h3>
             </div>
             <div class="content">
+              <p>
+                All icons are available in the following format, where <code>.fa-name_here</code> is a class of the list below:
+              </p>
+              <pre><code class="html">&lt;i class=&quot;fa fa-name_here&quot;&gt;&lt;/i&gt;</code></pre>
               <div class="row icon-show">
                 <div class="col-md-3 col-sm-4"><i class="fa fa-adjust"></i> fa-adjust</div>
                 <div class="col-md-3 col-sm-4"><i class="fa fa-anchor"></i> fa-anchor</div>
@@ -785,6 +815,7 @@
           //initialize the javascript
           App.init();
         });
+        hljs.initHighlightingOnLoad();
     </script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </div>
