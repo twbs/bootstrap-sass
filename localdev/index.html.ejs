@@ -85,6 +85,51 @@
           </div>
         </div>
       </div>
+      <div class="col-sm-12">
+        <div class="block-flat">
+          <div class="header">
+            <h3>HTML Markup</h3>
+          </div>
+          <div class="content">
+            <h4>Best Practices</h4>
+            <p>
+              Use as few divs as possible to contain your content, and make sure that the names of the divs are only as specific as they need to be. A class name should be reusable across modules, but not so generic that it's difficult to say what it does.
+            </p>
+            <p>
+              Guidelines:
+              <ul>
+                <li><strong>NO</strong> INLINE STYLES</li>
+                <li>Avoid using class names that contain locational or stylistic information such as <code>.left_sidebar</code> or <code>.red_button</code>. In the future, these containers may change. Instead, name them based on content or purpose.</li>
+                <li>Avoid using classes such as <code>.left</code> or <code>.float_left</code>; that type of layout information should be included at the modular level.</li>
+                <li>Elements that occur exactly once inside a page should use IDs, otherwise, use classes. When in doubt, use a class name.</li>
+                <li>Avoid adding styles to basic elements such as <code>&lt;ul&gt;</code>. Instead, add an extra class to these elements you want to style and add styles to the class.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="block-flat">
+          <div class="header">
+            <h3>JavaScript</h3>
+          </div>
+          <div class="content">
+            <h4>General JS philosophy</h4>
+            <p>
+              We want CoEFFICIENT to stay lean and void of extra clutter so we should be careful when adding excessive JS packages and plugins. We should only add necessary JS code so it doesn't end up like our Dealer360 application.
+            </p>
+            <p>
+              Guidelines:
+              <ul>
+                <li>Prefix state classes to toggle CSS with <code>.is-</code></li>
+                <li>Prefix hooks for JS functionality only with <code>.js-</code></li>
+                <li>DO NOT add/remove CSS styles using JS. There should not be inline CSS styles to begin with. All DOM related updates should be done in the form of state classes. For example, <code>.is-hidden</code> or <code>.is-active</code>.</li>
+                <li>Follow <a href="http://www.sitepoint.com/efficient-jquery-selectors/" target="_blank">jQuery tips</a> for writing more efficient jQuery selectors.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
       <!-- SYANG - SAVE FOR LATER
       <div class="row">
         <div class="col-sm-6">
