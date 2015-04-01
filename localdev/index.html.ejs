@@ -31,31 +31,61 @@
     <% include wp-sidebar.html.ejs %>
 
     <div class="page-head">
-       <h2>Sidebar</h2>
-       <ol class="breadcrumb">
-         <li><a href="#">Home</a></li>
-         <li><a href="#">Layouts</a></li>
-         <li class="active">Sidebar</li>
-       </ol>
+       <h2>CoEFFICIENT Styleguide</h2>
     </div>
     <div class="cl-mcont">
-      <div class="row">
-        <div class="col-sm-4 text-center">
-          <img src="images/doc1.png" />
-          <h3>Collapsible Sidebar</h3>
-          <p>We added a fixed-scrollable-collapsible feature, when it collapse, the sub-menu appear beside the sidebar.</p>
-        </div>
-        <div class="col-sm-4 text-center">
-          <img src="images/doc2.png" />
-          <h3>Highlighted Items</h3>
-          <p>Just add <code>".active"</code> class in the first or sub level items and they will show open by default.</p>
-        </div>
-        <div class="col-sm-4 text-center">
-          <img src="images/doc3.png" />
-          <h3>Auto Adjust</h3>
-          <p>Sidebar adjusts automatically when window is resized, and also creates a scroll if there is no enough vertical space.</p>
+      <div class="col-sm-12">
+        <div class="block-flat">
+          <div class="header">
+            <h3>Sass</h3>
+          </div>
+          <div class="content">
+            <h4>Best Practices</h4>
+            <p>
+              Always use common components when creating new screens. Most of what you will need is already available in the styleguide provided here. If there are specific styles that will or can be re-used later on, it should be added to the styleguide. Following these rules will keep our product consistent and easy to update.
+            </p>
+            <p>
+              If you are creating new re-usable styles, make sure you follow these guidelines when writing Sass code:
+              <ul>
+                <li>Create user-friendly classnames. Spaces should be converted into dashes. For example, <code>.helper-text</code></li>
+                <li>Follow <a href="https://css-tricks.com/efficiently-rendering-css/" target="_blank">these tricks</a> for when to use ID vs class vs tag selectors, what to avoid and general tips.</li>
+                <li>Avoid nesting too many layers deep. This causes inefficient and convoluted CSS output.</li>
+                <li>Write reusable code by using $variables @mixins, @includes, and @extends functions. See <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html" target="_blank">Sass-lang.com</a> for full documentation.</li>
+              </ul>
+            </p>
+
+            <h4>Formatting Standards</h4>
+            <p>
+              Sass files are automatically compiled to .css files in rails when the page is loaded. They will <strong>NOT</strong> compile if the syntax is incorrect: there can be no brackets, semicolons, or incorrect/inconsistent indentation.
+            </p>
+            <p>
+              Guidelines:
+              <ul>
+                <li>Use soft tabs (2 spaces) to stay consistent with the rest of the CoEFFICIENT code.</li>
+                <li>Set each property on it's own line</li>
+                <li>Set one full line between each selector</li>
+                <li>Use one space between property names and values, ex: <code>float: left</code></li>
+                <li>Prefer shorthand, <code>margin: 20px 0</code> Unless only setting on property, <code>margin-top: 20px</code></li>
+                <li>Avoid specifying zero values, <code>margin: 0</code></li>
+                <li>Use single or double quotations consistently - prefer double quotes, <code>background: url("filename.png")</code></li>
+                <li>NO semicolons at the end of each property - nodejs may allow this, but ruby will complain.</li>
+              </ul>
+            </p>
+
+            <h4>Commenting</h4>
+            <p>
+              Each page should have a section at the top to explain what the file is for, or styling. If the file is broken up into a few sections, subsections should also include comments explaining the section. Prefer breaking long Sass files with multiple sections into separate files instead if it makes sense, for ease of comprehension.
+            </p>
+            <p>
+              Use <code>//</code> instead of <code>/* */</code> for comments unless you intentionally want the comments to show up in the output.
+            </p>
+            <pre><code class="html">// ---------------------------------
+// COLORS
+// ---------------------------------</code></pre>
+          </div>
         </div>
       </div>
+      <!-- SYANG - SAVE FOR LATER
       <div class="row">
         <div class="col-sm-6">
           <div class="block-flat">
@@ -79,7 +109,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
 
     <!-- Bootstrap core JavaScript
@@ -90,6 +120,7 @@
           //initialize the javascript
           App.init();
         });
+        hljs.initHighlightingOnLoad();
     </script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </div>
