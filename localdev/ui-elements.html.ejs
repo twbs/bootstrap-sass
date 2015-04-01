@@ -38,26 +38,38 @@
       </ol>
     </div>
     <div class="cl-mcont">
-      <div class="row dash-cols">
+      <div class="row">
         <div class="col-sm-6 col-md-6">
           <div class="block-flat">
             <div class="header">
               <h3>Headings</h3>
             </div>
             <div class="content">
+              <p>
+                Section heads, like the one above should be used to section out each page. If there is only one section, only a page title is needed.
+              </p>
+              <pre><code class="html">&#x3C;div class=&#x22;header&#x22;&#x3E;
+  &#x3C;h3&#x3E;Headings&#x3C;/h3&#x3E;
+&#x3C;/div&#x3E;</code></pre>
               <h1>Heading Text 1</h1>
               <h2>Heading Text 2</h2>
               <h3>Heading Text 3</h3>
               <h4>Heading Text 4</h4>
               <h5>Heading Text 5</h5>
               <h6>Heading Text 6</h6>
+              <pre><code class="html">&lt;h1&gt;Heading Text 1&lt;/h1&gt;
+&lt;h2&gt;Heading Text 2&lt;/h2&gt;
+&lt;h3&gt;Heading Text 3&lt;/h3&gt;
+&lt;h4&gt;Heading Text 4&lt;/h4&gt;
+&lt;h5&gt;Heading Text 5&lt;/h5&gt;
+&lt;h6&gt;Heading Text 6&lt;/h6&gt;</code></pre>
               <div class="spacer">&nbsp;</div>
               <h1 class="hthin">Thin Heading 1</h1>
               <h2 class="hthin">Thin Heading 2</h2>
               <h3 class="hthin">Thin Heading 3</h3>
-              <p class="spacer">
-                To use thin headings, set <code>".hthin"</code> class in heading tag.
-              </p>
+              <pre><code class="html">&lt;h1 class=&quot;hthin&quot;&gt;Thin Heading 1&lt;/h1&gt;
+&lt;h2 class=&quot;hthin&quot;&gt;Thin Heading 2&lt;/h2&gt;
+&lt;h3 class=&quot;hthin&quot;&gt;Thin Heading 3&lt;/h3&gt;</code></pre>
             </div>
           </div>
 
@@ -66,22 +78,85 @@
               <h3>Bootstrap Alerts</h3>
             </div>
             <div class="content">
-               <div class="alert alert-success">
+              <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <i class="fa fa-check sign"></i><strong>Success!</strong> Changes has been saved successfully!
-               </div>
-               <div class="alert alert-info">
+              </div>
+              <div class="alert alert-info">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <i class="fa fa-info-circle sign"></i><strong>Info!</strong> You have 3 new messages in your inbox.
-               </div>
-               <div class="alert alert-warning">
+              </div>
+              <div class="alert alert-warning">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <i class="fa fa-warning sign"></i><strong>Alert!</strong> Don't forget to save your data.
-               </div>
-               <div class="alert alert-danger">
+              </div>
+              <div class="alert alert-danger">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <i class="fa fa-times-circle sign"></i><strong>Error!</strong> The server is not responding, try again later.
-               </div>
+              </div>
+              <pre><code class="html">&lt;div class=&quot;alert alert-success&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+  &lt;i class=&quot;fa fa-check sign&quot;&gt;&lt;/i&gt;&lt;strong&gt;Success!&lt;/strong&gt; Changes has been saved successfully!
+&lt;/div&gt;
+&lt;div class=&quot;alert alert-info&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+  &lt;i class=&quot;fa fa-info-circle sign&quot;&gt;&lt;/i&gt;&lt;strong&gt;Info!&lt;/strong&gt; You have 3 new messages in your inbox.
+&lt;/div&gt;
+&lt;div class=&quot;alert alert-warning&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+  &lt;i class=&quot;fa fa-warning sign&quot;&gt;&lt;/i&gt;&lt;strong&gt;Alert!&lt;/strong&gt; Don&apos;t forget to save your data.
+&lt;/div&gt;
+&lt;div class=&quot;alert alert-danger&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+  &lt;i class=&quot;fa fa-times-circle sign&quot;&gt;&lt;/i&gt;&lt;strong&gt;Error!&lt;/strong&gt; The server is not responding, try again later.
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <div class="block-flat">
+            <div class="header">
+              <h3>Progress Bars</h3>
+            </div>
+            <div class="content">
+              <h4>Simple</h4>
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" style="width: 40%">40%</div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar-info" style="width: 20%">20%</div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar-warning" style="width: 60%">60%</div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar-danger" style="width: 80%">80%</div>
+              </div>
+              <pre><code class="html">&lt;div class=&quot;progress&quot;&gt;
+  &lt;div class=&quot;progress-bar progress-bar-success&quot; style=&quot;width: 40%&quot;&gt;40%&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;progress&quot;&gt;
+  &lt;div class=&quot;progress-bar progress-bar-info&quot; style=&quot;width: 20%&quot;&gt;20%&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;progress&quot;&gt;
+  &lt;div class=&quot;progress-bar progress-bar-warning&quot; style=&quot;width: 60%&quot;&gt;60%&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;progress&quot;&gt;
+  &lt;div class=&quot;progress-bar progress-bar-danger&quot; style=&quot;width: 80%&quot;&gt;80%&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+              <h4 class="spacer2">Stacked</h4>
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" style="width: 20%">20%</div>
+                <div class="progress-bar progress-bar-info" style="width: 20%">20%</div>
+                <div class="progress-bar progress-bar-warning" style="width: 30%">30%</div>
+                <div class="progress-bar progress-bar-danger" style="width: 10%">10%</div>
+              </div>
+              <pre><code class="html">&lt;div class=&quot;progress&quot;&gt;
+  &lt;div class=&quot;progress-bar progress-bar-success&quot; style=&quot;width: 20%&quot;&gt;20%&lt;/div&gt;
+  &lt;div class=&quot;progress-bar progress-bar-info&quot; style=&quot;width: 20%&quot;&gt;20%&lt;/div&gt;
+  &lt;div class=&quot;progress-bar progress-bar-warning&quot; style=&quot;width: 30%&quot;&gt;30%&lt;/div&gt;
+  &lt;div class=&quot;progress-bar progress-bar-danger&quot; style=&quot;width: 10%&quot;&gt;10%&lt;/div&gt;
+&lt;/div&gt;</code></pre>
             </div>
           </div>
         </div>
@@ -92,67 +167,108 @@
               <h3>Dropdown Menus</h3>
             </div>
             <div class="content">
-              <div class="cl col-md-6">
-                <h4>Simple Menu</h4>
-                <div class="dropdown clearfix">
-                  <ul class="dropdown-menu static-mn spacer">
-                  <li><a tabindex="-1" href="#">Action</a></li>
-                  <li><a tabindex="-1" href="#">Another action</a></li>
-                  <li><a tabindex="-1" href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a tabindex="-1" href="#">Separated link</a></li>
-                  </ul>
-                </div>
+              <div class="dropdown clearfix">
+                <ul class="dropdown-menu static-mn spacer">
+                <li><a tabindex="-1" href="#">Action</a></li>
+                <li><a tabindex="-1" href="#">Another action</a></li>
+                <li><a tabindex="-1" href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a tabindex="-1" href="#">Separated link</a></li>
+                </ul>
               </div>
-              <div class="cl col-md-6">
-                <h4>Sub Menu</h4>
-                <div class="dropdown clearfix">
-                  <ul class="dropdown-menu static-mn spacer">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-submenu"><a href="#">Sub menu</a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                      <li><a href="#">Something else here</a></li>
-                      </ul>
+              <pre><code class="html">&lt;div class=&quot;dropdown clearfix&quot;&gt;
+  &lt;ul class=&quot;dropdown-menu static-mn spacer&quot;&gt;
+  &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+              <h4>Sub Menu</h4>
+              <div class="dropdown clearfix">
+                <ul class="dropdown-menu static-mn spacer">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-submenu"><a href="#">Sub menu</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                </ul>
+              </div>
+              <pre><code class="html">&lt;div class=&quot;dropdown clearfix&quot;&gt;
+  &lt;ul class=&quot;dropdown-menu static-mn spacer&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+  &lt;li class=&quot;dropdown-submenu&quot;&gt;&lt;a href=&quot;#&quot;&gt;Sub menu&lt;/a&gt;
+    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+              <h4>Two column menu</h4>
+              <div class="static-lg-menu clearfix">
+                <ul class="dropdown-menu col-menu-2 static-mn spacer">
+                  <li class="col-sm-6 no-padding">
+                    <ul>
+                    <li class="dropdown-header"><i class="fa fa-group"></i>Users</li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="dropdown-header"><i class="fa fa-gear"></i>Config</li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    </ul>
                   </li>
-                  </ul>
-                </div>
+                  <li  class="col-sm-6 no-padding">
+                    <ul>
+                    <li class="dropdown-header"><i class="fa fa-legal"></i>Sales</li>
+                    <li><a href="#">New sale</a></li>
+                    <li><a href="#">Register a product</a></li>
+                    <li><a href="#">Register a client</a></li>
+                    <li><a href="#">Month sales</a></li>
+                    <li><a href="#">Delivered orders</a></li>
+                    </ul>
+                  </li>
+                </ul>
               </div>
-              <div class="clearfix"></div>
-              <div class="col-md-12 clearfix spacer">
-                <h4>Two column menu</h4>
-                <div class="static-lg-menu">
-                  <ul class="dropdown-menu col-menu-2 static-mn spacer">
-                    <li class="col-sm-6 no-padding">
-                      <ul>
-                      <li class="dropdown-header"><i class="fa fa-group"></i>Users</li>
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                      <li><a href="#">Something else here</a></li>
-                      <li class="dropdown-header"><i class="fa fa-gear"></i>Config</li>
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                      <li><a href="#">Something else here</a></li>
-                      </ul>
-                    </li>
-                    <li  class="col-sm-6 no-padding">
-                      <ul>
-                      <li class="dropdown-header"><i class="fa fa-legal"></i>Sales</li>
-                      <li><a href="#">New sale</a></li>
-                      <li><a href="#">Register a product</a></li>
-                      <li><a href="#">Register a client</a></li>
-                      <li><a href="#">Month sales</a></li>
-                      <li><a href="#">Delivered orders</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="clearfix"></div>
+              <pre><code class="html">&lt;div class=&quot;static-lg-menu clearfix&quot;&gt;
+  &lt;ul class=&quot;dropdown-menu col-menu-2 static-mn spacer&quot;&gt;
+    &lt;li class=&quot;col-sm-6 no-padding&quot;&gt;
+      &lt;ul&gt;
+      &lt;li class=&quot;dropdown-header&quot;&gt;&lt;i class=&quot;fa fa-group&quot;&gt;&lt;/i&gt;Users&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;dropdown-header&quot;&gt;&lt;i class=&quot;fa fa-gear&quot;&gt;&lt;/i&gt;Config&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li  class=&quot;col-sm-6 no-padding&quot;&gt;
+      &lt;ul&gt;
+      &lt;li class=&quot;dropdown-header&quot;&gt;&lt;i class=&quot;fa fa-legal&quot;&gt;&lt;/i&gt;Sales&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;New sale&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Register a product&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Register a client&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Month sales&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Delivered orders&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
             </div>
           </div>
           <div class="block-flat">
@@ -208,38 +324,25 @@
                   </tr>
                 </tbody>
               </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 col-md-6">
-          <div class="block-flat">
-            <div class="header">
-              <h3>Progress Bars</h3>
-            </div>
-            <div class="content">
-              <h4>Simple</h4>
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" style="width: 40%">40%</div>
-              </div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-info" style="width: 20%">20%</div>
-              </div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-warning" style="width: 60%">60%</div>
-              </div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-danger" style="width: 80%">80%</div>
-              </div>
+              <pre><code class="html">&lt;span class=&quot;label label-default&quot;&gt;Default&lt;/span&gt;
+&lt;a class=&quot;label label-default&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-pencil&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;span class=&quot;badge badge-default&quot;&gt;25&lt;/span&gt;
 
-              <h4 class="spacer2">Stacked</h4>
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" style="width: 20%">20%</div>
-                <div class="progress-bar progress-bar-info" style="width: 20%">20%</div>
-                <div class="progress-bar progress-bar-warning" style="width: 30%">30%</div>
-                <div class="progress-bar progress-bar-danger" style="width: 10%">10%</div>
-              </div>
+&lt;span class=&quot;label label-success&quot;&gt;Success&lt;/span&gt;
+&lt;a class=&quot;label label-success&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-pencil&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;span class=&quot;badge badge-success&quot;&gt;8&lt;/span&gt;
+
+&lt;span class=&quot;label label-info&quot;&gt;Info&lt;/span&gt;
+&lt;a class=&quot;label label-info&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-info-circle&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;span class=&quot;badge badge-info&quot;&gt;3&lt;/span&gt;
+
+&lt;span class=&quot;label label-warning&quot;&gt;Warning&lt;/span&gt;
+&lt;a class=&quot;label label-warning&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-warning&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;span class=&quot;badge badge-warning&quot;&gt;5&lt;/span&gt;
+
+&lt;span class=&quot;label label-danger&quot;&gt;Danger&lt;/span&gt;
+&lt;a class=&quot;label label-danger&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-pencil&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;span class=&quot;badge badge-danger&quot;&gt;54&lt;/span&gt;</code></pre>
             </div>
           </div>
         </div>
@@ -254,6 +357,7 @@
           //initialize the javascript
           App.init();
         });
+        hljs.initHighlightingOnLoad();
     </script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </div>

@@ -45,8 +45,6 @@
               <h3>Basic Buttons</h3>
             </div>
             <div class="content">
-              <h4>Examples</h4>
-              <p>This is the basic set of buttons.</p>
               <div class="spacer spacer-bottom">
                 <button type="button" class="btn btn-default">Default</button>
                 <button type="button" class="btn btn-primary">Primary</button>
@@ -55,9 +53,15 @@
                 <button type="button" class="btn btn-warning">Warning</button>
                 <button type="button" class="btn btn-danger">Danger</button>
               </div>
+              <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;Default&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Primary&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot;&gt;Success&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot;&gt;Info&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-warning&quot;&gt;Warning&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;Danger&lt;/button&gt;</code></pre>
 
+              <div class="spacer">&nbsp;</div>
               <h4>Flat buttons</h4>
-              <p>Just add <code>".btn-flat"</code> class to the button.</p>
               <div class="spacer spacer-bottom">
                 <button type="button" class="btn btn-default btn-flat">Default</button>
                 <button type="button" class="btn btn-primary btn-flat">Primary</button>
@@ -66,6 +70,12 @@
                 <button type="button" class="btn btn-warning btn-flat">Warning</button>
                 <button type="button" class="btn btn-danger btn-flat">Danger</button>
               </div>
+              <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-flat&quot;&gt;Default&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-flat&quot;&gt;Primary&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success btn-flat&quot;&gt;Success&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info btn-flat&quot;&gt;Info&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-warning btn-flat&quot;&gt;Warning&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger btn-flat&quot;&gt;Danger&lt;/button&gt;</code></pre>
             </div>
           </div>
 
@@ -74,8 +84,6 @@
               <h3>Dropdown Buttons</h3>
             </div>
             <div class="content">
-              <h4>Buttons with dropdown</h4>
-              <p>Examples of buttons with dropdown menu.</p>
               <div class="spacer spacer-bottom">
                 <div class="btn-group">
                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -90,6 +98,18 @@
                   </ul>
                 </div>
               </div>
+              <pre><code class="html">&lt;div class=&quot;btn-group&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-default dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
+  Basic Dropdown &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul class=&quot;dropdown-menu&quot; role=&quot;menu&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
             </div>
           </div>
         </div>
@@ -100,12 +120,12 @@
               <h3>Buttons Size</h3>
             </div>
             <div class="content">
-              <h4>Sizes</h4>
-              <p>There are 2 kinds of button size: <code>.btn-xs</code> and <code>.btn</code>.</p>
               <div class="spacer spacer-bottom">
                 <button type="button" class="btn btn-default btn-xs">Extra Small</button>
                 <button type="button" class="btn btn-default">Normal</button>
               </div>
+              <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-xs&quot;&gt;Extra Small&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;Normal&lt;/button&gt;</code></pre>
             </div>
           </div>
           <div class="block-flat">
@@ -113,12 +133,15 @@
               <h3>Advanced buttons</h3>
             </div>
             <div class="content">
-              <h4>Text with icon buttons</h4>
-              <p>Font awesome icons in bootstrap buttons.</p>
+              <p>
+                You can add icons to buttons. For a full list of icons go to the <a href="ui-icons.html">icons page</a>.
+              </p>
               <div class="spacer spacer-bottom">
-                <button type="button" class="btn btn-success btn-xs"><i class="fa fa-cloud-download"></i> Download</button>
-                <button type="button" class="btn btn-success"><i class="fa fa-cloud-download"></i> Download</button>
+                <button type="button" class="btn btn-default btn-xs"><i class="fa fa-cloud-download"></i> Download</button>
+                <button type="button" class="btn btn-default"><i class="fa fa-cloud-download"></i> Download</button>
               </div>
+              <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-xs&quot;&gt;&lt;i class=&quot;fa fa-cloud-download&quot;&gt;&lt;/i&gt; Download&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;&lt;i class=&quot;fa fa-cloud-download&quot;&gt;&lt;/i&gt; Download&lt;/button&gt;</code></pre>
             </div>
           </div>
         </div>
@@ -133,6 +156,7 @@
           //initialize the javascript
           App.init();
         });
+        hljs.initHighlightingOnLoad();
     </script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </div>
