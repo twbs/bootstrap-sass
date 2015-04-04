@@ -6,8 +6,8 @@ body{
   text-rendering: optimizeLegibility;
 }
 body > .wrap > .container-fluid {
-  padding-top: 76px;
-  h1 { margin-bottom: 40px; }
+  padding-top: ($line-height-computed * 2);
+  h1 { margin-bottom: ($line-height-computed / 2); }
 }
 body > .wrap > .container-fluid .main{
   padding-left: 13px;
