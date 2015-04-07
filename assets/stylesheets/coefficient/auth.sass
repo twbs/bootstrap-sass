@@ -5,6 +5,8 @@
   h2
     color: $CF-purple
 
+$states: (success: (#dbf6d3, #aed4a5, #569745), info: (#d9edf7, #98cce6, #3a87ad), warning: (#fcf8e3, #f1daab, #c09853), danger: (#f2dede, #e0b1b8, #b94a48))
+
 .auth-subheader
   position: relative
   padding: 15px 20px 10px
@@ -33,6 +35,16 @@
     border-top-color: #dadada
     border-width: 12px
     margin-left: -12px
+  // For various states of the auth subheader
+  @each $state, $colorList in $states
+    &.#{$state}
+      background-color: nth($colorList, 1)
+      border-color: nth($colorList, 2)
+      color: nth($colorList, 3)
+      &:after
+        border-top-color: nth($colorList, 1)
+      &:before
+        border-top-color: nth($colorList, 2)
 
 .auth-footer
   text-align: center
