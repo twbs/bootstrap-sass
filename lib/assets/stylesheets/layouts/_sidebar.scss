@@ -40,6 +40,9 @@
 /* Sidebar navigation */
 .nav-sidebar {
   margin-left: -20px;
+  .accordion-body.in a {
+    padding-left: ($padding-base-horizontal*2);
+  }
 }
 .nav-sidebar > li > a {
   padding: 0 0 0 20px;
