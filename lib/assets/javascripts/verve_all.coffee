@@ -10,5 +10,5 @@
 #= require_self
 
 $ document
-.ready ->
+.on 'ready page:load', ->
   Verve.MenuController.init()
