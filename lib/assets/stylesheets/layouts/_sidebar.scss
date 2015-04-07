@@ -89,6 +89,7 @@
 .nav-sidebar .accordion-body .active > a:focus {
   color: $nav-sidebar-link-color;
   background-color: white;
+  text-decoration: none;
 }
 .nav-sidebar .accordion-body li > a > .caret {
   border-top: 4px solid transparent;

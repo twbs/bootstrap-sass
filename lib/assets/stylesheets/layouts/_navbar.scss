@@ -11,6 +11,9 @@
   @include box-shadow($shadow);
   min-height: 42px;
   padding: 0 18px;
+  #btn-logout {
+    margin-left: 86px;
+  }
 }
 .navbar-toggle {
   border-color: $navbar-toggle-border;

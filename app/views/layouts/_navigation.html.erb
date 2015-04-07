@@ -71,7 +71,7 @@
           <ul class="dropdown-menu inline profile">
             <li>
               <% unless user.nil? %>
-              <div class="profile-image"><%= image_tag "https://secure.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}.png?s=20", class: "gravatar" %></div>
+              <div class="profile-image"><%= image_tag "https://secure.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}.png?s=120", class: "gravatar" %></div>
               <h5><%= user.name %></h5>
               <p><%= user.email %><br>Logged in as: <%= user.kind %></p>
               <% end %>
