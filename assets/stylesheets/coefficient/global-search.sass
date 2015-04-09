@@ -1,4 +1,7 @@
-// global search
+// ----------------------------
+// GLOBAL SEARCH
+// ----------------------------
+
 #global-search
   padding: 10px 0
   .input-group
@@ -8,23 +11,27 @@
     padding: 6px 9px
     border-top-right-radius: 3px
     border-bottom-right-radius: 3px
-  #global-search-input
-    width: 350px
-    padding: 5px
-    text-align: center
-    height: auto
-    border-top-left-radius: 3px
-    border-bottom-left-radius: 3px
-    &:focus
-      text-align: left
-      + span
-        background-color: #4E9DFF
-        border-color: #4E9DFF
-        color: $white
 
-//global search results
+#global-search-input
+  width: 350px
+  padding: 5px
+  text-align: center
+  height: 29px
+  border-top-left-radius: 3px
+  border-bottom-left-radius: 3px
+  &:focus
+    text-align: left
+    + .input-group-addon
+      background-color: #4E9DFF
+      border-color: #4E9DFF
+      color: $white
+
+
+// ----------------------------
+// GLOBAL SEARCH RESULTS BOX
+// ----------------------------
+
 #global-search-results
-  // display: block
   width: 384px
   margin: 2px 0 0 -1px
   padding-top: 0
@@ -32,7 +39,7 @@
   border-top-right-radius: 3px
 #global-search-message
   color: #999999
-  padding: 5px 5px 0
+  padding: 10px 10px 0
   font-size: 12px
 .global-search-icon
   float: left
@@ -47,6 +54,10 @@
   font-size: 12px
   border-top-left-radius: 3px
   border-top-right-radius: 3px
+.global-search-title
+  .highlight
+    font-weight: 600
+    color: #000000
 .global-search-item
   &:hover
     .global-search-subtitle
@@ -54,5 +65,3 @@
 .global-search-subtitle
   font-size: 10px
   color: #999999
-.global-search-highlight
-  font-weight: 600
