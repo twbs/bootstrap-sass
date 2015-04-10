@@ -9,22 +9,16 @@
     padding-bottom: 0
   .input-group-addon
     padding: 6px 9px
-    border-top-right-radius: 3px
-    border-bottom-right-radius: 3px
+    @include border-radius-mixed(3px, 0, 0, 3px)
 
 #global-search-input
   width: 350px
+  height: 29px
   padding: 5px
   text-align: center
-  height: 29px
-  border-top-left-radius: 3px
-  border-bottom-left-radius: 3px
+  @include border-radius-mixed(0, 3px, 3px, 0)
   &:focus
     text-align: left
-    + .input-group-addon
-      background-color: #4E9DFF
-      border-color: #4E9DFF
-      color: $white
 
 
 // ----------------------------
@@ -35,8 +29,7 @@
   width: 384px
   margin: 2px 0 0 -1px
   padding-top: 0
-  border-top-left-radius: 3px
-  border-top-right-radius: 3px
+  @include border-radius-mixed(3px, 3px, 0, 0)
 #global-search-message
   color: #999999
   padding: 10px 10px 0
@@ -52,16 +45,15 @@
   border-bottom: 1px solid #ccc
   padding: 7px 10px
   font-size: 12px
-  border-top-left-radius: 3px
-  border-top-right-radius: 3px
+  @include border-radius-mixed(3px, 3px, 0, 0)
 .global-search-title
   .highlight
     font-weight: 600
-    color: #000000
+    color: $black
 .global-search-item
   &:hover
     .global-search-subtitle
-      color: #ffffff
+      color: $white
 .global-search-subtitle
   font-size: 10px
   color: #999999
