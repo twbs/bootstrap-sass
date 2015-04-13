@@ -8,11 +8,11 @@
   .header-profile-image
     width: 30px
     height: 30px
+  #js-header-profile-image-thumbnail
     outline: 1px solid rgba(100, 100, 100, 0.5)
 
 .navbar-default
   .navbar-brand
-    width: 206px
     max-width: 191px
     color: $white
     font-weight: 300
@@ -129,17 +129,14 @@
 
 .navbar-default .navbar-toggle
   outline: none
-  border: 1px solid rgba(0, 0, 0, 0.15)
-  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2) inset
-  padding: 6px 10px
+  border: 0
+  padding: 0 10px
+  margin: 0
+  line-height: 50px
   &:hover
-    background: rgba(255, 255, 255, 0.07)
-  &:active
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.07) inset
+    background: transparent
   &:focus
     background: transparent
-  .icon-bar
-    background-color: $white
   .fa
     color: $white
     font-size: 18px
@@ -147,6 +144,7 @@
 .navbar-collapse
   max-height: none !important
   position: relative
+  border: none
 
 
 
@@ -253,27 +251,6 @@
 
 .navbar-nav > li > a:focus
   color: $white
-
-.navbar-default.navbar-toggle
-  outline: none
-  border: 1px solid rgba(0, 0, 0, 0.15)
-  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2) inset
-  padding: 6px 10px
-  &:hover
-    background: rgba(255, 255, 255, 0.07)
-  &:active
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.07) inset
-  &:focus
-    background: transparent
-  .icon-bar
-    background-color: $white
-  .fa
-    color: $white
-    font-size: 18px
-
-.navbar-collapse
-  max-height: none !important
-  position: relative
 
 body.modal-open
   margin-right: 0
