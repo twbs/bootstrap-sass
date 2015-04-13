@@ -7,21 +7,27 @@
 
   .header-profile-image
     width: 30px
+    height: 30px
     outline: 1px solid rgba(100, 100, 100, 0.5)
 
 .navbar-default
   .navbar-brand
-    padding-left: 35px
     width: 206px
+    max-width: 191px
     color: $white
-    background: image-url('logo.png')  no-repeat 0 11px
     font-weight: 300
     font-size: 19px
     line-height: 18px
-    height: auto
+    padding: 0
+    margin: 10px 10px 10px -10px !important
+    height: 30px
     &:hover,
     &:focus
       color: $white
+    img
+      display: inline-block
+    span
+      vertical-align: middle
 
   .display-name-light
     color: $CF-display-name-light
