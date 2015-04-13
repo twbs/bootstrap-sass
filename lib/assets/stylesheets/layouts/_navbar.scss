@@ -141,9 +141,10 @@
 }
 .navbar-nav > li .dropdown-menu.profile > li > h5 {
   color: $dropdown-link-color;
+  font-size: 13px;
   font-weight: 800;
   line-height: 18px;
-  padding-top: 8px;
+  padding: 8px 0 5px 0;
 }
 .navbar-nav > li .dropdown-menu.profile > li > p {
   color: $gray-light;
@@ -180,6 +181,9 @@
   color: $navbar-default-bg;
 }
 
+.nav > li > a:hover, .nav > li > a:focus {
+  background: transparent;
+}
 
 // Secondary Nav
 //// ----------------------------------------------

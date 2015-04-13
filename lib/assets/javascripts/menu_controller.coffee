@@ -3,9 +3,9 @@ class MenuController
     $ '.sidebar'
     .css 'width', 45
 
-  expandSidebar: ->
+  expandSidebar: -> 
     $ '.sidebar'
-    .css 'width', 211
+    .css 'width', "auto"
 
   collapseLabels: ->
     _self = @
@@ -64,6 +64,17 @@ class MenuController
     .removeClass 'fa-minus-square'
     .addClass 'fa-plus-square'
 
+  htmlbodyHeightUpdate: ->
+    height3 = $(window).height()
+    height1 = $('.nav').height() + 50
+    height2 = $('.main').height()
+    if height2 > height3
+      $('html').height Math.max(height1, height3, height2) + 10
+      $('body').height Math.max(height1, height3, height2) + 10
+    else
+      $('html').height Math.max(height1, height3, height2)
+      $('body').height Math.max(height1, height3, height2)
+  
   handler: ->
     _self = @
     @menuController
@@ -77,16 +88,22 @@ class MenuController
         _self.stateToOpen()
         _self.iconOpen()
         _self.open()
-
   init: ->
+    _self = @
+    @htmlbodyHeightUpdate()
+    $(window).resize ->
+      _self.htmlbodyHeightUpdate()
+    $(window).scroll ->
+      height2 = $('.main').height()
+      _self.htmlbodyHeightUpdate()
     @menuController = $ '#menu-controller'
-    if $('.sidebar').width() > 45
-      @menuController.addClass 'open'
-      @iconOpen()
-    else
-      @menuController.addClass 'closed'
-      @iconClose()
-    @handler()
+    # if $('.sidebar').width() > 45
+#       @menuController.addClass 'open'
+#       @iconOpen()
+#     else
+#       @menuController.addClass 'closed'
+#       @iconClose()
+#     @handler()
 
 
 Verve.MenuController = new MenuController()
