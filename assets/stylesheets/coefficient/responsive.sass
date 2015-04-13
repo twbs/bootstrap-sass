@@ -3,6 +3,8 @@
   .cl-sidebar
     .cl-vnavigation
       display: block !important
+  .navbar-collapse
+    margin-left: 191px !important
 
 // Common tablet vertical size
 @media (min-width: 768px) and (max-width: 979px)
@@ -13,6 +15,8 @@
       max-width: 45px
       span
         display: none // Hides brand name so it shows logo only
+    .navbar-collapse
+      margin-left: 30px
 
   /* Sidebar */
   .cl-sidebar
@@ -152,7 +156,8 @@
   .profile_menu
     margin: 0
     .dropdown-toggle
-      padding-left: 15px
+      padding: 0
+      height: auto
   .navbar-default .navbar-brand
     width: auto
   .user-nav
@@ -164,7 +169,7 @@
   #head-nav
     padding: 0
     .navbar-nav
-      padding: 0 10px
+      padding: 10px 15px
   .navbar-header
     padding: 0 10px
     margin-left: 0 !important
