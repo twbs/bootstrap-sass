@@ -27,30 +27,139 @@
   <% include header.html.ejs %>
 
   <!-- BEGIN WRAPPER -->
-  <div id="cl-wrapper" class="fixed-menu">
+  <div id="cl-wrapper" class="fixed-menu aside">
 
     <!-- BEGIN SECONDARY NAVIGATION -->
     <div class="page-aside">
-      <div class="fixed nano nscroller">
-        <div class="content">
-          <div class="header">
-            <button class="navbar-toggle" data-target=".app-nav" data-toggle="collapse" type="button">
-              <span class="fa fa-chevron-down"></span>
-            </button>
-            <h3>Notes</h3>
+      <!-- <div class="fixed"> -->
+      <div class="content">
+        <div id="aside-header" class="header">
+          <button class="navbar-toggle" data-target=".aside-nav" data-toggle="collapse" type="button">
+            <span class="fa fa-chevron-down"></span>
+          </button>
+          <h3>Notes</h3>
+          <div class="main-action">
+            <button type="button" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> New Note</button>
           </div>
-          <div class="app-nav collapse">
+        </div>
+        <div class="aside-nav">
+          <div class="aside-scroll-header">
+            <div class="aside-total-items">7 Notes</div>
+            <div class="aside-sort">Sort by <a href="#">Date <i class="fa fa-sort-down"></i></a></div>
+          </div>
+          <div class="aside-items">
+            <ul class="content nano-content">
+              <li class="note-date-section">OCTOBER 22, 2014</li>
+              <li>
+                <div class="title">My Note about Something</div>
+                <div class="info">October 22, 2014 · Dealership 1234</div>
+                <div class="preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a malesuada dui. Aliquam a ex eu enim sollicitudin...</div>
+              </li>
+              <li class="selected">
+                <div class="title">My Note about Something</div>
+                <div class="info">October 22, 2014 · Dealership 1234</div>
+                <div class="preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a malesuada dui. Aliquam a ex eu enim sollicitudin...</div>
+              </li>
+              <li class="unread">
+                <div class="title">My Note about Something</div>
+                <div class="info">October 22, 2014 · Dealership 1234</div>
+                <div class="preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a malesuada dui. Aliquam a ex eu enim sollicitudin...</div>
+              </li>
+              <li class="note-date-section">OCTOBER 21, 2014</li>
+              <li>
+                <div class="title">My Note about Something</div>
+                <div class="info">October 21, 2014 · Dealership 1234</div>
+                <div class="preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a malesuada dui. Aliquam a ex eu enim sollicitudin...</div>
+              </li>
+              <li class="end-of-items">End of Notes</li>
+            </ul>
           </div>
         </div>
       </div>
+      <!-- </div> -->
     </div>
     <!-- END SECONDARY NAVIGATION -->
 
 
 
     <!-- BEGIN MAIN CONTENT AREA -->
-    <div class="cl-mcont">
-      <h3>Homepage!</h3>
+    <div id="pcont">
+      <div class="cl-mcont">
+        <button type="button" class="btn btn-default"><i class="fa fa-envelope"></i></button>
+        <button type="button" class="btn btn-default"><i class="fa fa-print"></i></button>
+        <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
+        <button type="button" class="btn btn-default btn-right">Done</button>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="block-flat">
+              <div class="content notes-container">
+                <span class="note-metainfo">Created on October 23, 2014 | Last modified on November 12, 2014 at 2:14pm</span>
+                <h3>My Note About Something</h3>
+                <div class="visit-info">
+                  <span class="visit-info-label">Visited on:</span> October 22, 2014<br/>
+                  <span class="visit-info-label">Location:</span> Dealership 1234
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta tellus ipsum, ut laoreet dui porta eu. Nam ultrices viverra erat accumsan pretium. Vestibulum sit amet sapien dolor. Curabitur eget orci ut arcu placerat accumsan. Vestibulum imperdiet quam a lacinia aliquam. Suspendisse rhoncus pellentesque tellus ac varius. Aliquam commodo tellus sed fringilla eleifend.
+                </p>
+                <ul>
+                  <li>Phasellus cursus porta</li>
+                  <li>Sed ac facilisis lorem</li>
+                  <li>Donec sem turpis</li>
+                  <li>Duis egestas blandit</li>
+                </ul>
+                <p>
+                  Morbi id mauris vel massa sollicitudin tincidunt. Quisque maximus mi id sagittis ullamcorper. Aliquam erat volutpat. Cras id ullamcorper libero, vitae placerat lorem. Vestibulum eget odio felis. Morbi egestas elit suscipit, interdum felis a, malesuada risus. Suspendisse porta, turpis at pharetra fermentum, arcu diam auctor mi, nec fermentum arcu nisl nec nisi. Sed eget sapien imperdiet, ornare justo a, laoreet orci. Aenean vitae leo pretium, finibus ligula at, vehicula dui. Donec ut nibh volutpat, tristique turpis ut, venenatis ipsum. Maecenas id urna eget nisl dapibus porta ut vel nisi. Pellentesque varius purus et erat molestie volutpat.
+                </p>
+                <p>
+                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-play"></i> Play Audio</button>
+                </p>
+              </div>
+            </div>
+            <div class="block-flat">
+              <div class="content">
+                <h3>Action Items</h3>
+                <div class="notes-action-items">
+                  <div class="checkbox"><input type="checkbox" checked name="check1"> <span class="item-done">Phasellus cursus porta</span></div>
+                  <div class="checkbox"><input type="checkbox" name="check2"> Sed ac facilisis lorem</div>
+                  <div class="checkbox"><input type="checkbox" checked name="check3"> <span class="item-done">Donec sem turpis</span></div>
+                  <div class="checkbox"><input type="checkbox" name="check4"> Duis egestas blandit</div>
+                  <div class="checkbox"><input type="checkbox" name="check5"> <span class="add-item">Click here to add a new action item</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="block-flat">
+              <div class="content">
+                <h3>Attachments</h3>
+                <div class="attachments">
+                  <div class="attachment-item col-sm-4 col-md-4 col-lg-3">
+                    <img src="http://www.birdchannel.com/images/articles/bird-blog/macaw-flock-lg.jpg">
+                    <div class="attachment-info"><i class="fa fa-picture-o"></i> image01.jpg</div>
+                  </div>
+                  <div class="attachment-item col-sm-4 col-md-4 col-lg-3">
+                    <img src="http://blog.pennlive.com/pets/2008/01/medium_Macaw-jpatokal.jpg">
+                    <div class="attachment-info"><i class="fa fa-picture-o"></i> image02.jpg</div>
+                  </div>
+                  <div class="attachment-item col-sm-4 col-md-4 col-lg-3">
+                    <img src="http://www.nejohnston.org/Birds/2010/12/Images/IMG_7923.jpg">
+                    <div class="attachment-info"><i class="fa fa-video-camera"></i> movie01.mov</div>
+                  </div>
+                  <div class="attachment-item col-sm-4 col-md-4 col-lg-3">
+                    <img src="http://www.parrots.org/images/parrotgallery/SunConure/wpt1177_medium.jpg">
+                    <div class="attachment-info"><i class="fa fa-picture-o"></i> image03.jpg</div>
+                  </div>
+                </div>
+                <div class="attachments">
+                  <div class="attachment-item col-sm-4 col-md-4 col-lg-3">
+                    <img src="http://www.groovypost.com/wp-content/uploads/2012/01/open-PDF-Preview.png">
+                    <div class="attachment-info"><i class="fa fa-file"></i> attachedfile.jpg</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- END MAIN CONTENT AREA -->
 
