@@ -31,7 +31,6 @@
 
     <!-- BEGIN SECONDARY NAVIGATION -->
     <div class="page-aside">
-      <!-- <div class="fixed"> -->
       <div class="content">
         <div id="aside-header" class="header">
           <button class="navbar-toggle" data-target=".aside-nav" data-toggle="collapse" type="button">
@@ -42,7 +41,7 @@
             <button type="button" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> New Note</button>
           </div>
         </div>
-        <div class="aside-nav">
+        <div class="aside-nav collapse">
           <div class="aside-scroll-header">
             <div class="aside-total-items">7 Notes</div>
             <div class="aside-sort">Sort by <a href="#">Date <i class="fa fa-sort-down"></i></a></div>
@@ -76,7 +75,6 @@
           </div>
         </div>
       </div>
-      <!-- </div> -->
     </div>
     <!-- END SECONDARY NAVIGATION -->
 
@@ -91,13 +89,26 @@
           <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
           <button type="button" class="btn btn-default">Done</button>
         </div>
+        <div class="action-header-left">
+          <button type="button" class="btn btn-default"><i class="fa fa-text-height"></i></button>
+          <button type="button" class="btn btn-default"><i class="fa fa-bold"></i></button>
+          <button type="button" class="btn btn-default"><i class="fa fa-italic"></i></button>
+          <button type="button" class="btn btn-default"><i class="fa fa-underline"></i></button>
+          <button type="button" class="btn btn-default"><i class="fa fa-quote-left"></i></button>
+          <button type="button" class="btn btn-default"><i class="fa fa-list-ol"></i></button>
+          <button type="button" class="btn btn-default"><i class="fa fa-list-ul"></i></button>
+        </div>
       </div>
       <div class="cl-mcont">
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="block-flat">
               <div class="content notes-container">
-                <span class="note-metainfo">Created on October 23, 2014 | Last modified on November 12, 2014 at 2:14pm</span>
+                <span class="note-metainfo">
+                  <span class="created-on">Created on October 23, 2014</span>
+                  <span class="meta-separator"> | </span>
+                  <span class="modified-on">Last modified on November 12, 2014 at 2:14pm</span>
+                </span>
                 <h3>My Note About Something</h3>
                 <div class="visit-info">
                   <span class="visit-info-label">Visited on:</span> October 22, 2014<br/>
@@ -136,26 +147,36 @@
               <div class="content">
                 <h3>Attachments</h3>
                 <div class="attachments">
-                  <div class="attachment-item col-sm-4 col-md-4 col-lg-3">
-                    <img src="http://www.birdchannel.com/images/articles/bird-blog/macaw-flock-lg.jpg">
+                  <div class="attachment-item col-xs-6 col-md-4 col-lg-3">
+                    <div class="attachment-img">
+                      <img src="http://www.birdchannel.com/images/articles/bird-blog/macaw-flock-lg.jpg">
+                    </div>
                     <div class="attachment-info"><i class="fa fa-picture-o"></i> image01.jpg</div>
                   </div>
-                  <div class="attachment-item col-sm-4 col-md-4 col-lg-3">
-                    <img src="http://blog.pennlive.com/pets/2008/01/medium_Macaw-jpatokal.jpg">
+                  <div class="attachment-item col-xs-6 col-md-4 col-lg-3">
+                    <div class="attachment-img">
+                      <img src="http://blog.pennlive.com/pets/2008/01/medium_Macaw-jpatokal.jpg">
+                    </div>
                     <div class="attachment-info"><i class="fa fa-picture-o"></i> image02.jpg</div>
                   </div>
-                  <div class="attachment-item col-sm-4 col-md-4 col-lg-3">
-                    <img src="http://www.nejohnston.org/Birds/2010/12/Images/IMG_7923.jpg">
+                  <div class="attachment-item col-xs-6 col-md-4 col-lg-3">
+                    <div class="attachment-img">
+                      <img src="http://www.nejohnston.org/Birds/2010/12/Images/IMG_7923.jpg">
+                    </div>
                     <div class="attachment-info"><i class="fa fa-video-camera"></i> movie01.mov</div>
                   </div>
-                  <div class="attachment-item col-sm-4 col-md-4 col-lg-3">
-                    <img src="http://www.parrots.org/images/parrotgallery/SunConure/wpt1177_medium.jpg">
+                  <div class="attachment-item col-xs-6 col-md-4 col-lg-3">
+                    <div class="attachment-img">
+                      <img src="http://www.parrots.org/images/parrotgallery/SunConure/wpt1177_medium.jpg">
+                    </div>
                     <div class="attachment-info"><i class="fa fa-picture-o"></i> image03.jpg</div>
                   </div>
                 </div>
                 <div class="attachments">
-                  <div class="attachment-item col-sm-4 col-md-4 col-lg-3">
-                    <img src="http://www.groovypost.com/wp-content/uploads/2012/01/open-PDF-Preview.png">
+                  <div class="attachment-item col-xs-6 col-md-4 col-lg-3">
+                    <div class="attachment-img">
+                      <img src="http://www.groovypost.com/wp-content/uploads/2012/01/open-PDF-Preview.png">
+                    </div>
                     <div class="attachment-info"><i class="fa fa-file"></i> attachedfile.jpg</div>
                   </div>
                 </div>

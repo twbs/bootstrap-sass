@@ -1,61 +1,75 @@
 .notes-container
-	position: relative
+  position: relative
 
 .note-metainfo
-	position: absolute
-	top: 0
-	right: 3px
-	font-style: italic
-	color: #999999
-	font-size: 11px
+  position: absolute
+  top: -10px
+  right: 3px
+  font-style: italic
+  color: #999999
+  font-size: 11px
 
 
 .visit-info
-	font-size: 12px
-	padding: 10px 0
-	.visit-info-label
-		color: #999999
-		width: 65px
-		display: inline-block
+  font-size: 12px
+  padding: 10px 0
+  .visit-info-label
+    color: #999999
+    width: 65px
+    display: inline-block
 
 .item-done
-	text-decoration: line-through
+  text-decoration: line-through
 
 .notes-action-items
-	padding-left: 20px
+  padding-left: 20px
 
-	.add-item
-		color: #999999
+  .add-item
+    color: #999999
 
 .attachments
-	padding: 15px 0
-	overflow: hidden
-	.attachment-item
-		padding-top: 7px
-		img
-			width: 100%
-	.attachment-info
-		padding: 5px
-		text-overflow: ellipsis
-		overflow: hidden
-		white-space: nowrap
-		i
-			margin-right: 5px
+  padding: 15px 0
+  overflow: hidden
+  .attachment-item
+    padding-top: 7px
+
+  .attachment-img
+    height: 125px
+    overflow: hidden
+    img
+      width: 100%
+  .attachment-info
+    padding: 5px
+    text-overflow: ellipsis
+    overflow: hidden
+    white-space: nowrap
+    i
+      margin-right: 5px
 
 /* Page Aside - Note specific */
 .note-date-section
-	background: #e8e8e8
-	padding: 5px 20px !important
-	font-weight: bold
-	border: 0px !important
+  background: #e8e8e8
+  padding: 5px 20px !important
+  font-weight: bold
+  border: 0px !important
 .aside-items
-	.title
-		font-size: 15px
-	.info
-		font-size: 11px
-		color: #b0b0b0
-	.preview
-		padding-top: 10px
-		font-size: 12px
-	.unread
-		font-weight: bold
+  .title
+    font-size: 15px
+  .info
+    font-size: 11px
+    color: #b0b0b0
+  .preview
+    padding-top: 10px
+    font-size: 12px
+  .unread
+    font-weight: bold
+
+// Responsive
+@media (max-width: 767px)
+  .note-metainfo
+    .created-on,
+    .modified-on
+      display: block
+      text-align: right
+    .meta-separator
+      display: none
