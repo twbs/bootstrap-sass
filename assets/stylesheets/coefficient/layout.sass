@@ -35,6 +35,10 @@ ul
 #cl-wrapper
   padding-top: 50px
 
+#pcont
+  display: table-cell
+  vertical-align: top
+
 .cl-mcont
   background-color: #F6F6F6
   color: inherit
@@ -47,6 +51,20 @@ ul
   h1
     line-height: 1.3em
 
+#fixed-action-header
+  background: #F6F6F6
+  padding: 15px 30px
+  position: fixed
+  left: 280px
+  right: 0
+  z-index: 99
+  @include clearfix
+  .action-header-left
+    float: left
+  .action-header-right
+    float: right
+  + .cl-mcont
+    padding-top: 49px
 
 
 

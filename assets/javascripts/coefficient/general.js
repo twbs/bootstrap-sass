@@ -1383,14 +1383,31 @@ var App = function () {
 
 
       if($("#cl-wrapper").hasClass("fixed-menu")){
-        var scroll =  $("#cl-wrapper .menu-space");
+        var scroll;
+        if($("#cl-wrapper").hasClass("aside")){
+            scroll = $("#cl-wrapper .aside-items");
+          } else {
+            scroll = $("#cl-wrapper .menu-space");
+          }
         scroll.addClass("nano nscroller");
 
         function update_height(){
-          var button = $("#cl-wrapper .collapse-button");
-          var collapseH = button.outerHeight();
           var navH = $("#head-nav").height();
-          var height = $(window).height() - ((button.is(":visible"))?collapseH:0) - navH;
+          var asideH;
+          var asideScrollH;
+          var button;
+          var collapseH;
+          var height;
+
+          if($("#cl-wrapper").hasClass("aside")){
+            asideH = $("#aside-header").outerHeight();
+            asideScrollH = $(".aside-scroll-header").height();
+            height = $(window).height() - navH - asideH - asideScrollH;
+          } else {
+            button = $("#cl-wrapper .collapse-button");
+            collapseH = button.outerHeight();
+            height = $(window).height() - ((button.is(":visible"))?collapseH:0) - navH;
+          }
           scroll.css("height",height);
           $("#cl-wrapper .nscroller").nanoScroller({ preventPageScrolling: true });
         }

@@ -5,27 +5,49 @@
   position: relative
   display: table-cell
   border-right: 1px solid #E9E9E9
-  .header
-    padding: 15px 20px 20px
-  .content
-    padding: 0
-  .app-nav
+  .app-nav.collapse
     display: block
     visibility: visible
+  .header
+    padding: 15px 20px 20px
+  .main-action
+    text-align: center
+    padding-top: 10px
+    button
+      padding-left: 40px
+      padding-right: 40px
+.aside-total-items
+  float: left
+  padding-left: 20px
+  color: #b0b0b0
+.aside-sort
+  float: right
+  padding-right: 20px
+  color: #b0b0b0
+.aside-items
+  clear: both
+  ul
     padding: 0
-
-@media (max-width: 767px)
-  .page-aside
-    width: 100%
-    display: block
-    height: auto
-    position: relative
-    .app-nav
-      margin-top: 0
-      border-bottom: 1px solid #E5E5E5
-      &.collapse
-        display: none
-      &.in
-        display: block
-    .content
-      border-bottom: 1px solid #E5E5E5
+    margin: 0
+    list-style: none
+    li
+      padding: 20px
+      border-bottom: 2px solid #e8e8e8
+      border-left: 5px solid $white
+      border-right: 2px solid $white
+      border-top: 2px solid $white
+      &:hover
+        cursor: pointer
+        // TODO: Do we want a hover??
+        // border: 2px solid rgba(0,121,194,0.25)
+        // border-left: 5px solid rgba(0,121,194,0.25)
+      &.selected
+        border: 2px solid #0079c2
+        border-left: 5px solid #0079c2
+  .end-of-items
+    padding: 10px 0
+    text-align: center
+    color: #b0b0b0
+    font-size: 11px
+    font-weight: bold
+    border: none

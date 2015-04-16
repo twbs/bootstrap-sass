@@ -225,3 +225,40 @@
       margin-bottom: 7px
   .cl-sidebar .collapse-button
     display: none
+
+  .page-aside
+    width: 100%
+    display: block
+    height: auto
+    position: relative
+    .aside-nav.collapse
+      display: none
+      visibility: hidden
+    .aside-nav.collapse.in
+      display: block
+      visibility: visible
+  #fixed-action-header
+    position: inherit
+    padding-bottom: 0
+  #fixed-action-header
+    + .cl-mcont
+      padding-top: 0
+
+
+@media (min-width: 767px)
+  .page-aside
+    .header
+      position: fixed
+      width: 279px
+    .aside-scroll-header
+      position: fixed
+      width: 279px
+      top: 190px
+    .aside-items
+      position: fixed
+      width: 279px
+      top: 210px
+    .aside-nav.collapse,
+    .aside-nav.collapse.in
+      display: block !important
+      visibility: visible !important
