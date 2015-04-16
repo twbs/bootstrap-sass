@@ -1383,24 +1383,30 @@ var App = function () {
 
 
       if($("#cl-wrapper").hasClass("fixed-menu")){
+        var scroll;
         if($("#cl-wrapper").hasClass("aside")){
-            var scroll = $("#cl-wrapper .aside-items");
+            scroll = $("#cl-wrapper .aside-items");
           } else {
-            var scroll = $("#cl-wrapper .menu-space");
+            scroll = $("#cl-wrapper .menu-space");
           }
         scroll.addClass("nano nscroller");
 
         function update_height(){
           var navH = $("#head-nav").height();
+          var asideH;
+          var asideScrollH;
+          var button;
+          var collapseH;
+          var height;
 
           if($("#cl-wrapper").hasClass("aside")){
-            var asideH = $("#aside-header").outerHeight();
-            var asideScrollH = $(".aside-scroll-header").height();
-            var height = $(window).height() - navH - asideH - asideScrollH;
+            asideH = $("#aside-header").outerHeight();
+            asideScrollH = $(".aside-scroll-header").height();
+            height = $(window).height() - navH - asideH - asideScrollH;
           } else {
-            var button = $("#cl-wrapper .collapse-button");
-            var collapseH = button.outerHeight();
-            var height = $(window).height() - ((button.is(":visible"))?collapseH:0) - navH;
+            button = $("#cl-wrapper .collapse-button");
+            collapseH = button.outerHeight();
+            height = $(window).height() - ((button.is(":visible"))?collapseH:0) - navH;
           }
           scroll.css("height",height);
           $("#cl-wrapper .nscroller").nanoScroller({ preventPageScrolling: true });
