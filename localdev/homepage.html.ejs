@@ -44,7 +44,15 @@
         <div class="aside-nav collapse">
           <div class="aside-scroll-header">
             <div class="aside-total-items">7 Notes</div>
-            <div class="aside-sort">Sort by <a href="#">Date <i class="fa fa-sort-down"></i></a></div>
+            <div class="aside-sort">
+              Sort by
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Modified <i class="fa fa-sort-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Sign Out</a></li>
+              </ul>
+              <!-- <a href="#">Modified <i class="fa fa-sort-down"></i></a> -->
+            </div>
           </div>
           <div class="aside-items">
             <ul class="content nano-content">
@@ -83,7 +91,7 @@
     <!-- BEGIN MAIN CONTENT AREA -->
     <div id="pcont">
       <div id="fixed-action-header">
-        <div class="action-header-right">
+        <div class="action-header-left">
           <button type="button" class="btn btn-default"><i class="fa fa-print"></i></button>
           <button type="button" class="btn btn-default"><i class="fa fa-envelope"></i></button>
           <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
