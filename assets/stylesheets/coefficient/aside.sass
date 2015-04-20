@@ -2,7 +2,7 @@
 // ASIDE STYLING
 // ----------------------------
 
-.page-aside
+#page-aside
   background: none repeat scroll 0 0 $white
   width: 280px
   height: 100%
@@ -20,25 +20,28 @@
     button
       padding-left: 40px
       padding-right: 40px
-.aside-total-items
+#aside-total-items
   float: left
   padding-left: 20px
   color: #b0b0b0
-.aside-sort
+#aside-sort
   float: right
   padding-right: 20px
   color: #b0b0b0
-.aside-items
+  .dropdown-menu
+    left: auto
+    right: 0
+#aside-items
   clear: both
   ul
     padding: 0
     margin: 0
     list-style: none
     li
-      padding: 20px
+      padding: 20px 22px 20px 25px
       border-bottom: 2px solid #e8e8e8
-      border-left: 5px solid $white
-      border-right: 2px solid $white
+      // border-left: 5px solid $white
+      // border-right: 2px solid $white
       border-top: 2px solid $white
       &:hover
         cursor: pointer
@@ -46,6 +49,7 @@
         // border: 2px solid rgba(0,121,194,0.25)
         // border-left: 5px solid rgba(0,121,194,0.25)
       &.selected
+        padding: 20px
         border: 2px solid #0079c2
         border-left: 5px solid #0079c2
   .end-of-items

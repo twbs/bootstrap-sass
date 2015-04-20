@@ -1385,7 +1385,7 @@ var App = function () {
       if($("#cl-wrapper").hasClass("fixed-menu")){
         var scroll;
         if($("#cl-wrapper").hasClass("aside")){
-            scroll = $("#cl-wrapper .aside-items");
+            scroll = $("#cl-wrapper #aside-items");
           } else {
             scroll = $("#cl-wrapper .menu-space");
           }

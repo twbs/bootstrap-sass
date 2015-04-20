@@ -15,6 +15,7 @@
   <!-- Bootstrap core CSS -->
   <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
   <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/gritter/css/jquery.gritter.css" />
 
   <link href="stylesheets/main.css" rel="stylesheet" />
   <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
@@ -30,10 +31,10 @@
   <div id="cl-wrapper" class="fixed-menu aside">
 
     <!-- BEGIN SECONDARY NAVIGATION -->
-    <div class="page-aside">
+    <div id="page-aside">
       <div class="content">
         <div id="aside-header" class="header">
-          <button class="navbar-toggle" data-target=".aside-nav" data-toggle="collapse" type="button">
+          <button class="navbar-toggle" data-target="#aside-nav" data-toggle="collapse" type="button">
             <span class="fa fa-chevron-down"></span>
           </button>
           <h3>Notes</h3>
@@ -41,20 +42,8 @@
             <button type="button" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> New Note</button>
           </div>
         </div>
-        <div class="aside-nav collapse">
-          <div class="aside-scroll-header">
-            <div class="aside-total-items">7 Notes</div>
-            <div class="aside-sort">
-              Sort by
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Modified <i class="fa fa-sort-down"></i></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Sign Out</a></li>
-              </ul>
-              <!-- <a href="#">Modified <i class="fa fa-sort-down"></i></a> -->
-            </div>
-          </div>
-          <div class="aside-items">
+        <div id="aside-nav" class="collapse">
+          <div id="aside-items">
             <ul class="content nano-content">
               <li class="note-date-section">OCTOBER 22, 2014</li>
               <li>
@@ -81,6 +70,19 @@
               <li class="end-of-items">End of Notes</li>
             </ul>
           </div>
+          <div class="aside-scroll-header">
+            <div id="aside-total-items">7 Notes</div>
+            <div id="aside-sort">
+              Sort by
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Modified <i class="fa fa-sort-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Modified</a></li>
+                <li><a href="#">Visit</a></li>
+                <li><a href="#">Location</a></li>
+              </ul>
+              <!-- <a href="#">Modified <i class="fa fa-sort-down"></i></a> -->
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -91,20 +93,14 @@
     <!-- BEGIN MAIN CONTENT AREA -->
     <div id="pcont">
       <div id="fixed-action-header">
-        <div class="action-header-left">
-          <button type="button" class="btn btn-default"><i class="fa fa-print"></i></button>
-          <button type="button" class="btn btn-default"><i class="fa fa-envelope"></i></button>
-          <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
-          <button type="button" class="btn btn-default">Done</button>
+        <div class="action-header-right">
+          <button type="button" class="btn btn-primary"><i class="fa fa-check-square"></i> Finalize</button>
+          <button type="button" class="btn btn-default"><i class="fa fa-mail-reply"></i> Re-Open</button>
         </div>
         <div class="action-header-left">
-          <button type="button" class="btn btn-default"><i class="fa fa-text-height"></i></button>
-          <button type="button" class="btn btn-default"><i class="fa fa-bold"></i></button>
-          <button type="button" class="btn btn-default"><i class="fa fa-italic"></i></button>
-          <button type="button" class="btn btn-default"><i class="fa fa-underline"></i></button>
-          <button type="button" class="btn btn-default"><i class="fa fa-quote-left"></i></button>
-          <button type="button" class="btn btn-default"><i class="fa fa-list-ol"></i></button>
-          <button type="button" class="btn btn-default"><i class="fa fa-list-ul"></i></button>
+          <button type="button" class="btn btn-default"><i class="fa fa-print"></i></button>
+          <button type="button" id="note-emailed" class="btn btn-default"><i class="fa fa-envelope"></i></button>
+          <button type="button" id="note-deleted" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
         </div>
       </div>
       <div class="cl-mcont">
@@ -119,8 +115,20 @@
                 </span>
                 <h3>My Note About Something</h3>
                 <div class="visit-info">
-                  <span class="visit-info-label">Visited on:</span> October 22, 2014<br/>
-                  <span class="visit-info-label">Location:</span> Dealership 1234
+                  <span class="date-picker input-group">
+                    <span class="visit-info-label">Visited on:</span>
+                    <!-- <div class="input-group date datetime" data-min-view="2" data-date-format="mm-dd-yyyy">
+                      <input class="form-control" size="16" type="text" value="10-22-2014" readonly="readonly">
+                      <span class="input-group-addon btn btn-primary"><i class="fa fa-th"></i></span>
+                    </div> -->
+                    <span class="date-input">
+                      <input type="text" placeholder="10/22/2014" class="form-control">
+                      <span class="input-group-addon calendar-icon">
+                        <i class="fa fa-th"></i>
+                      </span>
+                    </span>
+                  </span>
+                  <span class="visit-info-label">Location:</span>Dealership 1234
                 </div>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta tellus ipsum, ut laoreet dui porta eu. Nam ultrices viverra erat accumsan pretium. Vestibulum sit amet sapien dolor. Curabitur eget orci ut arcu placerat accumsan. Vestibulum imperdiet quam a lacinia aliquam. Suspendisse rhoncus pellentesque tellus ac varius. Aliquam commodo tellus sed fringilla eleifend.
@@ -154,38 +162,72 @@
             <div class="block-flat">
               <div class="content">
                 <h3>Attachments</h3>
-                <div class="attachments">
-                  <div class="attachment-item col-xs-6 col-md-4 col-lg-3">
+                <div id="attachments">
+                  <div class="attachment-item">
+                    <div id="add-attachment">
+                      <span class="fa-stack fa-2x">
+                        <i class="fa fa-circle-o fa-stack-2x"></i>
+                        <i class="fa fa-plus fa-stack-1x"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="attachment-item">
                     <div class="attachment-img">
                       <img src="http://www.birdchannel.com/images/articles/bird-blog/macaw-flock-lg.jpg">
                     </div>
                     <div class="attachment-info"><i class="fa fa-picture-o"></i> image01.jpg</div>
                   </div>
-                  <div class="attachment-item col-xs-6 col-md-4 col-lg-3">
+                  <div class="attachment-item">
                     <div class="attachment-img">
-                      <img src="http://blog.pennlive.com/pets/2008/01/medium_Macaw-jpatokal.jpg">
+                      <img src="http://blog.pennlive.com/pets/2008/01/medium_Macaw-jpatokal.jpg" class="portrait">
                     </div>
                     <div class="attachment-info"><i class="fa fa-picture-o"></i> image02.jpg</div>
                   </div>
-                  <div class="attachment-item col-xs-6 col-md-4 col-lg-3">
+                  <div class="attachment-item">
                     <div class="attachment-img">
+                      <img src="images/videoOverlay.png" class="is-video">
                       <img src="http://www.nejohnston.org/Birds/2010/12/Images/IMG_7923.jpg">
                     </div>
                     <div class="attachment-info"><i class="fa fa-video-camera"></i> movie01.mov</div>
                   </div>
-                  <div class="attachment-item col-xs-6 col-md-4 col-lg-3">
+                  <div class="attachment-item">
                     <div class="attachment-img">
                       <img src="http://www.parrots.org/images/parrotgallery/SunConure/wpt1177_medium.jpg">
                     </div>
-                    <div class="attachment-info"><i class="fa fa-picture-o"></i> image03.jpg</div>
+                    <div class="attachment-info"><i class="fa fa-picture-o"></i> example-of-a-long-filename.png</div>
                   </div>
-                </div>
-                <div class="attachments">
-                  <div class="attachment-item col-xs-6 col-md-4 col-lg-3">
+                  <div class="attachment-item">
                     <div class="attachment-img">
-                      <img src="http://www.groovypost.com/wp-content/uploads/2012/01/open-PDF-Preview.png">
+                      <i class="fa fa-file"></i>
                     </div>
                     <div class="attachment-info"><i class="fa fa-file"></i> attachedfile.jpg</div>
+                  </div>
+                  <div class="attachment-item is-loading">
+                    <div class="attachment-img">
+                      <i class="fa fa-picture-o"></i>
+                      <div class="loading-bar">
+                        <div class="loading-bar-meter" style="width: 70%"></div>
+                      </div>
+                    </div>
+                    <div class="attachment-info"><i class="fa fa-picture-o"></i> toffee.jpg</div>
+                  </div>
+                  <div class="attachment-item is-loading">
+                    <div class="attachment-img">
+                      <i class="fa fa-file"></i>
+                      <div class="loading-bar">
+                        <div class="loading-bar-meter" style="width: 10%"></div>
+                      </div>
+                    </div>
+                    <div class="attachment-info"><i class="fa fa-file"></i> anotherone.pdf</div>
+                  </div>
+                  <div class="attachment-item is-loading">
+                    <div class="attachment-img">
+                      <i class="fa fa-video-camera"></i>
+                      <div class="loading-bar">
+                        <div class="loading-bar-meter" style="width: 20%"></div>
+                      </div>
+                    </div>
+                    <div class="attachment-info"><i class="fa fa-video-camera"></i> blahblah.mov</div>
                   </div>
                 </div>
               </div>
@@ -200,15 +242,36 @@
   <!-- END WRAPPER -->
 
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+  <script type="text/javascript" src="node_modules/gritter/js/jquery.gritter.js"></script>
 
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script type="text/javascript">
-  $(document).ready(function(){
-        //initialize the javascript
-        App.init();
+    $(document).ready(function(){
+      //initialize the javascript
+      App.init();
+    });
+
+    $('#note-emailed').click(function(){
+      $.gritter.add({
+        text: "'My Note About Something' been emailed to syang@square-root.com.",
+        class_name: 'clean',
+        sticky: true,
+        time: ''
       });
+      return false;
+    });
+
+    $('#note-deleted').click(function(){
+      $.gritter.add({
+        text: "'My Note About Something' has been deleted. <a href=\"\">Undo</a>",
+        class_name: 'clean',
+        sticky: true,
+        time: ''
+      });
+      return false;
+    });
   </script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
