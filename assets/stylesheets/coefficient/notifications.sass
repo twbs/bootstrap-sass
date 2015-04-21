@@ -1,0 +1,87 @@
+/* Gritter Notifications */
+#gritter-notice-wrapper
+  width: 320px
+  top: 45px
+
+.gritter-item-wrapper
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.32)
+
+.gritter-top
+  background: transparent
+
+.gritter-item
+  font-family: 'Open Sans', sans-serif
+  background: transparent
+  color: #FFF
+  padding: 2px 20px 12px
+  padding-right: 35px
+  padding-left: 10px
+
+.gritter-bottom
+  background: transparent
+
+.gritter-item p
+  font-size: 12px
+  line-height: 19px
+
+.gritter-title
+  text-shadow: none
+  font-weight: 300
+  font-size: 17px
+
+.gritter-close
+  display: block !important
+  top: 0
+  right: 0
+  left: auto
+  height: 30px
+  width: 35px
+  background: transparent
+  text-indent: inherit
+  color: transparent
+  &:hover,
+  &:focus,
+  &:active
+    color: transparent
+  &:after
+    content: '×'
+    position: absolute
+    color: #FFF
+    left: 10px
+    font-size: 24px
+    font-weight: bold
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12)
+
+.gritter-without-image,
+.gritter-with-image
+  padding-left: 7px
+  width: 224px
+
+.gritter-item-wrapper.clean
+  background: #FFF
+  .gritter-item
+    color: #555
+  .gritter-close
+    display: block !important
+    top: 0
+    right: 0
+    left: auto
+    height: 100%
+    width: 35px
+    border-left: 1px solid #28A1C4
+    border-top: 1px solid #28A1C4
+    background-color: #5BC0DE
+    text-indent: inherit
+    &:after
+      content: '×'
+      position: absolute
+      color: #FFF
+      top: 50%
+      left: 10px
+      font-size: 24px
+      font-weight: bold
+      margin-top: -17px
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12)
+
+.gritter-image
+  margin-top: 3px

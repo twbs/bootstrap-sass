@@ -45,9 +45,11 @@
       a,
       a:hover,
       a:focus
-        background-color: $CF-purple-light
+        background-color: rgba(0, 0, 0, 0.3)
         color: $white
 
+#nav-global-search
+  padding: 10px
 
 /*Dropdown Sub menu*/
 .dropdown-submenu
@@ -152,17 +154,6 @@
 .profile_menu
   margin-left: 10px
   cursor: pointer
-
-.navbar-collapse.in .not-nav > li
-  float: none !important
-  display: inline-block
-  padding: 10px 5px
-
-.user-nav
-  margin: 0
-  margin-right: -15px
-
-.profile_menu
   .dropdown-toggle
     padding: 10px 10px
     vertical-align: middle
@@ -172,7 +163,15 @@
       margin-top: 4px
   img
     margin-right: 5px
-    border-radius: 2px
+
+.navbar-collapse.in .not-nav > li
+  float: none !important
+  display: inline-block
+  padding: 10px 5px
+
+.user-nav
+  margin: 0
+  margin-right: -15px
 
 /* Dropdown sub menu */
 .dropdown-submenu

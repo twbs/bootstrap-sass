@@ -226,15 +226,15 @@
   .cl-sidebar .collapse-button
     display: none
 
-  .page-aside
+  #page-aside
     width: 100%
     display: block
     height: auto
     position: relative
-    .aside-nav.collapse
+    #aside-nav.collapse
       display: none
       visibility: hidden
-    .aside-nav.collapse.in
+    #aside-nav.collapse.in
       display: block
       visibility: visible
   #fixed-action-header
@@ -246,19 +246,19 @@
 
 
 @media (min-width: 767px)
-  .page-aside
+  #page-aside
     .header
       position: fixed
       width: 279px
     .aside-scroll-header
       position: fixed
       width: 279px
-      top: 190px
-    .aside-items
+      top: 170px
+    #aside-items
       position: fixed
       width: 279px
-      top: 210px
-    .aside-nav.collapse,
-    .aside-nav.collapse.in
+      top: 190px
+    #aside-nav.collapse,
+    #aside-nav.collapse.in
       display: block !important
       visibility: visible !important

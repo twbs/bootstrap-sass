@@ -12,15 +12,15 @@
 // include @mixin clearfix on the parent div you want to clear -- //
 // -------------------------------------------------------------- //
 @mixin clearfix
-	zoom: 1 // For IE 6/7 (trigger hasLayout)
+  zoom: 1 // For IE 6/7 (trigger hasLayout)
 
-	&:after,
-	&:before
-		content: " "
-		display: table
+  &:after,
+  &:before
+    content: " "
+    display: table
 
-	&:after
-		clear: both
+  &:after
+    clear: both
 
 
 // -------------------------------------------------------------- //
@@ -29,5 +29,5 @@
 
 // rounded corners - different corners
 @mixin border-radius-mixed($topleft, $topright, $bottomright, $bottomleft)
-	border-radius: $topleft $topright $bottomright $bottomleft
-	// to use: @include border-radius-mixed(0, 2px, 0, 2px)
+  border-radius: $topleft $topright $bottomright $bottomleft
+  // to use: @include border-radius-mixed(0, 2px, 0, 2px)

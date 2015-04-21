@@ -11,3 +11,16 @@ $progressBarSections: (success: $success, info: $info, warning: $warning, danger
 @each $section, $colorList in $progressBarSections
   .progress-bar-#{$section}
     background-color: $colorList
+
+/* Loading Bar */
+.loading-bar
+  position: absolute
+  height: 3px
+  bottom: 1px
+  background: #cccccc
+  width: 100%
+  .loading-bar-meter
+    height: 3px
+    margin: 0 1px
+    width: 1%
+    background-color: #0079C2
