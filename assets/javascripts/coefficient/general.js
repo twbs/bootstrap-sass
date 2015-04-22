@@ -1527,11 +1527,6 @@ var App = function () {
         $(".nscroller").nanoScroller();
       }
 
-      /*Switch*/
-      if(config.bootstrapSwitch){
-        $('.switch').bootstrapSwitch();
-      }
-
       /*Input & Radio Buttons*/
       if(jQuery().iCheck){
         $('.icheck').iCheck({
