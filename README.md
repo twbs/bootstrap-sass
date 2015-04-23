@@ -1,4 +1,8 @@
-# Bootstrap for Sass [![Gem Version](https://badge.fury.io/rb/bootstrap-sass.svg)](http://badge.fury.io/rb/bootstrap-sass) [![Bower Version](https://badge.fury.io/bo/bootstrap-sass.svg)](http://badge.fury.io/bo/bootstrap-sass) [![Build Status](http://img.shields.io/travis/twbs/bootstrap-sass.svg)](http://travis-ci.org/twbs/bootstrap-sass)
+# Bootstrap for Sass
+[![Gem Version](https://badge.fury.io/rb/bootstrap-sass.svg)](http://badge.fury.io/rb/bootstrap-sass)
+[![npm version](https://img.shields.io/npm/v/bootstrap-sass.svg?style=flat)](https://www.npmjs.com/package/bootstrap-sass)
+[![Bower Version](https://badge.fury.io/bo/bootstrap-sass.svg)](http://badge.fury.io/bo/bootstrap-sass)
+[![Build Status](http://img.shields.io/travis/twbs/bootstrap-sass.svg)](http://travis-ci.org/twbs/bootstrap-sass)
 
 `bootstrap-sass` is a Sass-powered version of [Bootstrap](http://github.com/twbs/bootstrap), ready to drop right into your Sass powered applications.
 
@@ -17,7 +21,7 @@ Please see the appropriate guide for your environment of choice:
 In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `sass-rails` gem is present - it is added to new Rails applications by default.
 
 ```ruby
-gem 'bootstrap-sass', '~> 3.3.3'
+gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '>= 3.2'
 ```
 
@@ -69,7 +73,7 @@ end
 # Precompile Bootstrap fonts
 config.assets.precompile << %r(bootstrap-sass/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff2?)$)
 # Minimum Sass number precision required by bootstrap-sass
-::Sass::Script::Number.precision = [8, ::Sass::Script::Number.precision].max
+::Sass::Script::Value::Number.precision = [8, ::Sass::Script::Value::Number.precision].max
 ```
 
 Replace Bootstrap `@import` statements in `application.scss` with:
@@ -193,7 +197,7 @@ Precision is set for Rails and Compass automatically.
 When using ruby Sass compiler standalone or with the Bower version you can set it with:
 
 ```ruby
-::Sass::Script::Number.precision = [8, ::Sass::Script::Number.precision].max
+::Sass::Script::Value::Number.precision = [8, ::Sass::Script::Value::Number.precision].max
 ```
 
 #### Sass: Autoprefixer
@@ -281,6 +285,7 @@ The upstream versions vs the Bootstrap for Sass versions are:
 
 | Upstream |    Sass |
 |---------:|--------:|
+|    3.3.4 |   3.3.4 |
 |    3.3.2 |   3.3.3 |
 | <= 3.3.1 | 3.3.1.x |
 
@@ -335,13 +340,13 @@ and a [significant number of other contributors][contrib].
 bootstrap-sass is used to build some awesome projects all over the web, including
 [Diaspora](https://diasporafoundation.org/), [rails_admin](https://github.com/sferik/rails_admin),
 Michael Hartl's [Rails Tutorial](http://railstutorial.org/), [gitlabhq](http://gitlabhq.com/) and
-[kandan](http://kandanapp.com/).
+[kandan](http://kandan.io/).
 
 [converter]: https://github.com/twbs/bootstrap-sass/blob/master/tasks/converter/less_conversion.rb
 [version]: https://github.com/twbs/bootstrap-sass/blob/master/lib/bootstrap-sass/version.rb
 [contrib]: https://github.com/twbs/bootstrap-sass/graphs/contributors
 [antirequire]: https://github.com/twbs/bootstrap-sass/issues/79#issuecomment-4428595
 [jsdocs]: http://getbootstrap.com/javascript/#transitions
-[sass-precision]: http://sass-lang.com/documentation/Sass/Script/Number.html#precision-class_method
+[sass-precision]: http://sass-lang.com/documentation/Sass/Script/Value/Number.html#precision%3D-class_method
 [mincer]: https://github.com/nodeca/mincer
 [autoprefixer]: https://github.com/ai/autoprefixer
