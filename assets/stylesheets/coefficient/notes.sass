@@ -5,6 +5,9 @@
 .notes-container
   position: relative
 
+#note-title
+  margin-bottom: 0
+
 .note-metainfo
   position: absolute
   top: -10px
@@ -20,6 +23,9 @@
     color: #999999
     width: 65px
     display: inline-block
+  .no-location,
+  .no-date
+    color: #999999
 
 .item-done
   text-decoration: line-through
@@ -104,6 +110,8 @@
   .preview
     padding-top: 10px
     font-size: 12px
+  .no-preview
+    font-style: italic
   .marked-done
     color: #999999
 
