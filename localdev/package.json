@@ -15,7 +15,6 @@
 		"node-sass-middleware": "0.4.0",
 		"jquery": "2.1.3",
 		"font-awesome": "4.2.0",
-		"ejs-template": "0.1.0",
-		"gritter": "1.7.4"
+		"ejs-template": "0.1.0"
 	}
 }

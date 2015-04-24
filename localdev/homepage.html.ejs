@@ -16,7 +16,6 @@
   <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="javascripts/bootstrap.datetimepicker/css/bootstrap-datepicker.standalone.min.css" />
   <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="node_modules/gritter/css/jquery.gritter.css" />
 
   <link href="stylesheets/main.css" rel="stylesheet" />
   <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
@@ -252,7 +251,6 @@
   <!-- END WRAPPER -->
 
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
-  <script type="text/javascript" src="node_modules/gritter/js/jquery.gritter.js"></script>
   <script type="text/javascript" src="javascripts/bootstrap.datetimepicker/js/bootstrap-datepicker.min.js"></script>
 
   <!-- Bootstrap core JavaScript
@@ -267,26 +265,6 @@
         todayHighlight: true,
         format: "MM dd, yyyy"
       });
-    });
-
-    $('#note-emailed').click(function(){
-      $.gritter.add({
-        text: "'My Note About Something' been emailed to syang@square-root.com.",
-        class_name: 'clean',
-        sticky: true,
-        time: ''
-      });
-      return false;
-    });
-
-    $('#note-deleted').click(function(){
-      $.gritter.add({
-        text: "'My Note About Something' has been deleted. <a href=\"\">Undo</a>",
-        class_name: 'clean',
-        sticky: true,
-        time: ''
-      });
-      return false;
     });
   </script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
