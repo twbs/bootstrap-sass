@@ -19,13 +19,19 @@
 .visit-info
   font-size: 12px
   padding: 10px 0 15px
+  display: table
   .visit-info-label
     color: #999999
     width: 65px
-    display: inline-block
-  .no-location,
-  .no-date
-    color: #999999
+    display: table-cell
+  .visit-info-row
+    display: table-row
+  .location-selector,
+  .date-selector
+    position: relative
+    display: table-cell
+    p
+      margin-bottom: 0
 
 .item-done
   text-decoration: line-through
