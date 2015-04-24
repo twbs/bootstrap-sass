@@ -110,8 +110,22 @@
                 </span>
                 <h3 id="note-title">Note on October 23, 2014</h3>
                 <div class="visit-info">
-                  <span class="visit-info-label">Visited on:</span> October 24, 2014 <br/>
-                  <span class="visit-info-label">Location:</span> <span class="no-location">+ Set Location</span>
+                  <div class="visit-info-row">
+                    <span class="visit-info-label">Visited on:</span>
+                    <!-- <span id="date-selector" class="datepicker">October 24, 2014</span> -->
+                    <input id="date-selector" class="date-picker" type="text" value="October 24, 2014" />
+                  </div>
+                  <div class="visit-info-row">
+                    <span class="visit-info-label">Location:</span>
+                    <span class="location-selector">
+                      <span id="set-location" class="dropdown-toggle" data-toggle="dropdown"></span>
+                      <ul class="dropdown-menu autocomplete-results">
+                        <li><a href="#">Trophy Nissan</a></li>
+                        <li><a href="#">Town North Nissan</a></li>
+                        <li><a href="#">Clay Cooley Nissan</a></li>
+                      </ul>
+                    </span>
+                  </div>
                 </div>
                 <section id="editor">
                   <div id="note-content" class="froala-box">
@@ -238,6 +252,7 @@
 
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
   <script type="text/javascript" src="node_modules/gritter/js/jquery.gritter.js"></script>
+  <script type="text/javascript" src="javascripts/bootstrap.datetimepicker/js/bootstrap-datepicker.min.js"></script>
 
   <!-- Bootstrap core JavaScript
   ================================================== -->
@@ -246,6 +261,11 @@
     $(document).ready(function(){
       //initialize the javascript
       App.init();
+
+      $("#date-selector").datepicker({
+        todayHighlight: true,
+        format: "MM dd, yyyy"
+      });
     });
 
     $('#note-emailed').click(function(){
