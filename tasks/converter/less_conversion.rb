@@ -121,7 +121,7 @@ class Converter
           when 'thumbnails.less', 'labels.less', 'badges.less', 'buttons.less'
             file = extract_nested_rule file, 'a&'
           when 'glyphicons.less'
-            file = replace_rules(file, '@font-face') { |rule|
+            file = replace_rules(file, /\s*@font-face/) { |rule|
               rule = replace_all rule, /(\$icon-font(?:-\w+)+)/, '#{\1}'
               replace_asset_url rule, :font
             }
@@ -169,7 +169,14 @@ class Converter
       file   = deinterpolate_vararg_mixins(file)
       file   = replace_calculation_semantics(file)
       file   = replace_file_imports(file)
+      file   = wrap_at_groups_with_at_root(file)
       file
+    end
+
+    def wrap_at_groups_with_at_root(file)
+      replace_rules(file, /@(?:font-face|-ms-viewport)/) { |rule, _pos|
+        %Q(@at-root {\n#{indent rule, 2}\n})
+      }
     end
 
     def sass_fn_exists(fn)
