@@ -118,7 +118,7 @@ class Converter
             file = replace_all file, /(\s*)\.navbar-(right|left)\s*\{\s*@extend\s*\.pull-(right|left);\s*/, "\\1.navbar-\\2 {\\1  float: \\2 !important;\\1"
           when 'tables.less'
             file = replace_all file, /(@include\s*table-row-variant\()(\w+)/, "\\1'\\2'"
-          when 'thumbnails.less', 'labels.less', 'badges.less'
+          when 'thumbnails.less', 'labels.less', 'badges.less', 'buttons.less'
             file = extract_nested_rule file, 'a&'
           when 'glyphicons.less'
             file = replace_rules(file, '@font-face') { |rule|
