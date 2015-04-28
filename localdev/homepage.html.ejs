@@ -96,7 +96,16 @@
         <div class="action-header-left">
           <button type="button" id="print-button" class="btn btn-default"><i class="fa fa-print"></i></button>
           <button type="button" id="note-emailed" class="btn btn-default"><i class="fa fa-envelope"></i></button>
-          <button type="button" id="note-deleted" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
+          <span class="dropdown-tooltip">
+            <button type="button" data-toggle="dropdown" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
+            <ul class="dropdown-menu tooltip-style">
+              <li>
+                <p>Are you sure you want to delete?</p>
+                <button type="button" class="btn btn-xs btn-default">Cancel</button>
+                <button type="button" id="note-deleted" class="btn btn-xs btn-default">Delete</button>
+              </li>
+            </ul>
+          </span>
         </div>
       </div>
       <div class="cl-mcont">

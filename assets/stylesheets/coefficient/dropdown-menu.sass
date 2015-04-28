@@ -37,3 +37,37 @@
           padding-left: 32px
         list-style: none
       padding: 0
+
+// Tooltip style
+.dropdown-tooltip
+  position: relative
+.dropdown-menu
+  &.tooltip-style
+    top: 32px
+    left: -102px
+    width: 240px
+    text-align: center
+    font-size: 11px
+    background: $black
+    color: $white
+    border-radius: 4px
+    // Creating CSS Arrow below
+    &:after, &:before
+      bottom: 100%
+      left: 50%
+      border: solid transparent
+      content: " "
+      height: 0
+      width: 0
+      position: absolute
+      pointer-events: none
+    &:after
+      border-color: rgba(250, 250, 250, 0)
+      border-bottom-color: $black
+      border-width: 8px
+      margin-left: -8px
+    &:before
+      border-color: rgba(218, 218, 218, 0)
+      border-bottom-color: $black
+      border-width: 8px
+      margin-left: -8px
