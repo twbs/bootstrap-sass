@@ -1,0 +1,61 @@
+// ----------------------------
+// TOASTR NOTIFICATIONS
+// ----------------------------
+
+#toast-container
+  > .toast
+    background-image: none !important
+    background: $white
+    opacity: 1
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.32)
+    border-radius: 0
+    cursor: default
+    padding: 15px 40px 15px 15px
+    color: #555
+    a,
+    a:visited,
+    a:active,
+    a:focus
+      color: $link-color
+    a:hover
+      color: $link-hover
+  &.toast-top-right
+    top: 55px
+  &.toast-top-full-width
+    text-align: center
+    top: 55px
+    > .toast
+      padding: 5px
+      opacity: 0.9
+      border-radius: 2px
+      color: $white
+      a,
+      a:visited,
+      a:active,
+      a:focus,
+      a:hover
+        color: $white
+
+  a,
+  a:visited,
+  a:active,
+  a:focus
+    text-decoration: underline
+  button
+    &.toast-close-button
+      line-height: 1
+      position: absolute
+      height: 100%
+      width: 25px
+      top: 0
+      right: 0
+
+$toastrTypes: (success: $success, info: $info, warning: $warning, error: $danger)
+
+@each $type, $colorList in $toastrTypes
+  .toast-#{$type}
+    .toast-close-button
+      background: $colorList
+  #toast-container.toast-top-full-width
+    .toast-#{$type}
+      background: $colorList
