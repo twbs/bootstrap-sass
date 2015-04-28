@@ -15,8 +15,8 @@
   <!-- Bootstrap core CSS -->
   <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="javascripts/bootstrap.datetimepicker/css/bootstrap-datepicker.standalone.min.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
   <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="node_modules/gritter/css/jquery.gritter.css" />
 
   <link href="stylesheets/main.css" rel="stylesheet" />
   <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
@@ -94,7 +94,7 @@
     <div id="pcont">
       <div id="fixed-action-header">
         <div class="action-header-left">
-          <button type="button" class="btn btn-default"><i class="fa fa-print"></i></button>
+          <button type="button" id="print-button" class="btn btn-default"><i class="fa fa-print"></i></button>
           <button type="button" id="note-emailed" class="btn btn-default"><i class="fa fa-envelope"></i></button>
           <button type="button" id="note-deleted" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
         </div>
@@ -252,8 +252,8 @@
   <!-- END WRAPPER -->
 
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
-  <script type="text/javascript" src="node_modules/gritter/js/jquery.gritter.js"></script>
   <script type="text/javascript" src="javascripts/bootstrap.datetimepicker/js/bootstrap-datepicker.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
   <!-- Bootstrap core JavaScript
   ================================================== -->
@@ -269,24 +269,27 @@
       });
     });
 
-    $('#note-emailed').click(function(){
-      $.gritter.add({
-        text: "'My Note About Something' been emailed to syang@square-root.com.",
-        class_name: 'clean',
-        sticky: true,
-        time: ''
-      });
-      return false;
+    $("#note-emailed").click(function(){
+      toastr.options.closeButton = true;
+      toastr.options.positionClass = "toast-top-right";
+      toastr.options.preventDuplicates = false;
+      toastr.options.timeOut = -1;
+      toastr.options.extendedTimeOut = -1;
+      toastr.options.tapToDismiss = false;
+
+      // toastr.info("Note on October 23, 2014 has been emailed to syang@square-root.com.")
+      toastr.error("There was a problem uploading testing.png to 'Note on October 23, 2014'. <a href='#'>View note</a>")
     });
 
-    $('#note-deleted').click(function(){
-      $.gritter.add({
-        text: "'My Note About Something' has been deleted. <a href=\"\">Undo</a>",
-        class_name: 'clean',
-        sticky: true,
-        time: ''
-      });
-      return false;
+    $("#note-deleted").click(function(){
+      toastr.options.closeButton = true;
+      toastr.options.positionClass = "toast-top-right";
+      toastr.options.preventDuplicates = false;
+      toastr.options.timeOut = -1;
+      toastr.options.extendedTimeOut = -1;
+      toastr.options.tapToDismiss = false;
+
+      toastr.info("Note on October 23, 2014 has been deleted. <a href='#'>Undo</a>")
     });
   </script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
