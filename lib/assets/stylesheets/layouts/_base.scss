@@ -6,6 +6,7 @@ body{
   text-rendering: optimizeLegibility;
 }
 body > .wrap > .container-fluid {
+  height: 100%;
   padding-top: ($line-height-computed * 2);
   h1 { margin-bottom: ($line-height-computed / 2); }
 }
@@ -13,9 +14,14 @@ body > .wrap > .container-fluid .main{
   padding-left: 13px;
 }
 
+.height100 {
+  height: 100%;
+}
+
 .wrap {
+  height: 100%;
   min-height: 100%;
-  margin: 0 auto -42px;
+  margin: 0 auto;
   &:after{
     content: "";
     display: block;
