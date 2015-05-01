@@ -251,12 +251,40 @@
               <div class="content">
                 <h3>Action Items</h3>
                 <ul class="list-group">
-                  <li class="list-group-item"><input type="checkbox" checked name="check1"> <span class="item-done">Phasellus cursus porta</span></li>
-                  <li class="list-group-item"><input type="checkbox" name="check2"> Sed ac facilisis lorem</li>
-                  <li class="list-group-item"><input type="checkbox" checked name="check3"> <span class="item-done">Donec sem turpis</span></li>
-                  <li class="list-group-item"><input type="checkbox" name="check4"> Duis egestas blandit</li>
+                  <li class="list-group-item">
+                    <input type="checkbox" checked name="check1" class="action-item-checkbox">
+                    <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                      <span class="item-done">Phasellus cursus porta</span>
+                      <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg' class='profile-pic'><div class='user-name'>Seth Juarez</div><div class='user-title'>Manager</div></div>"/></div>
+                      <span class="marked-complete">Marked complete on April 10, 2015</span>
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <input type="checkbox" name="check2" class="action-item-checkbox">
+                    <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                      Sed ac facilisis lorem
+                      <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg' class='profile-pic'><div class='user-name'>Scott K Clark</div><div class='user-title'>Manager</div></div>"/></div>
+                      <span class="on-track">May 05, 2015</span>
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <input type="checkbox" name="check3" class="action-item-checkbox">
+                    <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                      Donec sem turpis
+                      <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                      <span class="past-due">April 30, 2015</span>
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <input type="checkbox" name="check4" class="action-item-checkbox">
+                    <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                      Duis egestas blandit
+                      <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                      <span class="on-track">May 15, 2015</span>
+                    </a>
+                  </li>
                 </ul>
-                <a href="javascript:void(0);" onclick="slideout();">+ Add a new action item</a>
+                <a href="javascript:void(0);">+ Add a new action item</a>
               </div>
             </div>
             <div class="block-flat">
@@ -357,6 +385,8 @@
         todayHighlight: true,
         format: "MM dd, yyyy"
       });
+
+      $('[data-toggle="popover"]').popover();
     });
 
     $("#note-emailed").click(function(){
