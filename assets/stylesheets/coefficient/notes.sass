@@ -26,21 +26,20 @@
     display: table-cell
   .visit-info-row
     display: table-row
-  .location-selector,
-  .date-selector
+  .location-selector
     position: relative
     display: table-cell
     p
       margin-bottom: 0
+  .datepicker
+    border: 0
+    padding: 0 2px
+    width: auto
+    &:hover
+      cursor: pointer
 
 .item-done
   text-decoration: line-through
-
-.notes-action-items
-  padding-left: 20px
-
-  .add-item
-    color: #999999
 
 #attachments
   padding: 15px 0
@@ -96,6 +95,29 @@
     color: #0079C2
     border-color: #0079C2
     cursor: pointer
+
+
+// ----------------------------
+// ASIDE for notes
+// ----------------------------
+#action-item-details
+  border-bottom: 1px solid #f4f4f4
+  padding-bottom: 10px
+  #action-item-checkbox
+    position: absolute
+    left: -25px
+  #action-item-name
+    position: relative
+    font-size: 16px
+    font-weight: 600
+    padding-bottom: 10px
+  .action-item-meta
+    font-size: 10px
+    line-height: 24px
+    color: #B0B0B0
+    .meta-icon
+      width: 10px
+      margin-right: 8px
 
 
 // ----------------------------
