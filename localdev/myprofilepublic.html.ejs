@@ -31,6 +31,22 @@
     <% include profile-sidebar.html.ejs %>
 
     <div class="cl-mcont">
+      <div id="action-header">
+        <div class="action-header-right">
+          <!-- Currently Active -->
+          <span class="action-message">John Weathers is currently <strong>Active</strong></span>
+          <button type="button" id-"deactivate-user" class="btn btn-xs btn-danger" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<p>Are you sure you want to deactivate?</p> <button type='button' id='cancel-deactivate' class='btn btn-xs btn-nostyle-popover'>No</button> <button type='button' id='user-deactivated' class='btn btn-xs btn-default'>Yes</button>">Deactivate User</button>
+
+          <!-- Currently Inactive -->
+          <!-- <span class="action-message">John Weathers is currently <strong>Inactive</strong></span>
+          <button type="button" id="reactivate-user" class="btn btn-xs btn-success" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<p>John Weathers was deactivated by Stephanie Yang on October 24, 2014.</p><p>Are you sure you want to activate this user?</p> <button type='button' id='cancel-reactivate' class='btn btn-xs btn-nostyle-popover'>No</button> <button type='button' id='user-reactivated' class='btn btn-xs btn-default'>Yes</button>">Reactivate User</button> -->
+
+          <!-- Pending Activation -->
+          <!-- <span class="action-message">John Weathers is currently <strong>Pending Activation</strong></span>
+          <button type="button" class="btn btn-xs btn-danger">Revoke Invitation</button>
+          <button type="button" class="btn btn-xs btn-primary">Re-Send Invitation</button> -->
+        </div>
+      </div>
       <div class="row">
         <div class="col-sm-12">
           <div class="block-flat">
@@ -78,7 +94,11 @@
     $(document).ready(function(){
           //initialize the javascript
           App.init();
+
+          // Initializing popovers
+          $('[data-toggle="popover"]').popover();
         });
+
     </script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </div>

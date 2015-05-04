@@ -180,16 +180,7 @@
         <div class="action-header-left">
           <button type="button" id="print-button" class="btn btn-default"><i class="fa fa-print"></i></button>
           <button type="button" id="note-emailed" class="btn btn-default"><i class="fa fa-envelope"></i></button>
-          <span class="dropdown-tooltip">
-            <button type="button" data-toggle="dropdown" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
-            <ul class="dropdown-menu tooltip-style">
-              <li>
-                <p>Are you sure you want to delete?</p>
-                <button type="button" class="btn btn-xs btn-default">Cancel</button>
-                <button type="button" id="note-deleted" class="btn btn-xs btn-default">Delete</button>
-              </li>
-            </ul>
-          </span>
+          <button type="button" id="note-deleted" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
         </div>
       </div>
       <div class="cl-mcont">
@@ -403,6 +394,9 @@
       toastr.error("There was a problem uploading testing.png to 'Note on October 23, 2014'. <a href='#'>View note</a>")
     });
 
+    $("#note-delete").click(function(){
+      $("#note-delete").popover('toggle');
+    });
     $("#note-deleted").click(function(){
       toastr.options.closeButton = true;
       toastr.options.positionClass = "toast-top-right";
