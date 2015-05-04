@@ -1,0 +1,188 @@
+//colors
+$color_celeste_approx: #cccccc;
+$color_mercury_approx: #e6e6e6;
+$color_alabaster_approx: #fcfcfc;
+
+//fonts
+$font_0: FontAwesome;
+$font_1: Courier New;
+$font_2: Courier;
+$font_3: monospace;
+
+//@extend-elements
+//original selectors
+//.froala-view table, table.fr-tag
+%extend_1 {
+    border-collapse: collapse;
+    empty-cells: show;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+//Instead of the line below you could use @includebox-sizing($bs)
+box-sizing: border-box;
+}
+
+//original selectors
+//.froala-view table th, table.fr-tag th
+%extend_2 {
+     background: $color_mercury_approx;
+     border: solid 1px $color_celeste_approx;
+     padding: 5px;
+ }
+
+//original selectors
+//.froala-view pre, pre.fr-tag
+%extend_3 {
+     white-space: pre-wrap;
+     word-wrap: break-word;
+     border: solid 1px $color_celeste_approx;
+     background: $color_alabaster_approx;
+     padding: 10px;
+ //Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+ border-radius: 4px;
+ //Instead of the line below you could use @includebackground-clip($clip)
+ background-clip: padding-box;
+     font-family: $font_1, $font_2, $font_3;
+ }
+
+//original selectors
+//.froala-view blockquote, blockquote.fr-tag
+%extend_4 {
+     margin-left: 20px;
+     margin-right: 0;
+     margin-top: 0;
+     padding-left: 20px;
+     position: relative;
+     font-style: italic;
+     border-left: solid 5px $color_celeste_approx;
+ }
+
+//original selectors
+//.froala-view hr, hr.fr-tag
+%extend_5 {
+     height: 0;
+     border: 0;
+     border-top: solid 1px $color_celeste_approx;
+     clear: both;
+ }
+
+
+img {
+&.fr-fil {
+     z-index: 1;
+     position: relative;
+     margin: auto;
+     overflow: auto;
+     padding: 10px 10px 10px 3px;
+     float: left !important;
+&.fr-dib {
+     float: none !important;
+     margin-left: 0 !important;
+ }
+}
+&.fr-fir {
+     z-index: 1;
+     position: relative;
+     margin: auto;
+     overflow: auto;
+     padding: 10px 3px 10px 10px;
+     float: right !important;
+&.fr-dib {
+     float: none !important;
+     margin-right: 0 !important;
+ }
+}
+&.fr-fin {
+     z-index: 1;
+     position: relative;
+     margin: auto;
+     overflow: auto;
+     float: none;
+&.fr-dib {
+     padding: 10px 0;
+ }
+}
+&.fr-dib {
+     vertical-align: top;
+     display: block;
+ }
+}
+.froala-view {
+table {
+@extend %extend_1;
+td {
+    border: solid 1px $color_celeste_approx;
+    padding: 5px;
+}
+th {
+@extend %extend_2;
+}
+}
+pre {
+@extend %extend_3;
+}
+blockquote {
+@extend %extend_4;
+}
+hr {
+@extend %extend_5;
+}
+}
+.fr-fvn {
+    float: none;
+    display: block !important;
+    text-align: center !important;
+}
+.fr-fvl {
+    float: left;
+    margin: 10px 10px 10px 1px;
+}
+.fr-fvr {
+    float: right;
+    margin: 10px 1px 10px 10px;
+}
+.fr-tnv {
+    float: none !important;
+    margin: auto;
+    text-align: center;
+    display: block !important;
+&.fr-fvl {
+     text-align: left;
+ }
+&.fr-fvr {
+     text-align: right;
+ }
+}
+a.fr-file {
+    position: relative;
+&:before {
+     position: relative;
+     display: inline-block;
+     font-family: $font_0;
+     font-style: normal;
+     font-weight: normal;
+     line-height: 1;
+     content: "\f0c6";
+     top: 0;
+     padding-right: 3px;
+ }
+}
+table.fr-tag {
+@extend %extend_1;
+td {
+    border: solid 1px $color_celeste_approx;
+    padding: 5px;
+}
+th {
+@extend %extend_2;
+}
+}
+pre.fr-tag {
+@extend %extend_3;
+}
+blockquote.fr-tag {
+@extend %extend_4;
+}
+hr.fr-tag {
+@extend %extend_5;
+}
