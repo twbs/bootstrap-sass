@@ -1379,6 +1379,7 @@ var App = function () {
       /*Collapse sidebar*/
       $("#sidebar-collapse").click(function(){
           toggleSideBar();
+          update_width();
       });
 
 
@@ -1412,11 +1413,20 @@ var App = function () {
           $("#cl-wrapper .nscroller").nanoScroller({ preventPageScrolling: true });
         }
 
+        function update_width(){
+          var navW = $(".cl-sidebar").width();
+          var asideW = $("#page-aside").width();
+
+          $("#fixed-action-header").css("left", navW + asideW);
+        }
+
         $(window).resize(function() {
           update_height();
+          update_width();
         });
 
         update_height();
+        update_width();
         $("#cl-wrapper .nscroller").nanoScroller({ preventPageScrolling: true });
 
       }
