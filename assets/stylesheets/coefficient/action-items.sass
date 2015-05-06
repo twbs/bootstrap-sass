@@ -1,6 +1,71 @@
 // ----------------------------
 // ACTION ITEMS
 // ----------------------------
+
+// Action Items List
+.action-item-checkbox,
+.item-title,
+.item-due-date,
+.item-assigned-to
+  display: table-cell
+  vertical-align: top
+  padding: 0 5px
+
+.action-item-checkbox
+  position: absolute
+  top: 10px
+  left: 15px
+
+.item-title
+  width: 100%
+  padding-left: 25px
+
+.item-assigned-to
+  padding-right: 0
+  img
+    width: 25px
+    height: 25px
+
+.item-due-date
+  color: $text-color
+  font-size: 11px
+  font-style: italic
+  line-height: 1.2
+  min-width: 100px
+  text-align: right
+  padding-top: 5px
+
+.marked-complete
+  .item-title
+    color: #999999
+    text-decoration: line-through
+  .item-due-date
+    padding-top: 0
+    color: #999999
+
+.past-due
+  .item-due-date
+    color: $danger
+    font-weight: 600
+
+.user-popover
+  min-width: 200px
+  @include clearfix
+  img
+    width: 75px
+    height: 75px
+  .profile-pic
+    float: left
+    margin-right: 10px
+  .user-name
+    color: #555
+  .user-title
+    color: #999
+    font-size: 12px
+    font-style: italic
+
+
+// Action Items Details
 #action-item-details
   border-bottom: 1px solid #f4f4f4
   padding-bottom: 10px
@@ -19,49 +84,3 @@
     .meta-icon
       width: 10px
       margin-right: 8px
-
-.action-item-checkbox
-  position: absolute
-  top: 10px
-  left: 15px
-
-.item-assigned-to
-  float: right
-  width: 25px
-  height: 25px
-  img
-    width: 100%
-    height: 100%
-
-.on-track,
-.marked-complete,
-.past-due
-  float: right
-  color: #555555
-  font-size: 11px
-  font-style: italic
-  margin-right: 10px
-  line-height: 25px
-
-.marked-complete
-  color: #999999
-
-.past-due
-  color: $danger
-  font-weight: 500
-
-.user-popover
-  min-width: 200px
-  @include clearfix
-  img
-    width: 75px
-    height: 75px
-  .profile-pic
-    float: left
-    margin-right: 10px
-  .user-name
-    color: #555
-  .user-title
-    color: #999
-    font-size: 12px
-    font-style: italic
