@@ -48,7 +48,7 @@
                 <span class="meta-icon"><i class="fa fa-book"></i></span> My Note About Something
               </div>
               <div class="action-item-meta">
-                <span class="meta-icon"><i class="fa fa-building-o"></i></span> Town North Nissan - 1234
+                <span class="meta-icon"><i class="fa fa-map-marker"></i></span> Town North Nissan - 1234
               </div>
               <div class="action-item-meta">
                 <span class="meta-icon"><i class="fa fa-user"></i></span> Jonathan Crowe (owner)
@@ -148,6 +148,10 @@
                   <a href="mailto:jweathers@company.com">jweathers@company.com</a>
                 </div>
                 <div class="badge-cell social">
+                  <a href="http://plus.google.com" class="btn btn-default btn-google-plus">
+                    <i class="fa fa-google-plus"></i>
+                  </a>
+
                   <a href="http://www.facebook.com" class="btn btn-default btn-facebook">
                     <i class="fa fa-facebook"></i>
                   </a>
@@ -158,10 +162,6 @@
 
                   <a href="http://www.linkedin.com" class="btn btn-default btn-linkedin">
                     <i class="fa fa-linkedin"></i>
-                  </a>
-
-                  <a href="http://plus.google.com" class="btn btn-default btn-google-plus">
-                    <i class="fa fa-google-plus"></i>
                   </a>
                 </div>
               </div>
@@ -176,24 +176,25 @@
             <div class="content">
               <ul id="recent-notes-list" class="list-unstyled">
                 <li>
-                  <div class="note-list-title">My Note about Something</div>
-                  <div class="note-list-info">Dealership 1234 on October 22, 2014</div>
-                  <div class="note-list-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a malesuada dui. Aliquam a ex eu enim sollicitudin...</div>
+                  <!-- Note titles should be clickable and link to the notes page with the note selected. -->
+                  <div class="note-list-title"><a href="homepage.html">My Note about Something</a></div>
+                  <div class="note-list-info">Dealership - 1234 on October 22, 2014</div>
+                  <div class="note-list-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a malesuada dui. Aliquam a ex eu enim sollicitudin.</div>
                 </li>
                 <li class="selected">
-                  <div class="note-list-title">My Note about Something</div>
-                  <div class="note-list-info">Dealership 1234 on October 22, 2014</div>
-                  <div class="note-list-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a malesuada dui. Aliquam a ex eu enim sollicitudin...</div>
+                  <div class="note-list-title"><a href="homepage.html">My Note about Something</a></div>
+                  <div class="note-list-info">Dealership - 1234 on October 22, 2014</div>
+                  <div class="note-list-preview">Quisque mollis ante id leo congue, nec efficitur dolor luctus. Etiam posuere rutrum ante a posuere. Mauris scelerisque mauris in posuere euismod.</div>
                 </li>
                 <li class="marked-done">
-                  <div class="note-list-title">My Note about Something</div>
+                  <div class="note-list-title"><a href="homepage.html">My Note about Something</a></div>
                   <div class="note-list-info">October 22, 2014</div> <!-- Example of no dealership -->
-                  <div class="note-list-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a malesuada dui. Aliquam a ex eu enim sollicitudin...</div>
+                  <div class="note-list-preview">Nunc lacinia neque ac ultricies facilisis. Nullam a hendrerit elit. Fusce sit amet eros id tortor tempus condimentum. Pellentesque rhoncus laoreet ipsum at molestie.</div>
                 </li>
                 <li>
-                  <div class="note-list-title">My Note about Something</div>
-                  <div class="note-list-info">Dealership 1234 on October 21, 2014</div>
-                  <div class="note-list-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a malesuada dui. Aliquam a ex eu enim sollicitudin...</div>
+                  <div class="note-list-title"><a href="homepage.html">My Note about Something</a></div>
+                  <div class="note-list-info">Dealership - 1234 on October 21, 2014</div>
+                  <div class="note-list-preview">Integer tincidunt porttitor odio sit amet venenatis. Etiam est nisi, feugiat eget nunc tempus, rutrum consequat dui. Nulla ultricies nulla ligula.</div>
                 </li>
               </ul>
               <div class="view-all-break">
@@ -216,25 +217,26 @@
                   <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
                     <span class="item-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta tellus ipsum, ut laoreet dui porta eu. Nam ultrices viverra erat accumsan pretium.</span>
                     <span class="item-due-date">
-                      Marked complete<br/>
+                      Completed on<br/>
                       April 10, 2015
                     </span>
                     <span class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg' class='profile-pic'><div class='user-name'>Seth Juarez</div><div class='user-title'>Manager</div></div>"/></span>
                   </a>
                 </li>
                 <li class="list-group-item marked-complete">
-                  <input type="checkbox" checked name="check1" class="action-item-checkbox">
+                  <!-- 'disabled' should be added to items that the user cannot check or uncheck based on permissions -->
+                  <input type="checkbox" checked name="check1" class="action-item-checkbox" disabled>
                   <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
                     <span class="item-title">Nam ultrices viverra erat.</span>
                     <span class="item-due-date">
-                      Marked complete<br/>
+                      Completed on<br/>
                       April 10, 2015
                     </span>
-                    <span class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg' class='profile-pic'><div class='user-name'>Seth Juarez</div><div class='user-title'>Manager</div></div>"/></span>
+                    <span class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg' class='profile-pic'><div class='user-name'>John Weathers</div><div class='user-title'>Field Operations Manager</div></div>"/></span>
                   </a>
                 </li>
                 <li class="list-group-item on-track">
-                  <input type="checkbox" name="check2" class="action-item-checkbox">
+                  <input type="checkbox" name="check2" class="action-item-checkbox" disabled>
                   <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
                     <span class="item-title">Lorem ipsum dolor sit amet</span>
                     <span class="item-due-date">May 05, 2015</span>
