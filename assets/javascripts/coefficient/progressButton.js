@@ -11,7 +11,6 @@
 ;( function( window ) {
 
 	'use strict';
-
 	// https://gist.github.com/edankwan/4389601
 	Modernizr.addTest('csstransformspreserve3d', function () {
 		var prop = Modernizr.prefixed('transformStyle');
@@ -131,8 +130,6 @@
 	ProgressButton.prototype._initEvents = function() {
 		var self = this;
 		this.button.addEventListener( 'click', function() {
-			// disable the button
-			self.button.setAttribute( 'disabled', '' );
 			// add class state-loading to the button (applies a specific transform to the button depending which data-style is defined - defined in the stylesheets)
 			classie.remove( self.progress, 'notransition' );
 			classie.add( this, 'state-loading' );
@@ -195,12 +192,6 @@
 					classie.remove( self.button, statusClass );
 					self._enable();
 				}, self.options.statusTime );
-
-				// TODO: TEMPORARY CODE - ADDING NEW LOCATION/USER FOR DEMO PURPOSES
-				var newLocation = $('<p>Store Name has been added. <a href="locationspublic.html">View store page</a></p>');
-				var newUser = $('<p>Insert Name Here has been invited.</p>');
-				$("#recently-added.recent-locations").prepend(newLocation);
-				$("#recently-added.recent-users").prepend(newUser);
 			}
 			else {
 				self._enable();
