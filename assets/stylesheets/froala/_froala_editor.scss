@@ -1,0 +1,2045 @@
+//colors
+$color_celeste_approx: #ccc;
+$color_mountain_mist_approx: #999999;
+$white: #ffffff;
+$color_tuatara_approx: #353535;
+$color_curious_blue_approx: #2c82c9;
+$color_ship_cove_approx: #6d90ba;
+$color_sail_approx: #b5d6fd;
+$black: #000;
+$color_mercury_approx: #e6e6e6;
+$color_alabaster_approx: #fcfcfc;
+$color_shark_approx: #252525;
+$color_log_cabin_approx: #202020;
+$color_tundora_approx: #444444;
+$color_boston_blue_30_approx: rgba(61, 142, 185, 0.3);
+$color_boston_blue_approx: #3d8eb9;
+$color_shakespeare_approx: #54acd2;
+$color_fern_approx: #61bd6d;
+$color_east_bay_approx: #475577;
+$color_well_read_approx: #b8312f;
+
+//fonts
+$font_0: Lucida Console;
+$font_1: monospace !important;
+$font_2: Times New Roman;
+$font_3: Georgia;
+$font_4: Serif;
+$font_5: FontAwesome;
+$font_6: Courier New;
+$font_7: Courier;
+$font_8: monospace;
+$font_9: Monospace;
+$font_10: Arial;
+$font_11: Helvetica;
+$font_12: sans-serif;
+
+//@extend-elements
+//original selectors
+//.froala-view table, table.fr-tag
+%extend_1 {
+    border-collapse: collapse;
+    empty-cells: show;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+//Instead of the line below you could use @includebox-sizing($bs)
+box-sizing: border-box;
+}
+
+//original selectors
+//.froala-view table th, table.fr-tag th
+%extend_2 {
+     background: $color_mercury_approx;
+     border: solid 1px $color_celeste_approx;
+     padding: 5px;
+ }
+
+//original selectors
+//.froala-view pre, pre.fr-tag
+%extend_3 {
+     white-space: pre-wrap;
+     white-space: -pre-wrap;
+     word-wrap: break-word;
+     border: solid 1px $color_celeste_approx;
+     background: $color_alabaster_approx;
+     padding: 10px;
+ //Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+ border-radius: 4px;
+ //Instead of the line below you could use @includebackground-clip($clip)
+ background-clip: padding-box;
+     font-family: $font_6, $font_7, $font_8;
+ }
+
+//original selectors
+//.froala-view blockquote, blockquote.fr-tag
+%extend_4 {
+     margin-left: 20px;
+     margin-right: 0;
+     margin-top: 0;
+     padding-left: 20px;
+     position: relative;
+     font-style: italic;
+     border-left: solid 5px $color_celeste_approx;
+ }
+
+//original selectors
+//.froala-view hr, hr.fr-tag
+%extend_5 {
+     height: 0;
+     border: 0;
+     border-top: solid 1px $color_celeste_approx;
+     clear: both;
+ }
+
+//original selectors
+//.froala-element img.fr-fil, .froala-element img.fr-fir, .froala-element img.fr-fin
+%extend_6 {
+     cursor: pointer;
+     z-index: 1;
+     position: relative;
+     margin: auto;
+     overflow: auto;
+ }
+
+//original selectors
+//.froala-element span.f-img-wrap.fr-dib.fr-fil:after, .froala-element span.f-img-wrap.fr-dib.fr-fir:after
+%extend_7 {
+     content: "";
+     display: block;
+     clear: both;
+ }
+
+//original selectors
+//.froala-editor button.fr-bttn:disabled, .froala-editor button.fr-trigger:disabled, .froala-box.fr-disabled button.fr-bttn, .froala-box.fr-disabled button.fr-trigger
+%extend_8 {
+     color: $color_mountain_mist_approx !important;
+     background: transparent !important;
+     cursor: default;
+ }
+
+//original selectors
+//.froala-editor button.fr-bttn, .froala-editor button.fr-trigger
+%extend_9 {
+     padding: 0;
+     background: transparent;
+     color: $color_tuatara_approx;
+     outline: 0;
+     border: 0;
+     font-size: 16px;
+     line-height: 35px;
+     display: inline-block;
+     cursor: pointer;
+     width: 40px;
+     text-align: center;
+     margin: 0;
+ //Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+ border-radius: 0;
+ //Instead of the line below you could use @includebackground-clip($clip)
+ background-clip: padding-box;
+     z-index: 2;
+ }
+
+//original selectors
+//.froala-editor button.fr-bttn img, .froala-editor button.fr-trigger img
+%extend_10 {
+     max-width: 40px;
+     max-height: 35px;
+     display: block;
+ }
+
+//original selectors
+//.froala-popup.froala-image-popup div.f-popup-line.drop-upload div.f-upload, .froala-popup.froala-file-popup div.f-popup-line.drop-upload div.f-upload
+%extend_11 {
+     border: dashed 2px $color_celeste_approx;
+     color: $color_tundora_approx;
+     font-weight: normal;
+     text-align: center;
+     padding: 10px 0;
+     min-width: 315px;
+     position: relative;
+     overflow: hidden;
+ }
+
+//original selectors
+//.froala-popup.froala-image-popup div.f-popup-line.drop-upload form, .froala-popup.froala-file-popup div.f-popup-line.drop-upload form
+%extend_12 {
+     width: 100%;
+     height: 100%;
+     background: transparent;
+     position: absolute;
+     top: 0;
+     left: 0;
+     opacity: 0;
+     cursor: pointer;
+     overflow: hidden;
+ }
+
+//original selectors
+//.froala-popup.froala-image-popup div.f-popup-line.drop-upload form input, .froala-popup.froala-file-popup div.f-popup-line.drop-upload form input
+%extend_13 {
+     background: transparent;
+     display: inline-block;
+     width: 400%;
+     margin-left: -300%;
+     height: 100%;
+     cursor: pointer;
+     font-size: 1000px !important;
+ }
+
+//original selectors
+//.froala-popup.froala-image-popup div.f-popup-line button.f-browse, .froala-popup.froala-file-popup div.f-popup-line button.f-browse
+%extend_14 {
+     display: none;
+     margin: 0 5px 0 -1px;
+     padding: 2px 7px;
+     background: $color_east_bay_approx;
+     color: $white;
+     border: 0;
+     vertical-align: top;
+ }
+
+//original selectors
+//.froala-popup.froala-image-popup p.f-progress, .froala-popup.froala-file-popup p.f-progress
+%extend_15 {
+     width: 100%;
+     display: none;
+     border: 0;
+     height: 20px;
+     margin: 5px 0;
+     width: 250px;
+ }
+
+//original selectors
+//.froala-popup.froala-image-popup p.f-progress span, .froala-popup.froala-file-popup p.f-progress span
+%extend_16 {
+     display: inline-block;
+     height: 100%;
+     background-color: $color_fern_approx;
+     text-align: center;
+     color: $white;
+     line-height: 20px;
+ }
+
+
+[contenteditable] {
+    outline: 0 solid transparent;
+&:focus {
+     outline: 0 solid transparent;
+ }
+}
+button {
+    outline: none;
+}
+.fr-visible {
+    display: block !important;
+}
+.f-non-selectable {
+//Instead of the line below you could use @includeuser-select($select)
+user-select: none;
+* {
+//Instead of the line below you could use @includeuser-select($select)
+user-select: none;
+}
+}
+.f-italic {
+    font-style: italic !important;
+}
+.f-spaced {
+    letter-spacing: 3px !important;
+}
+.f-uppercase {
+    text-transform: uppercase !important;
+}
+.f-typewriter {
+    font-family: $font_0, $font_1;
+    line-height: 160% !important;
+    font-size: 14px;
+}
+.froala-box {
+    position: relative;
+&:after {
+     position: absolute;
+     bottom: 5px;
+     right: 7px;
+     color: $color_celeste_approx;
+     content: attr(data-chars);
+     font-size: 15px;
+     font-family: $font_2, $font_3, $font_4;
+ }
+&.fr-disabled {
+.froala-element {
+    color: $color_mountain_mist_approx;
+img {
+    opacity: 0.5;
+}
+}
+button {
+&.fr-bttn {
+ @extend %extend_8;
+&:after {
+     border-top-color: $color_mountain_mist_approx !important;
+ }
+}
+&.fr-trigger {
+ @extend %extend_8;
+&:after {
+     border-top-color: $color_mountain_mist_approx !important;
+ }
+}
+}
+}
+.froala-wrapper {
+    overflow: auto;
+}
+.html-switch {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    z-index: 1000;
+    display: none;
+    font-size: 14px;
+    line-height: 160%;
+    height: 30px;
+    background: $white;
+    color: $color_tuatara_approx;
+    cursor: pointer;
+//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+border-radius: 0;
+//Instead of the line below you could use @includebackground-clip($clip)
+background-clip: padding-box;
+    outline: 0;
+    border: 0;
+    width: 40px;
+&:hover {
+     color: $white;
+     background: $color_curious_blue_approx;
+ }
+}
+&.fr-fullscreen {
+     margin: 0 !important;
+     position: fixed;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     z-index: 3000;
+ }
+&.f-rtl:after {
+     left: 7px;
+     right: auto;
+ }
+&.f-html .html-switch {
+     display: inline-block;
+ }
+.froala-element .f-video-editor {
+&:after {
+     position: absolute;
+     content: '';
+     z-index: 1;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     cursor: pointer;
+ }
+&.active {
+&:after {
+     border: solid 1px $color_shark_approx;
+ }
+> * {
+      z-index: 2;
+      position: relative;
+  }
+}
+}
+}
+.f-html {
+::selection {
+    background: $color_ship_cove_approx;
+    color: $white;
+}
+::-moz-selection {
+    background: $color_ship_cove_approx;
+    color: $white;
+}
+&:after {
+     display: none;
+ }
+.froala-element {
+    background: $color_log_cabin_approx;
+    color: $white;
+    font-family: $font_6, $font_9;
+    font-size: 13px;
+    overflow-y: auto;
+    padding: 0;
+&:after {
+     clear: both;
+     display: block;
+     content: "";
+ }
+textarea {
+    direction: ltr !important;
+    text-align: left;
+    width: 100%;
+    word-wrap: break-word;
+    padding: 0;
+    background: transparent;
+    border: 0 transparent;
+    color: $white;
+    resize: none !important;
+    line-height: 140%;
+//Instead of the line below you could use @includebox-sizing($bs)
+box-sizing: border-box;
+    resize: none;
+    min-height: 100px;
+    font-size: inherit;
+    font-family: inherit;
+    outline: 0;
+    margin: 0;
+}
++ .fr-placeholder {
+      display: none !important;
+  }
+&.f-inline textarea {
+     padding: 10px 0 0 10px;
+ }
+}
+.froala-wrapper:after {
+    clear: both;
+    display: block;
+    content: "";
+}
+}
+::selection {
+    background: $color_sail_approx;
+    color: $black;
+}
+::-moz-selection {
+    background: $color_sail_approx;
+    color: $black;
+}
+.fr-hidden {
+    display: none !important;
+}
+img {
+&.fr-fil {
+     z-index: 1;
+     position: relative;
+     margin: auto;
+     overflow: auto;
+     padding: 10px 10px 10px 3px;
+     float: left !important;
+&.fr-dib {
+     float: none !important;
+     margin-left: 0 !important;
+ }
+}
+&.fr-fir {
+     z-index: 1;
+     position: relative;
+     margin: auto;
+     overflow: auto;
+     padding: 10px 3px 10px 10px;
+     float: right !important;
+&.fr-dib {
+     float: none !important;
+     margin-right: 0 !important;
+ }
+}
+&.fr-fin {
+     z-index: 1;
+     position: relative;
+     margin: auto;
+     overflow: auto;
+     float: none;
+&.fr-dib {
+     padding: 10px 0;
+ }
+}
+&.fr-dib {
+     vertical-align: top;
+     display: block;
+ }
+}
+.froala-view {
+table {
+@extend %extend_1;
+td {
+    border: solid 1px $color_celeste_approx;
+    padding: 5px;
+}
+th {
+@extend %extend_2;
+}
+}
+pre {
+@extend %extend_3;
+}
+blockquote {
+@extend %extend_4;
+}
+hr {
+@extend %extend_5;
+}
+}
+.fr-fvn {
+    float: none;
+    display: block !important;
+    text-align: center !important;
+}
+.fr-fvl {
+    float: left;
+    margin: 10px 10px 10px 1px;
+}
+.fr-fvr {
+    float: right;
+    margin: 10px 1px 10px 10px;
+}
+.fr-tnv {
+    float: none !important;
+    margin: auto;
+    text-align: center;
+    display: block !important;
+&.fr-fvl {
+     text-align: left;
+ }
+&.fr-fvr {
+     text-align: right;
+ }
+}
+.froala-element {
+    min-height: 35px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    word-wrap: break-word;
+    vertical-align: top;
+    cursor: text;
+* {
+//Instead of the line below you could use @includebox-sizing($bs)
+box-sizing: content-box;
+}
+&.f-image {
+     overflow: visible;
+ }
+.btn {
+//Instead of the line below you could use @includeuser-select($select)
+user-select: text;
+}
+[contenteditable="false"] {
+//Instead of the line below you could use @includeuser-select($select)
+user-select: none;
+* {
+//Instead of the line below you could use @includeuser-select($select)
+user-select: none;
+}
+}
+&.f-basic {
+     padding: 10px;
+&.f-placeholder + span.fr-placeholder {
+     margin: 10px;
+ }
+span.f-img-editor {
+    left: 0;
+    right: 0;
+}
+}
+&.not-msie {
+pre {
+    overflow: hidden;
+}
+blockquote {
+    overflow: hidden;
+}
+}
+table {
+th {
+    font-weight: normal;
+}
+> span {
+      display: none;
+      visibility: hidden;
+  }
+tr > span {
+    display: none;
+    visibility: hidden;
+}
+}
+a {
+    cursor: pointer;
+}
+img {
+    min-width: 32px !important;
+    min-height: 32px !important;
+&.fr-fil {
+ @extend %extend_6;
+ }
+&.fr-fir {
+ @extend %extend_6;
+ }
+&.fr-fin {
+ @extend %extend_6;
+ }
+}
+img::selection {
+    color: $white;
+    background-color: transparent !important;
+}
+img::-moz-selection {
+    color: $white;
+    background-color: transparent !important;
+}
+span {
+&.f-img-wrap {
+     line-height: 0;
+     text-align: center;
+     border: 0;
+     outline: 0;
+     max-width: 100% !important;
+&.fr-fir {
+     float: right;
+ }
+&.fr-fil {
+     float: left;
+ }
+&.fr-dib {
+     display: block;
+     text-align: center;
+     float: none !important;
+&.fr-fil:after {
+ @extend %extend_7;
+ }
+&.fr-fir:after {
+ @extend %extend_7;
+ }
+}
+&.fr-fin.fr-dib {
+     display: block;
+ }
+}
+&.f-img-editor {
+     display: inline-block;
+     position: relative;
+     max-width: 100% !important;
+     text-align: center;
+     padding: 0;
+     line-height: 0;
+     overflow: visible;
+     z-index: 2;
+     border: 0;
+     outline: 0;
+     outline-color: transparent;
+     border-color: transparent;
+&:after {
+     content: "";
+     display: block;
+     clear: both;
+ }
+&:before {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     display: block;
+     border: none !important;
+     outline: solid 1px $color_curious_blue_approx !important;
+     z-index: 1;
+ }
+&.fr-fil {
+     margin: 10px 10px 10px 3px;
+     float: left;
+ }
+&.fr-fir {
+     margin: 10px 3px 10px 10px;
+     float: right;
+ }
+&.fr-fin {
+     float: none;
+&.fr-dib {
+     margin: 10px 0;
+ }
+}
+img {
+    padding: 0 !important;
+    margin: auto;
+}
+&.fr-dib {
+     display: inline-block;
+ }
+}
+&.f-img-handle {
+     position: absolute;
+     height: 8px;
+     width: 8px;
+     border: solid 1px $white !important;
+     background: $color_curious_blue_approx;
+     z-index: 2;
+     margin: auto;
+&.f-h-ne {
+     top: -4px;
+     left: auto;
+     right: -4px;
+     bottom: auto;
+     cursor: ne-resize;
+ }
+&.f-h-se {
+     top: auto;
+     left: auto;
+     right: -4px;
+     bottom: -4px;
+     cursor: se-resize;
+ }
+&.f-h-sw {
+     top: auto;
+     left: -4px;
+     right: auto;
+     bottom: -4px;
+     cursor: sw-resize;
+ }
+&.f-h-nw {
+     top: -4px;
+     left: -4px;
+     right: auto;
+     bottom: auto;
+     cursor: nw-resize;
+ }
+}
+}
+.f-video-editor {
+    display: inline-block;
+    position: relative;
+    line-height: 0;
+    cursor: pointer;
+    padding: 3px;
+> * {
+      max-width: 100%;
+  }
+}
+&.f-rtl {
+     direction: rtl;
+     text-align: right;
+&:after {
+     left: 5px;
+     right: auto;
+ }
++ .fr-placeholder {
+      left: auto;
+      right: 10px;
+      direction: rtl;
+      text-align: right;
+      padding-right: 3px;
+  }
+}
++ span.fr-placeholder {
+      display: none;
+  }
+&.f-placeholder + span.fr-placeholder {
+     color: $color_celeste_approx;
+     position: absolute;
+     margin: 0;
+     left: 0;
+     right: 0;
+     top: 2px;
+     display: inline-block;
+     cursor: text;
+     padding-left: 2px;
+ //Instead of the line below you could use @includeuser-select($select)
+ user-select: none;
+ }
+&:not(.ie8) img {
+     max-width: 100% !important;
+ }
+td img {
+    max-width: auto !important;
+}
+&.ie8.f-placeholder:before {
+     display: none;
+ }
+}
+@media(max-width: 991px) {
+    .froala-element span.f-img-handle {
+        height: 12px;
+        width: 12px;
+&.f-h-ne {
+     top: -6px;
+     right: -6px;
+ }
+&.f-h-se {
+     right: -6px;
+     bottom: -6px;
+ }
+&.f-h-sw {
+     left: -6px;
+     bottom: -6px;
+ }
+&.f-h-nw {
+     top: -6px;
+     left: -6px;
+ }
+}
+}
+.froala-editor {
+    text-align: left;
+    background: $white;
+    border: solid 1px $color_shark_approx;
+    border-top: solid 5px $color_shark_approx;
+    padding: 0;
+//Instead of the line below you could use @includeuser-select($select)
+user-select: none;
+    font-size: 15px;
+    z-index: 1000;
+    font-family: $font_10, $font_11, $font_12;
+    line-height: 140%;
+* {
+//Instead of the line below you could use @includebox-sizing($bs)
+box-sizing: content-box;
+&:not(input):not(textarea) {
+ //Instead of the line below you could use @includeuser-select($select)
+ user-select: none;
+ }
+}
+&.f-inline {
+     position: absolute;
+ }
+.bttn-wrapper {
+    white-space: nowrap;
+&:not(.touch) button {
+&.fr-bttn:hover {
+     background: $color_curious_blue_approx;
+     color: $white;
+&:after {
+     border-top-color: $white;
+ }
+}
+&.fr-trigger:hover {
+     background: $color_curious_blue_approx;
+     color: $white;
+&:after {
+     border-top-color: $white;
+ }
+}
+}
+}
+hr {
+    border: 0;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: $color_celeste_approx;
+    margin: 0 !important;
+    height: 0;
+}
+button::-moz-focus-inner {
+    border: 0;
+}
+.fr-dropdown {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+//Instead of the line below you could use @includeuser-select($select)
+user-select: none;
+.fr-trigger {
+    padding-left: 2px;
+    width: 38px;
+    text-align: left;
+i {
+    margin-left: 5px;
+}
+&.active + .fr-dropdown-menu {
+     display: block;
+ }
+}
+.fr-dropdown-menu {
+    display: none;
+    position: absolute;
+    background: $white;
+    text-align: left;
+    left: 0;
+    top: 35px;
+    margin-top: 0;
+    padding: 0;
+    border: solid 1px $color_shark_approx;
+    z-index: 1000;
+li {
+    list-style-type: none;
+    position: relative;
+a {
+    padding: 5px 25px;
+    margin: 0;
+    display: block;
+    text-decoration: none;
+    outline: 0;
+    color: $color_tundora_approx;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 130%;
+&:hover {
+     background: $color_tundora_approx !important;
+     color: $white !important;
+ }
+&.format-blockquote {
+     font-style: italic;
+ }
+&.format-pre {
+     font-family: $font_6, $font_7, $font_8;
+ }
+&.format-h1 {
+     font-size: 36px;
+     line-height: 1.1;
+     font-weight: 400;
+ }
+&.format-h2 {
+     font-size: 30px;
+     line-height: 1.1;
+     font-weight: 400;
+ }
+&.format-h3 {
+     font-size: 24px;
+     line-height: 1.1;
+     font-weight: 400;
+ }
+&.format-h4 {
+     font-size: 18px;
+     line-height: 1.1;
+     font-weight: 400;
+ }
+&.format-h5 {
+     font-size: 14px;
+     line-height: 1.1;
+     font-weight: 400;
+ }
+&.format-h6 {
+     font-size: 12px;
+     line-height: 1.1;
+     font-weight: 400;
+ }
+}
+button.fr-bttn {
+    margin: 5px;
+}
+&.active a {
+     background: $color_tundora_approx !important;
+     color: $white !important;
+ }
+}
+hr {
+    clear: both;
+    height: 0;
+    border: 0;
+    display: block;
+}
+&:after {
+     clear: both;
+     content: "";
+     display: block;
+ }
+&.f-font-sizes {
+     max-height: 200px;
+     overflow-y: scroll;
+a {
+    padding: 5px 7px !important;
+    font-size: 12px;
+    line-height: 160%;
+}
+}
+&.fr-table > {
+li {
+> {
+a {
+    padding-left: 10px;
+    position: relative;
+i {
+    bottom: 0;
+    font-size: 12px;
+    height: 10px;
+    margin: auto;
+    position: absolute;
+    right: 5px;
+    top: 0;
+}
+}
+ul {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background: $white;
+    color: $color_tundora_approx;
+    border: solid 1px $color_shark_approx;
+    line-height: 0;
+    padding: 0;
+    margin: 0;
+a {
+    padding: 5px 10px;
+}
+}
+div {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background: $white;
+    color: $color_tundora_approx;
+    border: solid 1px $color_shark_approx;
+    line-height: 0;
+    padding: 5px;
+> {
+span {
+    display: inline-block;
+    padding: 0 4px 4px 0;
+    line-height: 0;
+    float: none;
+> span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border: solid 1px $color_celeste_approx;
+  }
+&:hover > span {
+     background: $color_boston_blue_30_approx;
+     border: solid 1px $color_boston_blue_approx;
+ }
+&.hover > span {
+     background: $color_boston_blue_30_approx;
+     border: solid 1px $color_boston_blue_approx;
+ }
+}
+div.fr-t-info {
+    line-height: 140%;
+    text-align: center;
+    font-size: 13px;
+    padding-bottom: 5px;
+}
+}
+.new-line {
+    content: "";
+    display: block;
+    clear: both;
+}
+}
+}
+&:hover > {
+a {
+    background: $color_tundora_approx;
+    color: $white;
+}
+div {
+    display: block !important;
+}
+ul {
+    display: block !important;
+}
+}
+&.hover > {
+a {
+    background: $color_tundora_approx;
+    color: $white;
+}
+div {
+    display: block !important;
+}
+ul {
+    display: block !important;
+}
+}
+}
+hr {
+    border-top: solid 1px $color_shark_approx;
+}
+}
+&.f-align a {
+     padding: 5px 0 !important;
+     width: 40px;
+     text-align: center;
+     font-size: 16px;
+ }
+}
+&.fr-color-picker {
+i {
+    padding-left: 3px;
+}
+.fr-dropdown-menu {
+    padding: 0;
+    line-height: 0;
+    white-space: nowrap;
+    text-align: left;
+    direction: ltr !important;
+p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1;
+    color: $color_tundora_approx;
+span {
+    float: left;
+&.fr-choose-color {
+     padding: 5px 10px;
+     text-align: center;
+ //Instead of the line below you could use @includebox-sizing($bs)
+ box-sizing: border-box;
+     border-top: solid 4px transparent;
+     border-bottom: solid 4px transparent;
+     cursor: pointer;
+     width: 100%;
+&.fr-50 {
+     width: 50%;
+ }
+&.active {
+     border-bottom: solid 4px $color_curious_blue_approx;
+ }
+&:hover {
+     border-bottom: solid 4px $color_curious_blue_approx;
+ }
+}
+}
+&:after {
+     content: "";
+     display: block;
+     clear: both;
+ }
+a.fr-bttn {
+    display: inline-block;
+    float: right;
+    padding: 0;
+    color: $color_tundora_approx;
+    cursor: pointer;
+&:hover {
+     color: $color_curious_blue_approx;
+ }
+}
+}
+.fr-color-bttn {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    position: relative;
+    z-index: 100;
+    line-height: 16px !important;
+//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+border-radius: 0;
+//Instead of the line below you could use @includebackground-clip($clip)
+background-clip: padding-box;
+&.active {
+     border: 0;
+     outline: solid 1px $color_shark_approx;
+     z-index: 101;
+&:after {
+     position: absolute;
+     left: 0;
+     right: 0;
+     text-align: center;
+     top: 0;
+     bottom: 0;
+     line-height: 30px;
+     content: "\f00c";
+     font-family: $font_5;
+     font-weight: normal;
+     font-size: 12px;
+     color: $white;
+ }
+}
+i {
+    font-size: 13px;
+}
+&:hover:not(:focus):not(:active) {
+     outline: solid 1px $color_shark_approx;
+     z-index: 300;
+ }
+}
+.separator {
+    height: 8px;
+}
+> div {
+      white-space: nowrap;
+      display: inline-block;
+  }
+}
+}
+}
+button {
+&.fr-bttn {
+ @extend %extend_9;
+&:disabled {
+ @extend %extend_8;
+&:after {
+     border-top-color: $color_mountain_mist_approx !important;
+ }
+}
+img {
+@extend %extend_10;
+}
+i {
+    line-height: 170%;
+    outline: 0;
+}
+}
+&.fr-trigger {
+ @extend %extend_9;
+&:disabled {
+ @extend %extend_8;
+&:after {
+     border-top-color: $color_mountain_mist_approx !important;
+ }
+}
+img {
+@extend %extend_10;
+}
+i {
+    line-height: 170%;
+    outline: 0;
+}
+}
+}
+.froala-popup {
+    font-size: 13px;
+    background: $white;
+button {
+&.fr-bttn:hover {
+     background: $color_curious_blue_approx;
+     color: $white;
+&:after {
+     border-top-color: $white;
+ }
+}
+&.fr-trigger:hover {
+     background: $color_curious_blue_approx;
+     color: $white;
+&:after {
+     border-top-color: $white;
+ }
+}
+}
+h4 {
+    margin: 0;
+    font-size: 14px;
+    color: $color_tundora_approx;
+    padding: 7px 7px 0;
+&:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+ }
+span {
+    float: left;
+}
+i {
+    float: right;
+    cursor: pointer;
+    color: $color_celeste_approx;
+&.fa-external-link {
+     float: left;
+     margin-left: 5px;
+     margin-top: 1px;
+     color: $color_tundora_approx;
+&:hover {
+     color: $color_curious_blue_approx;
+ }
+}
+&:hover {
+     color: $color_tundora_approx;
+ }
+}
+}
+*:not(input):not(textarea) {
+//Instead of the line below you could use @includeuser-select($select)
+user-select: none;
+}
+div.f-popup-line {
+    margin: 0 7px;
+    padding: 10px 0;
+    display: block;
+    position: relative;
+&.f-popup-toolbar {
+     background: $white;
+ }
+&:after {
+     content: "";
+     display: block;
+     clear: both;
+ }
+label {
+    float: left;
+    margin: 5px 5px 0;
+    line-height: 120%;
+    color: $color_tundora_approx;
+}
+input[type="text"] {
+    font-size: 12px;
+    width: 250px;
+    border: solid 1px $color_celeste_approx;
+    margin: 0 5px !important;
+    height: 25px;
+    line-height: 21px;
+    display: block;
+    padding: 2px;
+    float: left;
+//Instead of the line below you could use @includebox-sizing($bs)
+box-sizing: border-box;
+//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+border-radius: 0;
+//Instead of the line below you could use @includebackground-clip($clip)
+background-clip: padding-box;
+//Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+box-shadow: none;
+    outline: 0;
+&:focus {
+     border: solid 1px $color_shakespeare_approx;
+ }
+}
+input[type="checkbox"] {
+    float: left;
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 5px;
+}
+textarea {
+    padding: 5px;
+    font-size: 12px;
+    margin: 0;
+    border: solid 1px $color_celeste_approx;
+    width: 100%;
+    height: 50px;
+//Instead of the line below you could use @includebox-sizing($bs)
+box-sizing: border-box;
+    resize: none;
+//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+border-radius: 0;
+//Instead of the line below you could use @includebackground-clip($clip)
+background-clip: padding-box;
+//Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+box-shadow: none;
+    outline: 0;
+&:focus {
+     border: solid 1px $color_shakespeare_approx;
+     outline: 0;
+ }
+}
+}
+}
+.fr-trigger {
+&:after {
+     width: 0;
+     height: 0;
+     border-left: 3px solid transparent;
+     border-right: 3px solid transparent;
+     border-top-width: 3px;
+     border-top-style: solid;
+     border-top-color: $color_tuatara_approx;
+     content: ' ';
+     position: absolute;
+     top: 15px;
+     right: 8px;
+     color: inherit;
+     cursor: pointer;
+     z-index: 3;
+     zoom: 1;
+ }
+&.active {
+     color: $white;
+     background: $color_curious_blue_approx;
+&:after {
+     border-top-color: $white !important;
+ }
+}
+}
+&.f-rtl {
+     direction: rtl;
+     text-align: right;
+&.f-basic {
+.fr-bttn {
+    float: right;
+}
+.f-sep {
+    float: right;
+}
+}
+.fr-dropdown-menu {
+    text-align: right !important;
+    direction: rtl !important;
+li.active:before {
+    left: auto;
+    right: 5px;
+}
+}
+.fr-dropdown {
+&.fr-color-picker .fr-dropdown-menu p {
+     text-align: right !important;
+     direction: rtl !important;
+ }
+&.fr-table .fr-dropdown-menu > li > {
+a {
+    padding: 5px 10px 5px 25px;
+i {
+    right: auto;
+    left: 5px;
+&:before {
+     content: '\f053';
+ }
+}
+}
+div {
+    right: 100%;
+    left: auto;
+}
+ul {
+    right: 100%;
+    left: auto;
+}
+}
+}
+.froala-popup {
+h4 {
+    direction: rtl !important;
+span {
+    float: right;
+}
+.f-external-link {
+    float: right;
+i {
+    margin-right: 5px;
+    margin-left: 1px;
+}
+}
+i {
+    float: left !important;
+}
+}
+div.f-popup-line {
+label {
+    float: right !important;
+}
+input {
+    float: right !important;
+}
+button {
+    float: left !important;
+&.f-ok {
+     margin-right: 5px;
+ }
+&.fr-bttn {
+     float: right !important;
+ }
+&.f-browse {
+     float: right !important;
+     margin: 0 -1px 0 0;
+ }
+}
+input[type="text"] {
+    margin-left: 0 !important;
+}
+}
+}
+}
+&.f-basic {
+     padding: 0;
+     z-index: 999;
+     width: 100%;
+     border-bottom: 0 !important;
+ //Instead of the line below you could use @includebox-sizing($bs)
+ box-sizing: border-box;
+&:before {
+     display: none;
+ }
+&:after {
+     content: "";
+     display: block;
+     clear: both;
+ }
+.fr-bttn {
+    margin: 0;
+    float: left;
+}
+&.f-scroll {
+     position: fixed;
+     top: 0;
+     border-bottom-width: 1px !important;
+     border-bottom-style: solid !important;
+     border-bottom-color: inherit !important;
+ }
+&.f-scroll-abs {
+     position: absolute;
+     left: 0;
+     right: 0;
+     border-bottom-width: 1px !important;
+     border-bottom-style: solid !important;
+     border-bottom-color: inherit !important;
+ }
+hr {
+    display: none;
+}
+}
+&:not(.froala-modal):before {
+     width: 0;
+     height: 0;
+     border-left: 7px solid transparent;
+     border-right: 7px solid transparent;
+     border-bottom-color: inherit;
+     border-bottom-style: solid;
+     border-bottom-width: 6px;
+     content: '';
+     position: absolute;
+     top: -10px;
+     left: 15px;
+ }
+&.right-side:before {
+     right: 15px;
+     left: auto;
+ }
+span.f-sep {
+    display: inline-block;
+    width: 0;
+    height: 35px;
+    margin: 0;
+    border-right: solid 1px $color_celeste_approx;
+    float: left;
+}
+i.for-text {
+    font-style: normal;
+    font-weight: bold;
+    padding-left: 4px;
+}
+.fr-bttn.active {
+    color: $color_curious_blue_approx;
+    background: transparent;
+}
+&.ie8 button {
+&.fr-bttn {
+     zoom: 1;
+     position: relative;
+&:hover {
+     background: $color_curious_blue_approx;
+     color: $white;
+&:after {
+     border-top-color: $white;
+     z-index: 3;
+ }
+}
+}
+&.fr-trigger {
+     zoom: 1;
+     position: relative;
+&:hover {
+     background: $color_curious_blue_approx;
+     color: $white;
+&:after {
+     border-top-color: $white;
+     z-index: 3;
+ }
+}
+}
+}
+}
+.froala-popup {
+&.froala-image-popup {
+h4 {
+&.uploading {
+span {
+    display: none;
++ span {
+      display: inline-block;
+  }
+}
+i {
+    display: none;
+}
+}
+span + span {
+    display: none;
+}
+}
+div.f-popup-line {
+&.drop-upload {
+     overflow: hidden;
+     position: relative;
+form {
+@extend %extend_12;
+input {
+@extend %extend_13;
+}
+button {
+    background: transparent;
+}
+}
+div.f-upload {
+@extend %extend_11;
+&:hover {
+     border: dashed 2px $color_tuatara_approx;
+ }
+&.f-hover {
+     border: dashed 2px $color_fern_approx;
+ }
+strong {
+    font-size: 14px;
+}
+}
+}
+input[type="text"] {
+    margin-right: 0 !important;
+    width: 160px;
+}
+button.f-browse {
+@extend %extend_14;
+&:hover {
+     background: $color_tuatara_approx;
+     color: $white;
+ }
+}
++ div.f-popup-line {
+      border-top: solid 1px $color_celeste_approx;
+  }
+}
+p.f-progress {
+@extend %extend_15;
+span {
+@extend %extend_16;
+}
+}
+}
+&.froala-file-popup {
+h4 {
+&.uploading {
+span {
+    display: none;
++ span {
+      display: inline-block;
+  }
+}
+i {
+    display: none;
+}
+}
+span + span {
+    display: none;
+}
+}
+div.f-popup-line {
+&.drop-upload {
+     overflow: hidden;
+     position: relative;
+form {
+@extend %extend_12;
+input {
+@extend %extend_13;
+}
+button {
+    background: transparent;
+}
+}
+div.f-upload {
+@extend %extend_11;
+&:hover {
+     border: dashed 2px $color_tuatara_approx;
+ }
+&.f-hover {
+     border: dashed 2px $color_fern_approx;
+ }
+strong {
+    font-size: 14px;
+}
+}
+}
+input[type="text"] {
+    margin-right: 0 !important;
+    width: 160px;
+}
+button.f-browse {
+@extend %extend_14;
+&:hover {
+     background: $color_tuatara_approx;
+     color: $white;
+ }
+}
++ div.f-popup-line {
+      border-top: solid 1px $color_celeste_approx;
+  }
+}
+p.f-progress {
+@extend %extend_15;
+span {
+@extend %extend_16;
+}
+}
+}
+&.froala-video-popup {
+p {
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+&.or {
+     color: $color_tundora_approx;
+ }
++ div.f-popup-line {
+      padding-top: 2px;
+      padding-bottom: 7px;
+  }
+}
+div.f-popup-line {
+    padding-bottom: 0;
+}
+}
+&.froala-image-editor-popup div.f-popup-line {
+     padding: 0;
+     margin: 0;
+input[type="text"] {
+    width: 160px;
+}
++ div.f-popup-line {
+      border-top: solid 1px $color_celeste_approx;
+      padding: 5px;
+  }
+}
+&.froala-link-popup div.f-popup-line {
+button {
+    float: right;
+}
+input[type="text"] {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+&.f-bi {
+     width: 225px;
+ }
+&:disabled {
+     background: $white;
+     color: $color_mountain_mist_approx;
+&.f-bi {
+     color: inherit;
+ }
+}
+&.fr-error {
+     border-color: $color_well_read_approx;
+ }
+}
+.f-browse-links {
+    background: $color_east_bay_approx;
+    color: $white;
+    margin-left: -1px;
+    border: 0;
+&:hover {
+     background: $color_tuatara_approx;
+     color: $white;
+ }
+&:after {
+     content: "";
+     display: block;
+     clear: both;
+ }
+}
+ul {
+    background: $white;
+    display: block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    right: 0;
+    border: solid 1px $color_celeste_approx;
+    border-top: 0;
+    display: none;
+    max-height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 2;
+li {
+    padding: 2px 5px;
+    cursor: pointer;
+    color: $color_tundora_approx;
+&:hover {
+     background: $color_tundora_approx;
+     color: $white;
+ }
++ li {
+      border-top: solid 1px $color_celeste_approx;
+  }
+}
+}
+&:not(.fr-hidden) + div.f-popup-line {
+     padding-top: 0;
+ul {
+    top: 25px;
+}
+}
++ div.f-popup-line:last-child {
+      padding-top: 0;
+ul {
+    top: 25px;
+}
+}
+}
+&.froala-video-editor-popup div.f-popup-line {
+     padding: 0;
+     margin: 0;
+ }
+&.froala-text-popup div.f-popup-line input {
+     margin-left: 0 !important;
+ }
+button.fr-p-bttn {
+    border: 0;
+    color: $white;
+    padding: 2px 5px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 21px;
+    font-weight: 400;
+    cursor: pointer;
+    float: left;
+    min-width: 16px;
+&.f-ok {
+     background: $color_curious_blue_approx;
+     color: $white;
+ }
+&.f-unlink {
+     background: $color_well_read_approx;
+     color: $white;
+     margin: 0 5px;
+&:hover {
+     background: $color_tuatara_approx;
+     color: $white;
+ }
+}
+&:hover {
+     background: $color_tuatara_approx;
+     color: $white;
+ }
+&:focus {
+     background: $color_tuatara_approx;
+     color: $white;
+ }
+}
+}
+.froala-modal {
+    position: fixed;
+    z-index: 1001;
+    overflow-x: auto;
+    overflow-y: scroll;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+.f-modal-wrapper {
+    margin: 50px auto;
+    display: inline-block;
+    background: $white;
+    min-width: 300px;
+    text-align: center;
+    border: solid 1px $color_shark_approx;
+    border-top: solid 5px $color_shark_approx;
+.f-preloader {
+    margin: 50px 0;
+}
+h4 {
+    margin: 0;
+    font-size: 18px;
+    color: $color_tundora_approx;
+    margin: 10px;
+    text-align: left;
+&:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+ }
+i {
+    float: right;
+    cursor: pointer;
+    color: $color_celeste_approx;
+&:hover {
+     color: $color_tundora_approx;
+ }
+}
+}
+div.f-image-list {
+    list-style-type: none;
+    margin: 10px;
+    padding: 0;
+//Instead of the line below you could use @includecolumn-count($count)
+column-count: 3;
+//Instead of the line below you could use @includecolumn-gap($width)
+column-gap: 10px;
+    width: 600px;
+div {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
+&.f-img-deleting {
+&:after {
+     position: absolute;
+     opacity: 0.75;
+     background: $black;
+     content: "";
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     color: $white;
+     z-index: 2;
+ }
+&:before {
+     content: "Deleting...";
+     color: $white;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     margin: auto;
+     position: absolute;
+     z-index: 3;
+     font-size: 15px;
+     height: 20px;
+ }
+}
+&.f-empty {
+     width: 100%;
+     height: 200px;
+     background: $color_celeste_approx;
+     position: relative;
+     margin-bottom: 10px;
+&:after {
+     position: absolute;
+     margin: auto;
+     top: 0;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     content: "Loading..";
+     display: inline-block;
+     height: 20px;
+ }
+}
+img {
+    width: 100%;
+    vertical-align: middle;
+}
+.f-delete-img {
+    display: none;
+    bottom: 0;
+    left: 0;
+    background: $color_well_read_approx;
+    color: $white;
+    font-family: $font_10, $font_11;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px;
+    position: absolute;
+    cursor: pointer;
+    margin: 0;
+    text-decoration: none;
+    display: inline-block;
+&:hover {
+     background: $color_tuatara_approx;
+     color: $white;
+ }
+}
+}
+&:not(.f-touch) {
+img {
+    opacity: 0.75;
+}
+.f-delete-img {
+    display: none;
+}
+div:hover {
+.f-delete-img {
+    display: inline-block;
+&:hover {
+     background: $color_tuatara_approx;
+     color: $white;
+ }
+}
+img {
+    opacity: 1;
+}
+}
+}
+}
+}
+&.f-rtl .f-modal-wrapper {
+     direction: rtl;
+     text-align: right;
+h4 {
+span {
+    float: right !important;
+}
+i {
+    float: left !important;
+}
+}
+a.f-delete-img {
+    left: auto !important;
+    right: 0;
+}
+}
+}
+.froala-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $black;
+    z-index: 1000;
+    opacity: 0.5;
+}
+body.fr-fullscreen {
+    overflow: hidden;
+}
+a.fr-file {
+    position: relative;
+&:before {
+     position: relative;
+     display: inline-block;
+     font-family: $font_5;
+     font-style: normal;
+     font-weight: normal;
+     line-height: 1;
+     content: "\f0c6";
+     top: 0;
+     padding-right: 3px;
+ }
+}
+table.fr-tag {
+@extend %extend_1;
+td {
+    border: solid 1px $color_celeste_approx;
+    padding: 5px;
+}
+th {
+@extend %extend_2;
+}
+}
+pre.fr-tag {
+@extend %extend_3;
+}
+blockquote.fr-tag {
+@extend %extend_4;
+}
+hr.fr-tag {
+@extend %extend_5;
+}
+.froala-wrapper.f-basic {
+    border: solid 1px $color_shark_approx;
+    position: relative;
+    background: $white;
+}
+.ie8 .froala-popup {
+&.froala-image-popup div.f-popup-line.drop-upload div.f-upload {
+     min-width: 350px;
+ }
+&.froala-image-editor-popup div.f-popup-line + div.f-popup-line {
+     min-width: 250px;
+ }
+}

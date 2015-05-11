@@ -1,0 +1,119 @@
+//@extend-elements
+//original selectors
+//.froala-view h1, h1.fr-tag
+%extend_1 {
+    font-size: 36px;
+    line-height: 1.1;
+    font-weight: 400;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+//original selectors
+//.froala-view h2, h2.fr-tag
+%extend_2 {
+     font-size: 30px;
+     line-height: 1.1;
+     font-weight: 400;
+     margin-top: 20px;
+     margin-bottom: 10px;
+ }
+
+//original selectors
+//.froala-view h3, h3.fr-tag
+%extend_3 {
+     font-size: 24px;
+     line-height: 1.1;
+     font-weight: 400;
+     margin-top: 20px;
+     margin-bottom: 10px;
+ }
+
+//original selectors
+//.froala-view h4, h4.fr-tag
+%extend_4 {
+     font-size: 18px;
+     line-height: 1.1;
+     font-weight: 400;
+     margin-top: 10px;
+     margin-bottom: 10px;
+ }
+
+//original selectors
+//.froala-view h5, h5.fr-tag
+%extend_5 {
+     font-size: 14px;
+     line-height: 1.1;
+     font-weight: 400;
+     margin-top: 10px;
+     margin-bottom: 10px;
+ }
+
+//original selectors
+//.froala-view h6, h6.fr-tag
+%extend_6 {
+     font-size: 12px;
+     line-height: 1.1;
+     font-weight: 400;
+     margin-top: 10px;
+     margin-bottom: 10px;
+ }
+
+
+.froala-view {
+    line-height: 140%;
+ul {
+    padding-left: 25px;
+}
+ol {
+    padding-left: 25px;
+}
+p {
+    margin: 0 0 10px;
+}
+h1 {
+@extend %extend_1;
+}
+h2 {
+@extend %extend_2;
+}
+h3 {
+@extend %extend_3;
+}
+h4 {
+@extend %extend_4;
+}
+h5 {
+@extend %extend_5;
+}
+h6 {
+@extend %extend_6;
+}
+}
+ul.fr-tag {
+    padding-left: 25px;
+}
+ol.fr-tag {
+    padding-left: 25px;
+}
+p.fr-tag {
+    margin: 0 0 10px;
+}
+h1.fr-tag {
+@extend %extend_1;
+}
+h2.fr-tag {
+@extend %extend_2;
+}
+h3.fr-tag {
+@extend %extend_3;
+}
+h4.fr-tag {
+@extend %extend_4;
+}
+h5.fr-tag {
+@extend %extend_5;
+}
+h6.fr-tag {
+@extend %extend_6;
+}
