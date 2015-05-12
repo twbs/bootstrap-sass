@@ -8,18 +8,18 @@ $font_1: Helvetica;
 $font_2: sans-serif;
 
 //urls
-$url_0: url(image-path('colorpicker_images/colorpicker_background.png'));
-$url_1: url(image-path('colorpicker_images/colorpicker_overlay.png'));
-$url_2: url(image-path('colorpicker_images/colorpicker_select.gif'));
-$url_3: url(image-path('colorpicker_images/colorpicker_indic.gif'));
-$url_4: url(image-path('colorpicker_images/colorpicker_hex.png'));
-$url_5: url(image-path('colorpicker_images/colorpicker_rgb_r.png'));
-$url_6: url(image-path('colorpicker_images/colorpicker_rgb_g.png'));
-$url_7: url(image-path('colorpicker_images/colorpicker_rgb_b.png'));
-$url_8: url(image-path('colorpicker_images/colorpicker_hsb_h.png'));
-$url_9: url(image-path('colorpicker_images/colorpicker_hsb_s.png'));
-$url_10: url(image-path('colorpicker_images/colorpicker_hsb_b.png'));
-$url_11: url(image-path('colorpicker_images/colorpicker_submit.png'));
+$url_0: image-url('colorpicker_images/colorpicker_background.png');
+$url_1: image-url('colorpicker_images/colorpicker_overlay.png');
+$url_2: image-url('colorpicker_images/colorpicker_select.gif');
+$url_3: image-url('colorpicker_images/colorpicker_indic.gif');
+$url_4: image-url('colorpicker_images/colorpicker_hex.png');
+$url_5: image-url('colorpicker_images/colorpicker_rgb_r.png');
+$url_6: image-url('colorpicker_images/colorpicker_rgb_g.png');
+$url_7: image-url('colorpicker_images/colorpicker_rgb_b.png');
+$url_8: image-url('colorpicker_images/colorpicker_hsb_h.png');
+$url_9: image-url('colorpicker_images/colorpicker_hsb_s.png');
+$url_10: image-url('colorpicker_images/colorpicker_hsb_b.png');
+$url_11: image-url('colorpicker_images/colorpicker_submit.png');
 
 .colorpicker {
     width: 356px;
