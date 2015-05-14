@@ -21,8 +21,7 @@
 .profile-badge
   .profile-name
     font-size: 24px
-  .profile-edit
-    margin-left: 10px
+    font-weight: 200
   .badge-cell
     display: table-cell
     padding-left: 10px
@@ -30,15 +29,33 @@
     &.profile-image
       width: 160px
       img
+        width: 100%
         border-radius: 3px
     &.social
       width: 30%
       text-align: right
+  .view-full-profile
+    display: none
   .badge-row
     display: table
     width: 100%
     div:first-child
       padding-left: 0
+  .profile-details
+    .label
+      line-height: 33px
+      vertical-align: top
+  &.minimal
+    padding: 15px 0
+    .social,
+    .profile-title,
+    .profile-phone
+      display: none
+    .profile-image
+      width: 75px
+    .view-full-profile
+      display: block
+      padding-top: 5px
 
 /* Store Profile Specific */
 .store-open
