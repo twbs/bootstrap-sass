@@ -31,17 +31,6 @@
     <% include locations-sidebar.html.ejs %>
 
     <div class="cl-mcont">
-      <div id="action-header">
-        <div class="action-header-right">
-          <!-- Currently Active -->
-          <span class="action-message">Town North Nissan - 1234 is currently <strong>Active</strong></span>
-          <button type="button" class="btn btn-xs btn-danger">Deactivate Location</button>
-
-          <!-- Currently Inactive -->
-          <!-- <span class="action-message">Town North Nissan - 1234 is currently <strong>Inactive</strong></span>
-          <button type="button" class="btn btn-xs btn-success">Reactivate Location</button> -->
-        </div>
-      </div>
       <div class="row">
         <div class="col-sm-12">
           <div class="block-flat">
@@ -51,12 +40,15 @@
                   <img src="http://s3-media4.fl.yelpcdn.com/bphoto/7aM0v24qR7lME0c8-LidOw/ls.jpg" >
                 </div>
                 <div class="badge-cell profile-details">
-                  <span class="profile-name">Town North Nissan - 2304</span>
-                  <!-- [syang] Edit link may be temporary; Currently, just want a way to link between edit and view page -->
-                  <a href="locations.html" class="profile-edit">Edit</a><br/>
-                  9160 Research Blvd.<br/>
-                  Austin, TX 78758<br/>
-                  <a href="http://www.townnorthnissan.net">www.townnorthnissan.net</a>
+                  <span class="profile-name">Town North Nissan</span>
+                  <span class="profile-name-separator"> - </span>
+                  <span class="profile-id">2304</span>
+                  <span class="profile-address">
+                    9160 Research Blvd.<br/>
+                    Austin, TX 78758
+                  </span>
+                  <span class="profile-url"><a href="http://www.townnorthnissan.net">www.townnorthnissan.net</a></span>
+                  <span class="view-full-profile"><a href="locationspublic.html">View Location</a></span>
                 </div>
                 <div class="badge-cell social">
                   <a href="http://plus.google.com" class="btn btn-default btn-google-plus">
