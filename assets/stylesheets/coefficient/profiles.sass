@@ -19,7 +19,9 @@
   bottom: 0
 
 .profile-badge
-  .profile-name
+  .profile-name,
+  .profile-name-separator,
+  .profile-id
     font-size: 24px
     font-weight: 200
   .badge-cell
@@ -34,6 +36,9 @@
     &.social
       width: 30%
       text-align: right
+  .profile-address,
+  .profile-url
+    display: block
   .view-full-profile
     display: none
   .badge-row
@@ -49,8 +54,14 @@
     padding: 15px 0
     .social,
     .profile-title,
-    .profile-phone
+    .profile-phone,
+    .profile-name-separator,
+    .profile-url,
+    .profile-address
       display: none
+    .profile-id
+      display: block
+      font-size: 13px
     .profile-image
       width: 75px
     .view-full-profile
