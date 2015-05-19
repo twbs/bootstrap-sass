@@ -47,8 +47,8 @@
           </div>
         </div>
         <div id="aside-nav" class="collapse">
-          <div id="aside-items">
-            <ul class="content nano-content">
+          <div id="aside-items" class="nano nscroller">
+            <ul class="nano-content">
               <li class="note-date-section">OCTOBER 22, 2014</li>
               <li>
                 <div class="note-list-title">My Note about Something</div>
@@ -394,6 +394,8 @@
     $(document).ready(function(){
       //initialize the javascript
       App.init();
+
+      $(".nscroller").nanoScroller({ preventPageScrolling: true });
 
       $(".datepicker").datepicker({
         todayHighlight: true,
