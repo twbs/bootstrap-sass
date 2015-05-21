@@ -6,6 +6,15 @@
   min-height: initial !important // Overriding Froala default
   &.f-placeholder
     + span.fr-placeholder
-      color: #999
-      top: 0
+      color: $link-color
+      text-decoration: underline
       padding-left: 0
+      -webkit-font-smoothing: initial
+  &.f-placeholder:hover
+    cursor: pointer
+    + span.fr-placeholder
+      color: $link-hover
+  &.f-placeholder:focus
+    cursor: text
+    + span.fr-placeholder
+      color: transparent
