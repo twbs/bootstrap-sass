@@ -30,6 +30,18 @@
     position: relative
     .froala-element p
       margin-bottom: 0
+      color: $link-color
+      text-decoration: underline
+      &:hover
+        color: $link-hover
+        cursor: pointer
+    .froala-element
+      &:focus,
+      &:active
+        p
+          color: $text-color
+          text-decoration: none
+          cursor: text
     .fr-placeholder
       line-height: 1
   .location-selector
@@ -38,7 +50,10 @@
     border: 0
     padding: 0 2px
     width: auto
+    color: $link-color
+    text-decoration: underline
     &:hover
+      color: $link-hover
       cursor: pointer
 
 #attachments, #attachments-files
