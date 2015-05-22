@@ -44,6 +44,19 @@
           cursor: text
     .fr-placeholder
       line-height: 1
+      color: $link-color
+      text-decoration: underline
+      padding-left: 2px
+      white-space: nowrap
+      -webkit-font-smoothing: initial
+    .f-placeholder:hover
+      cursor: pointer
+      + span.fr-placeholder
+        color: $link-hover
+    .f-placeholder:focus
+      cursor: text
+      + span.fr-placeholder
+        color: transparent
   .location-selector
     display: block
   .datepicker
