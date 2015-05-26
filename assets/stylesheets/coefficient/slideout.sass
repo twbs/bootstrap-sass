@@ -2,25 +2,6 @@
 // SLIDEOUT
 // ----------------------------
 
-#slideout-inner
-  position: fixed
-  top: 50px
-  right: -450px
-  -webkit-transition-duration: 0.3s
-  -moz-transition-duration: 0.3s
-  -o-transition-duration: 0.3s
-  transition-duration: 0.3s
-  height: 100%
-  background: #ffffff
-  z-index: 100
-  width: 450px
-  height: 100%
-  border-left: 2px solid #CCCCCC
-
-#slideout.active
-  #slideout-inner
-    right: 0
-
 .slideout-wrap
   padding: 20px 40px 20px 60px
   .header
@@ -32,8 +13,76 @@
     font-weight: 200
   .content
     padding: 15px 3px 0 3px
+    font-weight: 200
 
-.slidein
-  padding: 5px
-  cursor: pointer
-  float: left
+
+// ----------------------------
+// SLIDEOUT
+// ----------------------------
+
+.slideout-overlay
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background: rgba($black, 0.5)
+  z-index: 2000
+  .overlay-close
+    display: block
+    width: 100%
+    height: 100%
+    cursor: default
+  .slideout-close
+    position: fixed
+    text-align: center
+    width: 40px
+    line-height: 40px
+    font-size: 20px
+    top: 20px
+    right: 500px
+    background: $white
+    @include border-radius-mixed(3px, 0, 0, 3px)
+    &:hover
+      color: $link-hover
+      cursor: pointer
+  #slideout
+    position: fixed
+    top: 0
+    bottom: 0
+    right: 0
+    width: 500px
+    background: $white
+    z-index: 2001
+    height: 100%
+    overflow-y: scroll
+    font-weight: 200
+    #slideout-inner
+      padding: 40px
+    .header
+      padding: 3px 0
+      border-bottom: 1px solid #DADADA
+      h3
+        margin-top: 3px
+        font-family: "Raleway", Helvetica, sans-serif
+        font-weight: 200
+    .content
+      padding: 15px 3px 0 3px
+
+.slideout-overlay.active
+  display: block
+  #slideout
+    right: 0
+
+
+@media (max-width: 550px)
+  .slideout-overlay
+    .slideout-close
+      position: absolute
+      width: auto
+      line-height: auto
+      top: -40px
+      right: 20px
+      z-index: 2003
+    #slideout
+      width: 100%
