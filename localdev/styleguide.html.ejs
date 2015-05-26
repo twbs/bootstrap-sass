@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Styleguide</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+
+    <% include wp-sidebar.html.ejs %>
+
+    <div class="page-head">
+       <h2>CoEFFICIENT Styleguide</h2>
+    </div>
+    <div class="cl-mcont">
+      <div class="col-sm-12">
+        <span id="best-practices-sass" class="anchor"></span>
+        <div class="block-flat">
+          <div class="header">
+            <a href="#best-practices-sass" class="anchor-link"><i class="fa fa-link"></i></a>
+            <h3>Sass</h3>
+          </div>
+          <div class="content">
+            <h4 class="subtitle">Best Practices</h4>
+            <p>
+              Always use common components when creating new screens. Most of what you will need is already available in the styleguide provided here. If there are specific styles that will or can be re-used later on, it should be added to the styleguide. Following these rules will keep our product consistent and easy to update.
+            </p>
+            <p>
+              If you are creating new re-usable styles, make sure you follow these guidelines when writing Sass code:
+              <ul>
+                <li>Create user-friendly classnames. Spaces should be converted into dashes. For example, <code>.helper-text</code></li>
+                <li>Follow <a href="https://css-tricks.com/efficiently-rendering-css/" target="_blank">these tricks</a> for when to use ID vs class vs tag selectors, what to avoid and general tips.</li>
+                <li>Avoid nesting too many layers deep. This causes inefficient and convoluted CSS output.</li>
+                <li>Write reusable code by using $variables @mixins, @includes, and @extends functions. See <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html" target="_blank">Sass-lang.com</a> for full documentation.</li>
+              </ul>
+            </p>
+
+            <h4 class="subtitle">Formatting Standards</h4>
+            <p>
+              Sass files are automatically compiled to .css files in rails when the page is loaded. They will <strong>NOT</strong> compile if the syntax is incorrect: there can be no brackets, semicolons, or incorrect/inconsistent indentation.
+            </p>
+            <p>
+              Guidelines:
+              <ul>
+                <li>Use soft tabs (2 spaces) to stay consistent with the rest of the CoEFFICIENT code.</li>
+                <li>Set each property on it's own line</li>
+                <li>Set one full line between each selector</li>
+                <li>Use one space between property names and values, ex: <code>float: left</code></li>
+                <li>Prefer shorthand, <code>margin: 20px 0</code> Unless only setting on property, <code>margin-top: 20px</code></li>
+                <li>Avoid specifying zero values, <code>margin: 0</code></li>
+                <li>Use single or double quotations consistently - prefer double quotes, <code>background: url("filename.png")</code></li>
+                <li>NO semicolons at the end of each property - nodejs may allow this, but ruby will complain.</li>
+              </ul>
+            </p>
+
+            <h4 class="subtitle">Commenting</h4>
+            <p>
+              Each page should have a section at the top to explain what the file is for, or styling. If the file is broken up into a few sections, subsections should also include comments explaining the section. Prefer breaking long Sass files with multiple sections into separate files instead if it makes sense, for ease of comprehension.
+            </p>
+            <p>
+              Use <code>//</code> instead of <code>/* */</code> for comments unless you intentionally want the comments to show up in the output.
+            </p>
+            <pre><code class="html">// ---------------------------------
+// COLORS
+// ---------------------------------</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <span id="best-practices-html" class="anchor"></span>
+        <div class="block-flat">
+          <div class="header">
+            <a href="#best-practices-html" class="anchor-link"><i class="fa fa-link"></i></a>
+            <h3>HTML Markup</h3>
+          </div>
+          <div class="content">
+            <h4 class="subtitle">Best Practices</h4>
+            <p>
+              Use as few divs as possible to contain your content, and make sure that the names of the divs are only as specific as they need to be. A class name should be reusable across modules, but not so generic that it's difficult to say what it does.
+            </p>
+            <p>
+              Guidelines:
+              <ul>
+                <li><strong>NO</strong> INLINE STYLES</li>
+                <li>Avoid using class names that contain locational or stylistic information such as <code>.left_sidebar</code> or <code>.red_button</code>. In the future, these containers may change. Instead, name them based on content or purpose.</li>
+                <li>Avoid using classes such as <code>.left</code> or <code>.float_left</code>; that type of layout information should be included at the modular level.</li>
+                <li>Elements that occur exactly once inside a page should use IDs, otherwise, use classes. When in doubt, use a class name.</li>
+                <li>Avoid adding styles to basic elements such as <code>&lt;ul&gt;</code>. Instead, add an extra class to these elements you want to style and add styles to the class.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <span id="best-practices-js" class="anchor"></span>
+        <div class="block-flat">
+          <div class="header">
+            <a href="#best-practices-js" class="anchor-link"><i class="fa fa-link"></i></a>
+            <h3>JavaScript</h3>
+          </div>
+          <div class="content">
+            <h4 class="subtitle">General JS philosophy</h4>
+            <p>
+              We want CoEFFICIENT to stay lean and void of extra clutter so we should be careful when adding excessive JS packages and plugins. We should only add necessary JS code so it doesn't end up like our Dealer360 application.
+            </p>
+            <p>
+              Guidelines:
+              <ul>
+                <li>Prefix state classes to toggle CSS with <code>.is-</code></li>
+                <li>Prefix hooks for JS functionality only with <code>.js-</code></li>
+                <li>DO NOT add/remove CSS styles using JS. There should not be inline CSS styles to begin with. All DOM related updates should be done in the form of state classes. For example, <code>.is-hidden</code> or <code>.is-active</code>.</li>
+                <li>Follow <a href="http://www.sitepoint.com/efficient-jquery-selectors/" target="_blank">jQuery tips</a> for writing more efficient jQuery selectors.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <span id="ui-elements-headings" class="anchor"></span>
+        <div class="block-flat">
+          <div class="header">
+            <a href="#ui-elements-headings" class="anchor-link"><i class="fa fa-link"></i></a>
+            <h3>Headings</h3>
+          </div>
+          <div class="content">
+            <p>
+              Section heads, like the one above should be used to section out each page. If there is only one section, only a page title is needed.
+            </p>
+            <pre><code class="html">&#x3C;div class=&#x22;header&#x22;&#x3E;
+&#x3C;h3&#x3E;Headings&#x3C;/h3&#x3E;
+&#x3C;/div&#x3E;</code></pre>
+            <h1>Heading Text 1</h1>
+            <h2>Heading Text 2</h2>
+            <h3>Heading Text 3</h3>
+            <h4 class="subtitle">Heading Text 4</h4>
+            <h5>Heading Text 5</h5>
+            <h6>Heading Text 6</h6>
+            <pre><code class="html">&lt;h1&gt;Heading Text 1&lt;/h1&gt;
+&lt;h2&gt;Heading Text 2&lt;/h2&gt;
+&lt;h3&gt;Heading Text 3&lt;/h3&gt;
+&lt;h4&gt;Heading Text 4&lt;/h4&gt;
+&lt;h5&gt;Heading Text 5&lt;/h5&gt;
+&lt;h6&gt;Heading Text 6&lt;/h6&gt;</code></pre>
+            <div class="spacer">&nbsp;</div>
+            <h1 class="hthin">Thin Heading 1</h1>
+            <h2 class="hthin">Thin Heading 2</h2>
+            <h3 class="hthin">Thin Heading 3</h3>
+            <pre><code class="html">&lt;h1 class=&quot;hthin&quot;&gt;Thin Heading 1&lt;/h1&gt;
+&lt;h2 class=&quot;hthin&quot;&gt;Thin Heading 2&lt;/h2&gt;
+&lt;h3 class=&quot;hthin&quot;&gt;Thin Heading 3&lt;/h3&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <span id="ui-elements-alerts" class="anchor"></span>
+        <div class="block-flat">
+          <div class="header">
+            <a href="#ui-elements-alerts" class="anchor-link"><i class="fa fa-link"></i></a>
+            <h3>Bootstrap Alerts</h3>
+          </div>
+          <div class="content">
+            <div class="alert alert-success">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <i class="fa fa-check sign"></i><strong>Success!</strong> Changes has been saved successfully!
+            </div>
+            <div class="alert alert-info">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <i class="fa fa-info-circle sign"></i><strong>Info!</strong> You have 3 new messages in your inbox.
+            </div>
+            <div class="alert alert-warning">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <i class="fa fa-warning sign"></i><strong>Alert!</strong> Don't forget to save your data.
+            </div>
+            <div class="alert alert-danger">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <i class="fa fa-times-circle sign"></i><strong>Error!</strong> The server is not responding, try again later.
+            </div>
+            <pre><code class="html">&lt;div class=&quot;alert alert-success&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+  &lt;i class=&quot;fa fa-check sign&quot;&gt;&lt;/i&gt;&lt;strong&gt;Success!&lt;/strong&gt; Changes has been saved successfully!
+&lt;/div&gt;
+&lt;div class=&quot;alert alert-info&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+  &lt;i class=&quot;fa fa-info-circle sign&quot;&gt;&lt;/i&gt;&lt;strong&gt;Info!&lt;/strong&gt; You have 3 new messages in your inbox.
+&lt;/div&gt;
+&lt;div class=&quot;alert alert-warning&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+  &lt;i class=&quot;fa fa-warning sign&quot;&gt;&lt;/i&gt;&lt;strong&gt;Alert!&lt;/strong&gt; Don&apos;t forget to save your data.
+&lt;/div&gt;
+&lt;div class=&quot;alert alert-danger&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+  &lt;i class=&quot;fa fa-times-circle sign&quot;&gt;&lt;/i&gt;&lt;strong&gt;Error!&lt;/strong&gt; The server is not responding, try again later.
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <span id="ui-elements-progress-bars" class="anchor"></span>
+        <div class="block-flat">
+          <div class="header">
+            <a href="#ui-elements-progress-bars" class="anchor-link"><i class="fa fa-link"></i></a>
+            <h3>Progress Bars</h3>
+          </div>
+          <div class="content">
+            <h4 class="subtitle">Simple</h4>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" style="width: 40%">40%</div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-info" style="width: 20%">20%</div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-warning" style="width: 60%">60%</div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-danger" style="width: 80%">80%</div>
+            </div>
+            <pre><code class="html">&lt;div class=&quot;progress&quot;&gt;
+  &lt;div class=&quot;progress-bar progress-bar-success&quot; style=&quot;width: 40%&quot;&gt;40%&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;progress&quot;&gt;
+  &lt;div class=&quot;progress-bar progress-bar-info&quot; style=&quot;width: 20%&quot;&gt;20%&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;progress&quot;&gt;
+  &lt;div class=&quot;progress-bar progress-bar-warning&quot; style=&quot;width: 60%&quot;&gt;60%&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;progress&quot;&gt;
+  &lt;div class=&quot;progress-bar progress-bar-danger&quot; style=&quot;width: 80%&quot;&gt;80%&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <h4 class="spacer2">Stacked</h4>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" style="width: 20%">20%</div>
+              <div class="progress-bar progress-bar-info" style="width: 20%">20%</div>
+              <div class="progress-bar progress-bar-warning" style="width: 30%">30%</div>
+              <div class="progress-bar progress-bar-danger" style="width: 10%">10%</div>
+            </div>
+            <pre><code class="html">&lt;div class=&quot;progress&quot;&gt;
+  &lt;div class=&quot;progress-bar progress-bar-success&quot; style=&quot;width: 20%&quot;&gt;20%&lt;/div&gt;
+  &lt;div class=&quot;progress-bar progress-bar-info&quot; style=&quot;width: 20%&quot;&gt;20%&lt;/div&gt;
+  &lt;div class=&quot;progress-bar progress-bar-warning&quot; style=&quot;width: 30%&quot;&gt;30%&lt;/div&gt;
+  &lt;div class=&quot;progress-bar progress-bar-danger&quot; style=&quot;width: 10%&quot;&gt;10%&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <span id="ui-elements-dropdown-menus" class="anchor"></span>
+        <div class="block-flat">
+          <div class="header">
+            <a href="#ui-elements-dropdown-menus" class="anchor-link"><i class="fa fa-link"></i></a>
+            <h3>Dropdown Menus</h3>
+          </div>
+          <div class="content">
+            <div class="dropdown clearfix">
+              <ul class="dropdown-menu static-mn spacer">
+              <li><a tabindex="-1" href="#">Action</a></li>
+              <li><a tabindex="-1" href="#">Another action</a></li>
+              <li><a tabindex="-1" href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a tabindex="-1" href="#">Separated link</a></li>
+              </ul>
+            </div>
+            <pre><code class="html">&lt;div class=&quot;dropdown clearfix&quot;&gt;
+  &lt;ul class=&quot;dropdown-menu static-mn spacer&quot;&gt;
+    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+            <h4 class="subtitle">Sub Menu</h4>
+            <div class="dropdown clearfix">
+              <ul class="dropdown-menu static-mn spacer">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li class="dropdown-submenu"><a href="#">Sub menu</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  </ul>
+              </li>
+              </ul>
+            </div>
+            <pre><code class="html">&lt;div class=&quot;dropdown clearfix&quot;&gt;
+  &lt;ul class=&quot;dropdown-menu static-mn spacer&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;dropdown-submenu&quot;&gt;&lt;a href=&quot;#&quot;&gt;Sub menu&lt;/a&gt;
+      &lt;ul class=&quot;dropdown-menu&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+            <h4 class="subtitle">Two column menu</h4>
+            <div class="static-lg-menu clearfix">
+              <ul class="dropdown-menu col-menu-2 static-mn spacer">
+                <li class="col-sm-6 no-padding">
+                  <ul>
+                  <li class="dropdown-header"><i class="fa fa-group"></i>Users</li>
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="dropdown-header"><i class="fa fa-gear"></i>Config</li>
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  </ul>
+                </li>
+                <li  class="col-sm-6 no-padding">
+                  <ul>
+                  <li class="dropdown-header"><i class="fa fa-legal"></i>Sales</li>
+                  <li><a href="#">New sale</a></li>
+                  <li><a href="#">Register a product</a></li>
+                  <li><a href="#">Register a client</a></li>
+                  <li><a href="#">Month sales</a></li>
+                  <li><a href="#">Delivered orders</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <pre><code class="html">&lt;div class=&quot;static-lg-menu clearfix&quot;&gt;
+  &lt;ul class=&quot;dropdown-menu col-menu-2 static-mn spacer&quot;&gt;
+    &lt;li class=&quot;col-sm-6 no-padding&quot;&gt;
+      &lt;ul&gt;
+      &lt;li class=&quot;dropdown-header&quot;&gt;&lt;i class=&quot;fa fa-group&quot;&gt;&lt;/i&gt;Users&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;dropdown-header&quot;&gt;&lt;i class=&quot;fa fa-gear&quot;&gt;&lt;/i&gt;Config&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li  class=&quot;col-sm-6 no-padding&quot;&gt;
+      &lt;ul&gt;
+      &lt;li class=&quot;dropdown-header&quot;&gt;&lt;i class=&quot;fa fa-legal&quot;&gt;&lt;/i&gt;Sales&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;New sale&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Register a product&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Register a client&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Month sales&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Delivered orders&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <span id="ui-elements-labels-badges" class="anchor"></span>
+        <div class="block-flat">
+          <div class="header">
+            <a href="#ui-elements-labels-badges" class="anchor-link"><i class="fa fa-link"></i></a>
+            <h3>Labels and Badges</h3>
+          </div>
+          <div class="content">
+            <table>
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th class="text-center">Label</th>
+                  <th class="text-center">Icon</th>
+                  <th class="text-center">Badge</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width:30%;">Default</td>
+                  <td class="text-center"><span class="label label-default">Default</span></td>
+                  <td class="text-center"><a class="label label-default" href="#"><i class="fa fa-pencil"></i></a></td>
+                  <td class="text-center"><span class="badge badge-default">25</span></td>
+                </tr>
+                <tr>
+                  <td>Primary</td>
+                  <td class="text-center"><span class="label label-primary">Primary</span></td>
+                  <td class="text-center"><a class="label label-primary" href="#"><i class="fa fa-pencil"></i></a></td>
+                  <td class="text-center"><span class="badge badge-primary">6</span></td>
+                </tr>
+                <tr>
+                  <td>Success</td>
+                  <td class="text-center"><span class="label label-success">Success</span></td>
+                  <td class="text-center"><a class="label label-success" href="#"><i class="fa fa-pencil"></i></a></td>
+                  <td class="text-center"><span class="badge badge-success">8</span></td>
+                </tr>
+                <tr>
+                  <td>Info</td>
+                  <td class="text-center"><span class="label label-info">Info</span></td>
+                  <td class="text-center"><a class="label label-info" href="#"><i class="fa fa-info-circle"></i></a></td>
+                  <td class="text-center"><span class="badge badge-info">3</span></td>
+                </tr>
+                <tr>
+                  <td>Warning</td>
+                  <td class="text-center"><span class="label label-warning">Warning</span></td>
+                  <td class="text-center"><a class="label label-warning" href="#"><i class="fa fa-warning"></i></a></td>
+                  <td class="text-center"><span class="badge badge-warning">5</span></td>
+                </tr>
+                <tr>
+                  <td>Danger</td>
+                  <td class="text-center"><span class="label label-danger">Danger</span></td>
+                  <td class="text-center"><a class="label label-danger" href="#"><i class="fa fa-pencil"></i></a></td>
+                  <td class="text-center"><span class="badge badge-danger">54</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <pre><code class="html">&lt;span class=&quot;label label-default&quot;&gt;Default&lt;/span&gt;
+&lt;a class=&quot;label label-default&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-pencil&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;span class=&quot;badge badge-default&quot;&gt;25&lt;/span&gt;
+
+&lt;span class=&quot;label label-success&quot;&gt;Success&lt;/span&gt;
+&lt;a class=&quot;label label-success&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-pencil&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;span class=&quot;badge badge-success&quot;&gt;8&lt;/span&gt;
+
+&lt;span class=&quot;label label-info&quot;&gt;Info&lt;/span&gt;
+&lt;a class=&quot;label label-info&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-info-circle&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;span class=&quot;badge badge-info&quot;&gt;3&lt;/span&gt;
+
+&lt;span class=&quot;label label-warning&quot;&gt;Warning&lt;/span&gt;
+&lt;a class=&quot;label label-warning&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-warning&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;span class=&quot;badge badge-warning&quot;&gt;5&lt;/span&gt;
+
+&lt;span class=&quot;label label-danger&quot;&gt;Danger&lt;/span&gt;
+&lt;a class=&quot;label label-danger&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-pencil&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;span class=&quot;badge badge-danger&quot;&gt;54&lt;/span&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <span id="ui-elements-buttons" class="anchor"></span>
+        <div class="block-flat">
+          <div class="header">
+            <a href="#ui-elements-buttons" class="anchor-link"><i class="fa fa-link"></i></a>
+            <h3>Basic Buttons</h3>
+          </div>
+          <div class="content">
+            <div class="spacer spacer-bottom">
+              <button type="button" class="btn btn-default">Default</button>
+              <button type="button" class="btn btn-primary">Primary</button>
+              <button type="button" class="btn btn-success">Success</button>
+              <button type="button" class="btn btn-info">Info</button>
+              <button type="button" class="btn btn-warning">Warning</button>
+              <button type="button" class="btn btn-danger">Danger</button>
+            </div>
+            <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;Default&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Primary&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot;&gt;Success&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot;&gt;Info&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-warning&quot;&gt;Warning&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;Danger&lt;/button&gt;</code></pre>
+
+            <div class="spacer">&nbsp;</div>
+            <h4 class="subtitle">Flat buttons</h4>
+            <div class="spacer spacer-bottom">
+              <button type="button" class="btn btn-default btn-flat">Default</button>
+              <button type="button" class="btn btn-primary btn-flat">Primary</button>
+              <button type="button" class="btn btn-success btn-flat">Success</button>
+              <button type="button" class="btn btn-info btn-flat">Info</button>
+              <button type="button" class="btn btn-warning btn-flat">Warning</button>
+              <button type="button" class="btn btn-danger btn-flat">Danger</button>
+            </div>
+            <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-flat&quot;&gt;Default&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-flat&quot;&gt;Primary&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success btn-flat&quot;&gt;Success&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info btn-flat&quot;&gt;Info&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-warning btn-flat&quot;&gt;Warning&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger btn-flat&quot;&gt;Danger&lt;/button&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <span id="ui-elements-buttons-size" class="anchor"></span>
+        <div class="block-flat">
+          <div class="header">
+            <a href="#ui-elements-buttons-size" class="anchor-link"><i class="fa fa-link"></i></a>
+            <h3>Buttons Size</h3>
+          </div>
+          <div class="content">
+            <div class="spacer spacer-bottom">
+              <button type="button" class="btn btn-default btn-xs">Extra Small</button>
+              <button type="button" class="btn btn-default">Normal</button>
+            </div>
+            <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-xs&quot;&gt;Extra Small&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;Normal&lt;/button&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <span id="ui-elements-advanced-buttons" class="anchor"></span>
+        <div class="block-flat">
+          <div class="header">
+            <a href="#ui-elements-advanced-buttons" class="anchor-link"><i class="fa fa-link"></i></a>
+            <h3>Advanced buttons</h3>
+          </div>
+          <div class="content">
+            <p>
+              You can add icons to buttons. For a full list of icons go to the <a href="ui-icons.html">icons page</a>.
+            </p>
+            <div class="spacer spacer-bottom">
+              <button type="button" class="btn btn-default btn-xs"><i class="fa fa-cloud-download"></i> Download</button>
+              <button type="button" class="btn btn-default"><i class="fa fa-cloud-download"></i> Download</button>
+            </div>
+            <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-xs&quot;&gt;&lt;i class=&quot;fa fa-cloud-download&quot;&gt;&lt;/i&gt; Download&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;&lt;i class=&quot;fa fa-cloud-download&quot;&gt;&lt;/i&gt; Download&lt;/button&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <span id="ui-elements-dropdown-buttons" class="anchor"></span>
+        <div class="block-flat">
+          <div class="header">
+            <a href="#ui-elements-dropdown-buttons" class="anchor-link"><i class="fa fa-link"></i></a>
+            <h3>Dropdown Buttons</h3>
+          </div>
+          <div class="content">
+            <div class="spacer spacer-bottom">
+              <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Basic Dropdown <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                </ul>
+              </div>
+            </div>
+            <pre><code class="html">&lt;div class=&quot;btn-group&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-default dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
+  Basic Dropdown &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul class=&quot;dropdown-menu&quot; role=&quot;menu&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <span id="ui-elements-modals" class="anchor"></span>
+        <div class="block-flat">
+          <div class="header">
+            <a href="#ui-elements-modals" class="anchor-link"><i class="fa fa-link"></i></a>
+            <h3>Modal Alerts</h3>
+          </div>
+          <div class="content">
+            <button data-toggle="modal" data-target="#mod-info" type="button" class="btn btn-primary"><i class="fa fa-info-circle"></i> Primary</button>
+            <button data-toggle="modal" data-target="#mod-success" type="button" class="btn btn-success"><i class="fa fa-check"></i> Success</button>
+            <button data-toggle="modal" data-target="#mod-info" type="button" class="btn btn-info"><i class="fa fa-info-circle"></i> Information</button>
+            <button data-toggle="modal" data-target="#mod-warning" type="button" class="btn btn-warning"><i class="fa fa-warning"></i> Warning</button>
+            <button data-toggle="modal"  data-target="#mod-error" type="button" class="btn btn-danger"><i class="fa fa-times-circle"></i> Error</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="mod-success" tabindex="-1" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="text-center">
+                      <div class="i-circle success"><i class="fa fa-check"></i></div>
+                      <h4 class="subtitle">Awesome!</h4>
+                      <p>Changes has been saved successfully!</p>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Proceed</button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="mod-info" tabindex="-1" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="text-center">
+                      <div class="i-circle primary"><i class="fa fa-info-circle"></i></div>
+                      <h4 class="subtitle">Awesome!</h4>
+                      <p>Changes has been saved successfully!</p>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Proceed</button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="mod-warning" tabindex="-1" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="text-center">
+                      <div class="i-circle warning"><i class="fa fa-warning"></i></div>
+                      <h4 class="subtitle">Warning!</h4>
+                      <p>Something is going wrong here...</p>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Proceed</button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="mod-error" tabindex="-1" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="text-center">
+                      <div class="i-circle danger"><i class="fa fa-times"></i></div>
+                      <h4 class="subtitle">Oh god!</h4>
+                      <p>You're by your own now, good luck!</p>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Proceed</button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+          </div>
+        </div>
+      </div>
+      <!-- SYANG - SAVE FOR LATER
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="block-flat">
+            <div class="header">
+              <div class="pull-right actions"></div>
+              <h3>Fixed Sidebar</h3>
+            </div>
+            <div class="content">
+              <p>To set the sidebar fixed just add <code>".fixed-menu"</code> to the <code>"#cl-wrapper"</code> element.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="block-flat">
+            <div class="header">
+              <div class="pull-right actions"></div>
+              <h3>Collapsed Sidebar</h3>
+            </div>
+            <div class="content">
+              <p>To collapse the sidebar you can click on "Collapse Button" located in the bottom of the sidebar. If you want the sidebar collapsed by default just add <code>".sb-collapsed"</code> to the <code>"#cl-wrapper"</code> element.</p>
+            </div>
+          </div>
+        </div>
+      </div>-->
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+        });
+        hljs.initHighlightingOnLoad();
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>
