@@ -15,12 +15,15 @@ table
   width: 100%
   thead
     border: 1px solid $table-border-color
-    border-bottom: 2px solid $table-border-color
+    border-bottom: 1px solid $table-border-color
     th
       font-size: 13px
       vertical-align: bottom
       padding: 10px 8px 5px 8px
   tbody
+    tr
+      &:first-child
+        border-top: 1px solid $table-border-color
     td
       padding: 7px 8px
       font-size: 12px
@@ -40,6 +43,14 @@ table
       tr:hover:not(.disabled)
         background-color: rgba(0, 121, 194, 0.1)
         cursor: pointer
+
+  &.extra-padded
+    td
+      padding: 25px
+
+  .title-colummn
+    vertical-align: top
+    font-weight: 700
 
   .no-border
     border: 0
