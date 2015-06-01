@@ -1418,6 +1418,7 @@ var App = function () {
           var asideW = $("#page-aside").width();
 
           $("#fixed-action-header").css("left", navW + asideW);
+          $(".page-head").css("left", navW);
         }
 
         $(window).resize(function() {

@@ -72,7 +72,6 @@ ol
   float: right
 
 
-
 /* LATOUT HELPERS */
 .spacer
   margin-top: 15px !important
@@ -138,6 +137,17 @@ ol
 
 
 .page-head
+  border-bottom: 1px solid #E9E9E9
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.05)
+  padding: 20px 25px
+  position: fixed
+  right: 0
+  z-index: 3000
+  + .cl-mcont
+    padding-top: 85px
+  &.has-breadcrumb
+    + .cl-mcont
+      padding-top: 110px
   .breadcrumb
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0)
     margin-bottom: 0
