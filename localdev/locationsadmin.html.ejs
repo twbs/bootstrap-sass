@@ -34,12 +34,138 @@
     <div class="page-head">
       <!-- TODO: onclick is only temporary for markup purposes -->
       <button type="button" onclick="slideout('add');" class="btn btn-primary btn-right">Add Location</button>
+      <h2>Locations</h2>
+    </div>
+    <div class="cl-mcont">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="block-flat">
+            <div class="pre-table">
+              <div class="admin-search">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+              </div>
+              <div class="search-matches">Matched 28 of 328 items.</div>
+              <div class="num-rows-option">
+                Show
+                <select class="form-inline">
+                  <option>10</option>
+                  <option>25</option>
+                  <option>50</option>
+                </select>
+                Rows
+              </div>
+            </div>
+            <table class="datatable">
+              <thead>
+                <tr>
+                  <th>ID <i class="fa fa-sort"></i></th>
+                  <th>Name <i class="fa fa-sort"></i></th>
+                  <th>City <i class="fa fa-sort"></i></th>
+                  <th>State <i class="fa fa-sort"></i></th>
+                  <th>Status <i class="fa fa-sort-down active"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a onclick="slideout('location');">3024</a></td>
+                  <td><a onclick="slideout('location');">Store Name Here</a></td>
+                  <td><a onclick="slideout('location');">Austin</a></td>
+                  <td><a onclick="slideout('location');">TX</a></td>
+                  <td><a onclick="slideout('location');">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('location');">1089</a></td>
+                  <td><a onclick="slideout('location');">Another store</a></td>
+                  <td><a onclick="slideout('location');">Houston</a></td>
+                  <td><a onclick="slideout('location');">TX</a></td>
+                  <td><a onclick="slideout('location');">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('location');">3825</a></td>
+                  <td><a onclick="slideout('location');">Brookhaven</a></td>
+                  <td><a onclick="slideout('location');">Atlanta</a></td>
+                  <td><a onclick="slideout('location');">GA</a></td>
+                  <td><a onclick="slideout('location');">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('location');">19278</a></td>
+                  <td><a onclick="slideout('location');">Blahblah blah</a></td>
+                  <td><a onclick="slideout('location');">Austin</a></td>
+                  <td><a onclick="slideout('location');">TX</a></td>
+                  <td><a onclick="slideout('location');">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('location');">928</a></td>
+                  <td><a onclick="slideout('location');">Coolest Store Ever</a></td>
+                  <td><a onclick="slideout('location');">Austin</a></td>
+                  <td><a onclick="slideout('location');">TX</a></td>
+                  <td><a onclick="slideout('location');">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('location');">3028</a></td>
+                  <td><a onclick="slideout('location');">A really long store name here</a></td>
+                  <td><a onclick="slideout('location');">Dallas</a></td>
+                  <td><a onclick="slideout('location');">TX</a></td>
+                  <td><a onclick="slideout('location');">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('location');">8827</a></td>
+                  <td><a onclick="slideout('location');">Yet another store</a></td>
+                  <td><a onclick="slideout('location');">Nashville</a></td>
+                  <td><a onclick="slideout('location');">TN</a></td>
+                  <td><a onclick="slideout('location');">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('location');">8273</a></td>
+                  <td><a onclick="slideout('location');">Bob's Wonderful Store</a></td>
+                  <td><a onclick="slideout('location');">New York</a></td>
+                  <td><a onclick="slideout('location');">NY</a></td>
+                  <td><a onclick="slideout('location');">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('location');">4024</a></td>
+                  <td><a onclick="slideout('location');">Super rainy store</a></td>
+                  <td><a onclick="slideout('location');">Seattle</a></td>
+                  <td><a onclick="slideout('location');">WA</a></td>
+                  <td><a onclick="slideout('location');">Inactive</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('location');">3024</a></td>
+                  <td><a onclick="slideout('location');">Awesome Store</a></td>
+                  <td><a onclick="slideout('location');">San Jose</a></td>
+                  <td><a onclick="slideout('location');">CA</a></td>
+                  <td><a onclick="slideout('location');">Inactive</a></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="pagination">
+              <ul>
+                <li class="pagination-item"><i class="fa fa-angle-left"></i> Previous</li>
+                <li class="pagination-item">1</li>
+                <li class="pagination-item inactive">...</li>
+                <li class="pagination-item">18</li>
+                <li class="pagination-item">19</li>
+                <li class="pagination-item current">20</li>
+                <li class="pagination-item">21</li>
+                <li class="pagination-item">22</li>
+                <li class="pagination-item inactive">...</li>
+                <li class="pagination-item">330</li>
+                <li class="pagination-item">Next <i class="fa fa-angle-right"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slideout-overlay" style="display: none;">
+      <a href="javascript:void(0);" class="overlay-close" onclick="slidein();"></a>
+      <div class="slideout-close" onclick="slidein();"><i class="fa fa-times"></i></div>
       <div id="slideout">
-        <!-- TODO: Temporary markup
-             The slideout should be a modal. See www.producthunt.com and click on one of the list items (not the actual link) to see an example of what the modal should look like. Only the section "SLIDEOUT CONTENT" below should be in the modal.
-        -->
         <div id="slideout-inner">
-          <div class="slidein" onclick="slidein();"><i class="fa fa-times"></i></div>
 
           <!-- TODO: BEGIN SLIDEOUT CONTENT -->
           <div id="add-slideout" class="slideout-wrap">
@@ -291,131 +417,6 @@
 
         </div>
       </div>
-      <h2>Locations</h2>
-    </div>
-    <div class="cl-mcont">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="block-flat">
-            <div class="pre-table">
-              <div class="admin-search">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                  <input type="text" class="form-control" placeholder="Search">
-                </div>
-              </div>
-              <div class="search-matches">Matched 28 of 328 items.</div>
-              <div class="num-rows-option">
-                Show
-                <select class="form-inline">
-                  <option>10</option>
-                  <option>25</option>
-                  <option>50</option>
-                </select>
-                Rows
-              </div>
-            </div>
-            <table class="datatable">
-              <thead>
-                <tr>
-                  <th>ID <i class="fa fa-sort"></i></th>
-                  <th>Name <i class="fa fa-sort"></i></th>
-                  <th>City <i class="fa fa-sort"></i></th>
-                  <th>State <i class="fa fa-sort"></i></th>
-                  <th>Status <i class="fa fa-sort-down active"></i></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><a onclick="slideout('location');">3024</a></td>
-                  <td><a onclick="slideout('location');">Store Name Here</a></td>
-                  <td><a onclick="slideout('location');">Austin</a></td>
-                  <td><a onclick="slideout('location');">TX</a></td>
-                  <td><a onclick="slideout('location');">Active</a></td>
-                </tr>
-                <tr>
-                  <td><a onclick="slideout('location');">1089</a></td>
-                  <td><a onclick="slideout('location');">Another store</a></td>
-                  <td><a onclick="slideout('location');">Houston</a></td>
-                  <td><a onclick="slideout('location');">TX</a></td>
-                  <td><a onclick="slideout('location');">Active</a></td>
-                </tr>
-                <tr>
-                  <td><a onclick="slideout('location');">3825</a></td>
-                  <td><a onclick="slideout('location');">Brookhaven</a></td>
-                  <td><a onclick="slideout('location');">Atlanta</a></td>
-                  <td><a onclick="slideout('location');">GA</a></td>
-                  <td><a onclick="slideout('location');">Active</a></td>
-                </tr>
-                <tr>
-                  <td><a onclick="slideout('location');">19278</a></td>
-                  <td><a onclick="slideout('location');">Blahblah blah</a></td>
-                  <td><a onclick="slideout('location');">Austin</a></td>
-                  <td><a onclick="slideout('location');">TX</a></td>
-                  <td><a onclick="slideout('location');">Active</a></td>
-                </tr>
-                <tr>
-                  <td><a onclick="slideout('location');">928</a></td>
-                  <td><a onclick="slideout('location');">Coolest Store Ever</a></td>
-                  <td><a onclick="slideout('location');">Austin</a></td>
-                  <td><a onclick="slideout('location');">TX</a></td>
-                  <td><a onclick="slideout('location');">Active</a></td>
-                </tr>
-                <tr>
-                  <td><a onclick="slideout('location');">3028</a></td>
-                  <td><a onclick="slideout('location');">A really long store name here</a></td>
-                  <td><a onclick="slideout('location');">Dallas</a></td>
-                  <td><a onclick="slideout('location');">TX</a></td>
-                  <td><a onclick="slideout('location');">Active</a></td>
-                </tr>
-                <tr>
-                  <td><a onclick="slideout('location');">8827</a></td>
-                  <td><a onclick="slideout('location');">Yet another store</a></td>
-                  <td><a onclick="slideout('location');">Nashville</a></td>
-                  <td><a onclick="slideout('location');">TN</a></td>
-                  <td><a onclick="slideout('location');">Active</a></td>
-                </tr>
-                <tr>
-                  <td><a onclick="slideout('location');">8273</a></td>
-                  <td><a onclick="slideout('location');">Bob's Wonderful Store</a></td>
-                  <td><a onclick="slideout('location');">New York</a></td>
-                  <td><a onclick="slideout('location');">NY</a></td>
-                  <td><a onclick="slideout('location');">Active</a></td>
-                </tr>
-                <tr>
-                  <td><a onclick="slideout('location');">4024</a></td>
-                  <td><a onclick="slideout('location');">Super rainy store</a></td>
-                  <td><a onclick="slideout('location');">Seattle</a></td>
-                  <td><a onclick="slideout('location');">WA</a></td>
-                  <td><a onclick="slideout('location');">Inactive</a></td>
-                </tr>
-                <tr>
-                  <td><a onclick="slideout('location');">3024</a></td>
-                  <td><a onclick="slideout('location');">Awesome Store</a></td>
-                  <td><a onclick="slideout('location');">San Jose</a></td>
-                  <td><a onclick="slideout('location');">CA</a></td>
-                  <td><a onclick="slideout('location');">Inactive</a></td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="pagination">
-              <ul>
-                <li class="pagination-item"><i class="fa fa-angle-left"></i> Previous</li>
-                <li class="pagination-item">1</li>
-                <li class="pagination-item inactive">...</li>
-                <li class="pagination-item">18</li>
-                <li class="pagination-item">19</li>
-                <li class="pagination-item current">20</li>
-                <li class="pagination-item">21</li>
-                <li class="pagination-item">22</li>
-                <li class="pagination-item inactive">...</li>
-                <li class="pagination-item">330</li>
-                <li class="pagination-item">Next <i class="fa fa-angle-right"></i></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Bootstrap core JavaScript
@@ -454,13 +455,13 @@
     <!-- TODO: The functions below are only temporary for purposes of markup -->
     <script>
       function slideout(slideoutType) {
-        $("#slideout").addClass("active");
+        $(".slideout-overlay").show();
         if(slideoutType == 'add') { $("#add-slideout").show(); $("#location-slideout").hide(); }
         else if (slideoutType == 'location') {$("#location-slideout").show(); $("#add-slideout").hide(); }
         else { $("#add-slideout").hide(); $("#location-slideout").hide(); }
       }
       function slidein() {
-        $("#slideout").removeClass("active");
+        $(".slideout-overlay").hide();
       }
     </script>
     <!-- END TODO -->

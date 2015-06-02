@@ -30,90 +30,6 @@
 
     <% include notes-sidebar.html.ejs %>
 
-    <div id="slideout">
-      <!-- TODO: onclick is only temporary for markup purposes -->
-      <div id="slideout-inner">
-        <div class="slidein" onclick="slidein();"><i class="fa fa-times"></i></div>
-      <!-- END TODO -->
-
-
-        <!-- TODO: BEGIN SLIDEOUT CONTENT -->
-        <div class="slideout-wrap">
-          <div class="content">
-            <div id="action-item-details">
-              <div id="action-item-name">
-                <input id="action-item-checkbox" type="checkbox"> An action item with no set due date or assigned
-              </div>
-              <div class="action-item-meta">
-                <span class="meta-icon"><i class="fa fa-book"></i></span> My Note About Something
-              </div>
-              <div class="action-item-meta">
-                <span class="meta-icon"><i class="fa fa-map-marker"></i></span> Town North Nissan - 1234
-              </div>
-              <div class="action-item-meta">
-                <span class="meta-icon"><i class="fa fa-user"></i></span> Jonathan Crowe (owner)
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Assigned To</label>
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <input type="text" class="form-control" data-toggle="dropdown">
-                <ul class="dropdown-menu autocomplete-results full-width">
-                  <!-- <li class="global-search-message">
-                    <p>No results found.</p>
-                  </li> -->
-                  <li>
-                    <a href="#" class="global-search-item">
-                      <div class="global-search-icon"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg"></div>
-                      <div class="global-search-title">
-                        John Weathers
-                        <div class="global-search-subtitle">FOM</div>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="global-search-item">
-                      <div class="global-search-icon"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg"></div>
-                      <div class="global-search-title">
-                        Joe Johnson
-                        <div class="global-search-subtitle">AGM</div>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="global-search-item">
-                      <div class="global-search-icon"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg"></div>
-                      <div class="global-search-title">
-                        Clay Johnson
-                        <div class="global-search-subtitle">DOM</div>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Due Date</label>
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                <input type="text" class="form-control datepicker">
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Description</label>
-              <textarea class="form-control" rows="10"></textarea>
-            </div>
-            <button type="button" class="btn btn-nostyle btn-right"><i class="fa fa-trash-o"></i></button>
-            <button type="button" class="btn btn-primary">Update</button>
-            <button type="button" class="btn btn-default" onclick="slidein();">Cancel</button>
-          </div>
-        </div>
-        <!-- END TODO -->
-
-      </div>
-    </div>
-
     <div class="page-head">
        <h2>Action Items</h2>
     </div>
@@ -238,6 +154,90 @@
       </div>
     </div>
 
+    <div class="slideout-overlay" style="display: none;">
+      <a href="javascript:void(0);" class="overlay-close" onclick="slidein();"></a>
+      <div class="slideout-close" onclick="slidein();"><i class="fa fa-times"></i></div>
+      <div id="slideout">
+        <!-- TODO: onclick is only temporary for markup purposes -->
+        <div id="slideout-inner">
+          <div class="slideout-wrap">
+            <div class="content">
+              <div id="action-item-details">
+                <div id="action-item-name">
+                  <input id="action-item-checkbox" type="checkbox"> An action item with no set due date or assigned
+                </div>
+                <div class="action-item-meta">
+                  <span class="meta-icon"><i class="fa fa-book"></i></span> My Note About Something
+                </div>
+                <div class="action-item-meta">
+                  <span class="meta-icon"><i class="fa fa-map-marker"></i></span> Town North Nissan - 1234
+                </div>
+                <div class="action-item-meta">
+                  <span class="meta-icon"><i class="fa fa-user"></i></span> Jonathan Crowe (owner)
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Assigned To</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                  <input type="text" class="form-control" data-toggle="dropdown">
+                  <ul class="dropdown-menu autocomplete-results full-width">
+                    <!-- <li class="global-search-message">
+                      <p>No results found.</p>
+                    </li> -->
+                    <li>
+                      <a href="#" class="global-search-item">
+                        <div class="global-search-icon"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg"></div>
+                        <div class="global-search-title">
+                          John Weathers
+                          <div class="global-search-subtitle">FOM</div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="global-search-item">
+                        <div class="global-search-icon"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg"></div>
+                        <div class="global-search-title">
+                          Joe Johnson
+                          <div class="global-search-subtitle">AGM</div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="global-search-item">
+                        <div class="global-search-icon"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg"></div>
+                        <div class="global-search-title">
+                          Clay Johnson
+                          <div class="global-search-subtitle">DOM</div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Due Date</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                  <input type="text" class="form-control datepicker">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" rows="10"></textarea>
+              </div>
+              <button type="button" class="btn btn-nostyle btn-right"><i class="fa fa-trash-o"></i></button>
+              <button type="button" class="btn btn-primary">Update</button>
+              <button type="button" class="btn btn-default" onclick="slidein();">Cancel</button>
+            </div>
+          </div>
+          <!-- END TODO -->
+
+        </div>
+      </div>
+    </div>
+
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -254,10 +254,10 @@
     <!-- TODO: The functions below are only temporary for purposes of markup -->
     <script>
       function slideout() {
-        $("#slideout").addClass("active");
+        $(".slideout-overlay").show();
       }
       function slidein() {
-        $("#slideout").removeClass("active");
+        $(".slideout-overlay").hide();
       }
     </script>
     <!-- END TODO -->

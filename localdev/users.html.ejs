@@ -32,16 +32,121 @@
     <% include profile-sidebar.html.ejs %>
 
     <div class="page-head">
-      <div id="slideout">
-        <!-- TODO: onclick is only temporary for markup purposes -->
-        <button type="button" onclick="slideout('invite');" class="btn btn-primary btn-right">Invite User</button>
-        <!-- TODO: Temporary markup
-             The slideout should be a modal. See www.producthunt.com and click on one of the list items (not the actual link) to see an example of what the modal should look like. Only the section "SLIDEOUT CONTENT" below should be in the modal.
-        -->
-        <div id="slideout-inner">
-          <div class="slidein" onclick="slidein();"><i class="fa fa-times"></i></div>
-        <!-- END TODO -->
+      <button type="button" onclick="slideout('invite');" class="btn btn-primary btn-right">Invite User</button>
+      <!-- TODO: Temporary markup
+           The slideout should be a modal. See www.producthunt.com and click on one of the list items (not the actual link) to see an example of what the modal should look like. Only the section "SLIDEOUT CONTENT" below should be in the modal.
+      -->
+      <h2>Users</h2>
+    </div>
+    <div class="cl-mcont">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="block-flat">
+            <div class="pre-table">
+              <div class="admin-search">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+              </div>
+              <div class="search-matches">Matched 28 of 328 items.</div>
+              <div class="num-rows-option">
+                Show
+                <select class="form-inline">
+                  <option>10</option>
+                  <option>25</option>
+                  <option>50</option>
+                </select>
+                Rows
+              </div>
+            </div>
+            <table class="datatable">
+              <thead>
+                <tr>
+                  <th>Name <i class="fa fa-sort"></i></th>
+                  <th>Email <i class="fa fa-sort"></i></th>
+                  <th>Status <i class="fa fa-sort-down active"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a onclick="slideout('user');">Vincent Ramirez</a></td>
+                  <td><a onclick="slideout('user');">v.ramirez@company.com</a></td>
+                  <td><a onclick="slideout('user');">Active</a></td>
+                </tr>
+                <tr>
+                  <!-- If admin, show admin label -->
+                  <td><a onclick="slideout('user');">Bertha Hall <span class="label label-info">Admin</span></a></td>
+                  <td><a onclick="slideout('user');">b.hall@company.com</a></td>
+                  <td><a onclick="slideout('user');">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('user');">Camelia Rose</a></td>
+                  <td><a onclick="slideout('user');">c.rose@company.com</a></td>
+                  <td><a onclick="slideout('user');">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('user');">&nbsp;</a></td>
+                  <td><a onclick="slideout('user');">a.wright@company.com</a></td>
+                  <td><a onclick="slideout('user');">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('user');">Kathryn Payne</a></td>
+                  <td><a onclick="slideout('user');">k.payne@company.com</a></td>
+                  <td><a onclick="slideout('user');">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('user');">Dwight Taylor</a></td>
+                  <td><a onclick="slideout('user');">d.taylor@company.com</a></td>
+                  <td><a onclick="slideout('user');">Active</a></td>
+                </tr>
+                <tr class="disabled">
+                  <td></td>
+                  <td>n.terry@company.com</td>
+                  <td>Pending Invitation</td>
+                </tr>
+                <tr class="disabled">
+                  <td></td>
+                  <td>b.carr@company.com</td>
+                  <td>Pending Invitation</td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('user');">Harry Olson</a></td>
+                  <td><a onclick="slideout('user');">h.olson@company.com</a></td>
+                  <td><a onclick="slideout('user');">Inactive</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('user');">Mattie Hale</a></td>
+                  <td><a onclick="slideout('user');">m.hale@company.com</a></td>
+                  <td><a onclick="slideout('user');">Inactive</a></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="pagination">
+              <ul>
+                <li class="pagination-item"><i class="fa fa-angle-left"></i> Previous</li>
+                <li class="pagination-item">1</li>
+                <li class="pagination-item inactive">...</li>
+                <li class="pagination-item">18</li>
+                <li class="pagination-item">19</li>
+                <li class="pagination-item current">20</li>
+                <li class="pagination-item">21</li>
+                <li class="pagination-item">22</li>
+                <li class="pagination-item inactive">...</li>
+                <li class="pagination-item">330</li>
+                <li class="pagination-item">Next <i class="fa fa-angle-right"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="slideout-overlay" style="display: none;">
+      <a href="javascript:void(0);" class="overlay-close" onclick="slidein()"></a>
+      <div class="slideout-close" onclick="slidein();"><i class="fa fa-times"></i></div>
+      <div id="slideout">
+        <div id="slideout-inner">
 
           <!-- TODO: BEGIN INVITE SLIDEOUT CONTENT -->
           <div id="invite-slideout" class="slideout-wrap">
@@ -219,110 +324,6 @@
 
         </div>
       </div>
-      <h2>Users</h2>
-    </div>
-    <div class="cl-mcont">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="block-flat">
-            <div class="pre-table">
-              <div class="admin-search">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                  <input type="text" class="form-control" placeholder="Search">
-                </div>
-              </div>
-              <div class="search-matches">Matched 28 of 328 items.</div>
-              <div class="num-rows-option">
-                Show
-                <select class="form-inline">
-                  <option>10</option>
-                  <option>25</option>
-                  <option>50</option>
-                </select>
-                Rows
-              </div>
-            </div>
-            <table class="datatable">
-              <thead>
-                <tr>
-                  <th>Name <i class="fa fa-sort"></i></th>
-                  <th>Email <i class="fa fa-sort"></i></th>
-                  <th>Status <i class="fa fa-sort-down active"></i></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><a onclick="slideout('user');">Vincent Ramirez</a></td>
-                  <td><a onclick="slideout('user');">v.ramirez@company.com</a></td>
-                  <td><a onclick="slideout('user');">Active</a></td>
-                </tr>
-                <tr>
-                  <!-- If admin, show admin label -->
-                  <td><a onclick="slideout('user');">Bertha Hall <span class="label label-info">Admin</span></a></td>
-                  <td><a onclick="slideout('user');">b.hall@company.com</a></td>
-                  <td><a onclick="slideout('user');">Active</a></td>
-                </tr>
-                <tr>
-                  <td><a onclick="slideout('user');">Camelia Rose</a></td>
-                  <td><a onclick="slideout('user');">c.rose@company.com</a></td>
-                  <td><a onclick="slideout('user');">Active</a></td>
-                </tr>
-                <tr>
-                  <td><a onclick="slideout('user');">&nbsp;</a></td>
-                  <td><a onclick="slideout('user');">a.wright@company.com</a></td>
-                  <td><a onclick="slideout('user');">Active</a></td>
-                </tr>
-                <tr>
-                  <td><a onclick="slideout('user');">Kathryn Payne</a></td>
-                  <td><a onclick="slideout('user');">k.payne@company.com</a></td>
-                  <td><a onclick="slideout('user');">Active</a></td>
-                </tr>
-                <tr>
-                  <td><a onclick="slideout('user');">Dwight Taylor</a></td>
-                  <td><a onclick="slideout('user');">d.taylor@company.com</a></td>
-                  <td><a onclick="slideout('user');">Active</a></td>
-                </tr>
-                <tr class="disabled">
-                  <td></td>
-                  <td>n.terry@company.com</td>
-                  <td>Pending Invitation</td>
-                </tr>
-                <tr class="disabled">
-                  <td></td>
-                  <td>b.carr@company.com</td>
-                  <td>Pending Invitation</td>
-                </tr>
-                <tr>
-                  <td><a onclick="slideout('user');">Harry Olson</a></td>
-                  <td><a onclick="slideout('user');">h.olson@company.com</a></td>
-                  <td><a onclick="slideout('user');">Inactive</a></td>
-                </tr>
-                <tr>
-                  <td><a onclick="slideout('user');">Mattie Hale</a></td>
-                  <td><a onclick="slideout('user');">m.hale@company.com</a></td>
-                  <td><a onclick="slideout('user');">Inactive</a></td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="pagination">
-              <ul>
-                <li class="pagination-item"><i class="fa fa-angle-left"></i> Previous</li>
-                <li class="pagination-item">1</li>
-                <li class="pagination-item inactive">...</li>
-                <li class="pagination-item">18</li>
-                <li class="pagination-item">19</li>
-                <li class="pagination-item current">20</li>
-                <li class="pagination-item">21</li>
-                <li class="pagination-item">22</li>
-                <li class="pagination-item inactive">...</li>
-                <li class="pagination-item">330</li>
-                <li class="pagination-item">Next <i class="fa fa-angle-right"></i></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Bootstrap core JavaScript
@@ -364,13 +365,13 @@
     <!-- TODO: The functions below are only temporary for purposes of markup -->
     <script>
       function slideout(slideoutType) {
-        $("#slideout").addClass("active");
+        $(".slideout-overlay").show();
         if(slideoutType == 'invite') { $("#invite-slideout").show(); $("#user-slideout").hide(); }
         else if (slideoutType == 'user') {$("#user-slideout").show(); $("#invite-slideout").hide(); }
         else { $("#invite-slideout").hide(); $("#user-slideout").hide(); }
       }
       function slidein() {
-        $("#slideout").removeClass("active");
+        $(".slideout-overlay").hide();
       }
     </script>
     <!-- END TODO -->
