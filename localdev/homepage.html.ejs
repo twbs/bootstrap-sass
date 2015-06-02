@@ -296,7 +296,7 @@
     </div>
     <!-- END MAIN CONTENT AREA -->
 
-    <div class="slideout-overlay">
+    <div class="slideout-overlay" style="display: none;">
       <a href="javascript:void(0);" class="overlay-close" onclick="slidein();"></a>
       <div class="slideout-close" onclick="slidein();"><i class="fa fa-times"></i></div>
       <div id="slideout">
@@ -431,10 +431,10 @@
   <!-- TODO: The functions below are only temporary for purposes of markup -->
   <script>
     function slideout() {
-      $(".slideout-overlay").addClass("active");
+      $(".slideout-overlay").show();
     }
     function slidein() {
-      $(".slideout-overlay").removeClass("active");
+      $(".slideout-overlay").hide();
     }
   </script>
   <!-- END TODO -->
