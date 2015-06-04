@@ -20,6 +20,7 @@
   <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
   <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+  <script type="text/javascript" src="javascripts/coefficient/modernizr.custom.js"></script>
 
   <!-- Styling to format icons list; not something that needs to be in the theme itself though -->
   <style>
@@ -40,10 +41,10 @@
     <div class="cl-mcont">
       <div class="row">
         <div class="col-sm-9">
-          <span id="best-practices-sass" class="anchor"></span>
+          <span id="general-guidelines-sass" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
-              <a href="#best-practices-sass" class="anchor-link"><i class="fa fa-link"></i></a>
+              <a href="#general-guidelines-sass" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Sass</h3>
             </div>
             <div class="content">
@@ -91,12 +92,12 @@
 // ---------------------------------</code></pre>
             </div>
           </div>
-        </div>
-        <div class="col-sm-9">
-          <span id="best-practices-html" class="anchor"></span>
+
+
+          <span id="general-guidelines-html" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
-              <a href="#best-practices-html" class="anchor-link"><i class="fa fa-link"></i></a>
+              <a href="#general-guidelines-html" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>HTML Markup</h3>
             </div>
             <div class="content">
@@ -116,12 +117,12 @@
               </p>
             </div>
           </div>
-        </div>
-        <div class="col-sm-9">
-          <span id="best-practices-js" class="anchor"></span>
+
+
+          <span id="general-guidelines-js" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
-              <a href="#best-practices-js" class="anchor-link"><i class="fa fa-link"></i></a>
+              <a href="#general-guidelines-js" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>JavaScript</h3>
             </div>
             <div class="content">
@@ -140,8 +141,23 @@
               </p>
             </div>
           </div>
-        </div>
-        <div class="col-sm-9">
+
+
+          <!-- TODO: Define all colors and add to styleguide -->
+          <!-- <span id="coefficient-colors" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#coefficient-colors" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>CoEFFICIENT Colors</h3>
+            </div>
+            <div class="content">
+              <p>
+                Here are a set of pre-defined colors that are commonly used within the CoEFFICIENT app. We should try and stick to these colors as much as possible - especially with the grey colors - to keep things consistent.
+              </p>
+            </div>
+          </div> -->
+
+
           <span id="ui-elements-headings" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
@@ -176,9 +192,8 @@
 &lt;h3 class=&quot;hthin&quot;&gt;Thin Heading 3&lt;/h3&gt;</code></pre>
             </div>
           </div>
-        </div>
 
-        <div class="col-sm-9">
+
           <span id="ui-elements-alerts" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
@@ -223,9 +238,8 @@
 &lt;/div&gt;</code></pre>
             </div>
           </div>
-        </div>
 
-        <div class="col-sm-9">
+
           <span id="ui-elements-progress-bars" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
@@ -277,9 +291,8 @@
 &lt;/div&gt;</code></pre>
             </div>
           </div>
-        </div>
 
-        <div class="col-sm-9">
+
           <span id="ui-elements-dropdown-menus" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
@@ -391,9 +404,8 @@
 &lt;/div&gt;</code></pre>
             </div>
           </div>
-        </div>
 
-        <div class="col-sm-9">
+
           <span id="ui-elements-labels-badges" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
@@ -414,37 +426,37 @@
                   <tr>
                     <td style="width:30%;">Default</td>
                     <td class="text-center"><span class="label label-default">Default</span></td>
-                    <td class="text-center"><a class="label label-default" href="#"><i class="fa fa-pencil"></i></a></td>
+                    <td class="text-center"><a class="label label-default" href="#"><i class="fa fa-pencil"></i></td>
                     <td class="text-center"><span class="badge badge-default">25</span></td>
                   </tr>
                   <tr>
                     <td>Primary</td>
                     <td class="text-center"><span class="label label-primary">Primary</span></td>
-                    <td class="text-center"><a class="label label-primary" href="#"><i class="fa fa-pencil"></i></a></td>
+                    <td class="text-center"><a class="label label-primary" href="#"><i class="fa fa-pencil"></i></td>
                     <td class="text-center"><span class="badge badge-primary">6</span></td>
                   </tr>
                   <tr>
                     <td>Success</td>
                     <td class="text-center"><span class="label label-success">Success</span></td>
-                    <td class="text-center"><a class="label label-success" href="#"><i class="fa fa-pencil"></i></a></td>
+                    <td class="text-center"><a class="label label-success" href="#"><i class="fa fa-pencil"></i></td>
                     <td class="text-center"><span class="badge badge-success">8</span></td>
                   </tr>
                   <tr>
                     <td>Info</td>
                     <td class="text-center"><span class="label label-info">Info</span></td>
-                    <td class="text-center"><a class="label label-info" href="#"><i class="fa fa-info-circle"></i></a></td>
+                    <td class="text-center"><a class="label label-info" href="#"><i class="fa fa-info-circle"></i></td>
                     <td class="text-center"><span class="badge badge-info">3</span></td>
                   </tr>
                   <tr>
                     <td>Warning</td>
                     <td class="text-center"><span class="label label-warning">Warning</span></td>
-                    <td class="text-center"><a class="label label-warning" href="#"><i class="fa fa-warning"></i></a></td>
+                    <td class="text-center"><a class="label label-warning" href="#"><i class="fa fa-warning"></i></td>
                     <td class="text-center"><span class="badge badge-warning">5</span></td>
                   </tr>
                   <tr>
                     <td>Danger</td>
                     <td class="text-center"><span class="label label-danger">Danger</span></td>
-                    <td class="text-center"><a class="label label-danger" href="#"><i class="fa fa-pencil"></i></a></td>
+                    <td class="text-center"><a class="label label-danger" href="#"><i class="fa fa-pencil"></i></td>
                     <td class="text-center"><span class="badge badge-danger">54</span></td>
                   </tr>
                 </tbody>
@@ -470,9 +482,8 @@
 &lt;span class=&quot;badge badge-danger&quot;&gt;54&lt;/span&gt;</code></pre>
             </div>
           </div>
-        </div>
 
-        <div class="col-sm-9">
+
           <span id="ui-elements-buttons" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
@@ -496,6 +507,7 @@
 &lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;Danger&lt;/button&gt;</code></pre>
 
               <div class="spacer">&nbsp;</div>
+
               <h4 class="subtitle">Flat buttons</h4>
               <div class="spacer spacer-bottom">
                 <button type="button" class="btn btn-default btn-flat">Default</button>
@@ -513,27 +525,8 @@
 &lt;button type=&quot;button&quot; class=&quot;btn btn-danger btn-flat&quot;&gt;Danger&lt;/button&gt;</code></pre>
             </div>
           </div>
-        </div>
 
-        <div class="col-sm-9">
-          <span id="ui-elements-buttons-size" class="anchor"></span>
-          <div class="block-flat">
-            <div class="header">
-              <a href="#ui-elements-buttons-size" class="anchor-link"><i class="fa fa-link"></i></a>
-              <h3>Buttons Size</h3>
-            </div>
-            <div class="content">
-              <div class="spacer spacer-bottom">
-                <button type="button" class="btn btn-default btn-xs">Extra Small</button>
-                <button type="button" class="btn btn-default">Normal</button>
-              </div>
-              <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-xs&quot;&gt;Extra Small&lt;/button&gt;
-&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;Normal&lt;/button&gt;</code></pre>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-sm-9">
           <span id="ui-elements-advanced-buttons" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
@@ -550,11 +543,21 @@
               </div>
               <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-xs&quot;&gt;&lt;i class=&quot;fa fa-cloud-download&quot;&gt;&lt;/i&gt; Download&lt;/button&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;&lt;i class=&quot;fa fa-cloud-download&quot;&gt;&lt;/i&gt; Download&lt;/button&gt;</code></pre>
+
+              <div class="spacer">&nbsp;</div>
+
+              <h4 class="subtitle">Progress buttons</h4>
+              <div class="spacer spacer-bottom">
+                <p>
+                  Progress buttons are used for forms to indicate that something is happening - such as saving a form. Add class <code>.progress-button</code> to indicate a progress button.
+                </p>
+                <button type="button" class="btn btn-primary progress-button">Click Me</button>
+              </div>
+              <pre><code class="html">&#x3C;button type=&#x22;button&#x22; class=&#x22;btn btn-primary progress-button&#x22;&#x3E;Click Me&#x3C;/button&#x3E;</code></pre>
             </div>
           </div>
-        </div>
 
-        <div class="col-sm-9">
+
           <span id="ui-elements-dropdown-buttons" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
@@ -590,9 +593,162 @@
 &lt;/div&gt;</code></pre>
             </div>
           </div>
-        </div>
 
-        <div class="col-sm-9">
+
+          <span id="ui-elements-button-sizes" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#ui-elements-button-sizes" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Button Sizes</h3>
+            </div>
+            <div class="content">
+              <div class="spacer spacer-bottom">
+                <button type="button" class="btn btn-default btn-xs">Extra Small</button>
+                <button type="button" class="btn btn-default">Normal</button>
+              </div>
+              <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-xs&quot;&gt;Extra Small&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;Normal&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="ui-elements-lists" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#ui-elements-lists" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Lists</h3>
+            </div>
+            <div class="content">
+              <h4 class="subtitle">Unordered List</h4>
+              <ul>
+                <li>Cloud Services</li>
+                <li>Photo Upload</li>
+                <li>Music Downloads</li>
+                <li>Notifications</li>
+                <li>Full Featured UI</li>
+              </ul>
+              <pre><code class="html">&#x3C;ul&#x3E;
+  &#x3C;li&#x3E;Cloud Services&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Photo Upload&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Music Downloads&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Notifications&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Full Featured UI&#x3C;/li&#x3E;
+&#x3C;/ul&#x3E;</code></pre>
+
+              <h4 class="subtitle">Ordered List</h4>
+              <ol>
+                <li>Cloud Services</li>
+                <li>Photo Upload</li>
+                <li>Music Downloads</li>
+                <li>Notifications</li>
+                <li>Full Featured UI</li>
+              </ol>
+              <pre><code class="html">&#x3C;ol&#x3E;
+  &#x3C;li&#x3E;Cloud Services&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Photo Upload&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Music Downloads&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Notifications&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Full Featured UI&#x3C;/li&#x3E;
+&#x3C;/ol&#x3E;</code></pre>
+
+              <h4 class="subtitle">Unstyled List</h4>
+              <ul class="list-unstyled">
+                <li>Cloud Services</li>
+                <li>Photo Upload</li>
+                <li>Music Downloads</li>
+                <li>Notifications</li>
+                <li>Full Featured UI</li>
+              </ul>
+              <pre><code class="html">&#x3C;ul class=&#x22;list-unstyled&#x22;&#x3E;
+  &#x3C;li&#x3E;Cloud Services&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Photo Upload&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Music Downloads&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Notifications&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Full Featured UI&#x3C;/li&#x3E;
+&#x3C;/ul&#x3E;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="ui-elements-tables" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#ui-elements-tables" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Tables</h3>
+            </div>
+            <div class="content">
+              <p>
+                Tables can have a <code>.pre-table</code> class for action items if necessary such as a search field or a dropdown for the number of items to show in table at a time.
+              </p>
+              <p>
+                By default, the rows in tables are styled to look clickable. To disable a row from looking like it's clickable, add <code>.disabled</code> to the table row.
+              </p>
+              <table class="datatable">
+                <thead>
+                  <tr>
+                    <th>Name <i class="fa fa-sort"></i></th>
+                    <th>Email <i class="fa fa-sort"></i></th>
+                    <th>Status <i class="fa fa-sort-down active"></i></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Vincent Ramirez</td>
+                    <td>v.ramirez@company.com</td>
+                    <td>Active</td>
+                  </tr>
+                  <tr>
+                    <td>Bertha Hall</td>
+                    <td>b.hall@company.com</td>
+                    <td>Active</td>
+                  </tr>
+                  <tr>
+                    <td>Camelia Rose</td>
+                    <td>c.rose@company.com</td>
+                    <td>Active</td>
+                  </tr>
+                  <tr class="disabled">
+                    <td>Disabled Row</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <pre><code class="html">&#x3C;table class=&#x22;datatable&#x22;&#x3E;
+  &#x3C;thead&#x3E;
+    &#x3C;tr&#x3E;
+      &#x3C;th&#x3E;Name &#x3C;i class=&#x22;fa fa-sort&#x22;&#x3E;&#x3C;/i&#x3E;&#x3C;/th&#x3E;
+      &#x3C;th&#x3E;Email &#x3C;i class=&#x22;fa fa-sort&#x22;&#x3E;&#x3C;/i&#x3E;&#x3C;/th&#x3E;
+      &#x3C;th&#x3E;Status &#x3C;i class=&#x22;fa fa-sort-down active&#x22;&#x3E;&#x3C;/i&#x3E;&#x3C;/th&#x3E;
+    &#x3C;/tr&#x3E;
+  &#x3C;/thead&#x3E;
+  &#x3C;tbody&#x3E;
+    &#x3C;tr&#x3E;
+      &#x3C;td&#x3E;Vincent Ramirez&#x3C;/td&#x3E;
+      &#x3C;td&#x3E;v.ramirez@company.com&#x3C;/td&#x3E;
+      &#x3C;td&#x3E;Active&#x3C;/td&#x3E;
+    &#x3C;/tr&#x3E;
+    &#x3C;tr&#x3E;
+      &#x3C;td&#x3E;Bertha Hall&#x3C;/td&#x3E;
+      &#x3C;td&#x3E;b.hall@company.com&#x3C;/td&#x3E;
+      &#x3C;td&#x3E;Active&#x3C;/td&#x3E;
+    &#x3C;/tr&#x3E;
+    &#x3C;tr&#x3E;
+      &#x3C;td&#x3E;Camelia Rose&#x3C;/td&#x3E;
+      &#x3C;td&#x3E;c.rose@company.com&#x3C;/td&#x3E;
+      &#x3C;td&#x3E;Active&#x3C;/td&#x3E;
+    &#x3C;/tr&#x3E;
+    &#x3C;tr class=&#x22;disabled&#x22;&#x3E;
+      &#x3C;td&#x3E;Disabled Row&#x3C;/td&#x3E;
+      &#x3C;td&#x3E;&#x3C;/td&#x3E;
+      &#x3C;td&#x3E;&#x3C;/td&#x3E;
+    &#x3C;/tr&#x3E;
+  &#x3C;/tbody&#x3E;
+&#x3C;/table&#x3E;</code></pre>
+            </div>
+          </div>
+
+
           <span id="ui-elements-modals" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
@@ -696,11 +852,12 @@
 
             </div>
           </div>
-        </div>
 
-        <div class="col-sm-9">
+
+          <span id="icon-size" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#icon-size" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Icon Size</h3>
             </div>
             <div class="content">
@@ -714,11 +871,12 @@
 &lt;i class=&quot;fa fa-camera-retro fa-4x&quot;&gt;&lt;/i&gt;</code></pre>
             </div>
           </div>
-        </div>
 
-        <div class="col-sm-9">
+
+          <span id="icon-orientation" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#icon-orientation" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Icon Orientation</h3>
             </div>
             <div class="content">
@@ -736,12 +894,12 @@
 &lt;i class=&quot;fa fa-shield fa-flip-vertical&quot;&gt;&lt;/i&gt;</code></pre>
             </div>
           </div>
-        </div>
 
-        <div class="col-sm-9">
 
+          <span id="icon-stacked" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#icon-stacked" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Stacked Icons</h3>
             </div>
             <div class="content">
@@ -812,11 +970,12 @@
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-sm-9">
+
+          <span id="icon-web-app" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#icon-web-app" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Web Application Icons</h3>
             </div>
             <div class="content">
@@ -1068,8 +1227,11 @@
             </div>
           </div>
 
+
+          <span id="icon-form-control" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#icon-form-control" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Form Control Icons</h3>
             </div>
             <div class="content">
@@ -1089,8 +1251,11 @@
             </div>
           </div>
 
+
+          <span id="icon-currency" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#icon-currency" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Currency Icons</h3>
             </div>
             <div class="content">
@@ -1120,8 +1285,11 @@
             </div>
           </div>
 
+
+          <span id="icon-text-editor" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#icon-text-editor" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Text Editor Icons</h3>
             </div>
             <div class="content">
@@ -1175,8 +1343,11 @@
             </div>
           </div>
 
+
+          <span id="icon-directional" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#icon-directional" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Directional Icons</h3>
             </div>
             <div class="content">
@@ -1238,8 +1409,10 @@
           </div>
 
 
+          <span id="icon-video-player" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#icon-video-player" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Video Player Icons</h3>
             </div>
             <div class="content">
@@ -1265,8 +1438,10 @@
           </div>
 
 
+          <span id="icon-brand" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#icon-brand" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Brand Icons</h3>
             </div>
             <div class="content">
@@ -1328,8 +1503,10 @@
             </div>
           </div>
 
+          <span id="icon-medical" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#icon-medical" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Medical Icons</h3>
             </div>
             <div class="content">
@@ -1345,11 +1522,12 @@
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-sm-9">
+
+          <span id="form-elements-basic" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#form-elements-basic" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Basic Elements</h3>
             </div>
             <div class="content">
@@ -1362,28 +1540,32 @@
                   <li>Textareas do not need placeholder text, but can contain instructional text if necessary</li>
                 </ul>
               </p>
-              <form action="#" style="border-radius: 0px;">
-                <div class="form-group">
-                  <label>Text Input</label>
-                  <input type="text" class="form-control" placeholder="Placeholder Text">
+              <div class="row">
+                <div class="col-sm-8">
+                  <form action="#" style="border-radius: 0px;">
+                    <div class="form-group">
+                      <label>Text Input</label>
+                      <input type="text" class="form-control" placeholder="Placeholder Text">
+                    </div>
+                    <div class="form-group">
+                      <label>Password (For Login)</label>
+                      <input type="password" placeholder="Password (For Login)" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label>Disabled Input</label>
+                      <input type="text" disabled="disabled" class="form-control" placeholder="Disabled Input">
+                    </div>
+                    <div class="form-group">
+                      <label>Readonly Input</label>
+                      <input type="text" readonly="readonly" class="form-control" value="Readonly Input">
+                    </div>
+                    <div class="form-group">
+                      <label>Textarea</label>
+                      <textarea class="form-control" placeholder="50 characters minimum"></textarea>
+                    </div>
+                  </form>
                 </div>
-                <div class="form-group">
-                  <label>Password (For Login)</label>
-                  <input type="password" placeholder="Password (For Login)" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label>Disabled Input</label>
-                  <input type="text" disabled="disabled" class="form-control" placeholder="Disabled Input">
-                </div>
-                <div class="form-group">
-                  <label>Readonly Input</label>
-                  <input type="text" readonly="readonly" class="form-control" value="Readonly Input">
-                </div>
-                <div class="form-group">
-                  <label>Textarea</label>
-                  <textarea class="form-control" placeholder="50 characters minimum"></textarea>
-                </div>
-              </form>
+              </div>
 
               <pre><code class="html">&lt;label&gt;Text Input&lt;/label&gt;
 &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Placeholder text&quot;&gt;
@@ -1402,8 +1584,11 @@
             </div>
           </div>
 
+
+          <span id="form-elements-password" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#form-elements-password" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Password Creation</h3>
             </div>
             <div class="content">
@@ -1417,46 +1602,51 @@
                   <li>On blur of confirm password field, if passwords don't match, display error message.</li>
                 </ul>
               </p>
-              <form action="#" style="border-radius: 0">
-                <div class="form-group">
-                  <label>Password</label>
-                  <input type="password" placeholder="Password (On Load)" class="form-control">
+              <div class="row">
+                <div class="col-sm-8">
+                  <form action="#" style="border-radius: 0">
+                    <div class="form-group">
+                      <label>Password</label>
+                      <input type="password" placeholder="Password (On Load)" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label>Password</label>
+                      <input type="password" placeholder="Password (Weak Example)" class="form-control">
+                      <div class="password-strength">
+                        <div class="password-strength-meter strength-weak" style="width: 10%"></div>
+                      </div>
+                      <div class="helper-text">Password Strength: <span class="strength-weak">Weak</span></div>
+                    </div>
+                    <div class="form-group">
+                      <label>Password</label>
+                      <input type="password" placeholder="Password (Medium Example)" class="form-control">
+                      <div class="password-strength">
+                        <div class="password-strength-meter strength-medium" style="width: 50%"></div>
+                      </div>
+                      <div class="helper-text">Password Strength: <span class="strength-medium">Medium</span></div>
+                    </div>
+                    <div class="form-group">
+                      <label>Password</label>
+                      <input type="password" placeholder="Password (Strong Example)" class="form-control">
+                      <div class="password-strength">
+                        <div class="password-strength-meter strength-strong" style="width: 100%"></div>
+                      </div>
+                      <div class="helper-text">Password Strength: <span class="strength-strong">Strong</span></div>
+                    </div>
+                    <div class="form-group has-error">
+                      <label>Confirm Password</label>
+                      <input type="password" placeholder="Confirm Password" class="form-control">
+                      <div class="error-message">Passwords must match</div>
+                    </div>
+                    <div class="form-group">
+                      <label>Confirm Password</label>
+                      <input type="password" placeholder="Confirm Password" class="form-control">
+                      <div class="success-message">Passwords match!</div>
+                    </div>
+                  </form>
                 </div>
-                <div class="form-group">
-                  <label>Password</label>
-                  <input type="password" placeholder="Password (Weak Example)" class="form-control">
-                  <div class="password-strength">
-                    <div class="password-strength-meter strength-weak" style="width: 10%"></div>
-                  </div>
-                  <div class="helper-text">Password Strength: <span class="strength-weak">Weak</span></div>
-                </div>
-                <div class="form-group">
-                  <label>Password</label>
-                  <input type="password" placeholder="Password (Medium Example)" class="form-control">
-                  <div class="password-strength">
-                    <div class="password-strength-meter strength-medium" style="width: 50%"></div>
-                  </div>
-                  <div class="helper-text">Password Strength: <span class="strength-medium">Medium</span></div>
-                </div>
-                <div class="form-group">
-                  <label>Password</label>
-                  <input type="password" placeholder="Password (Strong Example)" class="form-control">
-                  <div class="password-strength">
-                    <div class="password-strength-meter strength-strong" style="width: 100%"></div>
-                  </div>
-                  <div class="helper-text">Password Strength: <span class="strength-strong">Strong</span></div>
-                </div>
-                <div class="form-group has-error">
-                  <label>Confirm Password</label>
-                  <input type="password" placeholder="Confirm Password" class="form-control">
-                  <div class="error-message">Passwords must match</div>
-                </div>
-                <div class="form-group">
-                  <label>Confirm Password</label>
-                  <input type="password" placeholder="Confirm Password" class="form-control">
-                  <div class="success-message">Passwords match!</div>
-                </div>
-              </form>
+              </div>
+
               <pre><code class="html">&#x3C;div class=&#x22;form-group&#x22;&#x3E;
   &#x3C;label&#x3E;Password&#x3C;/label&#x3E;
   &#x3C;input type=&#x22;password&#x22; placeholder=&#x22;Password (On Load)&#x22; class=&#x22;form-control&#x22;&#x3E;
@@ -1503,70 +1693,78 @@
             </div>
           </div>
 
+
+          <span id="form-elements-selects-options" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#form-elements-selects-options" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Select &amp; Option Elements</h3>
             </div>
             <div class="content">
-              <form action="#" style="border-radius: 0px;">
-                <div class="form-group">
-                  <label>Basic Select</label>
-                  <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                  </select>
+              <div class="row">
+                <div class="col-sm-8">
+                  <form action="#" style="border-radius: 0px;">
+                    <div class="form-group">
+                      <label>Basic Select</label>
+                      <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Multiple Select</label>
+                      <select multiple class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Radio</label>
+                      <div class="radio">
+                        <label> <input type="radio" checked="" name="rad1"> Option 1</label>
+                      </div>
+                      <div class="radio">
+                        <label> <input type="radio" name="rad1"> Option 2</label>
+                      </div>
+                      <div class="radio">
+                        <label> <input type="radio" name="rad1"> Option 3</label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Inline Radio</label>
+                      <div>
+                        <label class="radio-inline"> <input type="radio" checked="" name="rad1"> Option 1</label>
+                        <label class="radio-inline"> <input type="radio" name="rad1"> Option 2</label>
+                        <label class="radio-inline"> <input type="radio" name="rad1"> Option 3</label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Checkbox</label>
+                      <div class="checkbox">
+                        <label> <input type="checkbox" checked="" name="check1"> Option 1</label>
+                      </div>
+                      <div class="checkbox">
+                        <label> <input type="checkbox" name="check2"> Option 2</label>
+                      </div>
+                      <div class="checkbox">
+                        <label> <input type="checkbox" name="check3"> Option 3</label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Inline Checkbox</label>
+                      <div>
+                        <label class="checkbox-inline"> <input type="checkbox" checked="" name="rad1"> Option 1</label>
+                        <label class="checkbox-inline"> <input type="checkbox" name="rad1"> Option 2</label>
+                        <label class="checkbox-inline"> <input type="checkbox" name="rad1"> Option 3</label>
+                      </div>
+                    </div>
+                  </form>
                 </div>
-                <div class="form-group">
-                  <label>Multiple Select</label>
-                  <select multiple class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label>Radio</label>
-                  <div class="radio">
-                    <label> <input type="radio" checked="" name="rad1"> Option 1</label>
-                  </div>
-                  <div class="radio">
-                    <label> <input type="radio" name="rad1"> Option 2</label>
-                  </div>
-                  <div class="radio">
-                    <label> <input type="radio" name="rad1"> Option 3</label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Inline Radio</label>
-                  <div>
-                    <label class="radio-inline"> <input type="radio" checked="" name="rad1"> Option 1</label>
-                    <label class="radio-inline"> <input type="radio" name="rad1"> Option 2</label>
-                    <label class="radio-inline"> <input type="radio" name="rad1"> Option 3</label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Checkbox</label>
-                  <div class="checkbox">
-                    <label> <input type="checkbox" checked="" name="check1"> Option 1</label>
-                  </div>
-                  <div class="checkbox">
-                    <label> <input type="checkbox" name="check2"> Option 2</label>
-                  </div>
-                  <div class="checkbox">
-                    <label> <input type="checkbox" name="check3"> Option 3</label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Inline Checkbox</label>
-                  <div>
-                    <label class="checkbox-inline"> <input type="checkbox" checked="" name="rad1"> Option 1</label>
-                    <label class="checkbox-inline"> <input type="checkbox" name="rad1"> Option 2</label>
-                    <label class="checkbox-inline"> <input type="checkbox" name="rad1"> Option 3</label>
-                  </div>
-                </div>
-              </form>
+              </div>
+
               <pre><code class="html">&#x3C;div class=&#x22;form-group&#x22;&#x3E;
   &#x3C;label&#x3E;Basic Select&#x3C;/label&#x3E;
   &#x3C;select class=&#x22;form-control&#x22;&#x3E;
@@ -1632,8 +1830,11 @@
             </div>
           </div>
 
+
+          <span id="form-elements-forms" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#form-elements-forms" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Forms</h3>
             </div>
             <div class="content">
@@ -1677,7 +1878,6 @@
                             <option value="CO">CO</option>
                             <option value="CT">CT</option>
                             <option value="DE">DE</option>
-                            <option value="DC">DC</option>
                             <option value="FL">FL</option>
                             <option value="GA">GA</option>
                             <option value="HI">HI</option>
@@ -1769,8 +1969,11 @@
             </div>
           </div>
 
+
+          <span id="form-elements-auth-forms" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#form-elements-auth-forms" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Auth Pages Form</h3>
             </div>
             <div class="content">
@@ -1827,8 +2030,11 @@
             </div>
           </div>
 
+
+          <span id="form-elements-input-errors" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#form-elements-input-errors" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Input Level Errors</h3>
             </div>
             <div class="content">
@@ -1858,8 +2064,11 @@
             </div>
           </div>
 
+
+          <span id="form-elements-form-errors" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
+              <a href="#form-elements-form-errors" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>Form Level Errors</h3>
             </div>
             <div class="content">
@@ -1908,34 +2117,61 @@
           </div>
         </div>
 
-        <!-- SYANG - SAVE FOR LATER
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="block-flat">
-              <div class="header">
-                <div class="pull-right actions"></div>
-                <h3>Fixed Sidebar</h3>
-              </div>
-              <div class="content">
-                <p>To set the sidebar fixed just add <code>".fixed-menu"</code> to the <code>"#cl-wrapper"</code> element.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="block-flat">
-              <div class="header">
-                <div class="pull-right actions"></div>
-                <h3>Collapsed Sidebar</h3>
-              </div>
-              <div class="content">
-                <p>To collapse the sidebar you can click on "Collapse Button" located in the bottom of the sidebar. If you want the sidebar collapsed by default just add <code>".sb-collapsed"</code> to the <code>"#cl-wrapper"</code> element.</p>
-              </div>
-            </div>
-          </div>
-        </div>-->
         <div class="col-sm-3">
-          <ul>
-            <li></li>
+          <ul class="list-unstyled" style="position: fixed;">
+            <li>
+              General Guidelines
+              <ul class="list-unstyled">
+                <li><a href="#general-guidelines-sass">Sass</a></li>
+                <li><a href="#general-guidelines-html">HTML Markup</a></li>
+                <li><a href="#general-guidelines-js">JavaScript</a></li>
+              </ul>
+            </li>
+            <li>
+              UI Elements
+              <ul class="list-unstyled">
+                <li><a href="#ui-elements-headings">Headings</a></li>
+                <li><a href="#ui-elements-alerts">Bootstrap Alerts</a></li>
+                <li><a href="#ui-elements-progress-bars">Progress Bars</a></li>
+                <li><a href="#ui-elements-dropdown-menus">Dropdown Menus</a></li>
+                <li><a href="#ui-elements-labels-badges">Labels &amp; Badges</a></li>
+                <li><a href="#ui-elements-buttons">Basic Buttons</a></li>
+                <li><a href="#ui-elements-advanced-buttons">Advanced Buttons</a></li>
+                <li><a href="#ui-elements-dropdown-buttons">Dropdown Buttons</a></li>
+                <li><a href="#ui-elements-button-sizes">Button Sizes</a></li>
+                <li><a href="#ui-elements-lists">Lists</a></li>
+                <li><a href="#ui-elements-tables">Tables</a></li>
+                <li><a href="#ui-elements-modals">Modal Alerts</a></li>
+              </ul>
+            </li>
+            <li>
+              Icons
+              <ul class="list-unstyled">
+                <li><a href="#icon-size">Icon Size</a></li>
+                <li><a href="#icon-orientation">Icon Orientation</a></li>
+                <li><a href="#icon-stacked">Stacked Icons</a></li>
+                <li><a href="#icon-web-app">Web Application Icons</a></li>
+                <li><a href="#icon-form-control">Form Control Icons</a></li>
+                <li><a href="#icon-currency">Currency Icons</a></li>
+                <li><a href="#icon-text-editor">Text Editor Icons</a></li>
+                <li><a href="#icon-directional">Directional Icons</a></li>
+                <li><a href="#icon-video-player">Video Player Icons</a></li>
+                <li><a href="#icon-brand">Brand Icons</a></li>
+                <li><a href="#icon-medical">Medical Icons</a></li>
+              </ul>
+            </li>
+            <li>
+              Forms Elements
+              <ul class="list-unstyled">
+                <li><a href="#form-elements-basics">Basic Elements</a></li>
+                <li><a href="#form-elements-password">Password Creation</a></li>
+                <li><a href="#form-elements-selects-options">Select &amp; Option Elements</a></li>
+                <li><a href="#form-elements-forms">Forms</a></li>
+                <li><a href="#form-elements-auth-forms">Auth Pages Form</a></li>
+                <li><a href="#form-elements-input-errors">Input Level Errors</a></li>
+                <li><a href="#form-elements-form-errors">Form Level Errors</a></li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
@@ -1950,6 +2186,28 @@
           App.init();
         });
         hljs.initHighlightingOnLoad();
+    </script>
+
+    <script type="text/javascript" src="javascripts/coefficient/classie.js"></script>
+    <script type="text/javascript" src="javascripts/coefficient/progressButton.js"></script>
+
+    <script>
+      [].slice.call( document.querySelectorAll( 'button.progress-button' ) ).forEach( function( bttn ) {
+        new ProgressButton( bttn, {
+          callback : function( instance ) {
+            var progress = 0,
+              interval = setInterval( function() {
+                progress = Math.min( progress + Math.random() * 0.25, 1 );
+                instance._setProgress( progress );
+
+                if( progress === 1 ) {
+                  instance._stop(1);
+                  clearInterval( interval );
+                }
+              }, 200 );
+          }
+        } );
+      } );
     </script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </div>
