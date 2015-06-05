@@ -35,7 +35,7 @@
           <!-- <span class="action-message">This audit was <strong>Closed</strong> on May 24, 2015 by Alan Harrison.</span> -->
           <span class="action-message">This audit is currently <strong>In Progress</strong>. Published on May 25, 2015.</span>
           <!-- <button class="btn btn-default">Edit</button> -->
-          <button class="btn btn-danger">Close Audit</button>
+          <button class="btn btn-danger" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<p>Are you sure you want to close this audit?</p> <button type='button' id='cancel-close' class='btn btn-xs btn-nostyle-popover'>No</button> <button type='button' id='close-audit' class='btn btn-xs btn-default'>Yes</button>">Close Audit</button>
         </div>
         <h2>Audit Name</h2>
         <ol class="breadcrumb">
@@ -132,6 +132,36 @@
               </div>
             </div>
           </div>
+
+          <div class="col-sm-8">
+            <div class="block-flat">
+              <div class="header">
+                <h3>Audit Details</h3>
+              </div>
+              <div class="content">
+                <p>
+                  Bacon ipsum dolor amet drumstick sirloin landjaeger ut corned beef doner fatback sausage in proident beef hamburger prosciutto jowl meatloaf. Ground round esse velit exercitation fatback. Andouille pork enim meatball, magna beef ribs tri-tip voluptate.
+                </p>
+                <p>
+                  Short loin kevin tenderloin veniam proident shankle cillum elit ball tip nostrud pancetta duis id bresaola boudin. Excepteur shank alcatra magna.
+                </p>
+                <div id="attachments">
+                  <div class="attachment-item">
+                    <div class="attachment-img">
+                      <a href="http://www.birdchannel.com/images/articles/bird-blog/macaw-flock-lg.jpg" class="html5lightbox" title="image01.jpg" data-group="attachments"><img src="http://www.birdchannel.com/images/articles/bird-blog/macaw-flock-lg.jpg"></a>
+                    </div>
+                    <div class="attachment-info"><i class="fa fa-picture-o"></i> image01.jpg</div>
+                  </div>
+                  <div class="attachment-item">
+                    <div class="attachment-img">
+                      <a href="http://blog.pennlive.com/pets/2008/01/medium_Macaw-jpatokal.jpg" class="html5lightbox" title="image02.jpg" data-group="attachments"><img src="http://blog.pennlive.com/pets/2008/01/medium_Macaw-jpatokal.jpg" class="portrait"></a>
+                    </div>
+                    <div class="attachment-info"><i class="fa fa-picture-o"></i> image02.jpg</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -143,6 +173,9 @@
     $(document).ready(function(){
           //initialize the javascript
           App.init();
+
+          // Initializing popovers
+          $('[data-toggle="popover"]').popover();
         });
     </script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
