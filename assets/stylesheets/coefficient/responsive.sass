@@ -34,6 +34,17 @@
     .search
       display: none
 
+  #sidebar-profile
+    img
+      width: 30px
+    #current-name,
+    #current-title,
+    #current-edit
+      display: none
+
+  .page-head
+    left: 55px
+
   //
   //
   // REFACTOR THIS SECTION
@@ -215,6 +226,13 @@
       display: block
     .cl-vnavigation, .side-user
       display: none
+
+  .page-head,
+  .page-head.has-breadcrumb
+    position: static
+    + .cl-mcont
+      padding-top: 0
+
   /*Forms*/
   .form-horizontal
     &.group-border .form-group
