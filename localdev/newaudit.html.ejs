@@ -109,7 +109,6 @@
   <!-- END WRAPPER -->
 
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
-  <script type="text/javascript" src="javascripts/bootstrap.datetimepicker/js/bootstrap-datepicker.min.js"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
   <!-- Bootstrap core JavaScript
@@ -121,11 +120,6 @@
       App.init();
 
       $(".nscroller").nanoScroller({ preventPageScrolling: true });
-
-      $(".datepicker").datepicker({
-        todayHighlight: true,
-        format: "MM dd, yyyy"
-      });
 
       $('[data-toggle="popover"]').popover();
     });
