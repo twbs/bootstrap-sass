@@ -38,8 +38,12 @@
     line-height: 40px
     font-size: 20px
     top: 20px
-    right: 500px
+    right: -40px
     background: $white
+    transition-property: right
+    transition-duration: 1s
+    transition-timing: ease
+    transition-delay: 0
     @include border-radius-mixed(3px, 0, 0, 3px)
     &:hover
       color: $link-hover
@@ -48,12 +52,16 @@
     position: fixed
     top: 0
     bottom: 0
-    right: 0
+    right: -540px
     width: 500px
     background: $white
     z-index: 2001
     height: 100%
     overflow-y: scroll
+    transition-property: right
+    transition-duration: 1s
+    transition-timing: ease
+    transition-delay: 0
     #slideout-inner
       padding: 40px
     .header
@@ -67,9 +75,10 @@
       padding: 15px 3px 0 3px
 
 .slideout-overlay.active
-  display: block
   #slideout
     right: 0
+  .slideout-close
+    right: 500px
 
 
 @media (max-width: 550px)
