@@ -1,0 +1,26 @@
+// ----------------------------
+// Loading Overlay
+// ----------------------------
+#loading-overlay
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background: rgba($black, 0.8)
+  z-index: 2000
+
+  #loading-overlay-content
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    text-align: center
+    color: $white
+    #loading-icon
+      font-size: 50px
+    #loading-message
+      font-size: 20px
+      padding-top: 15px
+    #loading-action
+      padding-top: 20px
