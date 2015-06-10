@@ -41,7 +41,7 @@ module Bootstrap
     end
 
     def compass?
-      defined?(::Compass)
+      defined?(::Compass::Frameworks)
     end
 
     def rails?
