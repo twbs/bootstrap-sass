@@ -1,6 +1,8 @@
 language: ruby
 rvm:
-  - 2.1.5
+  - 2.0.0
+  - 2.1
+  - 2.2
 gemfile:
   - test/gemfiles/sass_3_2.gemfile
   - test/gemfiles/sass_3_3.gemfile
