@@ -14,9 +14,9 @@
 
   <!-- Bootstrap core CSS -->
   <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="javascripts/bootstrap.datetimepicker/css/bootstrap-datepicker.standalone.min.css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.datetimepicker/bootstrap-datepicker.standalone.scss" />
   <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/gritter/css/jquery.gritter.css" />
 
   <link href="stylesheets/main.css" rel="stylesheet" />
   <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
@@ -44,7 +44,7 @@
   <!-- BEGIN WRAPPER -->
   <div id="cl-wrapper" class="fixed-menu aside">
 
-    <% include notes-sidebar.html.ejs %>
+    <!-- <% include notes-sidebar.html.ejs %> -->
 
     <!-- BEGIN SECONDARY NAVIGATION -->
     <div id="page-aside">
@@ -61,27 +61,16 @@
         <div id="aside-nav" class="collapse">
           <div id="aside-items" class="nano nscroller">
             <ul class="nano-content">
-              <li class="note-date-section">OCTOBER 22, 2014</li>
-              <li>
-                <div class="note-list-title">My Note about Something</div>
-                <div class="note-list-info">Dealership 1234 on October 22, 2014</div>
-                <div class="note-list-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a malesuada dui. Aliquam a ex eu enim sollicitudin...</div>
+              <li class="note-date-section">May 28, 2015</li>
+              <li id="note-list-1" class="selected" onclick="show_note1();">
+                <div class="note-list-title">Paleo 3 wolf moon mlkshk, raw denim disrupt lomo vegan</div>
+                <div class="note-list-info">Town North Nissan - 2304 on May 28, 2015</div>
+                <div class="note-list-preview">Fixie irony occupy, bicycle rights. Heirloom quinoa shabby, iPhone artisan Neutra cray street art kale chips.</div>
               </li>
-              <li class="selected">
-                <div class="note-list-title">My Note about Something</div>
-                <div class="note-list-info">Dealership 1234 on October 22, 2014</div>
-                <div class="note-list-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a malesuada dui. Aliquam a ex eu enim sollicitudin...</div>
-              </li>
-              <li class="marked-done">
-                <div class="note-list-title">My Note about Something</div>
-                <div class="note-list-info">October 22, 2014</div> <!-- Example of no dealership -->
-                <div class="note-list-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a malesuada dui. Aliquam a ex eu enim sollicitudin...</div>
-              </li>
-              <li class="note-date-section">OCTOBER 21, 2014</li>
-              <li>
-                <div class="note-list-title">My Note about Something</div>
-                <div class="note-list-info">Dealership 1234 on October 21, 2014</div>
-                <div class="note-list-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a malesuada dui. Aliquam a ex eu enim sollicitudin...</div>
+              <li id="note-list-2" onclick="show_note2();">
+                <div class="note-list-title">Distillery whatever vinyl locavore</div>
+                <div class="note-list-info">Clay Cooley Nis Austin SO - 5422 on May 28, 2015</div>
+                <div class="note-list-preview">Crucifix migas Helvetica actually mumblecore, health goth occupy fashion axe. Occupy Etsy Odd Future.</div>
               </li>
               <li class="end-of-items">End of Notes</li>
             </ul>
@@ -106,20 +95,19 @@
 
 
     <!-- BEGIN MAIN CONTENT AREA -->
-    <div id="pcont">
+    <div id="pcont" class="note1">
       <!-- Drag and drop overlay -->
       <!-- <div id="drag-drop-attach">
         <img src="images/drop-indicator.png"/>
       </div> -->
       <div id="fixed-action-header">
         <div class="action-header-left">
-          <button type="button" id="print-button" class="btn btn-default"><i class="fa fa-print"></i></button>
+          <button type="button" id="print-button" class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i></button>
           <button type="button" id="note-emailed" class="btn btn-default"><i class="fa fa-envelope"></i></button>
           <!-- Disabled button example (if there are action items on page) -->
-          <!-- <div class="disabled-button-wrapper" data-toggle="tooltip" data-placement="bottom" title="Notes with action items cannot be deleted.">
+          <div class="disabled-button-wrapper" data-toggle="tooltip" data-placement="bottom" title="Notes with action items cannot be deleted.">
             <button type="button" id="note-deleted" class="btn btn-default" disabled><i class="fa fa-trash-o"></i></button>
-          </div> -->
-          <button type="button" id="note-deleted" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
+          </div>
         </div>
       </div>
       <div class="cl-mcont">
@@ -128,23 +116,23 @@
             <div class="block-flat">
               <div class="content notes-container">
                 <span class="note-metainfo">
-                  <span class="created-on">Created on October 23, 2014</span>
+                  <span class="created-on">Created on May 01, 2015</span>
                   <span class="meta-separator"> | </span>
-                  <span class="modified-on">Last modified on November 12, 2014 at 2:14pm</span>
+                  <span class="modified-on">Last modified on May 28, 2015 at 2:14pm</span>
                 </span>
-                <h3 id="note-title">Note on October 23, 2014</h3>
+                <h3 id="note-title">Paleo 3 wolf moon mlkshk, raw denim disrupt lomo vegan</h3>
                 <div class="visit-info">
                   <div class="visit-info-row">
-                    <span class="visit-info-label">Author:</span> Jonathan Weathers
+                    <span class="visit-info-label">Author:</span> Missy Bergen
                   </div>
                   <div class="visit-info-row">
                     <span class="visit-info-label">Visited on:</span>
-                    <input class="datepicker" type="text" value="October 24, 2014" />
+                    <input class="datepicker" type="text" value="May 01, 2015" />
                   </div>
                   <div class="visit-info-row">
                     <span class="visit-info-label">Location:</span>
                     <span class="location-selector">
-                      <span id="set-location" class="dropdown-toggle" data-toggle="dropdown"></span>
+                      <span id="set-location" class="dropdown-toggle" data-toggle="dropdown"><a href"#" style="text-decoration: underline; cursor: pointer;">Town North Nissan</a></span>
                       <ul class="dropdown-menu autocomplete-results">
                         <li><a href="#">Trophy Nissan</a></li>
                         <li><a href="#">Town North Nissan</a></li>
@@ -156,28 +144,22 @@
                 <section id="editor">
                   <div id="note-content" class="froala-box">
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta tellus ipsum, ut laoreet dui porta eu. Nam ultrices viverra erat accumsan pretium. Vestibulum sit amet sapien dolor. Curabitur eget orci ut arcu placerat accumsan. Vestibulum imperdiet quam a lacinia aliquam. Suspendisse rhoncus pellentesque tellus ac varius. Aliquam commodo tellus sed fringilla eleifend.
+                      Fixie irony occupy, bicycle rights. Heirloom quinoa shabby, iPhone artisan Neutra cray street art kale chips. Banjo art party hoodie banh mi McSweeney's next level, pop-up tilde tattooed hella +1. Plaid, American Apparel whatever tofu XOXO gluten-free.
                     </p>
                     <ul>
-                      <li>Phasellus cursus porta</li>
-                      <li>Sed ac facilisis lorem</li>
-                      <li>Donec sem turpis</li>
-                      <li>Duis egestas blandit</li>
+                      <li>Chillwave fashion axe locavore</li>
+                      <li>Selvage 8-bit organic</li>
+                      <li>Roof party selfies</li>
+                      <li>Cornhole Blue Bottle</li>
                     </ul>
                     <p>
-                      <strong>Morbi id mauris vel massa sollicitudin tincidunt.</strong><br/>
-                      <em>Quisque maximus mi id sagittis ullamcorper.</em><br/>
-                      <u>Aliquam erat volutpat.</u>
+                      <strong>Kickstarter aesthetic jean shorts</strong><br/>
+                      <em>Gentrify street art tilde kale chips post-ironic typewriter</em><br/>
+                      <u>Etsy typewriter raw denim Shoreditch</u>
                     </p>
                     <blockquote>
-                      Sed eget sapien imperdiet, ornare justo a, laoreet orci. Aenean vitae leo pretium, finibus ligula at, vehicula dui. Donec ut nibh volutpat, tristique turpis ut, venenatis ipsum. Maecenas id urna eget nisl dapibus porta ut vel nisi. Pellentesque varius purus et erat molestie volutpat. Cras id ullamcorper libero, vitae placerat lorem. Vestibulum eget odio felis.
+                      Literally next level High Life disrupt. Cold-pressed Pitchfork cardigan salvia, hoodie irony gentrify small batch Portland. YOLO Helvetica Williamsburg semiotics VHS, 8-bit kogi whatever stumptown selfies Marfa chillwave brunch Tumblr.
                     </blockquote>
-                    <ol>
-                      <li>Phasellus cursus porta</li>
-                      <li>Sed ac facilisis lorem</li>
-                      <li>Donec sem turpis</li>
-                      <li>Duis egestas blandit</li>
-                    </ol>
                   </div>
                 </section>
               </div>
@@ -191,10 +173,10 @@
                   <li class="list-group-item marked-complete">
                     <input type="checkbox" checked name="check1" class="action-item-checkbox">
                     <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
-                      <span class="item-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta tellus ipsum, ut laoreet dui porta eu. Nam ultrices viverra erat accumsan pretium.</span>
+                      <span class="item-title">Godard tattooed fixie trust fund</span>
                       <span class="item-due-date">
                         Completed on<br/>
-                        April 10, 2015
+                        May 18, 2015
                       </span>
                       <span class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg' class='profile-pic'><div class='user-name'>Seth Juarez</div><div class='user-title'>Manager</div></div>"/></span>
                     </a>
@@ -202,10 +184,10 @@
                   <li class="list-group-item marked-complete">
                     <input type="checkbox" checked name="check1" class="action-item-checkbox">
                     <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
-                      <span class="item-title">Nam ultrices viverra erat.</span>
+                      <span class="item-title">Austin Kickstarter polaroid Marfa occupy scenester heirloom ennui migas four dollar toast. Messenger bag chia fixie.</span>
                       <span class="item-due-date">
                         Completed on<br/>
-                        April 10, 2015
+                        May 18, 2015
                       </span>
                       <span class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg' class='profile-pic'><div class='user-name'>Seth Juarez</div><div class='user-title'>Manager</div></div>"/></span>
                     </a>
@@ -213,8 +195,8 @@
                   <li class="list-group-item on-track">
                     <input type="checkbox" name="check2" class="action-item-checkbox">
                     <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
-                      <span class="item-title">Lorem ipsum dolor sit amet</span>
-                      <span class="item-due-date">May 05, 2015</span>
+                      <span class="item-title">Tofu tattooed 8-bit, aesthetic 90's artisan</span>
+                      <span class="item-due-date">June 25, 2015</span>
                       <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg' class='profile-pic'><div class='user-name'>Scott K Clark</div><div class='user-title'>Manager</div></div>"/></div>
                     </a>
                   </li>
@@ -222,15 +204,7 @@
                     <input type="checkbox" name="check3" class="action-item-checkbox">
                     <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
                       <span class="item-title">Donec sem turpis</span>
-                      <span class="item-due-date">April 30, 2015</span>
-                      <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
-                    </a>
-                  </li>
-                  <li class="list-group-item on-track">
-                    <input type="checkbox" name="check4" class="action-item-checkbox">
-                    <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
-                      <span class="item-title">Duis egestas blandit</span>
-                      <span class="item-due-date">May 15, 2015</span>
+                      <span class="item-due-date">May 30, 2015</span>
                       <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
                     </a>
                   </li>
@@ -283,32 +257,94 @@
                     </div>
                     <div class="attachment-info"><i class="fa fa-file"></i> attachedfile.jpg</div>
                   </div>
-                  <div class="attachment-item is-loading">
-                    <div class="attachment-img">
-                      <i class="fa fa-picture-o"></i>
-                      <div class="loading-bar">
-                        <div class="loading-bar-meter" style="width: 70%"></div>
-                      </div>
-                    </div>
-                    <div class="attachment-info"><i class="fa fa-picture-o"></i> toffee.jpg</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END MAIN CONTENT AREA -->
+
+
+    <!-- BEGIN MAIN CONTENT AREA -->
+    <div id="pcont" class="note2" style="display: none;">
+      <div id="fixed-action-header2">
+        <div class="action-header-left">
+          <button type="button" id="print-button2" class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i></button>
+          <button type="button" id="note-emailed2" class="btn btn-default"><i class="fa fa-envelope"></i></button>
+          <button type="button" id="note-deleted2" class="btn btn-default" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<p>Are you sure you want to delete?</p> <button type='button' id='cancel-deactivate' onclick='close_popover();' class='btn btn-xs btn-nostyle-popover'>No</button> <button type='button' onclick='delete_note();' class='btn btn-xs btn-default'>Yes</button>"><i class="fa fa-trash-o"></i></button>
+        </div>
+      </div>
+      <div class="cl-mcont">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="block-flat">
+              <div class="content notes-container">
+                <span class="note-metainfo">
+                  <span class="created-on">Created on May 10, 2015</span>
+                  <span class="meta-separator"> | </span>
+                  <span class="modified-on">Last modified on May 28, 2015 at 2:14pm</span>
+                </span>
+                <h3 id="note-title">Distillery whatever vinyl locavore</h3>
+                <div class="visit-info">
+                  <div class="visit-info-row">
+                    <span class="visit-info-label">Author:</span> Missy Bergen
                   </div>
-                  <div class="attachment-item is-loading">
-                    <div class="attachment-img">
-                      <i class="fa fa-file"></i>
-                      <div class="loading-bar">
-                        <div class="loading-bar-meter" style="width: 10%"></div>
-                      </div>
-                    </div>
-                    <div class="attachment-info"><i class="fa fa-file"></i> anotherone.pdf</div>
+                  <div class="visit-info-row">
+                    <span class="visit-info-label">Visited on:</span>
+                    <input class="datepicker" type="text" value="May 11, 2015" />
                   </div>
-                  <div class="attachment-item is-loading">
-                    <div class="attachment-img">
-                      <i class="fa fa-video-camera"></i>
-                      <div class="loading-bar">
-                        <div class="loading-bar-meter" style="width: 20%"></div>
-                      </div>
+                  <div class="visit-info-row">
+                    <span class="visit-info-label">Location:</span>
+                    <span class="location-selector">
+                      <span id="set-location" class="dropdown-toggle" data-toggle="dropdown"><a href"#" style="text-decoration: underline; cursor: pointer;">Clay Cooley Nis Austin SO</a></span>
+                      <ul class="dropdown-menu autocomplete-results">
+                        <li><a href="#">Trophy Nissan</a></li>
+                        <li><a href="#">Town North Nissan</a></li>
+                        <li><a href="#">Clay Cooley Nissan</a></li>
+                      </ul>
+                    </span>
+                  </div>
+                </div>
+                <section id="editor">
+                  <div id="note-content" class="froala-box">
+                    <p>
+                      Crucifix migas Helvetica actually mumblecore, health goth occupy fashion axe. Occupy Etsy Odd Future.
+                    </p>
+                    <ul>
+                      <li>Chillwave fashion axe locavore</li>
+                      <li>Selvage 8-bit organic</li>
+                      <li>Roof party selfies</li>
+                      <li>Cornhole Blue Bottle</li>
+                    </ul>
+                  </div>
+                </section>
+              </div>
+            </div>
+            <div class="block-flat">
+              <div class="header">
+                <h3>Action Items</h3>
+              </div>
+              <div class="content">
+                <ul class="list-group">
+                </ul>
+                <a href="javascript:void(0);">+ Add a new action item</a>
+              </div>
+            </div>
+            <div class="block-flat">
+              <div class="header">
+                <h3>Attachments</h3>
+              </div>
+              <div class="content">
+                <div id="attachments">
+                  <div class="attachment-item">
+                    <div id="add-attachment">
+                      <span class="fa-stack fa-2x">
+                        <i class="fa fa-circle-o fa-stack-2x"></i>
+                        <i class="fa fa-plus fa-stack-1x"></i>
+                      </span>
                     </div>
-                    <div class="attachment-info"><i class="fa fa-video-camera"></i> blahblah.mov</div>
                   </div>
                 </div>
               </div>
@@ -408,9 +444,8 @@
   </div>
   <!-- END WRAPPER -->
 
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
   <script type="text/javascript" src="javascripts/bootstrap.datetimepicker/bootstrap-datepicker.js"></script>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script type="text/javascript" src="node_modules/gritter/js/jquery.gritter.js"></script>
 
   <!-- Bootstrap core JavaScript
   ================================================== -->
@@ -424,36 +459,33 @@
 
       $(".datepicker").datepicker({
         todayHighlight: true,
-        format: "MM dd, yyyy"
+        format: "MM dd, yyyy",
+        autoclose: true
       });
 
       $('[data-toggle="popover"]').popover();
     });
 
     $("#note-emailed").click(function(){
-      toastr.options.closeButton = true;
-      toastr.options.positionClass = "toast-top-right";
-      toastr.options.preventDuplicates = false;
-      toastr.options.timeOut = -1;
-      toastr.options.extendedTimeOut = -1;
-      toastr.options.tapToDismiss = false;
+      $.gritter.add({
+        text: "'Paleo 3 wolf moon mlkshk, raw denim disrupt lomo vegan' has been emailed to your inbox.",
+        class_name: 'clean',
+        time: 3000
+      });
+      return false;
+    });
 
-      // toastr.info("Note on October 23, 2014 has been emailed to syang@square-root.com.")
-      toastr.error("There was a problem uploading testing.png to 'Note on October 23, 2014'. <a href='#'>View note</a>")
+    $("#note-emailed2").click(function(){
+      $.gritter.add({
+        text: "'Distillery whatever vinyl locavore' has been emailed to your inbox.",
+        class_name: 'clean',
+        time: 3000
+      });
+      return false;
     });
 
     $("#note-delete").click(function(){
       $("#note-delete").popover('toggle');
-    });
-    $("#note-deleted").click(function(){
-      toastr.options.closeButton = true;
-      toastr.options.positionClass = "toast-top-right";
-      toastr.options.preventDuplicates = false;
-      toastr.options.timeOut = -1;
-      toastr.options.extendedTimeOut = -1;
-      toastr.options.tapToDismiss = false;
-
-      toastr.info("Note on October 23, 2014 has been deleted. <a href='#'>Undo</a>")
     });
   </script>
   <!-- TODO: The functions below are only temporary for purposes of markup -->
@@ -463,6 +495,37 @@
     }
     function slidein() {
       $(".slideout-overlay").hide();
+    }
+    function show_note1() {
+      $("#note-list-1").addClass('selected');
+      $("#note-list-2").removeClass('selected');
+      $(".note1").show();
+      $(".note2").hide();
+    }
+    function show_note2() {
+      $("#note-list-1").removeClass('selected');
+      $("#note-list-2").addClass('selected');
+      $(".note1").hide();
+      $(".note2").show();
+    }
+    function restore_note() {
+      $(".note1").hide();
+      $(".note2").show();
+      $("#note-list-2").show();
+      $("#note-list-1").removeClass('selected');
+      $("#note-list-2").addClass('selected');
+      $.gritter.removeAll();
+      return false;
+    }
+    function delete_note() {
+      $(".note2").hide();
+      $("#note-list-2").hide();
+      $(".note1").show();
+      $("#note-list-1").addClass('selected');
+      $("#note-deleted2").popover('hide');
+    }
+    function close_popover() {
+      $("#note-deleted2").popover('hide');
     }
   </script>
   <!-- END TODO -->
