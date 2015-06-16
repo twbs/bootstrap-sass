@@ -75,6 +75,10 @@
   /* Content Area */
   #pcont
     margin-left: 55px
+  #page-aside
+    + #pcont
+      #fixed-action-header
+        left: 334px
 
 // Mobile phone sizes
 @media (max-width: 767px)
@@ -257,9 +261,17 @@
       visibility: visible
     .navbar-toggle
       padding: 0
+    #aside-header
+      border-bottom: 1px solid #e8e8e8
+    #aside-total-items,
+    #aside-sort
+      position: absolute
+      top: 100px
+    #aside-sort
+      right: 0
   #fixed-action-header
     position: inherit
-    padding-bottom: 0
+    padding: 15px 15px 0
   #fixed-action-header
     + .cl-mcont
       padding-top: 0
