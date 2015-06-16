@@ -80,6 +80,67 @@
         <div class="col-sm-8">
           <div class="block-flat">
             <div class="header">
+              <h3>Action Items</h3>
+            </div>
+            <div class="content">
+              <ul class="list-group">
+                <li class="list-group-item marked-complete">
+                  <input type="checkbox" checked name="check1" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta tellus ipsum, ut laoreet dui porta eu. Nam ultrices viverra erat accumsan pretium.</span>
+                    <span class="item-due-date">
+                      Completed on<br/>
+                      April 10, 2015
+                    </span>
+                    <span class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg' class='profile-pic'><div class='primary'>Seth Juarez</div><div class='secondary'>Manager</div></div>"/></span>
+                  </a>
+                </li>
+                <li class="list-group-item marked-complete">
+                  <!-- 'disabled' should be added to items that the user cannot check or uncheck based on permissions -->
+                  <input type="checkbox" checked name="check1" class="action-item-checkbox" disabled>
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Nam ultrices viverra erat.</span>
+                    <span class="item-due-date">
+                      Completed on<br/>
+                      April 10, 2015
+                    </span>
+                    <span class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg' class='profile-pic'><div class='primary'>John Weathers</div><div class='secondary'>Field Operations Manager</div></div>"/></span>
+                  </a>
+                </li>
+                <li class="list-group-item on-track">
+                  <input type="checkbox" name="check2" class="action-item-checkbox" disabled>
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Lorem ipsum dolor sit amet</span>
+                    <span class="item-due-date">May 05, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg' class='profile-pic'><div class='primary'>Scott K Clark</div><div class='secondary'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item past-due">
+                  <input type="checkbox" name="check3" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Donec sem turpis</span>
+                    <span class="item-due-date">April 30, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='primary'>Josh Austin</div><div class='secondary'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item on-track">
+                  <input type="checkbox" name="check4" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Duis egestas blandit</span>
+                    <span class="item-due-date">May 15, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='primary'>Josh Austin</div><div class='secondary'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+              </ul>
+              <div class="view-all-break">
+                <p>
+                  <a href="actionitems.html">View all</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="block-flat">
+            <div class="header">
               <h3>Recent Notes</h3>
             </div>
             <div class="content">
@@ -113,67 +174,6 @@
               </div>
             </div>
           </div>
-          <div class="block-flat">
-            <div class="header">
-              <h3>Action Items</h3>
-            </div>
-            <div class="content">
-              <ul class="list-group">
-                <li class="list-group-item marked-complete">
-                  <input type="checkbox" checked name="check1" class="action-item-checkbox">
-                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
-                    <span class="item-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta tellus ipsum, ut laoreet dui porta eu. Nam ultrices viverra erat accumsan pretium.</span>
-                    <span class="item-due-date">
-                      Completed on<br/>
-                      April 10, 2015
-                    </span>
-                    <span class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg' class='profile-pic'><div class='user-name'>Seth Juarez</div><div class='user-title'>Manager</div></div>"/></span>
-                  </a>
-                </li>
-                <li class="list-group-item marked-complete">
-                  <!-- 'disabled' should be added to items that the user cannot check or uncheck based on permissions -->
-                  <input type="checkbox" checked name="check1" class="action-item-checkbox" disabled>
-                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
-                    <span class="item-title">Nam ultrices viverra erat.</span>
-                    <span class="item-due-date">
-                      Completed on<br/>
-                      April 10, 2015
-                    </span>
-                    <span class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg' class='profile-pic'><div class='user-name'>John Weathers</div><div class='user-title'>Field Operations Manager</div></div>"/></span>
-                  </a>
-                </li>
-                <li class="list-group-item on-track">
-                  <input type="checkbox" name="check2" class="action-item-checkbox" disabled>
-                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
-                    <span class="item-title">Lorem ipsum dolor sit amet</span>
-                    <span class="item-due-date">May 05, 2015</span>
-                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg' class='profile-pic'><div class='user-name'>Scott K Clark</div><div class='user-title'>Manager</div></div>"/></div>
-                  </a>
-                </li>
-                <li class="list-group-item past-due">
-                  <input type="checkbox" name="check3" class="action-item-checkbox">
-                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
-                    <span class="item-title">Donec sem turpis</span>
-                    <span class="item-due-date">April 30, 2015</span>
-                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
-                  </a>
-                </li>
-                <li class="list-group-item on-track">
-                  <input type="checkbox" name="check4" class="action-item-checkbox">
-                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
-                    <span class="item-title">Duis egestas blandit</span>
-                    <span class="item-due-date">May 15, 2015</span>
-                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
-                  </a>
-                </li>
-              </ul>
-              <div class="view-all-break">
-                <p>
-                  <a href="actionitems.html">View all</a>
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="col-sm-4">
           <div class="block-flat">
@@ -183,24 +183,24 @@
             <div class="content">
               <ul class="list-unstyled contacts-list">
                 <li>
-                  <div class="user-profile-image"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/chloepark/48.jpg"></div>
-                  <div class="user-information">
-                    <div class="user-name">Chloe Park</div>
-                    <div class="user-title">Manager</div>
+                  <div class="profile-image"><a href="myprofilepublic.html"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/chloepark/48.jpg"></a></div>
+                  <div class="profile-information">
+                    <div class="primary"><a href="myprofilepublic.html">Chloe Park</a></div>
+                    <div class="secondary">Manager</div>
                   </div>
                 </li>
                 <li>
-                  <div class="user-profile-image"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/jennyshen/48.jpg"></div>
-                  <div class="user-information">
-                    <div class="user-name">Jenny Shen</div>
-                    <div class="user-title">Field Operations Manager</div>
+                  <div class="profile-image"><a href="myprofilepublic.html"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/jennyshen/48.jpg"></a></div>
+                  <div class="profile-information">
+                    <div class="primary"><a href="myprofilepublic.html">Jenny Shen</a></div>
+                    <div class="secondary">Field Operations Manager</div>
                   </div>
                 </li>
                 <li>
-                  <div class="user-profile-image"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/raquelromanp/48.jpg"></div>
-                  <div class="user-information">
-                    <div class="user-name">Raquel Roman</div>
-                    <div class="user-title">Title</div>
+                  <div class="profile-image"><a href="myprofilepublic.html"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/raquelromanp/48.jpg"></a></div>
+                  <div class="profile-information">
+                    <div class="primary"><a href="myprofilepublic.html">Raquel Roman</a></div>
+                    <div class="secondary">Title</div>
                   </div>
                 </li>
               </ul>
@@ -213,31 +213,31 @@
             <div class="content">
               <ul class="list-unstyled contacts-list">
                 <li>
-                  <div class="user-profile-image"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/irenetrn/48.jpg"></div>
-                  <div class="user-information">
-                    <div class="user-name">Irene Tran</div>
-                    <div class="user-title">Title</div>
+                  <div class="profile-image"><a href="myprofilepublic.html"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/irenetrn/48.jpg"></a></div>
+                  <div class="profile-information">
+                    <div class="primary"><a href="myprofilepublic.html">Irene Tran</a></div>
+                    <div class="secondary">Title</div>
                   </div>
                 </li>
                 <li>
-                  <div class="user-profile-image"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/jackiesaik/48.jpg"></div>
-                  <div class="user-information">
-                    <div class="user-name">Jackie Saik</div>
-                    <div class="user-title">Title</div>
+                  <div class="profile-image"><a href="myprofilepublic.html"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/jackiesaik/48.jpg"></a></div>
+                  <div class="profile-information">
+                    <div class="primary"><a href="myprofilepublic.html">Jackie Saik</a></div>
+                    <div class="secondary">Title</div>
                   </div>
                 </li>
                 <li>
-                  <div class="user-profile-image"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/wintopia/48.jpg"></div>
-                  <div class="user-information">
-                    <div class="user-name">Winnie Tong</div>
-                    <div class="user-title">Title</div>
+                  <div class="profile-image"><a href="myprofilepublic.html"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/wintopia/48.jpg"></a></div>
+                  <div class="profile-information">
+                    <div class="primary"><a href="myprofilepublic.html">Winnie Tong</a></div>
+                    <div class="secondary">Title</div>
                   </div>
                 </li>
                 <li>
-                  <div class="user-profile-image"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/lettershoppe/48.jpg"></div>
-                  <div class="user-information">
-                    <div class="user-name">Dina Rodriguez</div>
-                    <div class="user-title">Title</div>
+                  <div class="profile-image"><a href="myprofilepublic.html"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/lettershoppe/48.jpg"></a></div>
+                  <div class="profile-information">
+                    <div class="primary"><a href="myprofilepublic.html">Dina Rodriguez</a></div>
+                    <div class="secondary">Title</div>
                   </div>
                 </li>
               </ul>

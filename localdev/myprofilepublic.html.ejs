@@ -66,7 +66,9 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
           <div class="block-flat">
             <div class="header">
               <h3>Audits</h3>
@@ -112,6 +114,68 @@
 
           <div class="block-flat">
             <div class="header">
+              <h3>Action Items</h3>
+            </div>
+            <div class="content">
+              <ul class="list-group">
+                <li class="list-group-item marked-complete">
+                  <input type="checkbox" checked name="check1" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta tellus ipsum, ut laoreet dui porta eu. Nam ultrices viverra erat accumsan pretium.</span>
+                    <span class="item-due-date">
+                      Completed on<br/>
+                      April 10, 2015
+                    </span>
+                    <span class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg' class='profile-pic'><div class='primary'>Seth Juarez</div><div class='secondary'>Manager</div></div>"/></span>
+                  </a>
+                </li>
+                <li class="list-group-item marked-complete">
+                  <!-- 'disabled' should be added to items that the user cannot check or uncheck based on permissions -->
+                  <input type="checkbox" checked name="check1" class="action-item-checkbox" disabled>
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Nam ultrices viverra erat.</span>
+                    <span class="item-due-date">
+                      Completed on<br/>
+                      April 10, 2015
+                    </span>
+                    <span class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg' class='profile-pic'><div class='primary'>John Weathers</div><div class='secondary'>Field Operations Manager</div></div>"/></span>
+                  </a>
+                </li>
+                <li class="list-group-item on-track">
+                  <input type="checkbox" name="check2" class="action-item-checkbox" disabled>
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Lorem ipsum dolor sit amet</span>
+                    <span class="item-due-date">May 05, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg' class='profile-pic'><div class='primary'>Scott K Clark</div><div class='secondary'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item past-due">
+                  <input type="checkbox" name="check3" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Donec sem turpis</span>
+                    <span class="item-due-date">April 30, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='primary'>Josh Austin</div><div class='secondary'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item on-track">
+                  <input type="checkbox" name="check4" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Duis egestas blandit</span>
+                    <span class="item-due-date">May 15, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='primary'>Josh Austin</div><div class='secondary'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+              </ul>
+              <div class="view-all-break">
+                <p>
+                  <a href="actionitems.html">View all</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="block-flat">
+            <div class="header">
               <h3>Recent Notes</h3>
             </div>
             <div class="content">
@@ -146,64 +210,38 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <div class="block-flat">
             <div class="header">
-              <h3>Action Items</h3>
+              <h3>Locations</h3>
             </div>
             <div class="content">
-              <ul class="list-group">
-                <li class="list-group-item marked-complete">
-                  <input type="checkbox" checked name="check1" class="action-item-checkbox">
-                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
-                    <span class="item-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta tellus ipsum, ut laoreet dui porta eu. Nam ultrices viverra erat accumsan pretium.</span>
-                    <span class="item-due-date">
-                      Completed on<br/>
-                      April 10, 2015
-                    </span>
-                    <span class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg' class='profile-pic'><div class='user-name'>Seth Juarez</div><div class='user-title'>Manager</div></div>"/></span>
-                  </a>
+              <ul class="list-unstyled contacts-list">
+                <li>
+                  <div class="profile-image"><a href="locationspublic.html"><img src="http://s3-media4.fl.yelpcdn.com/bphoto/7aM0v24qR7lME0c8-LidOw/ls.jpg"></a></div>
+                  <div class="profile-information">
+                    <div class="primary"><a href="locationspublic.html">Town North Nissan - 1234</a></div>
+                    <div class="secondary">Austin, TX</div>
+                  </div>
                 </li>
-                <li class="list-group-item marked-complete">
-                  <!-- 'disabled' should be added to items that the user cannot check or uncheck based on permissions -->
-                  <input type="checkbox" checked name="check1" class="action-item-checkbox" disabled>
-                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
-                    <span class="item-title">Nam ultrices viverra erat.</span>
-                    <span class="item-due-date">
-                      Completed on<br/>
-                      April 10, 2015
-                    </span>
-                    <span class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg' class='profile-pic'><div class='user-name'>John Weathers</div><div class='user-title'>Field Operations Manager</div></div>"/></span>
-                  </a>
+                <li>
+                  <div class="profile-image"><a href="locationspublic.html"><img src="http://www.gannett-cdn.com/-mm-/e76ca8ffae76ea98b8fcb9564de2f553f12786ba/c=774-0-3283-2509&r=x203&c=200x200/local/-/media/JacksonMS/2015/04/01/B9316821206Z.1_20150401213525_000_G54AD2IJ1.1-0.jpg"></a></div>
+                  <div class="profile-information">
+                    <div class="primary"><a href="locationspublic.html">Clay Cooley Nissan - 5422</a></div>
+                    <div class="secondary">Austin, TX</div>
+                  </div>
                 </li>
-                <li class="list-group-item on-track">
-                  <input type="checkbox" name="check2" class="action-item-checkbox" disabled>
-                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
-                    <span class="item-title">Lorem ipsum dolor sit amet</span>
-                    <span class="item-due-date">May 05, 2015</span>
-                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg' class='profile-pic'><div class='user-name'>Scott K Clark</div><div class='user-title'>Manager</div></div>"/></div>
-                  </a>
-                </li>
-                <li class="list-group-item past-due">
-                  <input type="checkbox" name="check3" class="action-item-checkbox">
-                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
-                    <span class="item-title">Donec sem turpis</span>
-                    <span class="item-due-date">April 30, 2015</span>
-                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
-                  </a>
-                </li>
-                <li class="list-group-item on-track">
-                  <input type="checkbox" name="check4" class="action-item-checkbox">
-                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
-                    <span class="item-title">Duis egestas blandit</span>
-                    <span class="item-due-date">May 15, 2015</span>
-                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
-                  </a>
+                <li>
+                  <div class="profile-image"><a href="locationspublic.html"><img src="http://s3-media1.fl.yelpcdn.com/bphoto/5be0FiikZI4PuC7YGT7QkQ/ls.jpg"></a></div>
+                  <div class="profile-information">
+                    <div class="primary"><a href="locationspublic.html">Round Rock Nissan - 3394</a></div>
+                    <div class="secondary">Austin, TX</div>
+                  </div>
                 </li>
               </ul>
               <div class="view-all-break">
                 <p>
-                  <a href="actionitems.html">View all</a>
+                  <a href="locationsadmin.html">Manage locations</a>
                 </p>
               </div>
             </div>
