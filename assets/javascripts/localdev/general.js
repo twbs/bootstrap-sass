@@ -1379,7 +1379,7 @@ var App = function () {
       /*Collapse sidebar*/
       $("#sidebar-collapse").click(function(){
           toggleSideBar();
-          update_width();
+          // update_width();
       });
 
 
@@ -1422,11 +1422,11 @@ var App = function () {
 
         $(window).resize(function() {
           update_height();
-          update_width();
+          // update_width();
         });
 
         update_height();
-        update_width();
+        // update_width();
         $("#cl-wrapper .nscroller").nanoScroller({ preventPageScrolling: true });
 
       }
