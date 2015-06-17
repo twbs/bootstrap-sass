@@ -802,6 +802,7 @@ $breadcrumb-color:              #ccc !default;
 $breadcrumb-active-color:       $gray-light !default;
 //** Textual separator for between breadcrumb elements
 $breadcrumb-separator:          "/" !default;
+$breadcrumb-nonbreaking-space:  "\00a0";
 
 
 //== Carousel
