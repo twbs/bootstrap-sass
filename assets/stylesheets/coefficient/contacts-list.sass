@@ -4,13 +4,17 @@
 
 .contacts-list
   li
-    display: table
-    width: 100%
-    padding: 10px 0 15px
-    border-bottom: 1px solid #e8e8e8
+    a
+      display: table
+      width: 100%
+      padding: 15px
+      border-bottom: 1px solid #e8e8e8
+      color: $text-color
+      &:hover
+        background: rgba($primary, 0.1)
   li:last-child
-    border-bottom: 0
-    padding-bottom: 0
+    a
+      border-bottom: 0
 
   .profile-image,
   .profile-information
