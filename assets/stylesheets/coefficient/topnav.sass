@@ -4,6 +4,7 @@
   color: $white
   padding-left: 10px
   padding-right: 25px
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.15)
 
   .header-profile-image
     width: 30px
@@ -34,6 +35,9 @@
 
   .display-name-dark
     color: $CF-display-name-dark
+    &:hover,
+    &:focus
+      color: $CF-display-name-dark
 
   .navbar-nav
     > li
@@ -41,12 +45,21 @@
       a:hover,
       a:focus
         color: $white
+      a:hover
+        background-color: rgba($black, 0.3)
     .active
       a,
       a:hover,
       a:focus
-        background-color: rgba(0, 0, 0, 0.3)
+        background-color: rgba($black, 0.3)
         color: $white
+
+  .navbar-nav.display-name-dark
+    > li
+      > a,
+      a:hover,
+      a:focus
+        color: $black
 
 #nav-global-search
   padding: 10px
@@ -96,8 +109,6 @@
   color: $white
 
 .navbar-default .navbar-nav >
-  li > .dropdown-menu
-    border-top: 0
   .dropdown > a
     .caret
       border-bottom-color: $white
@@ -135,8 +146,7 @@
   padding: 0 10px
   margin: 0
   line-height: 50px
-  &:hover
-    background: transparent
+  &:hover,
   &:focus
     background: transparent
   .fa
@@ -218,8 +228,6 @@
   color: $white
 
 .navbar-default .navbar-nav >
-  li > .dropdown-menu
-    border-top: 0
   .dropdown > a
     .caret
       border-bottom-color: $white
