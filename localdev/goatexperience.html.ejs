@@ -7,7 +7,7 @@
   <meta name="author" content="">
   <link rel="shortcut icon" href="images/favicon.png">
 
-  <title>Wild Parrot</title>
+  <title>Goat Experience</title>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
@@ -273,7 +273,7 @@
         <div class="action-header-left">
           <button type="button" id="print-button2" class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i></button>
           <button type="button" id="note-emailed2" class="btn btn-default"><i class="fa fa-envelope"></i></button>
-          <button type="button" id="note-deleted2" class="btn btn-default" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<p>Are you sure you want to delete?</p> <button type='button' id='cancel-deactivate' onclick='close_popover();' class='btn btn-xs btn-nostyle-popover'>No</button> <button type='button' onclick='delete_note();' class='btn btn-xs btn-default'>Yes</button>"><i class="fa fa-trash-o"></i></button>
+          <button type="button" id="note-deleted2" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
         </div>
       </div>
       <div class="cl-mcont">
@@ -487,6 +487,18 @@
     $("#note-delete").click(function(){
       $("#note-delete").popover('toggle');
     });
+    $("#note-deleted2").click(function(){
+      $(".note2").hide();
+      $("#note-list-2").hide();
+      $(".note1").show();
+      $("#note-list-1").addClass('selected');
+
+      $.gritter.add({
+        text: "'Distillery whatever vinyl locavore' has been deleted. <a href='#' onclick='restore_note();'>Undo</a>",
+        class_name: 'clean',
+        time: 7000
+      });
+    });
   </script>
   <!-- TODO: The functions below are only temporary for purposes of markup -->
   <script>
@@ -516,16 +528,6 @@
       $("#note-list-2").addClass('selected');
       $.gritter.removeAll();
       return false;
-    }
-    function delete_note() {
-      $(".note2").hide();
-      $("#note-list-2").hide();
-      $(".note1").show();
-      $("#note-list-1").addClass('selected');
-      $("#note-deleted2").popover('hide');
-    }
-    function close_popover() {
-      $("#note-deleted2").popover('hide');
     }
   </script>
   <!-- END TODO -->
