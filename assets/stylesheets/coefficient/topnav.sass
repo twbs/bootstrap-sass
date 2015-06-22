@@ -7,8 +7,11 @@
   box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.15)
 
   .header-profile-image
-    width: 30px
-    height: 30px
+    max-width: 30px
+    max-height: 30px
+    position: relative
+    top: 50%
+    transform: translateY(-50%)
   #js-header-profile-image-thumbnail
     outline: 1px solid rgba(100, 100, 100, 0.5)
 
@@ -171,8 +174,6 @@
     span
       display: inline-block
       margin-top: 4px
-  img
-    margin-right: 5px
 
 .navbar-collapse.in .not-nav > li
   float: none !important
