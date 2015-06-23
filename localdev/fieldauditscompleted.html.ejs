@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Audits</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+    <% include fom-sidebar.html.ejs %>
+
+    <div id="pcont">
+      <div class="page-head">
+        <button class="btn btn-primary btn-right" onclick="slideout();">New Audit</button>
+        <h2>Audits</h2>
+      </div>
+      <div class="cl-mcont">
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="block-flat">
+              <div class="header tabs">
+                <ul class="list-unstyled">
+                  <li class="tab"><h3><a href="fieldaudits.html">Open</a></h3></li>
+                  <li class="tab active"><h3><a href="fieldauditscompleted.html">Submitted</a></h3></li>
+                </ul>
+              </div>
+              <div class="content">
+                <div class="pre-table">
+                  <div class="admin-search">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                      <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                  </div>
+                  <div class="search-matches"></div>
+                </div>
+                <table class="datatable">
+                  <thead>
+                    <tr>
+                      <th>Name <i class="fa fa-sort-down active"></i></th>
+                      <th class="text-center">Author <i class="fa fa-sort"></i></th>
+                      <th class="text-center">Location <i class="fa fa-sort"></i></th>
+                      <th class="text-center">Audit Date <i class="fa fa-sort"></i></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><a href="audit.html">Closed Audit</a></td>
+                      <td class="authored-by text-center"><a href="audit.html"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/enda/48.jpg"> John Weathers</a></td>
+                      <td class="text-center"><a href="audit.html">Location Name</a></td>
+                      <td class="text-center"><a href="audit.html">May 15, 2015</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="audit.html">Yet another closed audit here</a></td>
+                      <td class="authored-by text-center"><a href="audit.html"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/enda/48.jpg"> John Weathers</a></td>
+                      <td class="text-center"><a href="audit.html">Location Name</a></td>
+                      <td class="text-center"><a href="audit.html">May 14, 2015</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="block-flat">
+              <div class="header">
+                <h3>Drafts</h3>
+              </div>
+              <div class="content">
+                <table class="datatable">
+                  <tbody>
+                    <tr>
+                      <td><a href="newaudit.html">Draft audit</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="newaudit.html">Draft audit 2</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="newaudit.html">Another draft here</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slideout-overlay active" style="display: none;">
+      <a href="javascript:void(0);" class="overlay-close" onclick="slidein();"></a>
+      <div class="slideout-close" onclick="slidein();"><i class="fa fa-times"></i></div>
+      <div id="slideout">
+        <div id="slideout-inner">
+          <div class="slideout-wrap">
+            <div class="header">
+              <h3>New Audit</h3>
+            </div>
+            <div class="content">
+              <div class="form-group">
+                <label>Audit</label>
+                <select class="form-control">
+                  <option>Select One (required)</option>
+                  <option>Audit 1</option>
+                  <option>Audit 2</option>
+                  <option>Audit 5</option>
+                  <option>A longer audit name here</option>
+                  <option>Blah blah more audit stuff yay!</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Location</label>
+                <select class="form-control">
+                  <option>Select One (required)</option>
+                  <option>Town North Nissan</option>
+                  <option>Clay Cooley Nissan</option>
+                </select>
+              </div>
+              <div class="form-buttons">
+                <button type="button" class="btn btn-primary">Create</button>
+                <button type="button" class="btn btn-default" onclick="slidein();">Cancel</button>
+              </div>
+            </div>
+          </div>
+          <!-- END TODO -->
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+        });
+    </script>
+    <!-- TODO: The functions below are only temporary for purposes of markup -->
+    <script>
+      function slideout() {
+        $(".slideout-overlay").show();
+      }
+      function slidein() {
+        $(".slideout-overlay").hide();
+      }
+    </script>
+    <!-- END TODO -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>
