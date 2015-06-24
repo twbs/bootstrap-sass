@@ -28,61 +28,63 @@
   <div id="cl-wrapper" class="fixed-menu">
     <% include notes-sidebar.html.ejs %>
 
-    <div class="page-head">
-      <button class="btn btn-primary btn-right" onclick="window.location.href='newaudit.html'">New Audit</button>
-      <h2>Audits</h2>
-    </div>
-    <div class="cl-mcont">
-      <div class="row">
-        <div class="col-sm-8">
-          <div class="block-flat">
-            <div class="header tabs">
-              <ul class="list-unstyled">
-                <li class="tab"><h3><a href="audits.html">Open</a></h3></li>
-                <li class="tab active"><h3><a href="auditscompleted.html">Submitted</a></h3></li>
-              </ul>
-            </div>
-            <div class="content">
-              <table class="datatable">
-                <thead>
-                  <tr>
-                    <th>Name <i class="fa fa-sort-down active"></i></th>
-                    <th class="text-center">% Reporting <i class="fa fa-sort"></i></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a href="auditreport.html">Closed Audit</a></td>
-                    <td class="text-center"><a href="auditreport.html">83%</a></td>
-                  </tr>
-                  <tr>
-                    <td><a href="auditreport.html">Yet another closed audit here</a></td>
-                    <td class="text-center"><a href="auditreport.html">51%</a></td>
-                  </tr>
-                </tbody>
-              </table>
+    <div id="pcont">
+      <div class="page-head">
+        <button class="btn btn-primary btn-right" onclick="window.location.href='newaudit.html'">New Audit</button>
+        <h2>Audits</h2>
+      </div>
+      <div class="cl-mcont">
+        <div class="row">
+          <div class="col-xs-12 col-lg-8">
+            <div class="block-flat">
+              <div class="header tabs">
+                <ul class="list-unstyled">
+                  <li class="tab"><h3><a href="audits.html">Open</a></h3></li>
+                  <li class="tab active"><h3><a href="auditscompleted.html">Submitted</a></h3></li>
+                </ul>
+              </div>
+              <div class="content">
+                <table class="datatable">
+                  <thead>
+                    <tr>
+                      <th>Name <i class="fa fa-sort-down active"></i></th>
+                      <th class="text-center">% Reporting <i class="fa fa-sort"></i></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><a href="auditreport.html">Closed Audit</a></td>
+                      <td class="text-center"><a href="auditreport.html">83%</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="auditreport.html">Yet another closed audit here</a></td>
+                      <td class="text-center"><a href="auditreport.html">51%</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="block-flat">
-            <div class="header">
-              <h3>Drafts</h3>
-            </div>
-            <div class="content">
-              <table class="datatable">
-                <tbody>
-                  <tr>
-                    <td><a href="newaudit.html">Draft audit</a></td>
-                  </tr>
-                  <tr>
-                    <td><a href="newaudit.html">Draft audit 2</a></td>
-                  </tr>
-                  <tr>
-                    <td><a href="newaudit.html">Another draft here</a></td>
-                  </tr>
-                </tbody>
-              </table>
+          <div class="col-sm-4">
+            <div class="block-flat">
+              <div class="header">
+                <h3>Drafts</h3>
+              </div>
+              <div class="content">
+                <table class="datatable">
+                  <tbody>
+                    <tr>
+                      <td><a href="newaudit.html">Draft audit</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="newaudit.html">Draft audit 2</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="newaudit.html">Another draft here</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>

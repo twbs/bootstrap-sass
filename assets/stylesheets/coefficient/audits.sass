@@ -2,6 +2,13 @@
 // AUDIT PAGE STYLES
 // ----------------------------
 
+.authored-by
+  white-space: nowrap
+  img
+    max-width: 25px
+    max-height: 25px
+    margin-right: 5px
+
 .audit-item
   padding: 10px 15px
   background: #f6f6f6
@@ -37,3 +44,32 @@
   &:hover
     color: $link-hover
     cursor: pointer
+
+.audit-info
+  font-size: 12px
+  padding-bottom: 20px
+  display: table
+  .audit-info-row
+    display: table-row
+  .audit-info-label
+    color: #999
+    width: 65px
+    display: table-cell
+  .datepicker
+    border: 0
+    padding: 0
+    width: auto
+    color: $link-color
+    text-decoration: underline
+
+.audit-list-item
+  padding: 15px
+  border-left-width: 3px
+  &.item-pass
+    border-left-color: $success
+  &.item-fail
+    border-left-color: $danger
+  .audit-pass-fail
+    float: right
+  .audit-item-name
+    padding: 7px 11px 7px 0
