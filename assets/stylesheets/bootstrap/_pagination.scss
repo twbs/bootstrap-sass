@@ -1,7 +1,7 @@
 //
 // Pagination (multiple pages)
 // --------------------------------------------------
-.pagination {
+.cgg-pagination {
   display: inline-block;
   padding-left: 0;
   margin: $line-height-computed 0;
@@ -79,11 +79,11 @@
 // --------------------------------------------------
 
 // Large
-.pagination-lg {
+.cgg-pagination-lg {
   @include pagination-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
 }
 
 // Small
-.pagination-sm {
+.cgg-pagination-sm {
   @include pagination-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
 }

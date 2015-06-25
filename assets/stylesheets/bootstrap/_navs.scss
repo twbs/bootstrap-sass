@@ -6,7 +6,7 @@
 // Base class
 // --------------------------------------------------
 
-.nav {
+.cgg-nav {
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   list-style: none;
@@ -56,7 +56,7 @@
   // This should have been removed in v3 with the dropping of `.nav-list`, but
   // we missed it. We don't currently support this anywhere, but in the interest
   // of maintaining backward compatibility in case you use it, it's deprecated.
-  .nav-divider {
+  .cgg-nav-divider {
     @include nav-divider;
   }
 
@@ -73,7 +73,7 @@
 // -------------------------
 
 // Give the tabs something to sit on
-.nav-tabs {
+.cgg-nav-tabs {
   border-bottom: 1px solid $nav-tabs-border-color;
   > li {
     float: left;
@@ -105,16 +105,16 @@
     }
   }
   // pulling this in mainly for less shorthand
-  &.nav-justified {
-    @extend .nav-justified;
-    @extend .nav-tabs-justified;
+  &.cgg-nav-justified {
+    @extend .cgg-nav-justified;
+    @extend .cgg-nav-tabs-justified;
   }
 }
 
 
 // Pills
 // -------------------------
-.nav-pills {
+.cgg-nav-pills {
   > li {
     float: left;
 
@@ -140,7 +140,7 @@
 
 
 // Stacked pills
-.nav-stacked {
+.cgg-nav-stacked {
   > li {
     float: none;
     + li {
@@ -157,7 +157,7 @@
 // Justified nav links
 // -------------------------
 
-.nav-justified {
+.cgg-nav-justified {
   width: 100%;
 
   > li {
@@ -168,7 +168,7 @@
     }
   }
 
-  > .dropdown .dropdown-menu {
+  > .cgg-dropdown .cgg-dropdown-menu {
     top: auto;
     left: auto;
   }
@@ -187,7 +187,7 @@
 // Move borders to anchors instead of bottom of list
 //
 // Mixin for adding on top the shared `.nav-justified` styles for our tabs
-.nav-tabs-justified {
+.cgg-nav-tabs-justified {
   border-bottom: 0;
 
   > li > a {
@@ -220,8 +220,8 @@
 // -------------------------
 
 // Hide tabbable panes to start, show them when `.active`
-.tab-content {
-  > .tab-pane {
+.cgg-tab-content {
+  > .cgg-tab-pane {
     display: none;
   }
   > .active {
@@ -234,7 +234,7 @@
 // -------------------------
 
 // Specific dropdowns
-.nav-tabs .dropdown-menu {
+.cgg-nav-tabs .cgg-dropdown-menu {
   // make dropdown border overlap tab border
   margin-top: -1px;
   // Remove the top rounded corners here since there is a hard edge above the menu

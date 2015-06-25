@@ -4,7 +4,7 @@
 
 
 // Mixin and adjust the regular image class
-.thumbnail {
+.cgg-thumbnail {
   display: block;
   padding: $thumbnail-padding;
   margin-bottom: $line-height-computed;
@@ -24,15 +24,15 @@
   // [converter] extracted a&:hover, a&:focus, a&.active to a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active
 
   // Image captions
-  .caption {
+  .cgg-caption {
     padding: $thumbnail-caption-padding;
     color: $thumbnail-caption-color;
   }
 }
 
 // Add a hover state for linked versions only
-a.thumbnail:hover,
-a.thumbnail:focus,
-a.thumbnail.active {
+a.cgg-thumbnail:hover,
+a.cgg-thumbnail:focus,
+a.cgg-thumbnail.active {
   border-color: $link-color;
 }

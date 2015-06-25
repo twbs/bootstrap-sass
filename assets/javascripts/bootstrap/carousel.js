@@ -15,7 +15,7 @@
 
   var Carousel = function (element, options) {
     this.$element    = $(element)
-    this.$indicators = this.$element.find('.carousel-indicators')
+    this.$indicators = this.$element.find('.cgg-carousel-indicators')
     this.options     = options
     this.paused      = null
     this.sliding     = null
@@ -65,7 +65,7 @@
   }
 
   Carousel.prototype.getItemIndex = function (item) {
-    this.$items = item.parent().children('.item')
+    this.$items = item.parent().children('.cgg-item')
     return this.$items.index(item || this.$active)
   }
 
@@ -81,7 +81,7 @@
 
   Carousel.prototype.to = function (pos) {
     var that        = this
-    var activeIndex = this.getItemIndex(this.$active = this.$element.find('.item.active'))
+    var activeIndex = this.getItemIndex(this.$active = this.$element.find('.cgg-item.active'))
 
     if (pos > (this.$items.length - 1) || pos < 0) return
 
@@ -115,7 +115,7 @@
   }
 
   Carousel.prototype.slide = function (type, next) {
-    var $active   = this.$element.find('.item.active')
+    var $active   = this.$element.find('.cgg-item.active')
     var $next     = next || this.getItemForDirection(type, $active)
     var isCycling = this.interval
     var direction = type == 'next' ? 'left' : 'right'
@@ -209,7 +209,7 @@
     var href
     var $this   = $(this)
     var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) // strip for ie7
-    if (!$target.hasClass('carousel')) return
+    if (!$target.hasClass('cgg-carousel')) return
     var options = $.extend({}, $target.data(), $this.data())
     var slideIndex = $this.attr('data-slide-to')
     if (slideIndex) options.interval = false

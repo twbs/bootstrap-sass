@@ -13,7 +13,7 @@
   // DROPDOWN CLASS DEFINITION
   // =========================
 
-  var backdrop = '.dropdown-backdrop'
+  var backdrop = '.cgg-dropdown-backdrop'
   var toggle   = '[data-toggle="dropdown"]'
   var Dropdown = function (element) {
     $(element).on('click.bs.dropdown', this.toggle)
@@ -66,10 +66,10 @@
     clearMenus()
 
     if (!isActive) {
-      if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
+      if ('ontouchstart' in document.documentElement && !$parent.closest('.cgg-navbar-nav').length) {
         // if mobile we use a backdrop because click events don't delegate
         $(document.createElement('div'))
-          .addClass('dropdown-backdrop')
+          .addClass('cgg-dropdown-backdrop')
           .insertAfter($(this))
           .on('click', clearMenus)
       }
@@ -110,7 +110,7 @@
     }
 
     var desc = ' li:not(.disabled):visible a'
-    var $items = $parent.find('.dropdown-menu' + desc)
+    var $items = $parent.find('.cgg-dropdown-menu' + desc)
 
     if (!$items.length) return
 
@@ -157,9 +157,9 @@
 
   $(document)
     .on('click.bs.dropdown.data-api', clearMenus)
-    .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
+    .on('click.bs.dropdown.data-api', '.cgg-dropdown form', function (e) { e.stopPropagation() })
     .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
     .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
-    .on('keydown.bs.dropdown.data-api', '.dropdown-menu', Dropdown.prototype.keydown)
+    .on('keydown.bs.dropdown.data-api', '.cgg-dropdown-menu', Dropdown.prototype.keydown)
 
 }(jQuery);

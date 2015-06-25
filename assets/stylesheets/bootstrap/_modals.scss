@@ -8,12 +8,12 @@
 // .modal-content   - actual modal w/ bg and corners and shit
 
 // Kill the scroll on the body
-.modal-open {
+.cgg-modal-open {
   overflow: hidden;
 }
 
 // Container that the modal scrolls within
-.modal {
+.cgg-modal {
   display: none;
   overflow: hidden;
   position: fixed;
@@ -29,26 +29,26 @@
   outline: 0;
 
   // When fading in the modal, animate it to slide down
-  &.fade .modal-dialog {
+  &.fade .cgg-modal-dialog {
     @include translate(0, -25%);
     @include transition-transform(0.3s ease-out);
   }
-  &.in .modal-dialog { @include translate(0, 0) }
+  &.in .cgg-modal-dialog { @include translate(0, 0) }
 }
-.modal-open .modal {
+.cgg-modal-open .cgg-modal {
   overflow-x: hidden;
   overflow-y: auto;
 }
 
 // Shell div to position the modal with bottom padding
-.modal-dialog {
+.cgg-modal-dialog {
   position: relative;
   width: auto;
   margin: 10px;
 }
 
 // Actual modal
-.modal-content {
+.cgg-modal-content {
   position: relative;
   background-color: $modal-content-bg;
   border: 1px solid $modal-content-fallback-border-color; //old browsers fallback (ie8 etc)
@@ -61,7 +61,7 @@
 }
 
 // Modal background
-.modal-backdrop {
+.cgg-modal-backdrop {
   position: fixed;
   top: 0;
   right: 0;
@@ -76,53 +76,53 @@
 
 // Modal header
 // Top section of the modal w/ title and dismiss
-.modal-header {
+.cgg-modal-header {
   padding: $modal-title-padding;
   border-bottom: 1px solid $modal-header-border-color;
   min-height: ($modal-title-padding + $modal-title-line-height);
 }
 // Close icon
-.modal-header .close {
+.cgg-modal-header .close {
   margin-top: -2px;
 }
 
 // Title text within header
-.modal-title {
+.cgg-modal-title {
   margin: 0;
   line-height: $modal-title-line-height;
 }
 
 // Modal body
 // Where all modal content resides (sibling of .modal-header and .modal-footer)
-.modal-body {
+.cgg-modal-body {
   position: relative;
   padding: $modal-inner-padding;
 }
 
 // Footer (for actions)
-.modal-footer {
+.cgg-modal-footer {
   padding: $modal-inner-padding;
   text-align: right; // right align buttons
   border-top: 1px solid $modal-footer-border-color;
   @include clearfix; // clear it in case folks use .pull-* classes on buttons
 
   // Properly space out buttons
-  .btn + .btn {
+  .cgg-btn + .cgg-btn {
     margin-left: 5px;
     margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
   }
   // but override that for button groups
-  .btn-group .btn + .btn {
+  .cgg-btn-group .cgg-btn + .cgg-btn {
     margin-left: -1px;
   }
   // and override it for block buttons as well
-  .btn-block + .btn-block {
+  .cgg-btn-block + .cgg-btn-block {
     margin-left: 0;
   }
 }
 
 // Measure scrollbar width for padding body during modal show/hide
-.modal-scrollbar-measure {
+.cgg-modal-scrollbar-measure {
   position: absolute;
   top: -9999px;
   width: 50px;
@@ -133,18 +133,18 @@
 // Scale up the modal
 @media (min-width: $screen-sm-min) {
   // Automatically set modal's width for larger viewports
-  .modal-dialog {
+  .cgg-modal-dialog {
     width: $modal-md;
     margin: 30px auto;
   }
-  .modal-content {
+  .cgg-modal-content {
     @include box-shadow(0 5px 15px rgba(0,0,0,.5));
   }
 
   // Modal sizes
-  .modal-sm { width: $modal-sm; }
+  .cgg-modal-sm { width: $modal-sm; }
 }
 
 @media (min-width: $screen-md-min) {
-  .modal-lg { width: $modal-lg; }
+  .cgg-modal-lg { width: $modal-lg; }
 }

@@ -25,7 +25,7 @@
 
   Tab.prototype.show = function () {
     var $this    = this.element
-    var $ul      = $this.closest('ul:not(.dropdown-menu)')
+    var $ul      = $this.closest('ul:not(.cgg-dropdown-menu)')
     var selector = $this.data('target')
 
     if (!selector) {
@@ -72,7 +72,7 @@
     function next() {
       $active
         .removeClass('active')
-        .find('> .dropdown-menu > .active')
+        .find('> .cgg-dropdown-menu > .active')
           .removeClass('active')
         .end()
         .find('[data-toggle="tab"]')
@@ -90,9 +90,9 @@
         element.removeClass('fade')
       }
 
-      if (element.parent('.dropdown-menu').length) {
+      if (element.parent('.cgg-dropdown-menu').length) {
         element
-          .closest('li.dropdown')
+          .closest('li.cgg-dropdown')
             .addClass('active')
           .end()
           .find('[data-toggle="tab"]')

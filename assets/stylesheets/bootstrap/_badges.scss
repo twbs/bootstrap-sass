@@ -4,7 +4,7 @@
 
 
 // Base class
-.badge {
+.cgg-badge {
   display: inline-block;
   min-width: 10px;
   padding: 3px 7px;
@@ -24,13 +24,13 @@
   }
 
   // Quick fix for badges in buttons
-  .btn & {
+  .cgg-btn & {
     position: relative;
     top: -1px;
   }
 
-  .btn-xs &,
-  .btn-group-xs > .btn & {
+  .cgg-btn-xs &,
+  .cgg-btn-group-xs > .cgg-btn & {
     top: 0;
     padding: 1px 5px;
   }
@@ -38,27 +38,27 @@
   // [converter] extracted a& to a.badge
 
   // Account for badges in navs
-  .list-group-item.active > &,
-  .nav-pills > .active > a > & {
+  .cgg-list-group-item.active > &,
+  .cgg-nav-pills > .active > a > & {
     color: $badge-active-color;
     background-color: $badge-active-bg;
   }
 
-  .list-group-item > & {
+  .cgg-list-group-item > & {
     float: right;
   }
 
-  .list-group-item > & + & {
+  .cgg-list-group-item > & + & {
     margin-right: 5px;
   }
 
-  .nav-pills > li > a > & {
+  .cgg-nav-pills > li > a > & {
     margin-left: 3px;
   }
 }
 
 // Hover state, but only for links
-a.badge {
+a.cgg-badge {
   &:hover,
   &:focus {
     color: $badge-link-hover-color;

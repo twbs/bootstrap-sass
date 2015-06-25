@@ -36,10 +36,10 @@
     if (e) e.preventDefault()
 
     if (!$parent.length) {
-      $parent = $this.closest('.alert')
+      $parent = $this.closest('.cgg-alert')
     }
 
-    $parent.trigger(e = $.Event('close.bs.alert'))
+    $parent.trigger(e = $.Event('cgg-close.bs.alert'))
 
     if (e.isDefaultPrevented()) return
 

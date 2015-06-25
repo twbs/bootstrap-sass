@@ -17,7 +17,7 @@
     this.options             = options
     this.$body               = $(document.body)
     this.$element            = $(element)
-    this.$dialog             = this.$element.find('.modal-dialog')
+    this.$dialog             = this.$element.find('.cgg-modal-dialog')
     this.$backdrop           = null
     this.isShown             = null
     this.originalBodyPad     = null
@@ -26,7 +26,7 @@
 
     if (this.options.remote) {
       this.$element
-        .find('.modal-content')
+        .find('.cgg-modal-content')
         .load(this.options.remote, $.proxy(function () {
           this.$element.trigger('loaded.bs.modal')
         }, this))
@@ -60,7 +60,7 @@
 
     this.checkScrollbar()
     this.setScrollbar()
-    this.$body.addClass('modal-open')
+    this.$body.addClass('cgg-modal-open')
 
     this.escape()
     this.resize()
@@ -168,7 +168,7 @@
     var that = this
     this.$element.hide()
     this.backdrop(function () {
-      that.$body.removeClass('modal-open')
+      that.$body.removeClass('cgg-modal-open')
       that.resetAdjustments()
       that.resetScrollbar()
       that.$element.trigger('hidden.bs.modal')
@@ -188,7 +188,7 @@
       var doAnimate = $.support.transition && animate
 
       this.$backdrop = $(document.createElement('div'))
-        .addClass('modal-backdrop ' + animate)
+        .addClass('cgg-modal-backdrop ' + animate)
         .appendTo(this.$body)
 
       this.$element.on('click.dismiss.bs.modal', $.proxy(function (e) {
@@ -276,7 +276,7 @@
 
   Modal.prototype.measureScrollbar = function () { // thx walsh
     var scrollDiv = document.createElement('div')
-    scrollDiv.className = 'modal-scrollbar-measure'
+    scrollDiv.className = 'cgg-modal-scrollbar-measure'
     this.$body.append(scrollDiv)
     var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth
     this.$body[0].removeChild(scrollDiv)

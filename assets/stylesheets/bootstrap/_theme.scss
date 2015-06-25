@@ -17,12 +17,12 @@
 // --------------------------------------------------
 
 // Common styles
-.btn-default,
-.btn-primary,
-.btn-success,
-.btn-info,
-.btn-warning,
-.btn-danger {
+.cgg-btn-default,
+.cgg-btn-primary,
+.cgg-btn-success,
+.cgg-btn-info,
+.cgg-btn-warning,
+.cgg-btn-danger {
   text-shadow: 0 -1px 0 rgba(0,0,0,.2);
   $shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
   @include box-shadow($shadow);
@@ -79,7 +79,7 @@
 }
 
 // Common styles
-.btn {
+.cgg-btn {
   // Remove the gradient for the pressed/active state
   &:active,
   &.active {
@@ -88,20 +88,20 @@
 }
 
 // Apply the mixin to the buttons
-.btn-default { @include btn-styles($btn-default-bg); text-shadow: 0 1px 0 #fff; border-color: #ccc; }
-.btn-primary { @include btn-styles($btn-primary-bg); }
-.btn-success { @include btn-styles($btn-success-bg); }
-.btn-info    { @include btn-styles($btn-info-bg); }
-.btn-warning { @include btn-styles($btn-warning-bg); }
-.btn-danger  { @include btn-styles($btn-danger-bg); }
+.cgg-btn-default { @include btn-styles($btn-default-bg); text-shadow: 0 1px 0 #fff; border-color: #ccc; }
+.cgg-btn-primary { @include btn-styles($btn-primary-bg); }
+.cgg-btn-success { @include btn-styles($btn-success-bg); }
+.cgg-btn-info    { @include btn-styles($btn-info-bg); }
+.cgg-btn-warning { @include btn-styles($btn-warning-bg); }
+.cgg-btn-danger  { @include btn-styles($btn-danger-bg); }
 
 
 //
 // Images
 // --------------------------------------------------
 
-.thumbnail,
-.img-thumbnail {
+.cgg-thumbnail,
+.cgg-img-thumbnail {
   @include box-shadow(0 1px 2px rgba(0,0,0,.075));
 }
 
@@ -110,14 +110,14 @@
 // Dropdowns
 // --------------------------------------------------
 
-.dropdown-menu > li > a:hover,
-.dropdown-menu > li > a:focus {
+.cgg-dropdown-menu > li > a:hover,
+.cgg-dropdown-menu > li > a:focus {
   @include gradient-vertical($start-color: $dropdown-link-hover-bg, $end-color: darken($dropdown-link-hover-bg, 5%));
   background-color: darken($dropdown-link-hover-bg, 5%);
 }
-.dropdown-menu > .active > a,
-.dropdown-menu > .active > a:hover,
-.dropdown-menu > .active > a:focus {
+.cgg-dropdown-menu > .active > a,
+.cgg-dropdown-menu > .active > a:hover,
+.cgg-dropdown-menu > .active > a:focus {
   @include gradient-vertical($start-color: $dropdown-link-active-bg, $end-color: darken($dropdown-link-active-bg, 5%));
   background-color: darken($dropdown-link-active-bg, 5%);
 }
@@ -128,51 +128,51 @@
 // --------------------------------------------------
 
 // Default navbar
-.navbar-default {
+.cgg-navbar-default {
   @include gradient-vertical($start-color: lighten($navbar-default-bg, 10%), $end-color: $navbar-default-bg);
   @include reset-filter; // Remove gradient in IE<10 to fix bug where dropdowns don't get triggered
   border-radius: $navbar-border-radius;
   $shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 5px rgba(0,0,0,.075);
   @include box-shadow($shadow);
 
-  .navbar-nav > .open > a,
-  .navbar-nav > .active > a {
+  .cgg-navbar-nav > .open > a,
+  .cgg-navbar-nav > .active > a {
     @include gradient-vertical($start-color: darken($navbar-default-link-active-bg, 5%), $end-color: darken($navbar-default-link-active-bg, 2%));
     @include box-shadow(inset 0 3px 9px rgba(0,0,0,.075));
   }
 }
-.navbar-brand,
-.navbar-nav > li > a {
+.cgg-navbar-brand,
+.cgg-navbar-nav > li > a {
   text-shadow: 0 1px 0 rgba(255,255,255,.25);
 }
 
 // Inverted navbar
-.navbar-inverse {
+.cgg-navbar-inverse {
   @include gradient-vertical($start-color: lighten($navbar-inverse-bg, 10%), $end-color: $navbar-inverse-bg);
   @include reset-filter; // Remove gradient in IE<10 to fix bug where dropdowns don't get triggered; see https://github.com/twbs/bootstrap/issues/10257
   border-radius: $navbar-border-radius;
-  .navbar-nav > .open > a,
-  .navbar-nav > .active > a {
+  .cgg-navbar-nav > .open > a,
+  .cgg-navbar-nav > .active > a {
     @include gradient-vertical($start-color: $navbar-inverse-link-active-bg, $end-color: lighten($navbar-inverse-link-active-bg, 2.5%));
     @include box-shadow(inset 0 3px 9px rgba(0,0,0,.25));
   }
 
-  .navbar-brand,
-  .navbar-nav > li > a {
+  .cgg-navbar-brand,
+  .cgg-navbar-nav > li > a {
     text-shadow: 0 -1px 0 rgba(0,0,0,.25);
   }
 }
 
 // Undo rounded corners in static and fixed navbars
-.navbar-static-top,
-.navbar-fixed-top,
-.navbar-fixed-bottom {
+.cgg-navbar-static-top,
+.cgg-navbar-fixed-top,
+.cgg-navbar-fixed-bottom {
   border-radius: 0;
 }
 
 // Fix active state of dropdown items in collapsed mode
 @media (max-width: $grid-float-breakpoint-max) {
-  .navbar .navbar-nav .open .dropdown-menu > .active > a {
+  .cgg-navbar .cgg-navbar-nav .open .cgg-dropdown-menu > .active > a {
     &,
     &:hover,
     &:focus {
@@ -188,7 +188,7 @@
 // --------------------------------------------------
 
 // Common styles
-.alert {
+.cgg-alert {
   text-shadow: 0 1px 0 rgba(255,255,255,.2);
   $shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 1px 2px rgba(0,0,0,.05);
   @include box-shadow($shadow);
@@ -201,10 +201,10 @@
 }
 
 // Apply the mixin to the alerts
-.alert-success    { @include alert-styles($alert-success-bg); }
-.alert-info       { @include alert-styles($alert-info-bg); }
-.alert-warning    { @include alert-styles($alert-warning-bg); }
-.alert-danger     { @include alert-styles($alert-danger-bg); }
+.cgg-alert-success    { @include alert-styles($alert-success-bg); }
+.cgg-alert-info       { @include alert-styles($alert-info-bg); }
+.cgg-alert-warning    { @include alert-styles($alert-warning-bg); }
+.cgg-alert-danger     { @include alert-styles($alert-danger-bg); }
 
 
 //
@@ -212,7 +212,7 @@
 // --------------------------------------------------
 
 // Give the progress background some depth
-.progress {
+.cgg-progress {
   @include gradient-vertical($start-color: darken($progress-bg, 4%), $end-color: $progress-bg)
 }
 
@@ -222,15 +222,15 @@
 }
 
 // Apply the mixin to the progress bars
-.progress-bar            { @include progress-bar-styles($progress-bar-bg); }
-.progress-bar-success    { @include progress-bar-styles($progress-bar-success-bg); }
-.progress-bar-info       { @include progress-bar-styles($progress-bar-info-bg); }
-.progress-bar-warning    { @include progress-bar-styles($progress-bar-warning-bg); }
-.progress-bar-danger     { @include progress-bar-styles($progress-bar-danger-bg); }
+.cgg-progress-bar            { @include progress-bar-styles($progress-bar-bg); }
+.cgg-progress-bar-success    { @include progress-bar-styles($progress-bar-success-bg); }
+.cgg-progress-bar-info       { @include progress-bar-styles($progress-bar-info-bg); }
+.cgg-progress-bar-warning    { @include progress-bar-styles($progress-bar-warning-bg); }
+.cgg-progress-bar-danger     { @include progress-bar-styles($progress-bar-danger-bg); }
 
 // Reset the striped class because our mixins don't do multiple gradients and
 // the above custom styles override the new `.progress-bar-striped` in v3.2.0.
-.progress-bar-striped {
+.cgg-progress-bar-striped {
   @include gradient-striped;
 }
 
@@ -239,18 +239,18 @@
 // List groups
 // --------------------------------------------------
 
-.list-group {
+.cgg-list-group {
   border-radius: $border-radius-base;
   @include box-shadow(0 1px 2px rgba(0,0,0,.075));
 }
-.list-group-item.active,
-.list-group-item.active:hover,
-.list-group-item.active:focus {
+.cgg-list-group-item.active,
+.cgg-list-group-item.active:hover,
+.cgg-list-group-item.active:focus {
   text-shadow: 0 -1px 0 darken($list-group-active-bg, 10%);
   @include gradient-vertical($start-color: $list-group-active-bg, $end-color: darken($list-group-active-bg, 7.5%));
   border-color: darken($list-group-active-border, 7.5%);
 
-  .badge {
+  .cgg-badge {
     text-shadow: none;
   }
 }
@@ -261,7 +261,7 @@
 // --------------------------------------------------
 
 // Common styles
-.panel {
+.cgg-panel {
   @include box-shadow(0 1px 2px rgba(0,0,0,.05));
 }
 
@@ -271,19 +271,19 @@
 }
 
 // Apply the mixin to the panel headings only
-.panel-default > .panel-heading   { @include panel-heading-styles($panel-default-heading-bg); }
-.panel-primary > .panel-heading   { @include panel-heading-styles($panel-primary-heading-bg); }
-.panel-success > .panel-heading   { @include panel-heading-styles($panel-success-heading-bg); }
-.panel-info > .panel-heading      { @include panel-heading-styles($panel-info-heading-bg); }
-.panel-warning > .panel-heading   { @include panel-heading-styles($panel-warning-heading-bg); }
-.panel-danger > .panel-heading    { @include panel-heading-styles($panel-danger-heading-bg); }
+.cgg-panel-default > .cgg-panel-heading   { @include panel-heading-styles($panel-default-heading-bg); }
+.cgg-panel-primary > .cgg-panel-heading   { @include panel-heading-styles($panel-primary-heading-bg); }
+.cgg-panel-success > .cgg-panel-heading   { @include panel-heading-styles($panel-success-heading-bg); }
+.cgg-panel-info > .cgg-panel-heading      { @include panel-heading-styles($panel-info-heading-bg); }
+.cgg-panel-warning > .cgg-panel-heading   { @include panel-heading-styles($panel-warning-heading-bg); }
+.cgg-panel-danger > .cgg-panel-heading    { @include panel-heading-styles($panel-danger-heading-bg); }
 
 
 //
 // Wells
 // --------------------------------------------------
 
-.well {
+.cgg-well {
   @include gradient-vertical($start-color: darken($well-bg, 5%), $end-color: $well-bg);
   border-color: darken($well-bg, 10%);
   $shadow: inset 0 1px 3px rgba(0,0,0,.05), 0 1px 0 rgba(255,255,255,.1);
