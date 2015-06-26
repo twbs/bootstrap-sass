@@ -127,17 +127,17 @@
     })
   }
 
-  var old = $.fn.affix
+  var old = $.fn.cggaffix
 
-  $.fn.affix             = Plugin
-  $.fn.affix.Constructor = Affix
+  $.fn.cggaffix             = Plugin
+  $.fn.cggaffix.Constructor = Affix
 
 
   // AFFIX NO CONFLICT
   // =================
 
-  $.fn.affix.noConflict = function () {
-    $.fn.affix = old
+  $.fn.cggaffix.noConflict = function () {
+    $.fn.cggaffix = old
     return this
   }
 

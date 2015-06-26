@@ -151,17 +151,17 @@ if (typeof jQuery === 'undefined') {
         })
     }
 
-    var old = $.fn.alert
+    var old = $.fn.cggalert
 
-    $.fn.alert             = Plugin
-    $.fn.alert.Constructor = Alert
+    $.fn.cggalert             = Plugin
+    $.fn.cggalert.Constructor = Alert
 
 
     // ALERT NO CONFLICT
     // =================
 
-    $.fn.alert.noConflict = function () {
-        $.fn.alert = old
+    $.fn.cggalert.noConflict = function () {
+        $.fn.cggalert = old
         return this
     }
 
@@ -1231,7 +1231,7 @@ if (typeof jQuery === 'undefined') {
     // MODAL NO CONFLICT
     // =================
 
-    $.fn.modal.noConflict = function () {
+    $.fn.cggmodal.noConflict = function () {
         $.fn.cggmodal = old
         return this
     }
@@ -1797,11 +1797,11 @@ if (typeof jQuery === 'undefined') {
         this.init('popover', element, options)
     }
 
-    if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')
+    if (!$.fn.cggtooltip) throw new Error('Popover requires tooltip.js')
 
     Popover.VERSION  = '3.3.5'
 
-    Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {
+    Popover.DEFAULTS = $.extend({}, $.fn.cggtooltip.Constructor.DEFAULTS, {
         placement: 'right',
         trigger: 'click',
         content: '',
@@ -1812,7 +1812,7 @@ if (typeof jQuery === 'undefined') {
     // NOTE: POPOVER EXTENDS tooltip.js
     // ================================
 
-    Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype)
+    Popover.prototype = $.extend({}, $.fn.cggtooltip.Constructor.prototype)
 
     Popover.prototype.constructor = Popover
 
@@ -2351,17 +2351,17 @@ if (typeof jQuery === 'undefined') {
         })
     }
 
-    var old = $.fn.affix
+    var old = $.fn.cggaffix
 
-    $.fn.affix             = Plugin
-    $.fn.affix.Constructor = Affix
+    $.fn.cggaffix             = Plugin
+    $.fn.cggaffix.Constructor = Affix
 
 
     // AFFIX NO CONFLICT
     // =================
 
-    $.fn.affix.noConflict = function () {
-        $.fn.affix = old
+    $.fn.cggaffix.noConflict = function () {
+        $.fn.cggaffix = old
         return this
     }
 

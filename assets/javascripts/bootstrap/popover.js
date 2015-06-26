@@ -17,11 +17,11 @@
     this.init('popover', element, options)
   }
 
-  if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')
+  if (!$.fn.cggtooltip) throw new Error('Popover requires tooltip.js')
 
   Popover.VERSION  = '3.3.5'
 
-  Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {
+  Popover.DEFAULTS = $.extend({}, $.fn.cggtooltip.Constructor.DEFAULTS, {
     placement: 'right',
     trigger: 'click',
     content: '',
@@ -32,7 +32,7 @@
   // NOTE: POPOVER EXTENDS tooltip.js
   // ================================
 
-  Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype)
+  Popover.prototype = $.extend({}, $.fn.cggtooltip.Constructor.prototype)
 
   Popover.prototype.constructor = Popover
 
