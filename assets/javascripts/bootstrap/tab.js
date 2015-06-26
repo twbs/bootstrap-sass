@@ -36,10 +36,10 @@
     if ($this.parent('li').hasClass('active')) return
 
     var $previous = $ul.find('.active:last a')
-    var hideEvent = $.Event('hide.bs.tab', {
+    var hideEvent = $.Event('hide.cgg.tab', {
       relatedTarget: $this[0]
     })
-    var showEvent = $.Event('show.bs.tab', {
+    var showEvent = $.Event('show.cgg.tab', {
       relatedTarget: $previous[0]
     })
 
@@ -53,11 +53,11 @@
     this.activate($this.closest('li'), $ul)
     this.activate($target, $target.parent(), function () {
       $previous.trigger({
-        type: 'hidden.bs.tab',
+        type: 'hidden.cgg.tab',
         relatedTarget: $this[0]
       })
       $this.trigger({
-        type: 'shown.bs.tab',
+        type: 'shown.cgg.tab',
         relatedTarget: $previous[0]
       })
     })
@@ -75,12 +75,12 @@
         .find('> .cgg-dropdown-menu > .active')
           .removeClass('active')
         .end()
-        .find('[data-toggle="tab"]')
+        .find('[data-toggle="cgg-tab"]')
           .attr('aria-expanded', false)
 
       element
         .addClass('active')
-        .find('[data-toggle="tab"]')
+        .find('[data-toggle="cgg-tab"]')
           .attr('aria-expanded', true)
 
       if (transition) {
@@ -95,7 +95,7 @@
           .closest('li.cgg-dropdown')
             .addClass('active')
           .end()
-          .find('[data-toggle="tab"]')
+          .find('[data-toggle="cgg-tab"]')
             .attr('aria-expanded', true)
       }
 
@@ -118,24 +118,24 @@
   function Plugin(option) {
     return this.each(function () {
       var $this = $(this)
-      var data  = $this.data('bs.tab')
+      var data  = $this.data('cgg.tab')
 
-      if (!data) $this.data('bs.tab', (data = new Tab(this)))
+      if (!data) $this.data('cgg.tab', (data = new Tab(this)))
       if (typeof option == 'string') data[option]()
     })
   }
 
-  var old = $.fn.tab
+  var old = $.fn.cggtab
 
-  $.fn.tab             = Plugin
-  $.fn.tab.Constructor = Tab
+  $.fn.cggtab             = Plugin
+  $.fn.cggtab.Constructor = Tab
 
 
   // TAB NO CONFLICT
   // ===============
 
-  $.fn.tab.noConflict = function () {
-    $.fn.tab = old
+  $.fn.cggtab.noConflict = function () {
+    $.fn.cggtab = old
     return this
   }
 
@@ -149,7 +149,7 @@
   }
 
   $(document)
-    .on('click.bs.tab.data-api', '[data-toggle="tab"]', clickHandler)
-    .on('click.bs.tab.data-api', '[data-toggle="pill"]', clickHandler)
+    .on('click.cgg.tab.data-api', '[data-toggle="cgg-tab"]', clickHandler)
+    .on('click.cgg.tab.data-api', '[data-toggle="cgg-pill"]', clickHandler)
 
 }(jQuery);

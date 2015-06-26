@@ -78,27 +78,27 @@
   function Plugin(option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.button')
+      var data    = $this.data('cgg.button')
       var options = typeof option == 'object' && option
 
-      if (!data) $this.data('bs.button', (data = new Button(this, options)))
+      if (!data) $this.data('cgg.button', (data = new Button(this, options)))
 
       if (option == 'toggle') data.toggle()
       else if (option) data.setState(option)
     })
   }
 
-  var old = $.fn.button
+  var old = $.fn.cggbutton
 
-  $.fn.button             = Plugin
-  $.fn.button.Constructor = Button
+  $.fn.cggbutton             = Plugin
+  $.fn.cggbutton.Constructor = Button
 
 
   // BUTTON NO CONFLICT
   // ==================
 
-  $.fn.button.noConflict = function () {
-    $.fn.button = old
+  $.fn.cggbutton.noConflict = function () {
+    $.fn.cggbutton = old
     return this
   }
 
@@ -107,13 +107,13 @@
   // ===============
 
   $(document)
-    .on('click.bs.button.data-api', '[data-toggle^="button"]', function (e) {
+    .on('click.cgg.button.data-api', '[data-toggle^="cgg-button"]', function (e) {
       var $btn = $(e.target)
       if (!$btn.hasClass('cgg-btn')) $btn = $btn.closest('.cgg-btn')
       Plugin.call($btn, 'toggle')
       if (!($(e.target).is('input[type="radio"]') || $(e.target).is('input[type="checkbox"]'))) e.preventDefault()
     })
-    .on('focus.bs.button.data-api blur.bs.button.data-api', '[data-toggle^="button"]', function (e) {
+    .on('focus.cgg.button.data-api blur.cgg.button.data-api', '[data-toggle^="cgg-button"]', function (e) {
       $(e.target).closest('.cgg-btn').toggleClass('focus', /^focus(in)?$/.test(e.type))
     })
 

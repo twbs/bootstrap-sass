@@ -82,26 +82,26 @@
   function Plugin(option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.popover')
+      var data    = $this.data('cgg.popover')
       var options = typeof option == 'object' && option
 
       if (!data && /destroy|hide/.test(option)) return
-      if (!data) $this.data('bs.popover', (data = new Popover(this, options)))
+      if (!data) $this.data('cgg.popover', (data = new Popover(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
 
-  var old = $.fn.popover
+  var old = $.fn.cggpopover
 
-  $.fn.popover             = Plugin
-  $.fn.popover.Constructor = Popover
+  $.fn.cggpopover             = Plugin
+  $.fn.cggpopover.Constructor = Popover
 
 
   // POPOVER NO CONFLICT
   // ===================
 
-  $.fn.popover.noConflict = function () {
-    $.fn.popover = old
+  $.fn.cggpopover.noConflict = function () {
+    $.fn.cggpopover = old
     return this
   }
 

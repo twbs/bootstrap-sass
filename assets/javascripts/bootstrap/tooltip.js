@@ -109,11 +109,11 @@
 
   Tooltip.prototype.enter = function (obj) {
     var self = obj instanceof this.constructor ?
-      obj : $(obj.currentTarget).data('bs.' + this.type)
+      obj : $(obj.currentTarget).data('cgg.' + this.type)
 
     if (!self) {
       self = new this.constructor(obj.currentTarget, this.getDelegateOptions())
-      $(obj.currentTarget).data('bs.' + this.type, self)
+      $(obj.currentTarget).data('cgg.' + this.type, self)
     }
 
     if (obj instanceof $.Event) {
@@ -146,11 +146,11 @@
 
   Tooltip.prototype.leave = function (obj) {
     var self = obj instanceof this.constructor ?
-      obj : $(obj.currentTarget).data('bs.' + this.type)
+      obj : $(obj.currentTarget).data('cgg.' + this.type)
 
     if (!self) {
       self = new this.constructor(obj.currentTarget, this.getDelegateOptions())
-      $(obj.currentTarget).data('bs.' + this.type, self)
+      $(obj.currentTarget).data('cgg.' + this.type, self)
     }
 
     if (obj instanceof $.Event) {
@@ -171,7 +171,7 @@
   }
 
   Tooltip.prototype.show = function () {
-    var e = $.Event('show.bs.' + this.type)
+    var e = $.Event('show.cgg.' + this.type)
 
     if (this.hasContent() && this.enabled) {
       this.$element.trigger(e)
@@ -202,10 +202,10 @@
         .detach()
         .css({ top: 0, left: 0, display: 'block' })
         .addClass(placement)
-        .data('bs.' + this.type, this)
+        .data('cgg.' + this.type, this)
 
       this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
-      this.$element.trigger('inserted.bs.' + this.type)
+      this.$element.trigger('inserted.cgg.' + this.type)
 
       var pos          = this.getPosition()
       var actualWidth  = $tip[0].offsetWidth
@@ -232,7 +232,7 @@
 
       var complete = function () {
         var prevHoverState = that.hoverState
-        that.$element.trigger('shown.bs.' + that.type)
+        that.$element.trigger('shown.cgg.' + that.type)
         that.hoverState = null
 
         if (prevHoverState == 'out') that.leave(that)
@@ -313,13 +313,13 @@
   Tooltip.prototype.hide = function (callback) {
     var that = this
     var $tip = $(this.$tip)
-    var e    = $.Event('hide.bs.' + this.type)
+    var e    = $.Event('hide.cgg.' + this.type)
 
     function complete() {
       if (that.hoverState != 'in') $tip.detach()
       that.$element
         .removeAttr('aria-describedby')
-        .trigger('hidden.bs.' + that.type)
+        .trigger('hidden.cgg.' + that.type)
       callback && callback()
     }
 
@@ -451,10 +451,10 @@
   Tooltip.prototype.toggle = function (e) {
     var self = this
     if (e) {
-      self = $(e.currentTarget).data('bs.' + this.type)
+      self = $(e.currentTarget).data('cgg.' + this.type)
       if (!self) {
         self = new this.constructor(e.currentTarget, this.getDelegateOptions())
-        $(e.currentTarget).data('bs.' + this.type, self)
+        $(e.currentTarget).data('cgg.' + this.type, self)
       }
     }
 
@@ -471,7 +471,7 @@
     var that = this
     clearTimeout(this.timeout)
     this.hide(function () {
-      that.$element.off('.' + that.type).removeData('bs.' + that.type)
+      that.$element.off('.' + that.type).removeData('cgg.' + that.type)
       if (that.$tip) {
         that.$tip.detach()
       }
@@ -488,26 +488,26 @@
   function Plugin(option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.tooltip')
+      var data    = $this.data('cgg.tooltip')
       var options = typeof option == 'object' && option
 
       if (!data && /destroy|hide/.test(option)) return
-      if (!data) $this.data('bs.tooltip', (data = new Tooltip(this, options)))
+      if (!data) $this.data('cgg.tooltip', (data = new Tooltip(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
 
-  var old = $.fn.tooltip
+  var old = $.fn.cggtooltip
 
-  $.fn.tooltip             = Plugin
-  $.fn.tooltip.Constructor = Tooltip
+  $.fn.cggtooltip             = Plugin
+  $.fn.cggtooltip.Constructor = Tooltip
 
 
   // TOOLTIP NO CONFLICT
   // ===================
 
-  $.fn.tooltip.noConflict = function () {
-    $.fn.tooltip = old
+  $.fn.cggtooltip.noConflict = function () {
+    $.fn.cggtooltip = old
     return this
   }
 

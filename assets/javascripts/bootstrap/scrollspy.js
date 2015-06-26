@@ -23,7 +23,7 @@
     this.activeTarget   = null
     this.scrollHeight   = 0
 
-    this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
+    this.$scrollElement.on('scroll.cgg.scrollspy', $.proxy(this.process, this))
     this.refresh()
     this.process()
   }
@@ -120,7 +120,7 @@
         .addClass('active')
     }
 
-    active.trigger('activate.bs.scrollspy')
+    active.trigger('activate.cgg.scrollspy')
   }
 
   ScrollSpy.prototype.clear = function () {
@@ -136,25 +136,25 @@
   function Plugin(option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.scrollspy')
+      var data    = $this.data('cgg.scrollspy')
       var options = typeof option == 'object' && option
 
-      if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+      if (!data) $this.data('cgg.scrollspy', (data = new ScrollSpy(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
 
-  var old = $.fn.scrollspy
+  var old = $.fn.cggscrollspy
 
-  $.fn.scrollspy             = Plugin
-  $.fn.scrollspy.Constructor = ScrollSpy
+  $.fn.cggscrollspy             = Plugin
+  $.fn.cggscrollspy.Constructor = ScrollSpy
 
 
   // SCROLLSPY NO CONFLICT
   // =====================
 
-  $.fn.scrollspy.noConflict = function () {
-    $.fn.scrollspy = old
+  $.fn.cggscrollspy.noConflict = function () {
+    $.fn.cggscrollspy = old
     return this
   }
 
@@ -162,8 +162,8 @@
   // SCROLLSPY DATA-API
   // ==================
 
-  $(window).on('load.bs.scrollspy.data-api', function () {
-    $('[data-spy="scroll"]').each(function () {
+  $(window).on('load.cgg.scrollspy.data-api', function () {
+    $('[data-cgg-spy="scroll"]').each(function () {
       var $spy = $(this)
       Plugin.call($spy, $spy.data())
     })
