@@ -71,17 +71,17 @@
     })
   }
 
-  var old = $.fn.alert
+  var old = $.fn.cggalert
 
-  $.fn.alert             = Plugin
-  $.fn.alert.Constructor = Alert
+  $.fn.cggalert             = Plugin
+  $.fn.cggalert.Constructor = Alert
 
 
   // ALERT NO CONFLICT
   // =================
 
-  $.fn.alert.noConflict = function () {
-    $.fn.alert = old
+  $.fn.cggalert.noConflict = function () {
+    $.fn.cggalert = old
     return this
   }
 
