@@ -23,7 +23,7 @@
 // -------------------------
 
 // Outer container
-.progress {
+.cgg-progress {
   overflow: hidden;
   height: $line-height-computed;
   margin-bottom: $line-height-computed;
@@ -33,7 +33,7 @@
 }
 
 // Bar of progress
-.progress-bar {
+.cgg-progress-bar {
   float: left;
   width: 0%;
   height: 100%;
@@ -51,8 +51,8 @@
 // `.progress-striped .progress-bar` is deprecated as of v3.2.0 in favor of the
 // `.progress-bar-striped` class, which you just add to an existing
 // `.progress-bar`.
-.progress-striped .progress-bar,
-.progress-bar-striped {
+.cgg-progress-striped .cgg-progress-bar,
+.cgg-progress-bar-striped {
   @include gradient-striped;
   background-size: 40px 40px;
 }
@@ -61,8 +61,8 @@
 //
 // `.progress.active .progress-bar` is deprecated as of v3.2.0 in favor of the
 // `.progress-bar.active` approach.
-.progress.active .progress-bar,
-.progress-bar.active {
+.cgg-progress.active .cgg-progress-bar,
+.cgg-progress-bar.active {
   @include animation(progress-bar-stripes 2s linear infinite);
 }
 
@@ -70,18 +70,18 @@
 // Variations
 // -------------------------
 
-.progress-bar-success {
+.cgg-progress-bar-success {
   @include progress-bar-variant($progress-bar-success-bg);
 }
 
-.progress-bar-info {
+.cgg-progress-bar-info {
   @include progress-bar-variant($progress-bar-info-bg);
 }
 
-.progress-bar-warning {
+.cgg-progress-bar-warning {
   @include progress-bar-variant($progress-bar-warning-bg);
 }
 
-.progress-bar-danger {
+.cgg-progress-bar-danger {
   @include progress-bar-variant($progress-bar-danger-bg);
 }

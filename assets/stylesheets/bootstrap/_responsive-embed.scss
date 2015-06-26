@@ -2,14 +2,14 @@
 //
 // Credit: Nicolas Gallagher and SUIT CSS.
 
-.embed-responsive {
+.cgg-embed-responsive {
   position: relative;
   display: block;
   height: 0;
   padding: 0;
   overflow: hidden;
 
-  .embed-responsive-item,
+  .cgg-embed-responsive-item,
   iframe,
   embed,
   object,
@@ -25,11 +25,11 @@
 }
 
 // Modifier class for 16:9 aspect ratio
-.embed-responsive-16by9 {
+.cgg-embed-responsive-16by9 {
   padding-bottom: 56.25%;
 }
 
 // Modifier class for 4:3 aspect ratio
-.embed-responsive-4by3 {
+.cgg-embed-responsive-4by3 {
   padding-bottom: 75%;
 }

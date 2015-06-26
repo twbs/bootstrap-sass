@@ -4,16 +4,16 @@
 
 
 // Wrapper for the slide container and indicators
-.carousel {
+.cgg-carousel {
   position: relative;
 }
 
-.carousel-inner {
+.cgg-carousel-inner {
   position: relative;
   overflow: hidden;
   width: 100%;
 
-  > .item {
+  > .cgg-item {
     display: none;
     position: relative;
     @include transition(.6s ease-in-out left);
@@ -90,7 +90,7 @@
 // Left/right controls for nav
 // ---------------------------
 
-.carousel-control {
+.cgg-carousel-control {
   position: absolute;
   top: 0;
   left: 0;
@@ -170,7 +170,7 @@
 // Add an unordered list with the following class and add a list item for each
 // slide your carousel holds.
 
-.carousel-indicators {
+.cgg-carousel-indicators {
   position: absolute;
   bottom: 10px;
   left: 50%;
@@ -214,7 +214,7 @@
 // Optional captions
 // -----------------------------
 // Hidden by default for smaller viewports
-.carousel-caption {
+.cgg-carousel-caption {
   position: absolute;
   left: 15%;
   right: 15%;
@@ -225,7 +225,7 @@
   color: $carousel-caption-color;
   text-align: center;
   text-shadow: $carousel-text-shadow;
-  & .btn {
+  & .cgg-btn {
     text-shadow: none; // No shadow for button elements in carousel-caption
   }
 }
@@ -235,7 +235,7 @@
 @media screen and (min-width: $screen-sm-min) {
 
   // Scale up the controls a smidge
-  .carousel-control {
+  .cgg-carousel-control {
     .glyphicon-chevron-left,
     .glyphicon-chevron-right,
     .icon-prev,
@@ -256,14 +256,14 @@
   }
 
   // Show and left align the captions
-  .carousel-caption {
+  .cgg-carousel-caption {
     left: 20%;
     right: 20%;
     padding-bottom: 30px;
   }
 
   // Move up the indicators
-  .carousel-indicators {
+  .cgg-carousel-indicators {
     bottom: 20px;
   }
 }
