@@ -1,26 +1,19 @@
 /* Navigation */
 .navbar
-  border: 0
-  color: $white
-  padding-left: 10px
-  padding-right: 25px
-  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.15)
-
   .header-profile-image
     max-width: 30px
     max-height: 30px
-    position: relative
-    top: 50%
-    transform: translateY(-50%)
-    -webkit-transform: translateY(-50%)
-    -ms-transform: translateY(-50%)
+    @include vertical-align-middle
   #js-header-profile-image-thumbnail
     outline: 1px solid rgba(100, 100, 100, 0.5)
 
 .navbar-default
+  border: 0
+  padding: 0 10px
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.15)
+
   .navbar-brand
     max-width: 191px
-    color: $white
     font-weight: 300
     font-size: 19px
     line-height: 18px
@@ -36,13 +29,13 @@
       vertical-align: middle
 
   .display-name-light
-    color: $CF-display-name-light
+    color: $white
 
   .display-name-dark
-    color: $CF-display-name-dark
+    color: $black
     &:hover,
     &:focus
-      color: $CF-display-name-dark
+      color: $black
 
   .navbar-nav
     > li
@@ -64,41 +57,21 @@
       a:focus
         color: $black
 
-#nav-global-search
-  padding: 10px
+  .navbar-toggle
+    outline: none
+    border: 0
+    padding: 0 10px
+    margin: 0
+    line-height: 50px
+    &:hover,
+    &:focus
+      background: transparent
+    .fa
+      color: $white
+      font-size: 18px
 
-/*Dropdown Sub menu*/
-.dropdown-submenu
-  position: relative
-  > .dropdown-menu
-    top: 0px
-    left: 100%
-    margin-top: -6px
-    margin-left: -1px
-    border-radius: 0 0 3px 3px
-  &:hover
-    > .dropdown-menu
-      display: block
-    > a:after
-      border-left-color: $white
-  > a:after
-    display: block
-    content: " "
-    float: right
-    width: 0
-    height: 0
-    border-color: transparent
-    border-style: solid
-    border-width: 5px 0 5px 5px
-    border-left-color: #cccccc
-    margin-top: 5px
-    margin-right: -10px
-  &.pull-left
-    float: none
-    > .dropdown-menu
-      left: -100%
-      margin-left: 10px
-      border-radius: 0 0 6px 6px
+  .navbar-collapse
+    border: none
 
 .dropdown-menu > li > a
   &:hover, &:focus
@@ -106,163 +79,18 @@
     background-image: none
     color: $white
 
-.dropdown-submenu:hover > a, .dropdown-menu li > a:hover
-  background-color: #4E9DFF
-  background-image: none
-  color: $white
-
-.navbar-default .navbar-nav >
-  .dropdown > a
-    .caret
-      border-bottom-color: $white
-      border-top-color: $white
-    &:hover .caret, &:focus .caret
-      border-bottom-color: $white
-      border-top-color: $white
-  .open > a
-    background-color: transparent
-    color: $white
-    &:hover
-      background-color: transparent
-      color: $white
-
-.navbar-nav > .open > a:focus
-  background-color: transparent
-  color: $white
-
-.navbar-default .navbar-nav >
-  .open > a
-    background-color: transparent
-    color: $white
-    &:hover, &:focus
-      background-color: transparent
-      color: $white
-  li > a:hover
-    color: $white
-
-.navbar-nav > li > a:focus
-  color: $white
-
-.navbar-default .navbar-toggle
-  outline: none
-  border: 0
-  padding: 0 10px
-  margin: 0
-  line-height: 50px
-  &:hover,
-  &:focus
-    background: transparent
-  .fa
-    color: $white
-    font-size: 18px
-
-.navbar-collapse
-  max-height: none !important
-  position: relative
-  border: none
-
-
+#nav-global-search
+  padding: 10px
 
 /* Profile Dropdown */
 .profile_menu
   margin-left: 10px
   cursor: pointer
+  &.open
+    .dropdown-toggle
+      //syang - using important to override bootstrap default without crazy nested elements
+      background: transparent !important
   .dropdown-toggle
     padding: 10px 10px
     vertical-align: middle
     height: 50px
-    span
-      display: inline-block
-      margin-top: 4px
-
-.navbar-collapse.in .not-nav > li
-  float: none !important
-  display: inline-block
-  padding: 10px 5px
-
-.user-nav
-  margin: 0
-  margin-right: -15px
-
-/* Dropdown sub menu */
-.dropdown-submenu
-  position: relative
-  > .dropdown-menu
-    top: 0px
-    left: 100%
-    margin-top: -6px
-    margin-left: -1px
-    border-radius: 0 0 3px 3px
-  &:hover
-    > .dropdown-menu
-      display: block
-    > a:after
-      border-left-color: $white
-  > a:after
-    display: block
-    content: " "
-    float: right
-    width: 0
-    height: 0
-    border-color: transparent
-    border-style: solid
-    border-width: 5px 0 5px 5px
-    border-left-color: #cccccc
-    margin-top: 5px
-    margin-right: -10px
-  &.pull-left
-    float: none
-    > .dropdown-menu
-      left: -100%
-      margin-left: 10px
-      border-radius: 0 0 6px 6px
-
-.dropdown-menu > li > a
-  &:hover, &:focus
-    background-color: #4E9DFF
-    background-image: none
-    color: $white
-
-.dropdown-submenu:hover > a, .dropdown-menu li > a:hover
-  background-color: #4E9DFF
-  background-image: none
-  color: $white
-
-.navbar-default .navbar-nav >
-  .dropdown > a
-    .caret
-      border-bottom-color: $white
-      border-top-color: $white
-    &:hover .caret, &:focus .caret
-      border-bottom-color: $white
-      border-top-color: $white
-  .open > a
-    background-color: #4E9DFF
-    color: $white
-    &:hover
-      background-color: #4E9DFF
-      color: $white
-
-.navbar-nav > .open > a:focus
-  background-color: #4E9DFF
-  color: $white
-
-.navbar-default .navbar-nav >
-  .open > a
-    background-color: transparent
-    color: $white
-    &:hover, &:focus
-      background-color: transparent
-      color: $white
-  li > a:hover
-    color: $white
-
-.navbar-nav > li > a:focus
-  color: $white
-
-body.modal-open
-  margin-right: 0
-
-.modal-open
-  .navbar-fixed-top, .navbar-fixed-bottom
-    margin-right: 0
