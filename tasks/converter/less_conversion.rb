@@ -102,6 +102,11 @@ class Converter
               // [converter] This is because some asset helpers, such as Sprockets, do not work with file-relative paths.
               \\1: if($bootstrap-sass-asset-helper, "bootstrap/", "\\2bootstrap/") \\3;
             SCSS
+          when 'breadcrumbs.less'
+            file = replace_all file, /(.*)(\\00a0)/, unindent(<<-SCSS, 8) + "\\1\#{$nbsp}"
+              // [converter] Workaround for https://github.com/sass/libsass/issues/1115
+              $nbsp: "\\2";
+            SCSS
           when 'close.less'
             # extract .close { button& {...} } rule
             file = extract_nested_rule file, 'button&'
