@@ -13,11 +13,14 @@
 
   &:first-child,
   &:last-child
+    margin-bottom: 5px
     border-radius: 0
 
-a.list-group-item-link
+a.list-group-item-link,
+div.list-group-item-link
   padding: 10px
   display: block
   color: $text-color
   &:hover
+    cursor: pointer
     background: rgba($primary, 0.1)
