@@ -58,8 +58,10 @@
                         <button type="button" class="btn btn-default">Fail</button>
                       </div>
                     </div>
-                    <div class="audit-item-name">
-                      Walls/Ceilings/Floors clean, damage and clutter free and well-maintained.
+                    <div class="list-group-item-link" onclick="slideout();">
+                      <div class="audit-item-name">
+                        Walls/Ceilings/Floors clean, damage and clutter free and well-maintained.
+                      </div>
                     </div>
                   </li>
                   <li class="list-group-item audit-list-item item-pass">
@@ -69,8 +71,10 @@
                         <button type="button" class="btn btn-default">Fail</button>
                       </div>
                     </div>
-                    <div class="audit-item-name">
-                      Lighting damage free and operational
+                    <div class="list-group-item-link" onclick="slideout();">
+                      <div class="audit-item-name">
+                        Lighting damage free and operational
+                      </div>
                     </div>
                   </li>
                   <li class="list-group-item audit-list-item item-fail">
@@ -80,8 +84,26 @@
                         <button type="button" class="btn btn-danger">Fail</button>
                       </div>
                     </div>
-                    <div class="audit-item-name">
-                      Service Consultant write-up area clean and free of clutter
+                    <div class="list-group-item-link" onclick="slideout();">
+                      <div class="audit-item-name">
+                        Service Consultant write-up area clean and free of clutter
+                      </div>
+                      <div class="audit-comments">
+                        <label>Comments:</label>
+                        <p>
+                          Listicle four loko slow-carb lomo. Fap Shoreditch PBR&B Intelligentsia meh. Skateboard Godard VHS stumptown kitsch. 8-bit Banksy health goth iPhone, mlkshk pork belly master cleanse direct trade distillery kogi readymade.
+                        </p>
+                      </div>
+                      <div class="audit-attachments">
+                        <label>Attachments:</label>
+                        <div id="attachments" class="small-view">
+                          <div class="attachment-item">
+                            <div class="attachment-img">
+                              <a href="http://www.birdchannel.com/images/articles/bird-blog/macaw-flock-lg.jpg" class="html5lightbox" title="image01.jpg" data-group="attachments"><img src="http://www.birdchannel.com/images/articles/bird-blog/macaw-flock-lg.jpg"></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </li>
                   <li class="list-group-item audit-list-item item-pass">
@@ -91,8 +113,10 @@
                         <button type="button" class="btn btn-default">Fail</button>
                       </div>
                     </div>
-                    <div class="audit-item-name">
-                      All point-of-purchase material Infiniti brand compliant
+                    <div class="list-group-item-link" onclick="slideout();">
+                      <div class="audit-item-name">
+                        All point-of-purchase material Infiniti brand compliant
+                      </div>
                     </div>
                   </li>
                   <li class="list-group-item audit-list-item item-pass">
@@ -102,8 +126,10 @@
                         <button type="button" class="btn btn-default">Fail</button>
                       </div>
                     </div>
-                    <div class="audit-item-name">
-                      Walls/Ceilings/Floors clean, damage and clutter free and well-maintained.
+                    <div class="list-group-item-link" onclick="slideout();">
+                      <div class="audit-item-name">
+                        Walls/Ceilings/Floors clean, damage and clutter free and well-maintained.
+                      </div>
                     </div>
                   </li>
                 </ul>
@@ -114,6 +140,50 @@
       </div>
     <div>
 
+    <div class="slideout-overlay active" style="display: none;">
+      <a href="javascript:void(0);" class="overlay-close" onclick="slidein();"></a>
+      <div class="slideout-close" onclick="slidein();"><i class="fa fa-times"></i></div>
+      <div id="slideout">
+        <!-- TODO: onclick is only temporary for markup purposes -->
+        <div id="slideout-inner">
+          <div class="slideout-wrap">
+            <div class="content">
+              <div class="audit-pass-fail">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default" onclick="passItem();">Pass</button>
+                  <button type="button" class="btn btn-default">Fail</button>
+                </div>
+              </div>
+              <div class="audit-item-name">
+                Walls/Ceilings/Floors clean, damage and clutter free and well-maintained.
+              </div>
+              <div class="form-group">
+                <label>Comments</label>
+                <textarea class="form-control" rows="5"></textarea>
+              </div>
+              <div class="form-group">
+                <label>Attachments</label>
+                <div id="attachments" class="small-view">
+                  <div class="attachment-item">
+                    <div id="add-attachment">
+                      <span class="fa-stack fa-2x">
+                        <i class="fa fa-circle-o fa-stack-2x"></i>
+                        <i class="fa fa-plus fa-stack-1x"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary">Update</button>
+              <button type="button" class="btn btn-default" onclick="slidein();">Cancel</button>
+            </div>
+          </div>
+          <!-- END TODO -->
+
+        </div>
+      </div>
+    </div>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -123,6 +193,16 @@
           App.init();
         });
     </script>
+    <!-- TODO: The functions below are only temporary for purposes of markup -->
+    <script>
+      function slideout() {
+        $(".slideout-overlay").show();
+      }
+      function slidein() {
+        $(".slideout-overlay").hide();
+      }
+    </script>
+    <!-- END TODO -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </div>
 </body>

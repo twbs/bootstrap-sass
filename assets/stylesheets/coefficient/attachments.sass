@@ -1,0 +1,73 @@
+// ----------------------------
+// ATTACHMENT COMPONENT STYLES
+// ----------------------------
+
+#attachments
+  padding: 15px 0
+  overflow: hidden
+  .attachment-item
+    float: left
+    margin: 0 15px 15px 0
+    width: 150px
+    .image-upload
+      display: none
+    &.is-loading
+      color: #999999
+  .attachment-img
+    position: relative
+    height: 150px
+    line-height: 150px
+    overflow: hidden
+    border: 1px solid #cccccc
+    background: #e9e9e9
+    text-align: center
+    font-size: 89px
+    color: #adadad
+    img
+      position: absolute
+      left: 50%
+      top: 50%
+      height: 100%
+      width: auto
+      -webkit-transform: translate(-50%,-50%)
+      -ms-transform: translate(-50%,-50%)
+      transform: translate(-50%,-50%)
+      &.portrait
+        width: 100%
+        height: auto
+      &.is-video
+        z-index: 2
+      &:hover
+        cursor: pointer
+  &.small-view
+    padding: 5px 0
+    .attachment-item
+      width: 100px
+    .attachment-img
+      height: 100px
+      line-height: 100px
+
+  .attachment-info
+    padding: 5px
+    text-overflow: ellipsis
+    overflow: hidden
+    white-space: nowrap
+    i
+      margin-right: 5px
+
+#add-attachment
+  position: relative
+  height: 150px
+  line-height: 150px
+  border: 1px solid #cccccc
+  text-align: center
+  color: #adadad
+  &:hover
+    color: #0079C2
+    border-color: #0079C2
+    cursor: pointer
+
+.small-view
+  #add-attachment
+    height: 100px
+    line-height: 100px
