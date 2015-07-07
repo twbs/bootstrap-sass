@@ -8,23 +8,25 @@
 // Heads up! This reset may cause conflicts with some third-party widgets.
 // For recommendations on resolving such conflicts, see
 // http://getbootstrap.com/getting-started/#third-box-sizing
-* {
-  @include box-sizing(border-box);
-}
-*:before,
-*:after {
-  @include box-sizing(border-box);
+.cgg-comparison-widget {
+  * {
+    @include box-sizing(border-box);
+  }
+  *:before,
+  *:after {
+    @include box-sizing(border-box);
+  }
 }
 
 
 // Body reset
 
-html {
-  font-size: 10px;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
+// html {
+//   font-size: 10px;
+//   -webkit-tap-highlight-color: rgba(0,0,0,0);
+// }
 
-body {
+.cgg-comparison-widget {
   font-family: $font-family-base;
   font-size: $font-size-base;
   line-height: $line-height-base;
@@ -33,48 +35,50 @@ body {
 }
 
 // Reset fonts for relevant elements
-input,
-button,
-select,
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-}
-
-
-// Links
-
-a {
-  color: $link-color;
-  text-decoration: none;
-
-  &:hover,
-  &:focus {
-    color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
+.cgg-comparison-widget {
+  input,
+  button,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
   }
 
-  &:focus {
-    @include tab-focus;
+
+  // Links
+
+  a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $link-hover-color;
+      text-decoration: $link-hover-decoration;
+    }
+
+    &:focus {
+      @include tab-focus;
+    }
   }
-}
 
 
-// Figures
-//
-// We reset this here because previously Normalize had no `figure` margins. This
-// ensures we don't break anyone's use of the element.
+  // Figures
+  //
+  // We reset this here because previously Normalize had no `figure` margins. This
+  // ensures we don't break anyone's use of the element.
 
-figure {
-  margin: 0;
-}
+  figure {
+    margin: 0;
+  }
 
 
-// Images
+  // Images
 
-img {
-  vertical-align: middle;
+  img {
+    vertical-align: middle;
+  }
 }
 
 // Responsive images (ensure images don't scale beyond their parents)
@@ -110,11 +114,13 @@ img {
 
 // Horizontal rules
 
-hr {
-  margin-top:    $line-height-computed;
-  margin-bottom: $line-height-computed;
-  border: 0;
-  border-top: 1px solid $hr-border;
+.cgg-comparison-widget {
+  hr {
+    margin-top:    $line-height-computed;
+    margin-bottom: $line-height-computed;
+    border: 0;
+    border-top: 1px solid $hr-border;
+  }
 }
 
 
@@ -156,6 +162,8 @@ hr {
 // for traditionally non-focusable elements with role="button"
 // see https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
 
-[role="button"] {
-  cursor: pointer;
+.cgg-comparison-widget {
+  [role="button"] {
+    cursor: pointer;
+  }
 }
