@@ -159,3 +159,20 @@
     padding: 0 2px
     color: $text-color
     text-decoration: none
+    @include placeholder
+      color: #999999
+      text-decoration: none
+
+// Readonly View Styles
+#note-title[disabled],
+#note-content[disabled]
+  background-color: transparent
+
+#set-location[disabled],
+#date-selector[readonly]
+  cursor: inherit
+  color: $text-color
+  text-decoration: none
+  &:hover
+    cursor: inherit
+    color: $text-color
