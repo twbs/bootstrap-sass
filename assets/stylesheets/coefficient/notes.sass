@@ -149,7 +149,17 @@
 #set-location
   color: $link-color
   text-decoration: underline
-  @include placeholder
+  //SYANG TEMPORARY SOLUTION FOR MIXIN NOT WORKING
+  &::-webkit-input-placeholder
+    color: $link-color
+    text-decoration: underline
+  &:-moz-placeholder
+    color: $link-color
+    text-decoration: underline
+  &::-moz-placeholder
+    color: $link-color
+    text-decoration: underline
+  &:-ms-input-placeholder
     color: $link-color
     text-decoration: underline
   &:hover
@@ -159,3 +169,30 @@
     padding: 0 2px
     color: $text-color
     text-decoration: none
+    //SYANG TEMPORARY SOLUTION FOR MIXIN NOT WORKING
+    &::-webkit-input-placeholder
+      color: #999999
+      text-decoration: none
+    &:-moz-placeholder
+      color: #999999
+      text-decoration: none
+    &::-moz-placeholder
+      color: #999999
+      text-decoration: none
+    &:-ms-input-placeholder
+      color: #999999
+      text-decoration: none
+
+// Readonly View Styles
+#note-title[disabled],
+#note-content[disabled]
+  background-color: transparent
+
+#set-location[disabled],
+#date-selector[readonly]
+  cursor: inherit
+  color: $text-color
+  text-decoration: none
+  &:hover
+    cursor: inherit
+    color: $text-color
