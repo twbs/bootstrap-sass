@@ -45,10 +45,20 @@
 
       <div class="cl-mcont">
         <div class="row">
+          <div class="col-xs-8">
+            <button id="jump-to-current" class="btn btn-default">Current</button>
+            <div class="btn-group no-styles">
+              <button class="btn btn-default"><i class="fa fa-chevron-left"></i></button>
+              <button class="btn btn-default"><i class="fa fa-chevron-right"></i></button>
+            </div>
+            <span id="currently-viewing">July 2015</span>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-sm-8">
             <div class="block-flat">
               <div class="header">
-                <h3>Reporting</h3>
+                <h3>National Reporting</h3>
               </div>
               <div class="content">
                 <div id="audit-report-tracking">
@@ -60,11 +70,31 @@
                     (150 of 300 Locations Reporting)
                   </div>
                 </div>
+
+                <table id="reporting-table" class="datatable">
+                  <thead>
+                    <tr>
+                      <th>Region <i class="fa fa-sort-down active"></i></th>
+                      <th class="text-center">Average Score <i class="fa fa-sort"></i></th>
+                      <th class="text-center">% Passing <i class="fa fa-sort"></i></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>IER</td>
+                      <td class="text-center">87%</td>
+                      <td class="text-center">47%</td>
+                    </tr>
+                    <tr>
+                      <td>IWR</td>
+                      <td class="text-center">84%</td>
+                      <td class="text-center">54%</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
-          </div>
 
-          <div class="col-sm-8">
             <div class="block-flat">
               <div class="header">
                 <h3>Results</h3>
@@ -130,9 +160,7 @@
                 </table>
               </div>
             </div>
-          </div>
 
-          <div class="col-sm-8">
             <div class="block-flat">
               <div class="header">
                 <h3>Audit Details</h3>
@@ -157,6 +185,68 @@
                     </div>
                     <div class="attachment-info"><i class="fa fa-picture-o"></i> image02.jpg</div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="block-flat">
+              <div class="header">
+                <h3>Not Reported (200)</h3>
+              </div>
+              <div class="content">
+                <ul class="list-unstyled contacts-list">
+                  <li>
+                    <div class="unlinked">
+                      <div class="profile-image"><img src="http://s3-media4.fl.yelpcdn.com/bphoto/7aM0v24qR7lME0c8-LidOw/ls.jpg"></div>
+                      <div class="profile-information">
+                        <div class="primary">Town North Nissan - 1234</div>
+                        <div class="secondary">Austin, TX</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="unlinked">
+                      <div class="profile-image"><img src="http://www.gannett-cdn.com/-mm-/e76ca8ffae76ea98b8fcb9564de2f553f12786ba/c=774-0-3283-2509&r=x203&c=200x200/local/-/media/JacksonMS/2015/04/01/B9316821206Z.1_20150401213525_000_G54AD2IJ1.1-0.jpg"></div>
+                      <div class="profile-information">
+                        <div class="primary">Clay Cooley Nissan - 5422</div>
+                        <div class="secondary">Austin, TX</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="unlinked">
+                      <div class="profile-image"><img src="http://s3-media1.fl.yelpcdn.com/bphoto/5be0FiikZI4PuC7YGT7QkQ/ls.jpg"></div>
+                      <div class="profile-information">
+                        <div class="primary">Round Rock Nissan - 3394</div>
+                        <div class="secondary">Austin, TX</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="unlinked">
+                      <div class="profile-image"><img src="http://www.gannett-cdn.com/-mm-/e76ca8ffae76ea98b8fcb9564de2f553f12786ba/c=774-0-3283-2509&r=x203&c=200x200/local/-/media/JacksonMS/2015/04/01/B9316821206Z.1_20150401213525_000_G54AD2IJ1.1-0.jpg"></div>
+                      <div class="profile-information">
+                        <div class="primary">Clay Cooley Nissan - 5422</div>
+                        <div class="secondary">Austin, TX</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="unlinked">
+                      <div class="profile-image"><img src="http://s3-media1.fl.yelpcdn.com/bphoto/5be0FiikZI4PuC7YGT7QkQ/ls.jpg"></div>
+                      <div class="profile-information">
+                        <div class="primary">Round Rock Nissan - 3394</div>
+                        <div class="secondary">Austin, TX</div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="view-all-break">
+                  <p>
+                    <a href="auditnotreported.html">View all locations</a>
+                  </p>
                 </div>
               </div>
             </div>

@@ -4,7 +4,8 @@
 
 .contacts-list
   li
-    a
+    a,
+    .unlinked
       display: table
       width: 100%
       padding: 15px
@@ -12,8 +13,12 @@
       color: $text-color
       &:hover
         background: rgba($primary, 0.1)
+    .unlinked
+      &:hover
+        background: transparent
   li:last-child
-    a
+    a,
+    .unlinked
       border-bottom: 0
 
   .profile-image,
