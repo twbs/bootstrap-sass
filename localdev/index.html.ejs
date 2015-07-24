@@ -20,13 +20,14 @@
   <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
   <script type="text/javascript" src="javascripts/localdev/general.js"></script>
   <script type="text/javascript" src="javascripts/coefficient/modernizr.custom.js"></script>
+  <script type="text/javascript" src="node_modules/scrollspy-js/src/js/modules/scrollspy.js"></script>
 
   <!-- Styling to format icons list; not something that needs to be in the theme itself though -->
   <style>
     .icon-show div {margin: 5px 0;}
   </style>
 </head>
-<body>
+<body data-spy="scroll" data-target="#styleguide-nav">
 
   <% include header.html.ejs %>
 
@@ -37,7 +38,7 @@
     <div class="page-head">
        <h2>CoEFFICIENT Styleguide</h2>
     </div>
-    <div id="styleguide-container" class="cl-mcont" data-spy="scroll" data-target="#styleguide-nav">
+    <div id="styleguide-container" class="cl-mcont">
       <div class="row">
         <div class="col-sm-9">
           <span id="general-guidelines" class="anchor"></span>
