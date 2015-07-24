@@ -11,3 +11,52 @@
 .anchor-link
   float: right
   font-size: 15px
+
+// Scrollspy Navigation Styling
+#styleguide-container
+  position: relative
+
+#styleguide-nav
+  position: fixed
+  .nav
+    .nav
+      display: none
+      padding-bottom: 10px
+      > li
+        a
+          padding-left: 30px
+        a:hover
+          background: none
+          padding-left: 29px
+          border-left: 1px solid $link-hover
+          color: $link-hover
+        &.active
+          a
+            border-left: 1px solid $link-color
+            padding-left: 29px
+          a:hover
+            border-left: 1px solid $link-hover
+    > li
+      > a
+        display: block
+        padding: 1px 20px
+        color: $text-color
+        background: none
+      > a:hover
+        padding-left: 19px
+        color: $link-hover
+        border-left: 1px solid $link-hover
+    > .active
+      > a, a:hover
+        padding-left: 15px
+        color: $link-color
+        background: transparent
+        border-left: 2px solid $link-color
+    > .active
+      > ul
+        display: block
+
+.nav
+  > li
+    position: relative
+    display: block

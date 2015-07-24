@@ -20,13 +20,14 @@
   <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
   <script type="text/javascript" src="javascripts/localdev/general.js"></script>
   <script type="text/javascript" src="javascripts/coefficient/modernizr.custom.js"></script>
+  <script type="text/javascript" src="node_modules/scrollspy-js/src/js/modules/scrollspy.js"></script>
 
   <!-- Styling to format icons list; not something that needs to be in the theme itself though -->
   <style>
     .icon-show div {margin: 5px 0;}
   </style>
 </head>
-<body>
+<body data-spy="scroll" data-target="#styleguide-nav">
 
   <% include header.html.ejs %>
 
@@ -37,9 +38,10 @@
     <div class="page-head">
        <h2>CoEFFICIENT Styleguide</h2>
     </div>
-    <div class="cl-mcont">
+    <div id="styleguide-container" class="cl-mcont">
       <div class="row">
         <div class="col-sm-9">
+          <span id="general-guidelines" class="anchor"></span>
           <span id="general-guidelines-sass" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
@@ -157,6 +159,7 @@
           </div> -->
 
 
+          <span id="ui-elements" class="anchor"></span>
           <span id="ui-elements-headings" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
@@ -853,6 +856,7 @@
           </div>
 
 
+          <span id="icon" class="anchor"></span>
           <span id="icon-size" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
@@ -1523,6 +1527,7 @@
           </div>
 
 
+          <span id="form-elements" class="anchor"></span>
           <span id="form-elements-basic" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
@@ -2117,61 +2122,63 @@
         </div>
 
         <div class="col-sm-3">
-          <ul class="list-unstyled" style="position: fixed;">
-            <li>
-              General Guidelines
-              <ul class="list-unstyled">
-                <li><a href="#general-guidelines-sass">Sass</a></li>
-                <li><a href="#general-guidelines-html">HTML Markup</a></li>
-                <li><a href="#general-guidelines-js">JavaScript</a></li>
-              </ul>
-            </li>
-            <li>
-              UI Elements
-              <ul class="list-unstyled">
-                <li><a href="#ui-elements-headings">Headings</a></li>
-                <li><a href="#ui-elements-alerts">Bootstrap Alerts</a></li>
-                <li><a href="#ui-elements-progress-bars">Progress Bars</a></li>
-                <li><a href="#ui-elements-dropdown-menus">Dropdown Menus</a></li>
-                <li><a href="#ui-elements-labels-badges">Labels &amp; Badges</a></li>
-                <li><a href="#ui-elements-buttons">Basic Buttons</a></li>
-                <li><a href="#ui-elements-advanced-buttons">Advanced Buttons</a></li>
-                <li><a href="#ui-elements-dropdown-buttons">Dropdown Buttons</a></li>
-                <li><a href="#ui-elements-button-sizes">Button Sizes</a></li>
-                <li><a href="#ui-elements-lists">Lists</a></li>
-                <li><a href="#ui-elements-tables">Tables</a></li>
-                <li><a href="#ui-elements-modals">Modal Alerts</a></li>
-              </ul>
-            </li>
-            <li>
-              Icons
-              <ul class="list-unstyled">
-                <li><a href="#icon-size">Icon Size</a></li>
-                <li><a href="#icon-orientation">Icon Orientation</a></li>
-                <li><a href="#icon-stacked">Stacked Icons</a></li>
-                <li><a href="#icon-web-app">Web Application Icons</a></li>
-                <li><a href="#icon-form-control">Form Control Icons</a></li>
-                <li><a href="#icon-currency">Currency Icons</a></li>
-                <li><a href="#icon-text-editor">Text Editor Icons</a></li>
-                <li><a href="#icon-directional">Directional Icons</a></li>
-                <li><a href="#icon-video-player">Video Player Icons</a></li>
-                <li><a href="#icon-brand">Brand Icons</a></li>
-                <li><a href="#icon-medical">Medical Icons</a></li>
-              </ul>
-            </li>
-            <li>
-              Forms Elements
-              <ul class="list-unstyled">
-                <li><a href="#form-elements-basics">Basic Elements</a></li>
-                <li><a href="#form-elements-password">Password Creation</a></li>
-                <li><a href="#form-elements-selects-options">Select &amp; Option Elements</a></li>
-                <li><a href="#form-elements-forms">Forms</a></li>
-                <li><a href="#form-elements-auth-forms">Auth Pages Form</a></li>
-                <li><a href="#form-elements-input-errors">Input Level Errors</a></li>
-                <li><a href="#form-elements-form-errors">Form Level Errors</a></li>
-              </ul>
-            </li>
-          </ul>
+          <nav id="styleguide-nav" role="navigation">
+            <ul class="nav list-unstyled">
+              <li>
+                <a href="#general-guidelines">General Guidelines</a>
+                <ul class="nav list-unstyled">
+                  <li><a href="#general-guidelines-sass">Sass</a></li>
+                  <li><a href="#general-guidelines-html">HTML Markup</a></li>
+                  <li><a href="#general-guidelines-js">JavaScript</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#ui-elements">UI Elements</a>
+                <ul class="nav list-unstyled">
+                  <li><a href="#ui-elements-headings">Headings</a></li>
+                  <li><a href="#ui-elements-alerts">Bootstrap Alerts</a></li>
+                  <li><a href="#ui-elements-progress-bars">Progress Bars</a></li>
+                  <li><a href="#ui-elements-dropdown-menus">Dropdown Menus</a></li>
+                  <li><a href="#ui-elements-labels-badges">Labels &amp; Badges</a></li>
+                  <li><a href="#ui-elements-buttons">Basic Buttons</a></li>
+                  <li><a href="#ui-elements-advanced-buttons">Advanced Buttons</a></li>
+                  <li><a href="#ui-elements-dropdown-buttons">Dropdown Buttons</a></li>
+                  <li><a href="#ui-elements-button-sizes">Button Sizes</a></li>
+                  <li><a href="#ui-elements-lists">Lists</a></li>
+                  <li><a href="#ui-elements-tables">Tables</a></li>
+                  <li><a href="#ui-elements-modals">Modal Alerts</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#icon">Icons</a>
+                <ul class="nav list-unstyled">
+                  <li><a href="#icon-size">Icon Size</a></li>
+                  <li><a href="#icon-orientation">Icon Orientation</a></li>
+                  <li><a href="#icon-stacked">Stacked Icons</a></li>
+                  <li><a href="#icon-web-app">Web Application Icons</a></li>
+                  <li><a href="#icon-form-control">Form Control Icons</a></li>
+                  <li><a href="#icon-currency">Currency Icons</a></li>
+                  <li><a href="#icon-text-editor">Text Editor Icons</a></li>
+                  <li><a href="#icon-directional">Directional Icons</a></li>
+                  <li><a href="#icon-video-player">Video Player Icons</a></li>
+                  <li><a href="#icon-brand">Brand Icons</a></li>
+                  <li><a href="#icon-medical">Medical Icons</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#form-elements">Forms Elements</a>
+                <ul class="nav list-unstyled">
+                  <li><a href="#form-elements-basics">Basic Elements</a></li>
+                  <li><a href="#form-elements-password">Password Creation</a></li>
+                  <li><a href="#form-elements-selects-options">Select &amp; Option Elements</a></li>
+                  <li><a href="#form-elements-forms">Forms</a></li>
+                  <li><a href="#form-elements-auth-forms">Auth Pages Form</a></li>
+                  <li><a href="#form-elements-input-errors">Input Level Errors</a></li>
+                  <li><a href="#form-elements-form-errors">Form Level Errors</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </div>
@@ -2179,6 +2186,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
           //initialize the javascript
@@ -2208,7 +2216,6 @@
         } );
       } );
     </script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </div>
 </body>
 </html>
