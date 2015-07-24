@@ -154,6 +154,7 @@
 #set-location
   color: $link-color
   text-decoration: underline
+  padding: 0 2px
   //SYANG TEMPORARY SOLUTION FOR MIXIN NOT WORKING
   &::-webkit-input-placeholder
     color: $link-color
@@ -188,17 +189,26 @@
       color: #999999
       text-decoration: none
 
+#date-selector[readonly]
+  &:hover
+    cursor: pointer
+    color: $link-hover
+
 // Readonly View Styles
 #note-title[disabled],
-#note-content[disabled]
+#note-content[disabled],
+#due-date-selector[readonly]
   background-color: transparent
 
-#set-location[disabled],
-#date-selector[readonly]
+#due-date-selector[readonly]
+  padding: 6px 8px
+  cursor: pointer
+
+#set-location[disabled]
   cursor: inherit
-  color: $text-color
-  text-decoration: none
+  color: $link-color
+  text-decoration: underline
   background-color: transparent
   &:hover
-    cursor: inherit
-    color: $text-color
+    cursor: pointer
+    color: $link-hover
