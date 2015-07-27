@@ -37,9 +37,10 @@
       <div id="fixed-action-header">
         <div class="action-header-right">
           <span class="action-message">This audit is currently <strong>Draft</strong></span>
-          <div class="disabled-button-wrapper" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="You must provide an audit name and at least 1 audit item before publishing.">
+          <button id="discard-audit" class="btn btn-default">Discard</button>
+          <!-- <div class="disabled-button-wrapper" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="You must provide an audit name and at least 1 audit item before publishing.">
             <button class="btn btn-success" disabled>Publish</button>
-          </div>
+          </div> -->
           <!-- <button id="publish-note" class="btn btn-success" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<p>You will no longer be able to edit this audit once it is published.<br/>Are you sure you want to publish?</p> <button type='button' id='cancel-publish' onclick='close_popover();' class='btn btn-xs btn-nostyle-popover'>No</button> <button type='button' class='btn btn-xs btn-default'>Yes</button>">Publish</button> -->
         </div>
         <div class="action-header-left">
@@ -53,9 +54,24 @@
             <div class="block-flat">
               <div class="content notes-container">
                 <span class="note-metainfo">
-                  <span class="created-on">Created on May 23, 2015 by Missy Bergen</span>
+                  <span class="created-on">Created on May 23, 2015</span>
                 </span>
                 <h3 id="note-title">Untitled Audit</h3>
+                <div class="audit-info">
+                  <div class="audit-info-row">
+                    <span class="audit-info-label">Author:</span>
+                    Missy Bergen
+                  </div>
+                  <div class="audit-info-row">
+                    <span class="audit-info-label">Reporting:</span>
+                    <label class="radio-inline">
+                      <input type="radio" name="reporting" checked> One Time
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="reporting"> Monthly
+                    </label>
+                  </div>
+                </div>
                 <section id="editor">
                   <div id="note-content" class="froala-box">
                     Drag and drop files here or start typing..
@@ -130,6 +146,17 @@
     });
   </script>
   <script>
+    $("#discard-audit").click(function(){
+      toastr.options.closeButton = true;
+      toastr.options.positionClass = "toast-top-right";
+      toastr.options.preventDuplicates = false;
+      toastr.options.timeOut = -1;
+      toastr.options.extendedTimeOut = -1;
+      toastr.options.tapToDismiss = false;
+
+      toastr.info("'Untitled Audit' has been discarded. <a href='#'>Undo</a>")
+    });
+
     function close_popover() {
       $("#publish-note").popover('hide');
     }
