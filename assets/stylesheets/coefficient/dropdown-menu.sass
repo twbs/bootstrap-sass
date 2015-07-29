@@ -12,10 +12,12 @@
       &:hover
         cursor: pointer
   &.autocomplete-results
-    max-height: 200px
     li
       > a
         padding: 5px 10px
+        max-width: 300px
+        overflow: hidden
+        text-overflow: ellipsis
   &.full-width
     width: 100%
     margin-top: -11px
