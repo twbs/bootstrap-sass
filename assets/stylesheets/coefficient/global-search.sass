@@ -22,7 +22,7 @@
 // ----------------------------
 
 #global-search-results
-  width: 384px
+  width: 393px
   margin: -8px 0 0 9px
   padding-top: 0
   @include border-radius-mixed(3px, 3px, 0, 0)
@@ -44,6 +44,8 @@
   font-size: 12px
   @include border-radius-mixed(3px, 3px, 0, 0)
 .global-search-title
+  overflow: hidden
+  text-overflow: ellipsis
   .highlight
     font-weight: 600
     color: $black
