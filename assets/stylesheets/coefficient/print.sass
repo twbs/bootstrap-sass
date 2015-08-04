@@ -8,6 +8,21 @@
   .btn
     display: none
 
+  a[href]:after
+    content: initial
+
+  #note-content,
+  #audit-content
+    overflow: visible
+    &::-webkit-input-placeholder
+      color: transparent
+    &:-moz-placeholder
+      color: transparent
+    &::-moz-placeholder
+      color: transparent
+    &:-ms-input-placeholder
+      color: transparent
+
   .block-flat
     border: 0
     margin-bottom: 0
@@ -20,5 +35,6 @@
 
   // Hide elements that are "actions" that can be performed
   #js-add-attachments,
+  .list-group-add-item,
   .add-item-link
     display: none
