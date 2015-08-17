@@ -13,15 +13,13 @@
 
   #note-content,
   #audit-content
-    overflow: visible
-    &::-webkit-input-placeholder
-      color: transparent
-    &:-moz-placeholder
-      color: transparent
-    &::-moz-placeholder
-      color: transparent
-    &:-ms-input-placeholder
-      color: transparent
+    display: none !important
+
+  #note-content-print,
+  #audit-content-print
+    display: block !important
+    font-size: 12px
+    line-height: 1.42857143
 
   .block-flat
     border: 0
