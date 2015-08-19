@@ -4,7 +4,7 @@ class Converter
       log_status 'Processing javascripts...'
       save_to = @save_to[:js]
       contents = {}
-      read_files('js', bootstrap_js_files).each do |name, file|
+      read_files('js/dist', bootstrap_js_files).each do |name, file|
         contents[name] = file
         save_file("#{save_to}/#{name}", file)
       end
@@ -29,7 +29,7 @@ class Converter
 
     def bootstrap_js_files
       @bootstrap_js_files ||= begin
-        files = get_paths_by_type('js', /\.js$/).reject { |path| path =~ %r(^tests/) }
+        files = get_paths_by_type('js/dist', /\.js$/)
         files.sort_by { |f|
           case f
             # tooltip depends on popover and must be loaded earlier
