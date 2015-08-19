@@ -29,27 +29,34 @@
     <% include fom-sidebar.html.ejs %>
 
     <div id="pcont">
-      <div class="page-head">
-        <button class="btn btn-default btn-right" onclick="window.print();"><i class="fa fa-print"></i></button>
-        <h2>Retail Quality Inspection</h2>
+      <div id="fixed-action-header">
+        <div class="action-header-left">
+          <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i></button>
+        </div>
       </div>
       <div class="cl-mcont">
         <div class="row">
           <div class="col-sm-8">
             <div class="block-flat">
-              <div class="content">
-                <h4>Town Lake Nissan - 5945</h4>
+              <div class="content notes-container">
+                <span class="note-metainfo">
+                  <span class="created-on">Created on May 23, 2015</span>
+                </span>
+                <h3 id="note-title">Untitled Audit</h3>
                 <div class="audit-info">
                   <div class="audit-info-row">
-                    <span class="audit-info-label">Author:</span>
+                    <span class="audit-info-label">Auditor:</span>
                     John Weathers
                   </div>
                   <div class="audit-info-row">
                     <span class="audit-info-label">Date:</span>
                     <input class="datepicker" type="text" value="April 24, 2015">
                   </div>
+                  <div class="audit-info-row">
+                    <span class="audit-info-label">Location:</span>
+                    Town Lake Nissan - 5945 <!-- Location Selector -->
+                  </div>
                 </div>
-                <h5>4 of 5 items complete</h5>
                 <ul class="list-group">
                   <li class="list-group-item audit-list-item">
                     <div class="audit-pass-fail">
