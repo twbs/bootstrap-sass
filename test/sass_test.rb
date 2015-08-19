@@ -4,10 +4,6 @@ require 'shellwords'
 class SassTest < Minitest::Test
   DUMMY_PATH = 'test/dummy_sass_only'
 
-  def test_font_helper
-    assert_match %r(url\(['"]?.*eot['"]?\)), @css
-  end
-
   def setup
     Dir.chdir DUMMY_PATH do
       %x[rm -rf .sass-cache/]
