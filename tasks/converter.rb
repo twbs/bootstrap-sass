@@ -21,18 +21,17 @@ require 'forwardable'
 require 'term/ansicolor'
 require 'fileutils'
 
-require_relative 'converter/fonts_conversion'
-require_relative 'converter/less_conversion'
+require_relative 'converter/scss_conversion'
 require_relative 'converter/js_conversion'
 require_relative 'converter/logger'
 require_relative 'converter/network'
+require 'bootstrap-sass/version'
 
 class Converter
   extend Forwardable
   include Network
-  include LessConversion
   include JsConversion
-  include FontsConversion
+  include ScssConversion
 
   def initialize(repo: 'twbs/bootstrap', branch: 'master', save_to: {}, cache_path: 'tmp/converter-cache-bootstrap')
     @logger     = Logger.new
@@ -43,8 +42,7 @@ class Converter
     @repo_url   = "https://github.com/#@repo"
     @save_to    = {
         js:    'assets/javascripts/bootstrap',
-        scss:  'assets/stylesheets/bootstrap',
-        fonts: 'assets/fonts/bootstrap'}.merge(save_to)
+        scss:  'assets/stylesheets/bootstrap'}.merge(save_to)
   end
 
   def_delegators :@logger, :log, :log_status, :log_processing, :log_transform, :log_file_info, :log_processed, :log_http_get_file, :log_http_get_files, :silence_log
@@ -59,8 +57,7 @@ class Converter
 
     @save_to.each { |_, v| FileUtils.mkdir_p(v) }
 
-    process_font_assets
-    process_stylesheet_assets
+    process_scss_assets
     process_javascript_assets
     store_version
   end
