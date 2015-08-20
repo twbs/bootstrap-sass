@@ -21,19 +21,19 @@ require 'forwardable'
 require 'term/ansicolor'
 require 'fileutils'
 
-require_relative 'converter/scss_conversion'
-require_relative 'converter/js_conversion'
-require_relative 'converter/logger'
-require_relative 'converter/network'
+require_relative 'updater/scss_conversion'
+require_relative 'updater/js_conversion'
+require_relative 'updater/logger'
+require_relative 'updater/network'
 require 'bootstrap-sass/version'
 
-class Converter
+class Updater
   extend Forwardable
   include Network
   include JsConversion
   include ScssConversion
 
-  def initialize(repo: 'twbs/bootstrap', branch: 'master', save_to: {}, cache_path: 'tmp/converter-cache-bootstrap')
+  def initialize(repo: 'twbs/bootstrap', branch: 'master', save_to: {}, cache_path: 'tmp/bootstrap-cache')
     @logger     = Logger.new
     @repo       = repo
     @branch     = branch || 'master'
@@ -47,18 +47,20 @@ class Converter
 
   def_delegators :@logger, :log, :log_status, :log_processing, :log_transform, :log_file_info, :log_processed, :log_http_get_file, :log_http_get_files, :silence_log
 
-  def process_bootstrap
-    log_status "Convert Bootstrap LESS to Sass"
+  def update_bootstrap
+    log_status "Update Bootstrap"
     puts " repo   : #@repo_url"
     puts " branch : #@branch_sha #@repo_url/tree/#@branch"
     puts " save to: #{@save_to.to_json}"
     puts " twbs cache: #{@cache_path}"
     puts '-' * 60
 
+    FileUtils.rm_rf(@cache_path)
+
     @save_to.each { |_, v| FileUtils.mkdir_p(v) }
 
-    process_scss_assets
-    process_javascript_assets
+    update_scss_assets
+    update_javascript_assets
     store_version
   end
 

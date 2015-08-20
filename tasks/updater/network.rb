@@ -1,5 +1,5 @@
 require 'shellwords'
-class Converter
+class Updater
   module Network
     protected
 
@@ -65,7 +65,7 @@ class Converter
     # get sha of the branch (= the latest commit)
     def get_branch_sha
       @branch_sha ||= begin
-        if @branch + "\n" == %x[git rev-parse #@branch]
+        if @branch + "\n" == %x[git rev-parse -- #@branch]
           @branch
         else
           cmd = "git ls-remote #{Shellwords.escape "https://github.com/#@repo"} #@branch"

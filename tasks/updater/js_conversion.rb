@@ -1,7 +1,7 @@
-class Converter
+class Updater
   module JsConversion
-    def process_javascript_assets
-      log_status 'Processing javascripts...'
+    def update_javascript_assets
+      log_status 'Updating javascripts...'
       save_to = @save_to[:js]
       contents = {}
       read_files('js/dist', bootstrap_js_files).each do |name, file|

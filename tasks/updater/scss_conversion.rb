@@ -1,7 +1,7 @@
-class Converter
+class Updater
   module ScssConversion
-    def process_scss_assets
-      log_status 'Processing scss...'
+    def update_scss_assets
+      log_status 'Updating scss...'
       save_to = @save_to[:scss]
       contents = {}
       read_files('scss', bootstrap_scss_files).each do |name, file|

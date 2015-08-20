@@ -4,6 +4,11 @@ require 'shellwords'
 class SassTest < Minitest::Test
   DUMMY_PATH = 'test/dummy_sass_only'
 
+  # We check if the css includes a typical bootstrap class
+  def test_css_matcher
+    assert_match 'col-xs-1', @css
+  end
+
   def setup
     Dir.chdir DUMMY_PATH do
       %x[rm -rf .sass-cache/]

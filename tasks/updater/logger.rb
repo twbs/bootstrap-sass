@@ -1,4 +1,4 @@
-class Converter
+class Updater
   class Logger
     include Term::ANSIColor
 
