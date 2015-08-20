@@ -4,8 +4,8 @@
  * Licensed under the MIT license
  */
 
-if (typeof jQuery === 'undefined') {
-  throw new Error('Bootstrap\'s JavaScript requires jQuery')
+if (typeof cggQuery === 'undefined') {
+  throw new Error('CGG Bootstrap\'s JavaScript requires cggQuery')
 }
 
 +function ($) {
@@ -14,7 +14,7 @@ if (typeof jQuery === 'undefined') {
   if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1)) {
     throw new Error('Bootstrap\'s JavaScript requires jQuery version 1.9.1 or higher')
   }
-}(jQuery);
+}(cggQuery);
 
 /* ========================================================================
  * Bootstrap: transition.js v3.3.5
@@ -74,7 +74,7 @@ if (typeof jQuery === 'undefined') {
         }
     })
 
-}(jQuery);
+}(cggQuery);
 
 
 
@@ -171,7 +171,7 @@ if (typeof jQuery === 'undefined') {
 
     $(document).on('click.cgg.alert.data-api', dismiss, Alert.prototype.close)
 
-}(jQuery);
+}(cggQuery);
 
 
 
@@ -294,7 +294,7 @@ if (typeof jQuery === 'undefined') {
             $(e.target).closest('.cgg-btn').toggleClass('focus', /^focus(in)?$/.test(e.type))
         })
 
-}(jQuery);
+}(cggQuery);
 
 
 
@@ -535,7 +535,7 @@ if (typeof jQuery === 'undefined') {
         })
     })
 
-}(jQuery);
+}(cggQuery);
 
 
 
@@ -749,7 +749,7 @@ if (typeof jQuery === 'undefined') {
         Plugin.call($target, option)
     })
 
-}(jQuery);
+}(cggQuery);
 
 
 
@@ -917,7 +917,7 @@ if (typeof jQuery === 'undefined') {
         .on('keydown.cgg.dropdown.data-api', toggle, Dropdown.prototype.keydown)
         .on('keydown.cgg.dropdown.data-api', '.cgg-dropdown-menu', Dropdown.prototype.keydown)
 
-}(jQuery);
+}(cggQuery);
 
 
 
@@ -1257,7 +1257,7 @@ if (typeof jQuery === 'undefined') {
         Plugin.call($target, option, this)
     })
 
-}(jQuery);
+}(cggQuery);
 
 
 
@@ -1774,7 +1774,7 @@ if (typeof jQuery === 'undefined') {
         return this
     }
 
-}(jQuery);
+}(cggQuery);
 
 
 
@@ -1885,7 +1885,7 @@ if (typeof jQuery === 'undefined') {
         return this
     }
 
-}(jQuery);
+}(cggQuery);
 
 
 
@@ -2060,7 +2060,7 @@ if (typeof jQuery === 'undefined') {
         })
     })
 
-}(jQuery);
+}(cggQuery);
 
 
 
@@ -2218,7 +2218,7 @@ if (typeof jQuery === 'undefined') {
         .on('click.cgg.tab.data-api', '[data-toggle="cgg-tab"]', clickHandler)
         .on('click.cgg.tab.data-api', '[data-toggle="cgg-pill"]', clickHandler)
 
-}(jQuery);
+}(cggQuery);
 
 
 
@@ -2383,6 +2383,6 @@ if (typeof jQuery === 'undefined') {
         })
     })
 
-}(jQuery);
+}(cggQuery);
 
 
