@@ -7,7 +7,7 @@
 //
 // Set the container width, and override it for fixed navbars in media queries.
 
-.container {
+.cgg-container {
   @include container-fixed;
 
   @media (min-width: $screen-sm-min) {
@@ -27,7 +27,7 @@
 // Utilizes the mixin meant for fixed width containers, but without any defined
 // width for fluid, full width layouts.
 
-.container-fluid {
+.cgg-container-fluid {
   @include container-fixed;
 }
 
@@ -36,7 +36,7 @@
 //
 // Rows contain and clear the floats of your columns.
 
-.row {
+.cgg-row {
   @include make-row;
 }
 

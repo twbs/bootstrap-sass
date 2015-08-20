@@ -4,7 +4,7 @@
 
 
 // Base class
-.well {
+.cgg-well {
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
@@ -19,11 +19,11 @@
 }
 
 // Sizes
-.well-lg {
+.cgg-well-lg {
   padding: 24px;
   border-radius: $border-radius-large;
 }
-.well-sm {
+.cgg-well-sm {
   padding: 9px;
   border-radius: $border-radius-small;
 }

@@ -3,7 +3,7 @@
 // --------------------------------------------------
 
 
-.popover {
+.cgg-popover {
   position: absolute;
   top: 0;
   left: 0;
@@ -30,7 +30,7 @@
   &.left    { margin-left: -$popover-arrow-width; }
 }
 
-.popover-title {
+.cgg-popover-title {
   margin: 0; // reset heading margin
   padding: 8px 14px;
   font-size: $font-size-base;
@@ -39,7 +39,7 @@
   border-radius: ($border-radius-large - 1) ($border-radius-large - 1) 0 0;
 }
 
-.popover-content {
+.cgg-popover-content {
   padding: 9px 14px;
 }
 
@@ -47,7 +47,7 @@
 //
 // .arrow is outer, .arrow:after is inner
 
-.popover > .arrow {
+.cgg-popover > .arrow {
   &,
   &:after {
     position: absolute;
@@ -58,15 +58,15 @@
     border-style: solid;
   }
 }
-.popover > .arrow {
+.cgg-popover > .arrow {
   border-width: $popover-arrow-outer-width;
 }
-.popover > .arrow:after {
+.cgg-popover > .arrow:after {
   border-width: $popover-arrow-width;
   content: "";
 }
 
-.popover {
+.cgg-popover {
   &.top > .arrow {
     left: 50%;
     margin-left: -$popover-arrow-outer-width;

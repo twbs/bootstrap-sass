@@ -17,22 +17,22 @@
     this.init('popover', element, options)
   }
 
-  if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')
+  if (!$.fn.cggtooltip) throw new Error('Popover requires tooltip.js')
 
   Popover.VERSION  = '3.3.5'
 
-  Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {
+  Popover.DEFAULTS = $.extend({}, $.fn.cggtooltip.Constructor.DEFAULTS, {
     placement: 'right',
     trigger: 'click',
     content: '',
-    template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+    template: '<div class="cgg-popover" role="tooltip"><div class="arrow"></div><h3 class="cgg-popover-title"></h3><div class="cgg-popover-content"></div></div>'
   })
 
 
   // NOTE: POPOVER EXTENDS tooltip.js
   // ================================
 
-  Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype)
+  Popover.prototype = $.extend({}, $.fn.cggtooltip.Constructor.prototype)
 
   Popover.prototype.constructor = Popover
 
@@ -45,8 +45,8 @@
     var title   = this.getTitle()
     var content = this.getContent()
 
-    $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
-    $tip.find('.popover-content').children().detach().end()[ // we use append for html objects to maintain js events
+    $tip.find('.cgg-popover-title')[this.options.html ? 'html' : 'text'](title)
+    $tip.find('.cgg-popover-content').children().detach().end()[ // we use append for html objects to maintain js events
       this.options.html ? (typeof content == 'string' ? 'html' : 'append') : 'text'
     ](content)
 
@@ -54,7 +54,7 @@
 
     // IE8 doesn't accept hiding via the `:empty` pseudo selector, we have to do
     // this manually by checking the contents.
-    if (!$tip.find('.popover-title').html()) $tip.find('.popover-title').hide()
+    if (!$tip.find('.cgg-popover-title').html()) $tip.find('.cgg-popover-title').hide()
   }
 
   Popover.prototype.hasContent = function () {
@@ -82,26 +82,26 @@
   function Plugin(option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('bs.popover')
+      var data    = $this.data('cgg.popover')
       var options = typeof option == 'object' && option
 
       if (!data && /destroy|hide/.test(option)) return
-      if (!data) $this.data('bs.popover', (data = new Popover(this, options)))
+      if (!data) $this.data('cgg.popover', (data = new Popover(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
 
-  var old = $.fn.popover
+  var old = $.fn.cggpopover
 
-  $.fn.popover             = Plugin
-  $.fn.popover.Constructor = Popover
+  $.fn.cggpopover             = Plugin
+  $.fn.cggpopover.Constructor = Popover
 
 
   // POPOVER NO CONFLICT
   // ===================
 
-  $.fn.popover.noConflict = function () {
-    $.fn.popover = old
+  $.fn.cggpopover.noConflict = function () {
+    $.fn.cggpopover = old
     return this
   }
 

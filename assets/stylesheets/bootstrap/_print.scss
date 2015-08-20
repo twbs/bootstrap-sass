@@ -69,16 +69,16 @@
     // Bootstrap specific changes start
 
     // Bootstrap components
-    .navbar {
+    .cgg-navbar {
         display: none;
     }
-    .btn,
-    .dropup > .btn {
+    .cgg-btn,
+    .cgg-dropup > .cgg-btn {
         > .caret {
             border-top-color: #000 !important;
         }
     }
-    .label {
+    .cgg-label {
         border: 1px solid #000;
     }
 

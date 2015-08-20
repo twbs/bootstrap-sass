@@ -8,7 +8,7 @@
 // Provide a static navbar from which we expand to create full-width, fixed, and
 // other navbar variations.
 
-.navbar {
+.cgg-navbar {
   position: relative;
   min-height: $navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
   margin-bottom: $navbar-margin-bottom;
@@ -28,7 +28,7 @@
 // Groups `.navbar-brand` and `.navbar-toggle` into a single component for easy
 // styling of responsive aspects.
 
-.navbar-header {
+.cgg-navbar-header {
   @include clearfix;
 
   @media (min-width: $grid-float-breakpoint) {
@@ -47,7 +47,7 @@
 // vertically and include a `max-height` to overflow in case you have too much
 // content for the user's viewport.
 
-.navbar-collapse {
+.cgg-navbar-collapse {
   overflow-x: visible;
   padding-right: $navbar-padding-horizontal;
   padding-left:  $navbar-padding-horizontal;
@@ -65,7 +65,7 @@
     border-top: 0;
     box-shadow: none;
 
-    &.collapse {
+    &.cgg-collapse {
       display: block !important;
       height: auto !important;
       padding-bottom: 0; // Override default setting
@@ -78,18 +78,18 @@
 
     // Undo the collapse side padding for navbars with containers to ensure
     // alignment of right-aligned contents.
-    .navbar-fixed-top &,
-    .navbar-static-top &,
-    .navbar-fixed-bottom & {
+    .cgg-navbar-fixed-top &,
+    .cgg-navbar-static-top &,
+    .cgg-navbar-fixed-bottom & {
       padding-left: 0;
       padding-right: 0;
     }
   }
 }
 
-.navbar-fixed-top,
-.navbar-fixed-bottom {
-  .navbar-collapse {
+.cgg-navbar-fixed-top,
+.cgg-navbar-fixed-bottom {
+  .cgg-navbar-collapse {
     max-height: $navbar-collapse-max-height;
 
     @media (max-device-width: $screen-xs-min) and (orientation: landscape) {
@@ -103,10 +103,10 @@
 //
 // When a container is present, change the behavior of the header and collapse.
 
-.container,
-.container-fluid {
-  > .navbar-header,
-  > .navbar-collapse {
+.cgg-container,
+.cgg-container-fluid {
+  > .cgg-navbar-header,
+  > .cgg-navbar-collapse {
     margin-right: -$navbar-padding-horizontal;
     margin-left:  -$navbar-padding-horizontal;
 
@@ -125,7 +125,7 @@
 // bottom of the page.
 
 // Static top (unfixed, but 100% wide) navbar
-.navbar-static-top {
+.cgg-navbar-static-top {
   z-index: $zindex-navbar;
   border-width: 0 0 1px;
 
@@ -135,8 +135,8 @@
 }
 
 // Fix the top/bottom navbars when screen real estate supports it
-.navbar-fixed-top,
-.navbar-fixed-bottom {
+.cgg-navbar-fixed-top,
+.cgg-navbar-fixed-bottom {
   position: fixed;
   right: 0;
   left: 0;
@@ -147,11 +147,11 @@
     border-radius: 0;
   }
 }
-.navbar-fixed-top {
+.cgg-navbar-fixed-top {
   top: 0;
   border-width: 0 0 1px;
 }
-.navbar-fixed-bottom {
+.cgg-navbar-fixed-bottom {
   bottom: 0;
   margin-bottom: 0; // override .navbar defaults
   border-width: 1px 0 0;
@@ -160,7 +160,7 @@
 
 // Brand/project name
 
-.navbar-brand {
+.cgg-navbar-brand {
   float: left;
   padding: $navbar-padding-vertical $navbar-padding-horizontal;
   font-size: $font-size-large;
@@ -177,8 +177,8 @@
   }
 
   @media (min-width: $grid-float-breakpoint) {
-    .navbar > .container &,
-    .navbar > .container-fluid & {
+    .cgg-navbar > .cgg-container &,
+    .cgg-navbar > .cgg-container-fluid & {
       margin-left: -$navbar-padding-horizontal;
     }
   }
@@ -190,7 +190,7 @@
 // Custom button for toggling the `.navbar-collapse`, powered by the collapse
 // JavaScript plugin.
 
-.navbar-toggle {
+.cgg-navbar-toggle {
   position: relative;
   float: right;
   margin-right: $navbar-padding-horizontal;
@@ -229,7 +229,7 @@
 // Builds on top of the `.nav` components with its own modifier class to make
 // the nav the full height of the horizontal nav (above 768px).
 
-.navbar-nav {
+.cgg-navbar-nav {
   margin: ($navbar-padding-vertical / 2) (-$navbar-padding-horizontal);
 
   > li > a {
@@ -240,7 +240,7 @@
 
   @media (max-width: $grid-float-breakpoint-max) {
     // Dropdowns get custom display when collapsed
-    .open .dropdown-menu {
+    .open .cgg-dropdown-menu {
       position: static;
       float: none;
       width: auto;
@@ -249,7 +249,7 @@
       border: 0;
       box-shadow: none;
       > li > a,
-      .dropdown-header {
+      .cgg-dropdown-header {
         padding: 5px 15px 5px 25px;
       }
       > li > a {
@@ -283,7 +283,7 @@
 // Extension of the `.form-inline` with some extra flavor for optimum display in
 // our navbars.
 
-.navbar-form {
+.cgg-navbar-form {
   margin-left: -$navbar-padding-horizontal;
   margin-right: -$navbar-padding-horizontal;
   padding: 10px $navbar-padding-horizontal;
@@ -295,7 +295,7 @@
   // Mixin behavior for optimum display
   @include form-inline;
 
-  .form-group {
+  .cgg-form-group {
     @media (max-width: $grid-float-breakpoint-max) {
       margin-bottom: 5px;
 
@@ -324,12 +324,12 @@
 // Dropdown menus
 
 // Menu position and menu carets
-.navbar-nav > li > .dropdown-menu {
+.cgg-navbar-nav > li > .cgg-dropdown-menu {
   margin-top: 0;
   @include border-top-radius(0);
 }
 // Menu position and menu caret support for dropups via extra dropup class
-.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
+.cgg-navbar-fixed-bottom .cgg-navbar-nav > li > .cgg-dropdown-menu {
   margin-bottom: 0;
   @include border-top-radius($navbar-border-radius);
   @include border-bottom-radius(0);
@@ -340,13 +340,13 @@
 //
 // Vertically center a button within a navbar (when *not* in a form).
 
-.navbar-btn {
+.cgg-navbar-btn {
   @include navbar-vertical-align($input-height-base);
 
-  &.btn-sm {
+  &.cgg-btn-sm {
     @include navbar-vertical-align($input-height-small);
   }
-  &.btn-xs {
+  &.cgg-btn-xs {
     @include navbar-vertical-align(22);
   }
 }
@@ -356,7 +356,7 @@
 //
 // Add a class to make any element properly align itself vertically within the navbars.
 
-.navbar-text {
+.cgg-navbar-text {
   @include navbar-vertical-align($line-height-computed);
 
   @media (min-width: $grid-float-breakpoint) {
@@ -376,14 +376,14 @@
 // Declared after the navbar components to ensure more specificity on the margins.
 
 @media (min-width: $grid-float-breakpoint) {
-  .navbar-left {
+  .cgg-navbar-left {
     float: left !important;
   }
-  .navbar-right {
+  .cgg-navbar-right {
     float: right !important;
   margin-right: -$navbar-padding-horizontal;
 
-    ~ .navbar-right {
+    ~ .cgg-navbar-right {
       margin-right: 0;
     }
   }
@@ -394,11 +394,11 @@
 // --------------------------------------------------
 
 // Default navbar
-.navbar-default {
+.cgg-navbar-default {
   background-color: $navbar-default-bg;
   border-color: $navbar-default-border;
 
-  .navbar-brand {
+  .cgg-navbar-brand {
     color: $navbar-default-brand-color;
     &:hover,
     &:focus {
@@ -407,11 +407,11 @@
     }
   }
 
-  .navbar-text {
+  .cgg-navbar-text {
     color: $navbar-default-color;
   }
 
-  .navbar-nav {
+  .cgg-navbar-nav {
     > li > a {
       color: $navbar-default-link-color;
 
@@ -439,7 +439,7 @@
     }
   }
 
-  .navbar-toggle {
+  .cgg-navbar-toggle {
     border-color: $navbar-default-toggle-border-color;
     &:hover,
     &:focus {
@@ -450,13 +450,13 @@
     }
   }
 
-  .navbar-collapse,
-  .navbar-form {
+  .cgg-navbar-collapse,
+  .cgg-navbar-form {
     border-color: $navbar-default-border;
   }
 
   // Dropdown menu items
-  .navbar-nav {
+  .cgg-navbar-nav {
     // Remove background color from open dropdown
     > .open > a {
       &,
@@ -469,7 +469,7 @@
 
     @media (max-width: $grid-float-breakpoint-max) {
       // Dropdowns get custom display when collapsed
-      .open .dropdown-menu {
+      .open .cgg-dropdown-menu {
         > li > a {
           color: $navbar-default-link-color;
           &:hover,
@@ -503,14 +503,14 @@
   //
   // Add a class to ensure links outside the navbar nav are colored correctly.
 
-  .navbar-link {
+  .cgg-navbar-link {
     color: $navbar-default-link-color;
     &:hover {
       color: $navbar-default-link-hover-color;
     }
   }
 
-  .btn-link {
+  .cgg-btn-link {
     color: $navbar-default-link-color;
     &:hover,
     &:focus {
@@ -528,11 +528,11 @@
 
 // Inverse navbar
 
-.navbar-inverse {
+.cgg-navbar-inverse {
   background-color: $navbar-inverse-bg;
   border-color: $navbar-inverse-border;
 
-  .navbar-brand {
+  .cgg-navbar-brand {
     color: $navbar-inverse-brand-color;
     &:hover,
     &:focus {
@@ -541,11 +541,11 @@
     }
   }
 
-  .navbar-text {
+  .cgg-navbar-text {
     color: $navbar-inverse-color;
   }
 
-  .navbar-nav {
+  .cgg-navbar-nav {
     > li > a {
       color: $navbar-inverse-link-color;
 
@@ -574,7 +574,7 @@
   }
 
   // Darken the responsive nav toggle
-  .navbar-toggle {
+  .cgg-navbar-toggle {
     border-color: $navbar-inverse-toggle-border-color;
     &:hover,
     &:focus {
@@ -585,13 +585,13 @@
     }
   }
 
-  .navbar-collapse,
-  .navbar-form {
+  .cgg-navbar-collapse,
+  .cgg-navbar-form {
     border-color: darken($navbar-inverse-bg, 7%);
   }
 
   // Dropdowns
-  .navbar-nav {
+  .cgg-navbar-nav {
     > .open > a {
       &,
       &:hover,
@@ -603,8 +603,8 @@
 
     @media (max-width: $grid-float-breakpoint-max) {
       // Dropdowns get custom display
-      .open .dropdown-menu {
-        > .dropdown-header {
+      .open .cgg-dropdown-menu {
+        > .cgg-dropdown-header {
           border-color: $navbar-inverse-border;
         }
         .divider {
@@ -638,14 +638,14 @@
     }
   }
 
-  .navbar-link {
+  .cgg-navbar-link {
     color: $navbar-inverse-link-color;
     &:hover {
       color: $navbar-inverse-link-hover-color;
     }
   }
 
-  .btn-link {
+  .cgg-btn-link {
     color: $navbar-inverse-link-color;
     &:hover,
     &:focus {

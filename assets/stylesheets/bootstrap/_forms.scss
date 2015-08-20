@@ -6,86 +6,87 @@
 // Normalize non-controls
 //
 // Restyle and baseline non-control form elements.
+.cgg-comparison-widget {
+  fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    // Chrome and Firefox set a `min-width: min-content;` on fieldsets,
+    // so we reset that to ensure it behaves more like a standard block element.
+    // See https://github.com/twbs/bootstrap/issues/12359.
+    min-width: 0;
+  }
 
-fieldset {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  // Chrome and Firefox set a `min-width: min-content;` on fieldsets,
-  // so we reset that to ensure it behaves more like a standard block element.
-  // See https://github.com/twbs/bootstrap/issues/12359.
-  min-width: 0;
-}
+  legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: $line-height-computed;
+    font-size: ($font-size-base * 1.5);
+    line-height: inherit;
+    color: $legend-color;
+    border: 0;
+    border-bottom: 1px solid $legend-border-color;
+  }
 
-legend {
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin-bottom: $line-height-computed;
-  font-size: ($font-size-base * 1.5);
-  line-height: inherit;
-  color: $legend-color;
-  border: 0;
-  border-bottom: 1px solid $legend-border-color;
-}
-
-label {
-  display: inline-block;
-  max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
-  margin-bottom: 5px;
-  font-weight: bold;
-}
+  label {
+    display: inline-block;
+    max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
 
 
-// Normalize form controls
-//
-// While most of our form styles require extra classes, some basic normalization
-// is required to ensure optimum display with or without those classes to better
-// address browser inconsistencies.
+  // Normalize form controls
+  //
+  // While most of our form styles require extra classes, some basic normalization
+  // is required to ensure optimum display with or without those classes to better
+  // address browser inconsistencies.
 
-// Override content-box in Normalize (* isn't specific enough)
-input[type="search"] {
-  @include box-sizing(border-box);
-}
+  // Override content-box in Normalize (* isn't specific enough)
+  input[type="search"] {
+    @include box-sizing(border-box);
+  }
 
-// Position radios and checkboxes better
-input[type="radio"],
-input[type="checkbox"] {
-  margin: 4px 0 0;
-  margin-top: 1px \9; // IE8-9
-  line-height: normal;
-}
+  // Position radios and checkboxes better
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin: 4px 0 0;
+    margin-top: 1px \9; // IE8-9
+    line-height: normal;
+  }
 
-input[type="file"] {
-  display: block;
-}
+  input[type="file"] {
+    display: block;
+  }
 
-// Make range inputs behave like textual form controls
-input[type="range"] {
-  display: block;
-  width: 100%;
-}
+  // Make range inputs behave like textual form controls
+  input[type="range"] {
+    display: block;
+    width: 100%;
+  }
 
-// Make multiple select elements height not fixed
-select[multiple],
-select[size] {
-  height: auto;
-}
+  // Make multiple select elements height not fixed
+  select[multiple],
+  select[size] {
+    height: auto;
+  }
 
-// Focus for file, radio, and checkbox
-input[type="file"]:focus,
-input[type="radio"]:focus,
-input[type="checkbox"]:focus {
-  @include tab-focus;
-}
+  // Focus for file, radio, and checkbox
+  input[type="file"]:focus,
+  input[type="radio"]:focus,
+  input[type="checkbox"]:focus {
+    @include tab-focus;
+  }
 
-// Adjust output element
-output {
-  display: block;
-  padding-top: ($padding-base-vertical + 1);
-  font-size: $font-size-base;
-  line-height: $line-height-base;
-  color: $input-color;
+  // Adjust output element
+  output {
+    display: block;
+    padding-top: ($padding-base-vertical + 1);
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $input-color;
+  }
 }
 
 
@@ -111,7 +112,7 @@ output {
 // input[type="tel"]
 // input[type="color"]
 
-.form-control {
+.cgg-form-control {
   display: block;
   width: 100%;
   height: $input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
@@ -153,7 +154,7 @@ output {
 }
 
 // Reset height for `textarea`s
-textarea.form-control {
+textarea.cgg-form-control {
   height: auto;
 }
 
@@ -184,17 +185,17 @@ input[type="search"] {
   input[type="time"],
   input[type="datetime-local"],
   input[type="month"] {
-    &.form-control {
+    &.cgg-form-control {
       line-height: $input-height-base;
     }
 
-    &.input-sm,
-    .input-group-sm & {
+    &.cgg-input-sm,
+    .cgg-input-group-sm & {
       line-height: $input-height-small;
     }
 
-    &.input-lg,
-    .input-group-lg & {
+    &.cgg-input-lg,
+    .cgg-input-group-lg & {
       line-height: $input-height-large;
     }
   }
@@ -206,7 +207,7 @@ input[type="search"] {
 // Designed to help with the organization and spacing of vertical forms. For
 // horizontal forms, use the predefined grid classes.
 
-.form-group {
+.cgg-form-group {
   margin-bottom: $form-group-margin-bottom;
 }
 
@@ -215,8 +216,8 @@ input[type="search"] {
 //
 // Indent the labels to position radios/checkboxes as hanging controls.
 
-.radio,
-.checkbox {
+.cgg-radio,
+.cgg-checkbox {
   position: relative;
   display: block;
   margin-top: 10px;
@@ -230,23 +231,23 @@ input[type="search"] {
     cursor: pointer;
   }
 }
-.radio input[type="radio"],
-.radio-inline input[type="radio"],
-.checkbox input[type="checkbox"],
-.checkbox-inline input[type="checkbox"] {
+.cgg-radio input[type="radio"],
+.cgg-radio-inline input[type="radio"],
+.cgg-checkbox input[type="checkbox"],
+.cgg-checkbox-inline input[type="checkbox"] {
   position: absolute;
   margin-left: -20px;
   margin-top: 4px \9;
 }
 
-.radio + .radio,
-.checkbox + .checkbox {
+.cgg-radio + .cgg-radio,
+.cgg-checkbox + .cgg-checkbox {
   margin-top: -5px; // Move up sibling radios or checkboxes for tighter spacing
 }
 
 // Radios and checkboxes on same line
-.radio-inline,
-.checkbox-inline {
+.cgg-radio-inline,
+.cgg-checkbox-inline {
   position: relative;
   display: inline-block;
   padding-left: 20px;
@@ -255,8 +256,8 @@ input[type="search"] {
   font-weight: normal;
   cursor: pointer;
 }
-.radio-inline + .radio-inline,
-.checkbox-inline + .checkbox-inline {
+.cgg-radio-inline + .cgg-radio-inline,
+.cgg-checkbox-inline + .cgg-checkbox-inline {
   margin-top: 0;
   margin-left: 10px; // space out consecutive inline controls
 }
@@ -265,25 +266,27 @@ input[type="search"] {
 // Some special care is needed because <label>s don't inherit their parent's `cursor`.
 //
 // Note: Neither radios nor checkboxes can be readonly.
-input[type="radio"],
-input[type="checkbox"] {
-  &[disabled],
-  &.disabled,
-  fieldset[disabled] & {
-    cursor: $cursor-disabled;
+.cgg-comparison-widget {
+  input[type="radio"],
+  input[type="checkbox"] {
+    &[disabled],
+    &.disabled,
+    fieldset[disabled] & {
+      cursor: $cursor-disabled;
+    }
   }
 }
 // These classes are used directly on <label>s
-.radio-inline,
-.checkbox-inline {
+.cgg-radio-inline,
+.cgg-checkbox-inline {
   &.disabled,
   fieldset[disabled] & {
     cursor: $cursor-disabled;
   }
 }
 // These classes are used on elements with <label> descendants
-.radio,
-.checkbox {
+.cgg-radio,
+.cgg-checkbox {
   &.disabled,
   fieldset[disabled] & {
     label {
@@ -298,7 +301,7 @@ input[type="checkbox"] {
 // Apply class to a `p` element to make any string of text align with labels in
 // a horizontal form layout.
 
-.form-control-static {
+.cgg-form-control-static {
   // Size it appropriately next to real form controls
   padding-top: ($padding-base-vertical + 1);
   padding-bottom: ($padding-base-vertical + 1);
@@ -306,8 +309,8 @@ input[type="checkbox"] {
   margin-bottom: 0;
   min-height: ($line-height-computed + $font-size-base);
 
-  &.input-lg,
-  &.input-sm {
+  &.cgg-input-lg,
+  &.cgg-input-sm {
     padding-left: 0;
     padding-right: 0;
   }
@@ -322,24 +325,24 @@ input[type="checkbox"] {
 // The `.form-group-* form-control` variations are sadly duplicated to avoid the
 // issue documented in https://github.com/twbs/bootstrap/issues/15074.
 
-@include input-size('.input-sm', $input-height-small, $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $input-border-radius-small);
-.form-group-sm {
-  .form-control {
+@include input-size('.cgg-input-sm', $input-height-small, $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $input-border-radius-small);
+.cgg-form-group-sm {
+  .cgg-form-control {
     height: $input-height-small;
     padding: $padding-small-vertical $padding-small-horizontal;
     font-size: $font-size-small;
     line-height: $line-height-small;
     border-radius: $input-border-radius-small;
   }
-  select.form-control {
+  select.cgg-form-control {
     height: $input-height-small;
     line-height: $input-height-small;
   }
-  textarea.form-control,
-  select[multiple].form-control {
+  textarea.cgg-form-control,
+  select[multiple].cgg-form-control {
     height: auto;
   }
-  .form-control-static {
+  .cgg-form-control-static {
     height: $input-height-small;
     min-height: ($line-height-computed + $font-size-small);
     padding: ($padding-small-vertical + 1) $padding-small-horizontal;
@@ -348,24 +351,24 @@ input[type="checkbox"] {
   }
 }
 
-@include input-size('.input-lg', $input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $input-border-radius-large);
-.form-group-lg {
-  .form-control {
+@include input-size('.cgg-input-lg', $input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $input-border-radius-large);
+.cgg-form-group-lg {
+  .cgg-form-control {
     height: $input-height-large;
     padding: $padding-large-vertical $padding-large-horizontal;
     font-size: $font-size-large;
     line-height: $line-height-large;
     border-radius: $input-border-radius-large;
   }
-  select.form-control {
+  select.cgg-form-control {
     height: $input-height-large;
     line-height: $input-height-large;
   }
-  textarea.form-control,
-  select[multiple].form-control {
+  textarea.cgg-form-control,
+  select[multiple].cgg-form-control {
     height: auto;
   }
-  .form-control-static {
+  .cgg-form-control-static {
     height: $input-height-large;
     min-height: ($line-height-computed + $font-size-large);
     padding: ($padding-large-vertical + 1) $padding-large-horizontal;
@@ -379,17 +382,17 @@ input[type="checkbox"] {
 //
 // Apply contextual and semantic states to individual form controls.
 
-.has-feedback {
+.cgg-has-feedback {
   // Enable absolute positioning
   position: relative;
 
   // Ensure icons don't overlap text
-  .form-control {
+  .cgg-form-control {
     padding-right: ($input-height-base * 1.25);
   }
 }
 // Feedback icon (requires .glyphicon classes)
-.form-control-feedback {
+.cgg-form-control-feedback {
   position: absolute;
   top: 0;
   right: 0;
@@ -401,39 +404,39 @@ input[type="checkbox"] {
   text-align: center;
   pointer-events: none;
 }
-.input-lg + .form-control-feedback,
-.input-group-lg + .form-control-feedback,
-.form-group-lg .form-control + .form-control-feedback {
+.cgg-input-lg + .cgg-form-control-feedback,
+.cgg-input-group-lg + .cgg-form-control-feedback,
+.cgg-form-group-lg .cgg-form-control + .cgg-form-control-feedback {
   width: $input-height-large;
   height: $input-height-large;
   line-height: $input-height-large;
 }
-.input-sm + .form-control-feedback,
-.input-group-sm + .form-control-feedback,
-.form-group-sm .form-control + .form-control-feedback {
+.cgg-input-sm + .cgg-form-control-feedback,
+.cgg-input-group-sm + .cgg-form-control-feedback,
+.cgg-form-group-sm .cgg-form-control + .cgg-form-control-feedback {
   width: $input-height-small;
   height: $input-height-small;
   line-height: $input-height-small;
 }
 
 // Feedback states
-.has-success {
+.cgg-has-success {
   @include form-control-validation($state-success-text, $state-success-text, $state-success-bg);
 }
-.has-warning {
+.cgg-has-warning {
   @include form-control-validation($state-warning-text, $state-warning-text, $state-warning-bg);
 }
-.has-error {
+.cgg-has-error {
   @include form-control-validation($state-danger-text, $state-danger-text, $state-danger-bg);
 }
 
 // Reposition feedback icon if input has visible label above
-.has-feedback label {
+.cgg-has-feedback label {
 
-  & ~ .form-control-feedback {
+  & ~ .cgg-form-control-feedback {
      top: ($line-height-computed + 5); // Height of the `label` and its margin
   }
-  &.sr-only ~ .form-control-feedback {
+  &.cgg-sr-only ~ .cgg-form-control-feedback {
      top: 0;
   }
 }
@@ -444,7 +447,7 @@ input[type="checkbox"] {
 // Apply to any element you wish to create light text for placement immediately
 // below a form control. Use for general help, formatting, or instructional text.
 
-.help-block {
+.cgg-help-block {
   display: block; // account for any element using help-block
   margin-top: 5px;
   margin-bottom: 10px;
@@ -469,49 +472,49 @@ input[type="checkbox"] {
   // Kick in the inline
   @media (min-width: $screen-sm-min) {
     // Inline-block all the things for "inline"
-    .form-group {
+    .cgg-form-group {
       display: inline-block;
       margin-bottom: 0;
       vertical-align: middle;
     }
 
     // In navbar-form, allow folks to *not* use `.form-group`
-    .form-control {
+    .cgg-form-control {
       display: inline-block;
       width: auto; // Prevent labels from stacking above inputs in `.form-group`
       vertical-align: middle;
     }
 
     // Make static controls behave like regular ones
-    .form-control-static {
+    .cgg-form-control-static {
       display: inline-block;
     }
 
-    .input-group {
+    .cgg-input-group {
       display: inline-table;
       vertical-align: middle;
 
-      .input-group-addon,
-      .input-group-btn,
-      .form-control {
+      .cgg-input-group-addon,
+      .cgg-input-group-btn,
+      .cgg-form-control {
         width: auto;
       }
     }
 
     // Input groups need that 100% width though
-    .input-group > .form-control {
+    .cgg-input-group > .cgg-form-control {
       width: 100%;
     }
 
-    .control-label {
+    .cgg-control-label {
       margin-bottom: 0;
       vertical-align: middle;
     }
 
     // Remove default margin on radios/checkboxes that were used for stacking, and
     // then undo the floating of radios and checkboxes to match.
-    .radio,
-    .checkbox {
+    .cgg-radio,
+    .cgg-checkbox {
       display: inline-block;
       margin-top: 0;
       margin-bottom: 0;
@@ -521,20 +524,20 @@ input[type="checkbox"] {
         padding-left: 0;
       }
     }
-    .radio input[type="radio"],
-    .checkbox input[type="checkbox"] {
+    .cgg-radio input[type="radio"],
+    .cgg-checkbox input[type="checkbox"] {
       position: relative;
       margin-left: 0;
     }
 
     // Re-override the feedback icon.
-    .has-feedback .form-control-feedback {
+    .cgg-has-feedback .cgg-form-control-feedback {
       top: 0;
     }
   }
 }
 // [converter] extracted as `@mixin form-inline` for libsass compatibility
-.form-inline {
+.cgg-form-inline {
   @include form-inline;
 }
 
@@ -545,35 +548,35 @@ input[type="checkbox"] {
 // Horizontal forms are built on grid classes and allow you to create forms with
 // labels on the left and inputs on the right.
 
-.form-horizontal {
+.cgg-form-horizontal {
 
   // Consistent vertical alignment of radios and checkboxes
   //
   // Labels also get some reset styles, but that is scoped to a media query below.
-  .radio,
-  .checkbox,
-  .radio-inline,
-  .checkbox-inline {
+  .cgg-radio,
+  .cgg-checkbox,
+  .cgg-radio-inline,
+  .cgg-checkbox-inline {
     margin-top: 0;
     margin-bottom: 0;
     padding-top: ($padding-base-vertical + 1); // Default padding plus a border
   }
   // Account for padding we're adding to ensure the alignment and of help text
   // and other content below items
-  .radio,
-  .checkbox {
+  .cgg-radio,
+  .cgg-checkbox {
     min-height: ($line-height-computed + ($padding-base-vertical + 1));
   }
 
   // Make form groups behave like rows
-  .form-group {
+  .cgg-form-group {
     @include make-row;
   }
 
   // Reset spacing and right align labels, but scope to media queries so that
   // labels on narrow viewports stack the same as a default form example.
   @media (min-width: $screen-sm-min) {
-    .control-label {
+    .cgg-control-label {
       text-align: right;
       margin-bottom: 0;
       padding-top: ($padding-base-vertical + 1); // Default padding plus a border
@@ -584,7 +587,7 @@ input[type="checkbox"] {
   //
   // Reposition the icon because it's now within a grid column and columns have
   // `position: relative;` on them. Also accounts for the grid gutter padding.
-  .has-feedback .form-control-feedback {
+  .cgg-has-feedback .cgg-form-control-feedback {
     right: floor(($grid-gutter-width / 2));
   }
 
@@ -592,17 +595,17 @@ input[type="checkbox"] {
   //
   // Quick utility class for applying `.input-lg` and `.input-sm` styles to the
   // inputs and labels within a `.form-group`.
-  .form-group-lg {
+  .cgg-form-group-lg {
     @media (min-width: $screen-sm-min) {
-      .control-label {
+      .cgg-control-label {
         padding-top: (($padding-large-vertical * $line-height-large) + 1);
         font-size: $font-size-large;
       }
     }
   }
-  .form-group-sm {
+  .cgg-form-group-sm {
     @media (min-width: $screen-sm-min) {
-      .control-label {
+      .cgg-control-label {
         padding-top: ($padding-small-vertical + 1);
         font-size: $font-size-small;
       }

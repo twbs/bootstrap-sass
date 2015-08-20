@@ -36,10 +36,10 @@
     if (e) e.preventDefault()
 
     if (!$parent.length) {
-      $parent = $this.closest('.alert')
+      $parent = $this.closest('.cgg-alert')
     }
 
-    $parent.trigger(e = $.Event('close.bs.alert'))
+    $parent.trigger(e = $.Event('close.cgg.alert'))
 
     if (e.isDefaultPrevented()) return
 
@@ -47,7 +47,7 @@
 
     function removeElement() {
       // detach from parent, fire event then clean up data
-      $parent.detach().trigger('closed.bs.alert').remove()
+      $parent.detach().trigger('closed.cgg.alert').remove()
     }
 
     $.support.transition && $parent.hasClass('fade') ?
@@ -64,24 +64,24 @@
   function Plugin(option) {
     return this.each(function () {
       var $this = $(this)
-      var data  = $this.data('bs.alert')
+      var data  = $this.data('cgg.alert')
 
-      if (!data) $this.data('bs.alert', (data = new Alert(this)))
+      if (!data) $this.data('cgg.alert', (data = new Alert(this)))
       if (typeof option == 'string') data[option].call($this)
     })
   }
 
-  var old = $.fn.alert
+  var old = $.fn.cggalert
 
-  $.fn.alert             = Plugin
-  $.fn.alert.Constructor = Alert
+  $.fn.cggalert             = Plugin
+  $.fn.cggalert.Constructor = Alert
 
 
   // ALERT NO CONFLICT
   // =================
 
-  $.fn.alert.noConflict = function () {
-    $.fn.alert = old
+  $.fn.cggalert.noConflict = function () {
+    $.fn.cggalert = old
     return this
   }
 
@@ -89,6 +89,6 @@
   // ALERT DATA-API
   // ==============
 
-  $(document).on('click.bs.alert.data-api', dismiss, Alert.prototype.close)
+  $(document).on('click.cgg.alert.data-api', dismiss, Alert.prototype.close)
 
 }(jQuery);

@@ -6,7 +6,7 @@
 // Base styles
 // --------------------------------------------------
 
-.btn {
+.cgg-btn {
   display: inline-block;
   margin-bottom: 0; // For input.btn
   font-weight: $btn-font-weight;
@@ -54,7 +54,7 @@
   // [converter] extracted a& to a.btn
 }
 
-a.btn {
+a.cgg-btn {
   &.disabled,
   fieldset[disabled] & {
     pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
@@ -65,26 +65,26 @@ a.btn {
 // Alternate buttons
 // --------------------------------------------------
 
-.btn-default {
+.cgg-btn-default {
   @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
 }
-.btn-primary {
+.cgg-btn-primary {
   @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
 }
 // Success appears as green
-.btn-success {
+.cgg-btn-success {
   @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
 }
 // Info appears as blue-green
-.btn-info {
+.cgg-btn-info {
   @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
 }
 // Warning appears as orange
-.btn-warning {
+.cgg-btn-warning {
   @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
 }
 // Danger and error appear as red
-.btn-danger {
+.cgg-btn-danger {
   @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
 }
 
@@ -93,7 +93,7 @@ a.btn {
 // -------------------------
 
 // Make a button look and behave like a link
-.btn-link {
+.cgg-btn-link {
   color: $link-color;
   font-weight: normal;
   border-radius: 0;
@@ -132,15 +132,15 @@ a.btn {
 // Button Sizes
 // --------------------------------------------------
 
-.btn-lg {
+.cgg-btn-lg {
   // line-height: ensure even-numbered height of button next to large input
   @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
 }
-.btn-sm {
+.cgg-btn-sm {
   // line-height: ensure proper height of button next to small input
   @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
 }
-.btn-xs {
+.cgg-btn-xs {
   @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
 }
 
@@ -148,13 +148,13 @@ a.btn {
 // Block button
 // --------------------------------------------------
 
-.btn-block {
+.cgg-btn-block {
   display: block;
   width: 100%;
 }
 
 // Vertically space out multiple block buttons
-.btn-block + .btn-block {
+.cgg-btn-block + .cgg-btn-block {
   margin-top: 5px;
 }
 
@@ -162,7 +162,7 @@ a.btn {
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  &.btn-block {
+  &.cgg-btn-block {
     width: 100%;
   }
 }

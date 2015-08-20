@@ -2,54 +2,55 @@
 // Utility classes
 // --------------------------------------------------
 
+.cgg-comparison-widget {
+  // Floats
+  // -------------------------
 
-// Floats
-// -------------------------
-
-.clearfix {
-  @include clearfix;
-}
-.center-block {
-  @include center-block;
-}
-.pull-right {
-  float: right !important;
-}
-.pull-left {
-  float: left !important;
-}
-
-
-// Toggling content
-// -------------------------
-
-// Note: Deprecated .hide in favor of .hidden or .sr-only (as appropriate) in v3.0.1
-.hide {
-  display: none !important;
-}
-.show {
-  display: block !important;
-}
-.invisible {
-  visibility: hidden;
-}
-.text-hide {
-  @include text-hide;
-}
+  .clearfix {
+    @include clearfix;
+  }
+  .center-block {
+    @include center-block;
+  }
+  .pull-right {
+    float: right !important;
+  }
+  .pull-left {
+    float: left !important;
+  }
 
 
-// Hide from screenreaders and browsers
-//
-// Credit: HTML5 Boilerplate
+  // Toggling content
+  // -------------------------
 
-.hidden {
-  display: none !important;
-}
+  // Note: Deprecated .hide in favor of .hidden or .sr-only (as appropriate) in v3.0.1
+  .hide {
+    display: none !important;
+  }
+  .show {
+    display: block !important;
+  }
+  .invisible {
+    visibility: hidden;
+  }
+  .text-hide {
+    @include text-hide;
+  }
 
 
-// For Affix plugin
-// -------------------------
+  // Hide from screenreaders and browsers
+  //
+  // Credit: HTML5 Boilerplate
 
-.affix {
-  position: fixed;
+  .hidden {
+    display: none !important;
+  }
+
+
+  // For Affix plugin
+  // -------------------------
+
+  .affix {
+    position: fixed;
+  }
 }
