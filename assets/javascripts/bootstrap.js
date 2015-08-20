@@ -4,8 +4,8 @@
  * Licensed under the MIT license
  */
 
-if (typeof cggQuery === 'undefined') {
-  throw new Error('CGG Bootstrap\'s JavaScript requires cggQuery')
+if (typeof CGGQuery === 'undefined') {
+  throw new Error('CGG Bootstrap\'s JavaScript requires CGGQuery')
 }
 
 +function ($) {
@@ -14,7 +14,7 @@ if (typeof cggQuery === 'undefined') {
   if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1)) {
     throw new Error('Bootstrap\'s JavaScript requires jQuery version 1.9.1 or higher')
   }
-}(cggQuery);
+}(CGGQuery);
 
 /* ========================================================================
  * Bootstrap: transition.js v3.3.5
@@ -74,7 +74,7 @@ if (typeof cggQuery === 'undefined') {
         }
     })
 
-}(cggQuery);
+}(CGGQuery);
 
 
 
@@ -171,7 +171,7 @@ if (typeof cggQuery === 'undefined') {
 
     $(document).on('click.cgg.alert.data-api', dismiss, Alert.prototype.close)
 
-}(cggQuery);
+}(CGGQuery);
 
 
 
@@ -294,7 +294,7 @@ if (typeof cggQuery === 'undefined') {
             $(e.target).closest('.cgg-btn').toggleClass('focus', /^focus(in)?$/.test(e.type))
         })
 
-}(cggQuery);
+}(CGGQuery);
 
 
 
@@ -535,7 +535,7 @@ if (typeof cggQuery === 'undefined') {
         })
     })
 
-}(cggQuery);
+}(CGGQuery);
 
 
 
@@ -749,7 +749,7 @@ if (typeof cggQuery === 'undefined') {
         Plugin.call($target, option)
     })
 
-}(cggQuery);
+}(CGGQuery);
 
 
 
@@ -917,7 +917,7 @@ if (typeof cggQuery === 'undefined') {
         .on('keydown.cgg.dropdown.data-api', toggle, Dropdown.prototype.keydown)
         .on('keydown.cgg.dropdown.data-api', '.cgg-dropdown-menu', Dropdown.prototype.keydown)
 
-}(cggQuery);
+}(CGGQuery);
 
 
 
@@ -1257,7 +1257,7 @@ if (typeof cggQuery === 'undefined') {
         Plugin.call($target, option, this)
     })
 
-}(cggQuery);
+}(CGGQuery);
 
 
 
@@ -1774,7 +1774,7 @@ if (typeof cggQuery === 'undefined') {
         return this
     }
 
-}(cggQuery);
+}(CGGQuery);
 
 
 
@@ -1885,7 +1885,7 @@ if (typeof cggQuery === 'undefined') {
         return this
     }
 
-}(cggQuery);
+}(CGGQuery);
 
 
 
@@ -2060,7 +2060,7 @@ if (typeof cggQuery === 'undefined') {
         })
     })
 
-}(cggQuery);
+}(CGGQuery);
 
 
 
@@ -2218,7 +2218,7 @@ if (typeof cggQuery === 'undefined') {
         .on('click.cgg.tab.data-api', '[data-toggle="cgg-tab"]', clickHandler)
         .on('click.cgg.tab.data-api', '[data-toggle="cgg-pill"]', clickHandler)
 
-}(cggQuery);
+}(CGGQuery);
 
 
 
@@ -2383,6 +2383,6 @@ if (typeof cggQuery === 'undefined') {
         })
     })
 
-}(cggQuery);
+}(CGGQuery);
 
 
