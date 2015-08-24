@@ -5,6 +5,7 @@
 .card {
   position: relative;
   margin-bottom: $card-spacer-y;
+  background-color: #fff;
   border: $card-border-width solid $card-border-color;
   @include border-radius($card-border-radius);
 }
@@ -14,7 +15,6 @@
 }
 
 .card-title {
-  margin-top: 0;
   margin-bottom: $card-spacer-y;
 }
 
