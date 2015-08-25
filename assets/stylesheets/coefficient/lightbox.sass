@@ -1,0 +1,49 @@
+#lightbox-title
+  max-width: 70%
+  text-overflow: ellipsis
+  overflow: hidden
+  line-height: inherit
+
+#lightbox-footer
+  @include clearfix
+  padding-top: 10px
+
+#lightbox-previous,
+#lightbox-next
+  position: absolute
+  top: 0
+  bottom: 0
+  vertical-align: middle
+  font-size: 40px
+
+  i
+    padding: 0 10px
+    position: absolute
+    top: 50%
+    transition: color 0.5s ease-out 0s
+    color: transparent
+    text-shadow: none
+    transform: translateY(-50%)
+
+  &:hover
+    i
+      color: $white
+      text-shadow: 2px 2px 3px #888
+
+#lightbox-previous
+  left: 0
+  right: 50%
+
+#lightbox-next
+  left: 50%
+  right: 0
+
+#lightbox-previous-arrow
+  left: 0
+
+#lightbox-next-arrow
+  right: 0
+
+.lightbox-content
+  img
+    max-height: 480px
