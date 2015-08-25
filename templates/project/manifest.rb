@@ -6,7 +6,7 @@ stylesheet 'styles.sass'
 # Bootstrap variable overrides file
 stylesheet '_bootstrap-variables.sass', :to => '_bootstrap-variables.sass'
 
-# Copy JS and fonts
+# Copy JS
 manifest = Pathname.new(File.dirname(__FILE__))
 assets   = File.expand_path('../../assets', manifest)
 {:javascript => 'javascripts'}.each do |method, dir|
