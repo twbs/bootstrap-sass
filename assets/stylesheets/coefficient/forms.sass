@@ -23,6 +23,13 @@ textarea
   &:focus
     border-color: #2598f9
 
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control
+  cursor: inherit
+  background-color: transparent
+  opacity: 1
+
 .input-group
   padding: 0 0 12px
   border-radius: 1px
