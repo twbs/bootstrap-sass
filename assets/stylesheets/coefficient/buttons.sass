@@ -125,10 +125,16 @@ $buttons: (default: ($white, #cccccc, #e6e6e6, #adadad), primary: ($primary, #36
 .progress-button.state-success
   background: $success
   border: 1px solid #65ca65
+  &:hover
+    background: $success
+    border: 1px solid #65ca65
 
 .progress-button.state-error
   background: $danger
   border: 1px solid #ca452e
+  &:hover
+    background: $danger
+    border: 1px solid #ca452e
 
 .progress-button.state-success .content::before,
 .progress-button.state-error .content::after
