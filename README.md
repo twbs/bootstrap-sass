@@ -30,12 +30,10 @@ gem 'sass-rails', '>= 3.2'
 Import Bootstrap styles in `app/assets/stylesheets/application.scss`:
 
 ```scss
-// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
-@import "bootstrap-sprockets";
 @import "bootstrap";
 ```
 
-`bootstrap-sprockets` must be imported before `bootstrap` for the icon fonts to work.
+Note: Since Bootstrap 4 no longer includes glyphicons, boostrap-sprockets is no longer needed.
 
 Make sure the file has `.scss` extension (or `.sass` for Sass syntax). If you have just generated a new Rails app,
 it may come with a `.css` file instead. If this file exists, it will be served instead of Sass, so rename it:
@@ -52,13 +50,8 @@ Require Bootstrap Javascripts in `app/assets/javascripts/application.js`:
 
 ```js
 //= require jquery
-//= require bootstrap-sprockets
+//= require bootstrap
 ```
-
-`bootstrap-sprockets` and `bootstrap` [should not both be included](https://github.com/twbs/bootstrap-sass/issues/829#issuecomment-75153827) in `application.js`.
-
-`bootstrap-sprockets` provides individual Bootstrap Javascript files (`alert.js` or `dropdown.js`, for example), while
-`bootstrap` provides a concatenated file containing all Bootstrap Javascripts.
 
 #### Bower with Rails
 
