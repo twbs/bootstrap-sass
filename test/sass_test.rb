@@ -4,8 +4,9 @@ require 'shellwords'
 class SassTest < Minitest::Test
   DUMMY_PATH = 'test/dummy_sass_only'
 
-  def test_font_helper
-    assert_match %r(url\(['"]?.*eot['"]?\)), @css
+  # We check if the css includes a typical bootstrap class
+  def test_css_matcher
+    assert_match 'col-xs-1', @css
   end
 
   def setup

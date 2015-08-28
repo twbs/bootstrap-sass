@@ -18,7 +18,6 @@ namespace :bower do
 
       spec['main'] =
           find_files.(File.join(Bootstrap.stylesheets_path, '_bootstrap.scss')) +
-          find_files.(Bootstrap.fonts_path) +
           %w(assets/javascripts/bootstrap.js)
 
       spec['version'] = Bootstrap::VERSION

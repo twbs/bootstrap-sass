@@ -1,6 +1,8 @@
 language: ruby
+sudo: false
 rvm:
   - 2.1.5
+  - 2.2.3
 gemfile:
   - test/gemfiles/sass_3_3.gemfile
   - test/gemfiles/sass_3_4.gemfile

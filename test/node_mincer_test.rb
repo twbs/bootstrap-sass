@@ -4,20 +4,8 @@ require 'json'
 class NodeMincerTest < Minitest::Test
   DUMMY_PATH = 'test/dummy_node_mincer'
 
-  def test_font_helper_without_suffix
-    assert_match %r(url\(['"]?/assets/.*eot['"]?\)), @css
-  end
-
-  def test_font_helper_with_suffix_sharp
-    assert_match %r(url\(['"]?/assets/.*svg#.+['"]?\)), @css
-  end
-
-  def test_font_helper_with_suffix_question
-    assert_match %r(url\(['"]?/assets/.*eot\?.*['"]?\)), @css
-  end
-
   def test_image_helper
-    assert_match %r(url\(['"]?/assets/apple-touch-icon-144-precomposed.*png['"]?\)), @css
+    assert_match %r(url\(['"]?apple-touch-icon-144-precomposed.*png['"]?\)), @css
   end
 
   def setup

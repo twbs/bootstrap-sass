@@ -30,12 +30,10 @@ gem 'sass-rails', '>= 3.2'
 Import Bootstrap styles in `app/assets/stylesheets/application.scss`:
 
 ```scss
-// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
-@import "bootstrap-sprockets";
 @import "bootstrap";
 ```
 
-`bootstrap-sprockets` must be imported before `bootstrap` for the icon fonts to work.
+Note: Since Bootstrap 4 no longer includes glyphicons, boostrap-sprockets is no longer needed.
 
 Make sure the file has `.scss` extension (or `.sass` for Sass syntax). If you have just generated a new Rails app,
 it may come with a `.css` file instead. If this file exists, it will be served instead of Sass, so rename it:
