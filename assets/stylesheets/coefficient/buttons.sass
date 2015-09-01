@@ -32,6 +32,12 @@ $buttons: (default: ($white, #cccccc, #e6e6e6, #adadad), primary: ($primary, #36
     &.active
       background-color: nth($colorList, 3)
       border-color: nth($colorList, 4)
+    &.btn-disabled
+      &:hover
+        background-color: nth($colorList, 1)
+        border-color: nth($colorList, 2)
+        cursor: default
+        z-index: auto
 
 // Special default button styling
 .btn-default,
