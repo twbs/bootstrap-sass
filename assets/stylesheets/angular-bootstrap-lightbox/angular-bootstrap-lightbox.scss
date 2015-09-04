@@ -1,6 +1,11 @@
 .modal-backdrop {
     bottom: 0;
     position: fixed;
+    z-index: 9990 !important;
+}
+
+.modal-open .modal {
+    z-index: 9999 !important
 }
 
 .lightbox-header {
