@@ -1,5 +1,6 @@
 @media print
   // Hide all navigation elements for print view
+  #toast-container,
   #head-nav,
   #page-aside,
   .cl-sidebar,
@@ -13,7 +14,7 @@
     padding-top: 0 !important
 
   a[href]:after
-    content: initial
+    content: ''
 
   #note-content,
   #audit-content
@@ -29,24 +30,17 @@
   .audit-pass-fail
     .btn
       display: inline-block
-      -webkit-print-color-adjust:exact
     .btn-success
-      background-color: $success !important
       z-index: 999
-      color: $white !important
-      /* ie-specific properties */
-      border-width: 4px\0
-      box-sizing: border-box\0
-      padding-top: 4px\0
-      padding-bottom: 4px\0
+      border-width: 4px
+      box-sizing: border-box
+      padding-top: 4px
+      padding-bottom: 4px
     .btn-danger
-      background-color: $danger !important
-      color: $white !important
-      /* ie-specific properties */
-      border-width: 4px\0
-      box-sizing: border-box\0
-      padding-top: 4px\0
-      padding-bottom: 4px\0
+      border-width: 4px
+      box-sizing: border-box
+      padding-top: 4px
+      padding-bottom: 4px
 
   .block-flat
     border: 0
@@ -66,3 +60,8 @@
 
   .col-sm-8
     width: 100%
+
+  // Fix Firefox Print Issues
+  #cl-wrapper,
+  .cl-mcont-wrapper
+    height: auto
