@@ -6,7 +6,8 @@
   .cl-sidebar,
   #fixed-action-header,
   .back-to-top,
-  .btn
+  .btn,
+  .no-print
     display: none
 
   #cl-wrapper,
@@ -25,6 +26,20 @@
   .datepicker,
   #set-location
     text-decoration: none !important
+    color: $black
+    //SYANG TEMPORARY SOLUTION FOR MIXIN NOT WORKING
+    &::-webkit-input-placeholder
+      color: $black
+      text-decoration: none
+    &:-moz-placeholder
+      color: $black
+      text-decoration: none
+    &::-moz-placeholder
+      color: $black
+      text-decoration: none
+    &:-ms-input-placeholder
+      color: $black
+      text-decoration: none
 
   #note-content,
   #audit-content,

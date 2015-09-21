@@ -83,6 +83,8 @@
   padding: 0
   border: 0
   box-shadow: none
+  &:focus
+    box-shadow: none
 
 #audit-content-print,
 .audit-comments-print
@@ -91,14 +93,22 @@
 .expand-collapse-section
   .expand-collapse-hide
     padding: 10px
+    // temporarily removing while to figure out the animation
+    // transition: all 1s ease
+    overflow-y: hidden
+    &.ng-hide
+      display: block !important
+      padding: 0 10px
+      max-height: 0
   .expand-collapse-bar
     display: block
     text-align: center
-    background: #DDDDDD
+    background: #fafafa
     clear: both
     position: relative
     &:hover
       cursor: pointer
+      background: rgba($primary, 0.1)
   .has-attachments
     position: absolute
     left: 10px
@@ -109,5 +119,7 @@
   @media print
     .expand-collapse-hide
       display: block !important
+      &.no-print
+        display: none !important
     .expand-collapse-bar
       display: none
