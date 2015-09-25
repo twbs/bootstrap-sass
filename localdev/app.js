@@ -47,7 +47,12 @@ server.use(connect.static(imagesPath));
 server.use(template.middleware({basedir: __dirname+'/'}));
 
 server.use(function (req, res, next) {
-    res.endTemplate(req.url.substring(1)+'.ejs', {});
+    var url = req.url.substring(1);
+    if (url.length == 0) {
+        res.endTemplate('index.html'+'.ejs', {});
+    } else {
+        res.endTemplate(req.url.substring(1)+'.ejs', {});
+    }
 });
 
 /**
