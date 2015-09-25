@@ -1,0 +1,25 @@
+label.switcher {
+  width: 38px;
+  border-radius: 12px;
+  height: 23px;
+  margin: 0;
+  position: relative;
+  vertical-align: top;
+  cursor: pointer;
+  background: url("/images/icons/switcher.png") no-repeat; //@TODO Как следует вырезать
+
+  input {
+    visibility: hidden;
+  }
+
+  .round-switcher-button {
+    border-radius: 50%;
+    width: 21px;
+    margin-top: 1px;
+    position: absolute;
+    left: 1px;
+    height: 21px;
+    background: #fff;
+    float: left;
+  }
+}

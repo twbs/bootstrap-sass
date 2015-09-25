@@ -1,0 +1,137 @@
+#geo-modal {
+
+  .modal-content {
+    background: transparent;
+  }
+
+  .geo-panel {
+
+    margin: 27px 0 0 0;
+
+    border-radius: 3px;
+
+    .panel-header {
+      background: #f8f8fa;
+      padding: 21px 0 26px 19px;
+
+      h3 {
+        background: url("/images/icons/choose-geo.svg") no-repeat;
+        padding-left: 27px;
+        margin: 0;
+        font-weight: 600;
+      }
+    }
+
+    .locations-list {
+      height: 420px;
+      overflow-y: auto;
+    }
+
+    .magnifier {
+
+    }
+
+    .geo-subtitle {
+      width: 455px;
+      padding-left: 30px;
+    }
+
+    .left-side, .right-side {
+      padding-top: 19px;
+    }
+
+    .right-side {
+      padding-left: 10px;
+    }
+
+    .left-side {
+      border-right: 1px solid #e2e2e9;
+    }
+
+    .panel-header, .panel-body {
+      border-bottom: 1px solid #e2e2e9;
+    }
+
+    .panel-body {
+      padding: 0 28px;
+    }
+
+    .panel-footer {
+      background: #f8f8fa;
+      border-top: none;
+
+      .btn-success {
+        background: #a2bf3d;
+        border: none;
+        padding: 7px 10px;
+        height: 36px;
+        font-size: 16px;
+        font-weight: 600;
+        margin-right: 20px;
+      }
+    }
+
+    .frequently-searched-locations {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .locations-suggests {
+      margin: 0;
+
+      .location-suggest {
+        margin-bottom: 12px;
+        cursor: pointer;
+
+        span {
+          border-bottom: 1px dotted #000;
+        }
+      }
+
+    }
+
+    .geo-item {
+
+      margin-bottom: 6px;
+
+      .inner {
+        margin-left: 34px;
+        margin-bottom: 0;
+        display: none;
+      }
+
+
+      .expand-control {
+        width: 12px;
+        height: 9px;
+        display: inline-block;
+        cursor: pointer;
+        background-image: url("/images/icons/triangle-geo-tree.png");
+        background-repeat: no-repeat;
+
+        &.invisible {
+          visibility: hidden;
+        }
+      }
+
+      label {
+        font-weight: 500;
+        font-family: "Open Sans";
+      }
+
+      &.expanded {
+        > .expand-control {
+          background-image: url("/images/icons/expanded-triangle.svg");
+        }
+
+        > .inner {
+          display: block;
+        }
+
+      }
+
+    }
+
+  }
+
+}

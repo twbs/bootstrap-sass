@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="26px" height="37px" viewBox="0 0 26 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>Fill 326 Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.179953578 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="landing" sketch:type="MSArtboardGroup" transform="translate(-1157.000000, -2613.000000)" filter="url(#filter-1)" fill="#FFFFFF">
+            <g id="Features" sketch:type="MSLayerGroup" transform="translate(0.000000, 2255.000000)">
+                <g id="Controls" transform="translate(20.000000, 358.527045)" sketch:type="MSShapeGroup">
+                    <path d="M1141.80538,0 L1140,2.28231798 L1155.60062,16 L1140,29.717682 L1141.80538,32 L1160,16 L1141.80538,0" id="Fill-326-Copy"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
