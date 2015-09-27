@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.1.5
+  - 2.2
 gemfile:
   - test/gemfiles/rails_head.gemfile
   - test/gemfiles/sass_3_3.gemfile
@@ -19,3 +19,4 @@ env:
   - VERBOSE=1
 script:
   bundle exec rake && sh test/*.sh
+sudo: false
