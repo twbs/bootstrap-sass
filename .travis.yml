@@ -1,4 +1,6 @@
 language: ruby
+cache: bundler
+bundler_args: --path ../../vendor/bundle --without debug
 rvm:
   - 2.2
 gemfile:
