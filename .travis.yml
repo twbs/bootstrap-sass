@@ -2,6 +2,7 @@ language: ruby
 rvm:
   - 2.1.5
 gemfile:
+  - test/gemfiles/rails_head.gemfile
   - test/gemfiles/sass_3_3.gemfile
   - test/gemfiles/sass_3_4.gemfile
   - test/gemfiles/sass_head.gemfile
@@ -9,6 +10,7 @@ before_install:
   - "npm install"
 matrix:
   allow_failures:
+    - gemfile: test/gemfiles/rails_head.gemfile
     - gemfile: test/gemfiles/sass_head.gemfile
 notifications:
   slack: heybb:3n88HHilXn76ji9vV4gL819Y
