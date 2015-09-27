@@ -30,6 +30,6 @@ Capybara.configure do |config|
   config.default_driver    = :poltergeist
   config.javascript_driver = :poltergeist
   config.server_port       = 7000
-  config.default_wait_time = 10
+  config.default_max_wait_time = 10
 end
 
