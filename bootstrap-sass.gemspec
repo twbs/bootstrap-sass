@@ -15,10 +15,10 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'autoprefixer-rails', '>= 5.0.0.1'
 
   # Testing dependencies
-  s.add_development_dependency 'minitest', '~> 5.4.0'
-  s.add_development_dependency 'minitest-reporters', '~> 1.0.5'
+  s.add_development_dependency 'minitest', '~> 5.8'
+  s.add_development_dependency 'minitest-reporters', '~> 1.1'
   # Integration testing
-  s.add_development_dependency 'capybara'
+  s.add_development_dependency 'capybara', '>= 2.5.0'
   s.add_development_dependency 'poltergeist'
   # Dummy Rails app dependencies
   s.add_development_dependency 'actionpack', '>= 4.1.5'
