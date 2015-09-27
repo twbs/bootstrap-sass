@@ -1,0 +1,65 @@
+$grid-gutter-width: 16px;
+$container-large-desktop:   ((1200px + $grid-gutter-width)) !default;
+$icon-font-path: "../assets/fonts/bootstrap/" !default;
+
+$left-wrapper-width: 228px;
+
+$main-navigation-item-bg: #f4f5f8;
+$main-navigation-item-height: 48px;
+$main-navigation-triangle-semiheight: $main-navigation-item-height / 2;
+$main-navigation-triangle-width: 9px;
+$main-navigation-subgroup-item-height: 36px;
+$main-navigation-subgroup-triangle-semiheight: $main-navigation-subgroup-item-height / 2;
+$main-navigation-subgroup-triangle-width: 8px;
+$main-navigation-active-item-bg: #31416a;
+$main-navigation-active-item-border: #09132f;
+
+$sitelinks-grid-gutter-width: 10px;
+$sitelinks-grid-gutter-semiwidth: $sitelinks-grid-gutter-width / 2;
+
+$input-height-base: 32px;
+
+$link-color: #2B8FD4;
+$landing-color:	#6F707A !default;
+$note-color:	#C0C1C7 !default;
+
+$table-border-color: #eaedee;
+
+$dropdown-link-active-color: inherit;
+$dropdown-link-active-bg: inherit;
+
+$error-border-color: #be3a3e;
+$error-bg-color: #ffdedf;
+$error-color: #be3a3e;
+
+// _popovers.scss copypaste @todo refactor
+$dialog-arrow-width: 10px !default;
+$dialog-arrow-color: white;
+$dialog-border-color: #ddd !default;
+
+$aori-popover-background: #fffde9;
+$aori-popover-arrow-width: 10px !default;
+$aori-popover-arrow-color: $aori-popover-background;
+$aori-popover-border-color: #e6e4d0;
+
+$max-width: 1200px;
+
+$aori-steps-background: rgba(255, 255, 255, 0.75);
+$aori-steps-padding: 35px 25px;
+
+$box-header-margin-bottom:   0 !default;
+
+//== Carousel
+//
+//##
+
+$carousel-text-shadow:                        0 1px 2px rgba(0,0,0,.6) !default;
+
+$carousel-control-color:                      #fff !default;
+$carousel-control-opacity:                    1 !default;
+$carousel-control-font-size:                  20px !default;
+
+$carousel-indicator-active-bg:                #fff !default;
+$carousel-indicator-border-color:             #fff !default;
+
+$carousel-caption-color:                      #fff !default;

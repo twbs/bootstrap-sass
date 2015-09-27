@@ -1,0 +1,86 @@
+.tariffs {
+	padding-top:100px;
+	padding-bottom:100px;
+	
+  .col-lg-7 {
+	float:none;
+	margin-left:auto;
+	margin-right:auto;
+  }
+  .col-md-4 {
+	border-radius:$border-radius-base;
+	border-color:#E0E0E5;
+	border-width:1px;
+	border-style:solid;
+	float:none;
+	display:inline-block;
+	width:32.3%;
+	padding: 0;
+	-webkit-box-shadow: 0px 2px 2px 0px rgba(228,227,223,1);
+	-moz-box-shadow: 0px 2px 2px 0px rgba(228,227,223,1);
+	box-shadow: 0px 2px 2px 0px rgba(228,227,223,1);
+  }
+  h3 {
+		font-size:15px;
+		color:#3A3F44;
+		margin-bottom: $box-header-margin-bottom;
+		margin-top:0;
+	}
+	.active h3 {
+		color:#fff
+	}
+	.price {
+		font-size:32px;
+		color:#404A54;
+		font-weight:600;
+		margin-bottom:0;
+	}
+	.active .price {
+		color:#fff
+	}
+  ul {
+	display:block;
+	padding:20px 20px 30px;
+  }
+  li {
+    text-align:left;
+	font-size:$font-size-h4;
+  }
+  .slogan {
+	text-transform:uppercase;
+	font-size:12px;
+	font-weight:700;
+	margin-bottom:0;
+	color:#7A2A0E;
+  }
+  .box-header {
+	background: rgba(255,255,255,1);
+	background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(222,228,233,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(222,228,233,1)));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(222,228,233,1) 100%);
+	background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(222,228,233,1) 100%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(222,228,233,1) 100%);
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(222,228,233,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#dee4e9', GradientType=0 );
+	padding:25px 20px;
+  }
+  .active .box-header {
+		background: rgba(255,121,44,1);
+		background: -moz-linear-gradient(top, rgba(255,121,44,1) 0%, rgba(228,94,18,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,121,44,1)), color-stop(100%, rgba(228,94,18,1)));
+		background: -webkit-linear-gradient(top, rgba(255,121,44,1) 0%, rgba(228,94,18,1) 100%);
+		background: -o-linear-gradient(top, rgba(255,121,44,1) 0%, rgba(228,94,18,1) 100%);
+		background: -ms-linear-gradient(top, rgba(255,121,44,1) 0%, rgba(228,94,18,1) 100%);
+		background: linear-gradient(to bottom, rgba(255,121,44,1) 0%, rgba(228,94,18,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff792c', endColorstr='#e45e12', GradientType=0 );
+	}
+	p.note {
+		color:$note-color;
+		font-weight:600;
+		font-size:13px;
+		margin:10px auto;
+		max-width:600px;
+		line-height:17px;
+	}
+
+}

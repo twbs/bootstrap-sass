@@ -1,0 +1,90 @@
+.questions {
+	padding-top:100px;
+	padding-bottom:65px;
+	
+  .col-lg-6 {
+	float:none;
+	margin-left:auto;
+	margin-right:auto;
+  }
+  h2 {
+	margin-bottom:70px;
+  }
+  h3 {
+		font-size:16px;
+		color:#3A3F44;
+		margin-bottom: 10px;
+		margin-top:0;
+	}
+	p {
+		font-size:16px;
+		color:#9A9AA2;
+	}
+	.active h3 {
+		color:#fff
+	}
+	.price {
+		font-size:32px;
+		color:#404A54;
+		font-weight:600;
+		margin-bottom:0;
+	}
+	.active .price {
+		color:#fff
+	}
+	img {
+		margin-bottom:15px;
+		
+		&.effective {
+			margin-top: -25px;
+		}
+	}
+	.col-md-6 {
+		margin-bottom:45px;
+	}
+  ul {
+	display:block;
+	padding:20px 20px 30px;
+  }
+  li {
+    text-align:left;
+	font-size:$font-size-h4;
+  }
+  .slogan {
+	text-transform:uppercase;
+	font-size:12px;
+	font-weight:700;
+	margin-bottom:0;
+	color:#7A2A0E;
+  }
+  .box-header {
+	background: rgba(255,255,255,1);
+	background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(222,228,233,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(222,228,233,1)));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(222,228,233,1) 100%);
+	background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(222,228,233,1) 100%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(222,228,233,1) 100%);
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(222,228,233,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#dee4e9', GradientType=0 );
+	padding:25px 20px;
+  }
+  .active .box-header {
+		background: rgba(255,121,44,1);
+		background: -moz-linear-gradient(top, rgba(255,121,44,1) 0%, rgba(228,94,18,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,121,44,1)), color-stop(100%, rgba(228,94,18,1)));
+		background: -webkit-linear-gradient(top, rgba(255,121,44,1) 0%, rgba(228,94,18,1) 100%);
+		background: -o-linear-gradient(top, rgba(255,121,44,1) 0%, rgba(228,94,18,1) 100%);
+		background: -ms-linear-gradient(top, rgba(255,121,44,1) 0%, rgba(228,94,18,1) 100%);
+		background: linear-gradient(to bottom, rgba(255,121,44,1) 0%, rgba(228,94,18,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff792c', endColorstr='#e45e12', GradientType=0 );
+	}
+	p.note {
+		color:$note-color;
+		font-weight:600;
+		font-size:13px;
+		margin:10px auto;
+		max-width:600px;
+		line-height:17px;
+	}
+
+}

@@ -1,0 +1,106 @@
+@import "bootstrap";
+@import "components/variables";
+@import "components/fonts";
+@import "components/landing";
+@import "components/header";
+@import "components/footer";
+@import "components/navbar";
+@import "components/forms";
+@import "components/buttons";
+@import "components/registration";
+@import "components/campaigns";
+@import "components/create-campaign";
+@import "components/budget-block";
+@import "components/campaign";
+@import "components/blocks-list";
+@import "components/user-settings";
+@import "components/switcher";
+@import "components/checkbox";
+@import "components/geo";
+@import "components/spin";
+@import "components/tabs";
+@import "components/campaign-status";
+@import "components/jumbotron";
+@import "components/tariffs";
+@import "components/carousel";
+@import "components/questions";
+
+
+html{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  height: 1px;
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-smooth: never;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.body {
+  min-height: 835px;
+}
+
+.main-wrapper-outer {
+  max-width: 1220px;
+  min-width: 963px;
+  min-height: 100%;
+  display: inline-block;
+}
+
+.main-wrapper-inner {
+  width: 100%;
+  background: transparent;
+  display: inline-block;
+  text-align: initial;
+}
+
+.center-aligned-block {
+  margin: 0 auto;
+  float: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.panel-inner {
+  background: transparent;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'Open Sans Semibold';
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+label {
+  font-weight: normal;
+}
+
+.logo {
+	background: url(../images/logo_bez-fona.png) no-repeat 0 0;
+	width:108px;
+	height:31px;
+	
+	a {
+		width:108px;
+		height:31px;
+		display:block;
+	}
+}
+.intro {
+	font-size: $jumbotron-intro-font-size;
+	color: $landing-color;
+}

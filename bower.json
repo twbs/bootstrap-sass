@@ -8,7 +8,9 @@
     "Gleb Mazovetskiy"
   ],
   "description": "bootstrap-sass is a Sass-powered version of Bootstrap, ready to drop right into your Sass powered applications.",
-  "moduleType": "globals",
+  "moduleType": [
+    "globals"
+  ],
   "main": [
     "assets/stylesheets/_bootstrap.scss",
     "assets/javascripts/bootstrap.js"
@@ -27,9 +29,13 @@
     "test",
     "*.gemspec",
     "Rakefile",
-    "Gemfile"
+    "Gemfile",
+    "node_modules",
+    "bower_components",
+    "tests"
   ],
   "dependencies": {
     "jquery": ">= 1.9.0"
-  }
+  },
+  "version": "3.3.5"
 }
