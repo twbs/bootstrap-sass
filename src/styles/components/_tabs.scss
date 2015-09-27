@@ -1,0 +1,36 @@
+.tabs-container {
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  .tab {
+
+    .tab-item-wrapper {
+      padding: 16px 0;
+      border: 1px solid #d5d5df;
+      border-bottom: none;
+      margin-right: 5px;
+      color: #bbbec7;
+      background-image: linear-gradient(-180deg, #FFFFFF 0%, #F8F8FA 100%);
+      border-radius: 3px 3px 0 0;
+
+      &.last {
+        margin-right: 0;
+      }
+
+    }
+
+    &.active .tab-item-wrapper {
+      color: #fff;
+      background-image: linear-gradient(0deg, #6D9AC7 0%, #5B88B6 100%);
+      box-shadow: inset 0px -2px 2px 0px #5F88B2;
+    }
+
+    .step-n {
+      font: 20px/27px "Open Sans";
+    }
+
+  }
+
+}

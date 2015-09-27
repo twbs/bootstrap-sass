@@ -1,0 +1,39 @@
+.header {
+
+  .header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 68px;
+    background: #fff;
+    box-shadow: 0 0 4px 2px #e9e9e7;
+  }
+
+  a {
+    border: none;
+  }
+
+  .header-wrapper {
+    height: 68px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 20px;
+    .have-account {
+      font-size: 18px;
+      color: #afb1ba;
+    }
+
+    .user-menu {
+      background: #fff;
+      width: 156px;
+      border-radius: 3px;
+      padding: 20px;
+      li {
+        padding: 10px;
+      }
+    }
+
+  }
+}

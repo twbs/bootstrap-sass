@@ -1,0 +1,68 @@
+.blocks-list {
+  h4 {
+    margin-top: 25px;
+  }
+
+  .block-item {
+
+    padding-right: 10px;
+    padding-bottom: 10px;
+    background: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+
+
+    i {
+      display: none;
+      width: 39px;
+      height: 39px;
+      background: url("/images/icons/checkbox-big-green.svg");
+      position: absolute;
+      bottom: -15px;
+      right: 10%;
+      z-index: 10;
+    }
+
+    .block-inner-wrapper {
+      padding: 1px;
+      border-radius: 3px;
+    }
+
+    h4:last-of-type {
+      margin-bottom: 25px;
+    }
+
+    &.active {
+      .block-inner-wrapper {
+        background: #3851a1;
+        color: #fff;
+      }
+    }
+
+    &.active-border.active {
+      .block-inner-wrapper {
+        background: #fbffee;
+        color: initial;
+        position: relative;
+
+        &:after {
+          content: " ";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border: 4px solid #9fc421;
+        }
+
+      }
+
+      i {
+        display: block;
+      }
+
+    }
+
+  }
+
+}

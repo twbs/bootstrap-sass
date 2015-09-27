@@ -1,0 +1,71 @@
+.user-settings {
+
+  .tabs-container {
+    width: 445px;
+    height: 42px;
+
+    .tab {
+      padding-right: 5px;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    .tab-item-wrapper {
+      height: 42px;
+      background: #e4e1d3;
+
+      &.active {
+        color: #000;
+        background: #fff;
+      }
+    }
+  }
+
+  .tab-container {
+
+    .user-info {
+      padding: 10px 0 0 31px;
+
+      .form-group {
+        margin-bottom: 36px;
+      }
+
+      .form-control {
+        height: 37px;
+      }
+
+      .user-constant-profile {
+        background: #e4e1d3;
+        margin-bottom: 36px;
+        padding: 15px 0;
+
+        .user-initials {
+          margin-bottom: 14px;
+          font-weight: 600;
+        }
+
+        .user-mail, .user-country {
+          margin-bottom: 11px;
+        }
+
+      }
+
+      label {
+        margin-bottom: 12px;
+
+        span {
+          color: #cbc7c0;
+        }
+      }
+
+    }
+  }
+
+  .form-controls {
+    background: #e4e1d3;
+    margin-left: -32px;
+  }
+
+}

@@ -1,0 +1,224 @@
+.campaigns {
+  width: 1000px;
+
+  h1 {
+    margin: 40px 0 20px 0;
+    font-size: 34px;
+    line-height: 40px;
+    font-weight: 400;
+  }
+
+  padding: 0;
+  background: transparent;
+
+  .campaign-container {
+    padding: 0 20px 20px 0;
+    height: 429px;
+    cursor: pointer;
+
+    .campaign-wrapper {
+      height: 100%;
+      padding: 20px;
+      box-shadow: 0px 2px 0px 0px #e0e0e7;
+      border: 1px solid #d5d5df;
+      border-radius: 3px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .campaign-table {
+      height: 100%;
+      width: 100%;
+
+      .campaign-table-header, .campaign-table-props, .campaign-table-stats {
+        border-bottom: 1px solid #d5d5df;
+      }
+
+      .campaign-table-header {
+        height: 15%;
+        h2 {
+          margin: 0 0 12px 0;
+          width: 100%;
+          max-height: 65px;
+          word-break: break-word;
+          white-space: normal;
+          line-height: 27px;
+          font-size: 20px;
+          font-weight: 600;
+        }
+
+        td {
+          padding-bottom: 21px;
+
+          .campaign-status {
+            height: 24px;
+            font-size: 13px;
+            line-height: 18px;
+            font-weight: 600;
+          }
+
+        }
+
+      }
+
+      .campaign-table-stats {
+        height: 20%;
+      }
+
+      .campaign-table-props {
+        font-size: 16px;
+        line-height: 22px;
+
+        height: 30%;
+
+        .campaign-props-wrapper {
+          padding-top: 4px;
+          padding-left: 5px;
+
+          .campaign-prop {
+            margin-bottom: 7px;
+            padding-left: 23px;
+
+            &.locations {
+              background: url("/images/icons/geo.svg") 0 4px no-repeat;
+            }
+
+            &.site-link {
+              background: url("/images/icons/link.svg") 0 4px no-repeat;
+              a {
+                color: #595b61;
+                border-bottom: none;
+                font-family: "Open Sans";
+              }
+            }
+
+            &.launch-date {
+              background: url("/images/icons/calendar.svg") 0 2px no-repeat;
+            }
+
+          }
+
+        }
+
+      }
+
+      .campaign-table-stats {
+        padding-left: 3px;
+        font-size: 16px;
+        line-height: 22px;
+
+        .stat-prop {
+          color: #b5b7be;
+          margin-bottom: 3px;
+        }
+
+        .stat-value {
+          color: #595b61;
+        }
+
+        ul {
+
+          margin: 15px 0;
+
+          li {
+            padding: 0;
+            margin: 0 17px 0 3px;
+
+            &:last-of-type {
+              margin-right: 0;
+            }
+          }
+
+        }
+
+      }
+
+      .campaign-table-footer {
+        height: 35%;
+        padding: 15px 0 0 0;
+
+        .progress {
+          border-radius: 40px;
+          height: 28px;
+          margin-bottom: 6px;
+          border: 1px solid #d2d2d2;
+        }
+
+        .budget-status {
+          color: #bdbec3;
+          font-size: 13px;
+          line-height: 18px;
+          font-weight: 600;
+          margin-right: 4px;
+          font-weight: 600;
+        }
+
+        .not-active-dummy {
+          background: #f8f8fa;
+          font-size: 13px;
+          line-height: 18px;
+          font-weight: 600;
+          color: #b5bcc8;
+        }
+
+        .text-wrapper {
+          margin: 0 auto;
+          width: 149px;
+          color: #b5bcc8;
+          font-weight: 600;
+        }
+
+      }
+
+    }
+
+  }
+
+  .create-campaign-btn-wrapper {
+    padding: 164px 58px;
+    background: transparent;
+    border: 1px dashed #bdbfc6;
+
+    button {
+      border-radius: 50%;
+      width: 51px;
+      height: 51px;
+    }
+
+    .create-campaign-text {
+      color: #5a8dc1;
+      font-size: 16px;
+      line-height: 18px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+  }
+
+  .first-campaign-create {
+    margin: 150px auto 0 auto;
+    width: 780px;
+
+    .create-btn {
+      margin-top: 13px;
+      width: 278px;
+      height: 46px;
+      font-weight: bold;
+    }
+
+    h1 {
+      margin: 6px 0 6px 0;
+      font-size: 34px;
+      line-height: 40px;
+      color: #43464e;
+      font-family: "Open Sans";
+    }
+
+    .first-create-description {
+      font-size: 18px;
+      line-height: 28px;
+      color: #898c95;
+    }
+
+  }
+
+}

@@ -1,0 +1,61 @@
+body.auth {
+	background:rgba(234, 237, 241, 0.7) url(../images/pattern.png) 50% repeat;
+	height:100%;
+	
+	.main-wrapper-outer {
+		min-height:0;
+	}
+	
+	.navbar-wrapper {
+		background: #fff;
+	}
+	.form-container {
+		max-width: 350px;
+		margin: 10% auto;
+		padding-top:30px;
+	}
+	h1 {
+		color:#fff;
+		font-size:30px;
+		text-align:left;
+		margin-top:0;
+	}
+	.form-control {
+		padding:10px 12px;
+		margin-bottom:10px;
+		font-size: 16px;
+		height:auto;
+	}
+	.btn-primary {
+		width:100%;
+		display:block;
+	}
+	label {
+		font-size:12px;
+		font-weight:600;
+		margin-top:10px;
+		color:#ABC4D9;
+		
+		a {
+			color:#ABC4D9;
+			text-decoration:underline;
+		}
+		&.checkbox {
+			margin-top:30px;
+		}
+	}
+	.note {
+		color:#ABC4D9;
+		font-weight:600;
+		text-align:left;
+	}
+	#footer { 
+		background: none;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		margin-left: -610px;
+	}
+}
+
+

@@ -1,0 +1,33 @@
+$activeStateBgPath : "/images/icons/checked-checkbox.png";
+$inactiveStateBgPath : "/images/icons/checkbox-rectangle.png";
+$partialStateBgPath : "/images/icons/expanded.png";
+
+.aori-checkbox {
+  height: 15px;
+  margin: 0 !important;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+
+  label.checkbox-bg {
+    padding-left: 20px;
+    background: url($inactiveStateBgPath) 0 4px; //@TODO Как следует вырезать
+    background-repeat: no-repeat;
+  }
+
+  input {
+    visibility: hidden;
+    width: 0;
+    height: 0 !important;
+  }
+
+  input:checked + label.checkbox-bg {
+    background-image: url($activeStateBgPath);
+  }
+
+  &.partial {
+    input + label.checkbox-bg {
+      background-image: url($partialStateBgPath);
+    }
+  }
+}

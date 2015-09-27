@@ -1,0 +1,61 @@
+button {
+  border: none;
+  &:focus {
+    border: none;
+    outline: none;
+  }
+  color: #fff;
+}
+
+button.aori-default-button {
+  font-weight: bold !important;
+  background-image: linear-gradient(-180deg, #F0F0F0 2%, #D8D8D8 100%);
+  box-shadow: 0px 2px 0px 0px #ADADAD;
+  border-radius: 3px;
+
+  font-family: "Open Sans Semibold";
+  font-size: 14px;
+  color: #606068;
+  line-height: 19px;
+  height: 31px;
+  padding: 0 15px;
+
+  &:active {
+    //box-shadow: inset 0px 2px 0px 0px #ADADAD;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+button.aori-green-button {
+  font-family: 'Open Sans Semibold';
+  font-size: 18px;
+  border: none;
+  background-image: linear-gradient(-180deg, #AECC48 2%, #99B635 100%);
+  box-shadow: 0px 2px 0px 0px #80982E;
+  border-radius: 3px
+}
+
+button.aori-anchor-button {
+  background: transparent;
+  color: #5e87ba;
+  border-bottom: 1px solid #8cafd4;
+  font-family: 'Open Sans Semibold';
+}
+
+.round-button {
+  border-radius: 50%;
+  background: #5a8dc1;
+  width: 52px;
+  height: 52px;
+  border: none;
+}
+
+a.button-wrapper {
+  color: #fff;
+  font-size: 36px;
+  border: none;
+  line-height: 1px;
+}

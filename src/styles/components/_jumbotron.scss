@@ -1,0 +1,118 @@
+//
+// Jumbotron
+// --------------------------------------------------
+
+
+.jumbotron {
+	background:rgba(234, 237, 241, 0.7) url(../images/pattern.png) 50% repeat;
+	padding-top:    $jumbotron-padding;
+	padding-bottom: $jumbotron-padding;
+	margin-bottom: $jumbotron-padding;
+	color: $jumbotron-color;
+	text-align: left;
+	
+	.inner {
+		background:url(../images/smiling-man.png) 30px bottom no-repeat;
+		padding-top:50px;
+	}
+  h1,
+  .h1 {
+    color: $jumbotron-heading-color;
+  }
+
+  p {
+    margin-bottom: ($jumbotron-padding / 2);
+    font-size: $jumbotron-intro-font-size;
+    font-weight: 600;
+	color: $landing-color;
+	max-width:470px;
+  }
+
+  > hr {
+    border-top-color: darken($jumbotron-bg, 10%);
+  }
+
+  .container &,
+  .container-fluid & {
+    border-radius: $border-radius-large; // Only round corners at higher resolutions if contained in a container
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: $screen-sm-min) {
+    padding-top:    ($jumbotron-padding * 1.6);
+    padding-bottom: ($jumbotron-padding * 1.6);
+
+    .container &,
+    .container-fluid & {
+      padding-left:  ($jumbotron-padding * 2);
+      padding-right: ($jumbotron-padding * 2);
+    }
+
+    h1,
+    .h1 {
+      font-size: $jumbotron-heading-font-size;
+    }
+  }
+  .steps {
+		padding: $aori-steps-padding;
+		background: $aori-steps-background;
+		margin: 100px 0 0;
+		border-top:1px dashed #7C8085;
+		border-bottom:1px dashed #7C8085;
+		
+		.step-num, .step-finish {
+			display:inline-block;
+			width:44px;
+			height:45px;
+			float:left;
+		}
+		.step1 .step-num {
+			background: url(../images/01-tel-about-your-goods.svg) no-repeat left 0;
+		}
+		.step2 .step-num {
+			background: url(../images/02-pay.svg) no-repeat left 0;
+		}
+		.step3 .step-num {
+			background: url(../images/03-rocket.svg) no-repeat left 0;
+			width:50px;
+			height:50px;
+		}
+		.step-finish {
+			background: url(../images/04-clients.svg) no-repeat left 0;
+		}
+		p {
+			font-size:12px;
+			color:#9C9DA5;
+		}
+		h3, p, .cards {
+			margin-left:55px;
+			margin-top:0;
+		}
+		.step3 {
+			h3, p {
+				margin-left:60px;
+			}
+		}
+	}
+	.pull-right {
+		padding-right:65px;
+		
+		p, h1 {
+			padding-left:30px;
+		}
+		p {
+			margin-bottom:10px;
+		}
+	}
+	.pic-services {
+		margin-right: 20px;
+		display:inline-block;
+	}
+	.pic-services[alt="Google"] {
+		margin-left:30px;
+	}
+	
+}

@@ -1,0 +1,28 @@
+.budget-block {
+  background: #dee5cb;
+  padding: 12px 18px 16px 12px;
+  border-radius: 3px;
+  box-shadow: 0 2px 0 0 #c2cca0;
+  width: 290px;
+  font-size: 16px;
+  line-height: 1.4;
+
+  .tariff-name {
+    font-family: "Open Sans Semibold";
+  }
+
+  .heading {
+    color: #a6aa9d;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .budget-heading {
+    margin-bottom: 3px;
+  }
+
+  .price {
+    color: #8cae35;
+  }
+
+}

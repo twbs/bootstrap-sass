@@ -1,0 +1,44 @@
+#footer {
+  padding: 20px 0;
+  background:rgba(234, 237, 241, 0.7) url(../images/pattern.png) 50% repeat;
+  font-size: 13px;
+  line-height: 18px;
+  color: #878c8e;
+  
+  .logo {
+	display:inline-block;
+	margin-top:20px;
+	margin-bottom:20px;
+  }
+  .phone, .email {
+	font-weight:700;
+	color: #676d71;
+	margin: 0 8px;
+	
+	.ico {
+		display:inline-block;
+		width:10px;
+		height: 11px;
+		vertical-align:middle;
+		margin-right:5px
+	}
+  }
+  .phone {
+	.ico {
+		background:url(../images/phone.svg) 0 0 no-repeat;
+	}
+  }
+ .email {
+	.ico {
+		background:url(../images/mail.svg) 0 0 no-repeat;
+	}
+  }
+  a {
+      color: #878c8e;
+      text-decoration:underline;
+	  font-weight:400;
+	  font-family: 'Open Sans';
+    }
+  
+  }
+
