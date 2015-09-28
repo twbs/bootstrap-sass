@@ -1,16 +1,19 @@
-/* Navigation */
+// ----------------------------
+// TOP NAVIGATION
+// ----------------------------
+
 .navbar
   .header-profile-image
     max-width: 30px
     max-height: 30px
     @include vertical-align-middle
   #js-header-profile-image-thumbnail
-    outline: 1px solid rgba(100, 100, 100, 0.5)
+    outline: 1px solid rgba($greydark, 0.5)
 
 .navbar-default
   border: 0
   padding: 0 10px
-  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.15)
+  box-shadow: 0 0 1px 0 rgba($black, 0.15)
 
   .navbar-brand
     max-width: 191px
@@ -75,14 +78,18 @@
 
 .dropdown-menu > li > a
   &:hover, &:focus
-    background-color: #4E9DFF
+    background-color: $link-hover
     background-image: none
     color: $white
 
 #nav-global-search
   padding: 10px
 
-/* Profile Dropdown */
+
+// ----------------------------
+// PROFILE DROPDOWN
+// ----------------------------
+
 .profile_menu
   margin-left: 10px
   cursor: pointer

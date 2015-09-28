@@ -4,7 +4,7 @@ html
 body
   position: relative
   padding: 0
-  background-color: #F6F6F6
+  background-color: $silver
   font-family: 'Open Sans', sans-serif
   font-size: 12px
   color: $text-color
@@ -19,12 +19,12 @@ ol
   right: 0
   text-decoration: none
   color: $white
-  background-color: rgba(39, 41, 48, 0.8)
+  background-color: rgba(#272930, 0.8)
   padding: 9px 12px
   display: none
   &:hover
     color: $white
-    background-color: rgba(39, 41, 48, 1)
+    background-color: rgba(#272930, 1)
   &:focus
     color: $white
   i
@@ -46,7 +46,7 @@ ol
   display: table !important
 
 .cl-mcont
-  background-color: #F6F6F6
+  background-color: $silver
   color: inherit
   font-size: 13px
   line-height: 21px
@@ -58,7 +58,7 @@ ol
 
 #fixed-action-header,
 #fixed-action-header2
-  background: #F6F6F6
+  background: $silver
   padding: 15px 30px
   position: fixed
   right: 0
@@ -149,14 +149,14 @@ ol
   padding: 20px
   background: $white
   border-radius: 3px
-  border-left: 1px solid #efefef
-  border-right: 1px solid #efefef
-  border-bottom: 1px solid #e2e2e2
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.04)
+  border-left: 1px solid $greylightest
+  border-right: 1px solid $greylightest
+  border-bottom: 1px solid $greylight
+  box-shadow: 0 1px 0 0 rgba($black, 0.04)
 
 .page-head
-  border-bottom: 1px solid #E9E9E9
-  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.05)
+  border-bottom: 1px solid $greylightest
+  box-shadow: 0 0 1px 0 rgba($black, 0.05)
   padding: 20px 25px
   position: fixed
   right: 0
@@ -168,7 +168,7 @@ ol
     + .cl-mcont
       padding-top: 110px
   .breadcrumb
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0)
+    background: none repeat scroll 0 0 $black
     margin-bottom: 0
     padding: 4px
 
@@ -180,7 +180,7 @@ ol
 .widget-block
   .cl
     margin-bottom: 20px
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.21)
+  box-shadow: 1px 1px 3px rgba($black, 0.21)
   border: 0
   margin-bottom: 30px
   margin-top: 0
@@ -197,7 +197,7 @@ ol
   .header
     background: transparent
     padding: 3px 0
-    border-bottom: 1px solid #dadada
+    border-bottom: 1px solid $greylight
     &.no-border
       border: 0
     h3
@@ -219,7 +219,7 @@ ol
     padding: 0 !important
 
   .view-all-break
-    border-top: 1px solid #DADADA
+    border-top: 1px solid $greylight
     padding-top: 10px
     margin-top: 15px
 

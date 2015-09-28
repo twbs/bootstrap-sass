@@ -1,5 +1,5 @@
 // ----------------------------
-// ATTACHMENT COMPONENT STYLES
+// ATTACHMENTS COMPONENT
 // ----------------------------
 
 #attachments
@@ -12,17 +12,17 @@
     .image-upload
       display: none
     &.is-loading
-      color: #999999
+      color: $greymedium
   .attachment-img
     position: relative
     height: 150px
     line-height: 150px
     overflow: hidden
-    border: 1px solid #cccccc
-    background: #e9e9e9
+    border: 1px solid $greylight
+    background: $greylightest
     text-align: center
     font-size: 89px
-    color: #adadad
+    color: $greymedium
     img
       position: absolute
       left: 50%
@@ -58,16 +58,21 @@
 .img-is-loaded
   opacity: 0
 
+
+// ----------------------------
+// ADD ATTACHMENT BOX
+// ----------------------------
+
 #add-attachment
   position: relative
   height: 150px
   line-height: 150px
-  border: 1px solid #cccccc
+  border: 1px solid $greylight
   text-align: center
-  color: #adadad
+  color: $greymedium
   &:hover
-    color: #0079C2
-    border-color: #0079C2
+    color: $primary
+    border-color: $primary
     cursor: pointer
 
 .small-view

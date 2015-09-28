@@ -1,4 +1,6 @@
-$table-border-color: #dadada
+// ----------------------------
+// TABLES
+// ----------------------------
 
 .pre-table
   display: table
@@ -9,13 +11,12 @@ $table-border-color: #dadada
     text-align: right
     vertical-align: middle
 
-/* Tables */
 table
   border-collapse: collapse
   width: 100%
   thead
-    border: 1px solid $table-border-color
-    border-bottom: 1px solid $table-border-color
+    border: 1px solid $$greylight
+    border-bottom: 1px solid $$greylight
     th
       font-size: 13px
       vertical-align: bottom
@@ -23,22 +24,22 @@ table
   tbody
     tr
       &:first-child
-        border-top: 1px solid $table-border-color
+        border-top: 1px solid $$greylight
     td
       padding: 7px 8px
       font-size: 12px
-      border-bottom: 1px solid $table-border-color
+      border-bottom: 1px solid $$greylight
       &:first-child
-        border-left: 1px solid $table-border-color
+        border-left: 1px solid $$greylight
       &:last-child
-        border-right: 1px solid $table-border-color
+        border-right: 1px solid $$greylight
 
   &.datatable
     tr:nth-child(2n)
-      background-color: #F8F8F8
+      background-color: $silver
     a
       display: block
-      color: #464646
+      color: $text-color
     tbody
       tr:hover:not(.disabled)
         background-color: rgba($primary, 0.1)
@@ -62,7 +63,11 @@ table
 .empty_table
   padding: 10px
 
-/* Pagination */
+
+// ----------------------------
+// PAGINATION
+// ----------------------------
+
 .pagination
   display: block
   text-align: right
@@ -75,12 +80,12 @@ table
   .pagination-item
     margin: 0
     padding: 5px 10px
-    border: 1px solid $table-border-color
+    border: 1px solid $$greylight
     list-style: none
     float: left
     &.current
-      background-color: #CCCCCC
+      background-color: $grey
       font-weight: 600
     &:hover:not(.inactive)
-      background-color: #CCCCCC
+      background-color: $grey
       cursor: pointer

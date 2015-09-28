@@ -137,12 +137,12 @@
       background: transparent !important
       color: $white !important
   .navbar-default .navbar-nav > li > a
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12)
+    text-shadow: 1px 1px 0 rgba($black, 0.12)
     &:hover
-      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12)
+      text-shadow: 1px 1px 0 rgba($black, 0.12)
   .navbar-nav > li > a
     &:focus, &:active
-      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12)
+      text-shadow: 1px 1px 0 rgba($black, 0.12)
   .not-nav
     text-align: center
     background: #218ae1
@@ -162,8 +162,8 @@
     .dropdown-menu
       position: absolute
       background-color: $white
-      border: 1px solid rgba(0, 0, 0, 0.15)
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176)
+      border: 1px solid rgba($black, 0.15)
+      box-shadow: 0 6px 12px rgba($black, 0.176)
       border-top: 0
       margin-left: -110px
       > li > a
@@ -217,7 +217,7 @@
         position: relative
   .sb-collapsed .cl-vnavigation
     .parent > a
-      background: image-url("arrow.png") no-repeat scroll right 14px top 18px rgba(0, 0, 0, 0)
+      background: image-url("arrow.png") no-repeat scroll right 14px top 18px $black
     li
       a
         span
@@ -266,7 +266,7 @@
     .navbar-toggle
       padding: 0
     #aside-header
-      border-bottom: 1px solid #e8e8e8
+      border-bottom: 1px solid $greylightest
     #aside-total-items,
     #aside-sort
       position: absolute
@@ -291,7 +291,7 @@
       width: 279px
       top: 170px
       padding-bottom: 2px
-      border-bottom: 1px solid #E8E8E8
+      border-bottom: 1px solid $greylightest
     #aside-items
       position: fixed
       width: 279px
