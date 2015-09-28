@@ -38,7 +38,7 @@
 
 	// support
 	var support = { transitions : Modernizr.csstransitions, transforms3d : Modernizr.csstransforms3d && Modernizr.csstransformspreserve3d },
-	// transition end event name
+		// transition end event name
 		transEndEventNames = {
 			'WebkitTransition': 'webkitTransitionEnd',
 			'MozTransition': 'transitionend',
@@ -51,8 +51,8 @@
 	function ProgressButton( el, options ) {
 		this.button = el;
 		this.options = extend( {}, this.options );
-		extend( this.options, options );
-		this._init();
+  		extend( this.options, options );
+  		this._init();
 	}
 
 	ProgressButton.prototype.options = {
@@ -129,16 +129,15 @@
 
 	ProgressButton.prototype._initEvents = function() {
 		var self = this;
-		this.button.addEventListener('click', function () {
+		this.button.addEventListener('click', function() {
 			// add class state-loading to the button (applies a specific transform to the button depending which data-style is defined - defined in the stylesheets)
-			if (self.enabled){
+			if(self.enabled) {
 				self.enabled = false;
 				classie.remove(self.progress, 'notransition');
 				classie.add(this, 'state-loading');
 
-				setTimeout(function () {
+				setTimeout(function() {
 						if (typeof self.options.callback === 'function') {
-							self.enabled = false;
 							self.options.callback(self);
 						}
 						else {
