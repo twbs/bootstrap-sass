@@ -13,7 +13,7 @@
   top: -10px
   right: 3px
   font-style: italic
-  color: #999999
+  color: $greymedium
   font-size: 11px
 
 .visit-info
@@ -21,7 +21,7 @@
   padding-top: 10px
   display: table
   .visit-info-label
-    color: #999999
+    color: $greymedium
     width: 75px
     display: table-cell
   .visit-info-row
@@ -43,8 +43,8 @@
           color: $text-color
           text-decoration: none
           cursor: text
-          border: 1px solid #cccccc
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset
+          border: 1px solid $grey
+          box-shadow: 0 1px 1px rgba($black, 0.05) inset
           border-radius: 1px
           padding: 1px 4px
     .fr-placeholder
@@ -90,14 +90,14 @@
     color: $link-hover
 .note-list-info
   font-size: 11px
-  color: #b0b0b0
+  color: $greymedium
 .note-list-preview
   padding-top: 10px
   font-size: 12px
   &.no-preview
     font-style: italic
 .note-list-marked-done
-  color: #999999
+  color: $greymedium
 
 #recent-notes-list
   li
@@ -112,7 +112,7 @@
 // ASIDE for notes
 // ----------------------------
 .note-date-section
-  background: #e8e8e8
+  background: $greylightest
   padding: 5px 20px !important
   font-weight: bold
   border: 0px !important
@@ -175,16 +175,16 @@
     text-decoration: none
     //SYANG TEMPORARY SOLUTION FOR MIXIN NOT WORKING
     &::-webkit-input-placeholder
-      color: #999999
+      color: $greymedium
       text-decoration: none
     &:-moz-placeholder
-      color: #999999
+      color: $greymedium
       text-decoration: none
     &::-moz-placeholder
-      color: #999999
+      color: $greymedium
       text-decoration: none
     &:-ms-input-placeholder
-      color: #999999
+      color: $greymedium
       text-decoration: none
 
 #note-content-print

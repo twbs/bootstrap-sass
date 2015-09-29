@@ -1,11 +1,15 @@
+// ----------------------------
+// DROPDOWN MENUS
+// ----------------------------
+
 .dropdown-menu
   border-radius: 1px
-  box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.18)
+  box-shadow: 1px 3px 4px rgba($black, 0.18)
   li
     > a
       font-size: 12px
       padding: 5px 20px
-      color: #333333
+      color: $text-color
       display: block
       line-height: 1.42857
       white-space: nowrap
@@ -32,12 +36,13 @@
     margin-right: 4px
     vertical-align: middle
 
-// For 2 column menus
+
+// 2 Column Menus
 .col-menu-2
   min-width: 405px
   > li
     &:first-child ul
-      border-right: 1px solid #DADADA
+      border-right: 1px solid $greylight
     > ul
       > li
         a

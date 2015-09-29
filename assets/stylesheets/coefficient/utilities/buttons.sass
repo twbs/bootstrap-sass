@@ -1,4 +1,7 @@
-/* Buttons */
+// ----------------------------
+// BUTTONS
+// ----------------------------
+
 .btn
   border-radius: 0
   outline: none
@@ -6,7 +9,7 @@
   font-size: 13px
   padding: 7px 11px
   margin-right: 3px
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12), 1px 1px 0 rgba(255, 255, 255, 0.2) inset
+  box-shadow: 1px 1px 2px rgba($black, 0.12), 1px 1px 0 rgba($white, 0.2) inset
   &:focus
     outline: none
   &.progress-button
@@ -43,10 +46,10 @@ $buttons: (default: ($white, #cccccc, #e6e6e6, #adadad), primary: ($primary, #36
 // Special default button styling
 .btn-default,
 .btn-default:focus
-  background-image: linear-gradient(to bottom, white 60%, #f9f9f9 100%)
+  background-image: linear-gradient(to bottom, white 60%, $silver 100%)
 .btn-default
   i
-    color: #444
+    color: $text-color
 
 .btn-nostyle,
 .btn-nostyle:focus
@@ -67,19 +70,23 @@ $buttons: (default: ($white, #cccccc, #e6e6e6, #adadad), primary: ($primary, #36
   &.btn-default
     background: $white
 
-// Disabled Button
-// This is used if a disabled button has a tooltip since disabled buttons do not show tooltips by default
+// Disabled Button:
+// This is used if a disabled button has a tooltip since disabled buttons
+// do not show tooltips by default
 .disabled-button-wrapper
   display: inline-block
 
 
-/* Specific icons size */
+// Specific icons size
 .btn-xs
   padding: 2px 6px
   font-size: 11px
 
 
-// Button groups
+// ----------------------------
+// BUTTON GROUPS
+// ----------------------------
+
 .btn-group
   .btn
     padding-left: 30px
@@ -95,7 +102,10 @@ $buttons: (default: ($white, #cccccc, #e6e6e6, #adadad), primary: ($primary, #36
       border-radius: 0
 
 
-/* General styles for all types of buttons */
+// ----------------------------
+// PROGRESS BUTTONS
+// ----------------------------
+
 .progress-button
   position: relative
   display: inline-block
@@ -121,13 +131,13 @@ $buttons: (default: ($white, #cccccc, #e6e6e6, #adadad), primary: ($primary, #36
   padding: 7px 0
 
 .progress-button .content::after
-  color: #ffffff
+  color: $white
 
 .progress-button .content::before
-  content: "\f00c" /* Checkmark for success */
+  content: "\f00c" // Checkmark for success
 
 .progress-button .content::after
-  content: "\f071" /* Alert for error */
+  content: "\f071" // Alert for error
 
 .progress-button.state-success
   background: $success
@@ -166,9 +176,8 @@ $buttons: (default: ($white, #cccccc, #e6e6e6, #adadad), primary: ($primary, #36
   -webkit-transition: width 0.3s, opacity 0.3s
   transition: width 0.3s, opacity 0.3s
 
-/* Fill horizontal */
-/* ====================== */
 
+// Fill horizontal
 .progress-button[data-style="fill"][data-horizontal]
   overflow: hidden
 

@@ -1,4 +1,7 @@
-/* Forms */
+// ----------------------------
+// FORMS
+// ----------------------------
+
 label
   font-weight: 600
   margin-bottom: 7px
@@ -18,7 +21,7 @@ textarea
   padding: 6px 8px
   font-size: 12px
   border-radius: 1px
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset
+  box-shadow: 0 1px 1px rgba($black, 0.05) inset
   height: 42px
   &:focus
     border-color: #2598f9
@@ -47,7 +50,11 @@ fieldset[disabled] .form-control
   padding: 15px 0
 
 
-/* Address Specific */
+// ----------------------------
+// ADDRESS SPECIFIC
+// Currently, only US addresses
+// ----------------------------
+
 .group-cluster
   .cluster-cell
     display: table-cell
@@ -67,12 +74,15 @@ fieldset[disabled] .form-control
       padding-left: 0
 
 
-/* Password Strength Meter */
+// ----------------------------
+// PASSWORD STRENGTH METER
+// ----------------------------
+
 .password-strength
   position: absolute
   height: 3px
   bottom: 1px
-  background: #cccccc
+  background: $grey
   width: 100%
   .password-strength-meter
     height: 3px
@@ -96,7 +106,11 @@ $widths: (weak: 20%, medium: 50%, strong: 100%)
     &.strength-#{$strength}
       width: $width
 
-/* Error */
+
+// ----------------------------
+// FORM ERRORS
+// ----------------------------
+
 .form-has-error
   color: $danger
 

@@ -1,4 +1,7 @@
-// Vertical Navigation
+// ----------------------------
+// LEFT SIDE NAVIGATION
+// ----------------------------
+
 .cl-sidebar
   background: #272930
   position: relative
@@ -29,7 +32,7 @@
     color: #c9d4f6
     font-size: 12px
     font-weight: 300
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3)
+    text-shadow: 1px 1px 0 rgba($black, 0.3)
     white-space: nowrap
     &:hover
       background-color: #2a2c34
@@ -44,7 +47,7 @@
     max-height: 50px
     float: left
     margin-right: 10px
-    outline: 1px solid rgba(100, 100, 100, 0.5)
+    outline: 1px solid rgba($greydark, 0.5)
   #current-name
     font-size: 13px
   #current-title
@@ -59,7 +62,10 @@
       font-size: 11px
 
 
-// Collapsed Sidebar
+// ----------------------------
+// COLLAPSED SIDEBAR
+// ----------------------------
+
 .sb-collapsed
   .cl-sidebar
     width: 55px
@@ -90,8 +96,8 @@
   button
     margin: 0 !important
     background: transparent
-    box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.1) inset
-    border: 1px solid rgba(0, 0, 0, 0.25)
+    box-shadow: 1px 1px 0 rgba($white, 0.1) inset
+    border: 1px solid rgba($black, 0.25)
     border-radius: 2px
     &:hover
       background: #23252A
@@ -125,7 +131,7 @@
         font-weight: 300
         display: block
       span
-        color: #DBDBDB
+        color: $greylight
         font-size: 11px
 
 .sb-collapsed
@@ -143,13 +149,13 @@
       display: none
 
 #sub-menu-nav ul
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.22)
-  color: #333
+  box-shadow: 1px 1px 4px rgba($black, 0.22)
+  color: $text-color
   background: $white
   padding: 5px 0
   min-width: 190px
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25)
-  border: 1px solid rgba(0, 0, 0, 0.15)
+  box-shadow: 0 2px 4px rgba($black, 0.25)
+  border: 1px solid rgba($black, 0.15)
   border-top: 0
   border-radius: 3px
   li
@@ -169,13 +175,13 @@
       display: block
       font-size: 11px
       border-bottom: 0
-      color: #333333
+      color: $text-color
       text-shadow: none
       text-align: left
       background: transparent
       padding: 6px 20px 6px 31px
       &:hover
-        background-color: #4E9DFF
+        background-color: $link-hover
         color: $white
   padding: 5px 0
   &:after
