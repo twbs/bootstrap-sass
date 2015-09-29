@@ -129,36 +129,39 @@
 
 	ProgressButton.prototype._initEvents = function() {
 		var self = this;
-		this.button.addEventListener( 'click', function() {
+		this.button.addEventListener('click', function() {
 			// add class state-loading to the button (applies a specific transform to the button depending which data-style is defined - defined in the stylesheets)
-			classie.remove( self.progress, 'notransition' );
-			classie.add( this, 'state-loading' );
+			if(self.enabled) {
+				self.enabled = false;
+				classie.remove(self.progress, 'notransition');
+				classie.add(this, 'state-loading');
 
-			setTimeout( function() {
-				if( typeof self.options.callback === 'function' ) {
-					self.options.callback( self );
-				}
-				else {
-					self._setProgress( 1 );
-					var onEndTransFn = function( ev ) {
-						if( support.transitions && ev.propertyName !== self.progressProp ) return;
-						this.removeEventListener( transEndEventName, onEndTransFn );
-						self._stop();
-					};
+				setTimeout(function() {
+						if (typeof self.options.callback === 'function') {
+							self.options.callback(self);
+						}
+						else {
+							self._setProgress(1);
+							var onEndTransFn = function (ev) {
+								if (support.transitions && ev.propertyName !== self.progressProp) return;
+								this.removeEventListener(transEndEventName, onEndTransFn);
+								self._stop();
+							};
 
-					if( support.transitions ) {
-						self.progress.addEventListener( transEndEventName, onEndTransFn );
-					}
-					else {
-						onEndTransFn.call();
-					}
+							if (support.transitions) {
+								self.progress.addEventListener(transEndEventName, onEndTransFn);
+							}
+							else {
+								onEndTransFn.call();
+							}
 
-				}
-			},
-			self.button.getAttribute( 'data-style' ) === 'fill' ||
-			self.button.getAttribute( 'data-style' ) === 'top-line' ||
-			self.button.getAttribute( 'data-style' ) === 'lateral-lines' ? 0 : 200 ); // TODO: change timeout to transitionend event callback
-		} );
+						}
+					},
+					self.button.getAttribute('data-style') === 'fill' ||
+					self.button.getAttribute('data-style') === 'top-line' ||
+					self.button.getAttribute('data-style') === 'lateral-lines' ? 0 : 200); // TODO: change timeout to transitionend event callback
+			}
+		});
 	};
 
 	ProgressButton.prototype._stop = function( status ) {
@@ -205,6 +208,7 @@
 	// enable button
 	ProgressButton.prototype._enable = function() {
 		this.button.removeAttribute( 'disabled' );
+		this.enabled = true;
 	}
 
 	// add to global namespace
