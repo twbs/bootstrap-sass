@@ -1,9 +1,4 @@
-/* General */
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6
-  font-family: 'Open Sans', sans-serif
-  font-weight: 300
-
+// General
 a
   color: $link-color
   text-decoration: none
@@ -13,8 +8,22 @@ a
     text-decoration: none
     outline: 0 none
 
+p
+  @extend %body_copy
+  line-height: 22px
+  color: $text-color
 
-/* Page Title */
+b,
+strong
+  font-weight: 400
+
+// Headings
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6
+  font-family: 'Open Sans', sans-serif
+  font-weight: 300
+
+// Page Title
 .page-head
   background: $white
 
@@ -25,34 +34,25 @@ a
     margin-bottom: 5px
     margin-top: 6px
 
+.hthin
+  font-weight: 100 !important
 
-/* CONTENT */
+
+// Content
 #cl-wrapper
   h3
     margin-top: 0
 .cont
   h2
-    font-size: 32px
+    @extend %alpha
     font-weight: 100
     line-height: 38px
     margin: 0 0 10px 0
 
   h5
-    font-size: 13px
+    @extend %body_copy
     font-weight: 200
     line-height: 21px
-
-  p
-    font-size: 13px
-    line-height: 22px
-    color: $text-color
-
-  b,
-  strong
-    font-weight: 400
-
-.hthin
-  font-weight: 100 !important
 
 
 // Pre & Code
@@ -77,6 +77,6 @@ blockquote
   padding: 0 15px
   margin: 30px 0
   border-left: 2px solid $greylightest
-  font-size: 13px
+  @extend %body_copy
   ul
     padding-left: 15px

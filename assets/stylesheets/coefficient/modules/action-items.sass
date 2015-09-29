@@ -11,19 +11,19 @@
     left: -25px
   #action-item-name
     position: relative
-    font-size: 16px
+    @extend %epsilon
     font-weight: 600
     padding-bottom: 10px
     &.marked-complete
       text-decoration: line-through
   #action-item-title
-    font-size: 16px
+    @extend %epsilon
     padding: 0
     height: auto
     border: 0
     box-shadow: none
   .action-item-meta
-    font-size: 10px
+    @extend %itsy
     line-height: 24px
     color: $greymedium
     .meta-icon

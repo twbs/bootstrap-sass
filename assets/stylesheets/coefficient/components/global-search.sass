@@ -29,7 +29,7 @@
 .global-search-message
   color: $greymedium
   padding: 10px 10px 0
-  font-size: 12px
+  @extend %small
 .global-search-icon
   float: left
   margin-right: 15px
@@ -41,7 +41,7 @@
   color: $greymedium
   border-bottom: 1px solid $greylight
   padding: 7px 10px
-  font-size: 12px
+  @extend %small
   @include border-radius-mixed(3px, 3px, 0, 0)
 .global-search-title
   overflow: hidden

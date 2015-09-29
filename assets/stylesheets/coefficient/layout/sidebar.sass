@@ -14,7 +14,7 @@
     text-align: center
     cursor: pointer
     i
-      font-size: 24px
+      @extend %gamma
       color: #C9D4F6
 
 .cl-vnavigation
@@ -30,7 +30,7 @@
     display: block
     padding: 14px 18px 13px 15px
     color: #c9d4f6
-    font-size: 12px
+    @extend %small
     font-weight: 300
     text-shadow: 1px 1px 0 rgba($black, 0.3)
     white-space: nowrap
@@ -49,9 +49,9 @@
     margin-right: 10px
     outline: 1px solid rgba($greydark, 0.5)
   #current-name
-    font-size: 13px
+    @extend %body_copy
   #current-title
-    font-size: 11px
+    @extend %itsy
     font-style: italic
   #current-edit
     padding-top: 2px
@@ -59,7 +59,7 @@
       display: inline
       padding: 0
       border: 0
-      font-size: 11px
+      @extend %itsy
 
 
 // ----------------------------
@@ -80,7 +80,7 @@
       background-image: none
     li a i
       margin: 0
-      font-size: 17px
+      @extend %icon-large
     > li > a > span
       opacity: 0
       width: 0
@@ -112,27 +112,6 @@
       outline: none
   &.sb-collapsed.fixed-menu .menu-space
     width: 55px
-
-.sb-collapsed .cl-sidebar .side-user
-  display: none
-
-#cl-wrapper
-  .cl-sidebar .side-user
-    .avatar
-      display: inline-block
-      margin-right: 3px
-      img
-        border-radius: 25px
-        margin-right: 5px
-    .info
-      a
-        color: $white
-        font-size: 14px
-        font-weight: 300
-        display: block
-      span
-        color: $greylight
-        font-size: 11px
 
 .sb-collapsed
   .cl-sidebar .collapse-button
@@ -173,7 +152,7 @@
     a
       margin-right: -1px
       display: block
-      font-size: 11px
+      @extend %itsy
       border-bottom: 0
       color: $text-color
       text-shadow: none
@@ -203,8 +182,8 @@
       i
         text-align: center
         width: 20px
-        font-size: 14px
         margin-right: 7px
+        @extend %icon-small
       span
         display: inline-block
     ul
@@ -221,7 +200,7 @@
     &.dropdown-header
       display: none
     a
-      font-size: 11px
+      @extend %itsy
       background-image: none
       padding: 7px 18px 7px 42px
       background-color: #1a1c20

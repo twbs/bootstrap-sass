@@ -64,7 +64,7 @@
       a
         i
           margin: 0
-          font-size: 17px
+          @extend %icon-large
         span
           display: none
   //
@@ -157,8 +157,8 @@
     text-align: left
   .navbar-default .navbar-nav > li.button
     > a > i
-      font-size: 17px
       vertical-align: middle
+      @extend %icon-large
     .dropdown-menu
       position: absolute
       background-color: $white
@@ -223,7 +223,7 @@
         span
           opacity: 1
         i
-          font-size: 14px
+          @extend %icon-small
           margin-right: 7px
           text-align: center
           width: 20px
