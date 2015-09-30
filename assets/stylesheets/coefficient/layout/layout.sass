@@ -6,7 +6,7 @@ body
   padding: 0
   background-color: $silver
   font-family: 'Open Sans', sans-serif
-  font-size: 12px
+  @extend %small
   color: $text-color
 
 ul,
@@ -28,7 +28,7 @@ ol
   &:focus
     color: $white
   i
-    font-size: 15px
+    @extend %epsilon
 
 
 
@@ -48,7 +48,7 @@ ol
 .cl-mcont
   background-color: $silver
   color: inherit
-  font-size: 13px
+  @extend %body_copy
   line-height: 21px
   padding: 15px 30px 30px 30px
   margin-top: 0
@@ -212,7 +212,7 @@ ol
       margin-bottom: -20px
     h4.subtitle
       margin-top: 20px
-      font-size: 16px
+      @extend %epsilon
     .title
       margin: 5px 0 15px 0
   &.no-padding .content

@@ -25,7 +25,7 @@
 
 .item-due-date
   color: $text-color
-  font-size: 11px
+  @extend %itsy
   font-style: italic
   line-height: 1.2
   min-width: 115px
@@ -60,10 +60,10 @@
     margin-right: 10px
   .user-name
     color: $text-color
-    font-size: 13px
+    @extend %body_copy
   .user-title
     color: $greymedium
-    font-size: 11px
+    @extend %itsy
 
 .item-completed-message
   padding-bottom: 15px

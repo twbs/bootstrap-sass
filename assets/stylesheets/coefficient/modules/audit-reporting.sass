@@ -15,16 +15,16 @@
 
   #percent-reporting
     display: table-cell
-    font-size: 50px
     font-weight: 200
     color: $info
     padding-right: 15px
+    @extend %huge
 
   #reporting-progress-bar
     display: table-cell
     width: 100%
-    font-size: 11px
     color: #999
+    @extend %itsy
     .progress
       margin-bottom: 0
 
@@ -32,9 +32,9 @@
   float: right
   text-align: right
   #percent-reporting
-    font-size: 50px
     line-height: 1
     color: $info
+    @extend %huge
   #passed-results
     font-style: italic
     color: $greymedium

@@ -18,7 +18,7 @@ table
     border: 1px solid $greylight
     border-bottom: 1px solid $greylight
     th
-      font-size: 13px
+      @extend %body_copy
       vertical-align: bottom
       padding: 10px 8px 5px 8px
   tbody
@@ -27,7 +27,7 @@ table
         border-top: 1px solid $greylight
     td
       padding: 7px 8px
-      font-size: 12px
+      @extend %small
       border-bottom: 1px solid $greylight
       &:first-child
         border-left: 1px solid $greylight

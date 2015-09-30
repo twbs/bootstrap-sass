@@ -6,7 +6,7 @@
   border-radius: 0
   outline: none
   margin-bottom: 5px !important
-  font-size: 13px
+  @extend %body_copy
   padding: 7px 11px
   margin-right: 3px
   box-shadow: 1px 1px 2px rgba($black, 0.12), 1px 1px 0 rgba($white, 0.2) inset
@@ -80,7 +80,7 @@ $buttons: (default: ($white, #cccccc, #e6e6e6, #adadad), primary: ($primary, #36
 // Specific icons size
 .btn-xs
   padding: 2px 6px
-  font-size: 11px
+  @extend %itsy
 
 
 // ----------------------------

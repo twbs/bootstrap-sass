@@ -7,7 +7,7 @@
   box-shadow: 1px 3px 4px rgba($black, 0.18)
   li
     > a
-      font-size: 12px
+      @extend %small
       padding: 5px 20px
       color: $text-color
       display: block
@@ -32,9 +32,9 @@
   padding-left: 11px
   cursor: default
   i
-    font-size: 14px
     margin-right: 4px
     vertical-align: middle
+    @extend %icon-small
 
 
 // 2 Column Menus

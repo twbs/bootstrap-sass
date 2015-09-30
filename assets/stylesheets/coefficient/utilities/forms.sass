@@ -19,7 +19,7 @@ textarea
 
 .form-control
   padding: 6px 8px
-  font-size: 12px
+  @extend %small
   border-radius: 1px
   box-shadow: 0 1px 1px rgba($black, 0.05) inset
   height: 42px
@@ -44,7 +44,7 @@ fieldset[disabled] .form-control
 
 .helper-text
   position: absolute
-  font-size: 11px
+  @extend %itsy
 
 .form-buttons
   padding: 15px 0
@@ -117,7 +117,7 @@ $widths: (weak: 20%, medium: 50%, strong: 100%)
 .has-error
   .error-message
     color: $danger
-    font-size: 11px
+    @extend %itsy
     position: absolute
   .input-group
     ~ .error-message
@@ -125,5 +125,5 @@ $widths: (weak: 20%, medium: 50%, strong: 100%)
 
 .success-message
   color: $success
-  font-size: 11px
+  @extend %itsy
   position: absolute
