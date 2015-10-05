@@ -74,6 +74,7 @@
       @extend %epsilon
 
   .navbar-collapse
+    margin-left: 191px
     border: none
 
 .dropdown-menu > li > a
@@ -101,3 +102,29 @@
     padding: 10px 10px
     vertical-align: middle
     height: 50px
+
+
+// ----------------------------
+// RESPONSIVE
+// ----------------------------
+
+@media (max-width: 767px)
+  .profile_menu
+    .dropdown-toggle
+      display: none
+    .dropdown-menu
+      display: block
+      position: inherit
+      width: 100%
+      background: transparent
+      border: 0
+      box-shadow: none
+      margin-left: -5px
+      a
+        color: $white
+        padding: 5px
+      a:hover,
+      a:focus
+        background: rgba($black, 0.3)
+      .divider
+        display: none
