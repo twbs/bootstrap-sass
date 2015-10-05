@@ -1,287 +1,23 @@
-/* Responsive CSS */
-@media (min-width: 980px)
+// ----------------------------
+// RESPONSIVE DESIGN
+// For main layout of application
+// ----------------------------
+
+
+// ----------------------------
+// Tablet (Portrait) + Desktop
+// ----------------------------
+
+@media (min-width: 769px)
+
+  // Sidebar
   .cl-sidebar
-    .cl-vnavigation
-      display: block !important
-  .navbar-collapse
-    margin-left: 191px !important
-
-// Common tablet vertical size
-@media (min-width: 768px) and (max-width: 979px)
-  /* Top Navigation */
-  .navbar-default
-    .navbar-brand
-      height: 30px
-      max-width: 45px
-      span
-        display: none // Hides brand name so it shows logo only
-    .navbar-collapse
-      margin-left: 30px
-
-  /* Sidebar */
-  .cl-sidebar
-    width: 55px
-
-    .cl-vnavigation
-      display: block !important
-
-      li
-        ul
-          display: none !important
-
-    // Hiding search/collapse button
-    .collapse-button,
-    .search
-      display: none
-
-  #sidebar-profile
-    img
-      max-width: 30px
-      max-height: 30px
-    #current-name,
-    #current-title,
-    #current-edit
-      display: none
-
-  .page-head
-    left: 55px
-
-  //
-  //
-  // REFACTOR THIS SECTION
-  //
-  //
-  #cl-wrapper
-    &.fixed-menu .menu-space
-      width: 55px
-      top: 49px
-
-  .cl-vnavigation
-    .parent
-      a
-        background: none // Hiding arrow
-    li
-      a
-        i
-          margin: 0
-          font-size: 17px
-        span
-          display: none
-  //
-  //
-  // END REFACTOR
-  //
-  //
-
-  /* Content Area */
-  #pcont
-    margin-left: 55px
-    #fixed-action-header
-      left: 55px
-  #page-aside
-    + #pcont
-      margin-left: 0
-      #fixed-action-header
-        left: 334px
-
-// Mobile phone sizes
-@media (max-width: 767px)
-  #cl-wrapper
-    padding-top: 0
-    display: block
-    &.fixed-menu .menu-space
-      top: 0
-  #pcont, .sb-collapsed #pcont
-    margin-left: 0
-    display: block
-  .cl-mcont
-    padding: 15px
-  /*nav bar*/
-  .navbar
-    padding-right: 10px
-  .navbar-fixed-top
-    position: relative
-    margin: 0
-  /*dropdown menu*/
-  .navbar-default .navbar-nav
-    .open .dropdown-menu > li > a
-      color: $white
-    .dropdown-submenu > a:after
-      border-width: 0
-    .open .dropdown-menu > li > a
-      &:hover, &:focus
-        color: $white
-  .navbar-nav
-    .dropdown-menu > li > a
-      &:hover, &:focus
-        background-color: transparent
-    .dropdown-submenu
-      &:hover > a
-        background-color: transparent
-      ul
-        display: block
-        padding-left: 20px
-    .dropdown-header
-      color: $white
-    .col-menu-2 > li > ul > li a, .col-menu-3 > li > ul > li a
-      color: $white
-      padding-left: 45px
-  .navbar-default .navbar-nav > .active > a
-    background: transparent !important
-    color: $white !important
-    &:hover
-      background: transparent !important
-      color: $white !important
-  .navbar-nav > .active > a
-    &:focus, &:active
-      background: transparent !important
-      color: $white !important
-  .navbar-default .navbar-nav > li > a
-    text-shadow: 1px 1px 0 rgba($black, 0.12)
-    &:hover
-      text-shadow: 1px 1px 0 rgba($black, 0.12)
-  .navbar-nav > li > a
-    &:focus, &:active
-      text-shadow: 1px 1px 0 rgba($black, 0.12)
-  .not-nav
-    text-align: center
-    background: #218ae1
-    border-top: 1px solid #2082d5
-    margin: 0
-  .navbar-default .navbar-nav > li.button
-    float: none
-    display: inline-block
-    padding: 10px 4px
-    top: 100%
-  .not-nav > li > .dropdown-menu
-    text-align: left
-  .navbar-default .navbar-nav > li.button
-    > a > i
-      vertical-align: middle
-      font-size: 17px
-    .dropdown-menu
-      position: absolute
-      background-color: $white
-      border: 1px solid rgba($black, 0.15)
-      box-shadow: 0 6px 12px rgba($black, 0.176)
-      border-top: 0
-      margin-left: -110px
-      > li > a
-        text-align: left
-  .navbar-collapse
-    padding: 0 !important
-    .navbar-nav
-      margin: 0
-  .profile_menu
-    margin: 0
-    .dropdown-toggle
-      padding: 0
-      height: auto
-  .navbar-default .navbar-brand
-    width: auto
-  .user-nav
-    margin: 7.5px -15px
-  .navbar-collapse
-    margin-left: -15px !important
-  .navbar-collapse.in
-    overflow: visible
-  #head-nav
-    padding: 0
-    .navbar-nav
-      padding: 10px 15px
-  .navbar-header
-    padding: 0 10px
-    margin-left: 0 !important
-  .col-menu-2 > div:first-child
-    border-right: 0
-  /*end - dropdown*/
-  .cl-sidebar, .sb-collapsed .cl-sidebar
-    background: none repeat scroll 0 0 #272930
-    width: 100%
-    position: relative
-    z-index: 1020
-    display: block
-    padding-bottom: 0
-  #cl-wrapper
-    &.fixed-menu
-      .menu-space, &.sb-collapsed .menu-space
-        position: relative
-        height: auto !important
-        width: 100%
-        margin-top: 0
-    .menu-space
-      min-height: 0 !important
-    &.fixed-menu
-      .menu-space .content, &.sb-collapsed .menu-space .content
-        overflow: visible
-        position: relative
-  .sb-collapsed .cl-vnavigation
-    .parent > a
-      background: image-url("arrow.png") no-repeat scroll right 14px top 18px $black
-    li
-      a
-        span
-          opacity: 1
-        i
-          font-size: 14px
-          margin-right: 7px
-          text-align: center
-          width: 20px
-      &.open ul
+    .cl-navblock
+      &.collapse
         display: block !important
-  .cl-sidebar
-    .cl-toggle
-      display: block
-    .cl-vnavigation, .side-user
-      display: none
+        visibility: visible !important
 
-  .page-head,
-  .page-head.has-breadcrumb
-    position: static
-    + .cl-mcont
-      padding-top: 0
-
-  /*Forms*/
-  .form-horizontal
-    &.group-border .form-group
-      padding: 5px 0 15px 0
-      label
-        margin-bottom: 7px
-    &.group-border-dashed .form-group label
-      margin-bottom: 7px
-  .cl-sidebar .collapse-button
-    display: none
-
-  #page-aside
-    width: 100%
-    display: block
-    height: auto
-    position: relative
-    #aside-nav.collapse
-      display: none
-      visibility: hidden
-    #aside-nav.collapse.in
-      display: block
-      visibility: visible
-    .navbar-toggle
-      padding: 0
-    #aside-header
-      border-bottom: 1px solid $greylightest
-    #aside-total-items,
-    #aside-sort
-      position: absolute
-      top: 100px
-    #aside-sort
-      right: 0
-  #fixed-action-header
-    position: inherit
-    padding: 15px 15px 0
-  #fixed-action-header
-    + .cl-mcont
-      padding-top: 0
-
-
-@media (min-width: 767px)
+  // Aside
   #page-aside
     .header
       position: fixed
@@ -300,3 +36,152 @@
     #aside-nav.collapse.in
       display: block !important
       visibility: visible !important
+
+
+// ----------------------------
+// Tablet (Portrait)
+// ----------------------------
+
+@media (min-width: 768px) and (max-width: 979px)
+
+  // Top Navigation
+  .navbar-default
+    .navbar-brand
+      height: 30px
+      max-width: 45px
+      span
+        display: none // Hides brand name so it shows logo only
+    .navbar-collapse
+      margin-left: 30px
+
+  // Sidebar
+  .cl-sidebar
+    width: 55px
+
+  #sidebar-profile
+    img
+      max-width: 30px
+      max-height: 30px
+    #current-name,
+    #current-title,
+    #current-edit
+      display: none
+
+  #cl-wrapper
+    &.fixed-menu
+      .menu-space
+        width: 55px
+        top: 49px
+
+  .cl-vnavigation
+    li
+      a
+        font-size: 17px
+        span
+          display: none
+
+  .collapse-button
+    display: none
+
+  // Content Area
+  .page-head
+    left: 55px
+
+  #pcont
+    margin-left: 55px
+    #fixed-action-header
+      left: 55px
+  #page-aside
+    + #pcont
+      margin-left: 0
+      #fixed-action-header
+        left: 334px
+
+// ----------------------------
+// Mobile
+// ----------------------------
+
+@media (max-width: 767px)
+
+  // Top Navigation
+  .navbar
+    margin-bottom: 0
+
+  .navbar-fixed-top
+    position: static
+
+  .navbar-default
+    .navbar-collapse
+      margin-right: -15px
+      margin-left: -15px
+      max-height: none
+      overflow-y: visible
+      &.collapsing
+        overflow-y: auto
+    .navbar-header
+      margin-left: 0
+
+  .navbar-default
+    .navbar-nav
+      margin: 0 -15px
+      .open
+        .dropdown-menu
+          position: absolute
+          float: left
+          background: $white
+          box-shadow: 1px 3px 4px rgba($black, 0.18)
+          > li
+            a
+              line-height: 1.42857
+              color: $text-color
+              padding: 5px 10px
+            > a:hover
+              background: $link-hover
+              color: $white
+
+  // Sidebar
+  #cl-wrapper
+    display: block
+    padding-top: 0
+
+    &.fixed-menu
+      .menu-space
+        position: initial
+        width: 100%
+
+  .cl-sidebar
+    display: block
+    width: 100%
+    position: static
+
+    .cl-toggle
+      display: block
+    .collapse-button
+      display: none
+
+  // Aside
+  #page-aside
+    display: block
+    width: 100%
+    .navbar-toggle
+      padding: 0
+      margin: 0
+    .main-action
+      button
+        margin-right: 0
+
+  // Content
+  .page-head
+    position: static
+    + .cl-mcont
+      padding-top: 0
+
+  #fixed-action-header,
+  #fixed-action-header2
+    position: static
+    padding: 15px 15px 0
+    + .cl-mcont
+      padding-top: 0
+
+  .cl-mcont
+    padding: 15px
