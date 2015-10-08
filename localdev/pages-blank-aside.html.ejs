@@ -101,7 +101,7 @@
             &#x3C;/ul&#x3E;
           &#x3C;/li&#x3E;
         &#x3C;/ul&#x3E;
-      &#x3C;/div&#x3E;&#x3C;!--/.nav-collapse animate-collapse --&#x3E;
+      &#x3C;/div&#x3E;
     &#x3C;/div&#x3E;
   &#x3C;/div&#x3E;
   &#x3C;!-- END TOP NAVIGATION --&#x3E;
@@ -125,8 +125,8 @@
                   &#x3C;span&#x3E;Example w/ Submenu&#x3C;/span&#x3E;
                 &#x3C;/a&#x3E;
                 &#x3C;ul class=&#x22;sub-menu&#x22;&#x3E;
-                  &#x3C;li&#x3E;&#x3C;a href=&#x22;pages-blank.html&#x22;&#x3E;Submenu Item 1&#x3C;/a&#x3E;&#x3C;/li&#x3E;
-                  &#x3C;li&#x3E;&#x3C;a href=&#x22;pages-blank-header.html&#x22;&#x3E;Submennu Item 2&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+                  &#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Submenu Item 1&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+                  &#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Submennu Item 2&#x3C;/a&#x3E;&#x3C;/li&#x3E;
                 &#x3C;/ul&#x3E;
               &#x3C;/li&#x3E;
             &#x3C;/ul&#x3E;
@@ -155,15 +155,30 @@
     &#x3C;!-- END SECONDARY NAVIGATION --&#x3E;
 
 
-    &#x3C;div class=&#x22;cl-mcont&#x22;&#x3E;
-      &#x3C;div class=&#x22;row&#x22;&#x3E;
-        &#x3C;div class=&#x22;col-xs-12&#x22;&#x3E;
-          &#x3C;div class=&#x22;block-flat&#x22;&#x3E;
-            &#x3C;div class=&#x22;header&#x22;&#x3E;
-              &#x3C;h3&#x3E;Section title goes here&#x3C;/h3&#x3E;
-            &#x3C;/div&#x3E;
-            &#x3C;div class=&#x22;content&#x22;&#x3E;
-              Content Goes Here
+    &#x3C;div id=&#x22;pcont&#x22;&#x3E;
+
+      &#x3C;!-- BEGIN FIXED ACTION HEADER --&#x3E;
+      &#x3C;div id=&#x22;fixed-action-header&#x22;&#x3E;
+        &#x3C;div class=&#x22;action-header-left&#x22;&#x3E;
+          &#x3C;button type=&#x22;button&#x22; id=&#x22;print-button&#x22; class=&#x22;btn btn-default&#x22;&#x3E;&#x3C;i class=&#x22;fa fa-print&#x22;&#x3E;&#x3C;/i&#x3E;&#x3C;/button&#x3E;
+          &#x3C;button type=&#x22;button&#x22; id=&#x22;email-button&#x22; class=&#x22;btn btn-default&#x22;&#x3E;&#x3C;i class=&#x22;fa fa-envelope&#x22;&#x3E;&#x3C;/i&#x3E;&#x3C;/button&#x3E;
+        &#x3C;/div&#x3E;
+        &#x3C;div class=&#x22;action-header-right&#x22;&#x3E;
+          &#x3C;button type=&#x22;button&#x22; id=&#x22;delete-button&#x22; class=&#x22;btn btn-default&#x22;&#x3E;&#x3C;i class=&#x22;fa fa-trash-o&#x22;&#x3E;&#x3C;/i&#x3E;&#x3C;/button&#x3E;
+        &#x3C;/div&#x3E;
+      &#x3C;/div&#x3E;
+      &#x3C;!-- END FIXED ACTION HEADER --&#x3E;
+
+      &#x3C;div class=&#x22;cl-mcont&#x22;&#x3E;
+        &#x3C;div class=&#x22;row&#x22;&#x3E;
+          &#x3C;div class=&#x22;col-xs-12&#x22;&#x3E;
+            &#x3C;div class=&#x22;block-flat&#x22;&#x3E;
+              &#x3C;div class=&#x22;header&#x22;&#x3E;
+                &#x3C;h3&#x3E;Section title goes here&#x3C;/h3&#x3E;
+              &#x3C;/div&#x3E;
+              &#x3C;div class=&#x22;content&#x22;&#x3E;
+                Content Goes Here
+              &#x3C;/div&#x3E;
             &#x3C;/div&#x3E;
           &#x3C;/div&#x3E;
         &#x3C;/div&#x3E;

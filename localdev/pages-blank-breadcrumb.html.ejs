@@ -104,7 +104,7 @@
             &#x3C;/ul&#x3E;
           &#x3C;/li&#x3E;
         &#x3C;/ul&#x3E;
-      &#x3C;/div&#x3E;&#x3C;!--/.nav-collapse animate-collapse --&#x3E;
+      &#x3C;/div&#x3E;
     &#x3C;/div&#x3E;
   &#x3C;/div&#x3E;
   &#x3C;!-- END TOP NAVIGATION --&#x3E;
@@ -128,8 +128,8 @@
                   &#x3C;span&#x3E;Example w/ Submenu&#x3C;/span&#x3E;
                 &#x3C;/a&#x3E;
                 &#x3C;ul class=&#x22;sub-menu&#x22;&#x3E;
-                  &#x3C;li&#x3E;&#x3C;a href=&#x22;pages-blank.html&#x22;&#x3E;Submenu Item 1&#x3C;/a&#x3E;&#x3C;/li&#x3E;
-                  &#x3C;li&#x3E;&#x3C;a href=&#x22;pages-blank-header.html&#x22;&#x3E;Submennu Item 2&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+                  &#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Submenu Item 1&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+                  &#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Submennu Item 2&#x3C;/a&#x3E;&#x3C;/li&#x3E;
                 &#x3C;/ul&#x3E;
               &#x3C;/li&#x3E;
             &#x3C;/ul&#x3E;
@@ -139,6 +139,7 @@
     &#x3C;/div&#x3E;
 
     &#x3C;div class=&#x22;page-head has-breadcrumb&#x22;&#x3E;
+      &#x3C;button id=&#x22;action-button&#x22; class=&#x22;btn btn-primary btn-right&#x22; onclick=&#x22;openSlideout();&#x22;&#x3E;Action Button&#x3C;/button&#x3E;
       &#x3C;h2&#x3E;Main Layout w/ Page Title &#x26;amp; Breadcrumb&#x3C;/h2&#x3E;
       &#x3C;ol class=&#x22;breadcrumb&#x22;&#x3E;
         &#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Home&#x3C;/a&#x3E;&#x3C;/li&#x3E;
@@ -162,14 +163,42 @@
       &#x3C;/div&#x3E;
     &#x3C;/div&#x3E;
 
+    &#x3C;!-- BEGIN SLIDEOUT --&#x3E;
+    &#x3C;div id=&#x22;slideout-overlay&#x22; class=&#x22;slideout-overlay&#x22; style=&#x22;position: static;&#x22;&#x3E;
+      &#x3C;a href=&#x22;javascript:void(0);&#x22; class=&#x22;overlay-close&#x22; onclick=&#x22;closeSlideout();&#x22;&#x3E;&#x3C;/a&#x3E;
+      &#x3C;div class=&#x22;slideout-close&#x22; onclick=&#x22;closeSlideout()&#x22;&#x3E;&#x3C;i class=&#x22;fa fa-times&#x22;&#x3E;&#x3C;/i&#x3E;&#x3C;/div&#x3E;
+      &#x3C;div id=&#x22;slideout&#x22;&#x3E;
+        &#x3C;div id=&#x22;slideout-inner&#x22;&#x3E;
+          &#x3C;div class=&#x22;header&#x22;&#x3E;
+            &#x3C;h3&#x3E;Slideout Title&#x3C;/h3&#x3E;
+          &#x3C;/div&#x3E;
+          &#x3C;div class=&#x22;content&#x22;&#x3E;
+            Slideout content goes here
+          &#x3C;/div&#x3E;
+        &#x3C;/dov&#x3E;
+      &#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+    &#x3C;!-- END SLIDEOUT --&#x3E;
+
     &#x3C;!-- Bootstrap core JavaScript
     ================================================== --&#x3E;
     &#x3C;!-- Placed at the end of the document so the pages load faster --&#x3E;
     &#x3C;script type=&#x22;text/javascript&#x22;&#x3E;
       $(document).ready(function(){
-            //initialize the javascript
-            App.init();
-          });
+        //initialize the javascript
+        App.init();
+      });
+
+      function openSlideout() {
+        $(&#x22;#slideout-overlay&#x22;).addClass(&#x22;active&#x22;);
+        $(&#x22;#slideout-overlay&#x22;).css(&#x22;position&#x22;, &#x22;absolute&#x22;);
+      }
+
+      function closeSlideout() {
+        $(&#x22;#slideout-overlay&#x22;).removeClass(&#x22;active&#x22;);
+        $(&#x22;#slideout-overlay&#x22;).css(&#x22;position&#x22;, &#x22;static&#x22;);
+      }
+
       hljs.initHighlightingOnLoad();
     &#x3C;/script&#x3E;
   &#x3C;/div&#x3E;
