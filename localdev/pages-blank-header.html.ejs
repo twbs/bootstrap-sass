@@ -29,12 +29,7 @@
     <% include wp-sidebar.html.ejs %>
 
     <div class="page-head">
-      <h2>Blank Page</h2>
-      <ol class="breadcrumb">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Category</a></li>
-        <li class="active">Sub Category</li>
-      </ol>
+      <h2>Main Layout w/ Page Title</h2>
     </div>
     <div class="cl-mcont">
       <div class="row">
@@ -45,37 +40,165 @@
             </div>
             <div class="content">
               <p>
-                Code for the basic layout of CoEFFICIENT. There should be a page title (if not, use <a href="pages-blank.html">pages-blank</a> tempalte instead.) If no breadcrumbs are necessary, remove the <code>&#x3C;ol&#x3E;</code> tag completely.
+                Code for the basic layout of CoEFFICIENT. There should be a page title (if not, use <a href="pages-blank.html">pages-blank</a> tempalte instead.) If breadcrumbs are necessary, use the <a href="pages-blank-breadcrumb.html">pages-blank-breadcrumb</a> template instead.
               </p>
-              <pre><code class="html">&#x3C;% include header.html.ejs %&#x3E;
+              <pre><code class="html">&#x3C;!DOCTYPE html&#x3E;
+&#x3C;html lang=&#x22;en&#x22;&#x3E;
+&#x3C;head&#x3E;
+  &#x3C;meta charset=&#x22;utf-8&#x22;&#x3E;
+  &#x3C;meta name=&#x22;viewport&#x22; content=&#x22;width=device-width, initial-scale=1.0&#x22;&#x3E;
+  &#x3C;meta name=&#x22;description&#x22; content=&#x22;&#x22;&#x3E;
+  &#x3C;meta name=&#x22;author&#x22; content=&#x22;&#x22;&#x3E;
+  &#x3C;link rel=&#x22;shortcut icon&#x22; href=&#x22;https://dev.coefficient.co/assets/favicon.png&#x22;&#x3E;
 
-&#x3C;div id=&#x22;cl-wrapper&#x22; class=&#x22;fixed-menu&#x22;&#x3E;
-  &#x3C;% include wp-sidebar.html.ejs %&#x3E; &#x3C;!-- Include appropriate sidebar --&#x3E;
+  &#x3C;title&#x3E;Wild Parrot&#x3C;/title&#x3E;
+  &#x3C;link href=&#x27;http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800&#x27; rel=&#x27;stylesheet&#x27; type=&#x27;text/css&#x27;&#x3E;
+  &#x3C;link href=&#x27;http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&#x27; rel=&#x27;stylesheet&#x27; type=&#x27;text/css&#x27;&#x3E;
 
-  &#x3C;div class=&#x22;page-head&#x22;&#x3E;
-    &#x3C;h2&#x3E;Blank Page&#x3C;/h2&#x3E;
-    &#x3C;ol class=&#x22;breadcrumb&#x22;&#x3E; &#x3C;!-- Remove section if breadcrumb is unnecessary --&#x3E;
-      &#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Home&#x3C;/a&#x3E;&#x3C;/li&#x3E;
-      &#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Category&#x3C;/a&#x3E;&#x3C;/li&#x3E;
-      &#x3C;li class=&#x22;active&#x22;&#x3E;Sub Category&#x3C;/li&#x3E;
-    &#x3C;/ol&#x3E;
-  &#x3C;/div&#x3E;
-  &#x3C;div class=&#x22;cl-mcont&#x22;&#x3E;
-    &#x3C;div class=&#x22;col-sm-12&#x22;&#x3E; &#x3C;!-- See grid system for more information about the column classes --&#x3E;
-      &#x3C;div class=&#x22;block-flat&#x22;&#x3E;
-        &#x3C;h3&#x3E;Section title goes here&#x3C;/h3&#x3E;
+  &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css&#x22;&#x3E;
+  &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css&#x22;&#x3E;
+
+  &#x3C;link href=&#x22;https://dev.coefficient.co/assets/application.css&#x22; rel=&#x22;stylesheet&#x22; /&#x3E;
+  &#x3C;script src=&#x22;https://code.jquery.com/jquery-1.11.3.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+  &#x3C;script src=&#x22;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+  &#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;nanoscroller.js&#x22;&#x3E;&#x3C;/script&#x3E;
+  &#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;general.js&#x22;&#x3E;&#x3C;/script&#x3E;
+
+&#x3C;/head&#x3E;
+&#x3C;body&#x3E;
+
+  &#x3C;script src=&#x22;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+
+  &#x3C;!-- BEGIN TOP NAVIGATION --&#x3E;
+  &#x3C;div id=&#x22;head-nav&#x22; class=&#x22;navbar navbar-default navbar-fixed-top&#x22; style=&#x22;background: #362c66;&#x22;&#x3E;
+    &#x3C;div class=&#x22;container-fluid&#x22;&#x3E;
+      &#x3C;div class=&#x22;navbar-header&#x22;&#x3E;
+        &#x3C;button type=&#x22;button&#x22; class=&#x22;navbar-toggle&#x22; data-toggle=&#x22;collapse&#x22; data-target=&#x22;.navbar-collapse&#x22;&#x3E;
+          &#x3C;span class=&#x22;fa fa-gear&#x22;&#x3E;&#x3C;/span&#x3E;
+        &#x3C;/button&#x3E;
+        &#x3C;a href=&#x22;index.html&#x22; class=&#x22;navbar-brand display-name-light&#x22;&#x3E;
+          &#x3C;img alt=&#x22;CoEFFICIENT&#x22; id=&#x22;js-header-company-logo-thumbnail&#x22; src=&#x22;https://dev.coefficient.co/assets/logo.png&#x22; class=&#x22;header-profile-image&#x22; /&#x3E;
+          &#x3C;span&#x3E;
+            CoEFFICIENT
+          &#x3C;/span&#x3E;
+        &#x3C;/a&#x3E;
       &#x3C;/div&#x3E;
-      &#x3C;div class=&#x22;content&#x22;&#x3E;
-        Content goes here
+      &#x3C;div class=&#x22;navbar-collapse collapse&#x22;&#x3E;
+        &#x3C;ul class=&#x22;nav navbar-nav&#x22; id=&#x22;global-search&#x22;&#x3E;
+          &#x3C;li class=&#x22;active&#x22;&#x3E;&#x3C;a href=&#x22;/&#x22;&#x3E;Home&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+          &#x3C;li id=&#x22;nav-global-search&#x22;&#x3E;
+            &#x3C;div class=&#x22;input-group&#x22;&#x3E;
+              &#x3C;span class=&#x22;input-group-addon&#x22;&#x3E;&#x3C;i class=&#x22;fa fa-search&#x22;&#x3E;&#x3C;/i&#x3E;&#x3C;/span&#x3E;
+              &#x3C;input type=&#x22;text&#x22; placeholder=&#x22;Search for People and Locations&#x22; class=&#x22;form-control&#x22; id=&#x22;global-search-input&#x22;&#x3E;
+            &#x3C;/div&#x3E;
+          &#x3C;/li&#x3E;
+        &#x3C;/ul&#x3E;
+        &#x3C;ul class=&#x22;nav navbar-nav navbar-right user-nav&#x22;&#x3E;
+          &#x3C;li class=&#x22;dropdown profile_menu&#x22;&#x3E;
+            &#x3C;a href=&#x22;#&#x22; class=&#x22;dropdown-toggle&#x22; data-toggle=&#x22;dropdown&#x22;&#x3E;&#x3C;img alt=&#x22;Avatar&#x22; id=&#x22;js-header-profile-image-thumbnail&#x22; src=&#x22;https://s3.amazonaws.com/uifaces/faces/twitter/enda/48.jpg&#x22; class=&#x22;header-profile-image&#x22; /&#x3E;&#x3C;/a&#x3E;
+            &#x3C;ul class=&#x22;dropdown-menu&#x22;&#x3E;
+              &#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Settings&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+              &#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Help&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+              &#x3C;li class=&#x22;divider&#x22;&#x3E;&#x3C;/li&#x3E;
+              &#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Sign Out&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+            &#x3C;/ul&#x3E;
+          &#x3C;/li&#x3E;
+        &#x3C;/ul&#x3E;
       &#x3C;/div&#x3E;
     &#x3C;/div&#x3E;
-  &#x3C;/div&#x3E;>
+  &#x3C;/div&#x3E;
+  &#x3C;!-- END TOP NAVIGATION --&#x3E;
 
-  &#x3C;!-- Bootstrap core JavaScript
-  ================================================== --&#x3E;
-  &#x3C;!-- Placed at the end of the document so the pages load faster --&#x3E;
-  &#x3C;script src=&#x22;node_modules/bootstrap/dist/js/bootstrap.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
-&#x3C;/div&#x3E;</code></pre>
+
+  &#x3C;div id=&#x22;cl-wrapper&#x22; class=&#x22;fixed-menu&#x22;&#x3E;
+    &#x3C;div class=&#x22;cl-sidebar&#x22;&#x3E;
+      &#x3C;div class=&#x22;cl-toggle&#x22; data-toggle=&#x22;collapse&#x22; data-target=&#x22;.cl-navblock&#x22;&#x3E;&#x3C;i class=&#x22;fa fa-bars&#x22;&#x3E;&#x3C;/i&#x3E;&#x3C;/div&#x3E;
+      &#x3C;div class=&#x22;cl-navblock collapse&#x22;&#x3E;
+        &#x3C;div class=&#x22;collapse-button&#x22;&#x3E;
+          &#x3C;button id=&#x22;sidebar-collapse&#x22; class=&#x22;btn btn-default&#x22; style=&#x22;&#x22;&#x3E;&#x3C;i style=&#x22;color: #c9d4f6;&#x22; class=&#x22;fa fa-angle-left&#x22;&#x3E;&#x3C;/i&#x3E;&#x3C;/button&#x3E;
+        &#x3C;/div&#x3E;
+        &#x3C;div class=&#x22;menu-space&#x22;&#x3E;
+          &#x3C;div class=&#x22;content nano-content&#x22;&#x3E;
+            &#x3C;ul class=&#x22;cl-vnavigation&#x22;&#x3E;
+              &#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;&#x3C;i class=&#x22;fa fa-heart&#x22;&#x3E;&#x3C;/i&#x3E;&#x3C;span&#x3E;Example Page&#x3C;/span&#x3E;&#x3C;/a&#x3E;
+              &#x3C;/li&#x3E;
+              &#x3C;li class=&#x22;parent&#x22;&#x3E;
+                &#x3C;a href=&#x22;#&#x22;&#x3E;
+                  &#x3C;i class=&#x22;fa fa-folder-open&#x22;&#x3E;&#x3C;/i&#x3E;
+                  &#x3C;span&#x3E;Example w/ Submenu&#x3C;/span&#x3E;
+                &#x3C;/a&#x3E;
+                &#x3C;ul class=&#x22;sub-menu&#x22;&#x3E;
+                  &#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Submenu Item 1&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+                  &#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Submennu Item 2&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+                &#x3C;/ul&#x3E;
+              &#x3C;/li&#x3E;
+            &#x3C;/ul&#x3E;
+          &#x3C;/div&#x3E;
+        &#x3C;/div&#x3E;
+      &#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+
+    &#x3C;div class=&#x22;page-head&#x22;&#x3E;
+      &#x3C;button id=&#x22;action-button&#x22; class=&#x22;btn btn-primary btn-right&#x22; onclick=&#x22;openSlideout();&#x22;&#x3E;Action Button&#x3C;/button&#x3E;
+      &#x3C;h2&#x3E;Main Layout w/ Page Title&#x3C;/h2&#x3E;
+    &#x3C;/div&#x3E;
+
+    &#x3C;div class=&#x22;cl-mcont&#x22;&#x3E;
+      &#x3C;div class=&#x22;row&#x22;&#x3E;
+        &#x3C;div class=&#x22;col-xs-12&#x22;&#x3E;
+          &#x3C;div class=&#x22;block-flat&#x22;&#x3E;
+            &#x3C;div class=&#x22;header&#x22;&#x3E;
+              &#x3C;h3&#x3E;Section title goes here&#x3C;/h3&#x3E;
+            &#x3C;/div&#x3E;
+            &#x3C;div class=&#x22;content&#x22;&#x3E;
+              Content Goes Here
+            &#x3C;/div&#x3E;
+          &#x3C;/div&#x3E;
+        &#x3C;/div&#x3E;
+      &#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+
+    &#x3C;!-- BEGIN SLIDEOUT --&#x3E;
+    &#x3C;div id=&#x22;slideout-overlay&#x22; class=&#x22;slideout-overlay&#x22; style=&#x22;position: static;&#x22;&#x3E;
+      &#x3C;a href=&#x22;javascript:void(0);&#x22; class=&#x22;overlay-close&#x22; onclick=&#x22;closeSlideout();&#x22;&#x3E;&#x3C;/a&#x3E;
+      &#x3C;div class=&#x22;slideout-close&#x22; onclick=&#x22;closeSlideout()&#x22;&#x3E;&#x3C;i class=&#x22;fa fa-times&#x22;&#x3E;&#x3C;/i&#x3E;&#x3C;/div&#x3E;
+      &#x3C;div id=&#x22;slideout&#x22;&#x3E;
+        &#x3C;div id=&#x22;slideout-inner&#x22;&#x3E;
+          &#x3C;div class=&#x22;header&#x22;&#x3E;
+            &#x3C;h3&#x3E;Slideout Title&#x3C;/h3&#x3E;
+          &#x3C;/div&#x3E;
+          &#x3C;div class=&#x22;content&#x22;&#x3E;
+            Slideout content goes here
+          &#x3C;/div&#x3E;
+        &#x3C;/dov&#x3E;
+      &#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+    &#x3C;!-- END SLIDEOUT --&#x3E;
+
+    &#x3C;!-- Bootstrap core JavaScript
+    ================================================== --&#x3E;
+    &#x3C;!-- Placed at the end of the document so the pages load faster --&#x3E;
+    &#x3C;script type=&#x22;text/javascript&#x22;&#x3E;
+      $(document).ready(function(){
+        //initialize the javascript
+        App.init();
+      });
+
+      function openSlideout() {
+        $(&#x22;#slideout-overlay&#x22;).addClass(&#x22;active&#x22;);
+        $(&#x22;#slideout-overlay&#x22;).css(&#x22;position&#x22;, &#x22;absolute&#x22;);
+      }
+
+      function closeSlideout() {
+        $(&#x22;#slideout-overlay&#x22;).removeClass(&#x22;active&#x22;);
+        $(&#x22;#slideout-overlay&#x22;).css(&#x22;position&#x22;, &#x22;static&#x22;);
+      }
+
+      hljs.initHighlightingOnLoad();
+    &#x3C;/script&#x3E;
+  &#x3C;/div&#x3E;
+&#x3C;/body&#x3E;
+&#x3C;/html&#x3E;</code></pre>
             </div>
           </div>
         </div>

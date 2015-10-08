@@ -29,9 +29,8 @@
     <% include wp-sidebar.html.ejs %>
 
     <div class="page-head">
-      <h2>Main Layout</h2>
+      <h2>Main Layout w/ Aside</h2>
     </div>
-
     <div class="cl-mcont">
       <div class="row">
         <div class="col-sm-12">
@@ -40,9 +39,6 @@
               <h3>Section title goes here</h3>
             </div>
             <div class="content">
-              <p>
-                In order to create a blank page in the node application, simple copy and paste the contents below. There are currently no uses for blank pages at the moment, but rather blank pages with page titles. See <a href="pages-blank-header.html">pages-blank-header</a> for markup. This could be used in the future though.
-              </p>
               <pre><code class="html">&#x3C;!DOCTYPE html&#x3E;
 &#x3C;html lang=&#x22;en&#x22;&#x3E;
 &#x3C;head&#x3E;
@@ -139,6 +135,26 @@
       &#x3C;/div&#x3E;
     &#x3C;/div&#x3E;
 
+
+    &#x3C;!-- BEGIN SECONDARY NAVIGATION --&#x3E;
+    &#x3C;div id=&#x22;page-aside&#x22;&#x3E;
+      &#x3C;div class=&#x22;content&#x22;&#x3E;
+        &#x3C;div id=&#x22;aside-header&#x22; class=&#x22;header&#x22;&#x3E;
+          &#x3C;button class=&#x22;navbar-toggle&#x22; data-target=&#x22;#aside-nav&#x22; data-toggle=&#x22;collapse&#x22; type=&#x22;button&#x22;&#x3E;
+            &#x3C;span class=&#x22;fa fa-chevron-down&#x22;&#x3E;&#x3C;/span&#x3E;
+          &#x3C;/button&#x3E;
+          &#x3C;h3&#x3E;Aside Title&#x3C;/h3&#x3E;
+          &#x3C;div class=&#x22;main-action&#x22;&#x3E;
+            &#x3C;button type=&#x22;button&#x22; class=&#x22;btn btn-primary btn-flat&#x22;&#x3E;&#x3C;i class=&#x22;fa fa-plus&#x22;&#x3E;&#x3C;/i&#x3E; Action Button&#x3C;/button&#x3E;
+          &#x3C;/div&#x3E;
+        &#x3C;/div&#x3E;
+        &#x3C;div id=&#x22;aside-nav&#x22; class=&#x22;collapse&#x22;&#x3E;
+        &#x3C;/div&#x3E;
+      &#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+    &#x3C;!-- END SECONDARY NAVIGATION --&#x3E;
+
+
     &#x3C;div id=&#x22;pcont&#x22;&#x3E;
 
       &#x3C;!-- BEGIN FIXED ACTION HEADER --&#x3E;
@@ -148,7 +164,7 @@
           &#x3C;button type=&#x22;button&#x22; id=&#x22;email-button&#x22; class=&#x22;btn btn-default&#x22;&#x3E;&#x3C;i class=&#x22;fa fa-envelope&#x22;&#x3E;&#x3C;/i&#x3E;&#x3C;/button&#x3E;
         &#x3C;/div&#x3E;
         &#x3C;div class=&#x22;action-header-right&#x22;&#x3E;
-          &#x3C;button type=&#x22;button&#x22; id=&#x22;submit-button&#x22; class=&#x22;btn btn-primary&#x22;&#x3E;Submit&#x3C;/button&#x3E;
+          &#x3C;button type=&#x22;button&#x22; id=&#x22;delete-button&#x22; class=&#x22;btn btn-default&#x22;&#x3E;&#x3C;i class=&#x22;fa fa-trash-o&#x22;&#x3E;&#x3C;/i&#x3E;&#x3C;/button&#x3E;
         &#x3C;/div&#x3E;
       &#x3C;/div&#x3E;
       &#x3C;!-- END FIXED ACTION HEADER --&#x3E;
@@ -158,7 +174,7 @@
           &#x3C;div class=&#x22;col-xs-12&#x22;&#x3E;
             &#x3C;div class=&#x22;block-flat&#x22;&#x3E;
               &#x3C;div class=&#x22;header&#x22;&#x3E;
-                &#x3C;h3&#x3E;Content Block Title&#x3C;/h3&#x3E;
+                &#x3C;h3&#x3E;Section title goes here&#x3C;/h3&#x3E;
               &#x3C;/div&#x3E;
               &#x3C;div class=&#x22;content&#x22;&#x3E;
                 Content Goes Here
