@@ -37,6 +37,113 @@
       display: block !important
       visibility: visible !important
 
+  .sb-collapsed
+    .cl-sidebar
+      width: 55px
+    #pcont
+      margin-left: 55px
+    #page-aside+#pcont
+      margin-left: 0
+    .cl-vnavigation
+      li
+        position: relative
+      .parent a
+        background-image: none
+      li a i
+        margin: 0
+        @extend %icon-large
+      > li > a > span
+        opacity: 0
+        width: 0
+        height: 0
+
+  .cl-sidebar .collapse-button
+    background: #1F2126
+    position: fixed
+    width: 216px
+    bottom: 0
+    padding: 7px 9px
+    text-align: right
+    button
+      margin: 0 !important
+      background: transparent
+      box-shadow: 1px 1px 0 rgba($white, 0.1) inset
+      border: 1px solid rgba($black, 0.25)
+      border-radius: 2px
+      &:hover
+        background: #23252A
+
+  #cl-wrapper
+    &.fixed-menu .menu-space
+      position: fixed
+      width: 216px
+      background: #272930
+      top: 50px
+      .content
+        outline: none
+    &.sb-collapsed.fixed-menu .menu-space
+      width: 55px
+
+  .sb-collapsed
+    .cl-sidebar .collapse-button
+      width: 55px
+    .cl-vnavigation li.open ul
+      display: none !important
+    #sidebar-profile
+      padding: 10px
+      img
+        width: 30px
+      #current-name,
+      #current-title,
+      #current-edit
+        display: none
+
+  #sub-menu-nav ul
+    box-shadow: 1px 1px 4px rgba($black, 0.22)
+    color: $text-color
+    background: $white
+    padding: 5px 0
+    min-width: 190px
+    box-shadow: 0 2px 4px rgba($black, 0.25)
+    border: 1px solid rgba($black, 0.15)
+    border-top: 0
+    border-radius: 3px
+    li
+      &:first-child
+        padding-top: 0
+      &:last-child
+        padding-bottom: 0
+      &.dropdown-header
+        i
+          text-align: center
+          width: 15px
+        padding: 1px 11px
+        padding-bottom: 6px
+      list-style: none
+      a
+        margin-right: -1px
+        display: block
+        @extend %itsy
+        border-bottom: 0
+        color: $text-color
+        text-shadow: none
+        text-align: left
+        background: transparent
+        padding: 6px 20px 6px 31px
+        &:hover
+          background-color: $link-hover
+          color: $white
+    padding: 5px 0
+    &:after
+      background: image-url('menu-tail-left.png') no-repeat right 10px
+      top: 0px
+      content: ""
+      display: inline-block
+      left: -9px
+      height: 43px
+      width: 10px
+      position: absolute
+
 
 // ----------------------------
 // Tablet (Portrait)
