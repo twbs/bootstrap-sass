@@ -18,22 +18,37 @@
   .audit-title
     width: 40%
 
+.list-group-item
+  &.audit-group-item
+    margin-bottom: 20px
 
 .input-audit-items
-  padding: 10px 40px 10px 10px
-  border: 0
   resize: none
-  min-height: 39px !important
-  &:focus
-    box-shadow: none
 
-.add-audit-item
-  min-height: 39px !important
-  padding: 10px
+.audit-item-header
+  width: 100%
+  padding: 5px 10px
+  background-color: $greylightest
+  border-bottom: 1px solid $greylightest
+  @extend %small
 
 .delete-audit-item
-  position: absolute
-  right: 0
+  float: right
+  @extend %small
+  &:hover
+    cursor: pointer
+
+.audit-item-input
+  padding: 10px
+  display: table
+  width: 100%
+  .audit-cell
+    display: table-cell
+    &.full-width
+      width: 100%
+    &.pass-fail
+      min-width: 160px
+      text-align: right
 
 .audit-info
   @extend %small
