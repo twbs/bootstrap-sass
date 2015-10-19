@@ -42,6 +42,11 @@
   padding: 10px
   display: table
   width: 100%
+  .audit-item-row
+    display: table-row
+    &:not(:last-child)
+      .audit-cell
+        padding-bottom: 10px
   .audit-cell
     display: table-cell
     &.full-width
