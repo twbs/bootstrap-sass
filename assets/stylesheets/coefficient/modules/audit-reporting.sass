@@ -11,17 +11,19 @@
 #audit-report-tracking
   display: table
   width: 100%
-  padding: 25px 10px 10px 10px
+  padding: 10px
 
   #percent-reporting
     display: table-cell
     font-weight: 200
     color: $info
     padding-right: 15px
+    line-height: 1
     @extend %huge
 
   #reporting-progress-bar
     display: table-cell
+    vertical-align: middle
     width: 100%
     color: #999
     @extend %itsy
@@ -41,3 +43,8 @@
 
 #reporting-table
   margin-top: 20px
+
+@media print
+  #audit-report-tracking
+    #reporting-progress-bar
+      vertical-align: top
