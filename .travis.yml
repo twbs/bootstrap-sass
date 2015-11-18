@@ -9,6 +9,7 @@ gemfile:
   - test/gemfiles/sass_3_4.gemfile
   - test/gemfiles/sass_head.gemfile
 before_install:
+  - "nvm install stable"
   - "npm install"
 matrix:
   allow_failures:
