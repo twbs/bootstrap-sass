@@ -22,14 +22,17 @@
   &.audit-group-item
     margin-bottom: 20px
 
-.input-audit-items,
-.add-audit-item
+.input-audit-items
   resize: none
-  min-height: 32px
 
 .audit-section-header
   background-color: $greylightest
   padding: 10px 15px
+
+  .section-title
+    width: 40%
+    background-color: $greylightest
+    border: 0
 
 .audit-item-header
   width: 100%
@@ -104,6 +107,19 @@
   @extend %gamma
   font-weight: 300
 
+#audit-item-header-right
+  float: right
+  display: inline-block
+
+  #move-audit-item
+    float: left
+    padding-right: 10px
+    position: relative
+
+  .dropdown-menu
+    left: auto
+    right: 10px
+
 #audit-title,
 #audit-content,
 .audit-comments
@@ -152,3 +168,4 @@
         display: none !important
     .expand-collapse-bar
       display: none
+
