@@ -5,13 +5,12 @@
 #toast-container
   > .toast
     background-image: none !important
-    background: $white
     opacity: 1
     box-shadow: 0 0px 5px rgba($black, 0.32)
     border-radius: 0
     cursor: default
-    padding: 15px 40px 15px 15px
-    color: $text-color
+    padding: 20px 45px 20px 20px
+    @extend %body_copy
     a,
     a:visited,
     a:active,
@@ -43,19 +42,33 @@
     text-decoration: underline
   button
     &.toast-close-button
+      background: $white
       line-height: 1
       position: absolute
       height: 100%
-      width: 25px
+      width: 30px
       top: 0
       right: 0
 
-$toastrTypes: (success: $success, info: $info, warning: $warning, error: $danger)
+
+$toastrTypes: (success: (#dbf6d3, #aed4a5, #569745), info: (#d9edf7, #98cce6, #3a87ad), warning: (#fcf8e3, #f1daab, #c09853), danger: (#f2dede, #e0b1b8, #b94a48))
 
 @each $type, $colorList in $toastrTypes
-  .toast-#{$type}
-    .toast-close-button
-      background: $colorList
+  #toast-container
+    .toast-#{$type}
+      background-color: nth($colorList, 1)
+      border: 1px solid nth($colorList, 2)
+      color: nth($colorList, 3)
+      .toast-close-button
+        color: nth($colorList, 3)
+        opacity: 1
+        &:hover
+          color: $link-hover
+
+
+$toastrFullTypes: (success: $success, info: $info, warning: $warning, error: $danger)
+
+@each $type, $colorList in $toastrFullTypes
   #toast-container.toast-top-full-width
     .toast-#{$type}
       background: $colorList
