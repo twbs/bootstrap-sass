@@ -252,7 +252,7 @@ When using bootstrap-sass with Compass, Sprockets, or Mincer, you **must** impor
 
 ### Sass
 
-Import Bootstrap into a Sass file (for example, application.scss) to get all of Bootstrap's styles, mixins and variables!
+Import Bootstrap into a Sass file (for example, `application.scss`) to get all of Bootstrap's styles, mixins and variables!
 
 ```scss
 @import "bootstrap";
