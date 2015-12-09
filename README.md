@@ -157,7 +157,7 @@ This is compatible by default with asset managers such as [wiredep](https://gith
 
 #### Node.js Mincer
 
-If you use [mincer][mincer] with node-sass, import bootstrap like so:
+If you use [mincer][mincer] with node-sass, import Bootstrap like so:
 
 In `application.css.ejs.scss` (NB **.css.ejs.scss**):
 
@@ -209,7 +209,7 @@ Bootstrap requires the use of [Autoprefixer][autoprefixer].
 
 #### JavaScript
 
-[`assets/javascripts/bootstrap.js`](/assets/javascripts/bootstrap.js) contains all of Bootstrap JavaScript,
+[`assets/javascripts/bootstrap.js`](/assets/javascripts/bootstrap.js) contains all of Bootstrap's JavaScript,
 concatenated in the [correct order](/assets/javascripts/bootstrap-sprockets.js).
 
 
@@ -258,13 +258,13 @@ Import Bootstrap into a Sass file (for example, application.scss) to get all of 
 @import "bootstrap";
 ```
 
-You can also include optional bootstrap theme:
+You can also include optional Bootstrap theme:
 
 ```scss
 @import "bootstrap/theme";
 ```
 
-The full list of bootstrap variables can be found [here](http://getbootstrap.com/customize/#less-variables). You can override these by simply redefining the variable before the `@import` directive, e.g.:
+The full list of Bootstrap variables can be found [here](http://getbootstrap.com/customize/#less-variables). You can override these by simply redefining the variable before the `@import` directive, e.g.:
 
 ```scss
 $navbar-default-bg: #312312;
@@ -320,7 +320,7 @@ To convert a specific branch or version, pass the branch name or the commit hash
 
 The latest converter script is located [here][converter] and does the following:
 
-* Converts upstream bootstrap LESS files to its matching SCSS file.
+* Converts upstream Bootstrap LESS files to its matching SCSS file.
 * Copies all upstream JavaScript into `assets/javascripts/bootstrap`, a Sprockets manifest at `assets/javascripts/bootstrap-sprockets.js`, and a concatenation at `assets/javascripts/bootstrap.js`.
 * Copies all upstream font files into `assets/fonts/bootstrap`.
 * Sets `Bootstrap::BOOTSTRAP_SHA` in [version.rb][version] to the branch sha.
