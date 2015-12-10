@@ -15,6 +15,7 @@ Please see the appropriate guide for your environment of choice:
 * [Ruby on Rails](#a-ruby-on-rails).
 * [Compass](#b-compass-without-rails) not on Rails.
 * [Bower](#c-bower).
+* [npm / Node.js](#d-npm--nodejs).
 
 ### a. Ruby on Rails
 
@@ -174,6 +175,11 @@ In `application.js`:
 ```
 
 See also this [example manifest.js](/test/dummy_node_mincer/manifest.js) for mincer.
+
+### d. npm / Node.js
+```console
+$ npm install bootstrap-sass
+```
 
 
 ### Configuration
