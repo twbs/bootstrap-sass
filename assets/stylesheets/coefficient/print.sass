@@ -8,7 +8,7 @@
   .back-to-top,
   .btn,
   .no-print
-    display: none
+    display: none !important
 
   #cl-wrapper,
   .cl-mcont
@@ -51,14 +51,10 @@
     h2
       white-space: normal
 
-  #note-content,
-  #audit-content,
-  .audit-comments
-    display: none !important
+  .only-print
+    display: block !important
 
-  #note-content-print,
-  #audit-content-print,
-  .audit-comments-print
+  .msd-elastic-print
     display: block !important
     font-size: 14px
     line-height: 1.42857143
@@ -66,7 +62,7 @@
 
   .audit-pass-fail
     .btn
-      display: inline-block
+      display: inline-block !important
     .btn-success
       z-index: 999
       border-width: 4px
@@ -102,3 +98,8 @@
   #cl-wrapper,
   .cl-mcont-wrapper
     height: auto
+
+// Hiding elements for print only
+.msd-elastic-print,
+.only-print
+  display: none

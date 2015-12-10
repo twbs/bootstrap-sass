@@ -27,13 +27,26 @@
 
 .audit-section-header
   background-color: $greylightest
-  padding: 10px 15px
+  padding: 10px 20px
+  width: 100%
+  display: table
 
   .audit-section-title
-    width: 40%
     background-color: $greylightest
     border: 0
     outline: none
+    box-shadow: none
+    padding: 0
+    width: 100%
+    @include long-title-overflow
+
+  .audit-section-header-title,
+  .audit-section-header-delete
+    display: table-cell
+
+  .audit-section-header-delete
+    width: 50px
+    vertical-align: top
 
 .audit-item-header
   width: 100%
@@ -107,6 +120,7 @@
 #audit-title
   @extend %gamma
   font-weight: 300
+  @include long-title-overflow
 
 #audit-item-header-right
   float: right
@@ -171,4 +185,5 @@
         display: none !important
     .expand-collapse-bar
       display: none
-
+    .block-flat,
+    .content
