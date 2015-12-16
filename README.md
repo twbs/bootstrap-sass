@@ -182,9 +182,9 @@ $ npm install bootstrap-sass
 ```
 
 
-### Configuration
+## Configuration
 
-#### Sass
+### Sass
 
 By default all of Bootstrap is imported.
 
@@ -197,18 +197,18 @@ In the application Sass file, replace `@import 'bootstrap'` with:
 @import 'bootstrap-custom';
 ```
 
-#### Sass: Number Precision
+### Sass: Number Precision
 
 bootstrap-sass [requires](https://github.com/twbs/bootstrap-sass/issues/409) minimum [Sass number precision][sass-precision] of 8 (default is 5).
 
 Precision is set for Rails and Compass automatically.
-When using ruby Sass compiler standalone or with the Bower version you can set it with:
+When using Ruby Sass compiler standalone or with the Bower version you can set it with:
 
 ```ruby
 ::Sass::Script::Value::Number.precision = [8, ::Sass::Script::Value::Number.precision].max
 ```
 
-#### Sass: Autoprefixer
+### Sass: Autoprefixer
 
 Bootstrap requires the use of [Autoprefixer][autoprefixer].
 [Autoprefixer][autoprefixer] adds vendor prefixes to CSS rules using values from [Can I Use](http://caniuse.com/).
@@ -227,7 +227,7 @@ To match [upstream Bootstrap's level of browser compatibility](http://getbootstr
 ]
 ```
 
-#### JavaScript
+### JavaScript
 
 [`assets/javascripts/bootstrap.js`](/assets/javascripts/bootstrap.js) contains all of Bootstrap's JavaScript,
 concatenated in the [correct order](/assets/javascripts/bootstrap-sprockets.js).
@@ -251,7 +251,7 @@ You can check dependencies in the [Bootstrap JS documentation][jsdocs].
 //= require bootstrap/dropdown
 ```
 
-#### Fonts
+### Fonts
 
 The fonts are referenced as:
 
