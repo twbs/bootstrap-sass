@@ -60,3 +60,27 @@
   > li
     position: relative
     display: block
+
+// Colors
+.color-block-section
+  @include clearfix
+
+.color-block
+  width: 33%
+  float: left
+  margin-bottom: 15px
+  .color-swatch
+    width: 50px
+    height: 50px
+    border: 1px solid $greylight
+    float: left
+    margin-right: 10px
+  .color-variable
+    line-height: 52px
+
+$colorsList: (white: #ffffff, silver: #f6f6f6, greylightest: #e9e9e9, greylight: #dadada, grey: #cccccc, greymedium: #999999, greydark: #464646, black: #000000, text-color: #555555, link-color: #0079c2, link-hover: #4e9dff, default: #a1a1a1, primary: #0079c2, success: #60c060, info: #5dc4ea, warning: #fcad37, danger: #ed5b56, facebook: #3b5998, twitter: #00aced, linkedin: #0e76a8, google-plus: #dd4b39)
+
+@each $colorVar, $colorName in $colorsList
+  .color-swatch
+    &.#{$colorVar}
+      background-color: $colorName
