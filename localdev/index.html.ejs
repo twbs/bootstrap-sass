@@ -144,22 +144,137 @@
           </div>
 
 
-          <!-- TODO: Define all colors and add to styleguide -->
-          <!-- <span id="coefficient-colors" class="anchor"></span>
+          <span id="ui-elements" class="anchor"></span>
+          <span id="ui-elements-colors" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
-              <a href="#coefficient-colors" class="anchor-link"><i class="fa fa-link"></i></a>
+              <a href="#ui-elements-colors" class="anchor-link"><i class="fa fa-link"></i></a>
               <h3>CoEFFICIENT Colors</h3>
             </div>
             <div class="content">
               <p>
                 Here are a set of pre-defined colors that are commonly used within the CoEFFICIENT app. We should try and stick to these colors as much as possible - especially with the grey colors - to keep things consistent.
               </p>
+              <p>
+                To use the following colors in the Sass files, use the appropriate color variable:
+              </p>
+              <pre><code class="scss">.class-name-here
+  color: $greymedium
+  border-color: 1px solid $grey</code></pre>
+              <h4 class="subtitle">General Colors</h4>
+              <p>
+                <div class="color-block-section">
+                  <div class="color-block">
+                    <div class="color-swatch white"></div>
+                    <div class="color-variable">$white</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch silver"></div>
+                    <div class="color-variable">$silver</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch greylightest"></div>
+                    <div class="color-variable">$greylightest</div>
+                  </div>
+
+                  <div class="color-block">
+                    <div class="color-swatch greylight"></div>
+                    <div class="color-variable">$greylight</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch grey"></div>
+                    <div class="color-variable">$grey</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch greymedium"></div>
+                    <div class="color-variable">$greymedium</div>
+                  </div>
+
+                  <div class="color-block">
+                    <div class="color-swatch greydark"></div>
+                    <div class="color-variable">$greydark</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch black"></div>
+                    <div class="color-variable">$black</div>
+                  </div>
+                </div>
+              </p>
+              <h4 class="subtitle">Typography Colors</h4>
+              <p>
+                <div class="color-block-section">
+                  <div class="color-block">
+                    <div class="color-swatch text-color"></div>
+                    <div class="color-variable">$text-color</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch link-color"></div>
+                    <div class="color-variable">$link-color</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch link-hover"></div>
+                    <div class="color-variable">$link-hover</div>
+                  </div>
+                </div>
+              </p>
+              <h4 class="subtitle">State Colors</h4>
+              <p>
+                Typically used as "state" background colors for buttons, labels, alerts, etc.
+                <div class="color-block-section">
+                  <div class="color-block">
+                    <div class="color-swatch default"></div>
+                    <div class="color-variable">$default</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch primary"></div>
+                    <div class="color-variable">$primary</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch success"></div>
+                    <div class="color-variable">$success</div>
+                  </div>
+
+
+                  <div class="color-block">
+                    <div class="color-swatch info"></div>
+                    <div class="color-variable">$info</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch warning"></div>
+                    <div class="color-variable">$warning</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch danger"></div>
+                    <div class="color-variable">$danger</div>
+                  </div>
+                </div>
+              </p>
+              <h4 class="subtitle">Social Site Colors</h4>
+              <p>
+                <div class="color-block-section">
+                  <div class="color-block">
+                    <div class="color-swatch facebook"></div>
+                    <div class="color-variable">$facebook</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch twitter"></div>
+                    <div class="color-variable">$twitter</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch linkedin"></div>
+                    <div class="color-variable">$linkedin</div>
+                  </div>
+
+                  <div class="color-block">
+                    <div class="color-swatch google-plus"></div>
+                    <div class="color-variable">$google-plus</div>
+                  </div>
+                </div>
+              </p>
             </div>
-          </div> -->
+          </div>
 
 
-          <span id="ui-elements" class="anchor"></span>
           <span id="ui-elements-headings" class="anchor"></span>
           <div class="block-flat">
             <div class="header">
@@ -304,11 +419,11 @@
             <div class="content">
               <div class="dropdown clearfix">
                 <ul class="dropdown-menu static-mn spacer">
-                <li><a tabindex="-1" href="#">Action</a></li>
-                <li><a tabindex="-1" href="#">Another action</a></li>
-                <li><a tabindex="-1" href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a tabindex="-1" href="#">Separated link</a></li>
+                  <li><a tabindex="-1" href="#">Action</a></li>
+                  <li><a tabindex="-1" href="#">Another action</a></li>
+                  <li><a tabindex="-1" href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a tabindex="-1" href="#">Separated link</a></li>
                 </ul>
               </div>
               <pre><code class="html">&lt;div class=&quot;dropdown clearfix&quot;&gt;
@@ -323,17 +438,17 @@
               <h4 class="subtitle">Sub Menu</h4>
               <div class="dropdown clearfix">
                 <ul class="dropdown-menu static-mn spacer">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-submenu"><a href="#">Sub menu</a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-submenu"><a href="#">Sub menu</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
                     </ul>
-                </li>
+                  </li>
                 </ul>
               </div>
               <pre><code class="html">&lt;div class=&quot;dropdown clearfix&quot;&gt;
@@ -356,24 +471,24 @@
                 <ul class="dropdown-menu col-menu-2 static-mn spacer">
                   <li class="col-sm-6 no-padding">
                     <ul>
-                    <li class="dropdown-header"><i class="fa fa-group"></i>Users</li>
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="dropdown-header"><i class="fa fa-gear"></i>Config</li>
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
+                      <li class="dropdown-header"><i class="fa fa-group"></i>Users</li>
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li class="dropdown-header"><i class="fa fa-gear"></i>Config</li>
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
                     </ul>
                   </li>
-                  <li  class="col-sm-6 no-padding">
+                  <li class="col-sm-6 no-padding">
                     <ul>
-                    <li class="dropdown-header"><i class="fa fa-legal"></i>Sales</li>
-                    <li><a href="#">New sale</a></li>
-                    <li><a href="#">Register a product</a></li>
-                    <li><a href="#">Register a client</a></li>
-                    <li><a href="#">Month sales</a></li>
-                    <li><a href="#">Delivered orders</a></li>
+                      <li class="dropdown-header"><i class="fa fa-legal"></i>Sales</li>
+                      <li><a href="#">New sale</a></li>
+                      <li><a href="#">Register a product</a></li>
+                      <li><a href="#">Register a client</a></li>
+                      <li><a href="#">Month sales</a></li>
+                      <li><a href="#">Delivered orders</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -573,11 +688,11 @@
                   Basic Dropdown <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
                   </ul>
                 </div>
               </div>
@@ -2135,6 +2250,7 @@
               <li>
                 <a href="#ui-elements">UI Elements</a>
                 <ul class="nav list-unstyled">
+                  <li><a href="#ui-elements-colors">CoEFFICIENT Colors</a></li>
                   <li><a href="#ui-elements-headings">Headings</a></li>
                   <li><a href="#ui-elements-alerts">Bootstrap Alerts</a></li>
                   <li><a href="#ui-elements-progress-bars">Progress Bars</a></li>
