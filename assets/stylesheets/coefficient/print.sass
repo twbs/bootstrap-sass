@@ -27,17 +27,7 @@
   #set-location
     text-decoration: none !important
     color: $black
-    //SYANG TEMPORARY SOLUTION FOR MIXIN NOT WORKING
-    &::-webkit-input-placeholder
-      color: $black
-      text-decoration: none
-    &:-moz-placeholder
-      color: $black
-      text-decoration: none
-    &::-moz-placeholder
-      color: $black
-      text-decoration: none
-    &:-ms-input-placeholder
+    @include placeholder
       color: $black
       text-decoration: none
 
