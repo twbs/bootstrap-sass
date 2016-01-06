@@ -118,17 +118,7 @@
 #set-location
   color: $link-color
   text-decoration: underline
-  //SYANG TEMPORARY SOLUTION FOR MIXIN NOT WORKING
-  &::-webkit-input-placeholder
-    color: $link-color
-    text-decoration: underline
-  &:-moz-placeholder
-    color: $link-color
-    text-decoration: underline
-  &::-moz-placeholder
-    color: $link-color
-    text-decoration: underline
-  &:-ms-input-placeholder
+  @include placeholder
     color: $link-color
     text-decoration: underline
   &:hover
@@ -137,17 +127,7 @@
   &:focus
     color: $text-color
     text-decoration: none
-    //SYANG TEMPORARY SOLUTION FOR MIXIN NOT WORKING
-    &::-webkit-input-placeholder
-      color: $greymedium
-      text-decoration: none
-    &:-moz-placeholder
-      color: $greymedium
-      text-decoration: none
-    &::-moz-placeholder
-      color: $greymedium
-      text-decoration: none
-    &:-ms-input-placeholder
+    @include placeholder
       color: $greymedium
       text-decoration: none
 
