@@ -9,3 +9,34 @@
     .block-flat,
     .content
       padding-top: 0
+
+// We need to allow classes to be put onto table.datatable columns so that
+// we can easily target specific columns for easier styling
+.audit-report-section
+  table
+    tr
+      th:first-child,
+      td:first-child
+        width: 80%
+      th:not(:first-child),
+      td:not(:first-child)
+        text-align: center
+
+.audit-table
+  .datatable
+    th:first-child,
+    td:first-child
+      max-width: 0
+      width: 70%
+      @include long-title-overflow
+    th:not(:first-child),
+    td:not(:first-child)
+      text-align: center
+
+.field-audit-table
+  .datatable
+    th:first-child,
+    td:first-child
+      max-width: 0
+      width: 40%
+      @include long-title-overflow
