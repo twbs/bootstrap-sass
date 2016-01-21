@@ -6,8 +6,10 @@
   position: relative
 
 #note-title
+  @extend %gamma
+  font-weight: 300
   margin-bottom: 0
-  @include long-title-overflow
+  @include title-hover
 
 .note-metainfo
   position: absolute
@@ -99,16 +101,11 @@
 // ----------------------------
 // TEMPORARY EDITOR STYLES
 // ----------------------------
-#note-title,
 #note-content,
 #set-location
   padding: 0
   border: 0
   box-shadow: none
-
-#note-title
-  @extend %gamma
-  font-weight: 300
 
 #note-content
   height: 18px

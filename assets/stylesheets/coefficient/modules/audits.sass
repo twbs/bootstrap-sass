@@ -36,12 +36,9 @@
 
   .audit-section-title
     background-color: $grey
-    border: 0
     outline: none
-    box-shadow: none
-    padding: 0
     width: 100%
-    @include long-title-overflow
+    @include title-hover
 
   .audit-section-header-title,
   .audit-section-header-delete
@@ -127,7 +124,7 @@
 #audit-title
   @extend %gamma
   font-weight: 300
-  @include long-title-overflow
+  @include title-hover
 
 #audit-item-header-right
   float: right
@@ -144,7 +141,6 @@
     left: auto
     right: 10px
 
-#audit-title,
 #audit-content,
 .audit-comments
   padding: 0
