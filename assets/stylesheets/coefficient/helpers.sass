@@ -29,6 +29,19 @@
   -webkit-transform: translateY(-50%)
   -ms-transform: translateY(-50%)
 
+@mixin title-hover
+  margin-bottom: 0
+  border: 0
+  border-bottom: 2px solid transparent
+  padding: 0
+  box-shadow: none
+  transition: none
+  @include long-title-overflow
+  &:hover,
+  &:focus
+    background-color: #fff8dd
+    border-bottom: 2px dotted $grey
+
 @mixin long-title-overflow
   overflow: hidden
   text-overflow: ellipsis
