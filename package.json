@@ -26,5 +26,9 @@
     "node-sass": "~3.4.2",
     "mincer": "~1.3",
     "ejs": "~2.3"
+  },
+  "eyeglass": {
+    "exports": "eyeglass-exports.js",
+    "needs": "^0.7.1"
   }
 }
