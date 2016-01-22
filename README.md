@@ -294,6 +294,22 @@ $navbar-default-color: $light-orange;
 @import "bootstrap";
 ```
 
+### Eyeglass
+
+Boodstrap is available as an [Eyeglass](https://github.com/sass-eyeglass/eyeglass) module. After installing Bootstrap via NPM you can import the Bootstrap library via:
+
+```scss
+@import "bootstrap-sass/bootstrap"
+```
+
+or import only the parts of Bootstrap you need:
+
+```scss
+@import "bootstrap-sass/bootstrap/variables";
+@import "bootstrap-sass/bootstrap/mixins";
+@import "bootstrap-sass/bootstrap/carousel";
+```
+
 ## Version
 
 Bootstrap for Sass version may differ from the upstream version in the last number, known as
