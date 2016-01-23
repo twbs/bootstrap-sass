@@ -1,0 +1,37 @@
+// ----------------------------
+// USER ICONS & COLORS
+// ----------------------------
+
+.no-avatar-icon
+  float: left
+  text-align: center
+  text-transform: uppercase
+  color: $white
+  &:hover
+    cursor: default
+  &.xsmall-icon
+    border-radius: 5px
+    width: 25px
+    height: 25px
+    line-height: 25px
+    @extend %itsy
+  &.small-icon
+    border-radius: 6px
+    width: 30px
+    height: 30px
+    line-height: 30px
+    @extend %body_copy
+  &.large-icon
+    margin-right: 10px
+    border-radius: 10px
+    width: 50px
+    height: 50px
+    line-height: 50px
+    @extend %gamma
+
+$userIconColors: (color-1: #A4A9C6, color-2: #6F396B, color-3: #A36476, color-4: #A12E33, color-5: #CB3A7D, color-6: #02779E, color-7: #4E9CB5, color-8: #A1BEE6, color-9: #1CBABC, color-10: #CDB39C)
+
+@each $color, $hex in $userIconColors
+  .no-avatar-icon
+    &.#{$color}
+      background-color: $hex
