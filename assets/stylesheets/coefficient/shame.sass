@@ -34,6 +34,17 @@
       text-align: center
       white-space: nowrap
 
+.draft-audit-table
+  .datatable
+    th:first-child,
+    td:first-child
+      max-width: 0
+      width: 100%
+      @include long-title-overflow
+      a
+        text-overflow: ellipsis
+        overflow: hidden
+
 .field-audit-table
   .datatable
     th:first-child,
