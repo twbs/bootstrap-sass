@@ -78,10 +78,15 @@ ol
   float: left
 .action-header-right
   float: right
+.action-header-icons
+  padding-right: 20px
+
 
 #page-aside + #pcont
   #fixed-action-header
     left: 495px
+  .page-head
+    left: 496px
 #pcont
   #fixed-action-header
     left: 216px
@@ -89,6 +94,8 @@ ol
   #page-aside + #pcont
     #fixed-action-header
       left: 334px
+    .page-head
+      left: 335px
   #pcont
     #fixed-action-header
       left: 55px
@@ -147,6 +154,9 @@ ol
 .no-margin-right
   margin-right: 0 !important
 
+.divider
+  border-bottom: 1px solid $greylight
+  margin: 20px 0
 
 
 
@@ -165,21 +175,17 @@ ol
   box-shadow: 0px 1px 2px 0px rgba($greymedium, 0.4)
 
 .page-head
-  border-bottom: 1px solid $greylightest
-  box-shadow: 0 0 1px 0 rgba($black, 0.05)
-  padding: 20px 25px
-  position: fixed
+  border-bottom: 3px solid $grey
+  padding: 10px 30px 5px
+  position: absolute
   right: 0
   left: 216px
   z-index: 5
   + .cl-mcont
-    padding-top: 85px
-  &.has-breadcrumb
-    + .cl-mcont
-      padding-top: 110px
+    padding-top: 111px
   &.has-breadcrumb-info
     + .cl-mcont
-      padding-top: 132px
+      padding-top: 148px
   .breadcrumb
     background: none
     margin-bottom: 0
