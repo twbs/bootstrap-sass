@@ -45,9 +45,10 @@
     border-right: 1px solid $grey
     li
       padding: 20px 22px 20px 25px
-      &:hover:not(.note-date-section)
+      border-bottom: 2px solid $greylightest
+      border-top: 2px solid $white
+      &:hover
         cursor: pointer
-        background: rgba($primary, 0.1)
       &.selected
         padding: 20px
         border: 2px solid $primary
@@ -61,4 +62,3 @@
     border: none
     &:hover
       cursor: default
-      background: none !important
