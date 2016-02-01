@@ -25,13 +25,13 @@
     .aside-scroll-header
       position: fixed
       width: 279px
-      top: 134px
+      top: 170px
       padding-bottom: 2px
       border-bottom: 1px solid $greylightest
     #aside-items
       position: fixed
       width: 279px
-      top: 154px
+      top: 190px
     #aside-nav.collapse,
     #aside-nav.collapse.in
       display: block !important
@@ -207,10 +207,6 @@
       #fixed-action-header
         left: 334px
 
-  #page-aside + #pcont
-    .page-head
-      left: 335px
-
 // ----------------------------
 // Mobile
 // ----------------------------
@@ -292,11 +288,9 @@
 
   // Content
   .page-head
-    left: 0
-
-  #page-aside + #pcont
-    .page-head
-      left: 0
+    position: static
+    + .cl-mcont
+      padding-top: 0
 
   #fixed-action-header,
   #fixed-action-header2
@@ -307,4 +301,3 @@
 
   .cl-mcont
     padding: 15px
-
