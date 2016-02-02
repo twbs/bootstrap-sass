@@ -6,30 +6,21 @@
   position: relative
 
 #note-title
-  @extend %gamma
+  @extend %alpha
+  line-height: initial
+  height: auto
   font-weight: 300
   margin-bottom: 0
   @include title-hover
 
 .note-metainfo
-  position: absolute
-  top: -10px
-  right: 3px
+  text-align: right
   font-style: italic
   line-height: 1.25
   color: $greymedium
   @extend %itsy
 
-.visit-info
-  @extend %small
-  padding-top: 10px
-  display: table
-  .visit-info-label
-    color: $greymedium
-    width: 75px
-    display: table-cell
-  .visit-info-row
-    display: table-row
+.main-header-info
   .datepicker
     border: 0
     padding: 0

@@ -9,6 +9,16 @@
     max-height: 25px
     margin-right: 5px
 
+.in-progress
+  color: $success
+  font-weight: 600
+.in-draft
+  color: $danger
+  font-weight: 600
+
+#audit-details-box
+  margin-top: 44px
+
 .audit-item
   padding: 10px 15px
   background: $silver
@@ -29,15 +39,15 @@
 
 .audit-section-header,
 .audit-report-section-header
-  background-color: $grey
-  padding: 10px 20px
+  padding: 10px 15px
   width: 100%
   display: table
 
   .audit-section-title
-    background-color: $grey
+    background-color: transparent
     outline: none
     width: 100%
+    @extend %epsilon
     @include title-hover
 
   .audit-section-header-title,
@@ -45,7 +55,7 @@
     display: table-cell
 
   .audit-section-header-delete
-    width: 50px
+    width: 90px
     vertical-align: top
 
 .audit-report-section-header
@@ -86,13 +96,8 @@
 .audit-info
   @extend %small
   padding-top: 10px
-  display: table
-  .audit-info-row
-    display: table-row
   .audit-info-label
-    color: $greymedium
-    width: 75px
-    display: table-cell
+    font-weight: 600
   .datepicker
     border: 0
     padding: 0
@@ -122,8 +127,10 @@
     @extend %epsilon
 
 #audit-title
-  @extend %gamma
+  @extend %alpha
+  line-height: initial
   font-weight: 300
+  height: auto
   @include title-hover
 
 #audit-item-header-right
