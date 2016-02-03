@@ -10,8 +10,8 @@
   "description": "bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications.",
   "moduleType": "globals",
   "main": [
-    "assets/stylesheets/_bootstrap.scss",
-    "assets/javascripts/bootstrap.js"
+    "assets/stylesheets/**/*.scss",
+    "assets/javascripts/**/*.js"
   ],
   "keywords": [
     "twbs",
