@@ -1,0 +1,44 @@
+// ----------------------------
+// FULL PAGE POPOVER
+// ----------------------------
+
+#fullpage-popover
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background: $white
+  z-index: 2001
+  height: 100%
+  overflow-y: scroll
+  .header
+    padding: 3px 0
+    border-bottom: 1px solid $greylight
+    h3
+      margin-top: 3px
+      font-weight: 200
+  .content
+    padding: 15px 3px
+
+#fullpage-popover-inner
+  padding-top: 75px
+
+#fullpage-popover-header
+  position: fixed
+  z-index: 2002
+  top: 0
+  left: 0
+  right: 0
+  height: 47px
+  padding: 0 15px
+  background: $greydark
+  border-bottom: 3px solid $grey
+
+#fullpage-popover-close
+  line-height: 47px
+  color: $white
+  float: right
+  &:hover
+    color: rgba($white, 0.9)
+    cursor: pointer
