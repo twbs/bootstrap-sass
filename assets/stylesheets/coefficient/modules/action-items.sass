@@ -16,12 +16,6 @@
     padding-bottom: 10px
     &.marked-complete
       text-decoration: line-through
-  #action-item-title
-    @extend %epsilon
-    padding: 0
-    height: auto
-    border: 0
-    box-shadow: none
   .action-item-meta
     @extend %itsy
     line-height: 24px
@@ -31,3 +25,11 @@
       margin-right: 8px
       display: inline-block
       text-align: center
+
+#action-item-title
+  @extend %epsilon
+  padding: 0
+  height: auto
+  border: 0
+  box-shadow: none
+  @include title-hover
