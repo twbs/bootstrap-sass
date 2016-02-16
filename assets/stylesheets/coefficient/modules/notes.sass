@@ -27,7 +27,6 @@
     padding: 0
     width: auto
     color: $link-color
-    text-decoration: underline
     &:hover
       color: $link-hover
       cursor: pointer
@@ -106,19 +105,16 @@
 
 #set-location
   color: $link-color
-  text-decoration: underline
   @include placeholder
     color: $link-color
-    text-decoration: underline
   &:hover
     cursor: pointer
-    color: $link-hover
+    @include placeholder
+      color: $link-hover
   &:focus
     color: $text-color
-    text-decoration: none
     @include placeholder
       color: $greymedium
-      text-decoration: none
 
 #note-content-print
   display: none
@@ -136,7 +132,6 @@
 #set-location[disabled]
   color: $text-color
   background-color: transparent
-  text-decoration: none
   padding-left: 0
   &:hover
     cursor: inherit
