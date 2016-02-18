@@ -33,6 +33,11 @@ fieldset[disabled] .form-control
   background-color: transparent
   opacity: 1
 
+.form-control[disabled],
+fieldset[disabled] .form-control
+  background-color: $silver
+  color: $greymedium
+
 .input-group
   padding: 0 0 12px
   border-radius: 1px
@@ -41,6 +46,7 @@ fieldset[disabled] .form-control
   .input-group-addon
     min-width: 42px
     border-radius: 1px
+    background-color: $silver
 
 .helper-text
   position: absolute
