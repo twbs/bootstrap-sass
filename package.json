@@ -5,6 +5,13 @@
   "main": "assets/javascripts/bootstrap.js",
   "style": "assets/stylesheets/_bootstrap.scss",
   "sass": "assets/stylesheets/_bootstrap.scss",
+  "files": [
+    "assets",
+    "eyeglass-exports.js",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/twbs/bootstrap-sass"
