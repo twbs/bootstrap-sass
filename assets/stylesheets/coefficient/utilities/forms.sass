@@ -26,7 +26,6 @@ textarea
   &:focus
     border-color: #2598f9
 
-.form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control
   cursor: inherit
@@ -35,8 +34,14 @@ fieldset[disabled] .form-control
 
 .form-control[disabled],
 fieldset[disabled] .form-control
+  cursor: inherit
   background-color: $silver
   color: $greymedium
+  opacity: 1
+
+#editor
+  textarea.form-control[disabled]
+    background-color: transparent
 
 .input-group
   padding: 0 0 12px
