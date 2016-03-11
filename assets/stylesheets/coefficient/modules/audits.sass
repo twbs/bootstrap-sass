@@ -106,6 +106,39 @@
   #set-location-wrap
     position: relative
 
+.audit-metainfo
+  white-space: nowrap
+  text-align: right
+  font-style: italic
+  line-height: 1.25
+  color: $greymedium
+  @extend %itsy
+
+// ----------------------------
+// AUDIT (RESPONSIVE)
+// ----------------------------
+@media (max-width: 767px)
+  .audit-metainfo
+    .created-on,
+    .modified-on
+      display: block
+      text-align: right
+    .created-on,
+    .meta-separator
+      display: none
+
+// ----------------------------
+// AUDIT (PRINT)
+// ----------------------------
+@media print
+  .audit-list-item
+    .audit-item-name,
+    .msd-elastic-print
+      font-size: 11px
+      line-height: 1.2
+    label
+      font-size: 11px
+
 .audit-list-item
   border-left-width: 3px
   &.item-pass
@@ -114,16 +147,11 @@
     border-left-color: $danger
   .audit-pass-fail
     float: right
-    padding: 7px 11px 2px 0
+    padding: 7px 11px 7px 0
   .audit-item-name
-    padding: 7px 11px 2px 0
+    padding: 7px 11px 7px 0
   .audit-attachments
     margin-top: 15px
-
-#slideout
-  .audit-item-name
-    padding: 20px 0
-    @extend %epsilon
 
 #audit-title
   @extend %alpha
