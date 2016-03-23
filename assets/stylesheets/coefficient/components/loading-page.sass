@@ -34,20 +34,27 @@
   100%
     transform: rotateY(360deg) rotateZ(-60deg)
 
-#page-loading
+#loading-page
   position: relative
-  height: 100%
+  padding: 50px
 
-.preloader
+#indicator-wrap
   position: absolute
   top: 50%
   left: 50%
+  margin-left: -1.875em
+
+  .loading-text
+    color: $greymedium
+    padding-top: 20px
+    font-size: 14px
+    text-align: center
+
+.preloader
   font-size: 20px
   display: block
   width: 3.75em
   height: 4.25em
-  margin-left: -1.875em
-  margin-top: -2.125em
   transform-origin: center center
   transform: rotateY(180deg) rotateZ(-60deg)
   .slice
