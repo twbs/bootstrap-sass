@@ -90,6 +90,16 @@
     .meta-separator
       display: none
 
+@media (max-width: 1024px)
+  .action-item-link
+    @include clearfix
+
+  .item-date-assignee-wrap
+    display: block
+    float: right
+    width: 145px
+    padding-top: 10px
+
 
 // ----------------------------
 // NOTES (PRINT)
@@ -101,6 +111,24 @@
     .modified-on,
     .meta-separator
       display: inline
+
+
+// ----------------------------
+// ADD ACTION ITEMS
+// ----------------------------
+#action-item-add
+  background: $greylight
+  margin-bottom: 15px
+  display: table
+  width: 100%
+  #action-item-add-input,
+  #action-item-add-button
+    display: table-cell
+    padding: 15px
+  #action-item-add-input
+    width: 100%
+  #action-item-add-button
+    padding-left: 0
 
 
 // ----------------------------

@@ -15,6 +15,7 @@
   padding: 10px
 
 .item-title
+  font-weight: 600
   width: 100%
 
 .item-assigned-to
@@ -33,16 +34,14 @@
   padding-top: 5px
 
 .marked-complete
+  background: rgba($greylightest, 0.7)
+  &:hover
+    background: $white
   .item-title
     color: $greymedium
-    text-decoration: line-through
   .item-due-date
     padding-top: 0
     color: $greymedium
-  .item-assigned-to
-    opacity: 0.5
-    &:hover
-      opacity: 1
 
 .past-due
   .item-due-date
@@ -69,3 +68,6 @@
   padding-bottom: 15px
   color: $greymedium
   font-style: italic
+
+.item-date-assignee-wrap
+  display: table-cell
