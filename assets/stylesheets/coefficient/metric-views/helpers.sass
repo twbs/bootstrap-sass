@@ -1,0 +1,22 @@
+// ----------------------------
+// MIXINS
+// ----------------------------
+
+@mixin multiline-truncation($font-size, $lines-to-show)
+  display: block /* Fallback for non-webkit */
+  display: -webkit-box
+  max-height: $font-size*$lines-to-show /* Fallback for non-webkit */
+  margin: 0 auto
+  font-size: $font-size
+  line-height: 1
+  -webkit-line-clamp: $lines-to-show
+  -webkit-box-orient: vertical
+  overflow: hidden
+  text-overflow: ellipsis
+  padding-bottom: 1px /* Fixing text cutoff on bottom */
+
+@mixin metric-view-labels
+  font-weight: 600
+  line-height: 1.5
+  color: $grey
+  @extend %tiny

@@ -1,0 +1,56 @@
+.context-menu
+  background-color: white
+  border: none
+
+  .context-menu-icon
+    background: white
+    border: none
+    width: 10px
+    height: 18px
+    margin-right: 0
+
+  &.dropdown
+    position: relative
+    background: none
+    padding: 0
+    margin: 0
+    z-index: 999
+
+  .dropdown-menu
+    display: none
+    position: absolute
+    top: 33px
+    left: auto
+    right: 0
+    padding: 5px
+    margin: 2px 0 0
+    font-size: 14px
+    text-align: left
+    list-style: none
+    background-color: #fff
+    -webkit-background-clip: padding-box
+    background-clip: padding-box
+    border: 1px solid #E9E9E9
+
+    border-radius: 0px
+    -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, .175)
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .175)
+
+    li
+      a
+        display: block
+        padding: 3px 20px
+        clear: both
+        font-weight: normal
+        line-height: 1.42857143
+        color: #333
+        white-space: nowrap
+      a:hover, a:focus
+        cursor: pointer
+        color: #fff
+        text-decoration: none
+        background-color: #0078C1
+
+  &.open
+    .dropdown-menu
+      display: block

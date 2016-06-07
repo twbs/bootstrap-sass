@@ -1,0 +1,69 @@
+// ----------------------------
+// METRIC VIEWS COMMON STYLES
+// ----------------------------
+
+.metric-view
+  font-family: Helvetica, Arial, sans-serif
+  margin: 10px 13px 50px 13px
+  padding: 20px
+  border: 1px solid #efefef
+  border-bottom: 1px solid #e2e2e2
+  box-shadow: 0 1px 0 0 rgba($black, 0.04)
+  position: relative
+  background-color: $white
+  clear: both
+  @include clearfix
+  &.mv-borderless
+    border: 0
+    padding: 0
+    margin: 0
+    box-shadow: none
+  &.full-view
+    clear: both
+  &.half-view
+    width: 440px
+    float: left
+    clear: none
+  &.quarter-view
+    width: 207px
+    float: left
+    clear: none
+
+.metric-view-title
+  font-family: Helvetica, Arial, sans-serif
+  color: #4a4a4a
+  font-weight: 600
+  padding-bottom: 10px
+  margin-bottom: 10px
+  border-bottom: 2px solid #efefef
+  @extend %epsilon
+  &.no-title
+    border-bottom: 0
+    margin-bottom: 0
+    padding-bottom: 0
+
+.metric-view-subtitle
+  color: #3a3a3a
+  font-weight: 200
+  @extend %small
+
+.metric-view-footer
+  @include clearfix
+
+.info-last-updated
+  font-style: italic
+  color: #adadad
+  line-height: 1
+  text-align: right
+  padding-top: 10px
+  clear: both
+  @extend %tiny
+
+.no-data-available
+  font-style: italic
+  color: $red
+  line-height: 1
+  text-align: right
+  padding-top: 10px
+  clear: both
+  @extend %tiny
