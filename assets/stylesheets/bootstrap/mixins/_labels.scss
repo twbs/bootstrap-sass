@@ -8,9 +8,9 @@
   }
 }
 
-@mixin label-variant($bg-color, $text-color) {
+@mixin label-variant($bg-color) {
   background-color: $bg-color;
-  color: set-contrast($text-color);
+  color: set-contrast($bg-color);
   &[href] {
     &:hover,
     &:focus {
