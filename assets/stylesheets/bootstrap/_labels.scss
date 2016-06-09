@@ -4,7 +4,7 @@
 
 .label {
   display: inline-block;
-  padding: .2em .6em .3em;
+  padding: .0.1538461538em 0.3076923077em; // 2px 4px
   font-weight: bold;
   line-height: 1.0769230769; // 14px
   color: $label-color;
@@ -12,7 +12,7 @@
   text-transform: uppercase;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: 0.2307692308em;
+  border-radius: 0.2307692308em; // 3px
 
   // [converter] extracted a& to a.label
 
