@@ -23,7 +23,6 @@
     color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
     background-color: darken(saturate(adjust-hue($background, 0.0000), 0.0000), 7.8431);
 
-    &:hover,
     &:focus,
     &.focus {
       border-color: darken($border, 25%);
@@ -75,7 +74,6 @@
     background-color: darken($background, 10%);
         border-color: darken($border, 12%);
 
-    &:hover,
     &:focus,
     &.focus {
       color: $color;
