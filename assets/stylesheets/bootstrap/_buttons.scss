@@ -106,14 +106,14 @@ a.btn {
   &:hover,
   &:focus,
   &:active {
-    border-color: $button-default-border;
-    background-color: darken(saturate(adjust-hue($button-default-bg, 0.0000), 0.0000), 2.3529);
+    border-color: $btn-default-border;
+    background-color: darken(saturate(adjust-hue($btn-default-bg, 0.0000), 0.0000), 2.3529);
   }
   &:hover,
   &:focus {
     color: $link-hover-color;
     text-decoration: $link-hover-decoration;
-    background-color: darken(saturate(adjust-hue($button-default-bg, 0.0000), 0.0000), 2.3529);
+    background-color: darken(saturate(adjust-hue($btn-default-bg, 0.0000), 0.0000), 2.3529);
   }
   &[disabled],
   fieldset[disabled] & {
