@@ -3,7 +3,7 @@
 // --------------------------------------------------
 
 .label {
-  display: inline;
+  display: inline-block;
   padding: .2em .6em .3em;
   font-weight: bold;
   line-height: 1.0769230769; // 14px
@@ -12,7 +12,7 @@
   text-transform: uppercase;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: floor(0.25em);
+  border-radius: 0.2307692308em;
 
   // [converter] extracted a& to a.label
 
