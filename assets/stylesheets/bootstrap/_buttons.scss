@@ -114,7 +114,7 @@ a.btn {
     background-color: darken(saturate(adjust-hue($btn-default-bg, 0.0000), 0.0000), 2.3529);
   }
   &:active {
-    background-color: darken(saturate(adjust-hue($background, 0.0000), 0.0000), 7.8431);
+    background-color: darken(saturate(adjust-hue($btn-default-bg, 0.0000), 0.0000), 7.8431);
   }
   &[disabled],
   fieldset[disabled] & {
