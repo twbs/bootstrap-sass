@@ -1,24 +1,6 @@
 // Labels
 
-@function set-contrast($color) {
-  @if (lightness($color) > 50) {
-    @return $gray-base;
-  } @else {
-    @return $white;
-  }
-}
-
 @mixin label-variant($color) {
   background-color: $color;
-  color: set-contrast($color);
-  &[href] {
-    &:hover,
-    &:focus {
-      background-color: darken($color, 10%);
-    }
-  }
+  color: contrasting-color($color);
 }
-
-// @mixin label-variant-muted($bg-color, $text-color) {
-
-// }
