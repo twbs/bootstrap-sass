@@ -2,6 +2,42 @@
 // Wells
 // --------------------------------------------------
 
+$_text-inputs-list: (
+  "[type='color']",
+  "[type='date']",
+  "[type='datetime']",
+  "[type='datetime-local']",
+  "[type='email']",
+  "[type='month']",
+  "[type='number']",
+  "[type='password']",
+  "[type='search']",
+  "[type='tel']",
+  "[type='text']",
+  "[type='time']",
+  "[type='url']",
+  "[type='week']",
+  "input:not([type])",
+  "textarea",
+);
+
+@function _assign-inputs(
+    $inputs,
+    $pseudo: null
+  ) {
+
+  $list: ();
+
+  @each $input in $inputs {
+    $input: unquote($input);
+    $input: if($pseudo, $input + ":" + $pseudo, $input);
+    $list: append($list, $input, comma);
+  }
+
+  @return $list;
+}
+
+$all-text-inputs: _assing-inputs($_text-inputs-list);
 
 // Base class
 .well {
@@ -12,9 +48,20 @@
   border: 1px solid $well-border;
   border-radius: $border-radius-base;
 
+  p,
+  h2, .h2, .beta,
+  h4, .h4, .delta,
+  h6, .h6, .zeta {
+    color: $gray;
+  }
+
   blockquote {
     border-color: #ddd;
     border-color: rgba(0,0,0,.15);
+  }
+
+  #{$all-text-inputs} {
+    background-color: $white;
   }
 }
 
