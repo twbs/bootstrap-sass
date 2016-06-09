@@ -60,9 +60,12 @@ $all-text-inputs: _assing-inputs($_text-inputs-list);
     border-color: rgba(0,0,0,.15);
   }
 
-  #{$all-text-inputs} {
+  .form-control {
     background-color: $white;
   }
+  // #{$all-text-inputs} {
+  //   background-color: $white;
+  // }
 }
 
 // Sizes
