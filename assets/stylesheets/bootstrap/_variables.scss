@@ -477,8 +477,8 @@ $pagination-hover-color:               $link-hover-color !default;
 $pagination-hover-bg:                  $gray-lighter !default;
 $pagination-hover-border:              $gray-lighter !default;
 
-$pagination-active-color:              #fff !default;
-$pagination-active-bg:                 $brand-primary !default;
+$pagination-active-color:              $brand-primary !default;
+$pagination-active-bg:                 #fff !default;
 $pagination-active-border:             $brand-primary !default;
 
 $pagination-disabled-color:            $gray !default;
