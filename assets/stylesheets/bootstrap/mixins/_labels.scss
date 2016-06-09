@@ -8,13 +8,13 @@
   }
 }
 
-@mixin label-variant($bg-color) {
-  background-color: $bg-color;
-  color: set-contrast($bg-color);
+@mixin label-variant($color) {
+  background-color: $color;
+  color: set-contrast($color);
   &[href] {
     &:hover,
     &:focus {
-      background-color: darken($bg-color, 10%);
+      background-color: darken($color, 10%);
     }
   }
 }
