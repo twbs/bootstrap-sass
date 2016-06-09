@@ -507,20 +507,20 @@ $pager-disabled-color:                 $pagination-disabled-color !default;
 //## Define colors for form feedback states and, by default, alerts.
 
 $state-success-text:             $green !default;
-$state-success-bg:               lighten(saturate(adjust-hue($state-success-text, 0.0000), 0.0000), 60.7843) !default;
-$state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%) !default;
+$state-success-bg:               lighten(desaturate(adjust-hue($state-success-text, 1.2632), 9.6531), 53.7255) !default;
+$state-success-border:           $green !default;
 
 $state-info-text:                $gray !default;
 $state-info-bg:                  lighten(saturate(adjust-hue($state-info-text, 0.0000), 0.0000), 60.7843) !default;
-$state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
+$state-info-border:              $gray !default;
 
 $state-warning-text:             $yellow !default;
-$state-warning-bg:               lighten(saturate(adjust-hue($state-warning-text, 0.0000), 0.0000), 60.7843) !default;
-$state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
+$state-warning-bg:               lighten(saturate(adjust-hue($yellow, -1.3793), 1.6949), 43.9216) !default;
+$state-warning-border:           $yellow !default;
 
 $state-danger-text:              $red !default;
-$state-danger-bg:                lighten(saturate(adjust-hue($state-danger-text, 0.0000), 0.0000), 60.7843) !default;
-$state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%) !default;
+$state-danger-bg:                lighten(desaturate(adjust-hue($state-danger-text, -2.0513), 14.7783), 57.4510) !default;
+$state-danger-border:            $red !default;
 
 
 //== Tooltips
@@ -636,13 +636,17 @@ $alert-border-radius:         0 !default;
 $alert-link-font-weight:      bold !default;
 $alert-default-text:          $gray-base;
 
-$alert-success-border:        $green !default;
+$alert-success-border:        $state-success-border !default;
+$alert-success-bg:            $state-success-bg !default;
 
-$alert-info-border:           $gray !default;
+$alert-info-border:           $state-info-border !default;
+$alert-info-bg:               $state-info-bg !default;
 
-$alert-warning-border:        $yellow !default;
+$alert-warning-border:        $state-info-border !default;
+$alert-warning-bg:            $state-info-bg !default;
 
-$alert-danger-border:         $red !default;
+$alert-danger-border:         $state-danger-border !default;
+$alert-danger-bg:             $state-danger-bg !default;
 
 //== Panels
 //
