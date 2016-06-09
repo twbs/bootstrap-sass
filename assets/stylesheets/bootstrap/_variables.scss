@@ -510,7 +510,7 @@ $state-success-text:             $green !default;
 $state-success-bg:               lighten(saturate(adjust-hue($state-success-text, 0.0000), 0.0000), 60.7843) !default;
 $state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%) !default;
 
-$state-info-text:                $base-gray !default;
+$state-info-text:                $gray !default;
 $state-info-bg:                  lighten(saturate(adjust-hue($state-info-text, 0.0000), 0.0000), 60.7843) !default;
 $state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
 
