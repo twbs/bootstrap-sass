@@ -1,4 +1,5 @@
 // Labels
+@import "contrast";
 
 @mixin label-variant($color) {
   background-color: $color;
