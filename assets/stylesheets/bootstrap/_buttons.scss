@@ -105,14 +105,16 @@ a.btn {
   &:hover,
   &:focus,
   &:active {
+    color: $link-hover-color;
+    text-decoration: none;
     border-color: $btn-default-border;
-    background-color: darken(saturate(adjust-hue($btn-default-bg, 0.0000), 0.0000), 2.3529);
   }
   &:hover,
   &:focus {
-    color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
     background-color: darken(saturate(adjust-hue($btn-default-bg, 0.0000), 0.0000), 2.3529);
+  }
+  &:active {
+    background-color: darken(saturate(adjust-hue($background, 0.0000), 0.0000), 7.8431);
   }
   &[disabled],
   fieldset[disabled] & {
