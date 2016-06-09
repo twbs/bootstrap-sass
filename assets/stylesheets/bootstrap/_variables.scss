@@ -508,19 +508,19 @@ $pager-disabled-color:                 $pagination-disabled-color !default;
 
 $state-success-text:             $green !default;
 $state-success-bg:               lighten(desaturate(adjust-hue($state-success-text, 1.2632), 9.6531), 53.7255) !default;
-$state-success-border:           $green !default;
+$state-success-border:           $state-success-text !default;
 
 $state-info-text:                $gray !default;
 $state-info-bg:                  lighten(saturate(adjust-hue($state-info-text, 0.0000), 0.0000), 60.7843) !default;
-$state-info-border:              $gray !default;
+$state-info-border:              $state-info-text !default;
 
 $state-warning-text:             $yellow !default;
-$state-warning-bg:               lighten(saturate(adjust-hue($yellow, -1.3793), 1.6949), 43.9216) !default;
-$state-warning-border:           $yellow !default;
+$state-warning-bg:               lighten(saturate(adjust-hue($state-warning-text, -1.3793), 1.6949), 43.9216) !default;
+$state-warning-border:           $state-warning-text !default;
 
 $state-danger-text:              $red !default;
 $state-danger-bg:                lighten(desaturate(adjust-hue($state-danger-text, -2.0513), 14.7783), 57.4510) !default;
-$state-danger-border:            $red !default;
+$state-danger-border:            $state-danger-text !default;
 
 
 //== Tooltips
@@ -642,8 +642,8 @@ $alert-success-bg:            $state-success-bg !default;
 $alert-info-border:           $state-info-border !default;
 $alert-info-bg:               $state-info-bg !default;
 
-$alert-warning-border:        $state-info-border !default;
-$alert-warning-bg:            $state-info-bg !default;
+$alert-warning-border:        $state-warning-border !default;
+$alert-warning-bg:            $state-warning-bg !default;
 
 $alert-danger-border:         $state-danger-border !default;
 $alert-danger-bg:             $state-danger-bg !default;
