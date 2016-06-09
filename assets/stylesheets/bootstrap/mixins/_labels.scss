@@ -3,5 +3,5 @@
 
 @mixin label-variant($color) {
   background-color: $color;
-  color: contrasting-color($color);
+  color: contrasting-color($color, $white, $gray-base);
 }
