@@ -1,12 +1,24 @@
 // Labels
 
-@mixin label-variant($color) {
-  background-color: $color;
+@function set-contrast($color) {
+  @if (lightness($color) > 50) {
+    @return $gray-base;
+  } @else {
+    @return $white;
+  }
+}
 
+@mixin label-variant($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: set-contrast($text-color);
   &[href] {
     &:hover,
     &:focus {
-      background-color: darken($color, 10%);
+      background-color: darken($bg-color, 10%);
     }
   }
 }
+
+// @mixin label-variant-muted($bg-color, $text-color) {
+
+// }
