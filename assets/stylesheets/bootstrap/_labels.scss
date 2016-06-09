@@ -5,14 +5,14 @@
 .label {
   display: inline;
   padding: .2em .6em .3em;
-  font-size: 75%;
   font-weight: bold;
-  line-height: 1;
+  line-height: 1.0769230769; // 14px
   color: $label-color;
   text-align: center;
+  text-transform: uppercase;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: .25em;
+  border-radius: floor(0.25em);
 
   // [converter] extracted a& to a.label
 
