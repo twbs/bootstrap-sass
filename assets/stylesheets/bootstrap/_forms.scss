@@ -33,7 +33,7 @@ label {
   display: inline-block;
   max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
   margin-bottom: 5px;
-  font-weight: bold;
+  color: $label-color;
 }
 
 
@@ -512,6 +512,13 @@ input[type="checkbox"] {
     .control-label {
       margin-bottom: 0;
       vertical-align: middle;
+
+      &:after {
+        content: ":";
+      }
+      &.required:after {
+        content: ":*"
+      }
     }
 
     // Remove default margin on radios/checkboxes that were used for stacking, and
