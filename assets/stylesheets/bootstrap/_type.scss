@@ -45,7 +45,8 @@ h6, .h6 {
 
 h1, .h1, .alpha,
 h3, .h3, .gamma,
-h5, .h5, .epsilon {
+h5, .h5, .epsilon,
+h6, .h6, .zeta {
     color: $headings-alt-color;
 }
 
@@ -54,8 +55,9 @@ h4, .h4, .delta {
   color: $headings-color;
 }
 
+h5, .h5, .epsilon,
 h6, .h6, .zeta {
-  color: $gray;
+  font-weight: 700;
 }
 
 h1, .h1 { font-size: $font-size-h1; }
