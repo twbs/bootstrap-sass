@@ -67,6 +67,20 @@ $all-text-inputs: _assing-inputs($_text-inputs-list);
   //   background-color: $white;
   // }
 
+  .input-group-btn > .btn {
+    background-color: $white;
+    border-left-color: $well-bg;
+
+    &:hover {
+      background-color: $gray-superlight;
+    }
+
+    &:active,
+    &:focus {
+      background-color: $misty;
+    }
+  }
+
   .btn-default,
   .btn-success,
   .btn-danger {
