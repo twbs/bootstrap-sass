@@ -15,6 +15,7 @@ $gray-dark:              lighten($gray-base, 20%) !default;   // #333
 $gray:                   lighten($gray-base, 37%) !default; // #5e5e5e
 $gray-light:             lighten($gray-base, 55%) !default; // #8c8c8c
 $gray-lighter:           lighten($gray-base, 92%) !default; // #ebebeb
+$gray-superlight:        lighten($gray-base, 97.6471%) !default; // #f9f9f9
 
 $turqoise: #017d87;
 $accent: darken(saturate(adjust-hue($turqoise, -0.2776), 1.4706), 7.0588); // #005d64
@@ -446,7 +447,8 @@ $navbar-inverse-toggle-border-color:        #333 !default;
 
 //=== Shared nav styles
 $nav-link-padding:                          10px 15px !default;
-$nav-link-hover-bg:                         $gray-lighter !default;
+$nav-link-hover-bg:                         $gray-superlight !default;
+$nav-link-down-bg:                          $misty !default;
 
 $nav-disabled-link-color:                   $gray-light !default;
 $nav-disabled-link-hover-color:             $gray-light !default;
@@ -466,7 +468,7 @@ $nav-tabs-justified-active-link-border-color:     $body-bg !default;
 //== Pills
 $nav-pills-border-radius:                   $border-radius-base !default;
 $nav-pills-active-link-hover-bg:            $body-bg !default;
-$nav-pills-active-link-border-color:        $component-active-bg !default;
+$nav-pills-active-link-border-color:        $brand-primary !default;
 $nav-pills-active-link-hover-color:         $component-active-color !default;
 
 

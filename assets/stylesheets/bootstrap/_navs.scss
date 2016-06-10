@@ -20,10 +20,17 @@
       position: relative;
       display: block;
       padding: $nav-link-padding;
+      border: 1px solid transparent;
       &:hover,
       &:focus {
         text-decoration: none;
         background-color: $nav-link-hover-bg;
+        border: 1px solid $nav-tabs-border-color;
+      }
+      &:active {
+        text-decoration: none;
+        background-color: $nav-link-down-bg;
+        border: 1px solid $nav-tabs-border-color;
       }
     }
 
@@ -36,6 +43,7 @@
         color: $nav-disabled-link-hover-color;
         text-decoration: none;
         background-color: transparent;
+        border-color: transparent;
         cursor: $cursor-disabled;
       }
     }
