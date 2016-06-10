@@ -128,6 +128,44 @@
                      </div>
                    </div>
                 </form>
+
+                <button class="btn btn-default" type="button">I'm a button</button>
+
+                <button class="btn btn-default" type="button" disabled>I'm a disabled button</button>
+
+                <div class="btn-group">
+                  <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+                    Dropdown <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-header">Dropdown header</li>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Dropdown header</li>
+                    <li><a href="#">Link 3</a></li>
+                    <li class="divider"></li>
+                    <li class="danger"><a href="#">Delete</a></li
+                  </ul>
+                </div>
+
+                <div class="btn-group">
+                  <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" disabled>
+                    I'm a disabled dropdown <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-header">Dropdown header</li>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Dropdown header</li>
+                    <li><a href="#">Link 3</a></li>
+                    <li class="divider"></li>
+                    <li class="danger"><a href="#">Delete</a></li
+                  </ul>
+                </div>
+
+
               </div>
             </div>
           </section>
@@ -431,18 +469,6 @@
       <hr>
       <section class="row">
         <div class="col-xs-12">
-          <h2>Panels</h2>
-          <div class="panel panel-default">
-            <div class="panel-heading">Panel heading without title</div>
-            <div class="panel-body">
-              Panel content
-            </div>
-          </div>
-        </div>
-      </section>
-      <hr>
-      <section class="row">
-        <div class="col-xs-12">
           <h2>Modals</h2>
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
@@ -467,6 +493,7 @@
           </div><!-- /.modal -->
         </div>
       </section>
+      <hr>
     </div>
   </body>
 </html>
