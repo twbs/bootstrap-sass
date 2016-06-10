@@ -28,7 +28,7 @@ h3, .h3 {
 
   small,
   .small {
-    font-size: 65%;
+    font-size: 100%;
   }
 }
 h4, .h4,
@@ -43,11 +43,14 @@ h6, .h6 {
   }
 }
 
-h1, .h1, .alpha,
+h1, .h1, .alpha {
+  color: $black;
+}
+
 h3, .h3, .gamma,
 h5, .h5, .epsilon,
 h6, .h6, .zeta {
-    color: $headings-alt-color;
+  color: $headings-alt-color;
 }
 
 h2, .h2, .beta,
