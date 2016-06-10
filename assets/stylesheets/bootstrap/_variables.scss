@@ -479,7 +479,8 @@ $pagination-bg:                        #fff !default;
 $pagination-border:                    $gray-lighter !default;
 
 $pagination-hover-color:               $link-hover-color !default;
-$pagination-hover-bg:                  $gray-lighter !default;
+$pagination-hover-bg:                  #f5f5f5 !default;
+$pagination-down-bg:                   $gray-lighter !default;
 $pagination-hover-border:              $gray-lighter !default;
 
 $pagination-active-color:              $brand-primary !default;
@@ -500,6 +501,7 @@ $pager-border:                         $pagination-border !default;
 $pager-border-radius:                  15px !default;
 
 $pager-hover-bg:                       $pagination-hover-bg !default;
+$pager-down-bg:                        $pagination-down-bg !default;
 
 $pager-active-bg:                      $pagination-active-bg !default;
 $pager-active-color:                   $pagination-active-color !default;
