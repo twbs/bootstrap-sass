@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <title>a brand new styleguide: <%= title %></title>
+    <link rel="stylesheet" href="./your_stylesheet_here.css">
+  </head>
+  <body>
+    <div>
+      <nav>
+        <ul>
+        <% @categories.each do |category, file_name| %>
+          <li><a href="<%= file_name %>"><%= category %></a></li>
+        <% end %>
+        </ul>
+      </nav>
+
+      <h1>a brand new style guide, it's super effective</h1>
+      <section class="content">
+        <ul>
+        <% @blocks.each do |b| %>
+          <li><a href="#<%= b[:name] %>"><%= b[:title] %></a></li>
+        <% end %>
+        </ul>
