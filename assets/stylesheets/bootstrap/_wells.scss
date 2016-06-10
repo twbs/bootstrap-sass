@@ -66,6 +66,15 @@ $all-text-inputs: _assing-inputs($_text-inputs-list);
   // #{$all-text-inputs} {
   //   background-color: $white;
   // }
+
+  .btn-default,
+  .btn-success,
+  .btn-danger {
+    &:active,
+    &:focus {
+      background-color: $gray-superlight;
+    }
+  }
 }
 
 // Sizes
