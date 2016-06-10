@@ -15,7 +15,7 @@ $gray-dark:              lighten($gray-base, 20%) !default;   // #333
 $gray:                   lighten($gray-base, 37%) !default; // #5e5e5e
 $gray-light:             lighten($gray-base, 55%) !default; // #8c8c8c
 $gray-lighter:           lighten($gray-base, 92%) !default; // #ebebeb
-$gray-superlight:        lighten($gray-base, 97.6471%) !default; // #f9f9f9
+$gray-superlight:        lighten($gray-base, 98%) !default; // #f9f9f9
 
 $turqoise: #017d87;
 $accent: darken(saturate(adjust-hue($turqoise, -0.2776), 1.4706), 7.0588); // #005d64
@@ -79,7 +79,7 @@ $font-size-h5:            $font-size-base !default;
 $font-size-h6:            $font-size-base !default;
 
 //** Unit-less `line-height` for use in components like buttons.
-$line-height-base:        1.5384615385 !default; // 20/13
+$line-height-base:        1.6 !default; // 20/13
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 $line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
 
@@ -629,7 +629,7 @@ $modal-backdrop-opacity:      .8 !default;
 $modal-header-border-color:   $misty !default;
 //** Modal footer border color
 $modal-footer-border-color:   #ddd !default;
-$modal-footer-bg-color:             $misty;
+$modal-footer-bg-color:             $misty !default;
 
 $modal-lg:                    900px !default;
 $modal-md:                    600px !default;
@@ -750,7 +750,7 @@ $badge-border-radius:         10px !default;
 $breadcrumb-padding-vertical:   8px !default;
 $breadcrumb-padding-horizontal: 0 !default;
 //** Breadcrumb background color
-$breadcrumb-bg:                 $white !default;
+$breadcrumb-bg:                 none !default;
 //** Breadcrumb text color
 $breadcrumb-color:              $gray !default;
 //** Text color of current page in the breadcrumb
