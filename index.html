@@ -1,0 +1,461 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Talis Components</title>
+    <link rel="stylesheet" href="app.css">
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Brand</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+    <div class="container-fluid">
+      <section class="page-header">
+        <h1>Application Template <small>Alpha</small></h1>
+      </section>
+          <section class="row">
+            <div class="col-xs-12">
+              <h2>Typography</h2>
+              <h1>h1, .alpha</h1>
+              <h2>h2, .beta</h2>
+              <h3>h3, .gamma</h3>
+              <h4>h4, .delta</h4>
+              <h5>h5, .epsilon</h5>
+              <h6>h6, .zeta</h6>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at augue leo. In eros ligula, volutpat id neque eu, maximus pretium nisl. Aliquam non mi lobortis augue cursus dignissim. Vivamus blandit augue eget sapien facilisis suscipit. In bibendum lacus sed orci condimentum, a faucibus ante dignissim. Quisque vel mi dolor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus et erat eu tellus sollicitudin egestas venenatis consectetur massa. Curabitur non euismod lorem. Vivamus viverra nisl at vulputate pharetra. In hac habitasse platea dictumst.</p>
+              <ul>
+                <li>List item</li>
+                <li>List item</li>
+                <li>List item</li>
+                <li>List item</li>
+                <li>List item</li>
+              </ul>
+            </div>
+            <div class="col-xs-12">
+              <div class="well">
+                <h1>h1, .alpha</h1>
+                <h2>h2, .beta</h2>
+                <h3>h3, .gamma</h3>
+                <h4>h4, .delta</h4>
+                <h5>h5, .epsilon</h5>
+                <h6>h6, .zeta</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at augue leo. In eros ligula, volutpat id neque eu, maximus pretium nisl. Aliquam non mi lobortis augue cursus dignissim. Vivamus blandit augue eget sapien facilisis suscipit. In bibendum lacus sed orci condimentum, a faucibus ante dignissim. Quisque vel mi dolor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus et erat eu tellus sollicitudin egestas venenatis consectetur massa. Curabitur non euismod lorem. Vivamus viverra nisl at vulputate pharetra. In hac habitasse platea dictumst.</p>
+                <ul>
+                  <li>List item</li>
+                  <li>List item</li>
+                  <li>List item</li>
+                  <li>List item</li>
+                  <li>List item</li>
+                </ul>
+                <form>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" assigned="true">
+                  </div>
+                  <div class="form-group">
+                    <textarea class="form-control" rows="3">I'm a textarea</textarea>
+                  </div>
+
+                  <div class="form-group">
+                     <label class="sr-only" for="searchInput">Search</label>
+                     <div class="input-group">
+                       <input class="form-control" id="searchInput" type="search" placeholder="Search the library catalogue">
+                       <span class="input-group-btn">
+                         <button class="btn btn-default" type="button">
+                           Search
+                         </button>
+                       </span>
+                     </div>
+                   </div>
+                </form>
+              </div>
+            </div>
+          </section>
+          <section class="row">
+            <div class="col-xs-12">
+              <h2>Buttons</h2>
+              <h3>Normal</h3>
+              <button class="btn btn-default">Normal button</button>
+              <button class="btn btn-primary">Primary button</button>
+              <button class="btn btn-success">Success button</button>
+              <button class="btn btn-warning">Warning button</button>
+              <button class="btn btn-danger">Danger button</button>
+              <button class="btn btn-link">Link button</button>
+            </div>
+            <div class="col-xs-12">
+              <h3>Large</h3>
+              <button class="btn btn-lg btn-default">Normal button</button>
+              <button class="btn btn-lg btn-primary">Primary button</button>
+              <button class="btn btn-lg btn-success">Success button</button>
+              <button class="btn btn-lg btn-warning">Warning button</button>
+              <button class="btn btn-lg btn-danger">Danger button</button>
+              <button class="btn btn-lg btn-link">Link button</button>
+            </div>
+          </section>
+          <hr>
+          <section class="row">
+            <div class="col-xs-12">
+              <h2>Tables</h2>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Status</th>
+                    <th>Course</th>
+                    <th>Requester</th>
+                    <th class="text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td><span class="label label-default">Normal</span></td>
+                    <td>Computer Science</td>
+                    <td>Daniel Matthew</td>
+                    <td>
+                      <div class="btn-group pull-right">
+                        <a href="#" data-toggle="dropdown" class="btn btn-large btn-link dropdown-toggle"><i class="icon icon-ellipsis-vertical"></i></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">View details</a></li>
+                          <li><a href="#">Upload document</a></li>
+                          <li><a href="#">Edit &amp; resubmit</a></li>
+                        </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><span class="label label-primary">Live</span></td>
+                  <td>Computer Science</td>
+                  <td>Daniel Matthew</td>
+                  <td>
+                    <div class="btn-group disabled pull-right">
+                      <a href="#" data-toggle="dropdown" class="btn btn-large btn-link dropdown-toggle"><i class="icon icon-ellipsis-vertical"></i></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">View details</a></li>
+                        <li><a href="#">Upload document</a></li>
+                        <li><a href="#">Edit &amp; resubmit</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><span class="label label-danger">Failed</span></td>
+                  <td>Computer Science</td>
+                  <td>Daniel Matthew</td>
+                  <td>
+                    <div class="btn-group pull-right">
+                      <a href="#" data-toggle="dropdown" class="btn btn-large btn-link dropdown-toggle"><i class="icon icon-ellipsis-vertical"></i></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">View details</a></li>
+                        <li><a href="#">Upload document</a></li>
+                        <li><a href="#">Edit &amp; resubmit</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><span class="label label-warning">Warning</span></td>
+                  <td>Computer Science</td>
+                  <td>Daniel Matthew</td>
+                  <td>
+                    <div class="btn-group pull-right">
+                      <a href="#" data-toggle="dropdown" class="btn btn-large btn-link dropdown-toggle"><i class="icon icon-ellipsis-vertical"></i></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">View details</a></li>
+                        <li><a href="#">Upload document</a></li>
+                        <li><a href="#">Edit &amp; resubmit</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <hr>
+        <section class="row">
+          <div class="col-xs-12">
+            <h2>Forms</h2>
+            <form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword2" disabled placeholder="I'm disabled">
+              </div>
+              <div class="form-group">
+                 <label class="sr-only" for="searchInput">Search</label>
+                 <div class="input-group">
+                   <input class="form-control" id="searchInput" type="search" placeholder="Search the library catalogue">
+                   <span class="input-group-btn">
+                     <button class="btn btn-default" type="button">
+                       Search
+                     </button>
+                   </span>
+                 </div>
+               </div>
+              <div class="form-group">
+                <label for="exampleInputFile">File input</label>
+                <input type="file" id="exampleInputFile">
+                <p class="help-block">Example block-level help text here.</p>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Check me out
+                </label>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <hr>
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox"> Remember me
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default">Sign in</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+        <section class="row">
+          <div class="col-xs-12">
+            <h2>Navigation</h2>
+            <h3>Tabs</h3>
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#">Home</a></li>
+              <li class="disabled"><a href="#">Profile</a></li>
+              <li><a href="#">Messages</a></li>
+            </ul>
+            <h3>Pills</h3>
+            <ul class="nav nav-pills">
+              <li class="active"><a href="#">Home</a></li>
+              <li class="disabled"><a href="#">Profile</a></li>
+              <li><a href="#">Messages</a></li>
+            </ul>
+            <h3>Stacked Pills</h3>
+            <ul class="nav nav-pills nav-stacked">
+              <li class="active"><a href="#">Home</a></li>
+              <li class="disabled"><a href="#">Profile</a></li>
+              <li><a href="#">Messages</a></li>
+            </ul>
+          </div>
+        </section>
+        <hr>
+
+        <section class="row">
+          <div class="col-xs-12">
+            <h2>Dropdowns</h2>
+            <div class="btn-group">
+              <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+                Dropdown <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-header">Dropdown header</li>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Dropdown header</li>
+                <li><a href="#">Link 3</a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <hr>
+
+      <section class="row">
+        <div class="col-xs-12">
+          <div class="page-header">
+            <h1>Page Title <small>Page description</small></h1>
+          </div>
+        </div>
+      </section>
+
+      <section class="row">
+        <div class="col-xs-12">
+          <h2>Alerts</h2>
+          <!-- Basic -->
+          <div class="alert alert-info">
+            <p>Something has happened. Yup.</p>
+          </div>
+
+          <!-- Success -->
+          <div class="alert alert-success">
+            <p>Something <strong>good</strong> has happened.</p>
+          </div>
+
+          <!-- Info -->
+          <div class="alert alert-warning">
+            <p>Something <strong>useful</strong> has happened.</p>
+          </div>
+
+          <!-- Danger -->
+          <div class="alert alert-danger">
+            <p>Something <strong>bad</strong> has happened.</p>
+          </div>
+        </div>
+      </section>
+      <hr>
+      <section class="row">
+        <div class="col-xs-12">
+          <h2>Labels</h2>
+          <span class="label label-default">Basic</span>
+          <span class="label label-primary">Primary</span>
+          <span class="label label-info">Info</span>
+          <span class="label label-success">Success</span>
+          <span class="label label-warning">Warning</span>
+          <span class="label label-danger">Danger</span>
+        </div>
+      </section>
+      <hr>
+      <section class="row">
+        <div class="col-xs-12">
+          <h2>Pagination</h2>
+          <h3>Pagination Block</h3>
+          <nav class="text-center">
+            <ul class="pagination">
+              <li><a href="#">Prev</a></li>
+              <li class="active"><a href="#">1</a></li>
+              <li class="disabled"><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">6</a></li>
+              <li><a href="#">7</a></li>
+              <li><a href="#">8</a></li>
+              <li><a href="#">Next</a></li>
+            </ul>
+          </nav>
+          <h3>Pager</h3>
+          <nav>
+            <ul class="pager">
+              <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+              <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+      <hr>
+      <section class="row">
+        <div class="col-xs-12">
+          <h2>Panels</h2>
+          <div class="panel panel-default">
+            <div class="panel-heading">Panel heading without title</div>
+            <div class="panel-body">
+              Panel content
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr>
+      <section class="row">
+        <div class="col-xs-12">
+          <h2>Modals</h2>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Launch demo modal
+          </button>
+
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                  <p>One fine body&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
