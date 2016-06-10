@@ -25,12 +25,10 @@
       &:focus {
         text-decoration: none;
         background-color: $nav-link-hover-bg;
-        border: 1px solid $nav-tabs-border-color;
       }
       &:active {
         text-decoration: none;
         background-color: $nav-link-down-bg;
-        border: 1px solid $nav-tabs-border-color;
       }
     }
 
@@ -55,7 +53,7 @@
     &:hover,
     &:focus {
       background-color: $nav-link-hover-bg;
-      border-color: $link-color;
+      border-color: $accent;
     }
   }
 
@@ -129,6 +127,12 @@
     // Links rendered as pills
     > a {
       border-radius: $nav-pills-border-radius;
+
+      &:hover,
+      &:focus,
+      &:active {
+        border: 1px solid $nav-tabs-border-color;
+      }
     }
     + li {
       margin-left: 2px;
