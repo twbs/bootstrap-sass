@@ -1,10 +1,8 @@
 // Alerts
 
-@mixin alert-variant($background, $border, $text-color) {
+@mixin alert-variant($background, $border) {
   background-color: $background;
   border-color: $border;
-  color: $text-color;
-
   hr {
     border-top-color: darken($border, 5%);
   }

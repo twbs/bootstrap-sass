@@ -11,11 +11,10 @@ h1, h2, h3, h4, h5, h6,
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
-  color: $headings-color;
 
   small,
   .small {
-    font-weight: normal;
+    font-weight: 300;
     line-height: 1;
     color: $headings-small-color;
   }
@@ -29,7 +28,7 @@ h3, .h3 {
 
   small,
   .small {
-    font-size: 65%;
+    font-size: 100%;
   }
 }
 h4, .h4,
@@ -42,6 +41,26 @@ h6, .h6 {
   .small {
     font-size: 75%;
   }
+}
+
+h1, .h1, .alpha,
+h3, .h3, .gamma,
+h5, .h5, .epsilon {
+  color: $black;
+}
+
+h6, .h6, .zeta {
+  color: $headings-alt-color;
+}
+
+h2, .h2, .beta,
+h4, .h4, .delta {
+  color: $headings-color;
+}
+
+h5, .h5, .epsilon,
+h6, .h6, .zeta {
+  font-weight: 700;
 }
 
 h1, .h1 { font-size: $font-size-h1; }

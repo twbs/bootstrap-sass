@@ -3,36 +3,73 @@
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
 
-@mixin button-variant($color, $background, $border) {
+@mixin button-variant-plain($color, $background, $border) {
   color: $color;
   background-color: $background;
   border-color: $border;
 
   &:focus,
   &.focus {
-    color: $color;
-    background-color: darken($background, 10%);
-        border-color: darken($border, 25%);
+    color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
+    background-color: darken(saturate(adjust-hue($background, 0.0000), 0.0000), 2.3529);
   }
   &:hover {
+    color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
+    background-color: darken(saturate(adjust-hue($background, 0.0000), 0.0000), 2.3529);
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
+    background-color: darken(saturate(adjust-hue($background, 0.0000), 0.0000), 7.8431);
+
+    &:focus,
+    &.focus {
+      background-color: #e6e6e6;
+    }
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: $background;
+      border-color: $border;
+      color: $battleship;
+    }
+  }
+
+  .badge {
+    color: $background;
+    background-color: $color;
+  }
+}
+
+@mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:focus,
+  &.focus,
+  &:hover {
     color: $color;
-    background-color: darken($background, 10%);
-        border-color: darken($border, 12%);
+    background-color: darken(saturate(adjust-hue($background, -0.2776), 1.4706), 7.0588);
+        border-color: darken(saturate(adjust-hue($border, -0.2776), 1.4706), 7.0588);
   }
   &:active,
   &.active,
   .open > &.dropdown-toggle {
     color: $color;
-    background-color: darken($background, 10%);
-        border-color: darken($border, 12%);
-
-    &:hover,
-    &:focus,
-    &.focus {
-      color: $color;
-      background-color: darken($background, 17%);
-          border-color: darken($border, 25%);
-    }
+    background-color: darken(saturate(adjust-hue($background, -0.7276), 1.4706), 10.9804);
+        border-color: darken(saturate(adjust-hue($border, -0.7276), 1.4706), 10.9804);
   }
   &:active,
   &.active,

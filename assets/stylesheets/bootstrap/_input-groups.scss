@@ -29,7 +29,7 @@
 
     width: 100%;
     margin-bottom: 0;
-    
+
     &:focus {
       z-index: 3;
     }
@@ -143,14 +143,19 @@
   // element above the siblings.
   > .btn {
     position: relative;
+    background-color: $input-bg;
+    border-left-color: $white;
     + .btn {
       margin-left: -1px;
     }
     // Bring the "active" button to the front
     &:hover,
-    &:focus,
-    &:active {
+    &:focus {
+      background-color: darken($input-bg, 4%);
       z-index: 2;
+    }
+    &:active {
+      background-color: darken($input-bg, 10%);
     }
   }
 
