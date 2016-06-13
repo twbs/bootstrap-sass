@@ -221,7 +221,7 @@ a {
   a:focus {
     outline: thin dotted;
     outline: 0;
-    box-shadow: 0 0 1px #017d87; }
+    box-shadow: 0 0 0 1px #017d87; }
 
 figure {
   margin: 0; }
@@ -1578,7 +1578,7 @@ input[type="radio"]:focus,
 input[type="checkbox"]:focus {
   outline: thin dotted;
   outline: 0;
-  box-shadow: 0 0 1px #017d87; }
+  box-shadow: 0 0 0 1px #017d87; }
 
 output {
   display: block;
@@ -2025,7 +2025,7 @@ select[multiple].input-lg,
   .btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
     outline: thin dotted;
     outline: 0;
-    box-shadow: 0 0 1px #017d87; }
+    box-shadow: 0 0 0 1px #017d87; }
   .btn:hover, .btn:focus, .btn.focus {
     color: #017d87;
     text-decoration: none; }
