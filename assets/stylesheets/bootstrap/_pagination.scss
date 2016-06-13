@@ -47,6 +47,16 @@
     }
   }
 
+  > li > a,
+  > li > span {
+    &:active {
+      z-index: 2;
+      color: $pagination-hover-color;
+      background-color: $pagination-down-bg;
+      border-color: $pagination-hover-border;
+    }
+  }
+
   > .active > a,
   > .active > span {
     &,

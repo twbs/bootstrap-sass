@@ -117,6 +117,22 @@
   }
 }
 
+// Danger (!) state
+// List item appears in red and darkens on hover/focus
+.dropdown-menu > .danger > a {
+  color: $red;
+  &:hover,
+  &:focus {
+    color: $white;
+  }
+  &:hover {
+    background-color: $red;
+  }
+  &:focus {
+    background-color: darken(saturate(adjust-hue($red, -0.2776), 1.4706), 7.0588)
+  }
+}
+
 // Open state for the dropdown
 .open {
   // Show the menu
@@ -156,6 +172,7 @@
   font-size: $font-size-small;
   line-height: $line-height-base;
   color: $dropdown-header-color;
+  text-transform: uppercase;
   white-space: nowrap; // as with > li > a
 }
 

@@ -33,7 +33,7 @@ label {
   display: inline-block;
   max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
   margin-bottom: 5px;
-  font-weight: bold;
+  color: $legend-color;
 }
 
 
@@ -58,6 +58,7 @@ input[type="checkbox"] {
 
 input[type="file"] {
   display: block;
+  line-height: 1ex;
 }
 
 // Make range inputs behave like textual form controls
@@ -123,8 +124,7 @@ output {
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid $input-border;
   border-radius: $input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
-  @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
-  @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
+  @include transition(border-color ease-in-out .15s);
 
   // Customize the `:focus` state to imitate native WebKit styles.
   @include form-control-focus;
@@ -147,6 +147,7 @@ output {
   &[readonly],
   fieldset[disabled] & {
     background-color: $input-bg-disabled;
+    border: 1px solid $input-bg-disabled;
     opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
   }
 
@@ -454,7 +455,8 @@ input[type="checkbox"] {
   display: block; // account for any element using help-block
   margin-top: 5px;
   margin-bottom: 10px;
-  color: lighten($text-color, 25%); // lighten the text some for contrast
+  font-style: italic;
+  color: $gray; // lighten the text some for contrast
 }
 
 
@@ -512,6 +514,13 @@ input[type="checkbox"] {
     .control-label {
       margin-bottom: 0;
       vertical-align: middle;
+
+      &:after {
+        content: ":";
+      }
+      &.required:after {
+        content: ":*"
+      }
     }
 
     // Remove default margin on radios/checkboxes that were used for stacking, and

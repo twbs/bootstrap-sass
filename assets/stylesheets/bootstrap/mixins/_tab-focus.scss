@@ -4,6 +4,6 @@
   // Default
   outline: thin dotted;
   // WebKit
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
+  outline: 3px solid $brand-primary;
+  outline-offset: 2px;
 }
