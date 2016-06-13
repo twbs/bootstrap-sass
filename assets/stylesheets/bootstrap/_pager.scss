@@ -25,6 +25,11 @@
       text-decoration: none;
       background-color: $pager-hover-bg;
     }
+
+    > a:active {
+      text-decoration: none;
+      background-color: $pager-down-bg;
+    }
   }
 
   .next {

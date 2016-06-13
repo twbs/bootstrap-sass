@@ -12,14 +12,9 @@
   position: relative;
   min-height: $navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
   margin-bottom: $navbar-margin-bottom;
-  border: 1px solid transparent;
 
   // Prevent floats from breaking the navbar
   @include clearfix;
-
-  @media (min-width: $grid-float-breakpoint) {
-    border-radius: $navbar-border-radius;
-  }
 }
 
 
@@ -52,7 +47,6 @@
   padding-right: $navbar-padding-horizontal;
   padding-left:  $navbar-padding-horizontal;
   border-top: 1px solid transparent;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
   @include clearfix;
   -webkit-overflow-scrolling: touch;
 
@@ -259,6 +253,9 @@
           background-image: none;
         }
       }
+      .divider {
+        background-color: $accent;
+      }
     }
   }
 
@@ -440,7 +437,6 @@
   }
 
   .navbar-toggle {
-    border-color: $navbar-default-toggle-border-color;
     &:hover,
     &:focus {
       background-color: $navbar-default-toggle-hover-bg;
