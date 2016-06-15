@@ -82,6 +82,10 @@
       border-color: $pagination-disabled-border;
       cursor: $cursor-disabled;
     }
+
+    > a:focus {
+        z-index: 3;
+      }
   }
 }
 
