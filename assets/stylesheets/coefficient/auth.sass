@@ -1,0 +1,38 @@
+// GENERAL AUTHENTICATION PAGES
+// Login, Sign In, Forgot Password, etc.
+.auth-header
+	text-align: center
+	h2
+		color: $CF-purple
+
+.auth-subheader
+	position: relative
+	padding: 15px 20px 10px
+	background: #fafafa
+	border: 1px solid #dadada
+	top: 20px
+	label
+		width: 120px
+	// Creating CSS Arrow below
+	&:after, &:before
+		top: 100%
+		left: 50%
+		border: solid transparent
+		content: " "
+		height: 0
+		width: 0
+		position: absolute
+		pointer-events: none
+	&:after
+		border-color: rgba(250, 250, 250, 0)
+		border-top-color: #fafafa
+		border-width: 11px
+		margin-left: -11px
+	&:before
+		border-color: rgba(218, 218, 218, 0)
+		border-top-color: #dadada
+		border-width: 12px
+		margin-left: -12px
+
+.auth-footer
+	text-align: center

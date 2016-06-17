@@ -1,0 +1,269 @@
+/* Navigation */
+.navbar
+  border: 0
+  background-color: $CF-purple
+  color: $white
+  padding-left: 10px
+  padding-right: 25px
+
+.navbar-default
+  .navbar-brand
+    padding-left: 35px
+    width: 206px
+    color: $white
+    background: url(image-path('logo.png')) no-repeat 0 11px
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2)
+    font-weight: 300
+    font-size: 19px
+    line-height: 18px
+    height: auto
+    &:hover,
+    &:focus
+      color: $white
+
+  .navbar-nav
+    > li
+      > a,
+      a:hover,
+      a:focus
+        color: $white
+    .active
+      a,
+      a:hover,
+      a:focus
+        background-color: $CF-purple-light
+        color: $white
+
+
+/*Dropdown Sub menu*/
+.dropdown-submenu
+  position: relative
+  > .dropdown-menu
+    top: 0px
+    left: 100%
+    margin-top: -6px
+    margin-left: -1px
+    border-radius: 0 0 3px 3px
+  &:hover
+    > .dropdown-menu
+      display: block
+    > a:after
+      border-left-color: $white
+  > a:after
+    display: block
+    content: " "
+    float: right
+    width: 0
+    height: 0
+    border-color: transparent
+    border-style: solid
+    border-width: 5px 0 5px 5px
+    border-left-color: #cccccc
+    margin-top: 5px
+    margin-right: -10px
+  &.pull-left
+    float: none
+    > .dropdown-menu
+      left: -100%
+      margin-left: 10px
+      border-radius: 0 0 6px 6px
+
+.dropdown-menu > li > a
+  &:hover, &:focus
+    background-color: $CF-purple-lightest
+    background-image: none
+    color: $white
+
+.dropdown-submenu:hover > a, .dropdown-menu li > a:hover
+  background-color: $CF-purple-lightest
+  background-image: none
+  color: $white
+
+.navbar-default .navbar-nav >
+  li > .dropdown-menu
+    border-top: 0
+  .dropdown > a
+    .caret
+      border-bottom-color: $white
+      border-top-color: $white
+    &:hover .caret, &:focus .caret
+      border-bottom-color: $white
+      border-top-color: $white
+  .open > a
+    background-color: $CF-purple-light
+    color: $white
+    &:hover
+      background-color: $CF-purple-light
+      color: $white
+
+.navbar-nav > .open > a:focus
+  background-color: $CF-purple-light
+  color: $white
+
+.navbar-default .navbar-nav >
+  .open > a
+    background-color: $CF-purple-light
+    color: $white
+    &:hover, &:focus
+      background-color: $CF-purple-light
+      color: $white
+  li > a:hover
+    color: $white
+
+.navbar-nav > li > a:focus
+  color: $white
+
+.navbar-default .navbar-toggle
+  outline: none
+  border: 1px solid rgba(0, 0, 0, 0.15)
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2) inset
+  padding: 6px 10px
+  &:hover
+    background: rgba(255, 255, 255, 0.07)
+  &:active
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.07) inset
+  &:focus
+    background: transparent
+  .icon-bar
+    background-color: $white
+  .fa
+    color: $white
+    font-size: 18px
+
+.navbar-collapse
+  max-height: none !important
+  position: relative
+
+
+
+/* Profile Dropdown */
+.profile_menu
+  margin-left: 10px
+  cursor: pointer
+
+.navbar-collapse.in .not-nav > li
+  float: none !important
+  display: inline-block
+  padding: 10px 5px
+
+.user-nav
+  margin: 0
+  margin-right: -15px
+
+.profile_menu
+  .dropdown-toggle
+    padding: 10px 10px
+    vertical-align: middle
+    height: 50px
+    span
+      display: inline-block
+      margin-top: 4px
+  img
+    margin-right: 5px
+    border-radius: 2px
+
+/* Dropdown sub menu */
+.dropdown-submenu
+  position: relative
+  > .dropdown-menu
+    top: 0px
+    left: 100%
+    margin-top: -6px
+    margin-left: -1px
+    border-radius: 0 0 3px 3px
+  &:hover
+    > .dropdown-menu
+      display: block
+    > a:after
+      border-left-color: $white
+  > a:after
+    display: block
+    content: " "
+    float: right
+    width: 0
+    height: 0
+    border-color: transparent
+    border-style: solid
+    border-width: 5px 0 5px 5px
+    border-left-color: #cccccc
+    margin-top: 5px
+    margin-right: -10px
+  &.pull-left
+    float: none
+    > .dropdown-menu
+      left: -100%
+      margin-left: 10px
+      border-radius: 0 0 6px 6px
+
+.dropdown-menu > li > a
+  &:hover, &:focus
+    background-color: $CF-purple-lightest
+    background-image: none
+    color: $white
+
+.dropdown-submenu:hover > a, .dropdown-menu li > a:hover
+  background-color: $CF-purple-lightest
+  background-image: none
+  color: $white
+
+.navbar-default .navbar-nav >
+  li > .dropdown-menu
+    border-top: 0
+  .dropdown > a
+    .caret
+      border-bottom-color: $white
+      border-top-color: $white
+    &:hover .caret, &:focus .caret
+      border-bottom-color: $white
+      border-top-color: $white
+  .open > a
+    background-color: $CF-purple-light
+    color: $white
+    &:hover
+      background-color: $CF-purple-light
+      color: $white
+
+.navbar-nav > .open > a:focus
+  background-color: $CF-purple-light
+  color: $white
+
+.navbar-default .navbar-nav >
+  .open > a
+    background-color: $CF-purple-light
+    color: $white
+    &:hover, &:focus
+      background-color: $CF-purple-light
+      color: $white
+  li > a:hover
+    color: $white
+
+.navbar-nav > li > a:focus
+  color: $white
+
+.navbar-default.navbar-toggle
+  outline: none
+  border: 1px solid rgba(0, 0, 0, 0.15)
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2) inset
+  padding: 6px 10px
+  &:hover
+    background: rgba(255, 255, 255, 0.07)
+  &:active
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.07) inset
+  &:focus
+    background: transparent
+  .icon-bar
+    background-color: $white
+  .fa
+    color: $white
+    font-size: 18px
+
+.navbar-collapse
+  max-height: none !important
+  position: relative
+
+body.modal-open
+  margin-right: 0
+
+.modal-open
+  .navbar-fixed-top, .navbar-fixed-bottom
+    margin-right: 0

@@ -1,0 +1,24 @@
+$table-border-color: #dadada
+
+/* Tables */
+table
+  border-collapse: collapse
+  width: 100%
+  thead
+    border: 1px solid $table-border-color
+    th
+      font-size: 13px
+      font-weight: 200
+      vertical-align: bottom
+      padding: 10px 8px 5px 8px
+  tbody
+    td
+      padding: 7px 8px
+      font-size: 12px
+      border-left: 1px solid $table-border-color
+      border-bottom: 1px solid $table-border-color
+      &:last-child
+        border-right: 1px solid $table-border-color
+
+  .no-border
+    border: 0

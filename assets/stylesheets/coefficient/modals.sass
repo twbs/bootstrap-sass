@@ -1,0 +1,124 @@
+/* Modals */
+.modal
+  overflow: auto
+
+.modal-content
+  border-radius: 5px
+  border: 0
+
+.custom-width
+  width: 40%
+  max-width: none
+
+.modal-content > .close
+  margin-right: 10px
+  margin-top: 10px
+
+.md-content
+  background: $white
+  border: 0 none
+  border-radius: 5px
+  color: #555555
+  overflow: hidden
+  .modal-header
+    border-bottom: 0 none
+
+.modal-content .modal-header
+  border-bottom: 0
+
+.colored-header
+  .modal-header
+    padding: 20px
+    border-bottom: 1px solid #1080de !important
+    background-color: #2494f2
+    color: $white
+  &.success .modal-header
+    padding: 20px
+    border-bottom: 1px solid #4cac4c !important
+    background-color: $success
+    color: $white
+  &.info .modal-header
+    padding: 20px
+    border-bottom: 1px solid #47acca !important
+    background-color: #5bc0de
+    color: $white
+  &.warning .modal-header
+    padding: 20px
+    border-bottom: 1px solid #eb8500 !important
+    background-color: #ff9900
+    color: $white
+  &.danger .modal-header
+    padding: 20px
+    border-bottom: 1px solid #cb371f !important
+    background-color: #df4b33
+    color: $white
+
+.md-dark
+  .modal-header
+    background-color: #2494f2
+    color: $white
+    background-color: #2494f2
+    color: $white
+  .md-content
+    background-color: #23262B
+    color: #BBBEC3
+    input
+      background-color: transparent
+      color: #b2b2b2
+  .modal-content .modal-footer
+    border: 0
+    background-color: transparent
+  .md-content .modal-footer
+    border: 0
+    background-color: transparent
+    .btn
+      margin-bottom: 0 !important
+
+.modal-content
+  h4
+    font-weight: 400
+  h3
+    font-weight: 300
+    margin-top: 0
+  h2
+    margin: 0
+  .modal-footer
+    background: #FBFBFB
+    border-radius: 0 0 5px 5px
+    -webkit-border-radius: 0 0 5px 5px
+
+@media (min-width: 768px) and (max-width: 979px)
+  .custom-width
+    width: 60%
+    max-width: none
+
+@media (max-width: 767px)
+  .custom-width
+    width: 90%
+    max-width: none
+
+/*Circle*/
+
+.i-circle
+  border: 5px solid #F1F1F1
+  border-radius: 50%
+  -webkit-border-radius: 50%
+  height: 80px
+  width: 80px
+  display: inline-block
+  padding-top: 15px
+  margin-bottom: 7px
+  i
+    font-size: 34px
+    vertical-align: middle
+    color: #666
+  &.success i
+    color: $success
+  &.primary i
+    color: $primary
+  &.info i
+    color: #5bc0de
+  &.warning i
+    color: #FC9700
+  &.danger i
+    color: #DA4932

@@ -1,0 +1,33 @@
+.dropdown-menu
+  background-clip: none
+  box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.18)
+  li
+    > a
+      font-size: 12px
+      padding: 5px 20px
+      color: #333333
+      display: block
+      line-height: 1.42857
+      white-space: nowrap
+
+.dropdown-header
+  color: $CF-purple
+  padding-left: 11px
+  cursor: default
+  i
+    font-size: 14px
+    margin-right: 4px
+    vertical-align: middle
+
+// For 2 column menus
+.col-menu-2
+  min-width: 405px
+  > li
+    &:first-child ul
+      border-right: 1px solid #E8E8E8
+    > ul
+      > li
+        a
+          padding-left: 32px
+        list-style: none
+      padding: 0
