@@ -1,0 +1,229 @@
+// Vertical Navigation
+.cl-sidebar
+  background: #272930
+  position: relative
+  width: 216px
+  z-index: 2
+  display: table-cell
+  .cl-toggle
+    display: none
+    padding: 10px 0
+    text-align: center
+    cursor: pointer
+    i
+      font-size: 24px
+      color: #C9D4F6
+
+.cl-vnavigation
+  margin: 0
+  padding: 0
+  border-top: 1px solid #1a1c20
+  border-bottom: 1px solid #2f323a
+  .parent a
+    background: url("../images/arrow.png") no-repeat scroll right 14px top 18px transparent
+  li a
+    border-top: 1px solid #32353e
+    border-bottom: 1px solid #1a1c20
+    display: block
+    padding: 14px 18px 13px 15px
+    color: #c9d4f6
+    font-size: 12px
+    font-weight: 300
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3)
+    white-space: nowrap
+    &:hover
+      background-color: #2a2c34
+
+
+// Collapsed Sidebar
+.sb-collapsed
+  .cl-sidebar
+    width: 55px
+  #pcont
+    margin-left: 55px
+  .cl-vnavigation
+    li
+      position: relative
+    .parent a
+      background-image: none
+    li a i
+      margin: 0
+      font-size: 17px
+    > li > a > span
+      opacity: 0
+      width: 0
+      height: 0
+
+.cl-sidebar .collapse-button
+  background: #1F2126
+  position: fixed
+  width: 216px
+  top: 51px
+  padding: 7px 9px
+  text-align: center
+  .search
+    width: 155px
+    display: inline-block
+    margin-right: 3px
+    border-radius: 2px
+    height: 33px
+    background: none repeat scroll 0 0 #13151D
+    font-size: 11px
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.07), 0 1px 2px rgba(0, 0, 0, 0.15) inset
+    border: 1px solid rgba(0, 0, 0, 0.5)
+  button
+    margin: 0 !important
+    background: transparent
+    box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.1) inset
+    border: 1px solid rgba(0, 0, 0, 0.25)
+    border-radius: 2px
+    &:hover
+      background: #23252A
+
+#cl-wrapper
+  &.fixed-menu .menu-space
+    position: fixed
+    width: 216px
+    background: #272930
+    margin-top: 48px
+    overflow-y: scroll
+    .content
+      outline: none
+  &.sb-collapsed.fixed-menu .menu-space
+    width: 55px
+
+.sb-collapsed .cl-sidebar .side-user
+  display: none
+
+#cl-wrapper
+  .cl-sidebar .side-user
+    .avatar
+      display: inline-block
+      margin-right: 3px
+      img
+        border-radius: 25px
+        margin-right: 5px
+    .info
+      a
+        color: $white
+        font-size: 14px
+        font-weight: 300
+        display: block
+      span
+        color: #DBDBDB
+        font-size: 11px
+
+.sb-collapsed
+  .cl-sidebar .collapse-button
+    .search
+      display: none
+    width: 55px
+  .cl-vnavigation li.open ul
+    display: none !important
+
+#sub-menu-nav ul
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.22)
+  color: #333
+  background: $white
+  padding: 5px 0
+  min-width: 190px
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25)
+  border: 1px solid rgba(0, 0, 0, 0.15)
+  border-top: 0
+  border-radius: 3px
+  li
+    &:first-child
+      padding-top: 0
+    &:last-child
+      padding-bottom: 0
+    &.dropdown-header
+      i
+        text-align: center
+        width: 15px
+      padding: 1px 11px
+      padding-bottom: 6px
+    list-style: none
+    a
+      margin-right: -1px
+      display: block
+      font-size: 11px
+      border-bottom: 0
+      color: #333333
+      text-shadow: none
+      text-align: left
+      background: transparent
+      padding: 6px 20px 6px 31px
+      &:hover
+        background-color: $CF-purple-lightest
+        color: $white
+  padding: 5px 0
+  &:after
+    background: url(../images/menu-tail-left.png) no-repeat right 10px
+    top: 0px
+    content: ""
+    display: inline-block
+    left: -9px
+    height: 43px
+    width: 10px
+    position: absolute
+
+// End Collapsed
+
+
+.cl-vnavigation
+  li
+    a
+      i
+        text-align: center
+        width: 20px
+        font-size: 14px
+        margin-right: 7px
+      span
+        display: inline-block
+    ul
+      background-color: #1A1C20
+      display: none
+      margin: 0
+      padding: 0
+      padding-top: 4px
+  .parent ul li
+    &:last-child
+      padding-bottom: 13px
+    background-color: #1a1c20
+    list-style: none
+    &.dropdown-header
+      display: none
+    a
+      font-size: 11px
+      background-image: none
+      padding: 7px 18px 7px 42px
+      background-color: #1a1c20
+    &.active a
+      background-color: #1e2025
+      border-left: 1px solid #2494F2
+    a
+      &:hover
+        background-color: #1e2025
+      &:first-child
+        border-top: 0
+  .active > a
+    background: #2A2C34
+    border-left: 1px solid #2494F2
+  .selected:hover
+    a
+      background-color: #2494F2
+    ul a
+      background-color: #1A1C20
+
+body
+  height: 100%
+
+#cl-wrapper
+  display: table
+  width: 100%
+  position: absolute
+  height: 100%
+
+#pcont
+  display: table-cell
+  vertical-align: top
