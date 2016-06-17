@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Locations</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+
+    <% include locations-sidebar.html.ejs %>
+
+    <div class="cl-mcont">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="block-flat">
+            <div class="profile-badge">
+              <div class="badge-row">
+                <div class="badge-cell profile-image">
+                  <img src="http://s3-media4.fl.yelpcdn.com/bphoto/7aM0v24qR7lME0c8-LidOw/ls.jpg" >
+                </div>
+                <div class="badge-cell profile-details">
+                  <span class="profile-name">Town North Nissan</span>
+                  <span class="profile-name-separator"> - </span>
+                  <span class="profile-id">2304</span>
+                  <span class="profile-address">
+                    9160 Research Blvd.<br/>
+                    Austin, TX 78758
+                  </span>
+                  <span class="profile-url"><a href="http://www.townnorthnissan.net">www.townnorthnissan.net</a></span>
+                  <span class="view-full-profile"><a href="locationspublic.html">View Location</a></span>
+                </div>
+                <div class="badge-cell social">
+                  <a href="http://plus.google.com" class="btn btn-default btn-google-plus">
+                    <i class="fa fa-google-plus"></i>
+                  </a>
+
+                  <a href="http://www.facebook.com" class="btn btn-default btn-facebook">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+
+                  <a href="http://www.twitter.com" class="btn btn-default btn-twitter">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                  <!-- HIDE FOR RIGHT NOW; DO NOT IMPLEMENT
+                  <div class="store-open is-open">OPEN NOW</div>
+                  <div class="open-hours">
+                    Mon-Fri: 9:00am - 8:00pm<br/>
+                    Sat: 10:00am - 8:00pm<br/>
+                    Sun: Closed
+                  </div>
+                  -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Action Items</h3>
+            </div>
+            <div class="content">
+              <ul class="list-group">
+                <li class="list-group-item marked-complete">
+                  <input type="checkbox" checked name="check1" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta tellus ipsum, ut laoreet dui porta eu. Nam ultrices viverra erat accumsan pretium.</span>
+                    <span class="item-due-date">
+                      Completed on<br/>
+                      April 10, 2015
+                    </span>
+                    <span class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg' class='profile-image'><div class='user-name'>Seth Juarez</div><div class='user-title'>Manager</div></div>"/></span>
+                  </a>
+                </li>
+                <li class="list-group-item marked-complete">
+                  <!-- 'disabled' should be added to items that the user cannot check or uncheck based on permissions -->
+                  <input type="checkbox" checked name="check1" class="action-item-checkbox" disabled>
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Nam ultrices viverra erat.</span>
+                    <span class="item-due-date">
+                      Completed on<br/>
+                      April 10, 2015
+                    </span>
+                    <span class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg' class='profile-image'><div class='user-name'>John Weathers</div><div class='user-title'>Field Operations Manager</div></div>"/></span>
+                  </a>
+                </li>
+                <li class="list-group-item on-track">
+                  <input type="checkbox" name="check2" class="action-item-checkbox" disabled>
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Lorem ipsum dolor sit amet</span>
+                    <span class="item-due-date">May 05, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg' class='profile-image'><div class='user-name'>Scott K Clark</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item past-due">
+                  <input type="checkbox" name="check3" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Donec sem turpis</span>
+                    <span class="item-due-date">April 30, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-image'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item on-track">
+                  <input type="checkbox" name="check4" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Duis egestas blandit</span>
+                    <span class="item-due-date">May 15, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-image'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+              </ul>
+              <div class="view-all-break">
+                <p>
+                  <a href="actionitems.html">View all</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="block-flat">
+            <div class="header">
+              <h3>Recent Notes</h3>
+            </div>
+            <div class="content">
+              <ul id="recent-notes-list" class="list-unstyled">
+                <li>
+                  <!-- Note titles should be clickable and link to the notes page with the note selected. -->
+                  <div class="note-list-title"><a href="homepage.html">My Note about Something</a></div>
+                  <div class="note-list-info">Dealership - 1234 on October 22, 2014</div>
+                  <div class="note-list-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a malesuada dui. Aliquam a ex eu enim sollicitudin.</div>
+                </li>
+                <li class="selected">
+                  <div class="note-list-title"><a href="homepage.html">My Note about Something</a></div>
+                  <div class="note-list-info">Dealership - 1234 on October 22, 2014</div>
+                  <div class="note-list-preview">Quisque mollis ante id leo congue, nec efficitur dolor luctus. Etiam posuere rutrum ante a posuere. Mauris scelerisque mauris in posuere euismod.</div>
+                </li>
+                <li class="marked-done">
+                  <div class="note-list-title"><a href="homepage.html">My Note about Something</a></div>
+                  <div class="note-list-info">October 22, 2014</div> <!-- Example of no dealership -->
+                  <div class="note-list-preview">Nunc lacinia neque ac ultricies facilisis. Nullam a hendrerit elit. Fusce sit amet eros id tortor tempus condimentum. Pellentesque rhoncus laoreet ipsum at molestie.</div>
+                </li>
+                <li>
+                  <div class="note-list-title"><a href="homepage.html">My Note about Something</a></div>
+                  <div class="note-list-info">Dealership - 1234 on October 21, 2014</div>
+                  <div class="note-list-preview">Integer tincidunt porttitor odio sit amet venenatis. Etiam est nisi, feugiat eget nunc tempus, rutrum consequat dui. Nulla ultricies nulla ligula.</div>
+                </li>
+              </ul>
+              <div class="view-all-break">
+                <p>
+                  <a href="homepage.html">View all</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Field Contacts</h3>
+            </div>
+            <div class="content">
+              <ul class="list-unstyled contacts-list">
+                <li>
+                  <a href="myprofilepublic.html">
+                    <div class="profile-image"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/chloepark/48.jpg"></div>
+                    <div class="profile-information">
+                      <div class="primary">Chloe Park</div>
+                      <div class="secondary">Manager</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="myprofilepublic.html">
+                    <div class="profile-image"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/jennyshen/48.jpg"></div>
+                    <div class="profile-information">
+                      <div class="primary">Jenny Shen</div>
+                      <div class="secondary">Field Operations Manager</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="myprofilepublic.html">
+                    <div class="profile-image"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/raquelromanp/48.jpg"></div>
+                    <div class="profile-information">
+                      <div class="primary">Raquel Roman</div>
+                      <div class="secondary">Title</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="block-flat">
+            <div class="header">
+              <h3>Location Contacts</h3>
+            </div>
+            <div class="content">
+              <ul class="list-unstyled contacts-list">
+                <li>
+                  <a href="myprofilepublic.html">
+                    <div class="profile-image"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/irenetrn/48.jpg"></div>
+                    <div class="profile-information">
+                      <div class="primary">Irene Tran</div>
+                      <div class="secondary">Title</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="myprofilepublic.html">
+                    <div class="profile-image"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/jackiesaik/48.jpg"></div>
+                    <div class="profile-information">
+                      <div class="primary">Jackie Saik</div>
+                      <div class="secondary">Title</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="myprofilepublic.html">
+                    <div class="profile-image"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/wintopia/48.jpg"></div>
+                    <div class="profile-information">
+                      <div class="primary">Winnie Tong</div>
+                      <div class="secondary">Title</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="myprofilepublic.html">
+                    <div class="profile-image"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/lettershoppe/48.jpg"></div>
+                    <div class="profile-information">
+                      <div class="primary">Dina Rodriguez</div>
+                      <div class="secondary">Title</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+
+          // Initializing popovers
+          $('[data-toggle="popover"]').popover();
+        });
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>

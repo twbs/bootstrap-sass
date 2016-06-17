@@ -1,0 +1,38 @@
+// ----------------------------
+// STYLES FOR COMMON ELEMENTS
+// ----------------------------
+
+#feedback-link
+  float: right
+  font-weight: 400
+  @extend %small
+
+// Hero Section
+.hero-section
+  @include clearfix
+  margin: 10px 0 15px
+  padding-top: 5px
+
+  .hero-number
+    text-align: center
+
+  .hero-number-label
+    color: $grey
+    font-weight: 600
+    line-height: 1.25
+    @extend %tiny
+
+  .hero-number-value
+    line-height: 1.25
+    color: $grey
+    &.success
+      color: #60c060
+    &.failure
+      color: #ed5b56
+    &.hero-current
+      font-weight: 600
+
+  .hero-number-comparison
+    color: $grey
+    font-weight: 200
+    @extend %tiny

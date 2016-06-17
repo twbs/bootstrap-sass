@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Wild Parrot</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="javascripts/bootstrap.datetimepicker/css/bootstrap-datepicker.standalone.min.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+  <script type="text/javascript" src="javascripts/html5lightbox/html5lightbox.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <!-- BEGIN WRAPPER -->
+  <div id="cl-wrapper" class="fixed-menu aside">
+
+    <% include notes-sidebar.html.ejs %>
+
+    <div id="pcont">
+      <div id="fixed-action-header">
+        <div class="action-header-right">
+          <span class="action-message">This audit is currently <strong>Draft</strong></span>
+          <button id="discard-audit" class="btn btn-default">Discard</button>
+          <!-- <div class="disabled-button-wrapper" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="You must provide an audit name and at least 1 audit item before publishing.">
+            <button class="btn btn-success" disabled>Publish</button>
+          </div> -->
+          <!-- <button id="publish-note" class="btn btn-success" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<p>You will no longer be able to edit this audit once it is published.<br/>Are you sure you want to publish?</p> <button type='button' id='cancel-publish' onclick='close_popover();' class='btn btn-xs btn-nostyle-popover'>No</button> <button type='button' class='btn btn-xs btn-default'>Yes</button>">Publish</button> -->
+        </div>
+        <div class="action-header-left">
+          <button type="button" id="print-button" class="btn btn-default"><i class="fa fa-print"></i></button>
+          <button type="button" id="delete-button" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
+        </div>
+      </div>
+      <div class="cl-mcont">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="block-flat">
+              <div class="content notes-container">
+                <span class="note-metainfo">
+                  <span class="created-on">Created on May 23, 2015</span>
+                </span>
+                <h3 id="note-title">Untitled Audit</h3>
+                <div class="audit-info">
+                  <div class="audit-info-row">
+                    <span class="audit-info-label">Author:</span>
+                    Missy Bergen
+                  </div>
+                  <div class="audit-info-row">
+                    <span class="audit-info-label">Reporting:</span>
+                    <label class="radio-inline">
+                      <input type="radio" name="reporting" checked> One Time
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="reporting"> Monthly
+                    </label>
+                  </div>
+                </div>
+                <section id="editor">
+                  <div id="note-content" class="froala-box">
+                    Drag and drop files here or start typing..
+                  </div>
+                </section>
+              </div>
+            </div>
+            <div class="block-flat">
+              <div class="header">
+                <h3>Attachments</h3>
+              </div>
+              <div class="content">
+                <div id="attachments">
+                  <div id="js-add-attachments" class="attachment-item">
+                    <div id="add-attachment">
+                      <span class="fa-stack fa-2x">
+                        <i class="fa fa-circle-o fa-stack-2x"></i>
+                        <i class="fa fa-plus fa-stack-1x"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="block-flat">
+              <div class="header">
+                <h3>Items</h3>
+              </div>
+              <div class="content">
+                <!-- START AUDIT ITEM -->
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <button class="btn btn-right btn-nostyle delete-audit-item"><i class="fa fa-trash-o"></i></button>
+                    <textarea class="form-control input-audit-items" rows="1" placeholder="Start typing an item...">This is the first item</textarea>
+                  </li>
+                  <li class="list-group-item">
+                    <button class="btn btn-right btn-nostyle delete-audit-item"><i class="fa fa-trash-o"></i></button>
+                    <textarea class="form-control input-audit-items" rows="1" placeholder="Start typing an item...">Another item here yay!</textarea>
+                  </li>
+                  <li class="list-group-item">
+                    <button class="btn btn-right btn-nostyle delete-audit-item"><i class="fa fa-trash-o"></i></button>
+                    <textarea class="form-control input-audit-items" rows="1" placeholder="Start typing an item..."></textarea>
+                  </li>
+                </ul>
+                <!-- END AUDIT ITEM -->
+                <a href="javascript:void(0);" class="add-item-link">+ Add a new item</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END MAIN CONTENT AREA -->
+
+  </div>
+  <!-- END WRAPPER -->
+
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript">
+    $(document).ready(function(){
+      //initialize the javascript
+      App.init();
+
+      $(".nscroller").nanoScroller({ preventPageScrolling: true });
+
+      $('[data-toggle="popover"]').popover();
+    });
+  </script>
+  <script>
+    $("#discard-audit").click(function(){
+      toastr.options.closeButton = true;
+      toastr.options.positionClass = "toast-top-right";
+      toastr.options.preventDuplicates = false;
+      toastr.options.timeOut = -1;
+      toastr.options.extendedTimeOut = -1;
+      toastr.options.tapToDismiss = false;
+
+      toastr.info("'Untitled Audit' has been discarded. <a href='#'>Undo</a>")
+    });
+
+    function close_popover() {
+      $("#publish-note").popover('hide');
+    }
+  </script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

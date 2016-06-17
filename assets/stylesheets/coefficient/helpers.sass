@@ -1,0 +1,110 @@
+/* -------------------------------------------------------------- */
+/* HELPERS ------------------------------------------------------ */
+/* -------------------------------------------------------------- */
+// helper classes and mixins required for ALL apps and pages
+// very little CSS output here (just is- classes)
+// so this can get imported everywhere easily
+
+
+// -------------------------------------------------------------- //
+// CLEARFIX ----------------------------------------------------- //
+// http://nicolasgallagher.com/micro-clearfix-hack/ ------------- //
+// include @mixin clearfix on the parent div you want to clear -- //
+// -------------------------------------------------------------- //
+@mixin clearfix
+  zoom: 1 // For IE 6/7 (trigger hasLayout)
+
+  &:after,
+  &:before
+    content: " "
+    display: table
+
+  &:after
+    clear: both
+
+@mixin vertical-align-middle
+  position: relative
+  top: 50%
+  transform: translateY(-50%)
+  -webkit-transform: translateY(-50%)
+  -ms-transform: translateY(-50%)
+
+@mixin title-hover
+  margin-bottom: 0
+  border: 0
+  border-bottom: 2px solid transparent
+  padding: 0
+  box-shadow: none
+  transition: none
+  @include long-title-overflow
+  &:hover,
+  &:focus
+    background-color: #fff8dd
+    border-bottom: 2px dotted $grey
+  &:disabled
+    background-color: transparent
+    border-bottom: 0
+
+@mixin long-title-overflow
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+@mixin placeholder
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+
+
+// -------------------------------------------------------------- //
+// TYPOGRAPHY HELPERS ------------------------------------------- //
+// -------------------------------------------------------------- //
+
+%huge
+  font-size: 50px
+
+%alpha
+  font-size: 35px
+
+%beta
+  font-size: 30px
+
+%gamma
+  font-size: 24px
+
+%delta
+  font-size: 20px
+
+%epsilon
+  font-size: 16px
+
+%body_copy
+  font-size: 13px
+
+%small
+  font-size: 12px
+
+%itsy
+  font-size: 11px
+
+
+// -------------------------------------------------------------- //
+// ICON HELPERS ------------------------------------------------- //
+// -------------------------------------------------------------- //
+
+%icon-large
+  font-size: 17px
+
+%icon-small
+  font-size: 14px
+
+
+// -------------------------------------------------------------- //
+// CSS3 --------------------------------------------------------- //
+// -------------------------------------------------------------- //
+
+// rounded corners - different corners
+@mixin border-radius-mixed($topleft, $topright, $bottomright, $bottomleft)
+  border-radius: $topleft $topright $bottomright $bottomleft
+  // to use: @include border-radius-mixed(0, 2px, 0, 2px)

@@ -1,0 +1,17 @@
+// ----------------------------
+// TABS
+// ----------------------------
+
+.tabs
+  &.header
+    padding-bottom: 0
+    @include clearfix
+  .tab
+    float: left
+    margin-right: 30px
+    a
+      color: $grey
+    &.active
+      border-bottom: 5px solid $primary
+      a
+        color: $text-color

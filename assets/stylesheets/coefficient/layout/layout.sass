@@ -1,0 +1,261 @@
+html
+  height: 100%
+
+body
+  position: relative
+  padding: 0
+  background-color: $greylightest
+  font-family: 'Open Sans', sans-serif
+  @extend %small
+  color: $text-color
+
+ul,
+ol
+  padding-left: 30px
+
+.back-to-top
+  position: fixed
+  bottom: 0
+  right: 0
+  text-decoration: none
+  color: $white
+  background-color: rgba(#272930, 0.8)
+  padding: 9px 12px
+  display: none
+  &:hover
+    color: $white
+    background-color: rgba(#272930, 1)
+  &:focus
+    color: $white
+  i
+    @extend %epsilon
+
+
+
+/* MAIN LAYOUT */
+#cl-wrapper
+  padding-top: 50px
+
+#pcont
+  display: table-cell
+  vertical-align: top
+
+.cl-mcont-wrapper
+  height: 100%
+  width: 100%
+  display: table !important
+
+.cl-mcont
+  background-color: $greylightest
+  color: inherit
+  @extend %body_copy
+  line-height: 21px
+  padding: 15px 30px 30px 30px
+  margin-top: 0
+
+  h1
+    line-height: 1.3em
+
+#fixed-action-header,
+#fixed-action-header2
+  background: $greylightest
+  padding: 15px 30px
+  position: fixed
+  right: 0
+  z-index: 99
+  @include clearfix
+  + .cl-mcont
+    padding-top: 49px
+#action-header
+  padding: 5px 0
+  @include clearfix
+.action-message
+  padding-right: 10px
+  line-height: 27px
+.action-message strong
+  font-weight: bold
+.action-header-left
+  float: left
+.action-header-right
+  float: right
+.action-header-icons
+  padding-right: 20px
+
+
+#page-aside + #pcont
+  #fixed-action-header
+    left: 495px
+  .page-head
+    left: 496px
+#pcont
+  #fixed-action-header
+    left: 216px
+.sb-collapsed
+  #page-aside + #pcont
+    #fixed-action-header
+      left: 334px
+    .page-head
+      left: 335px
+  #pcont
+    #fixed-action-header
+      left: 55px
+
+#page-footer
+  margin-top: 100px
+  color: $greymedium
+  text-align: center
+  @extend %itsy
+  a
+    color: $greymedium
+    &:hover
+      text-decoration: underline
+  .page-footer-divider
+    margin: 0 10px
+
+/* LATOUT HELPERS */
+.spacer
+  margin-top: 15px !important
+
+.spacer2
+  margin-top: 30px !important
+
+.spacer3
+  margin-top: 50px !important
+
+.spacer-bottom-xs
+  margin-bottom: 10px !important
+
+.spacer-bottom
+  margin-bottom: 30px !important
+
+.no-padding
+  padding: 0 !important
+
+.no-margin
+  margin: 0 !important
+
+.no-margin-y
+  margin-top: 0 !important
+  margin-bottom: 0 !important
+
+.no-margin-x
+  margin-left: 0 !important
+  margin-right: 0 !important
+
+.no-margin-top
+  margin-top: 0 !important
+
+.no-margin-bottom
+  margin-bottom: 0 !important
+
+.no-margin-left
+  margin-left: 0 !important
+
+.no-margin-right
+  margin-right: 0 !important
+
+.divider
+  border-bottom: 1px solid $greylight
+  margin: 20px 0
+
+
+
+/* BLOCK LAYOUT STYLES */
+.cl-mcont
+  .row
+    margin-top: 20px
+  .col-lg-6
+    padding: 0 15px
+
+.block-flat
+  margin-bottom: 30px
+  padding: 20px
+  background: $white
+  border-top: 1px solid $greylight
+  box-shadow: 0px 1px 2px 0px rgba($greymedium, 0.4)
+
+.page-head
+  border-bottom: 3px solid $grey
+  padding: 10px 30px 5px
+  position: absolute
+  right: 0
+  left: 216px
+  z-index: 5
+  + .cl-mcont
+    padding-top: 111px
+  &.has-breadcrumb-info
+    + .cl-mcont
+      padding-top: 148px
+  .breadcrumb
+    background: none
+    margin-bottom: 0
+    padding: 4px
+    li
+      max-width: 200px
+      white-space: nowrap
+      text-overflow: ellipsis
+      overflow: hidden
+
+.sb-collapsed
+  .page-head
+    left: 55px
+
+/* Widgets */
+.widget-block
+  .cl
+    margin-bottom: 20px
+  box-shadow: 1px 1px 3px rgba($black, 0.21)
+  border: 0
+  margin-bottom: 30px
+  margin-top: 0
+  .row
+    margin: 0
+  .padding
+    padding: 20px
+  .vpadding
+    padding: 20px 0
+  .hpadding
+    padding: 0 20px
+
+.block-flat
+  .header
+    background: transparent
+    padding: 3px 0
+    border-bottom: 1px solid $greylight
+    &.no-border
+      border: 0
+    h3
+      margin-top: 3px
+      font-weight: 200
+  .header-right
+    float: right
+  .content
+    padding: 15px 3px 0 3px
+    &.full-width
+      padding: 0
+      margin-left: -20px
+      margin-right: -20px
+      margin-bottom: -20px
+    h4.subtitle
+      margin-top: 20px
+      @extend %epsilon
+    .title
+      margin: 5px 0 15px 0
+  &.no-padding .content
+    padding: 0 !important
+
+  .view-all-break
+    border-top: 1px solid $greylight
+    padding-top: 10px
+    margin-top: 15px
+
+.btn-group .dropdown-menu
+  margin-top: -6px
+
+.static-mn
+  display: block
+  position: static
+
+.static-lg-menu
+  .static-mn
+    min-width: 90%

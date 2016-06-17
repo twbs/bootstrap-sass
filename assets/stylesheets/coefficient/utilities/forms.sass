@@ -1,0 +1,142 @@
+// ----------------------------
+// FORMS
+// ----------------------------
+
+label
+  font-weight: 600
+  margin-bottom: 7px
+
+textarea
+  resize: none
+
+.form-group
+  margin-top: 10px
+  margin-bottom: 28px
+  position: relative
+
+.form-inline-group
+  margin: 10px 0
+
+.form-control
+  padding: 6px 8px
+  @extend %small
+  border-radius: 1px
+  box-shadow: 0 1px 1px rgba($black, 0.05) inset
+  height: 42px
+  &:focus
+    border-color: #2598f9
+
+.form-control[readonly],
+fieldset[disabled] .form-control
+  cursor: inherit
+  background-color: transparent
+  opacity: 1
+
+.form-control[disabled],
+fieldset[disabled] .form-control
+  cursor: inherit
+  background-color: $silver
+  color: $greymedium
+  opacity: 1
+
+#editor
+  textarea.form-control[disabled]
+    background-color: transparent
+
+.input-group
+  padding: 0 0 12px
+  border-radius: 1px
+  &:focus
+    border-color: #2598f9
+  .input-group-addon
+    min-width: 42px
+    border-radius: 1px
+    background-color: $silver
+  .input-group-addon[disabled]
+    pointer-events: none
+
+.helper-text
+  position: absolute
+  @extend %itsy
+
+.form-buttons
+  padding: 15px 0
+
+
+// ----------------------------
+// ADDRESS SPECIFIC
+// Currently, only US addresses
+// ----------------------------
+
+.group-cluster
+  .cluster-cell
+    display: table-cell
+    padding-left: 10px
+    &.cluster-cell-half
+      width: 50%
+    &.cluster-cell-third
+      width: 33%
+    &.cluster-cell-quarter
+      width: 25%
+  .cluster-row
+    display: table
+    width: 100%
+    margin-top: 10px
+    margin-bottom: 28px
+    div:first-child
+      padding-left: 0
+
+
+// ----------------------------
+// PASSWORD STRENGTH METER
+// ----------------------------
+
+.password-strength
+  position: absolute
+  height: 3px
+  bottom: 1px
+  background: $grey
+  width: 100%
+  .password-strength-meter
+    height: 3px
+    margin: 0 1px
+    width: 1%
+
+$strengths: (weak: $danger, medium: $warning, strong: $success)
+
+@each $strength, $color in $strengths
+  .password-strength-meter
+    &.strength-#{$strength}
+      background-color: $color
+  .helper-text
+    .strength-#{$strength}
+      color: $color
+
+$widths: (weak: 20%, medium: 50%, strong: 100%)
+
+@each $strength, $width in $widths
+  .password-strength-meter
+    &.strength-#{$strength}
+      width: $width
+
+
+// ----------------------------
+// FORM ERRORS
+// ----------------------------
+
+.form-has-error
+  color: $danger
+
+.has-error
+  .error-message
+    color: $danger
+    @extend %itsy
+    position: absolute
+  .input-group
+    ~ .error-message
+      margin-top: -12px
+
+.success-message
+  color: $success
+  @extend %itsy
+  position: absolute

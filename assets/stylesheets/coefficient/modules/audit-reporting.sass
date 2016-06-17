@@ -1,0 +1,95 @@
+// ----------------------------
+// AUDIT REPORTING STYLES
+// ----------------------------
+
+#jump-to-current
+  margin-right: 10px
+
+#currently-viewing
+  margin-left: 15px
+
+#average-score-box
+  text-align: center
+  margin-bottom: 15px
+  border-right: 1px solid $greylight
+  h4
+    white-space: nowrap
+
+#percent-reporting-box
+  text-align: center
+  margin-bottom: 15px
+
+#audit-report-tracking
+  display: table
+  width: 100%
+  padding: 10px
+
+  #percent-reporting
+    display: table-cell
+    font-weight: 200
+    padding-right: 15px
+    line-height: 1
+    @extend %huge
+
+  #reporting-progress-bar
+    display: table-cell
+    vertical-align: middle
+    text-align: left
+    width: 100%
+    color: #999
+    @extend %itsy
+    .progress
+      margin-bottom: 0
+
+.avg-score-percentage
+  @extend %alpha
+
+.header.reporting
+  display: table
+  width: 100%
+  .report-heading
+    display: table-cell
+    padding-bottom: 10px
+  .report-details
+    display: table-cell
+    float: right
+
+#audit-report
+  float: right
+  text-align: right
+  #percent-reporting
+    line-height: 1
+    color: $info
+    @extend %huge
+  #passed-results
+    font-style: italic
+    color: $greymedium
+
+#average-score
+  font-weight: 200
+  color: $info
+  padding: 10px 0
+  line-height: 1
+  text-align: center
+  @extend %huge
+
+#reporting-table
+  margin-top: 20px
+
+.audit-report-section
+  page-break-inside: avoid
+  margin-top: 20px
+
+// ----------------------------
+// AUDIT REPORT (PRINT)
+// ----------------------------
+@media print
+  #audit-report-tracking
+    #reporting-progress-bar
+      vertical-align: top
+  #audit-report
+    float: none
+    text-align: left
+  #percent-reporting,
+  #passed-results
+    display: inline

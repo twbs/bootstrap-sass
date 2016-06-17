@@ -1,0 +1,53 @@
+// ----------------------------
+// AUTHENTICATION FORMS
+// Login, Sign In, Forgot Password, etc.
+// ----------------------------
+
+.auth-header
+  text-align: center
+  h2
+    color: $CF-purple
+
+$states: (success: (#dbf6d3, #aed4a5, #569745), info: (#d9edf7, #98cce6, #3a87ad), warning: (#fcf8e3, #f1daab, #c09853), danger: (#f2dede, #e0b1b8, #b94a48))
+
+.auth-subheader
+  position: relative
+  padding: 15px 20px 10px
+  background: $silver
+  border: 1px solid $greylight
+  top: 20px
+  label
+    width: 120px
+  // Creating CSS Arrow below
+  &:after, &:before
+    top: 100%
+    left: 50%
+    border: solid transparent
+    content: " "
+    height: 0
+    width: 0
+    position: absolute
+    pointer-events: none
+  &:after
+    border-color: transparent
+    border-top-color: $silver
+    border-width: 11px
+    margin-left: -11px
+  &:before
+    border-color: transparent
+    border-top-color: $greylight
+    border-width: 12px
+    margin-left: -12px
+  // For various states of the auth subheader
+  @each $state, $colorList in $states
+    &.#{$state}
+      background-color: nth($colorList, 1)
+      border-color: nth($colorList, 2)
+      color: nth($colorList, 3)
+      &:after
+        border-top-color: nth($colorList, 1)
+      &:before
+        border-top-color: nth($colorList, 2)
+
+.auth-footer
+  text-align: center

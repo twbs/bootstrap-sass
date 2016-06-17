@@ -1,0 +1,227 @@
+// ----------------------------
+// AUDIT PAGE STYLES
+// ----------------------------
+
+.authored-by
+  white-space: nowrap
+  img
+    max-width: 25px
+    max-height: 25px
+    margin-right: 5px
+
+.in-progress
+  color: $success
+  font-weight: 600
+.in-draft
+  color: $danger
+  font-weight: 600
+
+#audit-details-box
+  margin-top: 44px
+
+.audit-item
+  padding: 10px 15px
+  background: $silver
+  border-left: 2px solid $greylightest
+  margin-bottom: 15px
+
+  .audit-title
+    width: 40%
+
+.list-group-item
+  &.audit-group-item
+    margin-bottom: 20px
+
+.input-audit-items,
+.add-audit-item
+  resize: none
+  min-height: 32px
+
+.audit-section-header,
+.audit-report-section-header
+  padding: 10px 0
+  width: 100%
+  display: table
+
+  .audit-section-title
+    background-color: transparent
+    outline: none
+    width: 100%
+    @extend %epsilon
+    @include title-hover
+
+  .audit-section-header-title,
+  .audit-section-header-delete
+    display: table-cell
+
+  .audit-section-header-delete
+    width: 90px
+    vertical-align: top
+
+.audit-report-section-header
+  background-color: $greylightest
+  padding: 10px
+
+.audit-item-header
+  width: 100%
+  padding: 5px 10px
+  background-color: $grey
+  border-bottom: 1px solid $grey
+  @extend %small
+
+.delete-audit-item,
+.delete-audit-section
+  float: right
+  @extend %small
+  &:hover
+    cursor: pointer
+
+.audit-item-input
+  padding: 10px
+  display: table
+  width: 100%
+  .audit-item-row
+    display: table-row
+    &:not(:last-child)
+      .audit-cell
+        padding-bottom: 10px
+  .audit-cell
+    display: table-cell
+    &.full-width
+      width: 100%
+    &.pass-fail
+      min-width: 160px
+      text-align: right
+
+.audit-info
+  @extend %small
+  padding-top: 10px
+  .audit-info-row:not(:first-child)
+    margin-top: 30px
+  .audit-info-label
+    font-weight: 600
+    margin-bottom: 5px
+  .datepicker
+    border: 0
+    padding: 0
+    width: auto
+    color: $link-color
+  #set-location-wrap
+    position: relative
+
+.audit-metainfo
+  white-space: nowrap
+  text-align: right
+  font-style: italic
+  line-height: 1.25
+  color: $greymedium
+  @extend %itsy
+
+// ----------------------------
+// AUDIT (RESPONSIVE)
+// ----------------------------
+@media (max-width: 767px)
+  .audit-metainfo
+    .created-on,
+    .modified-on
+      display: block
+      text-align: right
+    .created-on,
+    .meta-separator
+      display: none
+
+// ----------------------------
+// AUDIT (PRINT)
+// ----------------------------
+@media print
+  .audit-list-item
+    .audit-item-name,
+    .msd-elastic-print
+      font-size: 11px
+      line-height: 1.2
+    label
+      font-size: 11px
+
+.audit-list-item
+  border-left-width: 3px
+  &.item-pass
+    border-left-color: $success
+  &.item-fail
+    border-left-color: $danger
+  .audit-pass-fail
+    float: right
+    padding: 7px 11px 7px 0
+  .audit-item-name
+    padding: 7px 11px 7px 0
+  .audit-attachments
+    margin-top: 15px
+
+#audit-title
+  @extend %alpha
+  line-height: initial
+  font-weight: 300
+  height: auto
+  @include title-hover
+
+#audit-item-header-right
+  float: right
+  display: inline-block
+
+  #move-audit-item
+    float: left
+    padding-right: 10px
+    position: relative
+    &:hover
+      cursor: pointer
+
+  .dropdown-menu
+    left: auto
+    right: 10px
+
+#audit-content,
+.audit-comments
+  padding: 0
+  border: 0
+  box-shadow: none
+  &:focus
+    box-shadow: none
+
+#audit-content-print,
+.audit-comments-print
+  display: none
+
+.expand-collapse-section
+  .expand-collapse-hide
+    padding: 10px
+    // temporarily removing while to figure out the animation
+    // transition: all 1s ease
+    overflow-y: hidden
+    &.ng-hide
+      display: block !important
+      padding: 0 10px
+      max-height: 0
+  .expand-collapse-bar
+    display: block
+    text-align: center
+    background: $silver
+    clear: both
+    position: relative
+    &:hover
+      cursor: pointer
+      background: rgba($primary, 0.1)
+  .has-attachments
+    position: absolute
+    left: 10px
+    color: $text-color
+    &:hover
+      color: $text-color
+
+  @media print
+    .expand-collapse-hide
+      display: block !important
+      padding: 10px !important
+      max-height: none !important
+      &.no-print
+        display: none !important
+    .expand-collapse-bar
+      display: none

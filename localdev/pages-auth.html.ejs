@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Wild Parrot</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+    <% include wp-sidebar.html.ejs %>
+
+    <div class="page-head">
+      <h2>Authentication Layout</h2>
+    </div>
+
+    <div class="cl-mcont">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Section title goes here</h3>
+            </div>
+            <div class="content">
+              <pre><code class="html">&#x3C;!DOCTYPE html&#x3E;
+&#x3C;html lang=&#x22;en&#x22;&#x3E;
+&#x3C;head&#x3E;
+  &#x3C;meta charset=&#x22;utf-8&#x22;&#x3E;
+  &#x3C;meta name=&#x22;viewport&#x22; content=&#x22;width=device-width, initial-scale=1.0&#x22;&#x3E;
+  &#x3C;meta name=&#x22;description&#x22; content=&#x22;&#x22;&#x3E;
+  &#x3C;meta name=&#x22;author&#x22; content=&#x22;&#x22;&#x3E;
+  &#x3C;link rel=&#x22;shortcut icon&#x22; href=&#x22;https://dev.coefficient.co/assets/favicon.png&#x22;&#x3E;
+
+  &#x3C;title&#x3E;Wild Parrot&#x3C;/title&#x3E;
+  &#x3C;link href=&#x27;http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800&#x27; rel=&#x27;stylesheet&#x27; type=&#x27;text/css&#x27;&#x3E;
+  &#x3C;link href=&#x27;http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&#x27; rel=&#x27;stylesheet&#x27; type=&#x27;text/css&#x27;&#x3E;
+
+  &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css&#x22;&#x3E;
+  &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css&#x22;&#x3E;
+
+  &#x3C;link href=&#x22;https://dev.coefficient.co/assets/application.css&#x22; rel=&#x22;stylesheet&#x22; /&#x3E;
+  &#x3C;script src=&#x22;https://code.jquery.com/jquery-1.11.3.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+  &#x3C;script src=&#x22;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+  &#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;nanoscroller.js&#x22;&#x3E;&#x3C;/script&#x3E;
+  &#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;general.js&#x22;&#x3E;&#x3C;/script&#x3E;
+
+&#x3C;/head&#x3E;
+&#x3C;body&#x3E;
+
+  &#x3C;!-- BEGIN WRAPPER --&#x3E;
+  &#x3C;div id=&#x22;cl-wrapper&#x22;&#x3E;
+
+    &#x3C;!-- BEGIN MAIN CONTENT AREA --&#x3E;
+    &#x3C;div class=&#x22;cl-mcont&#x22;&#x3E;
+      &#x3C;div class=&#x22;row&#x22;&#x3E;
+        &#x3C;div class=&#x22;col-sm-12 col-md-12 col-lg-12&#x22;&#x3E;
+          &#x3C;div class=&#x22;auth-header&#x22;&#x3E;
+            &#x3C;img src=&#x22;https://dev.coefficient.co/assets/logo75.png&#x22;/&#x3E;
+            &#x3C;h2 class=&#x22;hthin&#x22;&#x3E;Sign In&#x3C;/h2&#x3E;
+          &#x3C;/div&#x3E;
+        &#x3C;/div&#x3E;
+      &#x3C;/div&#x3E;
+      &#x3C;div class=&#x22;row&#x22;&#x3E;
+        &#x3C;div class=&#x22;col-sm-3 col-md-4 col-lg-4&#x22;&#x3E;&#x3C;/div&#x3E;
+        &#x3C;div class=&#x22;col-sm-6 col-md-4 col-lg-4&#x22;&#x3E;
+          &#x3C;div class=&#x22;block-flat&#x22;&#x3E;
+            &#x3C;div class=&#x22;content&#x22;&#x3E;
+              &#x3C;form role=&#x22;form&#x22;&#x3E;
+                &#x3C;div class=&#x22;form-group&#x22;&#x3E;
+                  &#x3C;label&#x3E;Email address&#x3C;/label&#x3E; &#x3C;input type=&#x22;email&#x22; placeholder=&#x22;enter your email address&#x22; class=&#x22;form-control&#x22;&#x3E;
+                &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;form-group&#x22;&#x3E;
+                  &#x3C;label&#x3E;Password&#x3C;/label&#x3E; &#x3C;input type=&#x22;password&#x22; placeholder=&#x22;enter your password&#x22; class=&#x22;form-control&#x22;&#x3E;
+                &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;form-group&#x22;&#x3E;
+                  &#x3C;br/&#x3E;
+                  &#x3C;input type=&#x22;submit&#x22; class=&#x22;btn btn-full btn-flat btn-primary&#x22; value=&#x22;Sign In&#x22; /&#x3E;
+                &#x3C;/div&#x3E;
+                &#x3C;p class=&#x22;small&#x22;&#x3E;
+                  &#x3C;a href=&#x22;#&#x22;&#x3E;Forgot password?&#x3C;/a&#x3E;
+                &#x3C;/p&#x3E;
+              &#x3C;/form&#x3E;
+            &#x3C;/div&#x3E;
+          &#x3C;/div&#x3E;
+        &#x3C;/div&#x3E;
+        &#x3C;div class=&#x22;col-sm-3 col-md-4 col-lg-4&#x22;&#x3E;&#x3C;/div&#x3E;
+      &#x3C;/div&#x3E;
+      &#x3C;div class=&#x22;row&#x22;&#x3E;
+        &#x3C;div class=&#x22;col-sm-3 col-md-4 col-lg-4&#x22;&#x3E;&#x3C;/div&#x3E;
+        &#x3C;div class=&#x22;col-sm-6 col-md-4 col-lg-4&#x22;&#x3E;
+          &#x3C;div class=&#x22;auth-footer&#x22;&#x3E;
+            Don&#x27;t have an account? &#x3C;a href=&#x22;#&#x22;&#x3E;Sign Up&#x3C;/a&#x3E;.
+          &#x3C;/div&#x3E;
+        &#x3C;/div&#x3E;
+        &#x3C;div class=&#x22;col-sm-3 col-md-4 col-lg-4&#x22;&#x3E;&#x3C;/div&#x3E;
+      &#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+    &#x3C;!-- END MAIN CONTENT AREA --&#x3E;
+
+  &#x3C;/div&#x3E;
+  &#x3C;!-- END WRAPPER --&#x3E;
+
+    &#x3C;!-- Bootstrap core JavaScript
+    ================================================== --&#x3E;
+    &#x3C;!-- Placed at the end of the document so the pages load faster --&#x3E;
+    &#x3C;script type=&#x22;text/javascript&#x22;&#x3E;
+      $(document).ready(function(){
+        //initialize the javascript
+        App.init();
+      });
+      hljs.initHighlightingOnLoad();
+    &#x3C;/script&#x3E;
+  &#x3C;/div&#x3E;
+&#x3C;/body&#x3E;
+&#x3C;/html&#x3E;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+        });
+        hljs.initHighlightingOnLoad();
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>

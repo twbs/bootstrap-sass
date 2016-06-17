@@ -1,0 +1,310 @@
+// ----------------------------
+// RESPONSIVE DESIGN
+// For main layout of application
+// ----------------------------
+
+
+// ----------------------------
+// Tablet (Portrait) + Desktop
+// ----------------------------
+
+@media (min-width: 768px)
+
+  // Sidebar
+  .cl-sidebar
+    .cl-navblock
+      &.collapse
+        display: block !important
+        visibility: visible !important
+
+  // Aside
+  #page-aside
+    .header
+      position: fixed
+      width: 279px
+    .aside-scroll-header
+      position: fixed
+      width: 279px
+      top: 134px
+      padding-bottom: 2px
+      border-bottom: 1px solid $greylightest
+    #aside-items
+      position: fixed
+      width: 279px
+      top: 154px
+    #aside-nav.collapse,
+    #aside-nav.collapse.in
+      display: block !important
+      visibility: visible !important
+
+  .sb-collapsed
+    .cl-sidebar
+      width: 55px
+    #pcont
+      margin-left: 55px
+    #page-aside+#pcont
+      margin-left: 0
+    .cl-vnavigation
+      li
+        position: relative
+      .parent a
+        background-image: none
+      li a i
+        margin: 0
+        @extend %icon-large
+      > li > a > span
+        opacity: 0
+        width: 0
+        height: 0
+
+  .cl-sidebar .collapse-button
+    background: #1F2126
+    position: fixed
+    width: 216px
+    bottom: 0
+    padding: 7px 9px
+    text-align: right
+    button
+      margin: 0 !important
+      background: transparent
+      box-shadow: 1px 1px 0 rgba($white, 0.1) inset
+      border: 1px solid rgba($black, 0.25)
+      border-radius: 2px
+      &:hover
+        background: #23252A
+
+  #cl-wrapper
+    &.fixed-menu .menu-space
+      position: fixed
+      width: 216px
+      background: #272930
+      top: 50px
+      .content
+        outline: none
+    &.sb-collapsed.fixed-menu .menu-space
+      width: 55px
+
+  .sb-collapsed
+    .cl-sidebar .collapse-button
+      width: 55px
+    .cl-vnavigation li.open ul
+      display: none !important
+    #sidebar-profile
+      padding: 10px
+      img
+        width: 30px
+      #current-name,
+      #current-title,
+      #current-edit
+        display: none
+
+  #sub-menu-nav ul
+    box-shadow: 1px 1px 4px rgba($black, 0.22)
+    color: $text-color
+    background: $white
+    padding: 5px 0
+    min-width: 190px
+    box-shadow: 0 2px 4px rgba($black, 0.25)
+    border: 1px solid rgba($black, 0.15)
+    border-top: 0
+    border-radius: 3px
+    li
+      &:first-child
+        padding-top: 0
+      &:last-child
+        padding-bottom: 0
+      &.dropdown-header
+        i
+          text-align: center
+          width: 15px
+        padding: 1px 11px
+        padding-bottom: 6px
+      list-style: none
+      a
+        margin-right: -1px
+        display: block
+        @extend %itsy
+        border-bottom: 0
+        color: $text-color
+        text-shadow: none
+        text-align: left
+        background: transparent
+        padding: 6px 20px 6px 31px
+        &:hover
+          background-color: $link-hover
+          color: $white
+    padding: 5px 0
+    &:after
+      background: image-url('menu-tail-left.png') no-repeat right 10px
+      top: 0px
+      content: ""
+      display: inline-block
+      left: -9px
+      height: 43px
+      width: 10px
+      position: absolute
+
+
+// ----------------------------
+// Tablet (Portrait)
+// ----------------------------
+
+@media (min-width: 768px) and (max-width: 979px)
+
+  // Top Navigation
+  .navbar-default
+    .navbar-brand
+      height: 30px
+      max-width: 45px
+      span
+        display: none // Hides brand name so it shows logo only
+    .navbar-collapse
+      margin-left: 30px
+
+  // Sidebar
+  .cl-sidebar
+    width: 55px
+
+  #sidebar-profile
+    img
+      max-width: 30px
+      max-height: 30px
+    #current-name,
+    #current-title,
+    #current-edit
+      display: none
+
+  #cl-wrapper
+    &.fixed-menu
+      .menu-space
+        width: 55px
+        top: 49px
+
+  .cl-vnavigation
+    li
+      a
+        font-size: 17px
+        span
+          display: none
+    .parent
+      a
+        background: image-url("arrow.png") no-repeat scroll right 10px top 22px transparent
+
+  .collapse-button
+    display: none
+
+  // Content Area
+  .page-head
+    left: 55px
+
+  #pcont
+    margin-left: 55px
+    #fixed-action-header
+      left: 55px
+  #page-aside
+    + #pcont
+      margin-left: 0
+      #fixed-action-header
+        left: 334px
+
+  #page-aside + #pcont
+    .page-head
+      left: 335px
+
+// ----------------------------
+// Mobile
+// ----------------------------
+
+@media (max-width: 767px)
+
+  // Top Navigation
+  .navbar
+    margin-bottom: 0
+
+  .navbar-fixed-top
+    position: static
+
+  .navbar-default
+    .navbar-collapse
+      margin-right: -15px
+      margin-left: -15px
+      max-height: none
+      overflow-y: visible
+      &.collapsing
+        overflow-y: auto
+    .navbar-header
+      margin-left: 0
+
+  .navbar-default
+    .navbar-nav
+      margin: 0 -15px
+      .open
+        .dropdown-menu
+          position: absolute
+          float: left
+          background: $white
+          box-shadow: 1px 3px 4px rgba($black, 0.18)
+          > li
+            a
+              line-height: 1.42857
+              color: $text-color
+              padding: 5px 10px
+            > a:hover
+              background: $link-hover
+              color: $white
+
+  // Sidebar
+  #cl-wrapper
+    display: block
+    padding-top: 0
+
+    &.fixed-menu
+      .menu-space
+        position: initial
+        width: 100%
+
+  .cl-sidebar
+    display: block
+    width: 100%
+    position: static
+
+    .cl-toggle
+      display: block
+    .collapse-button
+      display: none
+
+  // Aside
+  #page-aside
+    display: block
+    width: 100%
+    .navbar-toggle
+      padding: 0
+      margin: 0
+    .main-action
+      button
+        margin-right: 0
+    #aside-total-items,
+    #aside-sort
+      position: absolute
+      top: 100px
+    #aside-sort
+      right: 0
+
+  // Content
+  .page-head
+    left: 0
+
+  #page-aside + #pcont
+    .page-head
+      left: 0
+
+  #fixed-action-header,
+  #fixed-action-header2
+    position: static
+    padding: 15px 15px 0
+    + .cl-mcont
+      padding-top: 0
+
+  .cl-mcont
+    padding: 15px
+

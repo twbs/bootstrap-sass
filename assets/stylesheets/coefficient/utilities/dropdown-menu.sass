@@ -1,0 +1,52 @@
+// ----------------------------
+// DROPDOWN MENUS
+// ----------------------------
+
+.dropdown-menu
+  border-radius: 1px
+  box-shadow: 1px 3px 4px rgba($black, 0.18)
+  li
+    > a
+      @extend %small
+      padding: 5px 20px
+      color: $text-color
+      display: block
+      line-height: 1.42857
+      white-space: nowrap
+      &:hover
+        cursor: pointer
+  &.autocomplete-results
+    z-index: 1001
+    li
+      > a
+        padding: 5px 10px
+        width: 393px
+        max-width: 393px
+  &.full-width
+    width: 100%
+    margin-top: -11px
+  .divider
+    margin: 5px 0
+
+.dropdown-header
+  color: #2083D6
+  padding-left: 11px
+  cursor: default
+  i
+    margin-right: 4px
+    vertical-align: middle
+    @extend %icon-small
+
+
+// 2 Column Menus
+.col-menu-2
+  min-width: 405px
+  > li
+    &:first-child ul
+      border-right: 1px solid $greylight
+    > ul
+      > li
+        a
+          padding-left: 32px
+        list-style: none
+      padding: 0

@@ -1,0 +1,54 @@
+.mv-transform-wrapper
+  box-shadow: none
+  border: 0
+  position: relative
+  margin: 10px 13px 50px 13px
+  &.full-view
+    float: none !important
+  &.half-view,
+  &.quarter-view
+    float: left
+
+  .mv-front,
+  .mv-back
+    margin: 0
+
+.mv-front,
+.mv-back
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  backface-visibility: hidden
+  transform-style: preserve-3d
+  transition: all 0.5s ease-out 0s
+
+.mv-front
+  transform: rotateY(0deg)
+  z-index: 1
+  position: static
+  &.is-not-visible
+    transform: rotateY(180deg)
+    z-index: 0
+
+.mv-back
+  transform: rotateY(-180deg)
+  z-index: 0
+  background: $silver
+
+  &:hover
+    cursor: pointer
+
+  &.is-visible
+    transform: rotateY(0deg)
+    z-index: 1
+    overflow: scroll
+
+// Specific to grid views
+.grid-view,
+.fluid-grid-view
+  .mv-transform-wrapper
+    float: left
+  .mv-front,
+  .mv-back
+    float: none

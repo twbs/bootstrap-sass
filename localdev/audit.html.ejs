@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Audits</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+    <% include fom-sidebar.html.ejs %>
+
+    <div id="pcont">
+      <div id="fixed-action-header">
+        <div class="action-header-left">
+          <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i></button>
+        </div>
+      </div>
+      <div class="cl-mcont">
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="block-flat">
+              <div class="content notes-container">
+                <span class="note-metainfo">
+                  <span class="created-on">Created on May 23, 2015</span>
+                </span>
+                <h3 id="note-title">Untitled Audit</h3>
+                <div class="audit-info">
+                  <div class="audit-info-row">
+                    <span class="audit-info-label">Auditor:</span>
+                    John Weathers
+                  </div>
+                  <div class="audit-info-row">
+                    <span class="audit-info-label">Date:</span>
+                    <input class="datepicker" type="text" value="April 24, 2015">
+                  </div>
+                  <div class="audit-info-row">
+                    <span class="audit-info-label">Location:</span>
+                    Town Lake Nissan - 5945 <!-- Location Selector -->
+                  </div>
+                </div>
+                <ul class="list-group">
+                  <li class="list-group-item audit-list-item">
+                    <div class="audit-pass-fail">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-default">Pass</button>
+                        <button type="button" class="btn btn-default">Fail</button>
+                      </div>
+                    </div>
+                    <div class="list-group-item-link disabled">
+                      <div class="audit-item-name">
+                        Walls/Ceilings/Floors clean, damage and clutter free and well-maintained.
+                      </div>
+                    </div>
+                    <div class="expand-collapse-section">
+                      <div class="expand-collapse-hide">
+                      </div>
+                      <a class="expand-collapse-bar">
+                        <i class="fa fa-caret-down"></i>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="list-group-item audit-list-item item-pass">
+                    <div class="audit-pass-fail">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-success">Pass</button>
+                        <button type="button" class="btn btn-default">Fail</button>
+                      </div>
+                    </div>
+                    <div class="list-group-item-link disabled">
+                      <div class="audit-item-name">
+                        Lighting damage free and operational
+                      </div>
+                    </div>
+                    <div class="expand-collapse-section">
+                      <div class="expand-collapse-hide">
+                      </div>
+                      <a class="expand-collapse-bar">
+                        <i class="fa fa-caret-down"></i>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="list-group-item audit-list-item item-fail">
+                    <div class="audit-pass-fail">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-default">Pass</button>
+                        <button type="button" class="btn btn-danger">Fail</button>
+                      </div>
+                    </div>
+                    <div class="list-group-item-link disabled">
+                      <div class="audit-item-name">
+                        Service Consultant write-up area clean and free of clutter
+                      </div>
+                    </div>
+                    <div class="expand-collapse-section">
+                      <div class="expand-collapse-hide">
+                        <div class="audit-comments">
+                          <label>Comments:</label>
+                          <!-- Comments textarea should use msd-elastic plugin -->
+                          <textarea class="form-control audit-comments">Listicle four loko slow-carb lomo. Fap Shoreditch PBR&B Intelligentsia meh. Skateboard Godard VHS stumptown kitsch. 8-bit Banksy health goth iPhone, mlkshk pork belly master cleanse direct trade distillery kogi readymade.</textarea>
+                          <div class="audit-comments-print">
+                            Listicle four loko slow-carb lomo. Fap Shoreditch PBR&B Intelligentsia meh. Skateboard Godard VHS stumptown kitsch. 8-bit Banksy health goth iPhone, mlkshk pork belly master cleanse direct trade distillery kogi readymade.
+                          </div>
+                        </div>
+                        <div class="audit-attachments">
+                          <label>Attachments:</label>
+                          <div id="attachments" class="small-view">
+                            <div class="attachment-item">
+                              <div id="add-attachment">
+                                <span class="fa-stack fa-2x">
+                                  <i class="fa fa-circle-o fa-stack-2x"></i>
+                                  <i class="fa fa-plus fa-stack-1x"></i>
+                                </span>
+                              </div>
+                            </div>
+                            <div class="attachment-item">
+                              <div class="attachment-img">
+                                <a href="http://www.birdchannel.com/images/articles/bird-blog/macaw-flock-lg.jpg" class="html5lightbox" title="image01.jpg" data-group="attachments"><img src="http://www.birdchannel.com/images/articles/bird-blog/macaw-flock-lg.jpg"></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <a class="expand-collapse-bar">
+                        <div class="has-attachments">
+                          <i class="fa fa-comment-o"></i>
+                          <i class="fa fa-picture-o"></i>
+                        </div>
+                        <i class="fa fa-caret-up"></i>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="list-group-item audit-list-item item-pass">
+                    <div class="audit-pass-fail">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-success">Pass</button>
+                        <button type="button" class="btn btn-default">Fail</button>
+                      </div>
+                    </div>
+                    <div class="list-group-item-link disabled">
+                      <div class="audit-item-name">
+                        All point-of-purchase material Infiniti brand compliant
+                      </div>
+                    </div>
+                    <div class="expand-collapse-section">
+                      <div class="expand-collapse-hide">
+                      </div>
+                      <a class="expand-collapse-bar">
+                        <i class="fa fa-caret-down"></i>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="list-group-item audit-list-item item-pass">
+                    <div class="audit-pass-fail">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-success">Pass</button>
+                        <button type="button" class="btn btn-default">Fail</button>
+                      </div>
+                    </div>
+                    <div class="list-group-item-link disabled">
+                      <div class="audit-item-name">
+                        Walls/Ceilings/Floors clean, damage and clutter free and well-maintained.
+                      </div>
+                    </div>
+                    <div class="expand-collapse-section">
+                      <div class="expand-collapse-hide">
+                      </div>
+                      <a class="expand-collapse-bar">
+                        <i class="fa fa-caret-down"></i>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+        });
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>

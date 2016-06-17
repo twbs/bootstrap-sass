@@ -1,0 +1,30 @@
+// ----------------------------
+// POPOVERS
+// ----------------------------
+
+.popover
+  border-radius: 2px
+  color: $white
+  @extend %itsy
+
+.popover-content
+  p
+    color: $white
+    line-height: 1.25
+    @extend %small
+
+button
+  + .popover
+    background: $black
+    text-align: center
+  + .popover.bottom
+    > .arrow:after
+      border-bottom-color: $black
+
+a
+  + .popover
+    background: $black
+    text-align: center
+  + .popover.bottom
+    > .arrow:after
+      border-bottom-color: $black

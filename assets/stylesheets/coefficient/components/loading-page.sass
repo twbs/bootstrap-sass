@@ -1,0 +1,79 @@
+// ----------------------------
+// Page Loading Indicator
+// ----------------------------
+
+@for $i from 1 through 6
+  @keyframes preload-show-#{$i}
+    from
+      transform: rotateZ(60 * $i + deg) rotateY(-90deg) rotateX(0deg)
+      border-left-color: #0F8DB8
+
+  @keyframes preload-hide-#{$i}
+    to
+      transform: rotateZ(60 * $i + deg) rotateY(-90deg) rotateX(0deg)
+      border-left-color: #0F8DB8
+
+  @keyframes preload-cycle-#{$i}
+    $startIndex: $i * 5
+    $reverseIndex: 80 - $i * 5
+    #{$startIndex * 1%}
+      transform: rotateZ(60 * $i + deg) rotateY(90deg) rotateX(0deg)
+      border-left-color: #0F8DB8
+    #{$startIndex + 5%},
+    #{$reverseIndex * 1%}
+      transform: rotateZ(60 * $i + deg) rotateY(0) rotateX(0deg)
+      border-left-color: #13b5ea
+    #{$reverseIndex + 5%},
+    100%
+      transform: rotateZ(60 * $i + deg) rotateY(90deg) rotateX(0deg)
+      border-left-color: #0F8DB8
+
+@keyframes preload-flip
+  0%
+    transform: rotateY(0deg) rotateZ(-60deg)
+  100%
+    transform: rotateY(360deg) rotateZ(-60deg)
+
+#loading-page
+  position: relative
+  padding: 50px
+
+#indicator-wrap
+  position: absolute
+  top: 50%
+  left: 50%
+  margin-left: -1.875em
+
+  .loading-text
+    color: $greymedium
+    padding-top: 20px
+    font-size: 14px
+    text-align: center
+
+.preloader
+  font-size: 20px
+  display: block
+  width: 3.75em
+  height: 4.25em
+  transform-origin: center center
+  transform: rotateY(180deg) rotateZ(-60deg)
+  .slice
+    border-top: 1.125em solid transparent
+    border-right: none
+    border-bottom: 1em solid transparent
+    border-left: 1.875em solid #f7484e
+    position: absolute
+    top: 0px
+    left: 50%
+    transform-origin: left bottom
+    border-radius: 3px 3px 0 0
+  @for $i from 1 through 6
+    .slice:nth-child(#{$i})
+      transform: rotateZ(60 * $i + deg) rotateY(0deg) rotateX(0)
+      animation: 0.15s linear 0.9 - $i * 0.08s preload-hide-#{$i} both 1
+  &.loading
+    animation: 2s preload-flip steps(2) infinite both
+    @for $i from 1 through 6
+      .slice:nth-child(#{$i})
+        transform: rotateZ(60 * $i + deg) rotateY(90deg) rotateX(0)
+        animation: 2s preload-cycle-#{$i} linear infinite both

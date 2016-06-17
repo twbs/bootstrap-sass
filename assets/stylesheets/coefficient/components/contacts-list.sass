@@ -1,0 +1,39 @@
+// ----------------------------
+// CONTACTS LIST
+// ----------------------------
+
+.contacts-list
+  li
+    a,
+    .unlinked
+      display: table
+      width: 100%
+      padding: 15px
+      border-bottom: 1px solid $greylightest
+      color: $text-color
+      &:hover
+        background: rgba($primary, 0.1)
+    .unlinked
+      &:hover
+        background: transparent
+  li:last-child
+    a,
+    .unlinked
+      border-bottom: 0
+
+  .profile-image,
+  .profile-information
+    display: table-cell
+    vertical-align: top
+
+  .profile-image
+    padding-right: 20px
+    img
+      width: 30px
+
+  .profile-information
+    width: 100%
+    .secondary
+      color: $greymedium
+      @extend %itsy
+      line-height: 1

@@ -1,0 +1,96 @@
+@media print
+  // Hide all navigation elements for print view
+  #toast-container,
+  #head-nav,
+  #page-aside,
+  .cl-sidebar,
+  #fixed-action-header,
+  .back-to-top,
+  .btn,
+  .no-print
+    display: none !important
+
+  #cl-wrapper,
+  .cl-mcont
+    padding-top: 0 !important
+
+  #cl-wrapper,
+  .cl-mcont
+  #pcont,
+  .cl-mcont-wrapper
+    display: block
+
+  a[href]:after
+    content: ''
+
+  .main-header-info .datepicker,
+  #set-location
+    color: $black
+    @include placeholder
+      color: $black
+
+  .has-breadcrumb-info,
+  .has-breadcrumb
+    .action-header-right
+      float: none
+      text-align: right
+
+  .page-head
+    position: static
+    border-bottom: 0
+    h2
+      white-space: normal
+
+  .only-print
+    display: block !important
+
+  .msd-elastic-print
+    display: block !important
+    font-size: 14px
+    line-height: 1.42857143
+    white-space: pre-wrap
+
+  .audit-pass-fail
+    .btn
+      display: inline-block !important
+    .btn-success
+      z-index: 999
+      border-width: 4px
+      box-sizing: border-box
+      padding-top: 4px
+      padding-bottom: 4px
+    .btn-danger
+      border-width: 4px
+      box-sizing: border-box
+      padding-top: 4px
+      padding-bottom: 4px
+
+  .block-flat
+    border: 0
+    padding: 5px
+    margin-bottom: 0
+
+  blockquote
+    border-width: 0 0 0 2px
+
+  img
+    max-width: none !important
+
+  // Hide elements that are "actions" that can be performed
+  #js-add-attachments,
+  .list-group-add-item,
+  .add-item-link
+    display: none
+
+  .col-sm-8
+    width: 100%
+
+  // Fix Firefox Print Issues
+  #cl-wrapper,
+  .cl-mcont-wrapper
+    height: auto
+
+// Hiding elements for print only
+.msd-elastic-print,
+.only-print
+  display: none

@@ -1,0 +1,60 @@
+// ----------------------------
+// GLOBAL SEARCH
+// ----------------------------
+
+#global-search
+  .input-group
+    width: 382px
+    padding-bottom: 0
+  .input-group-addon
+    padding: 6px 9px
+    @include border-radius-mixed(3px, 0, 0, 3px)
+
+#global-search-input
+  width: 350px
+  height: 29px
+  padding: 5px
+  @include border-radius-mixed(0, 3px, 3px, 0)
+
+
+// ----------------------------
+// GLOBAL SEARCH RESULTS BOX
+// ----------------------------
+
+#global-search-results
+  width: 393px
+  margin: -8px 0 0 9px
+  padding-top: 0
+  @include border-radius-mixed(3px, 3px, 0, 0)
+.global-search-message
+  color: $greymedium
+  padding: 10px 10px 0
+  @extend %small
+.global-search-icon
+  float: left
+  margin-right: 15px
+  img
+    width: 30px
+    height: 30px
+.global-search-header
+  background: $silver
+  color: $greymedium
+  border-bottom: 1px solid $greylight
+  padding: 7px 10px
+  @extend %small
+  @include border-radius-mixed(3px, 3px, 0, 0)
+.global-search-title
+  overflow: hidden
+  text-overflow: ellipsis
+  .highlight
+    font-weight: 600
+    color: $black
+.global-search-item
+  @include clearfix
+  &:hover
+    .global-search-subtitle
+      color: $white
+.global-search-subtitle
+  @include clearfix
+  font-size: 10px
+  color: $greymedium

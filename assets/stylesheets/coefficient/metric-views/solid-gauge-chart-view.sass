@@ -1,0 +1,65 @@
+// ----------------------------
+// SOLID GAUGE CHART VIEW
+// ----------------------------
+
+.solid-gauge-chart-view
+  height: 215px !important
+  overflow: hidden
+  border: solid 1px #adadad
+  padding: 10px
+
+  .hero-section
+    margin: 0
+    padding: 0
+
+  .metric-view-title
+    min-height: 55px
+    border: none
+    padding: 0
+    margin: 0
+
+  .metric-view-title-wrapper
+    @include multiline-truncation(1rem, 2)
+    padding: 0
+
+  .metric-view-subtitle
+    @include multiline-truncation(0.8rem, 1)
+    font-family: proxima-nova, Helvetica, Arial, sans-serif
+    font-size: 14px
+    line-height: 14px
+    height: auto
+    font-weight: 300
+    text-align: left
+
+  .hero-number-value
+    font-weight: 600
+    @extend %delta
+    font-size: 30px
+    line-height: 30px
+    text-align: center
+    white-space: nowrap
+
+  .hero-number-comparison
+    @extend %body_copy
+    font-size: 14px
+    height: auto
+    line-height: 14px
+    font-weight: 400
+    text-align: center
+
+  .metric-view-footer
+    margin: 0
+
+  .info-last-updated
+    float: left
+    position: static
+    line-height: 18px
+    padding-top: 1px
+
+  .metric-information-btn
+    padding: 0
+    margin: 0
+    float: right
+
+  .empty-gauge
+    margin: 0 0 95px 0

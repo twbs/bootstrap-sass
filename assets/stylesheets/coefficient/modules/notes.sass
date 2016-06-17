@@ -1,0 +1,183 @@
+// ----------------------------
+// NOTES
+// ----------------------------
+
+.notes-container
+  position: relative
+
+#note-title
+  @extend %alpha
+  line-height: initial
+  height: auto
+  font-weight: 300
+  margin-bottom: 0
+  @include title-hover
+
+.note-metainfo
+  white-space: nowrap
+  text-align: right
+  font-style: italic
+  line-height: 1.25
+  color: $greymedium
+  @extend %itsy
+
+.main-header-info
+  .datepicker
+    border: 0
+    padding: 0
+    width: auto
+    color: $link-color
+    @include placeholder
+      color: $link-color
+    &:hover
+      color: $link-hover
+      cursor: pointer
+
+#editor
+  margin-top: 15px
+
+
+// ----------------------------
+// List of Notes
+// ----------------------------
+.note-list-title
+  font-weight: 600
+  font-size: 15px
+  a
+    color: $text-color
+  a:hover
+    color: $link-hover
+.note-list-info
+  @extend %itsy
+  color: $greymedium
+.note-list-preview
+  padding-top: 10px
+  @extend %small
+  &.no-preview
+    font-style: italic
+.note-list-marked-done
+  color: $greymedium
+
+#recent-notes-list
+  li
+    padding-bottom: 25px
+  li:last-child
+    padding-bottom: 0
+  .note-list-preview
+    padding-top: 0
+
+
+// ----------------------------
+// ASIDE for notes
+// ----------------------------
+.note-date-section
+  background: $greylightest
+  padding: 5px 20px !important
+  font-weight: bold
+  border: 0px !important
+
+
+// ----------------------------
+// NOTES (RESPONSIVE)
+// ----------------------------
+@media (max-width: 767px)
+  .note-metainfo
+    .created-on,
+    .modified-on
+      display: block
+      text-align: right
+    .created-on,
+    .meta-separator
+      display: none
+
+@media (max-width: 1024px)
+  .action-item-link
+    @include clearfix
+
+  .item-date-assignee-wrap
+    display: block
+    float: right
+    width: 145px
+    padding-top: 10px
+
+
+// ----------------------------
+// NOTES (PRINT)
+// ----------------------------
+@media print
+  .note-metainfo
+    padding-top: 15px
+    .created-on,
+    .modified-on,
+    .meta-separator
+      display: inline
+
+
+// ----------------------------
+// ADD ACTION ITEMS
+// ----------------------------
+#action-item-add
+  background: $greylight
+  margin-bottom: 15px
+  display: table
+  width: 100%
+  #action-item-add-input,
+  #action-item-add-button
+    display: table-cell
+    padding: 15px
+  #action-item-add-input
+    width: 100%
+  #action-item-add-button
+    padding-left: 0
+
+
+// ----------------------------
+// TEMPORARY EDITOR STYLES
+// ----------------------------
+#note-content,
+#set-location
+  padding: 0
+  border: 0
+  box-shadow: none
+
+#note-content
+  height: 18px
+  margin-bottom: 10px
+  resize: none
+
+#set-location
+  color: $link-color
+  @include placeholder
+    color: $link-color
+  &:hover
+    cursor: pointer
+    @include placeholder
+      color: $link-hover
+  &:focus
+    color: $text-color
+    @include placeholder
+      color: $greymedium
+
+#note-content-print
+  display: none
+
+// Readonly View Styles
+#date-selector[readonly]
+  &:hover
+    cursor: pointer
+    color: $link-hover
+
+#due-date-selector[readonly]
+  padding: 6px 8px
+  cursor: pointer
+
+#due-date-selector[disabled]
+  cursor: default
+
+#set-location[disabled]
+  color: $text-color
+  background-color: transparent
+  padding-left: 0
+  &:hover
+    cursor: inherit
+    color: $text-color

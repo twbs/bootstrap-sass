@@ -1,0 +1,124 @@
+// ----------------------------
+// LEFT SIDE NAVIGATION
+// ----------------------------
+
+.cl-sidebar
+  background: #272930
+  position: relative
+  width: 216px
+  z-index: 2
+  display: table-cell
+  .cl-toggle
+    display: none
+    padding: 10px 0
+    text-align: center
+    cursor: pointer
+    border: 0
+    width: 100%
+    background: transparent
+    i
+      @extend %gamma
+      color: #C9D4F6
+
+.cl-vnavigation
+  margin: 0
+  padding: 0
+  border-top: 1px solid #1a1c20
+  border-bottom: 1px solid #2f323a
+  .parent a
+    background: image-url("arrow.png") no-repeat scroll right 14px top 18px transparent
+  li a
+    border-top: 1px solid #32353e
+    border-bottom: 1px solid #1a1c20
+    display: block
+    padding: 14px 18px 13px 15px
+    color: #c9d4f6
+    @extend %small
+    font-weight: 300
+    text-shadow: 1px 1px 0 rgba($black, 0.3)
+    white-space: nowrap
+    &:hover
+      background-color: #2a2c34
+
+#sidebar-profile
+  @include clearfix
+  padding: 15px
+  list-style: none
+  color: $white
+  img
+    max-width: 50px
+    max-height: 50px
+    float: left
+    margin-right: 10px
+    outline: 1px solid rgba($greydark, 0.5)
+  #current-name
+    @extend %body_copy
+  #current-title
+    @extend %itsy
+    font-style: italic
+  #current-edit
+    padding-top: 2px
+    a
+      display: inline
+      padding: 0
+      border: 0
+      @extend %itsy
+
+
+.cl-vnavigation
+  li
+    a
+      i
+        text-align: center
+        width: 20px
+        margin-right: 7px
+        @extend %icon-small
+      span
+        display: inline-block
+    ul
+      background-color: #1A1C20
+      display: none
+      margin: 0
+      padding: 0
+      padding-top: 4px
+  .parent ul li
+    &:last-child
+      padding-bottom: 13px
+    background-color: #1a1c20
+    list-style: none
+    &.dropdown-header
+      display: none
+    a
+      @extend %itsy
+      background-image: none
+      padding: 7px 18px 7px 42px
+      background-color: #1a1c20
+    &.active a
+      background-color: #1e2025
+      border-left: 1px solid #2494F2
+    a
+      &:hover
+        background-color: #1e2025
+      &:first-child
+        border-top: 0
+  .active > a
+    background: #2A2C34
+    border-left: 1px solid #2494F2
+  .selected:hover
+    a
+      background-color: #2494F2
+    ul a
+      background-color: #1A1C20
+
+body
+  height: 100%
+
+#cl-wrapper
+  display: table
+  width: 100%
+  position: absolute
+  height: 100%
+
+#pcont
+  display: table-cell
+  vertical-align: top

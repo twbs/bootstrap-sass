@@ -1,0 +1,2337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Styleguide</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+  <script type="text/javascript" src="javascripts/coefficient/modernizr.custom.js"></script>
+  <script type="text/javascript" src="node_modules/scrollspy-js/src/js/modules/scrollspy.js"></script>
+
+  <!-- Styling to format icons list; not something that needs to be in the theme itself though -->
+  <style>
+    .icon-show div {margin: 5px 0;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#styleguide-nav">
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+
+    <% include wp-sidebar.html.ejs %>
+
+    <div class="page-head">
+       <h2>CoEFFICIENT Styleguide</h2>
+    </div>
+    <div id="styleguide-container" class="cl-mcont">
+      <div class="row">
+        <div class="col-sm-9">
+          <span id="general-guidelines" class="anchor"></span>
+          <span id="general-guidelines-sass" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#general-guidelines-sass" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Sass</h3>
+            </div>
+            <div class="content">
+              <h4 class="subtitle">Best Practices</h4>
+              <p>
+                Always use common components when creating new screens. Most of what you will need is already available in the styleguide provided here. If there are specific styles that will or can be re-used later on, it should be added to the styleguide. Following these rules will keep our product consistent and easy to update.
+              </p>
+              <p>
+                If you are creating new re-usable styles, make sure you follow these guidelines when writing Sass code:
+                <ul>
+                  <li>Create user-friendly classnames. Spaces should be converted into dashes. For example, <code>.helper-text</code></li>
+                  <li>Follow <a href="https://css-tricks.com/efficiently-rendering-css/" target="_blank">these tricks</a> for when to use ID vs class vs tag selectors, what to avoid and general tips.</li>
+                  <li>Avoid nesting too many layers deep. This causes inefficient and convoluted CSS output.</li>
+                  <li>Write reusable code by using $variables @mixins, @includes, and @extends functions. See <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html" target="_blank">Sass-lang.com</a> for full documentation.</li>
+                </ul>
+              </p>
+
+              <h4 class="subtitle">Formatting Standards</h4>
+              <p>
+                Sass files are automatically compiled to .css files in rails when the page is loaded. They will <strong>NOT</strong> compile if the syntax is incorrect: there can be no brackets, semicolons, or incorrect/inconsistent indentation.
+              </p>
+              <p>
+                Guidelines:
+                <ul>
+                  <li>Use soft tabs (2 spaces) to stay consistent with the rest of the CoEFFICIENT code.</li>
+                  <li>Set each property on it's own line</li>
+                  <li>Set one full line between each selector</li>
+                  <li>Use one space between property names and values, ex: <code>float: left</code></li>
+                  <li>Prefer shorthand, <code>margin: 20px 0</code> Unless only setting on property, <code>margin-top: 20px</code></li>
+                  <li>Avoid specifying zero values, <code>margin: 0</code></li>
+                  <li>Use single or double quotations consistently - prefer double quotes, <code>background: url("filename.png")</code></li>
+                  <li>NO semicolons at the end of each property - nodejs may allow this, but ruby will complain.</li>
+                </ul>
+              </p>
+
+              <h4 class="subtitle">Commenting</h4>
+              <p>
+                Each page should have a section at the top to explain what the file is for, or styling. If the file is broken up into a few sections, subsections should also include comments explaining the section. Prefer breaking long Sass files with multiple sections into separate files instead if it makes sense, for ease of comprehension.
+              </p>
+              <p>
+                Use <code>//</code> instead of <code>/* */</code> for comments unless you intentionally want the comments to show up in the output.
+              </p>
+              <pre><code class="html">// ---------------------------------
+// COLORS
+// ---------------------------------</code></pre>
+            </div>
+          </div>
+
+
+          <span id="general-guidelines-html" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#general-guidelines-html" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>HTML Markup</h3>
+            </div>
+            <div class="content">
+              <h4 class="subtitle">Best Practices</h4>
+              <p>
+                Use as few divs as possible to contain your content, and make sure that the names of the divs are only as specific as they need to be. A class name should be reusable across modules, but not so generic that it's difficult to say what it does.
+              </p>
+              <p>
+                Guidelines:
+                <ul>
+                  <li><strong>NO</strong> INLINE STYLES</li>
+                  <li>Avoid using class names that contain locational or stylistic information such as <code>.left_sidebar</code> or <code>.red_button</code>. In the future, these containers may change. Instead, name them based on content or purpose.</li>
+                  <li>Avoid using classes such as <code>.left</code> or <code>.float_left</code>; that type of layout information should be included at the modular level.</li>
+                  <li>Elements that occur exactly once inside a page should use IDs, otherwise, use classes. When in doubt, use a class name.</li>
+                  <li>Avoid adding styles to basic elements such as <code>&lt;ul&gt;</code>. Instead, add an extra class to these elements you want to style and add styles to the class.</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+
+
+          <span id="general-guidelines-js" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#general-guidelines-js" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>JavaScript</h3>
+            </div>
+            <div class="content">
+              <h4 class="subtitle">General JS philosophy</h4>
+              <p>
+                We want CoEFFICIENT to stay lean and void of extra clutter so we should be careful when adding excessive JS packages and plugins. We should only add necessary JS code so it doesn't end up like our Dealer360 application.
+              </p>
+              <p>
+                Guidelines:
+                <ul>
+                  <li>Prefix state classes to toggle CSS with <code>.is-</code></li>
+                  <li>Prefix hooks for JS functionality only with <code>.js-</code></li>
+                  <li>DO NOT add/remove CSS styles using JS. There should not be inline CSS styles to begin with. All DOM related updates should be done in the form of state classes. For example, <code>.is-hidden</code> or <code>.is-active</code>.</li>
+                  <li>Follow <a href="http://www.sitepoint.com/efficient-jquery-selectors/" target="_blank">jQuery tips</a> for writing more efficient jQuery selectors.</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+
+
+          <span id="ui-elements" class="anchor"></span>
+          <span id="ui-elements-colors" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#ui-elements-colors" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>CoEFFICIENT Colors</h3>
+            </div>
+            <div class="content">
+              <p>
+                Here are a set of pre-defined colors that are commonly used within the CoEFFICIENT app. We should try and stick to these colors as much as possible - especially with the grey colors - to keep things consistent.
+              </p>
+              <p>
+                To use the following colors in the Sass files, use the appropriate color variable:
+              </p>
+              <pre><code class="scss">.class-name-here
+  color: $greymedium
+  border-color: 1px solid $grey</code></pre>
+              <h4 class="subtitle">General Colors</h4>
+              <p>
+                <div class="color-block-section">
+                  <div class="color-block">
+                    <div class="color-swatch white"></div>
+                    <div class="color-variable">$white</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch silver"></div>
+                    <div class="color-variable">$silver</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch greylightest"></div>
+                    <div class="color-variable">$greylightest</div>
+                  </div>
+
+                  <div class="color-block">
+                    <div class="color-swatch greylight"></div>
+                    <div class="color-variable">$greylight</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch grey"></div>
+                    <div class="color-variable">$grey</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch greymedium"></div>
+                    <div class="color-variable">$greymedium</div>
+                  </div>
+
+                  <div class="color-block">
+                    <div class="color-swatch greydark"></div>
+                    <div class="color-variable">$greydark</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch black"></div>
+                    <div class="color-variable">$black</div>
+                  </div>
+                </div>
+              </p>
+              <h4 class="subtitle">Typography Colors</h4>
+              <p>
+                <div class="color-block-section">
+                  <div class="color-block">
+                    <div class="color-swatch text-color"></div>
+                    <div class="color-variable">$text-color</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch link-color"></div>
+                    <div class="color-variable">$link-color</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch link-hover"></div>
+                    <div class="color-variable">$link-hover</div>
+                  </div>
+                </div>
+              </p>
+              <h4 class="subtitle">State Colors</h4>
+              <p>
+                Typically used as "state" background colors for buttons, labels, alerts, etc.
+                <div class="color-block-section">
+                  <div class="color-block">
+                    <div class="color-swatch default"></div>
+                    <div class="color-variable">$default</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch primary"></div>
+                    <div class="color-variable">$primary</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch success"></div>
+                    <div class="color-variable">$success</div>
+                  </div>
+
+
+                  <div class="color-block">
+                    <div class="color-swatch info"></div>
+                    <div class="color-variable">$info</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch warning"></div>
+                    <div class="color-variable">$warning</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch danger"></div>
+                    <div class="color-variable">$danger</div>
+                  </div>
+                </div>
+              </p>
+              <h4 class="subtitle">Social Site Colors</h4>
+              <p>
+                <div class="color-block-section">
+                  <div class="color-block">
+                    <div class="color-swatch facebook"></div>
+                    <div class="color-variable">$facebook</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch twitter"></div>
+                    <div class="color-variable">$twitter</div>
+                  </div>
+                  <div class="color-block">
+                    <div class="color-swatch linkedin"></div>
+                    <div class="color-variable">$linkedin</div>
+                  </div>
+
+                  <div class="color-block">
+                    <div class="color-swatch google-plus"></div>
+                    <div class="color-variable">$google-plus</div>
+                  </div>
+                </div>
+              </p>
+            </div>
+          </div>
+
+
+          <span id="ui-elements-headings" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#ui-elements-headings" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Headings</h3>
+            </div>
+            <div class="content">
+              <p>
+                Section heads, like the one above should be used to section out each page. If there is only one section, only a page title is needed.
+              </p>
+              <pre><code class="html">&#x3C;div class=&#x22;header&#x22;&#x3E;
+  &#x3C;h3&#x3E;Headings&#x3C;/h3&#x3E;
+&#x3C;/div&#x3E;</code></pre>
+            <h1>Heading Text 1</h1>
+            <h2>Heading Text 2</h2>
+            <h3>Heading Text 3</h3>
+            <h4 class="subtitle">Heading Text 4</h4>
+            <h5>Heading Text 5</h5>
+            <h6>Heading Text 6</h6>
+            <pre><code class="html">&lt;h1&gt;Heading Text 1&lt;/h1&gt;
+&lt;h2&gt;Heading Text 2&lt;/h2&gt;
+&lt;h3&gt;Heading Text 3&lt;/h3&gt;
+&lt;h4&gt;Heading Text 4&lt;/h4&gt;
+&lt;h5&gt;Heading Text 5&lt;/h5&gt;
+&lt;h6&gt;Heading Text 6&lt;/h6&gt;</code></pre>
+            <div class="spacer">&nbsp;</div>
+            <h1 class="hthin">Thin Heading 1</h1>
+            <h2 class="hthin">Thin Heading 2</h2>
+            <h3 class="hthin">Thin Heading 3</h3>
+            <pre><code class="html">&lt;h1 class=&quot;hthin&quot;&gt;Thin Heading 1&lt;/h1&gt;
+&lt;h2 class=&quot;hthin&quot;&gt;Thin Heading 2&lt;/h2&gt;
+&lt;h3 class=&quot;hthin&quot;&gt;Thin Heading 3&lt;/h3&gt;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="ui-elements-alerts" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#ui-elements-alerts" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Bootstrap Alerts</h3>
+            </div>
+            <div class="content">
+              <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <i class="fa fa-check sign"></i><strong>Success!</strong> Changes has been saved successfully!
+              </div>
+              <div class="alert alert-info">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <i class="fa fa-info-circle sign"></i><strong>Info!</strong> You have 3 new messages in your inbox.
+              </div>
+              <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <i class="fa fa-warning sign"></i><strong>Alert!</strong> Don't forget to save your data.
+              </div>
+              <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <i class="fa fa-times-circle sign"></i><strong>Error!</strong> The server is not responding, try again later.
+              </div>
+              <pre><code class="html">&lt;div class=&quot;alert alert-success&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+  &lt;i class=&quot;fa fa-check sign&quot;&gt;&lt;/i&gt;&lt;strong&gt;Success!&lt;/strong&gt; Changes has been saved successfully!
+&lt;/div&gt;
+
+&lt;div class=&quot;alert alert-info&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+  &lt;i class=&quot;fa fa-info-circle sign&quot;&gt;&lt;/i&gt;&lt;strong&gt;Info!&lt;/strong&gt; You have 3 new messages in your inbox.
+&lt;/div&gt;
+
+&lt;div class=&quot;alert alert-warning&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+  &lt;i class=&quot;fa fa-warning sign&quot;&gt;&lt;/i&gt;&lt;strong&gt;Alert!&lt;/strong&gt; Don&apos;t forget to save your data.
+&lt;/div&gt;
+
+&lt;div class=&quot;alert alert-danger&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+  &lt;i class=&quot;fa fa-times-circle sign&quot;&gt;&lt;/i&gt;&lt;strong&gt;Error!&lt;/strong&gt; The server is not responding, try again later.
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="ui-elements-progress-bars" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#ui-elements-progress-bars" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Progress Bars</h3>
+            </div>
+            <div class="content">
+              <h4 class="subtitle">Simple</h4>
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" style="width: 40%">40%</div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar-info" style="width: 20%">20%</div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar-warning" style="width: 60%">60%</div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar-danger" style="width: 80%">80%</div>
+              </div>
+              <pre><code class="html">&lt;div class=&quot;progress&quot;&gt;
+  &lt;div class=&quot;progress-bar progress-bar-success&quot; style=&quot;width: 40%&quot;&gt;40%&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;progress&quot;&gt;
+  &lt;div class=&quot;progress-bar progress-bar-info&quot; style=&quot;width: 20%&quot;&gt;20%&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;progress&quot;&gt;
+  &lt;div class=&quot;progress-bar progress-bar-warning&quot; style=&quot;width: 60%&quot;&gt;60%&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;progress&quot;&gt;
+  &lt;div class=&quot;progress-bar progress-bar-danger&quot; style=&quot;width: 80%&quot;&gt;80%&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+              <h4 class="spacer2">Stacked</h4>
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" style="width: 20%">20%</div>
+                <div class="progress-bar progress-bar-info" style="width: 20%">20%</div>
+                <div class="progress-bar progress-bar-warning" style="width: 30%">30%</div>
+                <div class="progress-bar progress-bar-danger" style="width: 10%">10%</div>
+              </div>
+              <pre><code class="html">&lt;div class=&quot;progress&quot;&gt;
+  &lt;div class=&quot;progress-bar progress-bar-success&quot; style=&quot;width: 20%&quot;&gt;20%&lt;/div&gt;
+  &lt;div class=&quot;progress-bar progress-bar-info&quot; style=&quot;width: 20%&quot;&gt;20%&lt;/div&gt;
+  &lt;div class=&quot;progress-bar progress-bar-warning&quot; style=&quot;width: 30%&quot;&gt;30%&lt;/div&gt;
+  &lt;div class=&quot;progress-bar progress-bar-danger&quot; style=&quot;width: 10%&quot;&gt;10%&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="ui-elements-dropdown-menus" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#ui-elements-dropdown-menus" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Dropdown Menus</h3>
+            </div>
+            <div class="content">
+              <div class="dropdown clearfix">
+                <ul class="dropdown-menu static-mn spacer">
+                  <li><a tabindex="-1" href="#">Action</a></li>
+                  <li><a tabindex="-1" href="#">Another action</a></li>
+                  <li><a tabindex="-1" href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a tabindex="-1" href="#">Separated link</a></li>
+                </ul>
+              </div>
+              <pre><code class="html">&lt;div class=&quot;dropdown clearfix&quot;&gt;
+  &lt;ul class=&quot;dropdown-menu static-mn spacer&quot;&gt;
+    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a tabindex=&quot;-1&quot; href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+              <h4 class="subtitle">Sub Menu</h4>
+              <div class="dropdown clearfix">
+                <ul class="dropdown-menu static-mn spacer">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-submenu"><a href="#">Sub menu</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <pre><code class="html">&lt;div class=&quot;dropdown clearfix&quot;&gt;
+  &lt;ul class=&quot;dropdown-menu static-mn spacer&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;dropdown-submenu&quot;&gt;&lt;a href=&quot;#&quot;&gt;Sub menu&lt;/a&gt;
+      &lt;ul class=&quot;dropdown-menu&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+              <h4 class="subtitle">Two column menu</h4>
+              <div class="static-lg-menu clearfix">
+                <ul class="dropdown-menu col-menu-2 static-mn spacer">
+                  <li class="col-sm-6 no-padding">
+                    <ul>
+                      <li class="dropdown-header"><i class="fa fa-group"></i>Users</li>
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li class="dropdown-header"><i class="fa fa-gear"></i>Config</li>
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                  <li class="col-sm-6 no-padding">
+                    <ul>
+                      <li class="dropdown-header"><i class="fa fa-legal"></i>Sales</li>
+                      <li><a href="#">New sale</a></li>
+                      <li><a href="#">Register a product</a></li>
+                      <li><a href="#">Register a client</a></li>
+                      <li><a href="#">Month sales</a></li>
+                      <li><a href="#">Delivered orders</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <pre><code class="html">&lt;div class=&quot;static-lg-menu clearfix&quot;&gt;
+  &lt;ul class=&quot;dropdown-menu col-menu-2 static-mn spacer&quot;&gt;
+    &lt;li class=&quot;col-sm-6 no-padding&quot;&gt;
+      &lt;ul&gt;
+        &lt;li class=&quot;dropdown-header&quot;&gt;&lt;i class=&quot;fa fa-group&quot;&gt;&lt;/i&gt;Users&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;dropdown-header&quot;&gt;&lt;i class=&quot;fa fa-gear&quot;&gt;&lt;/i&gt;Config&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li  class=&quot;col-sm-6 no-padding&quot;&gt;
+      &lt;ul&gt;
+        &lt;li class=&quot;dropdown-header&quot;&gt;&lt;i class=&quot;fa fa-legal&quot;&gt;&lt;/i&gt;Sales&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;New sale&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Register a product&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Register a client&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Month sales&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Delivered orders&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="ui-elements-labels-badges" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#ui-elements-labels-badges" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Labels and Badges</h3>
+            </div>
+            <div class="content">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th class="text-center">Label</th>
+                    <th class="text-center">Icon</th>
+                    <th class="text-center">Badge</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="width:30%;">Default</td>
+                    <td class="text-center"><span class="label label-default">Default</span></td>
+                    <td class="text-center"><a class="label label-default" href="#"><i class="fa fa-pencil"></i></td>
+                    <td class="text-center"><span class="badge badge-default">25</span></td>
+                  </tr>
+                  <tr>
+                    <td>Primary</td>
+                    <td class="text-center"><span class="label label-primary">Primary</span></td>
+                    <td class="text-center"><a class="label label-primary" href="#"><i class="fa fa-pencil"></i></td>
+                    <td class="text-center"><span class="badge badge-primary">6</span></td>
+                  </tr>
+                  <tr>
+                    <td>Success</td>
+                    <td class="text-center"><span class="label label-success">Success</span></td>
+                    <td class="text-center"><a class="label label-success" href="#"><i class="fa fa-pencil"></i></td>
+                    <td class="text-center"><span class="badge badge-success">8</span></td>
+                  </tr>
+                  <tr>
+                    <td>Info</td>
+                    <td class="text-center"><span class="label label-info">Info</span></td>
+                    <td class="text-center"><a class="label label-info" href="#"><i class="fa fa-info-circle"></i></td>
+                    <td class="text-center"><span class="badge badge-info">3</span></td>
+                  </tr>
+                  <tr>
+                    <td>Warning</td>
+                    <td class="text-center"><span class="label label-warning">Warning</span></td>
+                    <td class="text-center"><a class="label label-warning" href="#"><i class="fa fa-warning"></i></td>
+                    <td class="text-center"><span class="badge badge-warning">5</span></td>
+                  </tr>
+                  <tr>
+                    <td>Danger</td>
+                    <td class="text-center"><span class="label label-danger">Danger</span></td>
+                    <td class="text-center"><a class="label label-danger" href="#"><i class="fa fa-pencil"></i></td>
+                    <td class="text-center"><span class="badge badge-danger">54</span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <pre><code class="html">&lt;span class=&quot;label label-default&quot;&gt;Default&lt;/span&gt;
+  &lt;a class=&quot;label label-default&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-pencil&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;span class=&quot;badge badge-default&quot;&gt;25&lt;/span&gt;
+
+&lt;span class=&quot;label label-success&quot;&gt;Success&lt;/span&gt;
+  &lt;a class=&quot;label label-success&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-pencil&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;span class=&quot;badge badge-success&quot;&gt;8&lt;/span&gt;
+
+&lt;span class=&quot;label label-info&quot;&gt;Info&lt;/span&gt;
+  &lt;a class=&quot;label label-info&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-info-circle&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;span class=&quot;badge badge-info&quot;&gt;3&lt;/span&gt;
+
+&lt;span class=&quot;label label-warning&quot;&gt;Warning&lt;/span&gt;
+  &lt;a class=&quot;label label-warning&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-warning&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;span class=&quot;badge badge-warning&quot;&gt;5&lt;/span&gt;
+
+&lt;span class=&quot;label label-danger&quot;&gt;Danger&lt;/span&gt;
+  &lt;a class=&quot;label label-danger&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-pencil&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;span class=&quot;badge badge-danger&quot;&gt;54&lt;/span&gt;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="ui-elements-buttons" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#ui-elements-buttons" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Basic Buttons</h3>
+            </div>
+            <div class="content">
+              <div class="spacer spacer-bottom">
+                <button type="button" class="btn btn-default">Default</button>
+                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-success">Success</button>
+                <button type="button" class="btn btn-info">Info</button>
+                <button type="button" class="btn btn-warning">Warning</button>
+                <button type="button" class="btn btn-danger">Danger</button>
+              </div>
+              <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;Default&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Primary&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot;&gt;Success&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot;&gt;Info&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-warning&quot;&gt;Warning&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;Danger&lt;/button&gt;</code></pre>
+
+              <div class="spacer">&nbsp;</div>
+
+              <h4 class="subtitle">Flat buttons</h4>
+              <div class="spacer spacer-bottom">
+                <button type="button" class="btn btn-default btn-flat">Default</button>
+                <button type="button" class="btn btn-primary btn-flat">Primary</button>
+                <button type="button" class="btn btn-success btn-flat">Success</button>
+                <button type="button" class="btn btn-info btn-flat">Info</button>
+                <button type="button" class="btn btn-warning btn-flat">Warning</button>
+                <button type="button" class="btn btn-danger btn-flat">Danger</button>
+              </div>
+              <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-flat&quot;&gt;Default&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-flat&quot;&gt;Primary&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success btn-flat&quot;&gt;Success&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info btn-flat&quot;&gt;Info&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-warning btn-flat&quot;&gt;Warning&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger btn-flat&quot;&gt;Danger&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="ui-elements-advanced-buttons" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#ui-elements-advanced-buttons" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Advanced buttons</h3>
+            </div>
+            <div class="content">
+              <p>
+                You can add icons to buttons. For a full list of icons go to the <a href="ui-icons.html">icons page</a>.
+              </p>
+              <div class="spacer spacer-bottom">
+                <button type="button" class="btn btn-default btn-xs"><i class="fa fa-cloud-download"></i> Download</button>
+                <button type="button" class="btn btn-default"><i class="fa fa-cloud-download"></i> Download</button>
+              </div>
+              <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-xs&quot;&gt;&lt;i class=&quot;fa fa-cloud-download&quot;&gt;&lt;/i&gt; Download&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;&lt;i class=&quot;fa fa-cloud-download&quot;&gt;&lt;/i&gt; Download&lt;/button&gt;</code></pre>
+
+              <div class="spacer">&nbsp;</div>
+
+              <h4 class="subtitle">Progress buttons</h4>
+              <div class="spacer spacer-bottom">
+                <p>
+                  Progress buttons are used for forms to indicate that something is happening - such as saving a form. Add class <code>.progress-button</code> to indicate a progress button.
+                </p>
+                <button type="button" class="btn btn-primary progress-button">Click Me</button>
+              </div>
+              <pre><code class="html">&#x3C;button type=&#x22;button&#x22; class=&#x22;btn btn-primary progress-button&#x22;&#x3E;Click Me&#x3C;/button&#x3E;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="ui-elements-dropdown-buttons" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#ui-elements-dropdown-buttons" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Dropdown Buttons</h3>
+            </div>
+            <div class="content">
+              <div class="spacer spacer-bottom">
+                <div class="btn-dropdown">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  Basic Dropdown <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </div>
+              </div>
+              <pre><code class="html">&lt;div class=&quot;btn-group&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-default dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
+  Basic Dropdown &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul class=&quot;dropdown-menu&quot; role=&quot;menu&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="ui-elements-button-sizes" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#ui-elements-button-sizes" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Button Sizes</h3>
+            </div>
+            <div class="content">
+              <div class="spacer spacer-bottom">
+                <button type="button" class="btn btn-default btn-xs">Extra Small</button>
+                <button type="button" class="btn btn-default">Normal</button>
+              </div>
+              <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-xs&quot;&gt;Extra Small&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;Normal&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="ui-elements-lists" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#ui-elements-lists" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Lists</h3>
+            </div>
+            <div class="content">
+              <h4 class="subtitle">Unordered List</h4>
+              <ul>
+                <li>Cloud Services</li>
+                <li>Photo Upload</li>
+                <li>Music Downloads</li>
+                <li>Notifications</li>
+                <li>Full Featured UI</li>
+              </ul>
+              <pre><code class="html">&#x3C;ul&#x3E;
+  &#x3C;li&#x3E;Cloud Services&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Photo Upload&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Music Downloads&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Notifications&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Full Featured UI&#x3C;/li&#x3E;
+&#x3C;/ul&#x3E;</code></pre>
+
+              <h4 class="subtitle">Ordered List</h4>
+              <ol>
+                <li>Cloud Services</li>
+                <li>Photo Upload</li>
+                <li>Music Downloads</li>
+                <li>Notifications</li>
+                <li>Full Featured UI</li>
+              </ol>
+              <pre><code class="html">&#x3C;ol&#x3E;
+  &#x3C;li&#x3E;Cloud Services&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Photo Upload&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Music Downloads&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Notifications&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Full Featured UI&#x3C;/li&#x3E;
+&#x3C;/ol&#x3E;</code></pre>
+
+              <h4 class="subtitle">Unstyled List</h4>
+              <ul class="list-unstyled">
+                <li>Cloud Services</li>
+                <li>Photo Upload</li>
+                <li>Music Downloads</li>
+                <li>Notifications</li>
+                <li>Full Featured UI</li>
+              </ul>
+              <pre><code class="html">&#x3C;ul class=&#x22;list-unstyled&#x22;&#x3E;
+  &#x3C;li&#x3E;Cloud Services&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Photo Upload&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Music Downloads&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Notifications&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Full Featured UI&#x3C;/li&#x3E;
+&#x3C;/ul&#x3E;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="ui-elements-tables" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#ui-elements-tables" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Tables</h3>
+            </div>
+            <div class="content">
+              <p>
+                Tables can have a <code>.pre-table</code> class for action items if necessary such as a search field or a dropdown for the number of items to show in table at a time.
+              </p>
+              <p>
+                By default, the rows in tables are styled to look clickable. To disable a row from looking like it's clickable, add <code>.disabled</code> to the table row.
+              </p>
+              <table class="datatable">
+                <thead>
+                  <tr>
+                    <th>Name <i class="fa fa-sort"></i></th>
+                    <th>Email <i class="fa fa-sort"></i></th>
+                    <th>Status <i class="fa fa-sort-down active"></i></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Vincent Ramirez</td>
+                    <td>v.ramirez@company.com</td>
+                    <td>Active</td>
+                  </tr>
+                  <tr>
+                    <td>Bertha Hall</td>
+                    <td>b.hall@company.com</td>
+                    <td>Active</td>
+                  </tr>
+                  <tr>
+                    <td>Camelia Rose</td>
+                    <td>c.rose@company.com</td>
+                    <td>Active</td>
+                  </tr>
+                  <tr class="disabled">
+                    <td>Disabled Row</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <pre><code class="html">&#x3C;table class=&#x22;datatable&#x22;&#x3E;
+  &#x3C;thead&#x3E;
+    &#x3C;tr&#x3E;
+      &#x3C;th&#x3E;Name &#x3C;i class=&#x22;fa fa-sort&#x22;&#x3E;&#x3C;/i&#x3E;&#x3C;/th&#x3E;
+      &#x3C;th&#x3E;Email &#x3C;i class=&#x22;fa fa-sort&#x22;&#x3E;&#x3C;/i&#x3E;&#x3C;/th&#x3E;
+      &#x3C;th&#x3E;Status &#x3C;i class=&#x22;fa fa-sort-down active&#x22;&#x3E;&#x3C;/i&#x3E;&#x3C;/th&#x3E;
+    &#x3C;/tr&#x3E;
+  &#x3C;/thead&#x3E;
+  &#x3C;tbody&#x3E;
+    &#x3C;tr&#x3E;
+      &#x3C;td&#x3E;Vincent Ramirez&#x3C;/td&#x3E;
+      &#x3C;td&#x3E;v.ramirez@company.com&#x3C;/td&#x3E;
+      &#x3C;td&#x3E;Active&#x3C;/td&#x3E;
+    &#x3C;/tr&#x3E;
+    &#x3C;tr&#x3E;
+      &#x3C;td&#x3E;Bertha Hall&#x3C;/td&#x3E;
+      &#x3C;td&#x3E;b.hall@company.com&#x3C;/td&#x3E;
+      &#x3C;td&#x3E;Active&#x3C;/td&#x3E;
+    &#x3C;/tr&#x3E;
+    &#x3C;tr&#x3E;
+      &#x3C;td&#x3E;Camelia Rose&#x3C;/td&#x3E;
+      &#x3C;td&#x3E;c.rose@company.com&#x3C;/td&#x3E;
+      &#x3C;td&#x3E;Active&#x3C;/td&#x3E;
+    &#x3C;/tr&#x3E;
+    &#x3C;tr class=&#x22;disabled&#x22;&#x3E;
+      &#x3C;td&#x3E;Disabled Row&#x3C;/td&#x3E;
+      &#x3C;td&#x3E;&#x3C;/td&#x3E;
+      &#x3C;td&#x3E;&#x3C;/td&#x3E;
+    &#x3C;/tr&#x3E;
+  &#x3C;/tbody&#x3E;
+&#x3C;/table&#x3E;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="ui-elements-modals" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#ui-elements-modals" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Modal Alerts</h3>
+            </div>
+            <div class="content">
+              <button data-toggle="modal" data-target="#mod-info" type="button" class="btn btn-primary"><i class="fa fa-info-circle"></i> Primary</button>
+              <button data-toggle="modal" data-target="#mod-success" type="button" class="btn btn-success"><i class="fa fa-check"></i> Success</button>
+              <button data-toggle="modal" data-target="#mod-info" type="button" class="btn btn-info"><i class="fa fa-info-circle"></i> Information</button>
+              <button data-toggle="modal" data-target="#mod-warning" type="button" class="btn btn-warning"><i class="fa fa-warning"></i> Warning</button>
+              <button data-toggle="modal"  data-target="#mod-error" type="button" class="btn btn-danger"><i class="fa fa-times-circle"></i> Error</button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="mod-success" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="text-center">
+                        <div class="i-circle success"><i class="fa fa-check"></i></div>
+                        <h4 class="subtitle">Awesome!</h4>
+                        <p>Changes has been saved successfully!</p>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-success" data-dismiss="modal">Proceed</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+
+              <!-- Modal -->
+              <div class="modal fade" id="mod-info" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="text-center">
+                        <div class="i-circle primary"><i class="fa fa-info-circle"></i></div>
+                        <h4 class="subtitle">Awesome!</h4>
+                        <p>Changes has been saved successfully!</p>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Proceed</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+
+              <!-- Modal -->
+              <div class="modal fade" id="mod-warning" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="text-center">
+                        <div class="i-circle warning"><i class="fa fa-warning"></i></div>
+                        <h4 class="subtitle">Warning!</h4>
+                        <p>Something is going wrong here...</p>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-warning" data-dismiss="modal">Proceed</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+
+              <!-- Modal -->
+              <div class="modal fade" id="mod-error" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="text-center">
+                        <div class="i-circle danger"><i class="fa fa-times"></i></div>
+                        <h4 class="subtitle">Oh god!</h4>
+                        <p>You're by your own now, good luck!</p>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Proceed</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+
+            </div>
+          </div>
+
+
+          <span id="icon" class="anchor"></span>
+          <span id="icon-size" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#icon-size" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Icon Size</h3>
+            </div>
+            <div class="content">
+              <span style="margin-right: 10px;"><i class="fa fa-camera-retro fa-lg"></i></span>
+              <span style="margin-right: 10px;"><i class="fa fa-camera-retro fa-2x"></i></span>
+              <span style="margin-right: 10px;"><i class="fa fa-camera-retro fa-3x"></i></span>
+              <span style="margin-right: 10px;"><i class="fa fa-camera-retro fa-4x"></i></span>
+              <pre><code class="html">&lt;i class=&quot;fa fa-camera-retro fa-lg&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fa fa-camera-retro fa-2x&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fa fa-camera-retro fa-3x&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fa fa-camera-retro fa-4x&quot;&gt;&lt;/i&gt;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="icon-orientation" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#icon-orientation" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Icon Orientation</h3>
+            </div>
+            <div class="content">
+              <span style="margin-right: 10px;"><i class="fa fa-shield"></i> normal</span>
+              <span style="margin-right: 10px;"><i class="fa fa-shield fa-rotate-90"></i> rotated 90&deg;</span>
+              <span style="margin-right: 10px;"><i class="fa fa-shield fa-rotate-180"></i> rotated 180&deg;</span>
+              <span style="margin-right: 10px;"><i class="fa fa-shield fa-rotate-270"></i> rotated 270&deg;</span>
+              <span style="margin-right: 10px;"><i class="fa fa-shield fa-flip-horizontal"></i> flipped horizontal</span>
+              <span style="margin-right: 10px;"><i class="fa fa-shield fa-flip-vertical"></i> flipped vertical</span>
+              <pre><code class="html">&lt;i class=&quot;fa fa-shield&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fa fa-shield fa-rotate-90&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fa fa-shield fa-rotate-180&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fa fa-shield fa-rotate-270&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fa fa-shield fa-flip-horizontal&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fa fa-shield fa-flip-vertical&quot;&gt;&lt;/i&gt;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="icon-stacked" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#icon-stacked" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Stacked Icons</h3>
+            </div>
+            <div class="content">
+              <div class="row">
+                <div class="col-sm-12">
+                  <p>
+                  To stack multiple icons, use the <code>fa-stack</code> class on the parent, the <code>fa-stack-1x</code>
+                  for the regularly sized icon, and <code>fa-stack-2x</code> for the larger icon. <code>fa-inverse</code>
+                  can be used as an alternative icon color. You can even throw <a href="#larger">larger icon</a> classes on the parent
+                  to get further control of sizing.
+                  </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div style="padding-right: 10px; float: left;">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-square-o fa-stack-2x"></i>
+                      <i class="fa fa-twitter fa-stack-1x"></i>
+                    </span>
+                    fa-twitter on fa-square-o
+                  </div>
+                  <div style="padding-right: 10px; float: left;">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
+                    </span>
+                    fa-flag on fa-circle
+                  </div>
+                  <div style="padding-right: 10px; float: left;">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-square fa-stack-2x"></i>
+                      <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+                    </span>
+                    fa-terminal on fa-square
+                  </div>
+                  <div style="padding-right: 10px; float: left;">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-camera fa-stack-1x"></i>
+                      <i class="fa fa-ban fa-stack-2x text-danger"></i>
+                    </span>
+                    fa-ban on fa-camera
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <pre><code class="html">&lt;span class=&quot;fa-stack fa-lg&quot;&gt;
+  &lt;i class=&quot;fa fa-square-o fa-stack-2x&quot;&gt;&lt;/i&gt;
+  &lt;i class=&quot;fa fa-twitter fa-stack-1x&quot;&gt;&lt;/i&gt;
+&lt;/span&gt;
+
+&lt;span class=&quot;fa-stack fa-lg&quot;&gt;
+  &lt;i class=&quot;fa fa-circle fa-stack-2x&quot;&gt;&lt;/i&gt;
+  &lt;i class=&quot;fa fa-flag fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
+&lt;/span&gt;
+
+&lt;span class=&quot;fa-stack fa-lg&quot;&gt;
+  &lt;i class=&quot;fa fa-square fa-stack-2x&quot;&gt;&lt;/i&gt;
+  &lt;i class=&quot;fa fa-terminal fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
+&lt;/span&gt;
+
+&lt;span class=&quot;fa-stack fa-lg&quot;&gt;
+  &lt;i class=&quot;fa fa-camera fa-stack-1x&quot;&gt;&lt;/i&gt;
+  &lt;i class=&quot;fa fa-ban fa-stack-2x text-danger&quot;&gt;&lt;/i&gt;
+&lt;/span&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <span id="icon-web-app" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#icon-web-app" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Web Application Icons</h3>
+            </div>
+            <div class="content">
+              <p>
+                All icons are available in the following format, where <code>.fa-name_here</code> is a class of the list below:
+              </p>
+              <pre><code class="html">&lt;i class=&quot;fa fa-name_here&quot;&gt;&lt;/i&gt;</code></pre>
+              <div class="row icon-show">
+                <div class="col-sm-4"><i class="fa fa-adjust"></i> fa-adjust</div>
+                <div class="col-sm-4"><i class="fa fa-anchor"></i> fa-anchor</div>
+                <div class="col-sm-4"><i class="fa fa-archive"></i> fa-archive</div>
+                <div class="col-sm-4"><i class="fa fa-arrows"></i> fa-arrows</div>
+                <div class="col-sm-4"><i class="fa fa-arrows-h"></i> fa-arrows-h</div>
+                <div class="col-sm-4"><i class="fa fa-arrows-v"></i> fa-arrows-v</div>
+                <div class="col-sm-4"><i class="fa fa-asterisk"></i> fa-asterisk</div>
+                <div class="col-sm-4"><i class="fa fa-ban"></i> fa-ban</div>
+                <div class="col-sm-4"><i class="fa fa-bar-chart-o"></i> fa-bar-chart-o</div>
+                <div class="col-sm-4"><i class="fa fa-barcode"></i> fa-barcode</div>
+                <div class="col-sm-4"><i class="fa fa-bars"></i> fa-bars</div>
+                <div class="col-sm-4"><i class="fa fa-beer"></i> fa-beer</div>
+                <div class="col-sm-4"><i class="fa fa-bell"></i> fa-bell</div>
+                <div class="col-sm-4"><i class="fa fa-bell-o"></i> fa-bell-o</div>
+                <div class="col-sm-4"><i class="fa fa-bolt"></i> fa-bolt</div>
+                <div class="col-sm-4"><i class="fa fa-book"></i> fa-book</div>
+                <div class="col-sm-4"><i class="fa fa-bookmark"></i> fa-bookmark</div>
+                <div class="col-sm-4"><i class="fa fa-bookmark-o"></i> fa-bookmark-o</div>
+                <div class="col-sm-4"><i class="fa fa-briefcase"></i> fa-briefcase</div>
+                <div class="col-sm-4"><i class="fa fa-bug"></i> fa-bug</div>
+                <div class="col-sm-4"><i class="fa fa-building-o"></i> fa-building-o</div>
+                <div class="col-sm-4"><i class="fa fa-bullhorn"></i> fa-bullhorn</div>
+                <div class="col-sm-4"><i class="fa fa-bullseye"></i> fa-bullseye</div>
+                <div class="col-sm-4"><i class="fa fa-calendar"></i> fa-calendar</div>
+                <div class="col-sm-4"><i class="fa fa-calendar-o"></i> fa-calendar-o</div>
+                <div class="col-sm-4"><i class="fa fa-camera"></i> fa-camera</div>
+                <div class="col-sm-4"><i class="fa fa-camera-retro"></i> fa-camera-retro</div>
+                <div class="col-sm-4"><i class="fa fa-caret-square-o-down"></i> fa-caret-square-o-down</div>
+                <div class="col-sm-4"><i class="fa fa-caret-square-o-left"></i> fa-caret-square-o-left</div>
+                <div class="col-sm-4"><i class="fa fa-caret-square-o-right"></i> fa-caret-square-o-right</div>
+                <div class="col-sm-4"><i class="fa fa-caret-square-o-up"></i> fa-caret-square-o-up</div>
+                <div class="col-sm-4"><i class="fa fa-certificate"></i> fa-certificate</div>
+                <div class="col-sm-4"><i class="fa fa-check"></i> fa-check</div>
+                <div class="col-sm-4"><i class="fa fa-check-circle"></i> fa-check-circle</div>
+                <div class="col-sm-4"><i class="fa fa-check-circle-o"></i> fa-check-circle-o</div>
+                <div class="col-sm-4"><i class="fa fa-check-square"></i> fa-check-square</div>
+                <div class="col-sm-4"><i class="fa fa-check-square-o"></i> fa-check-square-o</div>
+                <div class="col-sm-4"><i class="fa fa-circle"></i> fa-circle</div>
+                <div class="col-sm-4"><i class="fa fa-circle-o"></i> fa-circle-o</div>
+                <div class="col-sm-4"><i class="fa fa-clock-o"></i> fa-clock-o</div>
+                <div class="col-sm-4"><i class="fa fa-cloud"></i> fa-cloud</div>
+                <div class="col-sm-4"><i class="fa fa-cloud-download"></i> fa-cloud-download</div>
+                <div class="col-sm-4"><i class="fa fa-cloud-upload"></i> fa-cloud-upload</div>
+                <div class="col-sm-4"><i class="fa fa-code"></i> fa-code</div>
+                <div class="col-sm-4"><i class="fa fa-code-fork"></i> fa-code-fork</div>
+                <div class="col-sm-4"><i class="fa fa-coffee"></i> fa-coffee</div>
+                <div class="col-sm-4"><i class="fa fa-cog"></i> fa-cog</div>
+                <div class="col-sm-4"><i class="fa fa-cogs"></i> fa-cogs</div>
+                <div class="col-sm-4"><i class="fa fa-comment"></i> fa-comment</div>
+                <div class="col-sm-4"><i class="fa fa-comment-o"></i> fa-comment-o</div>
+                <div class="col-sm-4"><i class="fa fa-comments"></i> fa-comments</div>
+                <div class="col-sm-4"><i class="fa fa-comments-o"></i> fa-comments-o</div>
+                <div class="col-sm-4"><i class="fa fa-compass"></i> fa-compass</div>
+                <div class="col-sm-4"><i class="fa fa-credit-card"></i> fa-credit-card</div>
+                <div class="col-sm-4"><i class="fa fa-crop"></i> fa-crop</div>
+                <div class="col-sm-4"><i class="fa fa-crosshairs"></i> fa-crosshairs</div>
+                <div class="col-sm-4"><i class="fa fa-cutlery"></i> fa-cutlery</div>
+                <div class="col-sm-4"><i class="fa fa-dashboard"></i> fa-dashboard <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-desktop"></i> fa-desktop</div>
+                <div class="col-sm-4"><i class="fa fa-dot-circle-o"></i> fa-dot-circle-o</div>
+                <div class="col-sm-4"><i class="fa fa-download"></i> fa-download</div>
+                <div class="col-sm-4"><i class="fa fa-edit"></i> fa-edit <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-ellipsis-h"></i> fa-ellipsis-h</div>
+                <div class="col-sm-4"><i class="fa fa-ellipsis-v"></i> fa-ellipsis-v</div>
+                <div class="col-sm-4"><i class="fa fa-envelope"></i> fa-envelope</div>
+                <div class="col-sm-4"><i class="fa fa-envelope-o"></i> fa-envelope-o</div>
+                <div class="col-sm-4"><i class="fa fa-eraser"></i> fa-eraser</div>
+                <div class="col-sm-4"><i class="fa fa-exchange"></i> fa-exchange</div>
+                <div class="col-sm-4"><i class="fa fa-exclamation"></i> fa-exclamation</div>
+                <div class="col-sm-4"><i class="fa fa-exclamation-circle"></i> fa-exclamation-circle</div>
+                <div class="col-sm-4"><i class="fa fa-exclamation-triangle"></i> fa-exclamation-triangle</div>
+                <div class="col-sm-4"><i class="fa fa-external-link"></i> fa-external-link</div>
+                <div class="col-sm-4"><i class="fa fa-external-link-square"></i> fa-external-link-square</div>
+                <div class="col-sm-4"><i class="fa fa-eye"></i> fa-eye</div>
+                <div class="col-sm-4"><i class="fa fa-eye-slash"></i> fa-eye-slash</div>
+                <div class="col-sm-4"><i class="fa fa-female"></i> fa-female</div>
+                <div class="col-sm-4"><i class="fa fa-fighter-jet"></i> fa-fighter-jet</div>
+                <div class="col-sm-4"><i class="fa fa-film"></i> fa-film</div>
+                <div class="col-sm-4"><i class="fa fa-filter"></i> fa-filter</div>
+                <div class="col-sm-4"><i class="fa fa-fire"></i> fa-fire</div>
+                <div class="col-sm-4"><i class="fa fa-fire-extinguisher"></i> fa-fire-extinguisher</div>
+                <div class="col-sm-4"><i class="fa fa-flag"></i> fa-flag</div>
+                <div class="col-sm-4"><i class="fa fa-flag-checkered"></i> fa-flag-checkered</div>
+                <div class="col-sm-4"><i class="fa fa-flag-o"></i> fa-flag-o</div>
+                <div class="col-sm-4"><i class="fa fa-flash"></i> fa-flash <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-flask"></i> fa-flask</div>
+                <div class="col-sm-4"><i class="fa fa-folder"></i> fa-folder</div>
+                <div class="col-sm-4"><i class="fa fa-folder-o"></i> fa-folder-o</div>
+                <div class="col-sm-4"><i class="fa fa-folder-open"></i> fa-folder-open</div>
+                <div class="col-sm-4"><i class="fa fa-folder-open-o"></i> fa-folder-open-o</div>
+                <div class="col-sm-4"><i class="fa fa-frown-o"></i> fa-frown-o</div>
+                <div class="col-sm-4"><i class="fa fa-gamepad"></i> fa-gamepad</div>
+                <div class="col-sm-4"><i class="fa fa-gavel"></i> fa-gavel</div>
+                <div class="col-sm-4"><i class="fa fa-gear"></i> fa-gear <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-gears"></i> fa-gears <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-gift"></i> fa-gift</div>
+                <div class="col-sm-4"><i class="fa fa-glass"></i> fa-glass</div>
+                <div class="col-sm-4"><i class="fa fa-globe"></i> fa-globe</div>
+                <div class="col-sm-4"><i class="fa fa-group"></i> fa-group <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-hdd-o"></i> fa-hdd-o</div>
+                <div class="col-sm-4"><i class="fa fa-headphones"></i> fa-headphones</div>
+                <div class="col-sm-4"><i class="fa fa-heart"></i> fa-heart</div>
+                <div class="col-sm-4"><i class="fa fa-heart-o"></i> fa-heart-o</div>
+                <div class="col-sm-4"><i class="fa fa-home"></i> fa-home</div>
+                <div class="col-sm-4"><i class="fa fa-inbox"></i> fa-inbox</div>
+                <div class="col-sm-4"><i class="fa fa-info"></i> fa-info</div>
+                <div class="col-sm-4"><i class="fa fa-info-circle"></i> fa-info-circle</div>
+                <div class="col-sm-4"><i class="fa fa-key"></i> fa-key</div>
+                <div class="col-sm-4"><i class="fa fa-keyboard-o"></i> fa-keyboard-o</div>
+                <div class="col-sm-4"><i class="fa fa-laptop"></i> fa-laptop</div>
+                <div class="col-sm-4"><i class="fa fa-leaf"></i> fa-leaf</div>
+                <div class="col-sm-4"><i class="fa fa-legal"></i> fa-legal <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-lemon-o"></i> fa-lemon-o</div>
+                <div class="col-sm-4"><i class="fa fa-level-down"></i> fa-level-down</div>
+                <div class="col-sm-4"><i class="fa fa-level-up"></i> fa-level-up</div>
+                <div class="col-sm-4"><i class="fa fa-lightbulb-o"></i> fa-lightbulb-o</div>
+                <div class="col-sm-4"><i class="fa fa-location-arrow"></i> fa-location-arrow</div>
+                <div class="col-sm-4"><i class="fa fa-lock"></i> fa-lock</div>
+                <div class="col-sm-4"><i class="fa fa-magic"></i> fa-magic</div>
+                <div class="col-sm-4"><i class="fa fa-magnet"></i> fa-magnet</div>
+                <div class="col-sm-4"><i class="fa fa-mail-forward"></i> fa-mail-forward <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-mail-reply"></i> fa-mail-reply <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-mail-reply-all"></i> fa-mail-reply-all</div>
+                <div class="col-sm-4"><i class="fa fa-male"></i> fa-male</div>
+                <div class="col-sm-4"><i class="fa fa-map-marker"></i> fa-map-marker</div>
+                <div class="col-sm-4"><i class="fa fa-meh-o"></i> fa-meh-o</div>
+                <div class="col-sm-4"><i class="fa fa-microphone"></i> fa-microphone</div>
+                <div class="col-sm-4"><i class="fa fa-microphone-slash"></i> fa-microphone-slash</div>
+                <div class="col-sm-4"><i class="fa fa-minus"></i> fa-minus</div>
+                <div class="col-sm-4"><i class="fa fa-minus-circle"></i> fa-minus-circle</div>
+                <div class="col-sm-4"><i class="fa fa-minus-square"></i> fa-minus-square</div>
+                <div class="col-sm-4"><i class="fa fa-minus-square-o"></i> fa-minus-square-o</div>
+                <div class="col-sm-4"><i class="fa fa-mobile"></i> fa-mobile</div>
+                <div class="col-sm-4"><i class="fa fa-mobile-phone"></i> fa-mobile-phone <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-money"></i> fa-money</div>
+                <div class="col-sm-4"><i class="fa fa-moon-o"></i> fa-moon-o</div>
+                <div class="col-sm-4"><i class="fa fa-music"></i> fa-music</div>
+                <div class="col-sm-4"><i class="fa fa-pencil"></i> fa-pencil</div>
+                <div class="col-sm-4"><i class="fa fa-pencil-square"></i> fa-pencil-square</div>
+                <div class="col-sm-4"><i class="fa fa-pencil-square-o"></i> fa-pencil-square-o</div>
+                <div class="col-sm-4"><i class="fa fa-phone"></i> fa-phone</div>
+                <div class="col-sm-4"><i class="fa fa-phone-square"></i> fa-phone-square</div>
+                <div class="col-sm-4"><i class="fa fa-picture-o"></i> fa-picture-o</div>
+                <div class="col-sm-4"><i class="fa fa-plane"></i> fa-plane</div>
+                <div class="col-sm-4"><i class="fa fa-plus"></i> fa-plus</div>
+                <div class="col-sm-4"><i class="fa fa-plus-circle"></i> fa-plus-circle</div>
+                <div class="col-sm-4"><i class="fa fa-plus-square"></i> fa-plus-square</div>
+                <div class="col-sm-4"><i class="fa fa-plus-square-o"></i> fa-plus-square-o</div>
+                <div class="col-sm-4"><i class="fa fa-power-off"></i> fa-power-off</div>
+                <div class="col-sm-4"><i class="fa fa-print"></i> fa-print</div>
+                <div class="col-sm-4"><i class="fa fa-puzzle-piece"></i> fa-puzzle-piece</div>
+                <div class="col-sm-4"><i class="fa fa-qrcode"></i> fa-qrcode</div>
+                <div class="col-sm-4"><i class="fa fa-question"></i> fa-question</div>
+                <div class="col-sm-4"><i class="fa fa-question-circle"></i> fa-question-circle</div>
+                <div class="col-sm-4"><i class="fa fa-quote-left"></i> fa-quote-left</div>
+                <div class="col-sm-4"><i class="fa fa-quote-right"></i> fa-quote-right</div>
+                <div class="col-sm-4"><i class="fa fa-random"></i> fa-random</div>
+                <div class="col-sm-4"><i class="fa fa-refresh"></i> fa-refresh</div>
+                <div class="col-sm-4"><i class="fa fa-reply"></i> fa-reply</div>
+                <div class="col-sm-4"><i class="fa fa-reply-all"></i> fa-reply-all</div>
+                <div class="col-sm-4"><i class="fa fa-retweet"></i> fa-retweet</div>
+                <div class="col-sm-4"><i class="fa fa-road"></i> fa-road</div>
+                <div class="col-sm-4"><i class="fa fa-rocket"></i> fa-rocket</div>
+                <div class="col-sm-4"><i class="fa fa-rss"></i> fa-rss</div>
+                <div class="col-sm-4"><i class="fa fa-rss-square"></i> fa-rss-square</div>
+                <div class="col-sm-4"><i class="fa fa-search"></i> fa-search</div>
+                <div class="col-sm-4"><i class="fa fa-search-minus"></i> fa-search-minus</div>
+                <div class="col-sm-4"><i class="fa fa-search-plus"></i> fa-search-plus</div>
+                <div class="col-sm-4"><i class="fa fa-share"></i> fa-share</div>
+                <div class="col-sm-4"><i class="fa fa-share-square"></i> fa-share-square</div>
+                <div class="col-sm-4"><i class="fa fa-share-square-o"></i> fa-share-square-o</div>
+                <div class="col-sm-4"><i class="fa fa-shield"></i> fa-shield</div>
+                <div class="col-sm-4"><i class="fa fa-shopping-cart"></i> fa-shopping-cart</div>
+                <div class="col-sm-4"><i class="fa fa-sign-in"></i> fa-sign-in</div>
+                <div class="col-sm-4"><i class="fa fa-sign-out"></i> fa-sign-out</div>
+                <div class="col-sm-4"><i class="fa fa-signal"></i> fa-signal</div>
+                <div class="col-sm-4"><i class="fa fa-sitemap"></i> fa-sitemap</div>
+                <div class="col-sm-4"><i class="fa fa-smile-o"></i> fa-smile-o</div>
+                <div class="col-sm-4"><i class="fa fa-sort"></i> fa-sort</div>
+                <div class="col-sm-4"><i class="fa fa-sort-alpha-asc"></i> fa-sort-alpha-asc</div>
+                <div class="col-sm-4"><i class="fa fa-sort-alpha-desc"></i> fa-sort-alpha-desc</div>
+                <div class="col-sm-4"><i class="fa fa-sort-amount-asc"></i> fa-sort-amount-asc</div>
+                <div class="col-sm-4"><i class="fa fa-sort-amount-desc"></i> fa-sort-amount-desc</div>
+                <div class="col-sm-4"><i class="fa fa-sort-asc"></i> fa-sort-asc</div>
+                <div class="col-sm-4"><i class="fa fa-sort-desc"></i> fa-sort-desc</div>
+                <div class="col-sm-4"><i class="fa fa-sort-down"></i> fa-sort-down <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-sort-numeric-asc"></i> fa-sort-numeric-asc</div>
+                <div class="col-sm-4"><i class="fa fa-sort-numeric-desc"></i> fa-sort-numeric-desc</div>
+                <div class="col-sm-4"><i class="fa fa-sort-up"></i> fa-sort-up <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-spinner"></i> fa-spinner</div>
+                <div class="col-sm-4"><i class="fa fa-square"></i> fa-square</div>
+                <div class="col-sm-4"><i class="fa fa-square-o"></i> fa-square-o</div>
+                <div class="col-sm-4"><i class="fa fa-star"></i> fa-star</div>
+                <div class="col-sm-4"><i class="fa fa-star-half"></i> fa-star-half</div>
+                <div class="col-sm-4"><i class="fa fa-star-half-empty"></i> fa-star-half-empty <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-star-half-full"></i> fa-star-half-full <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-star-half-o"></i> fa-star-half-o</div>
+                <div class="col-sm-4"><i class="fa fa-star-o"></i> fa-star-o</div>
+                <div class="col-sm-4"><i class="fa fa-subscript"></i> fa-subscript</div>
+                <div class="col-sm-4"><i class="fa fa-suitcase"></i> fa-suitcase</div>
+                <div class="col-sm-4"><i class="fa fa-sun-o"></i> fa-sun-o</div>
+                <div class="col-sm-4"><i class="fa fa-superscript"></i> fa-superscript</div>
+                <div class="col-sm-4"><i class="fa fa-tablet"></i> fa-tablet</div>
+                <div class="col-sm-4"><i class="fa fa-tachometer"></i> fa-tachometer</div>
+                <div class="col-sm-4"><i class="fa fa-tag"></i> fa-tag</div>
+                <div class="col-sm-4"><i class="fa fa-tags"></i> fa-tags</div>
+                <div class="col-sm-4"><i class="fa fa-tasks"></i> fa-tasks</div>
+                <div class="col-sm-4"><i class="fa fa-terminal"></i> fa-terminal</div>
+                <div class="col-sm-4"><i class="fa fa-thumb-tack"></i> fa-thumb-tack</div>
+                <div class="col-sm-4"><i class="fa fa-thumbs-down"></i> fa-thumbs-down</div>
+                <div class="col-sm-4"><i class="fa fa-thumbs-o-down"></i> fa-thumbs-o-down</div>
+                <div class="col-sm-4"><i class="fa fa-thumbs-o-up"></i> fa-thumbs-o-up</div>
+                <div class="col-sm-4"><i class="fa fa-thumbs-up"></i> fa-thumbs-up</div>
+                <div class="col-sm-4"><i class="fa fa-ticket"></i> fa-ticket</div>
+                <div class="col-sm-4"><i class="fa fa-times"></i> fa-times</div>
+                <div class="col-sm-4"><i class="fa fa-times-circle"></i> fa-times-circle</div>
+                <div class="col-sm-4"><i class="fa fa-times-circle-o"></i> fa-times-circle-o</div>
+                <div class="col-sm-4"><i class="fa fa-tint"></i> fa-tint</div>
+                <div class="col-sm-4"><i class="fa fa-toggle-down"></i> fa-toggle-down <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-toggle-left"></i> fa-toggle-left <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-toggle-right"></i> fa-toggle-right <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-toggle-up"></i> fa-toggle-up <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-trash-o"></i> fa-trash-o</div>
+                <div class="col-sm-4"><i class="fa fa-trophy"></i> fa-trophy</div>
+                <div class="col-sm-4"><i class="fa fa-truck"></i> fa-truck</div>
+                <div class="col-sm-4"><i class="fa fa-umbrella"></i> fa-umbrella</div>
+                <div class="col-sm-4"><i class="fa fa-unlock"></i> fa-unlock</div>
+                <div class="col-sm-4"><i class="fa fa-unlock-alt"></i> fa-unlock-alt</div>
+                <div class="col-sm-4"><i class="fa fa-unsorted"></i> fa-unsorted <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-upload"></i> fa-upload</div>
+                <div class="col-sm-4"><i class="fa fa-user"></i> fa-user</div>
+                <div class="col-sm-4"><i class="fa fa-users"></i> fa-users</div>
+                <div class="col-sm-4"><i class="fa fa-video-camera"></i> fa-video-camera</div>
+                <div class="col-sm-4"><i class="fa fa-volume-down"></i> fa-volume-down</div>
+                <div class="col-sm-4"><i class="fa fa-volume-off"></i> fa-volume-off</div>
+                <div class="col-sm-4"><i class="fa fa-volume-up"></i> fa-volume-up</div>
+                <div class="col-sm-4"><i class="fa fa-warning"></i> fa-warning <span class="text-muted">(alias)</span></div>
+                <div class="col-sm-4"><i class="fa fa-wheelchair"></i> fa-wheelchair</div>
+                <div class="col-sm-4"><i class="fa fa-wrench"></i> fa-wrench</div>
+              </div>
+            </div>
+          </div>
+
+
+          <span id="icon-form-control" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#icon-form-control" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Form Control Icons</h3>
+            </div>
+            <div class="content">
+              <div class="row icon-show">
+                <div class="fa-hover col-sm-4"><i class="fa fa-check-square"></i> fa-check-square</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-check-square-o"></i> fa-check-square-o</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-circle"></i> fa-circle</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-circle-o"></i> fa-circle-o</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-dot-circle-o"></i> fa-dot-circle-o</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-minus-square"></i> fa-minus-square</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-minus-square-o"></i> fa-minus-square-o</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-plus-square"></i> fa-plus-square</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-plus-square-o"></i> fa-plus-square-o</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-square"></i> fa-square</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-square-o"></i> fa-square-o</div>
+              </div>
+            </div>
+          </div>
+
+
+          <span id="icon-currency" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#icon-currency" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Currency Icons</h3>
+            </div>
+            <div class="content">
+              <div class="row icon-show">
+                <div class="fa-hover col-sm-4"><i class="fa fa-bitcoin"></i> fa-bitcoin <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-btc"></i> fa-btc</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-cny"></i> fa-cny <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-dollar"></i> fa-dollar <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-eur"></i> fa-eur</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-euro"></i> fa-euro <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-gbp"></i> fa-gbp</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-inr"></i> fa-inr</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-jpy"></i> fa-jpy</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-krw"></i> fa-krw</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-money"></i> fa-money</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-rmb"></i> fa-rmb <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-rouble"></i> fa-rouble <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-rub"></i> fa-rub</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-ruble"></i> fa-ruble <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-rupee"></i> fa-rupee <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-try"></i> fa-try</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-turkish-lira"></i> fa-turkish-lira <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-usd"></i> fa-usd</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-won"></i> fa-won <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-yen"></i> fa-yen <span class="text-muted">(alias)</span></div>
+                </div>
+            </div>
+          </div>
+
+
+          <span id="icon-text-editor" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#icon-text-editor" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Text Editor Icons</h3>
+            </div>
+            <div class="content">
+              <div class="row icon-show">
+                <div class="fa-hover col-sm-4"><i class="fa fa-align-center"></i> fa-align-center</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-align-justify"></i> fa-align-justify</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-align-left"></i> fa-align-left</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-align-right"></i> fa-align-right</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-bold"></i> fa-bold</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-chain"></i> fa-chain <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-chain-broken"></i> fa-chain-broken</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-clipboard"></i> fa-clipboard</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-columns"></i> fa-columns</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-copy"></i> fa-copy <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-cut"></i> fa-cut <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-dedent"></i> fa-dedent <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-eraser"></i> fa-eraser</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-file"></i> fa-file</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-file-o"></i> fa-file-o</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-file-text"></i> fa-file-text</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-file-text-o"></i> fa-file-text-o</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-files-o"></i> fa-files-o</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-floppy-o"></i> fa-floppy-o</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-font"></i> fa-font</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-indent"></i> fa-indent</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-italic"></i> fa-italic</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-link"></i> fa-link</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-list"></i> fa-list</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-list-alt"></i> fa-list-alt</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-list-ol"></i> fa-list-ol</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-list-ul"></i> fa-list-ul</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-outdent"></i> fa-outdent</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-paperclip"></i> fa-paperclip</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-paste"></i> fa-paste <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-repeat"></i> fa-repeat</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-rotate-left"></i> fa-rotate-left <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-rotate-right"></i> fa-rotate-right <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-save"></i> fa-save <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-scissors"></i> fa-scissors</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-strikethrough"></i> fa-strikethrough</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-table"></i> fa-table</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-text-height"></i> fa-text-height</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-text-width"></i> fa-text-width</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-th"></i> fa-th</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-th-large"></i> fa-th-large</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-th-list"></i> fa-th-list</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-underline"></i> fa-underline</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-undo"></i> fa-undo</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-unlink"></i> fa-unlink <span class="text-muted">(alias)</span></div>
+              </div>
+            </div>
+          </div>
+
+
+          <span id="icon-directional" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#icon-directional" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Directional Icons</h3>
+            </div>
+            <div class="content">
+              <div class="row icon-show">
+                <div class="fa-hover col-sm-4"><i class="fa fa-angle-double-down"></i> fa-angle-double-down</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-angle-double-left"></i> fa-angle-double-left</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-angle-double-right"></i> fa-angle-double-right</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-angle-double-up"></i> fa-angle-double-up</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-angle-down"></i> fa-angle-down</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-angle-left"></i> fa-angle-left</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-angle-right"></i> fa-angle-right</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-angle-up"></i> fa-angle-up</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-arrow-circle-down"></i> fa-arrow-circle-down</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-arrow-circle-left"></i> fa-arrow-circle-left</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-arrow-circle-o-down"></i> fa-arrow-circle-o-down</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-arrow-circle-o-left"></i> fa-arrow-circle-o-left</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-arrow-circle-o-right"></i> fa-arrow-circle-o-right</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-arrow-circle-o-up"></i> fa-arrow-circle-o-up</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-arrow-circle-right"></i> fa-arrow-circle-right</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-arrow-circle-up"></i> fa-arrow-circle-up</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-arrow-down"></i> fa-arrow-down</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-arrow-left"></i> fa-arrow-left</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-arrow-right"></i> fa-arrow-right</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-arrow-up"></i> fa-arrow-up</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-arrows"></i> fa-arrows</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-arrows-alt"></i> fa-arrows-alt</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-arrows-h"></i> fa-arrows-h</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-arrows-v"></i> fa-arrows-v</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-caret-down"></i> fa-caret-down</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-caret-left"></i> fa-caret-left</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-caret-right"></i> fa-caret-right</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-caret-square-o-down"></i> fa-caret-square-o-down</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-caret-square-o-left"></i> fa-caret-square-o-left</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-caret-square-o-right"></i> fa-caret-square-o-right</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-caret-square-o-up"></i> fa-caret-square-o-up</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-caret-up"></i> fa-caret-up</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-chevron-circle-down"></i> fa-chevron-circle-down</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-chevron-circle-left"></i> fa-chevron-circle-left</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-chevron-circle-right"></i> fa-chevron-circle-right</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-chevron-circle-up"></i> fa-chevron-circle-up</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-chevron-down"></i> fa-chevron-down</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-chevron-left"></i> fa-chevron-left</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-chevron-right"></i> fa-chevron-right</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-chevron-up"></i> fa-chevron-up</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-hand-o-down"></i> fa-hand-o-down</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-hand-o-left"></i> fa-hand-o-left</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-hand-o-right"></i> fa-hand-o-right</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-hand-o-up"></i> fa-hand-o-up</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-long-arrow-down"></i> fa-long-arrow-down</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-long-arrow-left"></i> fa-long-arrow-left</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-long-arrow-right"></i> fa-long-arrow-right</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-long-arrow-up"></i> fa-long-arrow-up</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-toggle-down"></i> fa-toggle-down <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-toggle-left"></i> fa-toggle-left <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-toggle-right"></i> fa-toggle-right <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-toggle-up"></i> fa-toggle-up <span class="text-muted">(alias)</span></div>
+              </div>
+            </div>
+          </div>
+
+
+          <span id="icon-video-player" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#icon-video-player" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Video Player Icons</h3>
+            </div>
+            <div class="content">
+              <div class="row icon-show">
+                <div class="fa-hover col-sm-4"><i class="fa fa-arrows-alt"></i> fa-arrows-alt</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-backward"></i> fa-backward</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-compress"></i> fa-compress</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-eject"></i> fa-eject</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-expand"></i> fa-expand</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-fast-backward"></i> fa-fast-backward</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-fast-forward"></i> fa-fast-forward</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-forward"></i> fa-forward</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-pause"></i> fa-pause</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-play"></i> fa-play</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-play-circle"></i> fa-play-circle</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-play-circle-o"></i> fa-play-circle-o</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-step-backward"></i> fa-step-backward</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-step-forward"></i> fa-step-forward</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-stop"></i> fa-stop</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-youtube-play"></i> fa-youtube-play</div>
+              </div>
+            </div>
+          </div>
+
+
+          <span id="icon-brand" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#icon-brand" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Brand Icons</h3>
+            </div>
+            <div class="content">
+              <div class="alert alert-success">
+                <ul>
+                  <li>All brand icons are trademarks of their respective owners.</li>
+                  <li>The use of these trademarks does not indicate endorsement of the trademark holder by Font Awesome, nor vice versa.</li>
+                </ul>
+              </div>
+              <div class="row icon-show">
+                <div class="fa-hover col-sm-4"><i class="fa fa-adn"></i> fa-adn</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-android"></i> fa-android</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-apple"></i> fa-apple</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-bitbucket"></i> fa-bitbucket</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-bitbucket-square"></i> fa-bitbucket-square</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-bitcoin"></i> fa-bitcoin <span class="text-muted">(alias)</span></div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-btc"></i> fa-btc</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-css3"></i> fa-css3</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-dribbble"></i> fa-dribbble</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-dropbox"></i> fa-dropbox</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-facebook"></i> fa-facebook</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-facebook-square"></i> fa-facebook-square</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-flickr"></i> fa-flickr</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-foursquare"></i> fa-foursquare</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-github"></i> fa-github</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-github-alt"></i> fa-github-alt</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-github-square"></i> fa-github-square</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-gittip"></i> fa-gittip</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-google-plus"></i> fa-google-plus</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-google-plus-square"></i> fa-google-plus-square</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-html5"></i> fa-html5</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-instagram"></i> fa-instagram</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-linkedin"></i> fa-linkedin</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-linkedin-square"></i> fa-linkedin-square</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-linux"></i> fa-linux</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-maxcdn"></i> fa-maxcdn</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-pagelines"></i> fa-pagelines</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-pinterest"></i> fa-pinterest</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-pinterest-square"></i> fa-pinterest-square</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-renren"></i> fa-renren</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-skype"></i> fa-skype</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-stack-exchange"></i> fa-stack-exchange</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-stack-overflow"></i> fa-stack-overflow</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-trello"></i> fa-trello</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-tumblr"></i> fa-tumblr</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-tumblr-square"></i> fa-tumblr-square</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-twitter"></i> fa-twitter</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-twitter-square"></i> fa-twitter-square</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-vimeo-square"></i> fa-vimeo-square</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-vk"></i> fa-vk</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-weibo"></i> fa-weibo</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-windows"></i> fa-windows</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-xing"></i> fa-xing</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-xing-square"></i> fa-xing-square</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-youtube"></i> fa-youtube</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-youtube-play"></i> fa-youtube-play</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-youtube-square"></i> fa-youtube-square</div>
+              </div>
+            </div>
+          </div>
+
+          <span id="icon-medical" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#icon-medical" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Medical Icons</h3>
+            </div>
+            <div class="content">
+              <div class="row icon-show">
+                <div class="fa-hover col-sm-4"><i class="fa fa-ambulance"></i> fa-ambulance</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-h-square"></i> fa-h-square</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-hospital-o"></i> fa-hospital-o</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-medkit"></i> fa-medkit</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-plus-square"></i> fa-plus-square</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-stethoscope"></i> fa-stethoscope</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-user-md"></i> fa-user-md</div>
+                <div class="fa-hover col-sm-4"><i class="fa fa-wheelchair"></i> fa-wheelchair</div>
+              </div>
+            </div>
+          </div>
+
+
+          <span id="form-elements" class="anchor"></span>
+          <span id="form-elements-basic" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#form-elements-basic" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Basic Elements</h3>
+            </div>
+            <div class="content">
+              <p>
+                Basic input fields guidelines:
+                <ul>
+                  <li>Label should be propercasing</li>
+                  <li>Placeholder text is same as the label</li>
+                  <li>If there are further instructions (ie, required), this should be in the placeholder only following the label in parenthesis.</li>
+                  <li>Textareas do not need placeholder text, but can contain instructional text if necessary</li>
+                </ul>
+              </p>
+              <div class="row">
+                <div class="col-sm-8">
+                  <form action="#" style="border-radius: 0px;">
+                    <div class="form-group">
+                      <label>Text Input</label>
+                      <input type="text" class="form-control" placeholder="Placeholder Text">
+                    </div>
+                    <div class="form-group">
+                      <label>Password (For Login)</label>
+                      <input type="password" placeholder="Password (For Login)" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label>Disabled Input</label>
+                      <input type="text" disabled="disabled" class="form-control" placeholder="Disabled Input">
+                    </div>
+                    <div class="form-group">
+                      <label>Readonly Input</label>
+                      <input type="text" readonly="readonly" class="form-control" value="Readonly Input">
+                    </div>
+                    <div class="form-group">
+                      <label>Textarea</label>
+                      <textarea class="form-control" placeholder="50 characters minimum"></textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <pre><code class="html">&lt;label&gt;Text Input&lt;/label&gt;
+&lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Placeholder text&quot;&gt;
+
+&#x3C;label&#x3E;Password&#x3C;/label&#x3E;
+&#x3C;input type=&#x22;password&#x22; placeholder=&#x22;Password&#x22; class=&#x22;form-control&#x22;&#x3E;
+
+&#x3C;label&#x3E;Disabled Input&#x3C;/label&#x3E;
+&#x3C;input type=&#x22;text&#x22; disabled=&#x22;disabled&#x22; class=&#x22;form-control&#x22; placeholder=&#x22;Disabled Input&#x22;&#x3E;
+
+&#x3C;label&#x3E;Readonly Input&#x3C;/label&#x3E;
+&#x3C;input type=&#x22;text&#x22; readonly=&#x22;readonly&#x22; class=&#x22;form-control&#x22; value=&#x22;Readonly Input&#x22;&#x3E;
+
+&#x3C;label&#x3E;Textarea&#x3C;/label&#x3E;
+&#x3C;textarea class=&#x22;form-control&#x22; placeholder=&#x22;50 characters minimum&#x22;&#x3E;&#x3C;/textarea&#x3E;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="form-elements-password" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#form-elements-password" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Password Creation</h3>
+            </div>
+            <div class="content">
+              <p>
+                Password creation guidelines:
+                <ul>
+                  <li>On load, password strength meter should not appear</li>
+                  <li>On edit of password field, strength meter should start to reflect password strength (color and text update). Possible strengths are weak, medium, strong</li>
+                  <li>There are no restrictions for creating a password, we simply inform the user of their password strength.</li>
+                  <li>On blur of password field, if there is no password, display error message instead of helper-text. See error message section.</li>
+                  <li>On blur of confirm password field, if passwords don't match, display error message.</li>
+                </ul>
+              </p>
+              <div class="row">
+                <div class="col-sm-8">
+                  <form action="#" style="border-radius: 0">
+                    <div class="form-group">
+                      <label>Password</label>
+                      <input type="password" placeholder="Password (On Load)" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label>Password</label>
+                      <input type="password" placeholder="Password (Weak Example)" class="form-control">
+                      <div class="password-strength">
+                        <div class="password-strength-meter strength-weak" style="width: 10%"></div>
+                      </div>
+                      <div class="helper-text">Password Strength: <span class="strength-weak">Weak</span></div>
+                    </div>
+                    <div class="form-group">
+                      <label>Password</label>
+                      <input type="password" placeholder="Password (Medium Example)" class="form-control">
+                      <div class="password-strength">
+                        <div class="password-strength-meter strength-medium" style="width: 50%"></div>
+                      </div>
+                      <div class="helper-text">Password Strength: <span class="strength-medium">Medium</span></div>
+                    </div>
+                    <div class="form-group">
+                      <label>Password</label>
+                      <input type="password" placeholder="Password (Strong Example)" class="form-control">
+                      <div class="password-strength">
+                        <div class="password-strength-meter strength-strong" style="width: 100%"></div>
+                      </div>
+                      <div class="helper-text">Password Strength: <span class="strength-strong">Strong</span></div>
+                    </div>
+                    <div class="form-group has-error">
+                      <label>Confirm Password</label>
+                      <input type="password" placeholder="Confirm Password" class="form-control">
+                      <div class="error-message">Passwords must match</div>
+                    </div>
+                    <div class="form-group">
+                      <label>Confirm Password</label>
+                      <input type="password" placeholder="Confirm Password" class="form-control">
+                      <div class="success-message">Passwords match!</div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <pre><code class="html">&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Password&#x3C;/label&#x3E;
+  &#x3C;input type=&#x22;password&#x22; placeholder=&#x22;Password (On Load)&#x22; class=&#x22;form-control&#x22;&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Password&#x3C;/label&#x3E;
+  &#x3C;input type=&#x22;password&#x22; placeholder=&#x22;Password (Weak Example)&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;div class=&#x22;password-strength&#x22;&#x3E;
+    &#x3C;div class=&#x22;password-strength-meter strength-weak&#x22; style=&#x22;width: 10%&#x22;&#x3E;&#x3C;/div&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;helper-text&#x22;&#x3E;Password Strength: &#x3C;span class=&#x22;strength-weak&#x22;&#x3E;Weak&#x3C;/span&#x3E;&#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Password&#x3C;/label&#x3E;
+  &#x3C;input type=&#x22;password&#x22; placeholder=&#x22;Password (Medium Example)&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;div class=&#x22;password-strength&#x22;&#x3E;
+    &#x3C;div class=&#x22;password-strength-meter strength-medium&#x22; style=&#x22;width: 50%&#x22;&#x3E;&#x3C;/div&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;helper-text&#x22;&#x3E;Password Strength: &#x3C;span class=&#x22;strength-medium&#x22;&#x3E;Medium&#x3C;/span&#x3E;&#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Password&#x3C;/label&#x3E;
+  &#x3C;input type=&#x22;password&#x22; placeholder=&#x22;Password (Strong Example)&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;div class=&#x22;password-strength&#x22;&#x3E;
+    &#x3C;div class=&#x22;password-strength-meter strength-strong&#x22; style=&#x22;width: 100%&#x22;&#x3E;&#x3C;/div&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;helper-text&#x22;&#x3E;Password Strength: &#x3C;span class=&#x22;strength-strong&#x22;&#x3E;Strong&#x3C;/span&#x3E;&#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group has-error&#x22;&#x3E;
+  &#x3C;label&#x3E;Confirm Password&#x3C;/label&#x3E;
+  &#x3C;input type=&#x22;password&#x22; placeholder=&#x22;Confirm Password&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;div class=&#x22;error-message&#x22;&#x3E;Passwords must match&#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+
+&lt;div class=&quot;form-group&quot;&gt;
+  &lt;label&gt;Confirm Password&lt;/label&gt;
+  &lt;input type=&quot;password&quot; placeholder=&quot;Confirm Password&quot; class=&quot;form-control&quot;&gt;
+  &lt;div class=&quot;success-message&quot;&gt;Passwords match!&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="form-elements-selects-options" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#form-elements-selects-options" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Select &amp; Option Elements</h3>
+            </div>
+            <div class="content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <form action="#" style="border-radius: 0px;">
+                    <div class="form-group">
+                      <label>Basic Select</label>
+                      <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Multiple Select</label>
+                      <select multiple class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Radio</label>
+                      <div class="radio">
+                        <label> <input type="radio" checked="" name="rad1"> Option 1</label>
+                      </div>
+                      <div class="radio">
+                        <label> <input type="radio" name="rad1"> Option 2</label>
+                      </div>
+                      <div class="radio">
+                        <label> <input type="radio" name="rad1"> Option 3</label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Inline Radio</label>
+                      <div>
+                        <label class="radio-inline"> <input type="radio" checked="" name="rad1"> Option 1</label>
+                        <label class="radio-inline"> <input type="radio" name="rad1"> Option 2</label>
+                        <label class="radio-inline"> <input type="radio" name="rad1"> Option 3</label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Checkbox</label>
+                      <div class="checkbox">
+                        <label> <input type="checkbox" checked="" name="check1"> Option 1</label>
+                      </div>
+                      <div class="checkbox">
+                        <label> <input type="checkbox" name="check2"> Option 2</label>
+                      </div>
+                      <div class="checkbox">
+                        <label> <input type="checkbox" name="check3"> Option 3</label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Inline Checkbox</label>
+                      <div>
+                        <label class="checkbox-inline"> <input type="checkbox" checked="" name="rad1"> Option 1</label>
+                        <label class="checkbox-inline"> <input type="checkbox" name="rad1"> Option 2</label>
+                        <label class="checkbox-inline"> <input type="checkbox" name="rad1"> Option 3</label>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <pre><code class="html">&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Basic Select&#x3C;/label&#x3E;
+  &#x3C;select class=&#x22;form-control&#x22;&#x3E;
+    &#x3C;option&#x3E;1&#x3C;/option&#x3E;
+    &#x3C;option&#x3E;2&#x3C;/option&#x3E;
+    &#x3C;option&#x3E;3&#x3C;/option&#x3E;
+  &#x3C;/select&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Multiple Select&#x3C;/label&#x3E;
+  &#x3C;select multiple class=&#x22;form-control&#x22;&#x3E;
+    &#x3C;option&#x3E;1&#x3C;/option&#x3E;
+    &#x3C;option&#x3E;2&#x3C;/option&#x3E;
+    &#x3C;option&#x3E;3&#x3C;/option&#x3E;
+    &#x3C;option&#x3E;4&#x3C;/option&#x3E;
+  &#x3C;/select&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Radio&#x3C;/label&#x3E;
+  &#x3C;div class=&#x22;radio&#x22;&#x3E;
+    &#x3C;label&#x3E; &#x3C;input type=&#x22;radio&#x22; checked=&#x22;&#x22; name=&#x22;rad1&#x22;&#x3E; Option 1&#x3C;/label&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;radio&#x22;&#x3E;
+    &#x3C;label&#x3E; &#x3C;input type=&#x22;radio&#x22; name=&#x22;rad1&#x22;&#x3E; Option 2&#x3C;/label&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;radio&#x22;&#x3E;
+    &#x3C;label&#x3E; &#x3C;input type=&#x22;radio&#x22; name=&#x22;rad1&#x22;&#x3E; Option 3&#x3C;/label&#x3E;
+  &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Inline Radio&#x3C;/label&#x3E;
+  &#x3C;div&#x3E;
+    &#x3C;label class=&#x22;radio-inline&#x22;&#x3E; &#x3C;input type=&#x22;radio&#x22; checked=&#x22;&#x22; name=&#x22;rad1&#x22;&#x3E; Option 1&#x3C;/label&#x3E;
+    &#x3C;label class=&#x22;radio-inline&#x22;&#x3E; &#x3C;input type=&#x22;radio&#x22; name=&#x22;rad1&#x22;&#x3E; Option 2&#x3C;/label&#x3E;
+    &#x3C;label class=&#x22;radio-inline&#x22;&#x3E; &#x3C;input type=&#x22;radio&#x22; name=&#x22;rad1&#x22;&#x3E; Option 3&#x3C;/label&#x3E;
+  &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Checkbox&#x3C;/label&#x3E;
+  &#x3C;div class=&#x22;checkbox&#x22;&#x3E;
+    &#x3C;label&#x3E; &#x3C;input type=&#x22;checkbox&#x22; checked=&#x22;&#x22; name=&#x22;check1&#x22;&#x3E; Option 1&#x3C;/label&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;checkbox&#x22;&#x3E;
+    &#x3C;label&#x3E; &#x3C;input type=&#x22;checkbox&#x22; name=&#x22;check2&#x22;&#x3E; Option 2&#x3C;/label&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;checkbox&#x22;&#x3E;
+    &#x3C;label&#x3E; &#x3C;input type=&#x22;checkbox&#x22; name=&#x22;check3&#x22;&#x3E; Option 3&#x3C;/label&#x3E;
+  &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+
+&#x3C;div class=&#x22;form-group&#x22;&#x3E;
+  &#x3C;label&#x3E;Inline Checkbox&#x3C;/label&#x3E;
+  &#x3C;div&#x3E;
+    &#x3C;label class=&#x22;checkbox-inline&#x22;&#x3E; &#x3C;input type=&#x22;checkbox&#x22; checked=&#x22;&#x22; name=&#x22;rad1&#x22;&#x3E; Option 1&#x3C;/label&#x3E;
+    &#x3C;label class=&#x22;checkbox-inline&#x22;&#x3E; &#x3C;input type=&#x22;checkbox&#x22; name=&#x22;rad1&#x22;&#x3E; Option 2&#x3C;/label&#x3E;
+    &#x3C;label class=&#x22;checkbox-inline&#x22;&#x3E; &#x3C;input type=&#x22;checkbox&#x22; name=&#x22;rad1&#x22;&#x3E; Option 3&#x3C;/label&#x3E;
+  &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="form-elements-forms" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#form-elements-forms" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Forms</h3>
+            </div>
+            <div class="content">
+              <p>
+                Within the application, forms should follow the format:
+                <ul>
+                  <li>Labels are always stacked on top of the input</li>
+                  <li>Each input should be wrapped in a form-group</li>
+                  <li>It is possible to group certain inputs together (such as addresses) in to a .group-cluster which allows for inline field inputs. This should be less common.</li>
+                  <li>Button display should be: Primary | Secondary, if applicable | Tertiary</li>
+                  <li>Buttons should be left aligned, veritcally in line with input buttons.</li>
+                </ul>
+              </p>
+              <div class="row">
+                <div class="col-sm-8">
+                  <form role="form">
+                    <div class="form-group">
+                      <label>Email Address</label>
+                      <input type="email" readonly="readonly" placeholder="syang@square-root.com" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label>Name</label>
+                      <input type="text" placeholder="Name" class="form-control">
+                    </div>
+                    <div class="form-group group-cluster">
+                      <label>Street Address</label>
+                      <input type="text" class="form-control" placeholder="Street Address">
+                      <div class="cluster-row">
+                        <div class="cluster-cell cluster-cell-half">
+                          <label>City</label>
+                          <input type="text" class="form-control" placeholder="City">
+                        </div>
+                        <div class="cluster-cell cluster-cell-quarter">
+                          <label>State</label>
+                          <select class="form-control">
+                            <option value="AL">AL</option>
+                            <option value="AK">AK</option>
+                            <option value="AZ">AZ</option>
+                            <option value="AR">AR</option>
+                            <option value="CA">CA</option>
+                            <option value="CO">CO</option>
+                            <option value="CT">CT</option>
+                            <option value="DE">DE</option>
+                            <option value="FL">FL</option>
+                            <option value="GA">GA</option>
+                            <option value="HI">HI</option>
+                            <option value="ID">ID</option>
+                            <option value="IL">IL</option>
+                            <option value="IN">IN</option>
+                            <option value="IA">IA</option>
+                            <option value="KS">KS</option>
+                            <option value="KY">KY</option>
+                            <option value="LA">LA</option>
+                            <option value="ME">ME</option>
+                            <option value="MD">MD</option>
+                            <option value="MA">MA</option>
+                            <option value="MI">MI</option>
+                            <option value="MN">MN</option>
+                            <option value="MS">MS</option>
+                            <option value="MO">MO</option>
+                            <option value="MT">MT</option>
+                            <option value="NE">NE</option>
+                            <option value="NV">NV</option>
+                            <option value="NH">NH</option>
+                            <option value="NJ">NJ</option>
+                            <option value="NM">NM</option>
+                            <option value="NY">NY</option>
+                            <option value="NC">NC</option>
+                            <option value="ND">ND</option>
+                            <option value="OH">OH</option>
+                            <option value="OK">OK</option>
+                            <option value="OR">OR</option>
+                            <option value="PA">PA</option>
+                            <option value="RI">RI</option>
+                            <option value="SC">SC</option>
+                            <option value="SD">SD</option>
+                            <option value="TN">TN</option>
+                            <option value="TX">TX</option>
+                            <option value="UT">UT</option>
+                            <option value="VT">VT</option>
+                            <option value="VA">VA</option>
+                            <option value="WA">WA</option>
+                            <option value="WV">WV</option>
+                            <option value="WI">WI</option>
+                            <option value="WY">WY</option>
+                          </select>
+                        </div>
+                        <div class="cluster-cell cluster-cell-quarter">
+                          <label>Zipcode</label>
+                          <input type="text" class="form-control" placeholder="Zipcode">
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Update</button>
+                    <button class="btn btn-default">Cancel</button>
+                  </form>
+                </div>
+              </div>
+              <pre><code class="html">&#x3C;form role=&#x22;form&#x22;&#x3E;
+  &#x3C;div class=&#x22;form-group&#x22;&#x3E;
+    &#x3C;label&#x3E;Email Address&#x3C;/label&#x3E;
+    &#x3C;input type=&#x22;email&#x22; readonly=&#x22;readonly&#x22; placeholder=&#x22;syang@square-root.com&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;form-group&#x22;&#x3E;
+    &#x3C;label&#x3E;Name&#x3C;/label&#x3E;
+    &#x3C;input type=&#x22;text&#x22; placeholder=&#x22;Name&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;form-group group-cluster&#x22;&#x3E;
+    &#x3C;label&#x3E;Street Address&#x3C;/label&#x3E;
+    &#x3C;input type=&#x22;text&#x22; class=&#x22;form-control&#x22; placeholder=&#x22;Street Address&#x22;&#x3E;
+    &#x3C;div class=&#x22;cluster-row&#x22;&#x3E;
+      &#x3C;div class=&#x22;cluster-cell cluster-cell-half&#x22;&#x3E;
+        &#x3C;label&#x3E;City&#x3C;/label&#x3E;
+        &#x3C;input type=&#x22;text&#x22; class=&#x22;form-control&#x22; placeholder=&#x22;City&#x22;&#x3E;
+      &#x3C;/div&#x3E;
+      &#x3C;div class=&#x22;cluster-cell cluster-cell-quarter&#x22;&#x3E;
+        &#x3C;label&#x3E;State&#x3C;/label&#x3E;
+        &#x3C;select class=&#x22;form-control&#x22;&#x3E;
+          &#x3C;option value=&#x22;AL&#x22;&#x3E;AL&#x3C;/option&#x3E;
+          &#x3C;!-- omitting the rest of dropdown list to save space --&#x3E;
+        &#x3C;/select&#x3E;
+      &#x3C;/div&#x3E;
+      &#x3C;div class=&#x22;cluster-cell cluster-cell-quarter&#x22;&#x3E;
+        &#x3C;label&#x3E;Zipcode&#x3C;/label&#x3E;
+        &#x3C;input type=&#x22;text&#x22; class=&#x22;form-control&#x22; placeholder=&#x22;Zipcode&#x22;&#x3E;
+      &#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;button class=&#x22;btn btn-primary&#x22; type=&#x22;submit&#x22;&#x3E;Update&#x3C;/button&#x3E;
+  &#x3C;button class=&#x22;btn btn-default&#x22;&#x3E;Cancel&#x3C;/button&#x3E;
+&#x3C;/form&#x3E;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="form-elements-auth-forms" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#form-elements-auth-forms" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Auth Pages Form</h3>
+            </div>
+            <div class="content">
+              <p>
+                The auth page form should only be used outside of the application - for login, resetting password, etc. pages. The format is slightly different in that:
+                <ul>
+                  <li>An <code>.auth-subheader</code> section can include supplementary information or instructions for form. Add <code>.success</code>, <code>.info</code>, <code>.warning</code> or <code>.danger</code> for colored backgrounds.</li>
+                  <li>There is always only one action button at the end of the form.</li>
+                  <li>The action button should only ever advance you. Any 'return' type actions should be text links after the form in the <code>.auth-footer</code> section.</li>
+                </ul>
+              </p>
+              <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                  <div class="auth-subheader">
+                    Enter your email and we will send you instructions on how to reset your password.
+                  </div>
+                  <div class="block-flat">
+                    <div class="content">
+                      <form role="form">
+                        <div class="form-group">
+                          <label>Email Address</label> <input type="email" placeholder="Email Address" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <br/>
+                          <input type="submit" class="btn btn-full btn-flat btn-primary" value="Send" />
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="auth-footer">
+                    Already know your account? <a href="login.html">Log in</a>.
+                  </div>
+                </div>
+              </div>
+              <pre><code class="html">&#x3C;div class=&#x22;auth-subheader&#x22;&#x3E;
+  Enter your email and we will send you instructions on how to reset your password.
+&#x3C;/div&#x3E;
+&#x3C;div class=&#x22;block-flat&#x22;&#x3E;
+  &#x3C;div class=&#x22;content&#x22;&#x3E;
+    &#x3C;form role=&#x22;form&#x22;&#x3E;
+      &#x3C;div class=&#x22;form-group&#x22;&#x3E;
+        &#x3C;label&#x3E;Email Address&#x3C;/label&#x3E; &#x3C;input type=&#x22;email&#x22; placeholder=&#x22;Email Address&#x22; class=&#x22;form-control&#x22;&#x3E;
+      &#x3C;/div&#x3E;
+      &#x3C;div class=&#x22;form-group&#x22;&#x3E;
+        &#x3C;br/&#x3E;
+        &#x3C;input type=&#x22;submit&#x22; class=&#x22;btn btn-full btn-flat btn-primary&#x22; value=&#x22;Send&#x22; /&#x3E;
+      &#x3C;/div&#x3E;
+    &#x3C;/form&#x3E;
+  &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+&#x3C;div class=&#x22;auth-footer&#x22;&#x3E;
+  Already know your account? &#x3C;a href=&#x22;login.html&#x22;&#x3E;Log in&#x3C;/a&#x3E;.
+&#x3C;/div&#x3E;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="form-elements-input-errors" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#form-elements-input-errors" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Input Level Errors</h3>
+            </div>
+            <div class="content">
+              <p>
+                Input level errors refer to on the spot checks for each field to give immediate feedback that a form submission will fail if not fixed.
+              </p>
+              <p>Input level error guidelines:
+                <ul>
+                  <li>Each field should be checked onBlur</li>
+                  <li>If an input has an error - ie, invalid email, blank required field, etc. - an error message and <code>.has-error</code> class should be added to the form group. See below for full markup.</li>
+                </ul>
+              </p>
+              <div class="row">
+                <div class="col-sm-8">
+                  <form role="form">
+                    <div class="form-group has-error">
+                      <label>Email Address</label> <input type="email" placeholder="Email Address" class="form-control">
+                      <div class="error-message">Please enter a valid email address.</div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <pre><code class="html">&#x3C;div class=&#x22;form-group has-error&#x22;&#x3E;
+  &#x3C;label&#x3E;Email Address&#x3C;/label&#x3E; &#x3C;input type=&#x22;email&#x22; placeholder=&#x22;Email Address&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;div class=&#x22;error-message&#x22;&#x3E;Please enter a valid email address.&#x3C;/div&#x3E;
+&#x3C;/div&#x3E;</code></pre>
+            </div>
+          </div>
+
+
+          <span id="form-elements-form-errors" class="anchor"></span>
+          <div class="block-flat">
+            <div class="header">
+              <a href="#form-elements-form-errors" class="anchor-link"><i class="fa fa-link"></i></a>
+              <h3>Form Level Errors</h3>
+            </div>
+            <div class="content">
+              <p>
+                Form level errors are errors that will only be known once the form has been submitted.
+              </p>
+              <p>
+                Form level error guidelines:
+                <ul>
+                  <li>Once the form has been submitted, and there is an error - ie, email/password combination incorrect - a p tag with .form-has-error class and error message should appear above the form itself. See below for full markup.</li>
+                  <li>Form fields should remain filled out.</li>
+                  <li>Form should focus on first field that would cause the issue.</li>
+                </ul>
+              </p>
+              <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                  <form role="form">
+                    <p class="form-has-error">Sorry, we didn't recognize your email address or password. Please try again.</p>
+                    <div class="form-group">
+                      <label>Email address</label> <input type="email" placeholder="Email Address" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label>Password</label> <input type="password" placeholder="Password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <br/>
+                      <input type="submit" class="btn btn-full btn-flat btn-primary" value="Sign In"/>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <pre><code class="html">&#x3C;form role=&#x22;form&#x22;&#x3E;
+  &#x3C;p class=&#x22;form-has-error&#x22;&#x3E;Sorry, we didn&#x27;t recognize your email address or password. Please try again.&#x3C;/p&#x3E;
+  &#x3C;div class=&#x22;form-group&#x22;&#x3E;
+    &#x3C;label&#x3E;Email address&#x3C;/label&#x3E; &#x3C;input type=&#x22;email&#x22; placeholder=&#x22;Email Address&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;form-group&#x22;&#x3E;
+    &#x3C;label&#x3E;Password&#x3C;/label&#x3E; &#x3C;input type=&#x22;password&#x22; placeholder=&#x22;Password&#x22; class=&#x22;form-control&#x22;&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;form-group&#x22;&#x3E;
+    &#x3C;br/&#x3E;
+    &#x3C;input type=&#x22;submit&#x22; class=&#x22;btn btn-full btn-flat btn-primary&#x22; value=&#x22;Sign In&#x22;/&#x3E;
+  &#x3C;/div&#x3E;
+&#x3C;/form&#x3E;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <nav id="styleguide-nav" role="navigation">
+            <ul class="nav list-unstyled">
+              <li>
+                <a href="#general-guidelines">General Guidelines</a>
+                <ul class="nav list-unstyled">
+                  <li><a href="#general-guidelines-sass">Sass</a></li>
+                  <li><a href="#general-guidelines-html">HTML Markup</a></li>
+                  <li><a href="#general-guidelines-js">JavaScript</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#ui-elements">UI Elements</a>
+                <ul class="nav list-unstyled">
+                  <li><a href="#ui-elements-colors">CoEFFICIENT Colors</a></li>
+                  <li><a href="#ui-elements-headings">Headings</a></li>
+                  <li><a href="#ui-elements-alerts">Bootstrap Alerts</a></li>
+                  <li><a href="#ui-elements-progress-bars">Progress Bars</a></li>
+                  <li><a href="#ui-elements-dropdown-menus">Dropdown Menus</a></li>
+                  <li><a href="#ui-elements-labels-badges">Labels &amp; Badges</a></li>
+                  <li><a href="#ui-elements-buttons">Basic Buttons</a></li>
+                  <li><a href="#ui-elements-advanced-buttons">Advanced Buttons</a></li>
+                  <li><a href="#ui-elements-dropdown-buttons">Dropdown Buttons</a></li>
+                  <li><a href="#ui-elements-button-sizes">Button Sizes</a></li>
+                  <li><a href="#ui-elements-lists">Lists</a></li>
+                  <li><a href="#ui-elements-tables">Tables</a></li>
+                  <li><a href="#ui-elements-modals">Modal Alerts</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#icon">Icons</a>
+                <ul class="nav list-unstyled">
+                  <li><a href="#icon-size">Icon Size</a></li>
+                  <li><a href="#icon-orientation">Icon Orientation</a></li>
+                  <li><a href="#icon-stacked">Stacked Icons</a></li>
+                  <li><a href="#icon-web-app">Web Application Icons</a></li>
+                  <li><a href="#icon-form-control">Form Control Icons</a></li>
+                  <li><a href="#icon-currency">Currency Icons</a></li>
+                  <li><a href="#icon-text-editor">Text Editor Icons</a></li>
+                  <li><a href="#icon-directional">Directional Icons</a></li>
+                  <li><a href="#icon-video-player">Video Player Icons</a></li>
+                  <li><a href="#icon-brand">Brand Icons</a></li>
+                  <li><a href="#icon-medical">Medical Icons</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#form-elements">Forms Elements</a>
+                <ul class="nav list-unstyled">
+                  <li><a href="#form-elements-basic">Basic Elements</a></li>
+                  <li><a href="#form-elements-password">Password Creation</a></li>
+                  <li><a href="#form-elements-selects-options">Select &amp; Option Elements</a></li>
+                  <li><a href="#form-elements-forms">Forms</a></li>
+                  <li><a href="#form-elements-auth-forms">Auth Pages Form</a></li>
+                  <li><a href="#form-elements-input-errors">Input Level Errors</a></li>
+                  <li><a href="#form-elements-form-errors">Form Level Errors</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+        });
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script type="text/javascript" src="javascripts/coefficient/classie.js"></script>
+    <script type="text/javascript" src="javascripts/coefficient/progressButton.js"></script>
+
+    <script>
+      [].slice.call( document.querySelectorAll( 'button.progress-button' ) ).forEach( function( bttn ) {
+        new ProgressButton( bttn, {
+          callback : function( instance ) {
+            var progress = 0,
+              interval = setInterval( function() {
+                progress = Math.min( progress + Math.random() * 0.25, 1 );
+                instance._setProgress( progress );
+
+                if( progress === 1 ) {
+                  instance._stop(1);
+                  clearInterval( interval );
+                }
+              }, 200 );
+          }
+        } );
+      } );
+    </script>
+  </div>
+</body>
+</html>

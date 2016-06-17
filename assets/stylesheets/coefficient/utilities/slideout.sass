@@ -1,0 +1,87 @@
+// ----------------------------
+// SLIDEOUT
+// ----------------------------
+
+.slideout-wrap
+  .header
+    padding: 3px 0
+    border-bottom: 1px solid $greylight
+  h3
+    margin-top: 3px
+    font-weight: 200
+  .content
+    padding: 15px 3px 0 3px
+
+.slideout-overlay
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background: rgba($black, 0.5)
+  z-index: 2000
+  .overlay-close
+    display: block
+    width: 100%
+    height: 100%
+    cursor: default
+  .slideout-close
+    position: fixed
+    text-align: center
+    width: 40px
+    line-height: 40px
+    @extend %delta
+    top: 20px
+    right: -40px
+    background: $white
+    transition-property: right
+    transition-duration: 1s
+    transition-timing: ease
+    transition-delay: 0
+    @include border-radius-mixed(3px, 0, 0, 3px)
+    &:hover
+      color: $link-hover
+      cursor: pointer
+  #slideout
+    position: fixed
+    top: 0
+    bottom: 0
+    right: -540px
+    width: 500px
+    background: $white
+    z-index: 2001
+    height: 100%
+    overflow-y: scroll
+    transition-property: right
+    transition-duration: 1s
+    transition-timing: ease
+    transition-delay: 0
+    #slideout-inner
+      padding: 40px
+    .header
+      padding: 3px 0
+      border-bottom: 1px solid $greylight
+      h3
+        margin-top: 3px
+        font-weight: 200
+    .content
+      padding: 15px 3px 0 3px
+
+.slideout-overlay.active
+  #slideout
+    right: 0
+  .slideout-close
+    right: 500px
+
+
+@media (max-width: 550px)
+  .slideout-overlay.active
+    .slideout-close
+      position: absolute
+      width: auto
+      line-height: auto
+      top: -40px
+      right: 20px
+      z-index: 2003
+    #slideout
+      width: 100%

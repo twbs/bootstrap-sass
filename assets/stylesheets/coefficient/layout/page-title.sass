@@ -1,0 +1,44 @@
+// ----------------------------
+// PAGE TITLE STYLES
+// ----------------------------
+
+.page-head
+  h2
+    overflow: hidden
+    text-overflow: ellipsis
+    clear: both
+    line-height: initial
+    @extend %alpha
+
+  // Sticky small header
+  &.small-view
+    position: fixed
+    top: 50px
+    .page-head-avatar
+      margin-right: 10px
+    .page-head-dot-divider
+      margin: 0 3px 0 5px
+    .page-head-small-title
+      line-height: 30px
+      font-weight: 600
+      @extend %epsilon
+    .page-head-small-meta
+      color: $grey
+      line-height: 30px
+
+.main-header-action
+  height: 34px
+
+.main-header-info
+  padding: 10px 0 15px
+  float: left
+  margin-right: 35px
+  &:last-child
+    margin-right: 0
+  .main-header-info-label
+    color: $greymedium
+    padding-right: 5px
+  .main-header-info-value
+    position: relative
+    strong
+      font-weight: 600

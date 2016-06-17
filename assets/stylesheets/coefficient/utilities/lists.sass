@@ -1,0 +1,48 @@
+// ----------------------------
+// LISTS & LIST GROUPS
+// ----------------------------
+
+.list-group
+  margin: 10px 0
+
+.list-group-item
+  display: table
+  width: 100%
+  padding: 0
+  margin-top: -1px
+  page-break-inside: avoid
+
+  &:first-child,
+  &:last-child
+    border-radius: 0
+
+a.list-group-item-link,
+div.list-group-item-link
+  padding: 10px
+  display: block
+  color: $text-color
+  @include clearfix
+  &:hover
+    cursor: pointer
+    background: rgba($primary, 0.1)
+  &.disabled
+    cursor: default
+    &:hover
+      background: none
+
+.list-group-item-text
+  padding: 10px
+  display: block
+  color: $text-color
+
+.list-group-add-item
+  display: table
+  width: 100%
+  padding: 0
+  list-style: none
+
+.delete-item
+  padding: 10px
+
+.add-item-link
+  cursor: pointer

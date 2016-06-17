@@ -1,0 +1,42 @@
+// ----------------------------
+// Loading Indicator Styling
+// ----------------------------
+
+// Generic Text
+.loading-text
+  background: $greylightest
+  height: 14px
+
+// Generic Profile Image
+.loading-img
+  background: $greylightest
+  width: 25px
+  height: 25px
+
+
+.loading
+  // Action Item List
+  .item-title
+    vertical-align: middle
+    .loading-text
+      width: 80%
+  .item-due-date
+    .loading-text
+      float: right
+      width: 80%
+
+  .note-list-title
+    width: 50%
+  .note-list-info
+    width: 30%
+    padding-bottom: 5px
+
+  .note-list-preview
+    .loading-text
+      width: 100%
+    div:last-child
+      width: 80%
+
+  &.aside-inner-items
+    .loading-text
+      margin-bottom: 7px

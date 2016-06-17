@@ -1,0 +1,29 @@
+// ----------------------------
+// LABELS & BADGES
+// ----------------------------
+
+// Labels
+.label
+  border-radius: 0
+  font-weight: normal
+  margin: 0 5px
+  @extend %itsy
+
+  i
+    width: auto
+    min-width: 11px
+    @extend %body_copy
+
+// Badges
+.badge
+  font-weight: normal
+  padding: 4px 6px
+
+
+// Setting background colors for badges and labels
+$labelsAndBadges: (default: $default, primary: $primary, success: $success, info: $info, warning: $warning, danger: $danger)
+
+@each $labelBadgeType, $colorList in $labelsAndBadges
+  .label-#{$labelBadgeType},
+  .badge-#{$labelBadgeType}
+    background-color: $colorList

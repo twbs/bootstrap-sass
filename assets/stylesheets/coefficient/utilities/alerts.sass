@@ -1,0 +1,22 @@
+/* Alerts */
+.alert
+  border-radius: 0
+  box-shadow: 0 1px 2px rgba($black, 0.11)
+  display: table
+  width: 100%
+  .sign
+    @extend %delta
+    vertical-align: middle
+    margin-right: 5px
+    text-align: center
+    width: 25px
+    display: inline-block
+
+// List of different types of alerts with bgColor, borderColor and fontColor in a list
+$alerts: (success: (#dbf6d3, #aed4a5, #569745), info: (#d9edf7, #98cce6, #3a87ad), warning: (#fcf8e3, #f1daab, #c09853), danger: (#f2dede, #e0b1b8, #b94a48))
+
+@each $alert, $colorList in $alerts
+  .alert-#{$alert}
+    background-color: nth($colorList, 1)
+    border-color: nth($colorList, 2)
+    color: nth($colorList, 3)

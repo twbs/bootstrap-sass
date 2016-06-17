@@ -1,0 +1,31 @@
+// ----------------------------
+// PROGRESS INDICATORS
+// ----------------------------
+
+// Progress Bar
+.progress
+  height: 18px
+  border-radius: 3px
+  .progress-bar
+    @extend %itsy
+    line-height: 17px
+    border-radius: 3px
+
+$progressBarSections: (success: $success, info: $info, warning: $warning, danger: $danger)
+
+@each $section, $colorList in $progressBarSections
+  .progress-bar-#{$section}
+    background-color: $colorList
+
+// Loading Bar
+.loading-bar
+  position: absolute
+  height: 3px
+  bottom: 1px
+  background: $grey
+  width: 100%
+  .loading-bar-meter
+    height: 3px
+    margin: 0 1px
+    width: 1%
+    background-color: $primary

@@ -1,0 +1,35 @@
+// ----------------------------
+// ACTION ITEMS
+// ----------------------------
+
+// Action Items Details
+#action-item-details
+  border-bottom: 1px solid $silver
+  padding-bottom: 10px
+  #action-item-checkbox
+    position: absolute
+    left: -25px
+  #action-item-name
+    position: relative
+    @extend %epsilon
+    font-weight: 600
+    padding-bottom: 10px
+    &.marked-complete
+      text-decoration: line-through
+  .action-item-meta
+    @extend %itsy
+    line-height: 24px
+    color: $greymedium
+    .meta-icon
+      width: 10px
+      margin-right: 8px
+      display: inline-block
+      text-align: center
+
+#action-item-title
+  @extend %epsilon
+  padding: 0
+  height: auto
+  border: 0
+  box-shadow: none
+  @include title-hover
