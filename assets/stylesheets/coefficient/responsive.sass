@@ -1,0 +1,227 @@
+/* Responsive CSS */
+@media (min-width: 980px)
+  .cl-sidebar
+    .cl-vnavigation
+      display: block !important
+  .navbar-collapse
+    margin-left: 191px !important
+
+// Common tablet vertical size
+@media (min-width: 768px) and (max-width: 979px)
+  /* Top Navigation */
+  .navbar-default
+    .navbar-brand
+      height: 30px
+      max-width: 45px
+      span
+        display: none // Hides brand name so it shows logo only
+    .navbar-collapse
+      margin-left: 30px
+
+  /* Sidebar */
+  .cl-sidebar
+    width: 55px
+
+    .cl-vnavigation
+      display: block !important
+
+      li
+        ul
+          display: none !important
+
+    // Hiding search/collapse button
+    .collapse-button,
+    .search
+      display: none
+
+  //
+  //
+  // REFACTOR THIS SECTION
+  //
+  //
+  #cl-wrapper
+    &.fixed-menu .menu-space
+      width: 55px
+      top: 49px
+
+  .cl-vnavigation
+    .parent
+      a
+        background: none // Hiding arrow
+    li
+      a
+        i
+          margin: 0
+          font-size: 17px
+        span
+          display: none
+  //
+  //
+  // END REFACTOR
+  //
+  //
+
+  /* Content Area */
+  #pcont
+    margin-left: 55px
+
+// Mobile phone sizes
+@media (max-width: 767px)
+  #cl-wrapper
+    padding-top: 0
+    display: block
+    &.fixed-menu .menu-space
+      top: 0
+  #pcont, .sb-collapsed #pcont
+    margin-left: 0
+    display: block
+  .cl-mcont
+    padding: 15px
+  /*nav bar*/
+  .navbar
+    padding-right: 10px
+  .navbar-fixed-top
+    position: relative
+    margin: 0
+  /*dropdown menu*/
+  .navbar-default .navbar-nav
+    .open .dropdown-menu > li > a
+      color: $white
+    .dropdown-submenu > a:after
+      border-width: 0
+    .open .dropdown-menu > li > a
+      &:hover, &:focus
+        color: $white
+  .navbar-nav
+    .dropdown-menu > li > a
+      &:hover, &:focus
+        background-color: transparent
+    .dropdown-submenu
+      &:hover > a
+        background-color: transparent
+      ul
+        display: block
+        padding-left: 20px
+    .dropdown-header
+      color: $white
+    .col-menu-2 > li > ul > li a, .col-menu-3 > li > ul > li a
+      color: $white
+      padding-left: 45px
+  .navbar-default .navbar-nav > .active > a
+    background: transparent !important
+    color: $white !important
+    &:hover
+      background: transparent !important
+      color: $white !important
+  .navbar-nav > .active > a
+    &:focus, &:active
+      background: transparent !important
+      color: $white !important
+  .navbar-default .navbar-nav > li > a
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12)
+    &:hover
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12)
+  .navbar-nav > li > a
+    &:focus, &:active
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12)
+  .not-nav
+    text-align: center
+    background: #218ae1
+    border-top: 1px solid #2082d5
+    margin: 0
+  .navbar-default .navbar-nav > li.button
+    float: none
+    display: inline-block
+    padding: 10px 4px
+    top: 100%
+  .not-nav > li > .dropdown-menu
+    text-align: left
+  .navbar-default .navbar-nav > li.button
+    > a > i
+      font-size: 17px
+      vertical-align: middle
+    .dropdown-menu
+      position: absolute
+      background-color: $white
+      border: 1px solid rgba(0, 0, 0, 0.15)
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176)
+      border-top: 0
+      margin-left: -110px
+      > li > a
+        text-align: left
+  .navbar-collapse
+    padding: 0 !important
+    .navbar-nav
+      margin: 0
+  .profile_menu
+    margin: 0
+    .dropdown-toggle
+      padding: 0
+      height: auto
+  .navbar-default .navbar-brand
+    width: auto
+  .user-nav
+    margin: 7.5px -15px
+  .navbar-collapse
+    margin-left: -15px !important
+  .navbar-collapse.in
+    overflow: visible
+  #head-nav
+    padding: 0
+    .navbar-nav
+      padding: 10px 15px
+  .navbar-header
+    padding: 0 10px
+    margin-left: 0 !important
+  .col-menu-2 > div:first-child
+    border-right: 0
+  /*end - dropdown*/
+  .cl-sidebar, .sb-collapsed .cl-sidebar
+    background: none repeat scroll 0 0 #272930
+    width: 100%
+    position: relative
+    z-index: 1020
+    display: block
+    padding-bottom: 0
+  #cl-wrapper
+    &.fixed-menu
+      .menu-space, &.sb-collapsed .menu-space
+        position: relative
+        height: auto !important
+        width: 100%
+        margin-top: 0
+    .menu-space
+      min-height: 0 !important
+    &.fixed-menu
+      .menu-space .content, &.sb-collapsed .menu-space .content
+        overflow: visible
+        position: relative
+  .sb-collapsed .cl-vnavigation
+    .parent > a
+      background: image-url("arrow.png") no-repeat scroll right 14px top 18px rgba(0, 0, 0, 0)
+    li
+      a
+        span
+          opacity: 1
+        i
+          font-size: 14px
+          margin-right: 7px
+          text-align: center
+          width: 20px
+      &.open ul
+        display: block !important
+  .cl-sidebar
+    .cl-toggle
+      display: block
+    .cl-vnavigation, .side-user
+      display: none
+  /*Forms*/
+  .form-horizontal
+    &.group-border .form-group
+      padding: 5px 0 15px 0
+      label
+        margin-bottom: 7px
+    &.group-border-dashed .form-group label
+      margin-bottom: 7px
+  .cl-sidebar .collapse-button
+    display: none

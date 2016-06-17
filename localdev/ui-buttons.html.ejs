@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Wild Parrot</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/coefficient/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+    <% include wp-sidebar.html.ejs %>
+
+    <div class="page-head">
+      <h2>Buttons Concept</h2>
+      <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">UI Elements</a></li>
+        <li class="active">Buttons</li>
+      </ol>
+    </div>
+    <div class="cl-mcont">
+      <div class="row">
+        <div class="col-sm-6 col-md-6">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Basic Buttons</h3>
+            </div>
+            <div class="content">
+              <div class="spacer spacer-bottom">
+                <button type="button" class="btn btn-default">Default</button>
+                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-success">Success</button>
+                <button type="button" class="btn btn-info">Info</button>
+                <button type="button" class="btn btn-warning">Warning</button>
+                <button type="button" class="btn btn-danger">Danger</button>
+              </div>
+              <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;Default&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Primary&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot;&gt;Success&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot;&gt;Info&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-warning&quot;&gt;Warning&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;Danger&lt;/button&gt;</code></pre>
+
+              <div class="spacer">&nbsp;</div>
+              <h4>Flat buttons</h4>
+              <div class="spacer spacer-bottom">
+                <button type="button" class="btn btn-default btn-flat">Default</button>
+                <button type="button" class="btn btn-primary btn-flat">Primary</button>
+                <button type="button" class="btn btn-success btn-flat">Success</button>
+                <button type="button" class="btn btn-info btn-flat">Info</button>
+                <button type="button" class="btn btn-warning btn-flat">Warning</button>
+                <button type="button" class="btn btn-danger btn-flat">Danger</button>
+              </div>
+              <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-flat&quot;&gt;Default&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-flat&quot;&gt;Primary&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success btn-flat&quot;&gt;Success&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info btn-flat&quot;&gt;Info&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-warning btn-flat&quot;&gt;Warning&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger btn-flat&quot;&gt;Danger&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+
+          <div class="block-flat">
+            <div class="header">
+              <h3>Dropdown Buttons</h3>
+            </div>
+            <div class="content">
+              <div class="spacer spacer-bottom">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  Basic Dropdown <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                  </ul>
+                </div>
+              </div>
+              <pre><code class="html">&lt;div class=&quot;btn-group&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-default dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
+  Basic Dropdown &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul class=&quot;dropdown-menu&quot; role=&quot;menu&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-6">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Buttons Size</h3>
+            </div>
+            <div class="content">
+              <div class="spacer spacer-bottom">
+                <button type="button" class="btn btn-default btn-xs">Extra Small</button>
+                <button type="button" class="btn btn-default">Normal</button>
+              </div>
+              <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-xs&quot;&gt;Extra Small&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;Normal&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+          <div class="block-flat">
+            <div class="header">
+              <h3>Advanced buttons</h3>
+            </div>
+            <div class="content">
+              <p>
+                You can add icons to buttons. For a full list of icons go to the <a href="ui-icons.html">icons page</a>.
+              </p>
+              <div class="spacer spacer-bottom">
+                <button type="button" class="btn btn-default btn-xs"><i class="fa fa-cloud-download"></i> Download</button>
+                <button type="button" class="btn btn-default"><i class="fa fa-cloud-download"></i> Download</button>
+              </div>
+              <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-xs&quot;&gt;&lt;i class=&quot;fa fa-cloud-download&quot;&gt;&lt;/i&gt; Download&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;&lt;i class=&quot;fa fa-cloud-download&quot;&gt;&lt;/i&gt; Download&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+        });
+        hljs.initHighlightingOnLoad();
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>

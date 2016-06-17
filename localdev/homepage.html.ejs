@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Wild Parrot</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/coefficient/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <!-- BEGIN WRAPPER -->
+  <div id="cl-wrapper" class="fixed-menu">
+
+    <!-- BEGIN SECONDARY NAVIGATION -->
+    <div class="page-aside">
+      <div class="fixed nano nscroller">
+        <div class="content">
+          <div class="header">
+            <button class="navbar-toggle" data-target=".app-nav" data-toggle="collapse" type="button">
+              <span class="fa fa-chevron-down"></span>
+            </button>
+            <h3>Notes</h3>
+          </div>
+          <div class="app-nav collapse">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END SECONDARY NAVIGATION -->
+
+
+
+    <!-- BEGIN MAIN CONTENT AREA -->
+    <div class="cl-mcont">
+      <h3>Homepage!</h3>
+    </div>
+    <!-- END MAIN CONTENT AREA -->
+
+  </div>
+  <!-- END WRAPPER -->
+
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript">
+  $(document).ready(function(){
+        //initialize the javascript
+        App.init();
+      });
+  </script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

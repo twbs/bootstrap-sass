@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Company Settings</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/coefficient/general.js"></script>
+
+  <link href="stylesheets/colorpicker.min.css" rel="stylesheet" media="screen" type="text/css" />
+  <script type="text/javascript" src="javascripts/colorpicker.min.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+
+    <% include profile-sidebar.html.ejs %>
+
+    <div class="page-head">
+       <h2>Company Settings</h2>
+    </div>
+    <div class="cl-mcont">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="block-flat">
+            <div class="content">
+              <div class="form-group">
+                <label>Company Logo</label>
+                <div class="profile-image">
+                  <a href="#">
+                    <img src="https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg">
+                    <div class="edit-profile-image">Click to edit</div>
+                  </a>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Header Color</label>
+                <div id="color-selector"><div style="background-color: #372967;"></div></div>
+              </div>
+              <div class="form-group">
+                <label>Text Color</label>
+                <div>
+                  <label class="radio-inline"> <input type="radio" name="textColor"> Light</label>
+                  <label class="radio-inline"> <input type="radio" name="textColor"> Dark</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Display Name</label>
+                <input type="text" class="form-control" placeholder="Enter Your Company Name">
+              </div>
+              <div class="form-group">
+                <label>Custom URL</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="companyname">
+                  <span class="input-group-addon">.coefficient.co</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <button type="button" class="btn btn-primary">Update</button>
+          <button type="button" class="btn btn-default">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+        });
+    </script>
+    <script>
+      $('#color-selector').ColorPicker({
+          color: '#372967',
+          onShow: function (colpkr) {
+              $(colpkr).fadeIn(500);
+              return false;
+          },
+          onHide: function (colpkr) {
+              $(colpkr).fadeOut(500);
+              return false;
+          },
+          onChange: function (hsb, hex, rgb) {
+              $('#color-selector div').css('backgroundColor', '#' + hex);
+          }
+      });
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>
