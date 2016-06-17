@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Wild Parrot</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/coefficient/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+    <% include wp-sidebar.html.ejs %>
+
+    <div class="page-head">
+      <h2>Typography</h2>
+      <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Typography</a></li>
+        <li class="active">General</li>
+      </ol>
+    </div>
+    <div class="cl-mcont">
+      <div class="row">
+        <div class="col-sm-6 col-md-6">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Headings</h3>
+            </div>
+            <div class="content">
+              <h1>Heading Text 1</h1>
+              <h2>Heading Text 2</h2>
+              <h3>Heading Text 3</h3>
+              <h4>Heading Text 4</h4>
+              <h5>Heading Text 5</h5>
+              <h6>Heading Text 6</h6>
+              <div class="spacer">&nbsp;</div>
+              <h1 class="hthin">Thin Heading 1</h1>
+              <h2 class="hthin">Thin Heading 2</h2>
+              <h3 class="hthin">Thin Heading 3</h3>
+              <p class="spacer">
+                To use thin headings, set <code>".hthin"</code> class in heading tag.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-6">
+
+          <div class="block-flat">
+            <div class="header">
+              <h3>Body Elements</h3>
+            </div>
+            <div class="content">
+              <h4>Paragraph Text</h4>
+              <p>To me this vast ivory-ribbed chest, with the long, unrelieved spine, extending far away from it in a straight line, not a little resembled the hull of a great ship new-laid upon the stocks, when only some twenty of her naked bow-ribs are inserted, and the keel is otherwise, for the time, but a long, disconnected timber.</p>
+
+              <h4>Small</h4>
+              <small>This is a tiny small text!</small><br/>
+            </div>
+          </div>
+          <div class="block-flat">
+            <div class="header">
+              <h3>Blockquotes</h3>
+            </div>
+            <div class="content">
+              <blockquote>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <small>Some historic guy</small>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Unordered List</h3>
+            </div>
+            <div class="content">
+              <ul>
+                <li>Cloud Services</li>
+                <li>Photo Upload</li>
+                <li>Music Downloads</li>
+                <li>Notifications</li>
+                <li>Full Featured UI</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Ordered List</h3>
+            </div>
+            <div class="content">
+              <ol>
+                <li>Cloud Services</li>
+                <li>Photo Upload</li>
+                <li>Music Downloads</li>
+                <li>Notifications</li>
+                <li>Full Featured UI</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Unstyled List</h3>
+            </div>
+            <div class="content">
+              <ul class="list-unstyled">
+                <li>Cloud Services</li>
+                <li>Photo Upload</li>
+                <li>Music Downloads</li>
+                <li>Notifications</li>
+                <li>Full Featured UI</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Well</h3>
+            </div>
+            <div class="content">
+              <div class="well">It would seem that these giants spent the earlier part of the afternoon in going to and fro, transferring everything from the second and third cylinders--the second in Addlestone Golf Links and the third at Pyrford--to their original pit on Horsell Common.
+              <p class="text-right">H. G. Wells</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Code</h3>
+            </div>
+            <div class="content">
+              <h4>Inline</h4>
+              Wrap inline snippets of code with <code>&lt;code&gt;</code>.<br />
+              For example, <code>&lt;section&gt;</code> should be wrapped as inline.
+
+              <h4>Basic Block</h4>
+              <pre>&lt;p&gt;Sample text here...&lt;/p&gt;</pre>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Prettify</h3>
+            </div>
+            <div class="content">
+              <pre class="prettyprint linenums">
+&lt;div class=&quot;row&quot;&gt;
+&lt;div class=&quot;col-xs-6&quot;&gt;.col-xs-6&lt;/div&gt;
+&lt;div class=&quot;col-xs-6&quot;&gt;.col-xs-6&lt;/div&gt;
+
+&lt;!-- Add the extra clearfix  --&gt;
+&lt;div class=&quot;clearfix visible-xs&quot;&gt;&lt;/div&gt;
+
+&lt;/div&gt;</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+          App.maps();
+        });
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>

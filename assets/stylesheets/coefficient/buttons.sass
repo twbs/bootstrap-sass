@@ -1,0 +1,63 @@
+/* Buttons */
+.btn
+  border-radius: 0
+  outline: none
+  margin-bottom: 5px !important
+  font-size: 13px
+  padding: 7px 11px
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12), 1px 1px 0 rgba(255, 255, 255, 0.2) inset
+  &:focus
+    outline: none
+
+.btn-full
+  display: block
+  width: 100%
+
+$buttons: (default: ($white, #cccccc, #e6e6e6, #adadad), primary: ($primary, #3680bf, #4e9dff, #357ebd), success: ($success, #54a754, #65ca65, #54a754), info: (#5bc0de, #28a1c4, #5fc8e7, #28a1c4), warning: (#ff9900, #e38800, #ffa800, #e38800), danger: (#df4b33, #ca452e, #e64d35, #ca452e))
+
+@each $button, $colorList in $buttons
+  .btn-#{$button},
+  .btn-#{$button}:focus
+    background-color: nth($colorList, 1)
+    border-color: nth($colorList, 2)
+  .btn-#{$button}
+    &:hover,
+    &:active,
+    &.active
+      background-color: nth($colorList, 3)
+      border-color: nth($colorList, 4)
+
+// Special default button styling
+.btn-default,
+.btn-default:focus
+    background-image: linear-gradient(to bottom, white 60%, #f9f9f9 100%)
+.btn-default
+  i
+    color: #444
+
+// Flat button styling
+.btn-flat
+  box-shadow: none
+  &:focus
+    box-shadow: none
+  &.btn-default
+    background: $white
+  // [syang] Removing this for the time being - not convinced we need the flat button bg color to be different
+  // &:active.btn-default, &.btn-default.active
+  //   background: #f5f5f5
+  // &:active.btn-primary, &.btn-primary.active
+  //   background: #4785ea
+  // &:active.btn-success, &.btn-success.active
+  //   background: #5db95d
+  // &:active.btn-info, &.btn-info.active
+  //   background: #56b7d3
+  // &:active.btn-warning, &.btn-warning.active
+  //   background: #ff9600
+  // &:active.btn-danger, &.btn-danger.active
+  //   background: #d04630
+
+
+/* Specific icons size */
+.btn-xs
+  padding: 2px 6px
+  font-size: 11px
