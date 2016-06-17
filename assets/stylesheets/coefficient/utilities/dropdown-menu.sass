@@ -1,0 +1,46 @@
+.dropdown-menu
+  border-radius: 1px
+  box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.18)
+  li
+    > a
+      font-size: 12px
+      padding: 5px 20px
+      color: #333333
+      display: block
+      line-height: 1.42857
+      white-space: nowrap
+      &:hover
+        cursor: pointer
+  &.autocomplete-results
+    li
+      > a
+        padding: 5px 10px
+        width: 393px
+        max-width: 393px
+  &.full-width
+    width: 100%
+    margin-top: -11px
+  .divider
+    margin: 5px 0
+
+.dropdown-header
+  color: #2083D6
+  padding-left: 11px
+  cursor: default
+  i
+    font-size: 14px
+    margin-right: 4px
+    vertical-align: middle
+
+// For 2 column menus
+.col-menu-2
+  min-width: 405px
+  > li
+    &:first-child ul
+      border-right: 1px solid #DADADA
+    > ul
+      > li
+        a
+          padding-left: 32px
+        list-style: none
+      padding: 0

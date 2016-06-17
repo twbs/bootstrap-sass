@@ -1,0 +1,127 @@
+// ----------------------------
+// AUDIT PAGE STYLES
+// ----------------------------
+
+.authored-by
+  white-space: nowrap
+  img
+    max-width: 25px
+    max-height: 25px
+    margin-right: 5px
+
+.audit-item
+  padding: 10px 15px
+  background: #f6f6f6
+  border-left: 2px solid #e7e7e7
+  margin-bottom: 15px
+
+  .audit-title
+    width: 40%
+
+
+.input-audit-items
+  padding: 10px 40px 10px 10px
+  border: 0
+  resize: none
+  min-height: 39px !important
+  &:focus
+    box-shadow: none
+
+.add-audit-item
+  min-height: 39px !important
+  padding: 10px
+
+.delete-audit-item
+  position: absolute
+  right: 0
+
+.audit-info
+  font-size: 12px
+  padding-top: 10px
+  display: table
+  .audit-info-row
+    display: table-row
+  .audit-info-label
+    color: #999
+    width: 75px
+    display: table-cell
+  .datepicker
+    border: 0
+    padding: 0
+    width: auto
+    color: $link-color
+    text-decoration: underline
+  #set-location-wrap
+    position: relative
+
+.audit-list-item
+  border-left-width: 3px
+  &.item-pass
+    border-left-color: $success
+  &.item-fail
+    border-left-color: $danger
+  .audit-pass-fail
+    float: right
+    padding: 7px 11px 2px 0
+  .audit-item-name
+    padding: 7px 11px 2px 0
+  .audit-attachments
+    margin-top: 15px
+
+#slideout
+  .audit-item-name
+    padding: 20px 0
+    font-size: 16px
+
+#audit-title
+  font-size: 24px
+  font-weight: 300
+
+#audit-title,
+#audit-content,
+.audit-comments
+  padding: 0
+  border: 0
+  box-shadow: none
+  &:focus
+    box-shadow: none
+
+#audit-content-print,
+.audit-comments-print
+  display: none
+
+.expand-collapse-section
+  .expand-collapse-hide
+    padding: 10px
+    // temporarily removing while to figure out the animation
+    // transition: all 1s ease
+    overflow-y: hidden
+    &.ng-hide
+      display: block !important
+      padding: 0 10px
+      max-height: 0
+  .expand-collapse-bar
+    display: block
+    text-align: center
+    background: #fafafa
+    clear: both
+    position: relative
+    &:hover
+      cursor: pointer
+      background: rgba($primary, 0.1)
+  .has-attachments
+    position: absolute
+    left: 10px
+    color: $text-color
+    &:hover
+      color: $text-color
+
+  @media print
+    .expand-collapse-hide
+      display: block !important
+      padding: 10px !important
+      max-height: none !important
+      &.no-print
+        display: none !important
+    .expand-collapse-bar
+      display: none

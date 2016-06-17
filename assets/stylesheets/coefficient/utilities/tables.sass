@@ -1,0 +1,86 @@
+$table-border-color: #dadada
+
+.pre-table
+  display: table
+  width: 100%
+  padding-bottom: 10px
+  .num-rows-option
+    display: table-cell
+    text-align: right
+    vertical-align: middle
+
+/* Tables */
+table
+  border-collapse: collapse
+  width: 100%
+  thead
+    border: 1px solid $table-border-color
+    border-bottom: 1px solid $table-border-color
+    th
+      font-size: 13px
+      vertical-align: bottom
+      padding: 10px 8px 5px 8px
+  tbody
+    tr
+      &:first-child
+        border-top: 1px solid $table-border-color
+    td
+      padding: 7px 8px
+      font-size: 12px
+      border-bottom: 1px solid $table-border-color
+      &:first-child
+        border-left: 1px solid $table-border-color
+      &:last-child
+        border-right: 1px solid $table-border-color
+
+  &.datatable
+    tr:nth-child(2n)
+      background-color: #F8F8F8
+    a
+      display: block
+      color: #464646
+    tbody
+      tr:hover:not(.disabled)
+        background-color: rgba($primary, 0.1)
+        cursor: pointer
+
+  &.extra-padded
+    td
+      padding: 25px
+
+  .title-colummn
+    vertical-align: top
+    font-weight: 700
+
+  .no-border
+    border: 0
+
+.fa-sort-up.active,
+.fa-sort-down.active
+  color: $primary
+
+.empty_table
+  padding: 10px
+
+/* Pagination */
+.pagination
+  display: block
+  text-align: right
+  overflow: hidden
+  border-radius: 0
+  ul
+    padding: 0
+    overflow: hidden
+    float: right
+  .pagination-item
+    margin: 0
+    padding: 5px 10px
+    border: 1px solid $table-border-color
+    list-style: none
+    float: left
+    &.current
+      background-color: #CCCCCC
+      font-weight: 600
+    &:hover:not(.inactive)
+      background-color: #CCCCCC
+      cursor: pointer

@@ -1,0 +1,94 @@
+@media print
+  // Hide all navigation elements for print view
+  #toast-container,
+  #head-nav,
+  #page-aside,
+  .cl-sidebar,
+  #fixed-action-header,
+  .back-to-top,
+  .btn,
+  .no-print
+    display: none
+
+  #cl-wrapper,
+  .cl-mcont
+    padding-top: 0 !important
+
+  #cl-wrapper,
+  .cl-mcont
+  #pcont,
+  .cl-mcont-wrapper
+    display: block
+
+  a[href]:after
+    content: ''
+
+  .datepicker,
+  #set-location
+    text-decoration: none !important
+    color: $black
+    //SYANG TEMPORARY SOLUTION FOR MIXIN NOT WORKING
+    &::-webkit-input-placeholder
+      color: $black
+      text-decoration: none
+    &:-moz-placeholder
+      color: $black
+      text-decoration: none
+    &::-moz-placeholder
+      color: $black
+      text-decoration: none
+    &:-ms-input-placeholder
+      color: $black
+      text-decoration: none
+
+  #note-content,
+  #audit-content,
+  .audit-comments
+    display: none !important
+
+  #note-content-print,
+  #audit-content-print,
+  .audit-comments-print
+    display: block !important
+    font-size: 12px
+    line-height: 1.42857143
+    white-space: pre-wrap
+
+  .audit-pass-fail
+    .btn
+      display: inline-block
+    .btn-success
+      z-index: 999
+      border-width: 4px
+      box-sizing: border-box
+      padding-top: 4px
+      padding-bottom: 4px
+    .btn-danger
+      border-width: 4px
+      box-sizing: border-box
+      padding-top: 4px
+      padding-bottom: 4px
+
+  .block-flat
+    border: 0
+    margin-bottom: 0
+
+  blockquote
+    border-width: 0 0 0 2px
+
+  img
+    max-width: none !important
+
+  // Hide elements that are "actions" that can be performed
+  #js-add-attachments,
+  .list-group-add-item,
+  .add-item-link
+    display: none
+
+  .col-sm-8
+    width: 100%
+
+  // Fix Firefox Print Issues
+  #cl-wrapper,
+  .cl-mcont-wrapper
+    height: auto

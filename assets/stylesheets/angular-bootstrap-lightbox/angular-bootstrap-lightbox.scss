@@ -1,0 +1,42 @@
+.modal-backdrop {
+    bottom: 0;
+    position: fixed;
+    z-index: 9990 !important;
+}
+
+.modal-open .modal {
+    z-index: 9999 !important
+}
+
+.lightbox-header {
+    position: relative;
+    margin-bottom: 12px; /* the font-size of .btn-xs */
+    font-size: 0; /* prevent the otherwise inherited font-size and line-height from adding extra space to the bottom of this div */
+}
+
+.lightbox-content {
+    position: relative;
+    text-align: center; /* center the image */
+}
+
+/* the caption overlays the top left corner of the image */
+.lightbox-image-caption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0.5em 0.9em; /* the left and right margins are offset by 0.4em for the span box-shadow */
+    color: #000;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: left;
+    text-shadow: 0.1em 0.1em 0.2em rgba(255, 255, 255, 0.5);
+}
+
+.lightbox-image-caption span {
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    background-color: rgba(255, 255, 255, 0.75);
+    /* pad the left and right of each line of text */
+    box-shadow: 0.4em 0 0 rgba(255, 255, 255, 0.75),
+    -0.4em 0 0 rgba(255, 255, 255, 0.75);
+}

@@ -1,0 +1,71 @@
+// ----------------------------
+// ACTION ITEMS LIST
+// ----------------------------
+
+.action-item-checkbox,
+.item-title,
+.item-due-date,
+.item-assigned-to
+  display: table-cell
+  vertical-align: top
+  padding: 0 5px
+
+.action-item-checkbox-area
+  float: left
+  padding: 10px
+
+.item-title
+  width: 100%
+
+.item-assigned-to
+  padding-right: 0
+  img
+    max-width: 25px
+    max-height: 25px
+
+.item-due-date
+  color: $text-color
+  font-size: 11px
+  font-style: italic
+  line-height: 1.2
+  min-width: 115px
+  text-align: right
+  padding-top: 5px
+
+.marked-complete
+  .item-title
+    color: #999999
+    text-decoration: line-through
+  .item-due-date
+    padding-top: 0
+    color: #999999
+  .item-assigned-to
+    opacity: 0.5
+    &:hover
+      opacity: 1
+
+.past-due
+  .item-due-date
+    color: $danger
+    font-weight: 600
+
+.user-popover
+  min-width: 225px
+  @include clearfix
+  img
+    width: 75px
+    height: 75px
+  .profile-image
+    float: left
+    margin-right: 10px
+  .user-name
+    color: #555
+    font-size: 13px
+  .user-title
+    color: #999
+    font-size: 11px
+
+.item-completed-message
+  padding-bottom: 15px
+  color: #999
+  font-style: italic

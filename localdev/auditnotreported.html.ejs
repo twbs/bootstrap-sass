@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Audits</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+    <% include notes-sidebar.html.ejs %>
+
+    <div id="pcont">
+      <div class="page-head has-breadcrumb">
+        <div class="action-header-right">
+          <!-- <span class="action-message">This audit was <strong>Closed</strong> on May 24, 2015 by Alan Harrison.</span> -->
+          <span class="action-message">This audit is currently <strong>In Progress</strong>. Published on May 25, 2015.</span>
+          <!-- <button class="btn btn-default">Edit</button> -->
+          <button class="btn btn-danger" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<p>Are you sure you want to close this audit?</p> <button type='button' id='cancel-close' class='btn btn-xs btn-nostyle-popover'>No</button> <button type='button' id='close-audit' class='btn btn-xs btn-default'>Yes</button>">Close Audit</button>
+        </div>
+        <h2>Audit Name</h2>
+        <ol class="breadcrumb">
+          <li><a href="audits.html">Audits</a></li>
+          <li><a href="auditreport.html">Retail Quality Inspection</a></li>
+          <li class="active">Not Reported</li>
+        </ol>
+      </div>
+
+      <div class="cl-mcont">
+        <div class="row">
+          <div class="col-xs-8">
+            <button id="jump-to-current" class="btn btn-default">Current</button>
+            <div class="btn-group no-styles">
+              <button class="btn btn-default"><i class="fa fa-chevron-left"></i></button>
+              <button class="btn btn-default"><i class="fa fa-chevron-right"></i></button>
+            </div>
+            <span id="currently-viewing">July 2015</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="block-flat">
+              <div class="header">
+                <h3>Retail Quality Inspection Not Reported</h3>
+              </div>
+              <div class="content">
+                <table class="datatable">
+                  <thead>
+                    <tr>
+                      <th>ID <i class="fa fa-sort"></i></th>
+                      <th>Name <i class="fa fa-sort-up"></i></th>
+                      <th class="text-center">City <i class="fa fa-sort"></i></th>
+                      <th class="text-center">State <i class="fa fa-sort"></i></th>
+                      <th class="text-right">Last Audit <i class="fa fa-sort"></i></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="disabled">
+                      <td>1234</td>
+                      <td>Town North Nissan</td>
+                      <td class="text-center">Austin</td>
+                      <td class="text-center">TX</td>
+                      <td class="text-right">May 2015</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>1234</td>
+                      <td>Town North Nissan</td>
+                      <td class="text-center">Austin</td>
+                      <td class="text-center">TX</td>
+                      <td class="text-right">May 2015</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>1234</td>
+                      <td>Town North Nissan</td>
+                      <td class="text-center">Austin</td>
+                      <td class="text-center">TX</td>
+                      <td class="text-right">May 2015</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>1234</td>
+                      <td>Town North Nissan</td>
+                      <td class="text-center">Austin</td>
+                      <td class="text-center">TX</td>
+                      <td class="text-right">May 2015</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>1234</td>
+                      <td>Town North Nissan</td>
+                      <td class="text-center">Austin</td>
+                      <td class="text-center">TX</td>
+                      <td class="text-right">May 2015</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>1234</td>
+                      <td>Town North Nissan</td>
+                      <td class="text-center">Austin</td>
+                      <td class="text-center">TX</td>
+                      <td class="text-right">May 2015</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>1234</td>
+                      <td>Town North Nissan</td>
+                      <td class="text-center">Austin</td>
+                      <td class="text-center">TX</td>
+                      <td class="text-right">May 2015</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>1234</td>
+                      <td>Town North Nissan</td>
+                      <td class="text-center">Austin</td>
+                      <td class="text-center">TX</td>
+                      <td class="text-right">May 2015</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>1234</td>
+                      <td>Town North Nissan</td>
+                      <td class="text-center">Austin</td>
+                      <td class="text-center">TX</td>
+                      <td class="text-right">May 2015</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>1234</td>
+                      <td>Town North Nissan</td>
+                      <td class="text-center">Austin</td>
+                      <td class="text-center">TX</td>
+                      <td class="text-right">May 2015</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+
+          // Initializing popovers
+          $('[data-toggle="popover"]').popover();
+        });
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>

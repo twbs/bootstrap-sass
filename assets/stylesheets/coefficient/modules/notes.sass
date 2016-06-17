@@ -1,0 +1,210 @@
+// ----------------------------
+// NOTES
+// ----------------------------
+
+.notes-container
+  position: relative
+
+#note-title
+  margin-bottom: 0
+
+.note-metainfo
+  position: absolute
+  top: -10px
+  right: 3px
+  font-style: italic
+  color: #999999
+  font-size: 11px
+
+.visit-info
+  font-size: 12px
+  padding-top: 10px
+  display: table
+  .visit-info-label
+    color: #999999
+    width: 75px
+    display: table-cell
+  .visit-info-row
+    display: table-row
+  #set-location-wrap
+    position: relative
+    .froala-element p
+      margin-bottom: 0
+      color: $link-color
+      text-decoration: underline
+      padding: 0 2px
+      &:hover
+        color: $link-hover
+        cursor: pointer
+    .froala-element
+      &:focus,
+      &:active
+        p
+          color: $text-color
+          text-decoration: none
+          cursor: text
+          border: 1px solid #cccccc
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset
+          border-radius: 1px
+          padding: 1px 4px
+    .fr-placeholder
+      line-height: 1
+      color: $link-color
+      text-decoration: underline
+      padding-left: 2px
+      white-space: nowrap
+      -webkit-font-smoothing: initial
+    .f-placeholder:hover
+      cursor: pointer
+      + span.fr-placeholder
+        color: $link-hover
+    .f-placeholder:focus
+      cursor: text
+      + span.fr-placeholder
+        color: transparent
+  .location-selector
+    display: block
+  .datepicker
+    border: 0
+    padding: 0
+    width: auto
+    color: $link-color
+    text-decoration: underline
+    &:hover
+      color: $link-hover
+      cursor: pointer
+
+#editor
+  margin-top: 15px
+
+
+// ----------------------------
+// List of Notes
+// ----------------------------
+.note-list-title
+  font-weight: 600
+  font-size: 15px
+  a
+    color: $text-color
+  a:hover
+    color: $link-hover
+.note-list-info
+  font-size: 11px
+  color: #b0b0b0
+.note-list-preview
+  padding-top: 10px
+  font-size: 12px
+  &.no-preview
+    font-style: italic
+.note-list-marked-done
+  color: #999999
+
+#recent-notes-list
+  li
+    padding-bottom: 25px
+  li:last-child
+    padding-bottom: 0
+  .note-list-preview
+    padding-top: 0
+
+
+// ----------------------------
+// ASIDE for notes
+// ----------------------------
+.note-date-section
+  background: #e8e8e8
+  padding: 5px 20px !important
+  font-weight: bold
+  border: 0px !important
+
+
+// ----------------------------
+// NOTES (RESPONSIVE)
+// ----------------------------
+@media (max-width: 767px)
+  .note-metainfo
+    .created-on,
+    .modified-on
+      display: block
+      text-align: right
+    .created-on,
+    .meta-separator
+      display: none
+
+
+// ----------------------------
+// TEMPORARY EDITOR STYLES
+// ----------------------------
+#note-title,
+#note-content,
+#set-location
+  padding: 0
+  border: 0
+  box-shadow: none
+
+#note-title
+  font-size: 24px
+  font-weight: 300
+
+#note-content
+  height: 18px
+  margin-bottom: 10px
+  resize: none
+
+#set-location
+  color: $link-color
+  text-decoration: underline
+  //SYANG TEMPORARY SOLUTION FOR MIXIN NOT WORKING
+  &::-webkit-input-placeholder
+    color: $link-color
+    text-decoration: underline
+  &:-moz-placeholder
+    color: $link-color
+    text-decoration: underline
+  &::-moz-placeholder
+    color: $link-color
+    text-decoration: underline
+  &:-ms-input-placeholder
+    color: $link-color
+    text-decoration: underline
+  &:hover
+    cursor: pointer
+    color: $link-hover
+  &:focus
+    color: $text-color
+    text-decoration: none
+    //SYANG TEMPORARY SOLUTION FOR MIXIN NOT WORKING
+    &::-webkit-input-placeholder
+      color: #999999
+      text-decoration: none
+    &:-moz-placeholder
+      color: #999999
+      text-decoration: none
+    &::-moz-placeholder
+      color: #999999
+      text-decoration: none
+    &:-ms-input-placeholder
+      color: #999999
+      text-decoration: none
+
+#note-content-print
+  display: none
+
+// Readonly View Styles
+#date-selector[readonly]
+  &:hover
+    cursor: pointer
+    color: $link-hover
+
+#due-date-selector[readonly]
+  padding: 6px 8px
+  cursor: pointer
+
+#set-location[disabled]
+  color: $text-color
+  background-color: transparent
+  text-decoration: none
+  padding-left: 0
+  &:hover
+    cursor: inherit
+    color: $text-color
