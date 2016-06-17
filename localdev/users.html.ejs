@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Users</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/coefficient/general.js"></script>
+  <script type="text/javascript" src="javascripts/coefficient/modernizr.custom.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+
+    <% include profile-sidebar.html.ejs %>
+
+    <div class="page-head">
+      <div id="slideout">
+        <!-- TODO: onclick is only temporary for markup purposes -->
+        <button type="button" onclick="slideout();" class="btn btn-primary btn-right">Invite User</button>
+        <!-- TODO: Temporary markup
+             The slideout should be a modal. See www.producthunt.com and click on one of the list items (not the actual link) to see an example of what the modal should look like. Only the section "SLIDEOUT CONTENT" below should be in the modal.
+        -->
+        <div id="slideout_inner">
+          <div class="slidein" onclick="slidein();"><i class="fa fa-times"></i></div>
+        <!-- END TODO -->
+
+
+          <!-- TODO: BEGIN SLIDEOUT CONTENT -->
+          <div class="slideout_wrap">
+            <div class="header">
+              <h3>Invite Users</h3>
+            </div>
+            <div class="content">
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" class="form-control" placeholder="user1234@dougs_doughnuts.com">
+              </div>
+              <button type="button" class="btn btn-primary progress-button">Invite</button>
+              <div id="recently-added" class="recent-users"></div>
+            </div>
+          </div>
+          <!-- END TODO -->
+
+        </div>
+      </div>
+      <h2>Users</h2>
+    </div>
+    <div class="cl-mcont">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="block-flat">
+            <div class="pre-table">
+              <div class="admin-search">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+              </div>
+              <div class="search-matches">Matched 28 of 328 items.</div>
+              <div class="num-rows-option">
+                Show
+                <select class="form-inline">
+                  <option>10</option>
+                  <option>25</option>
+                  <option>50</option>
+                </select>
+                Rows
+              </div>
+            </div>
+            <table class="datatable">
+              <thead>
+                <tr>
+                  <th>Name <i class="fa fa-sort"></i></th>
+                  <th>Email <i class="fa fa-sort"></i></th>
+                  <th>Status <i class="fa fa-sort-down active"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="myprofilepublic.html">Vincent Ramirez</a></td>
+                  <td><a href="myprofilepublic.html">v.ramirez@company.com</a></td>
+                  <td><a href="myprofilepublic.html">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a href="myprofilepublic.html">Bertha Hall</a></td>
+                  <td><a href="myprofilepublic.html">b.hall@company.com</a></td>
+                  <td><a href="myprofilepublic.html">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a href="myprofilepublic.html">Camelia Rose</a></td>
+                  <td><a href="myprofilepublic.html">c.rose@company.com</a></td>
+                  <td><a href="myprofilepublic.html">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a href="myprofilepublic.html">&nbsp;</a></td>
+                  <td><a href="myprofilepublic.html">a.wright@company.com</a></td>
+                  <td><a href="myprofilepublic.html">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a href="myprofilepublic.html">Kathryn Payne</a></td>
+                  <td><a href="myprofilepublic.html">k.payne@company.com</a></td>
+                  <td><a href="myprofilepublic.html">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a href="myprofilepublic.html">Dwight Taylor</a></td>
+                  <td><a href="myprofilepublic.html">d.taylor@company.com</a></td>
+                  <td><a href="myprofilepublic.html">Active</a></td>
+                </tr>
+                <tr class="disabled">
+                  <td></td>
+                  <td>n.terry@company.com</td>
+                  <td>Pending Invitation</td>
+                </tr>
+                <tr class="disabled">
+                  <td></td>
+                  <td>b.carr@company.com</td>
+                  <td>Pending Invitation</td>
+                </tr>
+                <tr>
+                  <td><a href="myprofilepublic.html">Harry Olson</a></td>
+                  <td><a href="myprofilepublic.html">h.olson@company.com</a></td>
+                  <td><a href="myprofilepublic.html">Inactive</a></td>
+                </tr>
+                <tr>
+                  <td><a href="myprofilepublic.html">Mattie Hale</a></td>
+                  <td><a href="myprofilepublic.html">m.hale@company.com</a></td>
+                  <td><a href="myprofilepublic.html">Inactive</a></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="pagination">
+              <ul>
+                <li class="pagination-item"><i class="fa fa-angle-left"></i> Previous</li>
+                <li class="pagination-item">1</li>
+                <li class="pagination-item inactive">...</li>
+                <li class="pagination-item">18</li>
+                <li class="pagination-item">19</li>
+                <li class="pagination-item current">20</li>
+                <li class="pagination-item">21</li>
+                <li class="pagination-item">22</li>
+                <li class="pagination-item inactive">...</li>
+                <li class="pagination-item">330</li>
+                <li class="pagination-item">Next <i class="fa fa-angle-right"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+        });
+    </script>
+
+    <script type="text/javascript" src="javascripts/coefficient/classie.js"></script>
+    <script type="text/javascript" src="javascripts/coefficient/progressButton.js"></script>
+
+    <script>
+      [].slice.call( document.querySelectorAll( 'button.progress-button' ) ).forEach( function( bttn ) {
+        new ProgressButton( bttn, {
+          callback : function( instance ) {
+            var progress = 0,
+              interval = setInterval( function() {
+                progress = Math.min( progress + Math.random() * 0.25, 1 );
+                instance._setProgress( progress );
+
+                if( progress === 1 ) {
+                  instance._stop(1);
+                  clearInterval( interval );
+                }
+              }, 200 );
+          }
+        } );
+      } );
+    </script>
+
+
+    <!-- TODO: The functions below are only temporary for purposes of markup -->
+    <script>
+      function slideout() {
+        $("#slideout").addClass("active");
+      }
+      function slidein() {
+        $("#slideout").removeClass("active");
+      }
+    </script>
+    <!-- END TODO -->
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>

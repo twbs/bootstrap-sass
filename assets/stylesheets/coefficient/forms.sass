@@ -1,0 +1,94 @@
+/* Forms */
+label
+  font-weight: 600
+  margin-bottom: 7px
+
+.form-group
+  margin-top: 10px
+  margin-bottom: 28px
+  position: relative
+
+.form-control
+  padding: 6px 8px
+  font-size: 12px
+  border-radius: 1px
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset
+  height: 42px
+  &:focus
+    border-color: #2598f9
+
+.input-group
+  padding: 0 0 12px
+  border-radius: 1px
+  &:focus
+    border-color: #2598f9
+  .input-group-addon
+    border-radius: 1px
+
+.helper-text
+  position: absolute
+  font-size: 11px
+
+
+/* Address Specific */
+.group-cluster
+  .cluster-cell
+    display: table-cell
+    padding-left: 10px
+    &.cluster-cell-half
+      width: 50%
+    &.cluster-cell-third
+      width: 33%
+    &.cluster-cell-quarter
+      width: 25%
+  .cluster-row
+    display: table
+    width: 100%
+    margin-top: 10px
+    div:first-child
+      padding-left: 0
+
+
+/* Password Strength Meter */
+.password-strength
+  position: absolute
+  height: 3px
+  bottom: 1px
+  background: #cccccc
+  width: 100%
+  .password-strength-meter
+    height: 3px
+    margin: 0 1px
+    width: 1%
+
+$strengths: (weak: $danger, medium: $warning, strong: $success)
+
+@each $strength, $color in $strengths
+  .password-strength-meter
+    &.strength-#{$strength}
+      background-color: $color
+  .helper-text
+    .strength-#{$strength}
+      color: $color
+
+$widths: (weak: 20%, medium: 50%, strong: 100%)
+
+@each $strength, $width in $widths
+  .password-strength-meter
+    &.strength-#{$strength}
+      width: $width
+
+/* Error */
+.form-has-error
+  color: $danger
+
+.has-error
+  .error-message
+    color: $danger
+    font-size: 11px
+    position: absolute
+
+.success-message
+  color: $success
+  font-size: 11px
+  position: absolute

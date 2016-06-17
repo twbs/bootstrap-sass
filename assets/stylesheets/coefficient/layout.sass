@@ -1,0 +1,175 @@
+html
+  height: 100%
+
+body
+  position: relative
+  padding: 0
+  background-color: #F6F6F6
+  font-family: 'Open Sans', sans-serif
+  font-size: 12px
+  color: $text-color
+
+ul
+  padding-left: 30px
+
+.back-to-top
+  position: fixed
+  bottom: 0
+  right: 0
+  text-decoration: none
+  color: $white
+  background-color: rgba(39, 41, 48, 0.8)
+  padding: 9px 12px
+  display: none
+  &:hover
+    color: $white
+    background-color: rgba(39, 41, 48, 1)
+  &:focus
+    color: $white
+  i
+    font-size: 15px
+
+
+
+/* MAIN LAYOUT */
+#cl-wrapper
+  padding-top: 50px
+
+.cl-mcont
+  background-color: #F6F6F6
+  color: inherit
+  font-size: 13px
+  font-weight: 200
+  line-height: 21px
+  padding: 15px 30px 30px 30px
+  margin-top: 0
+
+  h1
+    line-height: 1.3em
+
+
+
+
+/* LATOUT HELPERS */
+.spacer
+  margin-top: 15px !important
+
+.spacer2
+  margin-top: 30px !important
+
+.spacer3
+  margin-top: 50px !important
+
+.spacer-bottom-xs
+  margin-bottom: 10px !important
+
+.spacer-bottom
+  margin-bottom: 30px !important
+
+.no-padding
+  padding: 0 !important
+
+.no-margin
+  margin: 0 !important
+
+.no-margin-y
+  margin-top: 0 !important
+  margin-bottom: 0 !important
+
+.no-margin-x
+  margin-left: 0 !important
+  margin-right: 0 !important
+
+.no-margin-top
+  margin-top: 0 !important
+
+.no-margin-bottom
+  margin-bottom: 0 !important
+
+.no-margin-left
+  margin-left: 0 !important
+
+.no-margin-right
+  margin-right: 0 !important
+
+
+
+
+/* BLOCK LAYOUT STYLES */
+.cl-mcont
+  .row
+    margin-top: 20px
+  .col-lg-6
+    padding: 0 15px
+
+.block-flat
+  margin-bottom: 40px
+  padding: 20px
+  background: $white
+  border-radius: 3px
+  border-left: 1px solid #efefef
+  border-right: 1px solid #efefef
+  border-bottom: 1px solid #e2e2e2
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.04)
+
+
+
+.page-head
+  .breadcrumb
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0)
+    margin-bottom: 0
+    padding: 4px
+
+/* Widgets */
+.widget-block
+  .cl
+    margin-bottom: 20px
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.21)
+  border: 0
+  margin-bottom: 30px
+  margin-top: 0
+  .row
+    margin: 0
+  .padding
+    padding: 20px
+  .vpadding
+    padding: 20px 0
+  .hpadding
+    padding: 0 20px
+
+.block-flat
+  .header
+    background: transparent
+    padding: 3px 0
+    border-bottom: 1px solid #dadada
+    &.no-border
+      border: 0
+    h3
+      margin-top: 3px
+      font-family: "Raleway", Helvetica, sans-serif
+      font-weight: 200
+  .content
+    padding: 15px 3px 0 3px
+    &.full-width
+      padding: 0
+      margin-left: -20px
+      margin-right: -20px
+      margin-bottom: -20px
+    h4
+      margin-top: 20px
+      font-size: 16px
+    .title
+      margin: 5px 0 15px 0
+  &.no-padding .content
+    padding: 0 !important
+
+.btn-group .dropdown-menu
+  margin-top: -6px
+
+.static-mn
+  display: block
+  position: static
+
+.static-lg-menu
+  .static-mn
+    min-width: 90%

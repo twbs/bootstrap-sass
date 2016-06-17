@@ -1,0 +1,17 @@
+/* -------------------------------------------------------------- */
+/* HELPERS ------------------------------------------------------ */
+/* -------------------------------------------------------------- */
+// helper classes and mixins required for ALL apps and pages
+// very little CSS output here (just is- classes)
+// so this can get imported everywhere easily
+
+
+
+// -------------------------------------------------------------- //
+// CSS3 --------------------------------------------------------- //
+// -------------------------------------------------------------- //
+
+// rounded corners - different corners
+@mixin border-radius-mixed($topleft, $topright, $bottomright, $bottomleft)
+	border-radius: $topleft $topright $bottomright $bottomleft
+	// to use: @include border-radius-mixed(0, 2px, 0, 2px)

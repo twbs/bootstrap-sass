@@ -1,0 +1,13 @@
+/* Progress */
+.progress
+  height: 18px
+  border-radius: 3px
+  .progress-bar
+    font-size: 11px
+    line-height: 17px
+
+$progressBarSections: (success: $success, info: $info, warning: $warning, danger: $danger)
+
+@each $section, $colorList in $progressBarSections
+  .progress-bar-#{$section}
+    background-color: $colorList

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Wild Parrot</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/coefficient/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+    <% include wp-sidebar.html.ejs %>
+
+    <div class="page-head">
+      <h2>Modals</h2>
+      <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">UI Elements</a></li>
+        <li class="active">Modals</li>
+      </ol>
+    </div>
+    <div class="cl-mcont">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Modal Alerts</h3>
+            </div>
+            <div class="content">
+              <h4>Examples</h4>
+              <p>This is just an example of tooltip in a paragrhap content writen by <a data-toggle="tooltip" href="#" data-original-title="Default tooltip">Jeff Hanneman</a>, as you can see it is a clean design with many <a data-toggle="tooltip" href="#" data-original-title="I am a Tooltip">Tooltip</a> options.</p>
+              <div class="spacer2 text-center">
+                <button data-toggle="modal" data-target="#mod-success" type="button" class="btn btn-success"><i class="fa fa-check"></i> Success</button>
+                <button data-toggle="modal" data-target="#mod-info" type="button" class="btn btn-primary"><i class="fa fa-info-circle"></i> Information</button>
+                <button data-toggle="modal" data-target="#mod-warning" type="button" class="btn btn-warning"><i class="fa fa-warning"></i> Warning</button>
+                <button data-toggle="modal"  data-target="#mod-error" type="button" class="btn btn-danger"><i class="fa fa-times-circle"></i> Error</button>
+              </div>
+
+              <!-- Modal -->
+              <div class="modal fade" id="mod-success" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="text-center">
+                        <div class="i-circle success"><i class="fa fa-check"></i></div>
+                        <h4>Awesome!</h4>
+                        <p>Changes has been saved successfully!</p>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-success" data-dismiss="modal">Proceed</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+
+              <!-- Modal -->
+              <div class="modal fade" id="mod-info" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="text-center">
+                        <div class="i-circle primary"><i class="fa fa-info-circle"></i></div>
+                        <h4>Awesome!</h4>
+                        <p>Changes has been saved successfully!</p>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Proceed</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+
+              <!-- Modal -->
+              <div class="modal fade" id="mod-warning" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="text-center">
+                        <div class="i-circle warning"><i class="fa fa-warning"></i></div>
+                        <h4>Warning!</h4>
+                        <p>Something is going wrong here...</p>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-warning" data-dismiss="modal">Proceed</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+
+              <!-- Modal -->
+              <div class="modal fade" id="mod-error" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="text-center">
+                        <div class="i-circle danger"><i class="fa fa-times"></i></div>
+                        <h4>Oh god!</h4>
+                        <p>You're by your own now, good luck!</p>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Proceed</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Nifty Modals Effects</h3>
+            </div>
+            <div class="content">
+              <h4>Examples</h4>
+              <p>Currently, we are only using on effect, but more are available as part of the Nifty Modal package.</p>
+              <div class="spacer2 text-center">
+                <button class="btn btn-primary btn-flat md-trigger" data-modal="md-scale"> Fade in & Scale</button>
+              </div>
+
+              <!-- Nifty Modal -->
+              <div class="md-modal md-effect-1" id="md-scale">
+                <div class="md-content">
+                  <div class="modal-header">
+                    <button type="button" class="close md-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="text-center">
+                      <div class="i-circle primary"><i class="fa fa-check"></i></div>
+                      <h4>Awesome!</h4>
+                      <p>Changes has been saved successfully!</p>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-flat md-close" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary btn-flat md-close" data-dismiss="modal">Proceed</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="md-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+        });
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>
