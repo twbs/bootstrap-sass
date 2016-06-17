@@ -1,0 +1,105 @@
+// ----------------------------
+// ACTION ITEMS
+// ----------------------------
+
+// Action Items List
+.action-item-checkbox,
+.item-title,
+.item-due-date,
+.item-assigned-to
+  display: table-cell
+  vertical-align: top
+  padding: 0 5px
+
+.action-item-checkbox
+  position: absolute
+  top: 10px
+  left: 15px
+
+.item-title
+  width: 100%
+  padding-left: 25px
+
+.item-assigned-to
+  padding-right: 0
+  img
+    max-width: 25px
+    max-height: 25px
+
+.item-due-date
+  color: $text-color
+  font-size: 11px
+  font-style: italic
+  line-height: 1.2
+  min-width: 115px
+  text-align: right
+  padding-top: 5px
+
+.marked-complete
+  .item-title
+    color: #999999
+    text-decoration: line-through
+  .item-due-date
+    padding-top: 0
+    color: #999999
+  .item-assigned-to
+    opacity: 0.5
+    &:hover
+      opacity: 1
+
+.past-due
+  .item-due-date
+    color: $danger
+    font-weight: 600
+
+.user-popover
+  min-width: 225px
+  @include clearfix
+  img
+    width: 75px
+    height: 75px
+  .profile-image
+    float: left
+    margin-right: 10px
+  .user-name
+    color: #555
+    font-size: 13px
+  .user-title
+    color: #999
+    font-size: 11px
+
+
+// Action Items Details
+#action-item-details
+  border-bottom: 1px solid #f4f4f4
+  padding-bottom: 10px
+  #action-item-checkbox
+    position: absolute
+    left: -25px
+  #action-item-name
+    position: relative
+    font-size: 16px
+    font-weight: 600
+    padding-bottom: 10px
+    &.marked-complete
+      text-decoration: line-through
+  #action-item-title
+    font-size: 16px
+    padding: 0
+    height: auto
+    border: 0
+    box-shadow: none
+  .action-item-meta
+    font-size: 10px
+    line-height: 24px
+    color: #B0B0B0
+    .meta-icon
+      width: 10px
+      margin-right: 8px
+      display: inline-block
+      text-align: center
+
+.item-completed-message
+  padding-bottom: 15px
+  color: #999
+  font-style: italic

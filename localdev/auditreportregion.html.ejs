@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Audits</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+    <% include notes-sidebar.html.ejs %>
+
+    <div id="pcont">
+      <div class="page-head has-breadcrumb">
+        <div class="action-header-right">
+          <!-- <span class="action-message">This audit was <strong>Closed</strong> on May 24, 2015 by Alan Harrison.</span> -->
+          <span class="action-message">This audit is currently <strong>In Progress</strong>. Published on May 25, 2015.</span>
+          <!-- <button class="btn btn-default">Edit</button> -->
+          <button class="btn btn-danger" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<p>Are you sure you want to close this audit?</p> <button type='button' id='cancel-close' class='btn btn-xs btn-nostyle-popover'>No</button> <button type='button' id='close-audit' class='btn btn-xs btn-default'>Yes</button>">Close Audit</button>
+        </div>
+        <h2>Retail Quality Inspection</h2>
+        <ol class="breadcrumb">
+          <li><a href="audits.html">Audits</a></li>
+          <li><a href="auditreport.html">Retail Quality Inspection</a></li>
+          <li class="active">IER</li>
+        </ol>
+      </div>
+
+      <div class="cl-mcont">
+        <div class="row">
+          <div class="col-xs-8">
+            <button id="jump-to-current" class="btn btn-default">Current</button>
+            <div class="btn-group no-styles">
+              <button class="btn btn-default"><i class="fa fa-chevron-left"></i></button>
+              <button class="btn btn-default"><i class="fa fa-chevron-right"></i></button>
+            </div>
+            <span id="currently-viewing">July 2015</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="block-flat">
+              <div class="header">
+                <h3>IER Reporting</h3>
+              </div>
+              <div class="content">
+                <div id="audit-report-tracking">
+                  <div id="percent-reporting">47%</div>
+                  <div id="reporting-progress-bar">
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-info" style="width: 47%"></div>
+                    </div>
+                    (61 of 130 Locations Reporting)
+                  </div>
+                </div>
+
+                <table id="reporting-table" class="datatable">
+                  <thead>
+                    <tr>
+                      <th>Area <i class="fa fa-sort-down active"></i></th>
+                      <th class="text-center">Average Score <i class="fa fa-sort"></i></th>
+                      <th class="text-center">% Passing <i class="fa fa-sort"></i></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><a href="auditreportarea.html">ATL</a></td>
+                      <td class="text-center"><a href="auditreportarea.html">87%</a></td>
+                      <td class="text-center"><a href="auditreportarea.html">42%</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="auditreportarea.html">CHI</a></td>
+                      <td class="text-center"><a href="auditreportarea.html">94%</a></td>
+                      <td class="text-center"><a href="auditreportarea.html">54%</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="auditreportarea.html">NY</a></td>
+                      <td class="text-center"><a href="auditreportarea.html">82%</a></td>
+                      <td class="text-center"><a href="auditreportarea.html">48%</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="block-flat">
+              <div class="header">
+                <h3>Results</h3>
+              </div>
+              <div class="content">
+                <table class="datatable">
+                  <thead>
+                    <tr>
+                      <th>Item <i class="fa fa-sort-down active"></i></th>
+                      <th class="text-center">May <i class="fa fa-sort"></i></th>
+                      <th class="text-center">June <i class="fa fa-sort"></i></th>
+                      <th class="text-center">July <i class="fa fa-sort"></i></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="disabled">
+                      <td>Item Name 1</td>
+                      <td class="text-center">60%</td>
+                      <td class="text-center">50%</td>
+                      <td class="text-center">70%</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>Another Item Here</td>
+                      <td class="text-center">23%</td>
+                      <td class="text-center">23%</td>
+                      <td class="text-center">27%</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>This is another item</td>
+                      <td class="text-center">23%</td>
+                      <td class="text-center">33%</td>
+                      <td class="text-center">43%</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>Item Name 2</td>
+                      <td class="text-center">76%</td>
+                      <td class="text-center">56%</td>
+                      <td class="text-center">66%</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>Item Name 3</td>
+                      <td class="text-center">10%</td>
+                      <td class="text-center">30%</td>
+                      <td class="text-center">50%</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>Item Name 1</td>
+                      <td class="text-center">50%</td>
+                      <td class="text-center">45%</td>
+                      <td class="text-center">70%</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>Another Item Here</td>
+                      <td class="text-center">20%</td>
+                      <td class="text-center">26%</td>
+                      <td class="text-center">20%</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>This is another item</td>
+                      <td class="text-center">23%</td>
+                      <td class="text-center">23%</td>
+                      <td class="text-center">23%</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>Item Name 2</td>
+                      <td class="text-center">76%</td>
+                      <td class="text-center">76%</td>
+                      <td class="text-center">76%</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>Item Name 3</td>
+                      <td class="text-center">10%</td>
+                      <td class="text-center">10%</td>
+                      <td class="text-center">10%</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>Another Item Here</td>
+                      <td class="text-center">20%</td>
+                      <td class="text-center">20%</td>
+                      <td class="text-center">20%</td>
+                    </tr>
+                    <tr class="disabled">
+                      <td>This is another item</td>
+                      <td class="text-center">23%</td>
+                      <td class="text-center">23%</td>
+                      <td class="text-center">23%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="block-flat">
+              <div class="header">
+                <h3>Audit Details</h3>
+              </div>
+              <div class="content">
+                <p>
+                  Bacon ipsum dolor amet drumstick sirloin landjaeger ut corned beef doner fatback sausage in proident beef hamburger prosciutto jowl meatloaf. Ground round esse velit exercitation fatback. Andouille pork enim meatball, magna beef ribs tri-tip voluptate.
+                </p>
+                <p>
+                  Short loin kevin tenderloin veniam proident shankle cillum elit ball tip nostrud pancetta duis id bresaola boudin. Excepteur shank alcatra magna.
+                </p>
+                <div id="attachments">
+                  <div class="attachment-item">
+                    <div class="attachment-img">
+                      <a href="http://www.birdchannel.com/images/articles/bird-blog/macaw-flock-lg.jpg" class="html5lightbox" title="image01.jpg" data-group="attachments"><img src="http://www.birdchannel.com/images/articles/bird-blog/macaw-flock-lg.jpg"></a>
+                    </div>
+                    <div class="attachment-info"><i class="fa fa-picture-o"></i> image01.jpg</div>
+                  </div>
+                  <div class="attachment-item">
+                    <div class="attachment-img">
+                      <a href="http://blog.pennlive.com/pets/2008/01/medium_Macaw-jpatokal.jpg" class="html5lightbox" title="image02.jpg" data-group="attachments"><img src="http://blog.pennlive.com/pets/2008/01/medium_Macaw-jpatokal.jpg" class="portrait"></a>
+                    </div>
+                    <div class="attachment-info"><i class="fa fa-picture-o"></i> image02.jpg</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="block-flat">
+              <div class="header">
+                <h3>Not Reported (200)</h3>
+              </div>
+              <div class="content">
+                <ul class="list-unstyled contacts-list">
+                  <li>
+                    <div class="unlinked">
+                      <div class="profile-image"><img src="http://s3-media4.fl.yelpcdn.com/bphoto/7aM0v24qR7lME0c8-LidOw/ls.jpg"></div>
+                      <div class="profile-information">
+                        <div class="primary">Town North Nissan - 1234</div>
+                        <div class="secondary">Austin, TX</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="unlinked">
+                      <div class="profile-image"><img src="http://www.gannett-cdn.com/-mm-/e76ca8ffae76ea98b8fcb9564de2f553f12786ba/c=774-0-3283-2509&r=x203&c=200x200/local/-/media/JacksonMS/2015/04/01/B9316821206Z.1_20150401213525_000_G54AD2IJ1.1-0.jpg"></div>
+                      <div class="profile-information">
+                        <div class="primary">Clay Cooley Nissan - 5422</div>
+                        <div class="secondary">Austin, TX</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="unlinked">
+                      <div class="profile-image"><img src="http://s3-media1.fl.yelpcdn.com/bphoto/5be0FiikZI4PuC7YGT7QkQ/ls.jpg"></div>
+                      <div class="profile-information">
+                        <div class="primary">Round Rock Nissan - 3394</div>
+                        <div class="secondary">Austin, TX</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="unlinked">
+                      <div class="profile-image"><img src="http://www.gannett-cdn.com/-mm-/e76ca8ffae76ea98b8fcb9564de2f553f12786ba/c=774-0-3283-2509&r=x203&c=200x200/local/-/media/JacksonMS/2015/04/01/B9316821206Z.1_20150401213525_000_G54AD2IJ1.1-0.jpg"></div>
+                      <div class="profile-information">
+                        <div class="primary">Clay Cooley Nissan - 5422</div>
+                        <div class="secondary">Austin, TX</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="unlinked">
+                      <div class="profile-image"><img src="http://s3-media1.fl.yelpcdn.com/bphoto/5be0FiikZI4PuC7YGT7QkQ/ls.jpg"></div>
+                      <div class="profile-information">
+                        <div class="primary">Round Rock Nissan - 3394</div>
+                        <div class="secondary">Austin, TX</div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="view-all-break">
+                  <p>
+                    <a href="auditnotreported.html">View all locations</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+
+          // Initializing popovers
+          $('[data-toggle="popover"]').popover();
+        });
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>

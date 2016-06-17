@@ -1,0 +1,156 @@
+/*!
+ * froala_editor v1.2.7 (https://www.froala.com/wysiwyg-editor)
+ * License https://www.froala.com/wysiwyg-editor/terms
+ * Copyright 2014-2015 Froala Labs
+ */
+
+img {
+  &.fr-fil {
+    z-index: 1;
+    position: relative;
+    margin: auto;
+    overflow: auto;
+    padding: 10px 10px 10px 3px;
+    float: left !important;
+    &.fr-dib {
+      float: none !important;
+      margin-left: 0 !important;
+    }
+  }
+  &.fr-fir {
+    z-index: 1;
+    position: relative;
+    margin: auto;
+    overflow: auto;
+    padding: 10px 3px 10px 10px;
+    float: right !important;
+    &.fr-dib {
+      float: none !important;
+      margin-right: 0 !important;
+    }
+  }
+  &.fr-fin {
+    z-index: 1;
+    position: relative;
+    margin: auto;
+    overflow: auto;
+    float: none;
+    &.fr-dib {
+      padding: 10px 0;
+    }
+  }
+  &.fr-dib {
+    vertical-align: top;
+    display: block;
+  }
+}
+
+a.fr-file {
+  position: relative;
+  &:before {
+    position: relative;
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f0c6";
+    top: 0;
+    padding-right: 3px;
+  }
+}
+
+.froala-view table, table.fr-tag {
+  border-collapse: collapse;
+  empty-cells: show;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.froala-view table td, table.fr-tag td {
+  border: solid 1px #cccccc;
+  padding: 5px;
+  vertical-align: top;
+}
+
+.froala-view table th, table.fr-tag th {
+  background: #e6e6e6;
+  border: solid 1px #cccccc;
+  padding: 5px;
+  vertical-align: top;
+}
+
+.froala-view pre, pre.fr-tag {
+  white-space: pre-wrap;
+  /* CSS3 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, post millennium */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  word-wrap: break-word;
+  /* Internet Explorer 5.5+ */
+  border: solid 1px #cccccc;
+  background: #fcfcfc;
+  padding: 10px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.froala-view blockquote, blockquote.fr-tag {
+  margin-left: 20px;
+  margin-right: 0;
+  margin-top: 0;
+  padding-left: 20px;
+  position: relative;
+  font-style: italic;
+  border-left: solid 5px #cccccc;
+}
+
+.froala-view hr, hr.fr-tag {
+  height: 0px;
+  border: 0;
+  border-top: solid 1px #cccccc;
+  clear: both;
+}
+
+.fr-fvn {
+  float: none;
+  display: block !important;
+  text-align: center !important;
+}
+
+.fr-fvl {
+  float: left;
+  margin: 10px 10px 10px 1px;
+}
+
+.fr-fvr {
+  float: right;
+  margin: 10px 1px 10px 10px;
+}
+
+.fr-tnv {
+  float: none !important;
+  margin: auto;
+  text-align: center;
+  display: block !important;
+  &.fr-fvl {
+    text-align: left;
+  }
+  &.fr-fvr {
+    text-align: right;
+  }
+}

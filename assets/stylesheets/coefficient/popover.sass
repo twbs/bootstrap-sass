@@ -1,0 +1,16 @@
+// ----------------------------
+// POPOVERS
+// ----------------------------
+
+.popover
+  border-radius: 2px
+  color: $white
+  font-size: 11px
+
+button
+  + .popover
+    background: $black
+    text-align: center
+  + .popover.bottom
+    > .arrow:after
+      border-bottom-color: $black

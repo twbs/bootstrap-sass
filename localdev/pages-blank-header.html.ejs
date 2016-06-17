@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Wild Parrot</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+    <% include wp-sidebar.html.ejs %>
+
+    <div class="page-head">
+      <h2>Blank Page</h2>
+      <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Category</a></li>
+        <li class="active">Sub Category</li>
+      </ol>
+    </div>
+    <div class="cl-mcont">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Section title goes here</h3>
+            </div>
+            <div class="content">
+              <p>
+                Code for the basic layout of CoEFFICIENT. There should be a page title (if not, use <a href="pages-blank.html">pages-blank</a> tempalte instead.) If no breadcrumbs are necessary, remove the <code>&#x3C;ol&#x3E;</code> tag completely.
+              </p>
+              <pre><code class="html">&#x3C;% include header.html.ejs %&#x3E;
+
+&#x3C;div id=&#x22;cl-wrapper&#x22; class=&#x22;fixed-menu&#x22;&#x3E;
+  &#x3C;% include wp-sidebar.html.ejs %&#x3E; &#x3C;!-- Include appropriate sidebar --&#x3E;
+
+  &#x3C;div class=&#x22;page-head&#x22;&#x3E;
+    &#x3C;h2&#x3E;Blank Page&#x3C;/h2&#x3E;
+    &#x3C;ol class=&#x22;breadcrumb&#x22;&#x3E; &#x3C;!-- Remove section if breadcrumb is unnecessary --&#x3E;
+      &#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Home&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+      &#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Category&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+      &#x3C;li class=&#x22;active&#x22;&#x3E;Sub Category&#x3C;/li&#x3E;
+    &#x3C;/ol&#x3E;
+  &#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;cl-mcont&#x22;&#x3E;
+    &#x3C;div class=&#x22;col-sm-12&#x22;&#x3E; &#x3C;!-- See grid system for more information about the column classes --&#x3E;
+      &#x3C;div class=&#x22;block-flat&#x22;&#x3E;
+        &#x3C;h3&#x3E;Section title goes here&#x3C;/h3&#x3E;
+      &#x3C;/div&#x3E;
+      &#x3C;div class=&#x22;content&#x22;&#x3E;
+        Content goes here
+      &#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+  &#x3C;/div&#x3E;>
+
+  &#x3C;!-- Bootstrap core JavaScript
+  ================================================== --&#x3E;
+  &#x3C;!-- Placed at the end of the document so the pages load faster --&#x3E;
+  &#x3C;script src=&#x22;node_modules/bootstrap/dist/js/bootstrap.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;/div&#x3E;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+        });
+        hljs.initHighlightingOnLoad();
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>My Profile</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+
+    <% include notes-sidebar.html.ejs %>
+
+    <div class="cl-mcont">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="block-flat">
+            <div class="profile-badge">
+              <div class="badge-row">
+                <div class="badge-cell profile-image">
+                  <img src="https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg" >
+                </div>
+                <div class="badge-cell profile-details">
+                  <span class="profile-name">John Weathers</span><br/>
+                  Field Operations Manager<br/>
+                  (123) 456-7890<br/>
+                  <a href="mailto:jweathers@company.com">jweathers@company.com</a>
+                </div>
+                <div class="badge-cell social">
+                  <a href="http://plus.google.com" class="btn btn-default btn-google-plus">
+                    <i class="fa fa-google-plus"></i>
+                  </a>
+
+                  <a href="http://www.facebook.com" class="btn btn-default btn-facebook">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+
+                  <a href="http://www.twitter.com" class="btn btn-default btn-twitter">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+
+                  <a href="http://www.linkedin.com" class="btn btn-default btn-linkedin">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Audits</h3>
+            </div>
+            <div class="content">
+              <table class="datatable">
+                <thead>
+                  <tr>
+                    <th>Name <i class="fa fa-sort-down active"></i></th>
+                    <th class="text-center">% Reporting <i class="fa fa-sort"></i></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Audit 1</td>
+                    <td class="text-center">50%</td>
+                  </tr>
+                  <tr>
+                    <td>Audit 2</td>
+                    <td class="text-center">20%</td>
+                  </tr>
+                  <tr>
+                    <td>Audit 5</td>
+                    <td class="text-center">23%</td>
+                  </tr>
+                  <tr>
+                    <td>A longer audit name here</td>
+                    <td class="text-center">76%</td>
+                  </tr>
+                  <tr>
+                    <td>Blah blah more audit stuff yay!</td>
+                    <td class="text-center">10%</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="view-all-break">
+                <p>
+                  <a href="audits.html">View all</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="block-flat">
+            <div class="header">
+              <h3>Action Items</h3>
+            </div>
+            <div class="content">
+              <ul class="list-group">
+                <li class="list-group-item marked-complete">
+                  <input type="checkbox" checked name="check1" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta tellus ipsum, ut laoreet dui porta eu. Nam ultrices viverra erat accumsan pretium.</span>
+                    <span class="item-due-date">
+                      Completed on<br/>
+                      April 10, 2015
+                    </span>
+                    <span class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg' class='profile-image'><div class='user-name'>Seth Juarez</div><div class='user-title'>Manager</div></div>"/></span>
+                  </a>
+                </li>
+                <li class="list-group-item marked-complete">
+                  <!-- 'disabled' should be added to items that the user cannot check or uncheck based on permissions -->
+                  <input type="checkbox" checked name="check1" class="action-item-checkbox" disabled>
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Nam ultrices viverra erat.</span>
+                    <span class="item-due-date">
+                      Completed on<br/>
+                      April 10, 2015
+                    </span>
+                    <span class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg' class='profile-image'><div class='user-name'>John Weathers</div><div class='user-title'>Field Operations Manager</div></div>"/></span>
+                  </a>
+                </li>
+                <li class="list-group-item on-track">
+                  <input type="checkbox" name="check2" class="action-item-checkbox" disabled>
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Lorem ipsum dolor sit amet</span>
+                    <span class="item-due-date">May 05, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg' class='profile-image'><div class='user-name'>Scott K Clark</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item past-due">
+                  <input type="checkbox" name="check3" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Donec sem turpis</span>
+                    <span class="item-due-date">April 30, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-image'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item on-track">
+                  <input type="checkbox" name="check4" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Duis egestas blandit</span>
+                    <span class="item-due-date">May 15, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-image'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+              </ul>
+              <div class="view-all-break">
+                <p>
+                  <a href="actionitems.html">View all</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="block-flat">
+            <div class="header">
+              <h3>Recent Notes</h3>
+            </div>
+            <div class="content">
+              <ul id="recent-notes-list" class="list-unstyled">
+                <li>
+                  <!-- Note titles should be clickable and link to the notes page with the note selected. -->
+                  <div class="note-list-title"><a href="homepage.html">My Note about Something</a></div>
+                  <div class="note-list-info">Dealership - 1234 on October 22, 2014</div>
+                  <div class="note-list-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a malesuada dui. Aliquam a ex eu enim sollicitudin.</div>
+                </li>
+                <li class="selected">
+                  <div class="note-list-title"><a href="homepage.html">My Note about Something</a></div>
+                  <div class="note-list-info">Dealership - 1234 on October 22, 2014</div>
+                  <div class="note-list-preview">Quisque mollis ante id leo congue, nec efficitur dolor luctus. Etiam posuere rutrum ante a posuere. Mauris scelerisque mauris in posuere euismod.</div>
+                </li>
+                <li class="marked-done">
+                  <div class="note-list-title"><a href="homepage.html">My Note about Something</a></div>
+                  <div class="note-list-info">October 22, 2014</div> <!-- Example of no dealership -->
+                  <div class="note-list-preview">Nunc lacinia neque ac ultricies facilisis. Nullam a hendrerit elit. Fusce sit amet eros id tortor tempus condimentum. Pellentesque rhoncus laoreet ipsum at molestie.</div>
+                </li>
+                <li>
+                  <div class="note-list-title"><a href="homepage.html">My Note about Something</a></div>
+                  <div class="note-list-info">Dealership - 1234 on October 21, 2014</div>
+                  <div class="note-list-preview">Integer tincidunt porttitor odio sit amet venenatis. Etiam est nisi, feugiat eget nunc tempus, rutrum consequat dui. Nulla ultricies nulla ligula.</div>
+                </li>
+              </ul>
+              <div class="view-all-break">
+                <p>
+                  <a href="homepage.html">View all</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Locations</h3>
+            </div>
+            <div class="content">
+              <ul class="list-unstyled contacts-list">
+                <li>
+                  <a href="locationspublic.html">
+                    <div class="profile-image"><img src="http://s3-media4.fl.yelpcdn.com/bphoto/7aM0v24qR7lME0c8-LidOw/ls.jpg"></div>
+                    <div class="profile-information">
+                      <div class="primary">Town North Nissan - 1234</div>
+                      <div class="secondary">Austin, TX</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="locationspublic.html">
+                    <div class="profile-image"><img src="http://www.gannett-cdn.com/-mm-/e76ca8ffae76ea98b8fcb9564de2f553f12786ba/c=774-0-3283-2509&r=x203&c=200x200/local/-/media/JacksonMS/2015/04/01/B9316821206Z.1_20150401213525_000_G54AD2IJ1.1-0.jpg"></div>
+                    <div class="profile-information">
+                      <div class="primary">Clay Cooley Nissan - 5422</div>
+                      <div class="secondary">Austin, TX</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="locationspublic.html">
+                    <div class="profile-image"><img src="http://s3-media1.fl.yelpcdn.com/bphoto/5be0FiikZI4PuC7YGT7QkQ/ls.jpg"></div>
+                    <div class="profile-information">
+                      <div class="primary">Round Rock Nissan - 3394</div>
+                      <div class="secondary">Austin, TX</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+              <div class="view-all-break">
+                <p>
+                  <a href="locationsadmin.html">Manage locations</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="slideout-overlay active" style="display: none;">
+      <a href="javascript:void(0);" class="overlay-close" onclick="slidein();"></a>
+      <div class="slideout-close" onclick="slidein();"><i class="fa fa-times"></i></div>
+      <div id="slideout">
+        <div id="slideout-inner">
+          <div class="slideout-wrap">
+            <div class="content">
+              <div id="action-item-details">
+                <div id="action-item-name">
+                  <input id="action-item-checkbox" type="checkbox"> An action item with no set due date or assigned
+                </div>
+                <div class="action-item-meta">
+                  <span class="meta-icon"><i class="fa fa-book"></i></span> My Note About Something
+                </div>
+                <div class="action-item-meta">
+                  <span class="meta-icon"><i class="fa fa-map-marker"></i></span> Town North Nissan - 1234
+                </div>
+                <div class="action-item-meta">
+                  <span class="meta-icon"><i class="fa fa-user"></i></span> Jonathan Crowe (owner)
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Assigned To</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                  <input type="text" class="form-control" data-toggle="dropdown">
+                  <ul class="dropdown-menu autocomplete-results full-width">
+                    <!-- <li class="global-search-message">
+                      <p>No results found.</p>
+                    </li> -->
+                    <li>
+                      <a href="#" class="global-search-item">
+                        <div class="global-search-icon"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg"></div>
+                        <div class="global-search-title">
+                          John Weathers
+                          <div class="global-search-subtitle">FOM</div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="global-search-item">
+                        <div class="global-search-icon"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg"></div>
+                        <div class="global-search-title">
+                          Joe Johnson
+                          <div class="global-search-subtitle">AGM</div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="global-search-item">
+                        <div class="global-search-icon"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg"></div>
+                        <div class="global-search-title">
+                          Clay Johnson
+                          <div class="global-search-subtitle">DOM</div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Due Date</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                  <input type="text" class="form-control datepicker">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" rows="10"></textarea>
+              </div>
+              <button type="button" class="btn btn-nostyle btn-right"><i class="fa fa-trash-o"></i></button>
+              <button type="button" class="btn btn-primary">Update</button>
+              <button type="button" class="btn btn-default" onclick="slidein();">Cancel</button>
+            </div>
+          </div>
+          <!-- END TODO -->
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+
+          // Initializing popovers
+          $('[data-toggle="popover"]').popover();
+        });
+
+    </script>
+    <!-- TODO: The functions below are only temporary for purposes of markup -->
+    <script>
+      function slideout() {
+        $(".slideout-overlay").show();
+      }
+      function slidein() {
+        $(".slideout-overlay").hide();
+      }
+    </script>
+    <!-- END TODO -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>

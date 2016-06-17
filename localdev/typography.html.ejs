@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Wild Parrot</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+    <% include wp-sidebar.html.ejs %>
+
+    <div class="page-head">
+      <h2>Typography</h2>
+      <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Typography</a></li>
+        <li class="active">General</li>
+      </ol>
+    </div>
+    <div class="cl-mcont">
+      <div class="row">
+        <div class="col-sm-6 col-md-6">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Body Elements</h3>
+            </div>
+            <div class="content">
+              <h4 class="subtitle">Paragraph Text</h4>
+              <p>This is what a paragraph text will look like.</p>
+              <pre><code class="html">&#x3C;p&#x3E;This is what a paragraph text will look like.&#x3C;/p&#x3E;</code></pre>
+              <div class="spacer">&nbsp;</div>
+
+              <h4 class="subtitle">Small Text</h4>
+              <small>This is a tiny small text!</small>
+              <pre><code class="html">&#x3C;small&#x3E;This is a tiny small text!&#x3C;/small&#x3E;</code></pre>
+            </div>
+          </div>
+          <div class="block-flat">
+            <div class="header">
+              <h3>Blockquotes</h3>
+            </div>
+            <div class="content">
+              <blockquote>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <small>Some historic guy</small>
+              </blockquote>
+              <pre><code class="html">&#x3C;blockquote&#x3E;
+  &#x3C;p&#x3E;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&#x3C;/p&#x3E;
+  &#x3C;small&#x3E;Some historic guy&#x3C;/small&#x3E;
+&#x3C;/blockquote&#x3E;</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-6">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Well</h3>
+            </div>
+            <div class="content">
+              <div class="well">This is what Well text looks like. It's a lot of fun.
+              <p class="text-right">H. G. Wells</p></div>
+              <pre><code class="html">&#x3C;div class=&#x22;well&#x22;&#x3E;
+  This is what Well text looks like. It's a lot of fun.
+  &#x3C;p class=&#x22;text-right&#x22;&#x3E;H. G. Wells&#x3C;/p&#x3E;
+&#x3C;/div&#x3E;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Unordered List</h3>
+            </div>
+            <div class="content">
+              <ul>
+                <li>Cloud Services</li>
+                <li>Photo Upload</li>
+                <li>Music Downloads</li>
+                <li>Notifications</li>
+                <li>Full Featured UI</li>
+              </ul>
+              <pre><code class="html">&#x3C;ul&#x3E;
+  &#x3C;li&#x3E;Cloud Services&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Photo Upload&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Music Downloads&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Notifications&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Full Featured UI&#x3C;/li&#x3E;
+&#x3C;/ul&#x3E;</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Ordered List</h3>
+            </div>
+            <div class="content">
+              <ol>
+                <li>Cloud Services</li>
+                <li>Photo Upload</li>
+                <li>Music Downloads</li>
+                <li>Notifications</li>
+                <li>Full Featured UI</li>
+              </ol>
+              <pre><code class="html">&#x3C;ol&#x3E;
+  &#x3C;li&#x3E;Cloud Services&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Photo Upload&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Music Downloads&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Notifications&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Full Featured UI&#x3C;/li&#x3E;
+&#x3C;/ol&#x3E;</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="block-flat">
+            <div class="header">
+              <h3>Unstyled List</h3>
+            </div>
+            <div class="content">
+              <ul class="list-unstyled">
+                <li>Cloud Services</li>
+                <li>Photo Upload</li>
+                <li>Music Downloads</li>
+                <li>Notifications</li>
+                <li>Full Featured UI</li>
+              </ul>
+              <pre><code class="html">&#x3C;ul class=&#x22;list-unstyled&#x22;&#x3E;
+  &#x3C;li&#x3E;Cloud Services&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Photo Upload&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Music Downloads&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Notifications&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Full Featured UI&#x3C;/li&#x3E;
+&#x3C;/ul&#x3E;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+        });
+        hljs.initHighlightingOnLoad();
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>

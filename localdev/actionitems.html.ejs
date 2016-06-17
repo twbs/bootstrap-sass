@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>My Profile</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:100,600' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+
+    <% include notes-sidebar.html.ejs %>
+
+    <div class="page-head">
+       <h2>Action Items</h2>
+    </div>
+    <div class="cl-mcont">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="block-flat">
+            <div class="header tabs">
+              <ul class="list-unstyled">
+                <li class="tab active"><h3><a href="actionitems.html">To Do (10)</a></h3></li>
+                <li class="tab"><h3><a href="actionitemscompleted.html">Completed (2)</a></h3></li>
+              </ul>
+            </div>
+            <div class="content">
+              <ul class="list-group">
+                <li class="list-group-item marked-complete">
+                  <input type="checkbox" checked name="check1" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta tellus ipsum, ut laoreet dui porta eu. Nam ultrices viverra erat accumsan pretium.</span>
+                    <span class="item-due-date">
+                      Completed on<br/>
+                      May 10, 2015
+                    </span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item past-due">
+                  <input type="checkbox" name="check2" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Donec sem turpis</span>
+                    <span class="item-due-date">April 30, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item on-track">
+                  <input type="checkbox" name="check3" class="action-item-checkbox" disabled>
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Lorem ipsum dolor sit amet</span>
+                    <span class="item-due-date">May 05, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item on-track">
+                  <input type="checkbox" name="check4" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Duis egestas blandit</span>
+                    <span class="item-due-date">May 15, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item marked-complete">
+                  <input type="checkbox" name="check5" class="action-item-checkbox" checked>
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Praesent consequat at libero in tincidunt.</span>
+                    <span class="item-due-date">
+                      Completed on<br/>
+                      May 10, 2015
+                    </span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item on-track">
+                  <input type="checkbox" name="check6" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Vivamus id massa porttitor, pharetra lectus eget, hendrerit felis. Aenean dignissim convallis felis, in vestibulum turpis scelerisque ac.</span>
+                    <span class="item-due-date">May 15, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item on-track">
+                  <input type="checkbox" name="check7" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Donec interdum elementum mollis.</span>
+                    <span class="item-due-date">May 15, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item on-track">
+                  <input type="checkbox" name="check8" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Nullam ut malesuada lacus.</span>
+                    <span class="item-due-date">May 15, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item on-track">
+                  <input type="checkbox" name="check9" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Aenean vel magna sed nisl tempus finibus quis vel nisi.</span>
+                    <span class="item-due-date">May 15, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item on-track">
+                  <input type="checkbox" name="check10" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Integer dignissim urna nec est fermentum vestibulum.</span>
+                    <span class="item-due-date">May 15, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item on-track">
+                  <input type="checkbox" name="check11" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Aenean volutpat neque nec tellus ullamcorper, in laoreet est maximus.</span>
+                    <span class="item-due-date">May 15, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+                <li class="list-group-item on-track">
+                  <input type="checkbox" name="check12" class="action-item-checkbox">
+                  <a href="javascript:void(0);" onclick="slideout();" class="list-group-item-link">
+                    <span class="item-title">Vestibulum et lectus sit amet nunc pulvinar laoreet.</span>
+                    <span class="item-due-date">May 15, 2015</span>
+                    <div class="item-assigned-to"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="<div class='user-popover'><img src='https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg' class='profile-pic'><div class='user-name'>Josh Austin</div><div class='user-title'>Manager</div></div>"/></div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slideout-overlay active" style="display: none;">
+      <a href="javascript:void(0);" class="overlay-close" onclick="slidein();"></a>
+      <div class="slideout-close" onclick="slidein();"><i class="fa fa-times"></i></div>
+      <div id="slideout">
+        <!-- TODO: onclick is only temporary for markup purposes -->
+        <div id="slideout-inner">
+          <div class="slideout-wrap">
+            <div class="content">
+              <div id="action-item-details">
+                <div id="action-item-name">
+                  <input id="action-item-checkbox" type="checkbox"> An action item with no set due date or assigned
+                </div>
+                <div class="action-item-meta">
+                  <span class="meta-icon"><i class="fa fa-book"></i></span> My Note About Something
+                </div>
+                <div class="action-item-meta">
+                  <span class="meta-icon"><i class="fa fa-map-marker"></i></span> Town North Nissan - 1234
+                </div>
+                <div class="action-item-meta">
+                  <span class="meta-icon"><i class="fa fa-user"></i></span> Jonathan Crowe (owner)
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Assigned To</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                  <input type="text" class="form-control" data-toggle="dropdown">
+                  <ul class="dropdown-menu autocomplete-results full-width">
+                    <!-- <li class="global-search-message">
+                      <p>No results found.</p>
+                    </li> -->
+                    <li>
+                      <a href="#" class="global-search-item">
+                        <div class="global-search-icon"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/sethjuarez/128.jpg"></div>
+                        <div class="global-search-title">
+                          John Weathers
+                          <div class="global-search-subtitle">FOM</div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="global-search-item">
+                        <div class="global-search-icon"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/scottkclark/128.jpg"></div>
+                        <div class="global-search-title">
+                          Joe Johnson
+                          <div class="global-search-subtitle">AGM</div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="global-search-item">
+                        <div class="global-search-icon"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/joshaustin/128.jpg"></div>
+                        <div class="global-search-title">
+                          Clay Johnson
+                          <div class="global-search-subtitle">DOM</div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Due Date</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                  <input type="text" class="form-control datepicker">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" rows="10"></textarea>
+              </div>
+              <button type="button" class="btn btn-nostyle btn-right"><i class="fa fa-trash-o"></i></button>
+              <button type="button" class="btn btn-primary">Update</button>
+              <button type="button" class="btn btn-default" onclick="slidein();">Cancel</button>
+            </div>
+          </div>
+          <!-- END TODO -->
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+
+          // Initializing popovers
+          $('[data-toggle="popover"]').popover();
+        });
+
+    </script>
+    <!-- TODO: The functions below are only temporary for purposes of markup -->
+    <script>
+      function slideout() {
+        $(".slideout-overlay").show();
+      }
+      function slidein() {
+        $(".slideout-overlay").hide();
+      }
+    </script>
+    <!-- END TODO -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>

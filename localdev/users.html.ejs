@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Users</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+  <script type="text/javascript" src="javascripts/coefficient/modernizr.custom.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+
+    <% include profile-sidebar.html.ejs %>
+
+    <div class="page-head">
+      <button type="button" onclick="slideout('invite');" class="btn btn-primary btn-right">Invite User</button>
+      <!-- TODO: Temporary markup
+           The slideout should be a modal. See www.producthunt.com and click on one of the list items (not the actual link) to see an example of what the modal should look like. Only the section "SLIDEOUT CONTENT" below should be in the modal.
+      -->
+      <h2>Users</h2>
+    </div>
+    <div class="cl-mcont">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="block-flat">
+            <div class="pre-table">
+              <div class="admin-search">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+              </div>
+              <div class="search-matches">Matched 28 of 328 items.</div>
+              <div class="num-rows-option">
+                Show
+                <select class="form-inline">
+                  <option>10</option>
+                  <option>25</option>
+                  <option>50</option>
+                </select>
+                Rows
+              </div>
+            </div>
+            <table class="datatable">
+              <thead>
+                <tr>
+                  <th>Name <i class="fa fa-sort"></i></th>
+                  <th>Email <i class="fa fa-sort"></i></th>
+                  <th>Status <i class="fa fa-sort-down active"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a onclick="slideout('user');">Vincent Ramirez</a></td>
+                  <td><a onclick="slideout('user');">v.ramirez@company.com</a></td>
+                  <td><a onclick="slideout('user');">Active</a></td>
+                </tr>
+                <tr>
+                  <!-- If admin, show admin label -->
+                  <td><a onclick="slideout('user');">Bertha Hall <span class="label label-info">Admin</span></a></td>
+                  <td><a onclick="slideout('user');">b.hall@company.com</a></td>
+                  <td><a onclick="slideout('user');">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('user');">Camelia Rose</a></td>
+                  <td><a onclick="slideout('user');">c.rose@company.com</a></td>
+                  <td><a onclick="slideout('user');">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('user');">&nbsp;</a></td>
+                  <td><a onclick="slideout('user');">a.wright@company.com</a></td>
+                  <td><a onclick="slideout('user');">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('user');">Kathryn Payne</a></td>
+                  <td><a onclick="slideout('user');">k.payne@company.com</a></td>
+                  <td><a onclick="slideout('user');">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('user');">Dwight Taylor</a></td>
+                  <td><a onclick="slideout('user');">d.taylor@company.com</a></td>
+                  <td><a onclick="slideout('user');">Active</a></td>
+                </tr>
+                <tr class="disabled">
+                  <td></td>
+                  <td>n.terry@company.com</td>
+                  <td>Pending Invitation</td>
+                </tr>
+                <tr class="disabled">
+                  <td></td>
+                  <td>b.carr@company.com</td>
+                  <td>Pending Invitation</td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('user');">Harry Olson</a></td>
+                  <td><a onclick="slideout('user');">h.olson@company.com</a></td>
+                  <td><a onclick="slideout('user');">Inactive</a></td>
+                </tr>
+                <tr>
+                  <td><a onclick="slideout('user');">Mattie Hale</a></td>
+                  <td><a onclick="slideout('user');">m.hale@company.com</a></td>
+                  <td><a onclick="slideout('user');">Inactive</a></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="pagination">
+              <ul>
+                <li class="pagination-item"><i class="fa fa-angle-left"></i> Previous</li>
+                <li class="pagination-item">1</li>
+                <li class="pagination-item inactive">...</li>
+                <li class="pagination-item">18</li>
+                <li class="pagination-item">19</li>
+                <li class="pagination-item current">20</li>
+                <li class="pagination-item">21</li>
+                <li class="pagination-item">22</li>
+                <li class="pagination-item inactive">...</li>
+                <li class="pagination-item">330</li>
+                <li class="pagination-item">Next <i class="fa fa-angle-right"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slideout-overlay active" style="display: none;">
+      <a href="javascript:void(0);" class="overlay-close" onclick="slidein()"></a>
+      <div class="slideout-close" onclick="slidein();"><i class="fa fa-times"></i></div>
+      <div id="slideout">
+        <div id="slideout-inner">
+
+          <!-- TODO: BEGIN INVITE SLIDEOUT CONTENT -->
+          <div id="invite-slideout" class="slideout-wrap">
+            <div class="header">
+              <h3>Invite Users</h3>
+            </div>
+            <div class="content">
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" class="form-control" placeholder="(required)">
+              </div>
+              <div class="form-group group-cluster">
+                <div class="cluster-row">
+                  <div class="cluster-cell cluster-cell-half">
+                    <label>Role</label>
+                    <select class="form-control">
+                      <option value="" disabled selected>(required)</option>
+                      <option>Location</option>
+                      <option>Field</option>
+                      <option>Corporate</option>
+                    </select>
+                  </div>
+                  <div class="cluster-cell cluster-cell-half">
+                    <!-- ADMIN CHECKBOX -->
+                    <!-- <label>&nbsp;</label>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" name="admin"/> Administrator
+                      </label>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+              <div class="form-buttons">
+                <button type="button" class="btn btn-primary progress-button">Send Invite</button>
+                <button type="button" class="btn btn-default" onclick="slidein();">Cancel</button>
+              </div>
+              <div id="recently-added" class="recent-users"></div>
+            </div>
+          </div>
+
+
+          <div id="user-slideout" class="slideout-wrap">
+            <div class="header">
+              <!-- Currently Active -->
+              <span class="action-message">John Weathers is currently <strong>Active</strong></span>
+              <button type="button" id-"deactivate-user" class="btn btn-danger" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<p>Are you sure you want to deactivate?</p> <button type='button' id='cancel-deactivate' class='btn btn-xs btn-nostyle-popover'>No</button> <button type='button' id='user-deactivated' class='btn btn-xs btn-default'>Yes</button>">Deactivate User</button>
+
+              <!-- Currently Inactive -->
+              <!-- <span class="action-message">John Weathers is currently <strong>Inactive</strong></span>
+              <button type="button" id="reactivate-user" class="btn btn-success" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<p>John Weathers was deactivated by Stephanie Yang on October 24, 2014.</p><p>Are you sure you want to activate this user?</p> <button type='button' id='cancel-reactivate' class='btn btn-xs btn-nostyle-popover'>No</button> <button type='button' id='user-reactivated' class='btn btn-xs btn-default'>Yes</button>">Reactivate User</button> -->
+
+              <!-- Pending Activation -->
+              <!-- <span class="action-message">John Weathers is currently <strong>Pending Activation</strong></span>
+              <button type="button" class="btn btn-danger">Revoke Invitation</button>
+              <button type="button" class="btn btn-primary">Re-Send Invitation</button> -->
+            </div>
+            <div class="content">
+              <!-- NOTE: This should use the same profile-badge that is used on the profile pages as a common component. Add class .minimal and CSS will take care of the styling and extra elements. -->
+              <div class="profile-badge minimal">
+                <div class="badge-row">
+                  <div class="badge-cell profile-image">
+                    <img src="https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg">
+                  </div>
+                  <div class="badge-cell profile-details">
+                    <!-- If admin, show 'Admin' label -->
+                    <span class="profile-name">John Weathers</span> <span class="label label-info">Admin</span>
+                    <span class="profile-title">Field Operations Manager</span>
+                    <span class="profile-phone">(123) 456-7890</span>
+                    <span class="profile-email"><a href="mailto:jweathers@company.com">jweathers@company.com</a></span>
+                    <span class="view-full-profile"><a href="myprofilepublic.html">View Profile</a></span>
+                  </div>
+                  <div class="badge-cell social">
+                    <a href="http://plus.google.com" class="btn btn-default btn-google-plus">
+                      <i class="fa fa-google-plus"></i>
+                    </a>
+
+                    <a href="http://www.facebook.com" class="btn btn-default btn-facebook">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+
+                    <a href="http://www.twitter.com" class="btn btn-default btn-twitter">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+
+                    <a href="http://www.linkedin.com" class="btn btn-default btn-linkedin">
+                      <i class="fa fa-linkedin"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" class="form-control" placeholder="jweathers@company.com" disabled>
+              </div>
+              <div class="form-group group-cluster">
+                <div class="cluster-row">
+                  <div class="cluster-cell cluster-cell-half">
+                    <label>Role</label>
+                    <select class="form-control">
+                      <option>Location</option>
+                      <option selected>Field</option>
+                      <option>Corporate</option>
+                    </select>
+                  </div>
+                  <div class="cluster-cell cluster-cell-half">
+                    <label>&nbsp;</label>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" name="admin" checked/> Administrator
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Locations</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                  <!-- NOTE: The '(required)' placeholder should no longer appear after the first location has been added if it is required. -->
+                  <input type="text" class="form-control" placeholder="(required)" data-toggle="dropdown">
+                  <!-- TODO: Use the same location autocomplete common component used on Notes -->
+                  <ul class="dropdown-menu autocomplete-results full-width">
+                    <!-- <li class="global-search-message">
+                      <p>No results found.</p>
+                    </li> -->
+                    <li>
+                      <a href="#" class="global-search-item">
+                        <div class="global-search-icon"><img src="http://pictures.dealer.com/vantuylautomotiveaz/f21e5b57404638720150b45ae86ea617.jpg"></div>
+                        <div class="global-search-title">
+                          Trophy Nissan - 1234
+                          <div class="global-search-subtitle">Mesquite, TX</div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="global-search-item">
+                        <div class="global-search-icon"><img src="http://s3-media4.fl.yelpcdn.com/bphoto/7aM0v24qR7lME0c8-LidOw/ls.jpg"></div>
+                        <div class="global-search-title">
+                          Town North Nissan - 2842
+                          <div class="global-search-subtitle">Austin, TX</div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="global-search-item">
+                        <div class="global-search-icon"><img src="http://images.autotrader.com/scaler/544/408/images/direct/dealer_photo/2012/11/26/100014820/1353940037507/Clay_Cooley_Nissan.jpg"></div>
+                        <div class="global-search-title">
+                          Clay Cooley Nissan - 2827
+                          <div class="global-search-subtitle">Dallas, TX</div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- Show error message if onBlur, user has not added a location & it is required -->
+                <!-- <div class="error-message">At least one location is required.</div> -->
+              </div>
+              <div class="form-group">
+                <div class="tag-cloud">
+                  <span class="tag-item">Trophy Nissan - 1234 <a class="remove-tag"><i class="fa fa-times-circle"></i></a></span>
+                  <span class="tag-item">Blah - 1234 <a class="remove-tag"><i class="fa fa-times-circle"></i></a></span>
+                  <span class="tag-item">Clay Cooley Nissan - 1234 <a class="remove-tag"><i class="fa fa-times-circle"></i></a></span>
+                  <span class="tag-item">Town North Nissan - 1234 <a class="remove-tag"><i class="fa fa-times-circle"></i></a></span>
+                </div>
+              </div>
+              <div class="form-buttons">
+                <button type="button" class="btn btn-primary progress-button">Update</button>
+                <button type="button" class="btn btn-default" onclick="slidein();">Cancel</button>
+              </div>
+            </div>
+          </div>
+          <!-- END TODO -->
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+
+          // Initializing popovers
+          $('[data-toggle="popover"]').popover();
+        });
+    </script>
+
+    <script type="text/javascript" src="javascripts/coefficient/classie.js"></script>
+    <script type="text/javascript" src="javascripts/coefficient/progressButton.js"></script>
+
+    <script>
+      [].slice.call( document.querySelectorAll( 'button.progress-button' ) ).forEach( function( bttn ) {
+        new ProgressButton( bttn, {
+          callback : function( instance ) {
+            var progress = 0,
+              interval = setInterval( function() {
+                progress = Math.min( progress + Math.random() * 0.25, 1 );
+                instance._setProgress( progress );
+
+                if( progress === 1 ) {
+                  instance._stop(1);
+                  clearInterval( interval );
+                }
+              }, 200 );
+          }
+        } );
+      } );
+    </script>
+
+
+    <!-- TODO: The functions below are only temporary for purposes of markup -->
+    <script>
+      function slideout(slideoutType) {
+        $(".slideout-overlay").show();
+        if(slideoutType == 'invite') { $("#invite-slideout").show(); $("#user-slideout").hide(); }
+        else if (slideoutType == 'user') {$("#user-slideout").show(); $("#invite-slideout").hide(); }
+        else { $("#invite-slideout").hide(); $("#user-slideout").hide(); }
+      }
+      function slidein() {
+        $(".slideout-overlay").hide();
+      }
+    </script>
+    <!-- END TODO -->
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>

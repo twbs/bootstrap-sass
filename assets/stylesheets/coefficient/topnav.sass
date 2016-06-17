@@ -1,0 +1,96 @@
+/* Navigation */
+.navbar
+  .header-profile-image
+    max-width: 30px
+    max-height: 30px
+    @include vertical-align-middle
+  #js-header-profile-image-thumbnail
+    outline: 1px solid rgba(100, 100, 100, 0.5)
+
+.navbar-default
+  border: 0
+  padding: 0 10px
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.15)
+
+  .navbar-brand
+    max-width: 191px
+    font-weight: 300
+    font-size: 19px
+    line-height: 18px
+    padding: 0
+    margin: 10px 10px 10px -10px !important
+    height: 30px
+    &:hover,
+    &:focus
+      color: $white
+    img
+      display: inline-block
+    span
+      vertical-align: middle
+
+  .display-name-light
+    color: $white
+
+  .display-name-dark
+    color: $black
+    &:hover,
+    &:focus
+      color: $black
+
+  .navbar-nav
+    > li
+      > a,
+      a:hover,
+      a:focus
+        color: $white
+    .active
+      a,
+      a:hover,
+      a:focus
+        background-color: rgba($black, 0.3)
+        color: $white
+
+  .navbar-nav.display-name-dark
+    > li
+      > a,
+      a:hover,
+      a:focus
+        color: $black
+
+  .navbar-toggle
+    outline: none
+    border: 0
+    padding: 0 10px
+    margin: 0
+    line-height: 50px
+    &:hover,
+    &:focus
+      background: transparent
+    .fa
+      color: $white
+      font-size: 18px
+
+  .navbar-collapse
+    border: none
+
+.dropdown-menu > li > a
+  &:hover, &:focus
+    background-color: #4E9DFF
+    background-image: none
+    color: $white
+
+#nav-global-search
+  padding: 10px
+
+/* Profile Dropdown */
+.profile_menu
+  margin-left: 10px
+  cursor: pointer
+  &.open
+    .dropdown-toggle
+      //syang - using important to override bootstrap default without crazy nested elements
+      background: transparent !important
+  .dropdown-toggle
+    padding: 10px 10px
+    vertical-align: middle
+    height: 50px
