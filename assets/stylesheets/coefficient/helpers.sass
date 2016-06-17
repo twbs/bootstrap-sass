@@ -1,0 +1,33 @@
+/* -------------------------------------------------------------- */
+/* HELPERS ------------------------------------------------------ */
+/* -------------------------------------------------------------- */
+// helper classes and mixins required for ALL apps and pages
+// very little CSS output here (just is- classes)
+// so this can get imported everywhere easily
+
+
+// -------------------------------------------------------------- //
+// CLEARFIX ----------------------------------------------------- //
+// http://nicolasgallagher.com/micro-clearfix-hack/ ------------- //
+// include @mixin clearfix on the parent div you want to clear -- //
+// -------------------------------------------------------------- //
+@mixin clearfix
+  zoom: 1 // For IE 6/7 (trigger hasLayout)
+
+  &:after,
+  &:before
+    content: " "
+    display: table
+
+  &:after
+    clear: both
+
+
+// -------------------------------------------------------------- //
+// CSS3 --------------------------------------------------------- //
+// -------------------------------------------------------------- //
+
+// rounded corners - different corners
+@mixin border-radius-mixed($topleft, $topright, $bottomright, $bottomleft)
+  border-radius: $topleft $topright $bottomright $bottomleft
+  // to use: @include border-radius-mixed(0, 2px, 0, 2px)

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Locations</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+  <script type="text/javascript" src="javascripts/coefficient/modernizr.custom.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+
+    <% include profile-sidebar.html.ejs %>
+
+    <div class="page-head">
+      <div id="slideout">
+        <!-- TODO: onclick is only temporary for markup purposes -->
+        <button type="button" onclick="slideout();" class="btn btn-primary btn-right">Add Location</button>
+        <!-- TODO: Temporary markup
+             The slideout should be a modal. See www.producthunt.com and click on one of the list items (not the actual link) to see an example of what the modal should look like. Only the section "SLIDEOUT CONTENT" below should be in the modal.
+        -->
+        <div id="slideout-inner">
+          <div class="slidein" onclick="slidein();"><i class="fa fa-times"></i></div>
+        <!-- END TODO -->
+
+
+          <!-- TODO: BEGIN SLIDEOUT CONTENT -->
+          <div class="slideout-wrap">
+            <div class="header">
+              <h3>Add Location</h3>
+            </div>
+            <div class="content">
+              <div class="form-group group-cluster">
+                <div class="cluster-row">
+                  <div class="cluster-cell cluster-cell-quarter">
+                    <label>Store ID</label>
+                    <input type="text" class="form-control" placeholder="ID">
+                  </div>
+                  <div class="cluster-cell">
+                    <label>Store Name</label>
+                    <input type="text" class="form-control" placeholder="Store Name (required)">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group group-cluster">
+                <label>Street Address</label>
+                <input type="text" class="form-control" placeholder="Street Address">
+                <div class="cluster-row">
+                  <div class="cluster-cell cluster-cell-half">
+                    <label>City</label>
+                    <input type="text" class="form-control" placeholder="City">
+                  </div>
+                  <div class="cluster-cell cluster-cell-quarter">
+                    <label>State</label>
+                    <select class="form-control">
+                      <option value="AL">AL</option>
+                      <option value="AK">AK</option>
+                      <option value="AZ">AZ</option>
+                      <option value="AR">AR</option>
+                      <option value="CA">CA</option>
+                      <option value="CO">CO</option>
+                      <option value="CT">CT</option>
+                      <option value="DE">DE</option>
+                      <option value="DC">DC</option>
+                      <option value="FL">FL</option>
+                      <option value="GA">GA</option>
+                      <option value="HI">HI</option>
+                      <option value="ID">ID</option>
+                      <option value="IL">IL</option>
+                      <option value="IN">IN</option>
+                      <option value="IA">IA</option>
+                      <option value="KS">KS</option>
+                      <option value="KY">KY</option>
+                      <option value="LA">LA</option>
+                      <option value="ME">ME</option>
+                      <option value="MD">MD</option>
+                      <option value="MA">MA</option>
+                      <option value="MI">MI</option>
+                      <option value="MN">MN</option>
+                      <option value="MS">MS</option>
+                      <option value="MO">MO</option>
+                      <option value="MT">MT</option>
+                      <option value="NE">NE</option>
+                      <option value="NV">NV</option>
+                      <option value="NH">NH</option>
+                      <option value="NJ">NJ</option>
+                      <option value="NM">NM</option>
+                      <option value="NY">NY</option>
+                      <option value="NC">NC</option>
+                      <option value="ND">ND</option>
+                      <option value="OH">OH</option>
+                      <option value="OK">OK</option>
+                      <option value="OR">OR</option>
+                      <option value="PA">PA</option>
+                      <option value="RI">RI</option>
+                      <option value="SC">SC</option>
+                      <option value="SD">SD</option>
+                      <option value="TN">TN</option>
+                      <option value="TX">TX</option>
+                      <option value="UT">UT</option>
+                      <option value="VT">VT</option>
+                      <option value="VA">VA</option>
+                      <option value="WA">WA</option>
+                      <option value="WV">WV</option>
+                      <option value="WI">WI</option>
+                      <option value="WY">WY</option>
+                    </select>
+                  </div>
+                  <div class="cluster-cell cluster-cell-quarter">
+                    <label>Zipcode</label>
+                    <input type="text" class="form-control" placeholder="Zipcode">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Store Status</label>
+                <div>
+                  <label class="radio-inline"> <input type="radio" name="textColor" checked> Active</label> <!-- Note: 'Active' should be checked by default -->
+                  <label class="radio-inline"> <input type="radio" name="textColor"> Inactive</label>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary progress-button" data-style="fill" data-horizontal>Add</button>
+              <div id="recently-added" class="recent-locations"></div>
+            </div>
+          </div>
+          <!-- END TODO -->
+
+        </div>
+      </div>
+      <h2>Locations</h2>
+    </div>
+    <div class="cl-mcont">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="block-flat">
+            <div class="pre-table">
+              <div class="admin-search">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+              </div>
+              <div class="search-matches">Matched 28 of 328 items.</div>
+              <div class="num-rows-option">
+                Show
+                <select class="form-inline">
+                  <option>10</option>
+                  <option>25</option>
+                  <option>50</option>
+                </select>
+                Rows
+              </div>
+            </div>
+            <table class="datatable">
+              <thead>
+                <tr>
+                  <th>ID <i class="fa fa-sort"></i></th>
+                  <th>Name <i class="fa fa-sort"></i></th>
+                  <th>City <i class="fa fa-sort"></i></th>
+                  <th>State <i class="fa fa-sort"></i></th>
+                  <th>Status <i class="fa fa-sort-down active"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="locationspublic.html">3024</a></td>
+                  <td><a href="locationspublic.html">Store Name Here</a></td>
+                  <td><a href="locationspublic.html">Austin</a></td>
+                  <td><a href="locationspublic.html">TX</a></td>
+                  <td><a href="locationspublic.html">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a href="locationspublic.html">1089</a></td>
+                  <td><a href="locationspublic.html">Another store</a></td>
+                  <td><a href="locationspublic.html">Houston</a></td>
+                  <td><a href="locationspublic.html">TX</a></td>
+                  <td><a href="locationspublic.html">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a href="locationspublic.html">3825</a></td>
+                  <td><a href="locationspublic.html">Brookhaven</a></td>
+                  <td><a href="locationspublic.html">Atlanta</a></td>
+                  <td><a href="locationspublic.html">GA</a></td>
+                  <td><a href="locationspublic.html">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a href="locationspublic.html">19278</a></td>
+                  <td><a href="locationspublic.html">Blahblah blah</a></td>
+                  <td><a href="locationspublic.html">Austin</a></td>
+                  <td><a href="locationspublic.html">TX</a></td>
+                  <td><a href="locationspublic.html">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a href="locationspublic.html">928</a></td>
+                  <td><a href="locationspublic.html">Coolest Store Ever</a></td>
+                  <td><a href="locationspublic.html">Austin</a></td>
+                  <td><a href="locationspublic.html">TX</a></td>
+                  <td><a href="locationspublic.html">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a href="locationspublic.html">3028</a></td>
+                  <td><a href="locationspublic.html">A really long store name here</a></td>
+                  <td><a href="locationspublic.html">Dallas</a></td>
+                  <td><a href="locationspublic.html">TX</a></td>
+                  <td><a href="locationspublic.html">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a href="locationspublic.html">8827</a></td>
+                  <td><a href="locationspublic.html">Yet another store</a></td>
+                  <td><a href="locationspublic.html">Nashville</a></td>
+                  <td><a href="locationspublic.html">TN</a></td>
+                  <td><a href="locationspublic.html">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a href="locationspublic.html">8273</a></td>
+                  <td><a href="locationspublic.html">Bob's Wonderful Store</a></td>
+                  <td><a href="locationspublic.html">New York</a></td>
+                  <td><a href="locationspublic.html">NY</a></td>
+                  <td><a href="locationspublic.html">Active</a></td>
+                </tr>
+                <tr>
+                  <td><a href="locationspublic.html">4024</a></td>
+                  <td><a href="locationspublic.html">Super rainy store</a></td>
+                  <td><a href="locationspublic.html">Seattle</a></td>
+                  <td><a href="locationspublic.html">WA</a></td>
+                  <td><a href="locationspublic.html">Inactive</a></td>
+                </tr>
+                <tr>
+                  <td><a href="locationspublic.html">3024</a></td>
+                  <td><a href="locationspublic.html">Awesome Store</a></td>
+                  <td><a href="locationspublic.html">San Jose</a></td>
+                  <td><a href="locationspublic.html">CA</a></td>
+                  <td><a href="locationspublic.html">Inactive</a></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="pagination">
+              <ul>
+                <li class="pagination-item"><i class="fa fa-angle-left"></i> Previous</li>
+                <li class="pagination-item">1</li>
+                <li class="pagination-item inactive">...</li>
+                <li class="pagination-item">18</li>
+                <li class="pagination-item">19</li>
+                <li class="pagination-item current">20</li>
+                <li class="pagination-item">21</li>
+                <li class="pagination-item">22</li>
+                <li class="pagination-item inactive">...</li>
+                <li class="pagination-item">330</li>
+                <li class="pagination-item">Next <i class="fa fa-angle-right"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+        });
+    </script>
+
+    <script type="text/javascript" src="javascripts/coefficient/classie.js"></script>
+    <script type="text/javascript" src="javascripts/coefficient/progressButton.js"></script>
+
+    <script>
+      [].slice.call( document.querySelectorAll( 'button.progress-button' ) ).forEach( function( bttn ) {
+        new ProgressButton( bttn, {
+          callback : function( instance ) {
+            var progress = 0,
+              interval = setInterval( function() {
+                progress = Math.min( progress + Math.random() * 0.25, 1 );
+                instance._setProgress( progress );
+
+                if( progress === 1 ) {
+                  instance._stop(1);
+                  clearInterval( interval );
+                }
+              }, 200 );
+          }
+        } );
+      } );
+    </script>
+
+
+    <!-- TODO: The functions below are only temporary for purposes of markup -->
+    <script>
+      function slideout() {
+        $("#slideout").addClass("active");
+      }
+      function slidein() {
+        $("#slideout").removeClass("active");
+      }
+    </script>
+    <!-- END TODO -->
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>

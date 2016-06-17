@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>Wild Parrot</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+
+    <% include wp-sidebar.html.ejs %>
+
+    <div class="page-head">
+       <h2>CoEFFICIENT Styleguide</h2>
+    </div>
+    <div class="cl-mcont">
+      <div class="col-sm-12">
+        <div class="block-flat">
+          <div class="header">
+            <h3>Sass</h3>
+          </div>
+          <div class="content">
+            <h4>Best Practices</h4>
+            <p>
+              Always use common components when creating new screens. Most of what you will need is already available in the styleguide provided here. If there are specific styles that will or can be re-used later on, it should be added to the styleguide. Following these rules will keep our product consistent and easy to update.
+            </p>
+            <p>
+              If you are creating new re-usable styles, make sure you follow these guidelines when writing Sass code:
+              <ul>
+                <li>Create user-friendly classnames. Spaces should be converted into dashes. For example, <code>.helper-text</code></li>
+                <li>Follow <a href="https://css-tricks.com/efficiently-rendering-css/" target="_blank">these tricks</a> for when to use ID vs class vs tag selectors, what to avoid and general tips.</li>
+                <li>Avoid nesting too many layers deep. This causes inefficient and convoluted CSS output.</li>
+                <li>Write reusable code by using $variables @mixins, @includes, and @extends functions. See <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html" target="_blank">Sass-lang.com</a> for full documentation.</li>
+              </ul>
+            </p>
+
+            <h4>Formatting Standards</h4>
+            <p>
+              Sass files are automatically compiled to .css files in rails when the page is loaded. They will <strong>NOT</strong> compile if the syntax is incorrect: there can be no brackets, semicolons, or incorrect/inconsistent indentation.
+            </p>
+            <p>
+              Guidelines:
+              <ul>
+                <li>Use soft tabs (2 spaces) to stay consistent with the rest of the CoEFFICIENT code.</li>
+                <li>Set each property on it's own line</li>
+                <li>Set one full line between each selector</li>
+                <li>Use one space between property names and values, ex: <code>float: left</code></li>
+                <li>Prefer shorthand, <code>margin: 20px 0</code> Unless only setting on property, <code>margin-top: 20px</code></li>
+                <li>Avoid specifying zero values, <code>margin: 0</code></li>
+                <li>Use single or double quotations consistently - prefer double quotes, <code>background: url("filename.png")</code></li>
+                <li>NO semicolons at the end of each property - nodejs may allow this, but ruby will complain.</li>
+              </ul>
+            </p>
+
+            <h4>Commenting</h4>
+            <p>
+              Each page should have a section at the top to explain what the file is for, or styling. If the file is broken up into a few sections, subsections should also include comments explaining the section. Prefer breaking long Sass files with multiple sections into separate files instead if it makes sense, for ease of comprehension.
+            </p>
+            <p>
+              Use <code>//</code> instead of <code>/* */</code> for comments unless you intentionally want the comments to show up in the output.
+            </p>
+            <pre><code class="html">// ---------------------------------
+// COLORS
+// ---------------------------------</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="block-flat">
+          <div class="header">
+            <h3>HTML Markup</h3>
+          </div>
+          <div class="content">
+            <h4>Best Practices</h4>
+            <p>
+              Use as few divs as possible to contain your content, and make sure that the names of the divs are only as specific as they need to be. A class name should be reusable across modules, but not so generic that it's difficult to say what it does.
+            </p>
+            <p>
+              Guidelines:
+              <ul>
+                <li><strong>NO</strong> INLINE STYLES</li>
+                <li>Avoid using class names that contain locational or stylistic information such as <code>.left_sidebar</code> or <code>.red_button</code>. In the future, these containers may change. Instead, name them based on content or purpose.</li>
+                <li>Avoid using classes such as <code>.left</code> or <code>.float_left</code>; that type of layout information should be included at the modular level.</li>
+                <li>Elements that occur exactly once inside a page should use IDs, otherwise, use classes. When in doubt, use a class name.</li>
+                <li>Avoid adding styles to basic elements such as <code>&lt;ul&gt;</code>. Instead, add an extra class to these elements you want to style and add styles to the class.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="block-flat">
+          <div class="header">
+            <h3>JavaScript</h3>
+          </div>
+          <div class="content">
+            <h4>General JS philosophy</h4>
+            <p>
+              We want CoEFFICIENT to stay lean and void of extra clutter so we should be careful when adding excessive JS packages and plugins. We should only add necessary JS code so it doesn't end up like our Dealer360 application.
+            </p>
+            <p>
+              Guidelines:
+              <ul>
+                <li>Prefix state classes to toggle CSS with <code>.is-</code></li>
+                <li>Prefix hooks for JS functionality only with <code>.js-</code></li>
+                <li>DO NOT add/remove CSS styles using JS. There should not be inline CSS styles to begin with. All DOM related updates should be done in the form of state classes. For example, <code>.is-hidden</code> or <code>.is-active</code>.</li>
+                <li>Follow <a href="http://www.sitepoint.com/efficient-jquery-selectors/" target="_blank">jQuery tips</a> for writing more efficient jQuery selectors.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- SYANG - SAVE FOR LATER
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="block-flat">
+            <div class="header">
+              <div class="pull-right actions"></div>
+              <h3>Fixed Sidebar</h3>
+            </div>
+            <div class="content">
+              <p>To set the sidebar fixed just add <code>".fixed-menu"</code> to the <code>"#cl-wrapper"</code> element.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="block-flat">
+            <div class="header">
+              <div class="pull-right actions"></div>
+              <h3>Collapsed Sidebar</h3>
+            </div>
+            <div class="content">
+              <p>To collapse the sidebar you can click on "Collapse Button" located in the bottom of the sidebar. If you want the sidebar collapsed by default just add <code>".sb-collapsed"</code> to the <code>"#cl-wrapper"</code> element.</p>
+            </div>
+          </div>
+        </div>
+      </div>-->
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+        });
+        hljs.initHighlightingOnLoad();
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>

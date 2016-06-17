@@ -1,0 +1,56 @@
+// ----------------------------
+// ASIDE STYLING
+// ----------------------------
+
+#page-aside
+  background: none repeat scroll 0 0 $white
+  width: 280px
+  height: 100%
+  position: relative
+  display: table-cell
+  border-right: 1px solid #E9E9E9
+  .app-nav.collapse
+    display: block
+    visibility: visible
+  .header
+    padding: 15px 20px 20px
+  .main-action
+    text-align: center
+    padding-top: 10px
+    button
+      padding-left: 40px
+      padding-right: 40px
+#aside-total-items
+  float: left
+  padding-left: 20px
+  color: #b0b0b0
+#aside-sort
+  float: right
+  padding-right: 20px
+  color: #b0b0b0
+  .dropdown-menu
+    left: auto
+    right: 0
+#aside-items
+  clear: both
+  ul
+    padding: 0
+    margin: 0
+    list-style: none
+    li
+      padding: 20px 22px 20px 25px
+      border-bottom: 2px solid #e8e8e8
+      border-top: 2px solid $white
+      &:hover
+        cursor: pointer
+      &.selected
+        padding: 20px
+        border: 2px solid #0079c2
+        border-left: 5px solid #0079c2
+  .end-of-items
+    padding: 10px 0
+    text-align: center
+    color: #b0b0b0
+    font-size: 11px
+    font-weight: bold
+    border: none

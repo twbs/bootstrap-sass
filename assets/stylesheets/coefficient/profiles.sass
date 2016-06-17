@@ -1,0 +1,71 @@
+.profile-image,
+.profile-image img
+  width: 150px
+  .image-upload
+    display: none
+
+.form-group
+  .profile-image
+    position: relative
+    cursor: pointer
+
+.edit-profile-image
+  width: 150px
+  line-height: 30px
+  color: $white
+  background: transparentize($black, 0.4)
+  text-align: center
+  position: absolute
+  bottom: 0
+
+.profile-badge
+  .profile-name
+    font-size: 24px
+  .profile-edit
+    margin-left: 10px
+  .badge-cell
+    display: table-cell
+    padding-left: 10px
+    vertical-align: top
+    &.profile-image
+      width: 160px
+      img
+        border-radius: 3px
+    &.social
+      width: 30%
+      text-align: right
+  .badge-row
+    display: table
+    width: 100%
+    div:first-child
+      padding-left: 0
+
+/* Store Profile Specific */
+.store-open
+  margin: 15px 0 5px
+  font-weight: 600
+  &.is-open
+    color: $success
+  &.is-closed
+    color: $danger
+
+/* Company Settings Color Picker */
+#color-selector
+  width: 50px
+  height: 50px
+  div
+    width: 50px
+    height: 50px
+    border: 1px solid #cccccc
+
+/* Admin */
+.admin-search
+  display: table-cell
+  width: 200px
+.search-matches
+  display: table-cell
+  padding-left: 15px
+  vertical-align: middle
+
+#recently-added
+  padding: 20px 0 0

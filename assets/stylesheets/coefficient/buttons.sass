@@ -1,0 +1,151 @@
+/* Buttons */
+.btn
+  border-radius: 0
+  outline: none
+  margin-bottom: 5px !important
+  font-size: 13px
+  padding: 7px 11px
+  margin-right: 3px
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12), 1px 1px 0 rgba(255, 255, 255, 0.2) inset
+  &:focus
+    outline: none
+  &.progress-button
+    padding: 0
+
+.btn-full
+  display: block
+  width: 100%
+
+.btn-right
+  float: right
+
+$buttons: (default: ($white, #cccccc, #e6e6e6, #adadad), primary: ($primary, #3680bf, #0081ce, #357ebd), success: ($success, #54a754, #65ca65, #54a754), info: (#5bc0de, #28a1c4, #5fc8e7, #28a1c4), warning: (#ff9900, #e38800, #ffa800, #e38800), danger: (#df4b33, #ca452e, #e64d35, #ca452e), nostyle: ($white, $white, $white, $white), nostyle-popover: ($black, $black, $black, $black))
+
+@each $button, $colorList in $buttons
+  .btn-#{$button},
+  .btn-#{$button}:focus
+    background-color: nth($colorList, 1)
+    border-color: nth($colorList, 2)
+  .btn-#{$button}
+    &:hover,
+    &:active,
+    &.active
+      background-color: nth($colorList, 3)
+      border-color: nth($colorList, 4)
+
+// Special default button styling
+.btn-default,
+.btn-default:focus
+  background-image: linear-gradient(to bottom, white 60%, #f9f9f9 100%)
+.btn-default
+  i
+    color: #444
+
+.btn-nostyle,
+.btn-nostyle:focus
+  box-shadow: none
+
+.btn-nostyle-popover,
+.btn-nostyle-popover:focus
+  box-shadow: none
+  color: $white
+.btn-nostyle-popover:hover
+  color: #e6e6e6
+
+// Flat button styling
+.btn-flat
+  box-shadow: none
+  &:focus
+    box-shadow: none
+  &.btn-default
+    background: $white
+
+
+/* Specific icons size */
+.btn-xs
+  padding: 2px 6px
+  font-size: 11px
+
+/* General styles for all types of buttons */
+.progress-button
+  position: relative
+  display: inline-block
+
+.progress-button[disabled],
+.progress-button[disabled].state-loading
+  cursor: default
+  opacity: .9
+
+.progress-button .content
+  position: relative
+  display: block
+  padding: 7px 11px !important
+
+.progress-button .content::before,
+.progress-button .content::after
+  position: absolute
+  right: 20px
+  color: #362C66
+  opacity: 0
+  -webkit-transition: opacity 0.3s 0.3s
+  transition: opacity 0.3s 0.3s
+  font-family: "FontAwesome"
+  padding: 7px 0
+
+.progress-button .content::after
+  color: #ffffff
+
+.progress-button .content::before
+  content: "\f00c" /* Checkmark for success */
+
+.progress-button .content::after
+  content: "\f071" /* Alert for error */
+
+.progress-button.state-success .content::before,
+.progress-button.state-error .content::after
+  opacity: 1
+
+.notransition
+  -webkit-transition: none !important
+  transition: none !important
+
+.progress-button .progress
+  background: #362C66
+
+.progress-button .progress-inner
+  position: absolute
+  left: 0
+  background: #362C66
+
+.progress-button[data-horizontal] .progress-inner
+  top: 0
+  width: 0
+  height: 100%
+  -webkit-transition: width 0.3s, opacity 0.3s
+  transition: width 0.3s, opacity 0.3s
+
+/* Fill horizontal */
+/* ====================== */
+
+.progress-button[data-style="fill"][data-horizontal]
+  overflow: hidden
+
+.progress-button[data-style="fill"][data-horizontal] .content
+  z-index: 10
+  -webkit-transition: -webkit-transform 0.3s
+  transition: transform 0.3s
+
+.progress-button[data-style="fill"][data-horizontal] .content::before,
+.progress-button[data-style="fill"][data-horizontal] .content::after
+  top: 100%
+  right: auto
+  left: 50%
+  -webkit-transition: opacity 0.3s
+  transition: opacity 0.3s
+  -webkit-transform: translateX(-50%)
+  transform: translateX(-50%)
+
+.progress-button[data-style="fill"][data-horizontal].state-success .content,
+.progress-button[data-style="fill"][data-horizontal].state-error .content
+  -webkit-transform: translateY(-100%)
+  transform: translateY(-100%)

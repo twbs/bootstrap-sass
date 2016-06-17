@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <title>My Profile</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Bootstrap core CSS -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+
+  <link href="stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/jquery/plugins/jquery.nanoscroller.js"></script>
+  <script type="text/javascript" src="javascripts/localdev/general.js"></script>
+
+</head>
+<body>
+
+  <% include header.html.ejs %>
+
+  <div id="cl-wrapper" class="fixed-menu">
+
+    <% include profile-sidebar.html.ejs %>
+
+    <div class="cl-mcont">
+      <div id="action-header">
+        <div class="action-header-right">
+          <!-- Currently Active -->
+          <span class="action-message">John Weathers is currently <strong>Active</strong></span>
+          <button type="button" id-"deactivate-user" class="btn btn-xs btn-danger" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<p>Are you sure you want to deactivate?</p> <button type='button' id='cancel-deactivate' class='btn btn-xs btn-nostyle-popover'>No</button> <button type='button' id='user-deactivated' class='btn btn-xs btn-default'>Yes</button>">Deactivate User</button>
+
+          <!-- Currently Inactive -->
+          <!-- <span class="action-message">John Weathers is currently <strong>Inactive</strong></span>
+          <button type="button" id="reactivate-user" class="btn btn-xs btn-success" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<p>John Weathers was deactivated by Stephanie Yang on October 24, 2014.</p><p>Are you sure you want to activate this user?</p> <button type='button' id='cancel-reactivate' class='btn btn-xs btn-nostyle-popover'>No</button> <button type='button' id='user-reactivated' class='btn btn-xs btn-default'>Yes</button>">Reactivate User</button> -->
+
+          <!-- Pending Activation -->
+          <!-- <span class="action-message">John Weathers is currently <strong>Pending Activation</strong></span>
+          <button type="button" class="btn btn-xs btn-danger">Revoke Invitation</button>
+          <button type="button" class="btn btn-xs btn-primary">Re-Send Invitation</button> -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="block-flat">
+            <div class="profile-badge">
+              <div class="badge-row">
+                <div class="badge-cell profile-image">
+                  <img src="https://s3.amazonaws.com/uifaces/faces/twitter/enda/128.jpg" >
+                </div>
+                <div class="badge-cell profile-details">
+                  <span class="profile-name">John Weathers</span>
+                  <!-- [syang] Edit link may be temporary; Currently, just want a way to link between edit and view page -->
+                  <a href="myprofile.html" class="profile-edit">Edit</a><br/>
+                  Field Operations Manager<br/>
+                  (123) 456-7890<br/>
+                  <a href="mailto:jweathers@company.com">jweathers@company.com</a>
+                </div>
+                <div class="badge-cell social">
+                  <a href="http://www.facebook.com" class="btn btn-default btn-facebook">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+
+                  <a href="http://www.twitter.com" class="btn btn-default btn-twitter">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+
+                  <a href="http://www.linkedin.com" class="btn btn-default btn-linkedin">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+
+                  <a href="http://plus.google.com" class="btn btn-default btn-google-plus">
+                    <i class="fa fa-google-plus"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+
+          // Initializing popovers
+          $('[data-toggle="popover"]').popover();
+        });
+
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
+</body>
+</html>
