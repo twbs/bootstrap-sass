@@ -1,5 +1,3 @@
-// Embeds responsive
-//
 // Credit: Nicolas Gallagher and SUIT CSS.
 
 .embed-responsive {
@@ -16,20 +14,26 @@
   video {
     position: absolute;
     top: 0;
-    left: 0;
     bottom: 0;
-    height: 100%;
+    left: 0;
     width: 100%;
+    height: 100%;
     border: 0;
   }
 }
 
-// Modifier class for 16:9 aspect ratio
-.embed-responsive-16by9 {
-  padding-bottom: 56.25%;
+.embed-responsive-21by9 {
+  padding-bottom: percentage(9 / 21);
 }
 
-// Modifier class for 4:3 aspect ratio
+.embed-responsive-16by9 {
+  padding-bottom: percentage(9 / 16);
+}
+
 .embed-responsive-4by3 {
-  padding-bottom: 75%;
+  padding-bottom: percentage(3 / 4);
+}
+
+.embed-responsive-1by1 {
+  padding-bottom: percentage(1 / 1);
 }

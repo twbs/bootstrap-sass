@@ -1,8 +1,3 @@
-//
-// Close icons
-// --------------------------------------------------
-
-
 .close {
   float: right;
   font-size: ($font-size-base * 1.5);
@@ -10,17 +5,14 @@
   line-height: 1;
   color: $close-color;
   text-shadow: $close-text-shadow;
-  @include opacity(.2);
+  opacity: .2;
 
-  &:hover,
-  &:focus {
+  @include hover-focus {
     color: $close-color;
     text-decoration: none;
     cursor: pointer;
-    @include opacity(.5);
+    opacity: .5;
   }
-
-  // [converter] extracted button& to button.close
 }
 
 // Additional properties for button version
