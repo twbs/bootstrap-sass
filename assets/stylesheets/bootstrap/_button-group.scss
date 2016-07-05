@@ -1,21 +1,21 @@
-//
-// Button groups
-// --------------------------------------------------
-
 // Make the div behave like a button
 .btn-group,
 .btn-group-vertical {
   position: relative;
   display: inline-block;
   vertical-align: middle; // match .btn alignment given font-size hack above
+
   > .btn {
     position: relative;
     float: left;
+
     // Bring the "active" button to the front
-    &:hover,
     &:focus,
     &:active,
     &.active {
+      z-index: 2;
+    }
+    @include hover {
       z-index: 2;
     }
   }
@@ -27,20 +27,20 @@
   .btn + .btn-group,
   .btn-group + .btn,
   .btn-group + .btn-group {
-    margin-left: -1px;
+    margin-left: -$input-btn-border-width;
   }
 }
 
 // Optional: Group multiple button groups together for a toolbar
 .btn-toolbar {
   margin-left: -5px; // Offset the first child's margin
-  @include clearfix;
+  @include clearfix();
 
-  .btn,
   .btn-group,
   .input-group {
     float: left;
   }
+
   > .btn,
   > .btn-group,
   > .input-group {
@@ -55,6 +55,7 @@
 // Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
 .btn-group > .btn:first-child {
   margin-left: 0;
+
   &:not(:last-child):not(.dropdown-toggle) {
     @include border-right-radius(0);
   }
@@ -93,22 +94,22 @@
 //
 // Remix the default button sizing classes into new ones for easier manipulation.
 
-.btn-group-xs > .btn { @extend .btn-xs; }
 .btn-group-sm > .btn { @extend .btn-sm; }
 .btn-group-lg > .btn { @extend .btn-lg; }
 
 
+//
 // Split button dropdowns
-// ----------------------
+//
 
 // Give the line between buttons some depth
 .btn-group > .btn + .dropdown-toggle {
-  padding-left: 8px;
   padding-right: 8px;
+  padding-left: 8px;
 }
 .btn-group > .btn-lg + .dropdown-toggle {
-  padding-left: 12px;
   padding-right: 12px;
+  padding-left: 12px;
 }
 
 // The clickable button for toggling the menu
@@ -129,17 +130,19 @@
 }
 // Carets in other button sizes
 .btn-lg .caret {
-  border-width: $caret-width-large $caret-width-large 0;
+  border-width: $caret-width-lg $caret-width-lg 0;
   border-bottom-width: 0;
 }
 // Upside down carets for .dropup
 .dropup .btn-lg .caret {
-  border-width: 0 $caret-width-large $caret-width-large;
+  border-width: 0 $caret-width-lg $caret-width-lg;
 }
 
 
+
+//
 // Vertical button groups
-// ----------------------
+//
 
 .btn-group-vertical {
   > .btn,
@@ -153,7 +156,8 @@
 
   // Clear floats so dropdown menus can be properly placed
   > .btn-group {
-    @include clearfix;
+    @include clearfix();
+
     > .btn {
       float: none;
     }
@@ -163,7 +167,7 @@
   > .btn + .btn-group,
   > .btn-group + .btn,
   > .btn-group + .btn-group {
-    margin-top: -1px;
+    margin-top: -$input-btn-border-width;
     margin-left: 0;
   }
 }
@@ -173,12 +177,12 @@
     border-radius: 0;
   }
   &:first-child:not(:last-child) {
-    @include border-top-radius($btn-border-radius-base);
+    border-top-right-radius: $btn-border-radius;
     @include border-bottom-radius(0);
   }
   &:last-child:not(:first-child) {
+    border-bottom-left-radius: $btn-border-radius;
     @include border-top-radius(0);
-    @include border-bottom-radius($btn-border-radius-base);
   }
 }
 .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
@@ -192,30 +196,6 @@
 }
 .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
   @include border-top-radius(0);
-}
-
-
-// Justified button groups
-// ----------------------
-
-.btn-group-justified {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: separate;
-  > .btn,
-  > .btn-group {
-    float: none;
-    display: table-cell;
-    width: 1%;
-  }
-  > .btn-group .btn {
-    width: 100%;
-  }
-
-  > .btn-group .dropdown-menu {
-    left: auto;
-  }
 }
 
 

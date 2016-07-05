@@ -1,11 +1,8 @@
-//
-// Modals
-// --------------------------------------------------
-
 // .modal-open      - body class for killing the scroll
 // .modal           - container to scroll within
 // .modal-dialog    - positioning shell for the actual modal
 // .modal-content   - actual modal w/ bg and corners and shit
+
 
 // Kill the scroll on the body
 .modal-open {
@@ -14,26 +11,25 @@
 
 // Container that the modal scrolls within
 .modal {
-  display: none;
-  overflow: hidden;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: $zindex-modal;
-  -webkit-overflow-scrolling: touch;
-
+  display: none;
+  overflow: hidden;
   // Prevent Chrome on Windows from adding a focus outline. For details, see
   // https://github.com/twbs/bootstrap/pull/10951.
   outline: 0;
+  -webkit-overflow-scrolling: touch;
 
   // When fading in the modal, animate it to slide down
   &.fade .modal-dialog {
-    @include translate(0, -25%);
-    @include transition-transform(0.3s ease-out);
+    transition: transform .3s ease-out;
+    transform: translate(0, -25%);
   }
-  &.in .modal-dialog { @include translate(0, 0) }
+  &.in .modal-dialog { transform: translate(0, 0); }
 }
 .modal-open .modal {
   overflow-x: hidden;
@@ -51,11 +47,10 @@
 .modal-content {
   position: relative;
   background-color: $modal-content-bg;
-  border: 1px solid $modal-content-fallback-border-color; //old browsers fallback (ie8 etc)
-  border: 1px solid $modal-content-border-color;
-  border-radius: $border-radius-large;
-  @include box-shadow(0 3px 9px rgba(0,0,0,.5));
   background-clip: padding-box;
+  border: 1px solid $modal-content-border-color;
+  border-radius: $border-radius-lg;
+  @include box-shadow(0 3px 9px rgba(0,0,0,.5));
   // Remove focus outline from opened modal
   outline: 0;
 }
@@ -67,11 +62,12 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: $zindex-modal-background;
+  z-index: $zindex-modal-bg;
   background-color: $modal-backdrop-bg;
+
   // Fade for backdrop
-  &.fade { @include opacity(0); }
-  &.in { @include opacity($modal-backdrop-opacity); }
+  &.fade { opacity: 0; }
+  &.in { opacity: $modal-backdrop-opacity; }
 }
 
 // Modal header
@@ -104,12 +100,12 @@
   padding: $modal-inner-padding;
   text-align: right; // right align buttons
   border-top: 1px solid $modal-footer-border-color;
-  @include clearfix; // clear it in case folks use .pull-* classes on buttons
+  @include clearfix(); // clear it in case folks use .pull-* classes on buttons
 
   // Properly space out buttons
   .btn + .btn {
-    margin-left: 5px;
     margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
+    margin-left: 5px;
   }
   // but override that for button groups
   .btn-group .btn + .btn {
@@ -131,7 +127,7 @@
 }
 
 // Scale up the modal
-@media (min-width: $screen-sm-min) {
+@include media-breakpoint-up(sm) {
   // Automatically set modal's width for larger viewports
   .modal-dialog {
     width: $modal-md;
@@ -145,6 +141,6 @@
   .modal-sm { width: $modal-sm; }
 }
 
-@media (min-width: $screen-md-min) {
+@include media-breakpoint-up(md) {
   .modal-lg { width: $modal-lg; }
 }
