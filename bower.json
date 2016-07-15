@@ -27,10 +27,11 @@
     "test",
     "*.gemspec",
     "Rakefile",
-    "Gemfile"
+    "Gemfile",
+    "docs"
   ],
   "dependencies": {
     "jquery": "1.9.1 - 2"
   },
-  "version": "3.3.7"
+  "version": "3.3.8"
 }
