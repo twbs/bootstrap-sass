@@ -7,7 +7,8 @@
 // -------------------------
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.h1, .h2, .h3, .h4, .h5, .h6,
+.alpha, .beta, .gamma, .delta, .epsilon, .zeta {
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
@@ -20,9 +21,9 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
-h1, .h1,
-h2, .h2,
-h3, .h3 {
+h1, .h1, .alpha,
+h2, .h2, .beta,
+h3, .h3, .gamma {
   margin-top: $line-height-computed;
   margin-bottom: ($line-height-computed / 2);
 
@@ -31,9 +32,9 @@ h3, .h3 {
     font-size: 100%;
   }
 }
-h4, .h4,
-h5, .h5,
-h6, .h6 {
+h4, .h4, .delta,
+h5, .h5, .epsilon,
+h6, .h6, .zeta {
   margin-top: ($line-height-computed / 2);
   margin-bottom: ($line-height-computed / 2);
 
@@ -63,12 +64,12 @@ h6, .h6, .zeta {
   font-weight: 700;
 }
 
-h1, .h1 { font-size: $font-size-h1; }
-h2, .h2 { font-size: $font-size-h2; }
-h3, .h3 { font-size: $font-size-h3; }
-h4, .h4 { font-size: $font-size-h4; }
-h5, .h5 { font-size: $font-size-h5; }
-h6, .h6 { font-size: $font-size-h6; }
+h1, .h1, .alpha { font-size: $font-size-h1; }
+h2, .h2, .beta { font-size: $font-size-h2; }
+h3, .h3, .gamma { font-size: $font-size-h3; }
+h4, .h4, .delta { font-size: $font-size-h4; }
+h5, .h5, .epsilon { font-size: $font-size-h5; }
+h6, .h6, .zeta { font-size: $font-size-h6; }
 
 
 // Body text
