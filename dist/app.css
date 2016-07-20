@@ -194,7 +194,7 @@ th {
   box-sizing: border-box; }
 
 html {
-  font-size: 10px;
+  font-size: 0.8125em;
   -webkit-tap-highlight-color: transparent; }
 
 body {
@@ -217,11 +217,7 @@ a {
   text-decoration: none; }
   a:hover, a:focus {
     color: #005d64;
-    text-decoration: underline; }
-  a:focus {
-    outline: thin dotted;
-    outline: 0;
-    box-shadow: 0 0 0 1px #017d87; }
+    text-decoration: none; }
 
 figure {
   margin: 0; }
@@ -277,11 +273,12 @@ hr {
   overflow: visible;
   clip: auto; }
 
-[role="button"] {
+a, [role="button"] {
   cursor: pointer; }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.h1, .h2, .h3, .h4, .h5, .h6,
+.alpha, .beta, .gamma, .delta, .epsilon, .zeta {
   font-family: inherit;
   font-weight: 300;
   line-height: 1.1; }
@@ -298,41 +295,54 @@ h1, h2, h3, h4, h5, h6,
   .h3 .small, .h4 small,
   .h4 .small, .h5 small,
   .h5 .small, .h6 small,
-  .h6 .small {
+  .h6 .small,
+  .alpha small,
+  .alpha .small, .beta small,
+  .beta .small, .gamma small,
+  .gamma .small, .delta small,
+  .delta .small, .epsilon small,
+  .epsilon .small, .zeta small,
+  .zeta .small {
     font-weight: 300;
     line-height: 1;
     color: #8c8c8c; }
 
-h1, .h1,
-h2, .h2,
-h3, .h3 {
+h1, .h1, .alpha,
+h2, .h2, .beta,
+h3, .h3, .gamma {
   margin-top: 20px;
   margin-bottom: 10px; }
   h1 small,
   h1 .small, .h1 small,
-  .h1 .small,
+  .h1 .small, .alpha small,
+  .alpha .small,
   h2 small,
   h2 .small, .h2 small,
-  .h2 .small,
+  .h2 .small, .beta small,
+  .beta .small,
   h3 small,
   h3 .small, .h3 small,
-  .h3 .small {
+  .h3 .small, .gamma small,
+  .gamma .small {
     font-size: 100%; }
 
-h4, .h4,
-h5, .h5,
-h6, .h6 {
+h4, .h4, .delta,
+h5, .h5, .epsilon,
+h6, .h6, .zeta {
   margin-top: 10px;
   margin-bottom: 10px; }
   h4 small,
   h4 .small, .h4 small,
-  .h4 .small,
+  .h4 .small, .delta small,
+  .delta .small,
   h5 small,
   h5 .small, .h5 small,
-  .h5 .small,
+  .h5 .small, .epsilon small,
+  .epsilon .small,
   h6 small,
   h6 .small, .h6 small,
-  .h6 .small {
+  .h6 .small, .zeta small,
+  .zeta .small {
     font-size: 75%; }
 
 h1, .h1, .alpha,
@@ -351,22 +361,22 @@ h5, .h5, .epsilon,
 h6, .h6, .zeta {
   font-weight: 700; }
 
-h1, .h1 {
+h1, .h1, .alpha {
   font-size: 30px; }
 
-h2, .h2 {
+h2, .h2, .beta {
   font-size: 30px; }
 
-h3, .h3 {
+h3, .h3, .gamma {
   font-size: 23px; }
 
-h4, .h4 {
+h4, .h4, .delta {
   font-size: 23px; }
 
-h5, .h5 {
+h5, .h5, .epsilon {
   font-size: 13px; }
 
-h6, .h6 {
+h6, .h6, .zeta {
   font-size: 13px; }
 
 p {
@@ -2474,7 +2484,8 @@ tbody.collapse.in {
 
 .btn-group .dropdown-toggle:active,
 .btn-group.open .dropdown-toggle {
-  outline: 0; }
+  outline: 0;
+  box-shadow: none; }
 
 .btn-group > .btn + .dropdown-toggle {
   padding-left: 8px;
@@ -3264,6 +3275,8 @@ tbody.collapse.in {
     background-color: #fff;
     border-color: #ebebeb;
     cursor: not-allowed; }
+  .pagination > .disabled > a:focus {
+    z-index: 3; }
 
 .pagination-lg > li > a,
 .pagination-lg > li > span {
