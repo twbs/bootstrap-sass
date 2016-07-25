@@ -323,9 +323,7 @@ The upstream versions vs the Bootstrap for Sass versions are:
 
 | Upstream |    Sass |
 |---------:|--------:|
-|    3.3.6 |   3.3.6 |
-|    3.3.5 |   3.3.5 |
-|    3.3.4 |   3.3.4 |
+|    3.3.4+ |   same |
 |    3.3.2 |   3.3.3 |
 | <= 3.3.1 | 3.3.1.x |
 
