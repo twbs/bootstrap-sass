@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gemspec
 
+gem 'rails'
+gem 'haml-rails'
 # Compass for the dummy app
 gem 'compass', require: false
 
