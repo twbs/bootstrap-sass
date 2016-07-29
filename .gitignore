@@ -15,6 +15,8 @@ tmp/
 test/screenshots/
 test/dummy_rails/log/*.log
 test/dummy_rails/public/assets/
+spec/dummy/log/*.log
+spec/dummy/public/assets/
 .DS_Store
 node_modules
 /.idea

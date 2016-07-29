@@ -1,0 +1,12 @@
+//rewrite default variables
+@import "variables";
+
+//import bootsrtap
+@import "../bootstrap-sprockets";
+@import "../bootstrap";
+
+//rewrite default mixins
+@import "mixins";
+
+//rewrite class
+@import "buttons";
