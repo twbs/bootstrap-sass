@@ -1,6 +1,12 @@
+//rewrite default variables
+@import "variables";
+
+//import bootsrtap
 @import "../bootstrap-sprockets";
 @import "../bootstrap";
 
-.btn-danger {
-  width: 600px;
-}
+//rewrite default mixins
+@import "mixins";
+
+//rewrite class
+@import "buttons";
