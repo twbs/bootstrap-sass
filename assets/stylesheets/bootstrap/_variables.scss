@@ -120,8 +120,8 @@ $padding-large-horizontal:  19px !default;
 $padding-small-vertical:    5px !default;
 $padding-small-horizontal:  10px !default;
 
-$padding-xs-vertical:       1px !default;
-$padding-xs-horizontal:     5px !default;
+$padding-xs-vertical:       0.1538461538em !default; // 2px
+$padding-xs-horizontal:     0.3076923077em !default; // 4px
 
 $line-height-large:         1.3333333 !default; // extra decimals for Win 8.1 Chrome
 $line-height-small:         1.5 !default;

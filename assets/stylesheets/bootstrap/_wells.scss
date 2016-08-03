@@ -88,12 +88,16 @@ $all-text-inputs: _assing-inputs($_text-inputs-list);
     }
   }
 
+  .open > &.dropdown-toggle {
+    background-color: $gray-superlight;
+  }
+
   .btn-default,
   .btn-success,
   .btn-danger {
     &:active,
     &:focus {
-      background-color: $gray-superlight;
+      background-color: $gray-superlight !important;
     }
   }
 }
