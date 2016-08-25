@@ -2033,9 +2033,7 @@ select[multiple].input-lg,
   -ms-user-select: none;
   user-select: none; }
   .btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
-    outline: thin dotted;
-    outline: 0;
-    box-shadow: 0 0 0 1px #017d87; }
+    outline: 0; }
   .btn:hover, .btn:focus, .btn.focus {
     color: #017d87;
     text-decoration: none; }
