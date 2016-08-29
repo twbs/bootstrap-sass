@@ -35,11 +35,11 @@
 // Row
 //
 // Rows contain and clear the floats of your columns.
-
-.row {
-  @include make-row;
+.container, .container-fluid {
+  .row {
+    @include make-row;
+  }
 }
-
 
 // Columns
 //
