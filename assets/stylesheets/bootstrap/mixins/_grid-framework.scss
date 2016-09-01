@@ -30,15 +30,15 @@
 }
 
 
-@mixin calc-grid-column($index, $class, $type) {
+@mixin calc-grid-column($index, $cols, $class, $type) {
   @if ($type == width) and ($index > 0) {
     .col-#{$class}-#{$index} {
-      width: percentage(($index / $grid-columns));
+      width: percentage(($index / $cols));
     }
   }
   @if ($type == push) and ($index > 0) {
     .col-#{$class}-push-#{$index} {
-      left: percentage(($index / $grid-columns));
+      left: percentage(($index / $cols));
     }
   }
   @if ($type == push) and ($index == 0) {
@@ -48,7 +48,7 @@
   }
   @if ($type == pull) and ($index > 0) {
     .col-#{$class}-pull-#{$index} {
-      right: percentage(($index / $grid-columns));
+      right: percentage(($index / $cols));
     }
   }
   @if ($type == pull) and ($index == 0) {
@@ -58,7 +58,7 @@
   }
   @if ($type == offset) {
     .col-#{$class}-offset-#{$index} {
-      margin-left: percentage(($index / $grid-columns));
+      margin-left: percentage(($index / $cols));
     }
   }
 }
@@ -66,7 +66,7 @@
 // [converter] This is defined recursively in LESS, but Sass supports real loops
 @mixin loop-grid-columns($columns, $class, $type) {
   @for $i from 0 through $columns {
-    @include calc-grid-column($i, $class, $type);
+    @include calc-grid-column($i, $columns, $class, $type);
   }
 }
 
