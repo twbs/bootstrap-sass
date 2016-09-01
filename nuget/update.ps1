@@ -1,0 +1,1 @@
+.\nuget.exe update -self
