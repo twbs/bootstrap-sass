@@ -587,7 +587,7 @@
 
   .navbar-collapse,
   .navbar-form {
-    border-color: darken($navbar-inverse-bg, 7%);
+    border-color: $navbar-inverse-border;
   }
 
   // Dropdowns
