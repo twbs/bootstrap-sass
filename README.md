@@ -34,8 +34,8 @@ Import Bootstrap styles in `app/assets/stylesheets/application.scss`:
 
 ```scss
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import "bootstrap-sprockets"
+@import "bootstrap"
 ```
 
 `bootstrap-sprockets` must be imported before `bootstrap` for the icon fonts to work.
