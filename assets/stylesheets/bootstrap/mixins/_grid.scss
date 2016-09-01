@@ -18,14 +18,18 @@
   @include clearfix;
 }
 
+// Generate base styles for any column
+@mixin make-column($gutter: $grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+}
+
 // Generate the extra small columns
 @mixin make-xs-column($columns, $gutter: $grid-gutter-width) {
-  position: relative;
   float: left;
   width: percentage(($columns / $grid-columns));
-  min-height: 1px;
-  padding-left:  ($gutter / 2);
-  padding-right: ($gutter / 2);
 }
 @mixin make-xs-column-offset($columns) {
   margin-left: percentage(($columns / $grid-columns));
@@ -39,11 +43,6 @@
 
 // Generate the small columns
 @mixin make-sm-column($columns, $gutter: $grid-gutter-width) {
-  position: relative;
-  min-height: 1px;
-  padding-left:  ($gutter / 2);
-  padding-right: ($gutter / 2);
-
   @media (min-width: $screen-sm-min) {
     float: left;
     width: percentage(($columns / $grid-columns));
@@ -67,11 +66,6 @@
 
 // Generate the medium columns
 @mixin make-md-column($columns, $gutter: $grid-gutter-width) {
-  position: relative;
-  min-height: 1px;
-  padding-left:  ($gutter / 2);
-  padding-right: ($gutter / 2);
-
   @media (min-width: $screen-md-min) {
     float: left;
     width: percentage(($columns / $grid-columns));
@@ -95,11 +89,6 @@
 
 // Generate the large columns
 @mixin make-lg-column($columns, $gutter: $grid-gutter-width) {
-  position: relative;
-  min-height: 1px;
-  padding-left:  ($gutter / 2);
-  padding-right: ($gutter / 2);
-
   @media (min-width: $screen-lg-min) {
     float: left;
     width: percentage(($columns / $grid-columns));
