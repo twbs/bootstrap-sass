@@ -19,7 +19,7 @@ Please see the appropriate guide for your environment of choice:
 
 ### a. Ruby on Rails
 
-`bootstrap-sass` is easy to drop into Rails with the asset pipeline.
+`bootstrap` is easy to drop into Rails with the asset pipeline.
 
 In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `sass-rails` gem is present - it is added to new Rails applications by default.
 
