@@ -1,0 +1,8 @@
+**/.*
+lib
+tasks
+templates
+test
+*.gemspec
+Rakefile
+Gemfile
