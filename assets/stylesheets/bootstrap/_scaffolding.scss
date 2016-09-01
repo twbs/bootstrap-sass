@@ -89,7 +89,7 @@ img {
 
 // Image thumbnails
 //
-// Heads up! This is mixin-ed into thumbnails.less for `.thumbnail`.
+// Heads up! This is mixin-ed into thumbnails.scss for `.thumbnail`.
 .img-thumbnail {
   padding: $thumbnail-padding;
   line-height: $line-height-base;
