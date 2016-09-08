@@ -8,6 +8,9 @@
   margin: $line-height-computed 0;
   list-style: none;
   text-align: center;
+
+  .rtl &{padding-right:0;}
+
   @include clearfix;
   li {
     display: inline;
@@ -31,6 +34,8 @@
     > a,
     > span {
       float: right;
+
+      .rtl &{float:left;}
     }
   }
 
@@ -38,6 +43,8 @@
     > a,
     > span {
       float: left;
+
+      .rtl &{float:right;}
     }
   }
 

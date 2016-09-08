@@ -18,6 +18,20 @@
   to    { background-position: 0 0; }
 }
 
+// Bar animations rtl
+// -------------------------
+
+// Webkit
+@-webkit-keyframes progress-bar-stripes-rtl {
+  from  { background-position: 0 0; }
+  to    { background-position: 40px 0; }
+}
+
+// Spec and IE10+
+@keyframes progress-bar-stripes-rtl {
+  from  { background-position: 0 0; }
+  to    { background-position: 40px 0; }
+}
 
 // Bar itself
 // -------------------------
@@ -44,6 +58,8 @@
   background-color: $progress-bar-bg;
   @include box-shadow(inset 0 -1px 0 rgba(0,0,0,.15));
   @include transition(width .6s ease);
+
+  .rtl &{float:right;}
 }
 
 // Striped bars
@@ -64,6 +80,7 @@
 .progress.active .progress-bar,
 .progress-bar.active {
   @include animation(progress-bar-stripes 2s linear infinite);
+  .rtl &{@include animation(progress-bar-stripes-rtl 2s linear infinite);}
 }
 
 

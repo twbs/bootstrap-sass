@@ -33,6 +33,8 @@
 
   @media (min-width: $grid-float-breakpoint) {
     float: left;
+
+    .rtl &{float:right;}
   }
 }
 
@@ -167,6 +169,8 @@
   line-height: $line-height-computed;
   height: $navbar-height;
 
+  .rtl &{float:right;}
+
   &:hover,
   &:focus {
     text-decoration: none;
@@ -180,6 +184,11 @@
     .navbar > .container &,
     .navbar > .container-fluid & {
       margin-left: -$navbar-padding-horizontal;
+
+      .rtl &{
+          margin-left: auto;
+          margin-right: -$navbar-padding-horizontal;
+      }
     }
   }
 }
@@ -200,6 +209,12 @@
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
   border-radius: $border-radius-base;
+
+  .rtl & {
+      float: left;
+      margin-right: auto;
+      margin-left: $navbar-padding-horizontal;
+  }
 
   // We remove the `outline` here, but later compensate by attaching `:hover`
   // styles to `:focus`.
@@ -251,6 +266,8 @@
       > li > a,
       .dropdown-header {
         padding: 5px 15px 5px 25px;
+
+        .rtl &{padding: 5px 25px 5px 15px;}
       }
       > li > a {
         line-height: $line-height-computed;
@@ -266,9 +283,12 @@
   @media (min-width: $grid-float-breakpoint) {
     float: left;
     margin: 0;
+    .rtl &{float:right;}
 
     > li {
       float: left;
+      .rtl &{float:right;}
+
       > a {
         padding-top:    $navbar-padding-vertical;
         padding-bottom: $navbar-padding-vertical;
@@ -349,6 +369,8 @@
   &.btn-xs {
     @include navbar-vertical-align(22);
   }
+
+  .rtl &{float:right;}
 }
 
 
@@ -358,9 +380,12 @@
 
 .navbar-text {
   @include navbar-vertical-align($line-height-computed);
+  .rtl &{float:right;}
 
   @media (min-width: $grid-float-breakpoint) {
     float: left;
+    .rtl &{float:right;}
+
     margin-left: $navbar-padding-horizontal;
     margin-right: $navbar-padding-horizontal;
   }
@@ -378,13 +403,33 @@
 @media (min-width: $grid-float-breakpoint) {
   .navbar-left {
     float: left !important;
+
+    .rtl &{
+        float: right !important;
+        margin-right: -$navbar-padding-horizontal;
+        ~ .navbar-right {
+            margin-left: 0;
+            margin-right:auto;
+        }
+    }
   }
   .navbar-right {
     float: right !important;
-  margin-right: -$navbar-padding-horizontal;
+    margin-right: -$navbar-padding-horizontal;
 
     ~ .navbar-right {
       margin-right: 0;
+    }
+
+    .rtl &{
+        float: left !important;
+        margin-right: auto;
+        margin-left: -$navbar-padding-horizontal;
+
+        ~ .navbar-right {
+          margin-right: auto;
+          margin-left: 0;
+        }
     }
   }
 }

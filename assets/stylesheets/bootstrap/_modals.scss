@@ -106,18 +106,32 @@
   border-top: 1px solid $modal-footer-border-color;
   @include clearfix; // clear it in case folks use .pull-* classes on buttons
 
+  .rtl &{text-align:left;}
+
   // Properly space out buttons
   .btn + .btn {
     margin-left: 5px;
     margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
+
+    .rtl &{
+        margin-left:0;
+        margin-right:5px;
+    }
   }
   // but override that for button groups
   .btn-group .btn + .btn {
     margin-left: -1px;
+
+    .rtl &{
+        margin-left:0;
+        margin-right:-1px;
+    }
   }
   // and override it for block buttons as well
   .btn-block + .btn-block {
     margin-left: 0;
+
+    .rtl &{margin-right:0;}
   }
 }
 

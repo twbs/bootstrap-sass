@@ -55,6 +55,10 @@
     margin-bottom: -$tooltip-arrow-width;
     border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
     border-top-color: $tooltip-arrow-color;
+    .rtl &{
+        right:auto;
+        left: $tooltip-arrow-width;
+    }
   }
   &.top-right .tooltip-arrow {
     bottom: 0;
@@ -62,6 +66,10 @@
     margin-bottom: -$tooltip-arrow-width;
     border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
     border-top-color: $tooltip-arrow-color;
+    .rtl &{
+        left:auto;
+        right: $tooltip-arrow-width;
+    }
   }
   &.right .tooltip-arrow {
     top: 50%;
@@ -69,6 +77,12 @@
     margin-top: -$tooltip-arrow-width;
     border-width: $tooltip-arrow-width $tooltip-arrow-width $tooltip-arrow-width 0;
     border-right-color: $tooltip-arrow-color;
+    .rtl &{
+        right:0;
+        left:auto;
+        border-width: $tooltip-arrow-width 0 $tooltip-arrow-width $tooltip-arrow-width;
+        border-left-color: $tooltip-arrow-color;
+    }
   }
   &.left .tooltip-arrow {
     top: 50%;
@@ -76,6 +90,12 @@
     margin-top: -$tooltip-arrow-width;
     border-width: $tooltip-arrow-width 0 $tooltip-arrow-width $tooltip-arrow-width;
     border-left-color: $tooltip-arrow-color;
+    .rtl &{
+        left:0;
+        right:auto;
+        border-width: $tooltip-arrow-width $tooltip-arrow-width $tooltip-arrow-width 0;
+        border-right-color: $tooltip-arrow-color;
+    }
   }
   &.bottom .tooltip-arrow {
     top: 0;
@@ -90,6 +110,10 @@
     margin-top: -$tooltip-arrow-width;
     border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
     border-bottom-color: $tooltip-arrow-color;
+    .rtl &{
+        right:auto;
+        left: $tooltip-arrow-width;
+    }
   }
   &.bottom-right .tooltip-arrow {
     top: 0;
@@ -97,5 +121,11 @@
     margin-top: -$tooltip-arrow-width;
     border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
     border-bottom-color: $tooltip-arrow-color;
+    .rtl &{
+        left:auto;
+        right: $tooltip-arrow-width;
+        border-width: $tooltip-arrow-width;
+        border-color: $tooltip-arrow-color;
+    }
   }
 }

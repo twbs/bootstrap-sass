@@ -43,12 +43,22 @@
 .alert-dismissible {
   padding-right: ($alert-padding + 20);
 
+  .rtl & {
+        padding-right: $alert-padding;
+        padding-left: ($alert-padding + 20);
+  }
+
   // Adjust close link position
   .close {
     position: relative;
     top: -2px;
     right: -21px;
     color: inherit;
+
+    .rtl & {
+        right: auto;
+        left: -21px;
+    }
   }
 }
 

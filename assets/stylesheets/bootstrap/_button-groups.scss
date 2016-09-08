@@ -11,6 +11,9 @@
   > .btn {
     position: relative;
     float: left;
+
+    .rtl &{float:right;}
+
     // Bring the "active" button to the front
     &:hover,
     &:focus,
@@ -28,23 +31,40 @@
   .btn-group + .btn,
   .btn-group + .btn-group {
     margin-left: -1px;
+
+    .rtl &{
+        margin-left:0;
+        margin-right:-1px;
+    }
   }
 }
 
 // Optional: Group multiple button groups together for a toolbar
 .btn-toolbar {
   margin-left: -5px; // Offset the first child's margin
+
+  .rtl &{
+      margin-right: 5px;
+      margin-left:0;
+  }
   @include clearfix;
 
   .btn,
   .btn-group,
   .input-group {
     float: left;
+
+    .rtl &{float:right;}
   }
   > .btn,
   > .btn-group,
   > .input-group {
     margin-left: 5px;
+
+    .rtl &{
+        margin-right:5px;
+        margin-left:0;
+    }
   }
 }
 
@@ -55,19 +75,33 @@
 // Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
 .btn-group > .btn:first-child {
   margin-left: 0;
+  .rtl &{margin-right:0;}
+
   &:not(:last-child):not(.dropdown-toggle) {
     @include border-right-radius(0);
+
+    .rtl &{
+        border-radius:$btn-border-radius-base;
+        @include border-left-radius(0);
+    }
   }
 }
 // Need .dropdown-toggle since :last-child doesn't apply, given that a .dropdown-menu is used immediately after it
 .btn-group > .btn:last-child:not(:first-child),
 .btn-group > .dropdown-toggle:not(:first-child) {
   @include border-left-radius(0);
+
+  .rtl &{
+      border-radius:$btn-border-radius-base;
+      @include border-right-radius(0);
+  }
 }
 
 // Custom edits for including btn-groups within btn-groups (useful for including dropdown buttons within a btn-group)
 .btn-group > .btn-group {
   float: left;
+
+  .rtl &{float:right;}
 }
 .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
   border-radius: 0;
@@ -76,10 +110,20 @@
   > .btn:last-child,
   > .dropdown-toggle {
     @include border-right-radius(0);
+
+    .rtl &{
+        border-radius: $btn-border-radius-base;
+        @include border-left-radius(0);
+    }
   }
 }
 .btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
   @include border-left-radius(0);
+
+  .rtl &{
+      border-radius: $btn-border-radius-base;
+      @include border-right-radius(0);
+  }
 }
 
 // On active and open, don't show outline
@@ -126,6 +170,8 @@
 // Reposition the caret
 .btn .caret {
   margin-left: 0;
+
+  .rtl &{margin-right:0;}
 }
 // Carets in other button sizes
 .btn-lg .caret {
@@ -165,6 +211,8 @@
   > .btn-group + .btn-group {
     margin-top: -1px;
     margin-left: 0;
+
+    .rtl &{margin-right:0;}
   }
 }
 
@@ -206,6 +254,8 @@
   > .btn,
   > .btn-group {
     float: none;
+    .rtl &{float:none;}
+
     display: table-cell;
     width: 1%;
   }

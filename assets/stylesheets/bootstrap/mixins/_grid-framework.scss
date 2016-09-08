@@ -29,6 +29,16 @@
   }
 }
 
+// [converter] This is defined recursively in LESS, but Sass supports real loops
+@mixin float-rtl-grid-columns($class, $i: 1, $list: ".rtl .col-#{$class}-#{$i}") {
+  @for $i from (1 + 1) through $grid-columns {
+    $list: "#{$list}, .rtl .col-#{$class}-#{$i}";
+  }
+  #{$list} {
+    float: right;
+  }
+}
+
 
 @mixin calc-grid-column($index, $class, $type) {
   @if ($type == width) and ($index > 0) {
@@ -63,10 +73,49 @@
   }
 }
 
+@mixin calc-rtl-grid-column($index, $class, $type) {
+  @if ($type == width) and ($index > 0) {
+    .rtl .col-#{$class}-#{$index} {
+      width: percentage(($index / $grid-columns));
+    }
+  }
+  @if ($type == push) and ($index > 0) {
+    .rtl .col-#{$class}-push-#{$index} {
+      right: percentage(($index / $grid-columns));
+      left:auto;
+    }
+  }
+  @if ($type == push) and ($index == 0) {
+    .rtl .col-#{$class}-push-0 {
+      right: auto;
+      left:0;
+    }
+  }
+  @if ($type == pull) and ($index > 0) {
+    .rtl .col-#{$class}-pull-#{$index} {
+	  left: percentage(($index / $grid-columns));
+      right:auto;
+    }
+  }
+  @if ($type == pull) and ($index == 0) {
+    .rtl .col-#{$class}-pull-0 {
+      left: auto;
+      right:0;
+    }
+  }
+  @if ($type == offset) {
+    .rtl .col-#{$class}-offset-#{$index} {
+	  margin-right: percentage(($index / $grid-columns));
+      margin-left:auto;
+    }
+  }
+}
+
 // [converter] This is defined recursively in LESS, but Sass supports real loops
 @mixin loop-grid-columns($columns, $class, $type) {
   @for $i from 0 through $columns {
     @include calc-grid-column($i, $class, $type);
+    @include calc-rtl-grid-column($i, $class, $type);
   }
 }
 
@@ -74,6 +123,7 @@
 // Create grid for specific class
 @mixin make-grid($class) {
   @include float-grid-columns($class);
+  @include float-rtl-grid-columns($class);
   @include loop-grid-columns($grid-columns, $class, width);
   @include loop-grid-columns($grid-columns, $class, pull);
   @include loop-grid-columns($grid-columns, $class, push);
