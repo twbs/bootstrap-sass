@@ -54,6 +54,8 @@ input[type="checkbox"] {
   margin: 4px 0 0;
   margin-top: 1px \9; // IE8-9
   line-height: normal;
+
+  .rtl &{margin: 4px 4px 0 0;}
 }
 
 input[type="file"] {
@@ -228,6 +230,8 @@ input[type="search"] {
   margin-top: 10px;
   margin-bottom: 10px;
 
+  .rtl &{padding-right:20px;}
+
   label {
     min-height: $line-height-computed; // Ensure the input doesn't jump when there is no text
     padding-left: 20px;
@@ -243,6 +247,12 @@ input[type="search"] {
   position: absolute;
   margin-left: -20px;
   margin-top: 4px \9;
+
+  .rtl &{
+    margin-left:0;
+    margin-right:-20px;
+    float:right;
+  }
 }
 
 .radio + .radio,
@@ -260,11 +270,20 @@ input[type="search"] {
   vertical-align: middle;
   font-weight: normal;
   cursor: pointer;
+
+  .rtl &{
+    padding-left:0;
+    padding-right:20px;
+  }
 }
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
   margin-top: 0;
   margin-left: 10px; // space out consecutive inline controls
+  .rtl &{
+    margin-left:0;
+    margin-right:10px;
+  }
 }
 
 // Apply same disabled cursor tweak as for inputs
@@ -392,6 +411,11 @@ input[type="checkbox"] {
   // Ensure icons don't overlap text
   .form-control {
     padding-right: ($input-height-base * 1.25);
+
+    .rtl &{
+        padding-right: 0;
+        padding-left: ($input-height-base * 1.25);
+    }
   }
 }
 // Feedback icon (requires .glyphicon classes)
@@ -399,6 +423,11 @@ input[type="checkbox"] {
   position: absolute;
   top: 0;
   right: 0;
+  .rtl &{
+      right:auto;
+      left:0
+  }
+
   z-index: 2; // Ensure icon is above input groups
   display: block;
   width: $input-height-base;
@@ -531,6 +560,8 @@ input[type="checkbox"] {
     .checkbox input[type="checkbox"] {
       position: relative;
       margin-left: 0;
+
+      .rtl &{margin-left:5px;}
     }
 
     // Re-override the feedback icon.

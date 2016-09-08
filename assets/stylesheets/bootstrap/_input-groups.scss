@@ -26,6 +26,7 @@
     // select elements in input groups. To fix it, we float the input. Details:
     // https://github.com/twbs/bootstrap/issues/11561#issuecomment-28936855
     float: left;
+    .rtl &{float:right;}
 
     width: 100%;
     margin-bottom: 0;
@@ -113,9 +114,13 @@
 .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
 .input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
   @include border-right-radius(0);
+  .rtl &{border-radius: $border-radius-base;@include border-left-radius(0);}
+  .ltr &{border-radius: $border-radius-base;@include border-right-radius(0);}
 }
 .input-group-addon:first-child {
   border-right: 0;
+  .rtl &{border: 1px solid $input-group-addon-border-color;border-left:0;}
+  .ltr &{border: 1px solid $input-group-addon-border-color;border-right:0;}
 }
 .input-group .form-control:last-child,
 .input-group-addon:last-child,
@@ -125,9 +130,24 @@
 .input-group-btn:first-child > .btn:not(:first-child),
 .input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
   @include border-left-radius(0);
+  .rtl &{border-radius: $border-radius-base;@include border-right-radius(0);}
+  .ltr &{border-radius: $border-radius-base;@include border-left-radius(0);}
 }
 .input-group-addon:last-child {
   border-left: 0;
+  .rtl &{border: 1px solid $input-group-addon-border-color;border-right:0;}
+  .ltr &{border: 1px solid $input-group-addon-border-color;border-left:0;}
+}
+
+.rtl .input-group .input-group-btn:last-child >.btn:first-child
+{
+    @include border-right-radius(0);
+}
+
+.rtl .input-group .input-group-btn:first-child >.btn:last-child,
+.rtl .input-group .input-group-btn:first-child >.dropdown-toggle
+{
+    @include border-left-radius(0);
 }
 
 // Button input groups
@@ -159,6 +179,11 @@
     > .btn,
     > .btn-group {
       margin-right: -1px;
+
+      .rtl &{
+          margin-right:0;
+          margin-left:-1px;
+      }
     }
   }
   &:last-child {
@@ -166,6 +191,11 @@
     > .btn-group {
       z-index: 2;
       margin-left: -1px;
+
+      .rtl &{
+          margin-left:0;
+          margin-right:-1px;
+      }
     }
   }
 }

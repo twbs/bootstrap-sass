@@ -11,9 +11,11 @@ caption {
   padding-bottom: $table-cell-padding;
   color: $text-muted;
   text-align: left;
+  .rtl &{text-align:right;}
 }
 th {
   text-align: left;
+  .rtl &{text-align:right;}
 }
 
 
@@ -34,6 +36,7 @@ th {
         line-height: $line-height-base;
         vertical-align: top;
         border-top: 1px solid $table-border-color;
+        .rtl &{text-align:right;}
       }
     }
   }
@@ -208,10 +211,12 @@ table {
           > th:first-child,
           > td:first-child {
             border-left: 0;
+            .rtl &{border-right:0;}
           }
           > th:last-child,
           > td:last-child {
             border-right: 0;
+            .rtl &{border-left:0;}
           }
         }
       }

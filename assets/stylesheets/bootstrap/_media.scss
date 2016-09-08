@@ -29,11 +29,21 @@
 .media-right,
 .media > .pull-right {
   padding-left: 10px;
+
+  .rtl &{
+      padding-left:0;
+      padding-right:10px;
+  }
 }
 
 .media-left,
 .media > .pull-left {
   padding-right: 10px;
+
+  .rtl &{
+      padding-right:0;
+      padding-left:10px;
+  }
 }
 
 .media-left,
@@ -63,4 +73,6 @@
 .media-list {
   padding-left: 0;
   list-style: none;
+
+  .rtl &{padding-right:0;}
 }

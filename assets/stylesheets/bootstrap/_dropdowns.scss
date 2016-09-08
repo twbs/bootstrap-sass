@@ -14,6 +14,11 @@
   border-top:   $caret-width-base solid \9; // IE8
   border-right: $caret-width-base solid transparent;
   border-left:  $caret-width-base solid transparent;
+
+  .rtl &{
+      margin-left:auto;
+      margin-right:2px;
+  }
 }
 
 // The dropdown wrapper (div)
@@ -26,7 +31,7 @@
 .dropdown-toggle:focus {
   outline: 0;
 }
-
+/*.rtl .dropdown-toggle{float:right;}*/
 // The dropdown menu (ul)
 .dropdown-menu {
   position: absolute;
@@ -48,12 +53,24 @@
   @include box-shadow(0 6px 12px rgba(0,0,0,.175));
   background-clip: padding-box;
 
+  .rtl &{
+      left: auto;
+      right:0;
+      float:right;
+      text-align:right;
+  }
+
   // Aligns the dropdown menu to right
   //
   // Deprecated as of 3.1.0 in favor of `.dropdown-menu-[dir]`
   &.pull-right {
     right: 0;
     left: auto;
+
+    .rtl &{
+        left:0;
+        right:auto;
+    }
   }
 
   // Dividers (basically an hr) within the dropdown
@@ -137,6 +154,11 @@
 .dropdown-menu-right {
   left: auto; // Reset the default from `.dropdown-menu`
   right: 0;
+
+  .rtl &{
+    left:0;
+    right:auto;
+  }
 }
 // With v3, we enabled auto-flipping if you have a dropdown within a right
 // aligned nav component. To enable the undoing of that, we provide an override
@@ -147,6 +169,11 @@
 .dropdown-menu-left {
   left: 0;
   right: auto;
+
+  .rtl &{
+    left:auto;
+    right:0;
+  }
 }
 
 // Dropdown section headers
@@ -173,6 +200,11 @@
 .pull-right > .dropdown-menu {
   right: 0;
   left: auto;
+
+  .rtl &{
+    right:auto;
+    left:0;
+  }
 }
 
 // Allow for dropdowns to go bottom up (aka, dropup-menu)
@@ -206,11 +238,15 @@
   .navbar-right {
     .dropdown-menu {
       right: 0; left: auto;
+
+      .rtl &{left: 0; right: auto;}
     }
     // Necessary for overrides of the default right aligned menu.
     // Will remove come v4 in all likelihood.
     .dropdown-menu-left {
       left: 0; right: auto;
+
+      .rtl &{right: 0; left: auto;}
     }
   }
 }

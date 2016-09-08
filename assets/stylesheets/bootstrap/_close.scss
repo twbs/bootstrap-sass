@@ -12,6 +12,8 @@
   text-shadow: $close-text-shadow;
   @include opacity(.2);
 
+  .rtl &{float:left;}
+
   &:hover,
   &:focus {
     color: $close-color;

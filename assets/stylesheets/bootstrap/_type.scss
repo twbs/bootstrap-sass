@@ -161,6 +161,7 @@ ol {
 // [converter] extracted from `.list-unstyled` for libsass compatibility
 @mixin list-unstyled {
   padding-left: 0;
+  .rtl &{padding-right: 0;}
   list-style: none;
 }
 // [converter] extracted as `@mixin list-unstyled` for libsass compatibility
@@ -173,6 +174,7 @@ ol {
 .list-inline {
   @include list-unstyled;
   margin-left: -5px;
+  .rtl &{margin-left:0;margin-right:-5px;}
 
   > li {
     display: inline-block;
@@ -195,6 +197,7 @@ dt {
 }
 dd {
   margin-left: 0; // Undo browser default
+  .rtl &{margin-right:0;}
 }
 
 // Horizontal description lists
@@ -214,9 +217,11 @@ dd {
       clear: left;
       text-align: right;
       @include text-overflow;
+      .rtl &{float:right;clear:right;text-align:left;}
     }
     dd {
       margin-left: $dl-horizontal-offset;
+      .rtl &{margin-left:0;margin-right:$dl-horizontal-offset;}
     }
   }
 }
@@ -243,6 +248,10 @@ blockquote {
   margin: 0 0 $line-height-computed;
   font-size: $blockquote-font-size;
   border-left: 5px solid $blockquote-border-color;
+  .rtl &{
+      border-right: 5px solid $blockquote-border-color;
+      border-left: none;
+  }
 
   p,
   ul,
@@ -278,6 +287,13 @@ blockquote.pull-right {
   border-right: 5px solid $blockquote-border-color;
   border-left: 0;
   text-align: right;
+  .rtl &{
+      padding-left: 15px;
+      padding-right: 0;
+      border-left: 5px solid $blockquote-border-color;
+      border-right: 0;
+      text-align: left;
+  }
 
   // Account for citation
   footer,

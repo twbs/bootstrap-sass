@@ -46,14 +46,26 @@
 
   .list-group-item > & {
     float: right;
+
+    .rtl &{float:left;}
   }
 
   .list-group-item > & + & {
     margin-right: 5px;
+
+    .rtl &{
+        margin-right: 0;
+        margin-left: 5px;
+    }
   }
 
   .nav-pills > li > a > & {
     margin-left: 3px;
+
+    .rtl &{
+        margin-right:3px;
+        margin-left:0;
+    }
   }
 }
 

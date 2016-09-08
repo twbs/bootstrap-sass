@@ -29,6 +29,8 @@ body {
 // and Firefox.
 // Correct `block` display not defined for `main` in IE 11.
 //
+.rtl {direction:rtl;text-align:right;}
+.ltr{direction:ltr; text-align:left;}
 
 article,
 aside,
