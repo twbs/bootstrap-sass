@@ -1,0 +1,157 @@
+$thumbnail-width: 50px;
+
+.item__thumbnail {
+  width: $thumbnail-width;
+  max-width: $thumbnail-width;
+}
+
+.item-wrapper {
+  border-bottom: 1px solid $gray-lighter
+}
+
+.item {
+  @include make-row(0);
+  padding: $global-padding 0;
+
+  cursor: pointer;
+
+  align-items: center;
+  &:focus {
+    box-shadow: inset 3px 0 0 $brand-primary;
+  }
+}
+
+.list__item--active {
+  box-shadow: inset 3px 0 0 $brand-primary;
+}
+
+.section > .list__item:last-of-type {
+  margin-bottom: $global-margin;
+}
+
+.list__item__section--thumb,
+.list__item__section--status {
+  @include make-col(0);
+  @include media-breakpoint-down(md) {
+    display: none !important;
+  }
+
+  flex: 0 0 auto;
+}
+
+
+.list__item__section--content {
+  @include make-col(0);
+  @include media-breakpoint-up(md) {
+    @include make-col();
+  }
+  flex: 1 1 0;
+
+  &:active,
+  &:focus {
+    outline: 0; // ngAria adds tabindex to items with ng-click
+  }
+}
+
+.item__comments {
+  padding: $global-padding;
+}
+
+
+.item__field {
+  &--title,
+  &--type {
+    // Trying to adopt a typographic scale;
+    // this works better than picking 16px out of thin air
+    // http://type-scale.com/?size=13&scale=1.250&text=A Visual Type Scale&webfont=Open%2BSans&font-family=%22Open%20Sans%22%2C%20sans-serif&font-weight=400&font-family-headers=&font-weight-headers=inherit&background-color=white&font-color=%23333
+    font-size: 1.25rem;
+  }
+
+  &--type {
+    font-weight: $global-weight-normal;
+  }
+
+  &--title {
+    font-weight: $global-weight-light;
+  }
+
+  &:first-child:after {
+    content: "-";
+    margin: 0 $global-margin/2;
+  }
+}
+
+.c-item__fielded-info {
+  margin-bottom: 0;
+
+  > li:after {
+    content: "-";
+  }
+
+  > li:last-child:after {
+    content: none;
+  }
+}
+
+.item__meta--secondary__info {
+  display: inline;
+  margin-bottom: 0;
+
+  li {
+    display: inline-block;
+    &:first-child {
+      margin-right: $global-margin/2;
+    }
+    &:after:not(:first-child) {
+      margin-right: $global-margin/2;
+      margin-left: $global-margin/2;
+
+      content: "-";
+    }
+    &:last-child {
+      &:after {
+        content: none;
+      }
+    }
+  }
+}
+
+.item__meta--note,
+.holdings-title {
+  color: $black;
+}
+
+.item__importance-label {
+  display: none;
+
+  @include media-breakpoint-up(md) {
+    display: inline-block;
+    margin-right: $global-margin;
+    margin-bottom: 0 !important; // Remove default label margin
+    color: $gray;
+    font-style: italic;
+  }
+}
+
+.item-availability {
+  @include make-row(0);
+  @include media-breakpoint-up(md) {
+    margin-left: $thumbnail-width + 13px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .section-wrapper .item-availability {
+    margin-left: $thumbnail-width;
+  }
+}
+
+.item-availability__holdings {
+  @include make-col(0);
+  @include make-col-span(12);
+  @include media-breakpoint-up(md) {
+    @include make-col();
+    @include make-col-span(6);
+  }
+}
+

@@ -1,0 +1,37 @@
+.list-section {
+  margin-bottom: $global-margin;
+  overflow: auto;
+
+  background-color: $section-background;
+}
+
+.list-section__header,
+.list-section__content {
+  overflow: auto; // Used to prevent margins collapsing
+
+  box-shadow: inset 3px 0 0 $item-border;
+}
+
+.list-section__header {
+  padding: $global-padding;
+
+  border-bottom: 1px solid $item-border;
+
+  > h1,
+  > p {
+    margin-bottom: 0;
+  }
+}
+
+.list-section__content {
+  padding: 0 $global-padding;
+}
+
+.list-section__content > .list-section {
+  margin-top: $global-margin;
+}
+
+.list__section h4,
+.list__section .delta {
+  color: $black;
+}
