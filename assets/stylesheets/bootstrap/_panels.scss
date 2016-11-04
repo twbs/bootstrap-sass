@@ -5,23 +5,37 @@
 
 // Base class
 .panel {
-  margin-bottom: $line-height-computed;
+  margin-top: 0.5rem;
   background-color: $panel-bg;
-  border: 1px solid transparent;
-  border-radius: $panel-border-radius;
+  border-left: 3px solid $panel-primary-border;
+  border-bottom: 1px solid $panel-footer-bg;
+
+  &.odd {
+    background-color: $white;
+  }
+
+  .flexbox & {
+    & .panel-body {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+  }
 }
 
 // Panel contents
 .panel-body {
+  color: $black;
   padding: $panel-body-padding;
   @include clearfix;
 }
+
+
 
 // Optional heading
 .panel-heading {
   padding: $panel-heading-padding;
   border-bottom: 1px solid transparent;
-  @include border-top-radius(($panel-border-radius - 1));
 
   > .dropdown .dropdown-toggle {
     color: inherit;
@@ -32,7 +46,6 @@
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: ceil(($font-size-base * 1.125));
   color: inherit;
 
   > a,
