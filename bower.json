@@ -31,7 +31,7 @@
     "docs"
   ],
   "dependencies": {
-    "jquery": "1.9.1 - 2"
+    "jquery": "~1.9.1"
   },
   "version": "3.3.6-talis.10"
 }
