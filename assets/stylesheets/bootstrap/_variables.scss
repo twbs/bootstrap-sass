@@ -78,6 +78,9 @@ $font-size-h4:            ceil(($font-size-base * 1.538461538)) !default; // ~20
 $font-size-h5:            $font-size-base !default;
 $font-size-h6:            $font-size-base !default;
 
+$font-size-scale:         0.85;
+$browser-context: $font-size-base !default;
+
 //** Unit-less `line-height` for use in components like buttons.
 $line-height-base:        1.6 !default; // 20/13
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.

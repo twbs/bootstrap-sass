@@ -2,6 +2,24 @@
 // Typography
 // --------------------------------------------------
 
+/**
+ * Converts a pixel-based value to ems
+ * @param  $pixels   Desired font-size, in pixels
+ * @param  $context: $browser-context The context in which the size is to be calculated
+ * @return           A unit in ems
+ */
+@function em($pixels, $context: $browser-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1em;
+}
+
 
 // Headings
 // -------------------------
@@ -64,12 +82,51 @@ h6, .h6, .zeta {
   font-weight: 700;
 }
 
-h1, .h1, .alpha { font-size: $font-size-h1; }
-h2, .h2, .beta { font-size: $font-size-h2; }
-h3, .h3, .gamma { font-size: $font-size-h3; }
-h4, .h4, .delta { font-size: $font-size-h4; }
-h5, .h5, .epsilon { font-size: $font-size-h5; }
-h6, .h6, .zeta { font-size: $font-size-h6; }
+h1, .h1, .alpha {
+  font-size: em($font-size-h1 * $font-size-scale);
+
+  @media (min-width: $screen-md-min) {
+    font-size: em($font-size-h1);
+  }
+}
+
+h2, .h2, .beta {
+  font-size: em($font-size-h2 * $font-size-scale);
+
+  @media (min-width: $screen-md-min) {
+    font-size: em($font-size-h2);
+  }
+}
+
+h3, .h3, .gamma {
+  font-size: em($font-size-h3 * $font-size-scale);
+
+  @media (min-width: $screen-md-min) {
+    font-size: em($font-size-h3);
+  }
+}
+
+h4, .h4, .delta {
+  font-size: em($font-size-h4 * $font-size-scale);
+
+  @media (min-width: $screen-md-min) {
+    font-size: em($font-size-h4);
+  }
+}
+h5, .h5, .epsilon {
+  font-size: em($font-size-h5 * $font-size-scale);
+
+  @media (min-width: $screen-md-min) {
+    font-size: em($font-size-h5);
+  }
+}
+h6, .h6, .zeta {
+  font-size: em($font-size-h6 * $font-size-scale);
+
+  @media (min-width: $screen-md-min) {
+    font-size: em($font-size-h6);
+  }
+}
 
 
 // Body text
