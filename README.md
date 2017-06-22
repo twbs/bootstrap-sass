@@ -63,6 +63,25 @@ Require Bootstrap Javascripts in `app/assets/javascripts/application.js`:
 `bootstrap-sprockets` provides individual Bootstrap Javascript files (`alert.js` or `dropdown.js`, for example), while
 `bootstrap` provides a concatenated file containing all Bootstrap Javascripts.
 
+#### a(1). Ruby on Rails 5.1
+
+As of Rails 5.1 jQuery isn't automatically installed. You can fix this really easily with the JavaScript package manager [Yarn](https://yarnpkg.com/en/docs/install).
+
+Once Yarn's installed, in the terminal (in your Rails app's directory) type:
+
+```console
+$ yarn add jquery
+```
+
+Next, add jQuery to `app/assets/javascripts/application.js`:
+
+**jQuery must be required before bootstrap-sprockets**
+
+```js
+//= require jquery
+//= require bootstrap-sprockets
+```
+
 #### Bower with Rails
 
 When using [bootstrap-sass Bower package](#c-bower) instead of the gem in Rails, configure assets in `config/application.rb`:
