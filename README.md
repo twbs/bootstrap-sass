@@ -51,6 +51,17 @@ Then, remove all the `*= require_self` and `*= require_tree .` statements from t
 
 Do not use `*= require` in Sass or your other stylesheets will not be [able to access][antirequire] the Bootstrap mixins or variables.
 
+Bootstrap JavaScript depends on jQuery.
+If you're using Rails 5.1+, add the `jquery-rails` gem to your Gemfile:
+
+```ruby
+gem 'jquery-rails'
+```
+
+```console
+$ bundle install
+```
+
 Require Bootstrap Javascripts in `app/assets/javascripts/application.js`:
 
 ```js
