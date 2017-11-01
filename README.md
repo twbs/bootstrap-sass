@@ -24,7 +24,7 @@ Please see the appropriate guide for your environment of choice:
 In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `sass-rails` gem is present - it is added to new Rails applications by default.
 
 ```ruby
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.3.7'
 gem 'sass-rails', '>= 3.2'
 ```
 
