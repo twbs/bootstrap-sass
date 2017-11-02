@@ -1,7 +1,25 @@
 language: ruby
+cache: bundler
+bundler_args: --path ../../vendor/bundle --without debug
 rvm:
-  - 1.9.3
-  - jruby-19mode
+  - 2.2.3
 gemfile:
-  - test/gemfiles/sass_3_1.gemfile
+  - test/gemfiles/rails_head.gemfile
+  - test/gemfiles/sass_3_3.gemfile
+  - test/gemfiles/sass_3_4.gemfile
   - test/gemfiles/sass_head.gemfile
+before_install:
+  - "nvm install stable"
+  - "npm install"
+matrix:
+  allow_failures:
+    - gemfile: test/gemfiles/rails_head.gemfile
+    - gemfile: test/gemfiles/sass_head.gemfile
+notifications:
+  slack: heybb:3n88HHilXn76ji9vV4gL819Y
+env:
+  global:
+  - VERBOSE=1
+script:
+  bundle exec rake && sh test/*.sh
+sudo: false

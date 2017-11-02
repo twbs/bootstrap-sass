@@ -1,0 +1,84 @@
+.navbar.navbar-inverse: .container-fluid
+  .navbar-header
+    button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#c1"
+      span.sr-only Toggle navigation
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    a.navbar-brand href="#" Bootstrap for Sass Test Rails App
+  .collapse.navbar-collapse#c1
+    ul.nav.navbar-nav
+      li.active: a href="#"
+        ' Home
+        span.sr-only (current)
+      li: a href="#" Link
+      li.dropdown
+        a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-expanded="false"
+          ' Dropdown
+          span.caret
+        ul.dropdown-menu role="menu"
+          li: a href="#" Action
+          li: a href="#" Another action
+          li: a href="#" Something else here
+          li.divider
+          li: a href="#" Separated link
+          li.divider
+          li: a href="#" One more separated link
+    form.navbar-form.navbar-left role="search"
+      .input-group
+        input.form-control type="search" placeholder="Search..."
+        .input-group-btn: button.btn.btn-primary type="submit" Go
+    ul.nav.navbar-nav.navbar-right
+      li: a href="#" Link
+      li.dropdown
+        a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-expanded="false"
+          ' Dropdown
+          span.caret
+        ul.dropdown-menu role="menu"
+          li: a href="#" Action
+          li: a href="#" Another action
+          li: a href="#" Something else here
+          li.divider
+          li: a href="#" Separated link
+
+.container
+  .panel.panel-primary
+    .panel-heading: h1 Dummy App
+    .panel-body: .row
+      .col-sm-3
+        h2 3 columns
+        ul.list-group
+          li.list-group-item: a href='#one' One
+          li.list-group-item: a href='#two' Two
+          li.list-group-item: a href='#three' Three
+      .col-sm-3
+        h2 3 columns
+        .btn-group
+          button.btn.btn-primary type='button' Button
+          button.btn.btn-primary type='button' Button
+        h2 Icons
+        ul.list-inline
+          li: i.glyphicon.glyphicon-user
+          li: i.glyphicon.glyphicon-bullhorn
+          li: i.glyphicon.glyphicon-tint
+        table.table
+          caption Table
+          tr
+            td.danger Danger!
+            td.success Success!
+      .col-sm-6
+        h2 6 columns
+        .panel.panel-primary: .panel-body
+          .row
+            .col-xs-4.col-xs-push-4
+              .panel.panel-default: h3 This is col-xs-4 col-xs-push-4
+
+          form.form-inline
+            .form-group
+              label.sr-only for="exampleInputEmail2" Email address
+              input.form-control#exampleInputEmail2 type="email" placeholder="Enter email"
+            .checkbox
+              label
+                input type="checkbox"
+                |  Remember me
+            button.btn.btn-default type="submit" Sign in

@@ -3,3 +3,18 @@
 bootstrap.css
 bootstrap-responsive.css
 Gemfile.lock
+*.gemfile.lock
+.rvmrc
+.rbenv-version
+
+# Ignore bundler config
+/.bundle
+/vendor/cache
+/vendor/bundle
+tmp/
+test/screenshots/
+test/dummy_rails/log/*.log
+test/dummy_rails/public/assets/
+.DS_Store
+node_modules
+/.idea

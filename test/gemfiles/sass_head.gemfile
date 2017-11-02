@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
-gem 'sass', git: 'git://github.com/nex3/sass.git'
+gem 'sass', git: 'https://github.com/nex3/sass', branch: 'stable' # master is not compatible with Compass master
+gem 'compass', git: 'https://github.com/chriseppstein/compass', branch: 'master', require: false
 
 gemspec path: '../../'

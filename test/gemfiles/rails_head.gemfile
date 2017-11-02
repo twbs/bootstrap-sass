@@ -1,0 +1,17 @@
+source "https://rubygems.org"
+
+gem 'actionpack', github: 'rails/rails'
+gem 'activesupport', github: 'rails/rails'
+
+# Required git dependencies as per https://github.com/rails/rails/blob/51211a94bd7a34d80f2412a7f94fefe7366647a5/Gemfile:
+gem 'rack', github: 'rack/rack'
+gem 'sprockets', github: 'rails/sprockets'
+gem 'sprockets-rails', github: 'rails/sprockets-rails'
+gem 'sass-rails', github: 'rails/sass-rails', branch: 'master'
+
+gem 'autoprefixer-rails', github: 'ai/autoprefixer-rails'
+
+gem 'compass', '~> 1.0.1', require: false
+
+gemspec path: '../../'
+
