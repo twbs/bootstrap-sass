@@ -276,6 +276,12 @@ hr {
 a, [role="button"] {
   cursor: pointer; }
 
+/**
+ * Converts a pixel-based value to ems
+ * @param  $pixels   Desired font-size, in pixels
+ * @param  $context: $browser-context The context in which the size is to be calculated
+ * @return           A unit in ems
+ */
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6,
 .alpha, .beta, .gamma, .delta, .epsilon, .zeta {
@@ -362,22 +368,40 @@ h6, .h6, .zeta {
   font-weight: 700; }
 
 h1, .h1, .alpha {
-  font-size: 30px; }
+  font-size: 1.96154em; }
+  @media (min-width: 992px) {
+    h1, .h1, .alpha {
+      font-size: 2.30769em; } }
 
 h2, .h2, .beta {
-  font-size: 30px; }
+  font-size: 1.96154em; }
+  @media (min-width: 992px) {
+    h2, .h2, .beta {
+      font-size: 2.30769em; } }
 
 h3, .h3, .gamma {
-  font-size: 23px; }
+  font-size: 1.30769em; }
+  @media (min-width: 992px) {
+    h3, .h3, .gamma {
+      font-size: 1.53846em; } }
 
 h4, .h4, .delta {
-  font-size: 23px; }
+  font-size: 1.30769em; }
+  @media (min-width: 992px) {
+    h4, .h4, .delta {
+      font-size: 1.53846em; } }
 
 h5, .h5, .epsilon {
-  font-size: 13px; }
+  font-size: 0.85em; }
+  @media (min-width: 992px) {
+    h5, .h5, .epsilon {
+      font-size: 1em; } }
 
 h6, .h6, .zeta {
-  font-size: 13px; }
+  font-size: 0.85em; }
+  @media (min-width: 992px) {
+    h6, .h6, .zeta {
+      font-size: 1em; } }
 
 p {
   margin: 0 0 10px; }
@@ -1352,7 +1376,8 @@ th {
 .table {
   width: 100%;
   max-width: 100%;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ebebeb; }
   .table > thead > tr > th,
   .table > thead > tr > td,
   .table > tbody > tr > th,
@@ -1625,11 +1650,12 @@ output {
   .form-control::-ms-expand {
     border: 0;
     background-color: transparent; }
-  .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+  fieldset[disabled] .form-control {
     background-color: #fff;
     border: 1px solid #fff;
     opacity: 1; }
-  .form-control[disabled], fieldset[disabled] .form-control {
+  .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    color: #5e5e5e;
     cursor: not-allowed; }
 
 textarea.form-control {
@@ -1684,6 +1710,15 @@ input[type="search"] {
     line-height: 48px; } }
 .form-group {
   margin-bottom: 15px; }
+
+.form-actions {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 12px;
+  background-color: #fafafa;
+  border-top: 1px solid #ebebeb; }
+  .form-actions > [class*="col"] {
+    padding-left: 0; }
 
 .radio,
 .checkbox {
@@ -2139,8 +2174,8 @@ a.btn.disabled, fieldset[disabled] a.btn {
   .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
     background-image: none; }
   .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary.focus {
-    background-color: #017d87;
-    border-color: #017d87;
+    background-color: #fff;
+    border-color: #ebebeb;
     color: #5e5e5e; }
   .btn-primary .badge {
     color: #017d87;
@@ -2161,8 +2196,8 @@ a.btn.disabled, fieldset[disabled] a.btn {
   .btn-info:active, .btn-info.active, .open > .btn-info.dropdown-toggle {
     background-image: none; }
   .btn-info.disabled:hover, .btn-info.disabled:focus, .btn-info.disabled.focus, .btn-info[disabled]:hover, .btn-info[disabled]:focus, .btn-info[disabled].focus, fieldset[disabled] .btn-info:hover, fieldset[disabled] .btn-info:focus, fieldset[disabled] .btn-info.focus {
-    background-color: #c5197d;
-    border-color: #c5197d;
+    background-color: #fff;
+    border-color: #ebebeb;
     color: #5e5e5e; }
   .btn-info .badge {
     color: #c5197d;
