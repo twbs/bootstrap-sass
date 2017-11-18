@@ -1,17 +1,24 @@
-// Single side border-radius
+/// Single side border-radius
 
+/// @param {Size} $radius - The border radius size.
 @mixin border-top-radius($radius) {
   border-top-right-radius: $radius;
    border-top-left-radius: $radius;
 }
+
+/// @param {Size} $radius - The border radius size.
 @mixin border-right-radius($radius) {
   border-bottom-right-radius: $radius;
      border-top-right-radius: $radius;
 }
+
+/// @param {Size} $radius - The border radius size.
 @mixin border-bottom-radius($radius) {
   border-bottom-right-radius: $radius;
    border-bottom-left-radius: $radius;
 }
+
+/// @param {Size} $radius - The border radius size.
 @mixin border-left-radius($radius) {
   border-bottom-left-radius: $radius;
      border-top-left-radius: $radius;
