@@ -1,5 +1,6 @@
-// Labels
+/// Labels
 
+/// @param {Color} $color - The color code for the label.
 @mixin label-variant($color) {
   background-color: $color;
 

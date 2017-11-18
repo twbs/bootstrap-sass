@@ -1,5 +1,8 @@
-// List Groups
+/// List Groups
 
+/// @param {String} $state      - The name for the panel state.
+/// @param {Color}  $background - The color for the background.
+/// @param {Color}  $color      - The color hex value.
 @mixin list-group-item-variant($state, $background, $color) {
   .list-group-item-#{$state} {
     color: $color;
