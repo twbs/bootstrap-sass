@@ -1,8 +1,11 @@
-// Button variants
-//
-// Easily pump out default styles, as well as :hover, :focus, :active,
-// and disabled options for all buttons
+/// Button variants
+///
+/// Easily pump out default styles, as well as :hover, :focus, :active,
+/// and disabled options for all buttons
 
+/// @param {Color} $color       - The general color
+/// @param {Color} $background  - The background color
+/// @param {Color} $border      - The border color
 @mixin button-variant($color, $background, $border) {
   color: $color;
   background-color: $background;
@@ -56,7 +59,13 @@
   }
 }
 
-// Button sizes
+/// Button sizes
+///
+/// @param {Length} $padding-vertical   - The vertical padding
+/// @param {Length} $padding-horizontal - The horizontal padding
+/// @param {Length} $font-size          - The size for the font
+/// @param {Length} $line-height        - The height for the line
+/// @param {Length} $border-radius      - The raduis for the border
 @mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
   padding: $padding-vertical $padding-horizontal;
   font-size: $font-size;
