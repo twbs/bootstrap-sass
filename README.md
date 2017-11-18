@@ -24,7 +24,7 @@ Please see the appropriate guide for your environment of choice:
 In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `sass-rails` gem is present - it is added to new Rails applications by default.
 
 ```ruby
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.3.7'
 gem 'sass-rails', '>= 3.2'
 ```
 
@@ -50,6 +50,17 @@ $ mv app/assets/stylesheets/application.css app/assets/stylesheets/application.s
 Then, remove all the `*= require_self` and `*= require_tree .` statements from the sass file. Instead, use `@import` to import Sass files.
 
 Do not use `*= require` in Sass or your other stylesheets will not be [able to access][antirequire] the Bootstrap mixins or variables.
+
+Bootstrap JavaScript depends on jQuery.
+If you're using Rails 5.1+, add the `jquery-rails` gem to your Gemfile:
+
+```ruby
+gem 'jquery-rails'
+```
+
+```console
+$ bundle install
+```
 
 Require Bootstrap Javascripts in `app/assets/javascripts/application.js`:
 
