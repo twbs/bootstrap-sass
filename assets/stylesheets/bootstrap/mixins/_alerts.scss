@@ -1,5 +1,8 @@
-// Alerts
+/// Alerts
 
+/// @param {Color} $background - Background color
+/// @param {Color} $border - Border color
+/// @param {Color} $text-color - Textual color
 @mixin alert-variant($background, $border, $text-color) {
   background-color: $background;
   border-color: $border;
