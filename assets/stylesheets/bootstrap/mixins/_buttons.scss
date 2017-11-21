@@ -78,13 +78,20 @@
   }
   &.disabled,
   &[disabled],
+  fieldset[disabled] {
+    background-color: $btn-default-bg;
+    border-color: $btn-default-border;
+    color: $deathstar;
+  }
+  &.disabled,
+  &[disabled],
   fieldset[disabled] & {
     &:hover,
     &:focus,
     &.focus {
       background-color: $btn-default-bg;
-          border-color: $btn-default-border;
-          color: $deathstar;
+      border-color: $btn-default-border;
+      color: $deathstar;
     }
   }
 
