@@ -65,8 +65,8 @@ $ bundle install
 Require Bootstrap Javascripts in `app/assets/javascripts/application.js`:
 
 ```js
-//= require jquery
 //= require bootstrap-sprockets
+//= require jquery
 ```
 
 `bootstrap-sprockets` and `bootstrap` [should not both be included](https://github.com/twbs/bootstrap-sass/issues/829#issuecomment-75153827) in `application.js`.
