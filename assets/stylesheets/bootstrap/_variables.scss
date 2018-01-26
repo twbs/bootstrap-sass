@@ -17,6 +17,16 @@ $gray-light:             lighten($gray-base, 55%) !default; // #8c8c8c
 $gray-lighter:           lighten($gray-base, 92%) !default; // #ebebeb
 $gray-superlight:        lighten($gray-base, 98%) !default; // #f9f9f9
 
+$gray100: #f8f9fa !default;
+$gray200: #e9ecef !default;
+$gray300: #dee2e6 !default;
+$gray400: #ced4da !default;
+$gray500: #adb5bd !default;
+$gray600: #868e96 !default;
+$gray700: #495057 !default;
+$gray800: #343a40 !default;
+$gray900: #212529 !default;
+
 $turqoise: #017d87;
 $accent: darken(saturate(adjust-hue($turqoise, -0.2776), 1.4706), 7.0588); // #005d64
 $pink: #c5197d;
@@ -45,7 +55,7 @@ $brand-danger:          $red !default;
 //** Background color for `<body>`.
 $body-bg:               #fff !default;
 //** Global text color on `<body>`.
-$text-color:            $deathstar !default;
+$text-color:            $gray700 !default;
 
 //** Global textual link color.
 $link-color:            $brand-primary !default;
@@ -90,8 +100,8 @@ $line-height-computed:    floor(($font-size-base * $line-height-base)) !default;
 $headings-font-family:    inherit !default;
 $headings-font-weight:    300 !default;
 $headings-line-height:    1.1 !default;
-$headings-color:          $battleship !default;
-$headings-alt-color:      inherit !default;
+$headings-color:          $gray600 !default;
+$headings-alt-color:      $gray900 !default;
 
 
 //== Iconography
@@ -114,7 +124,7 @@ $icon-font-svg-id:        "glyphicons_halflingsregular" !default;
 //
 //## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
 
-$padding-base-vertical:     4px !default;
+$padding-base-vertical:     6px !default;
 $padding-base-horizontal:   12px !default;
 
 $padding-large-vertical:    11px !default;
@@ -156,13 +166,14 @@ $table-condensed-cell-padding:  5px !default;
 //** Default background color used for all tables.
 $table-bg:                      transparent !default;
 //** Background color used for `.table-striped`.
-$table-bg-accent:               #f9f9f9 !default;
+$table-bg-accent:               $gray100 !default;
 //** Background color used for `.table-hover`.
 $table-bg-hover:                #f5f5f5 !default;
 $table-bg-active:               $table-bg-hover !default;
 
 //** Border color for table and cell borders.
-$table-border-color:            $misty !default;
+$table-border-color:            $gray200 !default;
+$table-header-border-color:     $gray200 !default;
 
 $table-header-color:            $black !default;
 
@@ -174,7 +185,7 @@ $btn-font-weight:                normal !default;
 
 $btn-default-color:              $brand-primary !default;
 $btn-default-bg:                 #fff !default;
-$btn-default-border:             $misty !default;
+$btn-default-border:             $gray200 !default;
 
 $btn-primary-color:              #fff !default;
 $btn-primary-bg:                 $brand-primary !default;
@@ -209,14 +220,14 @@ $btn-border-radius-small:        $border-radius-small !default;
 //##
 
 //** `<input>` background color
-$input-bg:                       $misty !default;
+$input-bg:                       $gray200 !default;
 //** `<input disabled>` background color
 $input-bg-disabled:              #fff !default;
 
 //** Text color for `<input>`s
 $input-color:                    $gray-base !default;
 //** `<input>` border color
-$input-border:                   $misty !default;
+$input-border:                   $gray200 !default;
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -231,7 +242,7 @@ $input-border-radius-small:      $border-radius-small !default;
 $input-border-focus:             $brand-primary !default;
 
 //** Placeholder text color
-$input-color-placeholder:        $deathstar !default;
+$input-color-placeholder:        $gray700 !default;
 
 //** Default `.form-control` height
 $input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
@@ -243,7 +254,7 @@ $input-height-small:             (floor($font-size-small * $line-height-small) +
 //** `.form-group` margin
 $form-group-margin-bottom:       15px !default;
 
-$legend-color:                   $gray-base !default;
+$legend-color:                   $gray900 !default;
 $legend-border-color:            #e5e5e5 !default;
 
 
@@ -453,8 +464,8 @@ $nav-link-padding:                          10px 15px !default;
 $nav-link-hover-bg:                         $gray-superlight !default;
 $nav-link-down-bg:                          $misty !default;
 
-$nav-disabled-link-color:                   $gray !default;
-$nav-disabled-link-hover-color:             $gray !default;
+$nav-disabled-link-color:                   $gray700 !default;
+$nav-disabled-link-hover-color:             $gray700 !default;
 
 //== Tabs
 $nav-tabs-border-color:                     $gray-lighter !default;
@@ -481,20 +492,20 @@ $nav-pills-active-link-hover-color:         $component-active-color !default;
 
 $pagination-color:                     $link-color !default;
 $pagination-bg:                        #fff !default;
-$pagination-border:                    $gray-lighter !default;
+$pagination-border:                    $gray200 !default;
 
 $pagination-hover-color:               $link-hover-color !default;
-$pagination-hover-bg:                  #f5f5f5 !default;
-$pagination-down-bg:                   $gray-lighter !default;
-$pagination-hover-border:              $gray-lighter !default;
+$pagination-hover-bg:                  $gray100 !default;
+$pagination-down-bg:                   $gray200 !default;
+$pagination-hover-border:              $gray200 !default;
 
 $pagination-active-color:              $brand-primary !default;
 $pagination-active-bg:                 #fff !default;
 $pagination-active-border:             $brand-primary !default;
 
-$pagination-disabled-color:            $gray !default;
+$pagination-disabled-color:            $gray700 !default;
 $pagination-disabled-bg:               #fff !default;
-$pagination-disabled-border:           $gray-lighter !default;
+$pagination-disabled-border:           $gray200 !default;
 
 
 //== Pager
@@ -522,9 +533,9 @@ $state-success-text:             $green !default;
 $state-success-bg:               lighten(desaturate(adjust-hue($state-success-text, 1.2632), 9.6531), 53.7255) !default;
 $state-success-border:           $state-success-text !default;
 
-$state-info-text:                $gray !default;
-$state-info-bg:                  lighten(saturate(adjust-hue($state-info-text, 0.0000), 0.0000), 60.7843) !default;
-$state-info-border:              $state-info-text !default;
+$state-info-text:                $gray900 !default;
+$state-info-bg:                  $gray100 !default;
+$state-info-border:              $gray700 !default;
 
 $state-warning-text:             $yellow !default;
 $state-warning-bg:               lighten(saturate(adjust-hue($state-warning-text, -1.3793), 1.6949), 43.9216) !default;
@@ -629,10 +640,10 @@ $modal-backdrop-bg:           #000 !default;
 //** Modal backdrop opacity
 $modal-backdrop-opacity:      .8 !default;
 //** Modal header border color
-$modal-header-border-color:   $misty !default;
+$modal-header-border-color:   $gray200 !default;
 //** Modal footer border color
-$modal-footer-border-color:   #ddd !default;
-$modal-footer-bg-color:             $misty !default;
+$modal-footer-border-color:   $gray300 !default;
+$modal-footer-bg-color:       $gray200 !default;
 
 $modal-lg:                    900px !default;
 $modal-md:                    600px !default;
@@ -646,7 +657,7 @@ $modal-sm:                    300px !default;
 $alert-padding:               15px !default;
 $alert-border-radius:         0 !default;
 $alert-link-font-weight:      bold !default;
-$alert-default-text:          $gray-base;
+$alert-default-text:          $gray900;
 
 $alert-success-border:        $state-success-border !default;
 $alert-success-bg:            $state-success-bg !default;
@@ -723,7 +734,7 @@ $thumbnail-caption-padding:   9px !default;
 //
 //##
 
-$well-bg:                     $misty !default;
+$well-bg:                     $gray200 !default;
 $well-border:                 $well-bg !default;
 
 
@@ -806,10 +817,11 @@ $blockquote-font-size:        ($font-size-base * 1.25) !default;
 //** Blockquote border color
 $blockquote-border-color:     $gray-lighter !default;
 //** Page header border color
-$page-header-border-color:    $gray-lighter !default;
+$page-header-border-color:    $gray200 !default;
 //** Width of horizontal description list titles
 $dl-horizontal-offset:        $component-offset-horizontal !default;
 //** Point at which .dl-horizontal becomes horizontal
 $dl-horizontal-breakpoint:    $grid-float-breakpoint !default;
 //** Horizontal line color.
 $hr-border:                   $gray-lighter !default;
+$hr-border--well:             $gray300 !default;

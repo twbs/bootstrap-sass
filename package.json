@@ -26,12 +26,15 @@
     "url": "https://github.com/twbs/bootstrap-sass/issues"
   },
   "devDependencies": {
-    "node-sass": "~3.7.0",
+    "ejs": "~2.4.2",
     "mincer": "~1.4.0",
-    "ejs": "~2.4.2"
+    "node-sass": "^3.7.0"
   },
   "eyeglass": {
     "exports": "eyeglass-exports.js",
     "needs": "^0.7.1"
+  },
+  "scripts": {
+    "build": ""
   }
 }

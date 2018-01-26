@@ -221,9 +221,9 @@ input[type="search"] {
   margin-left: 0;
   margin-right: 0;
   padding: 12px;
-  background-color: $gray-superlight;
-  border-top: 1px solid $gray-lighter;
-  
+  background-color: $gray100;
+  border-top: 1px solid $gray200;
+
   > [class*="col"] {
     padding-left: 0;
   }
@@ -468,7 +468,7 @@ input[type="checkbox"] {
   margin-top: 5px;
   margin-bottom: 10px;
   font-style: italic;
-  color: $gray; // lighten the text some for contrast
+  color: $gray700; // lighten the text some for contrast
 }
 
 

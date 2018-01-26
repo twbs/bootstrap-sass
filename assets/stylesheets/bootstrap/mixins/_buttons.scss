@@ -9,23 +9,20 @@
   border-color: $border;
 
   &:focus,
-  &.focus {
-    color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
-    background-color: darken(saturate(adjust-hue($background, 0.0000), 0.0000), 2.3529);
-  }
+  &.focus,
   &:hover {
     color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
-    background-color: darken(saturate(adjust-hue($background, 0.0000), 0.0000), 2.3529);
+    background-color: $gray100;
   }
   &:active,
   &.active,
   .open > &.dropdown-toggle {
     color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
-    background-color: darken(saturate(adjust-hue($background, 0.0000), 0.0000), 7.8431);
+    background-color: $gray200;
 
     &:focus,
     &.focus {
-      background-color: #e6e6e6;
+      background-color: $gray200;
     }
   }
 
@@ -42,7 +39,7 @@
     &.focus {
       background-color: $background;
       border-color: $border;
-      color: $deathstar;
+      color: $gray700;
     }
   }
 
