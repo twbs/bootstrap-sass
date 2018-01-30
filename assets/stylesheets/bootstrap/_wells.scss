@@ -46,7 +46,6 @@ $all-text-inputs: _assing-inputs($_text-inputs-list);
   margin-bottom: 20px;
   background-color: $well-bg;
   border: 1px solid $well-border;
-  border-radius: $border-radius-base;
 
   p,
   h2, .h2, .beta,
@@ -83,8 +82,8 @@ $all-text-inputs: _assing-inputs($_text-inputs-list);
 
     &:active,
     &:focus {
-      background-color: $misty;
-      border-color: $misty;
+      background-color: $gray-superlight;
+      border-color: $gray-superlight;
     }
   }
 
@@ -97,7 +96,18 @@ $all-text-inputs: _assing-inputs($_text-inputs-list);
   .btn-danger {
     &:active,
     &:focus {
-      background-color: $gray-superlight !important;
+      background-color: $gray-superlight;
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+      &:active,
+      &:hover,
+      &:focus,
+      &.focus {
+        background-color: $white;
+      }
     }
   }
 }

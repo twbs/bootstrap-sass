@@ -17,6 +17,7 @@
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
   white-space: nowrap;
+  transition: background-color 1s cubic-bezier(0.19, 1, 0.22, 1);
   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
   @include user-select(none);
 
@@ -46,7 +47,7 @@
   &[disabled],
   fieldset[disabled] & {
     cursor: $cursor-disabled;
-    color: $deathstar;
+    color: $gray700;
   }
 
   // [converter] extracted a& to a.btn
@@ -147,7 +148,7 @@ a.btn {
 .btn-xs {
   padding: $padding-xs-vertical $padding-xs-horizontal;
   font-size: $font-size-base;
-  font-weight: bold;
+  font-weight: 700;
   line-height: 1.0769230769;
   border-radius: $border-radius-small;
   text-transform: uppercase;

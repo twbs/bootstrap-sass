@@ -152,6 +152,8 @@ output {
   &[disabled],
   &[readonly],
   fieldset[disabled] & {
+    background-color: $input-bg-disabled;
+    border-color: $input-bg-disabled;
     color: $gray;
     cursor: $cursor-disabled;
   }
@@ -220,13 +222,10 @@ input[type="search"] {
 .form-actions {
   margin-left: 0;
   margin-right: 0;
-  padding: 12px;
+  padding-top: $padding-base-vertical;
+  padding-bottom: $padding-base-vertical;
   background-color: $gray100;
   border-top: 1px solid $gray200;
-
-  > [class*="col"] {
-    padding-left: 0;
-  }
 }
 
 
@@ -467,6 +466,7 @@ input[type="checkbox"] {
   display: block; // account for any element using help-block
   margin-top: 5px;
   margin-bottom: 10px;
+  font-size: 12px;
   font-style: italic;
   color: $gray700; // lighten the text some for contrast
 }
@@ -634,5 +634,145 @@ input[type="checkbox"] {
         font-size: $font-size-small;
       }
     }
+  }
+}
+
+
+.custom-control {
+    position: relative;
+    display: block;
+    min-height: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.custom-control-input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.custom-checkbox .custom-control-label::before {
+    border-radius: 3px;
+}
+
+.custom-control-label {
+    margin-bottom: 0;
+}
+
+.custom-control-label::before {
+    position: absolute;
+    top: .25rem;
+    left: 0;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    pointer-events: none;
+    content: "";
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #dee2e6;
+}
+
+.custom-control-label::after {
+    position: absolute;
+    top: .25rem;
+    left: 0;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    content: "";
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: $brand-primary;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    background-color: $brand-primary;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+}
+
+.custom-control-input:disabled~.custom-control-label {
+    color: $gray700;
+}
+
+.custom-radio .custom-control-label::before {
+    border-radius: 50%;
+}
+
+.custom-radio .custom-control-input:checked~.custom-control-label::before {
+    background-color: $brand-primary;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    color: $white;
+    background-color: $brand-primary;
+}
+
+.custom-radio .custom-control-input:checked~.custom-control-label::after {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23fff'/%3E%3C/svg%3E");
+}
+
+// Select
+//
+// Replaces the browser default select with a custom one, mostly pulled from
+// http://primercss.io.
+//
+
+.custom-select {
+  display: inline-block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  line-height: 1.6;
+  color: $gray700;
+  vertical-align: middle;
+  background: $white url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right .75rem center;
+  background-size: 8px 10px;
+  border: 1px solid $input-border;
+  border-radius: $input-border-radius;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &:focus {
+    border-color: $input-border-focus;
+    outline: 0;
+
+    &::-ms-value {
+      // For visual consistency with other platforms/browsers,
+      // suppress the default white text on blue background highlight given to
+      // the selected option text when the (still closed) <select> receives focus
+      // in IE and (under certain conditions) Edge.
+      // See https://github.com/twbs/bootstrap/issues/19398.
+      color: $input-color;
+      background-color: $input-bg;
+    }
+  }
+
+  &[multiple],
+  &[size]:not([size="1"]) {
+    height: auto;
+    padding-right: 1.75rem;
+    background-image: none;
+  }
+
+  &:disabled {
+    color: $input-color;
+    background-color: $input-bg-disabled;
+  }
+
+  // Hides the default caret in IE11
+  &::-ms-expand {
+    opacity: 0;
   }
 }
