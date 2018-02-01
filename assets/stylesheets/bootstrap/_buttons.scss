@@ -81,7 +81,7 @@ a.btn {
 
 // Danger and error appear as a plain button with red text...
 .btn-danger {
-  @include button-variant-plain($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+  @include button-variant-plain($btn-danger-color, $btn-danger-bg, $btn-default-border);
 }
 
 
@@ -109,10 +109,10 @@ a.btn {
   }
   &:hover,
   &:focus {
-    background-color: darken(saturate(adjust-hue($btn-default-bg, 0.0000), 0.0000), 2.3529);
+    background-color: $gray100;
   }
   &:active {
-    background-color: darken(saturate(adjust-hue($btn-default-bg, 0.0000), 0.0000), 7.8431);
+    background-color: $gray200;
   }
   &[disabled],
   fieldset[disabled] & {
@@ -124,11 +124,11 @@ a.btn {
   }
   .open > &.dropdown-toggle {
     color: darken(saturate(adjust-hue($link-hover-color, -0.2776), 1.4706), 7.0588);
-    background-color: #e6e6e6;
+    background-color: $gray200;
     &:focus,
     &.focus {
-      background-color: #e6e6e6;
-      border-color: #e6e6e6;
+      background-color: $gray200;
+      border-color: $gray200;
     }
   }
 }

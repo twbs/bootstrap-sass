@@ -37,6 +37,7 @@
   },
   "scripts": {
     "watch": "./node_modules/node-sass/bin/node-sass --watch app.scss dist/app.min.css --style compressed",
-    "build": "./node_modules/node-sass/bin/node-sass app.scss dist/app.min.css --style compressed"
+    "build": "./node_modules/node-sass/bin/node-sass app.scss dist/app.min.css --style compressed",
+    "serve": "http-server"
   }
 }
