@@ -36,8 +36,9 @@
     "needs": "^0.7.1"
   },
   "scripts": {
-    "watch": "./node_modules/node-sass/bin/node-sass --watch app.scss dist/app.min.css --style compressed",
     "build": "./node_modules/node-sass/bin/node-sass app.scss dist/app.min.css --style compressed",
-    "serve": "http-server"
+    "install": "npm run build",
+    "serve": "http-server",
+    "watch": "./node_modules/node-sass/bin/node-sass --watch app.scss dist/app.min.css --style compressed",
   }
 }
