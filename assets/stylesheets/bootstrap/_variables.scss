@@ -10,12 +10,6 @@ $bootstrap-sass-asset-helper: false !default;
 
 $white:                  #ffffff !default;
 $gray-base:              #000000 !default;
-$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
-$gray-dark:              lighten($gray-base, 20%) !default;   // #333
-$gray:                   lighten($gray-base, 37%) !default; // #5e5e5e
-$gray-light:             lighten($gray-base, 55%) !default; // #8c8c8c
-$gray-lighter:           lighten($gray-base, 92%) !default; // #ebebeb
-$gray-superlight:        lighten($gray-base, 98%) !default; // #f9f9f9
 
 $gray100: #f8f9fa !default;
 $gray200: #e9ecef !default;
@@ -26,6 +20,13 @@ $gray600: #868e96 !default;
 $gray700: #495057 !default;
 $gray800: #343a40 !default;
 $gray900: #212529 !default;
+
+$gray-superlight:        $gray100 !default;
+$gray-lighter:           $gray200 !default;
+$gray-light:             $gray600 !default;
+$gray:                   $gray700 !default;
+$gray-dark:              $gray800 !default;
+$gray-darker:            $gray900 !default;
 
 $turqoise: #017d87;
 $accent: #005d64;
