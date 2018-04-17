@@ -67,6 +67,7 @@ class Converter
         log_processing name
         # apply common conversions
         file = convert_less(file)
+        file = replace_all file, %r{/\* stylelint-disable.*?\*/\n*}, '', optional: true
         if name.start_with?('mixins/')
           file = varargify_mixin_definitions(file, *VARARG_MIXINS)
           %w(responsive-(in)?visibility input-size text-emphasis-variant bg-variant).each do |mixin|
@@ -325,10 +326,10 @@ SASS
                 %Q(@import "#{target_path}\\1";)
     end
 
-    def replace_all(file, regex, replacement = nil, &block)
+    def replace_all(file, regex, replacement = nil, optional: false, &block)
       log_transform regex, replacement
       new_file = file.gsub(regex, replacement, &block)
-      raise "replace_all #{regex}, #{replacement} NO MATCH" if file == new_file
+      raise "replace_all #{regex}, #{replacement} NO MATCH" if !optional && file == new_file
       new_file
     end
 
@@ -465,7 +466,7 @@ SASS
     def replace_ms_filters(file)
       log_transform
       file.gsub(
-          /filter: e\(%\("progid:DXImageTransform.Microsoft.gradient\(startColorstr='%d', endColorstr='%d', GradientType=(\d)\)",argb\(([\-$\w]+)\),argb\(([\-$\w]+)\)\)\);/,
+          /filter: e\(%\("progid:DXImageTransform.Microsoft.gradient\(startColorstr='%d', endColorstr='%d', GradientType=(\d)\)", ?argb\(([\-$\w]+)\), ?argb\(([\-$\w]+)\)\)\);/,
           %Q(filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='\#{ie-hex-str(\\2)}', endColorstr='\#{ie-hex-str(\\3)}', GradientType=\\1);)
       )
     end
