@@ -127,10 +127,7 @@ class Converter
           when 'thumbnails.less', 'labels.less', 'badges.less', 'buttons.less'
             file = extract_nested_rule file, 'a&'
           when 'glyphicons.less'
-            file = replace_rules(file, /\s*@font-face/) { |rule|
-              rule = replace_all rule, /(\$icon-font(?:-\w+)+)/, '#{\1}'
-              replace_asset_url rule, :font
-            }
+            file = replace_rules(file, /\s*@font-face/) { |rule| replace_asset_url rule, :font }
           when 'type.less'
             file = apply_mixin_parent_selector(file, '\.(text|bg)-(success|primary|info|warning|danger)')
             # .bg-primary will not get patched automatically as it includes an additional rule. fudge for now
@@ -512,7 +509,8 @@ SASS
     def replace_escaping(less)
       less = less.gsub(/~"([^"]+)"/, '\1').gsub(/~'([^']+)'/, '\1') # Get rid of ~"" escape
       less.gsub!(/\$\{([^}]+)\}/, '$\1') # Get rid of @{} escape
-      less.gsub!(/"([^"\n]*)(\$[\w\-]+)([^"\n]*)"/, '"\1#{\2}\3"') # interpolate variable in string, e.g. url("$file-1x") => url("#{$file-1x}")
+      # interpolate variables in strings, e.g. url("$file-1x") => url("#{$file-1x}")
+      less.gsub!(/"[^"\n]*"/) { |str| str.gsub(/\$[^"\n$.\\]+/, '#{\0}') }
       less.gsub(/(\W)e\(%\("?([^"]*)"?\)\)/, '\1\2') # Get rid of e(%("")) escape
     end
 
