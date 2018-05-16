@@ -37,8 +37,8 @@
   },
   "scripts": {
     "build": "./node_modules/node-sass/bin/node-sass app.scss dist/app.min.css --style compressed",
-    "install": "npm run build",
+    "postinstall": "npm run build",
     "serve": "http-server",
-    "watch": "./node_modules/node-sass/bin/node-sass --watch app.scss dist/app.min.css --style compressed",
+    "watch": "./node_modules/node-sass/bin/node-sass --watch app.scss dist/app.min.css --style compressed"
   }
 }
