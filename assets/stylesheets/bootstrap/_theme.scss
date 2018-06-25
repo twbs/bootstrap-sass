@@ -51,10 +51,12 @@
   background-repeat: repeat-x;
   border-color: darken($btn-color, 14%);
 
-  &:hover,
-  &:focus  {
-    background-color: darken($btn-color, 12%);
-    background-position: 0 -15px;
+  @include hover-support {
+    &:hover,
+    &:focus  {
+      background-color: darken($btn-color, 12%);
+      background-position: 0 -15px;
+    }
   }
 
   &:active,
