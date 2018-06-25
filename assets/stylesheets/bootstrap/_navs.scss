@@ -147,9 +147,7 @@
 
     // Active state
     &.active > a {
-      color: $nav-pills-active-link-hover-color;
-      background-color: $nav-pills-active-link-hover-bg;
-
+      &,
       &:hover,
       &:focus {
         color: $nav-pills-active-link-hover-color;
