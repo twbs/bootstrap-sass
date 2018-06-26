@@ -29,11 +29,12 @@
     }
   }
 
-  &:hover,
-  &:focus,
-  &.focus {
-    color: $btn-default-color;
-    text-decoration: none;
+  @include hover-support {
+    &:hover,
+    &:focus,
+    &.focus {
+      color: $btn-default-color;
+    }
   }
 
   &:active,
@@ -112,11 +113,13 @@ a.btn {
   &:active {
     border-color: transparent;
   }
-  &:hover,
-  &:focus {
-    color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
-    background-color: transparent;
+  @include hover-support {
+    &:hover,
+    &:focus {
+      color: $link-hover-color;
+      text-decoration: $link-hover-decoration;
+      background-color: transparent;
+    }
   }
   &[disabled],
   fieldset[disabled] & {
