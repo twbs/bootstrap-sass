@@ -5,8 +5,10 @@
   #{$parent} {
     color: $color;
   }
-  a#{$parent}:hover,
-  a#{$parent}:focus {
-    color: darken($color, 10%);
+  @include hover-support {
+    a#{$parent}:hover,
+    a#{$parent}:focus {
+      color: darken($color, 10%);
+    }
   }
 }

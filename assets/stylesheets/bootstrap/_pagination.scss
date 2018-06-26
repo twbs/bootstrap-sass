@@ -38,12 +38,14 @@
 
   > li > a,
   > li > span {
-    &:hover,
-    &:focus {
-      z-index: 2;
-      color: $pagination-hover-color;
-      background-color: $pagination-hover-bg;
-      border-color: $pagination-hover-border;
+    @include hover-support {
+      &:hover,
+      &:focus {
+        z-index: 2;
+        color: $pagination-hover-color;
+        background-color: $pagination-hover-bg;
+        border-color: $pagination-hover-border;
+      }
     }
   }
 

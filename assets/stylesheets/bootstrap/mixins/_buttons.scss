@@ -3,8 +3,6 @@
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
 
-@import 'hover';
-
 @mixin button-variant($color, $background, $border) {
   color: $color;
   background-color: $background;
@@ -44,13 +42,11 @@
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
-    @include hover-support {
-      &:hover,
-      &:focus,
-      &.focus {
-        background-color: $background;
-            border-color: $border;
-      }
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: $background;
+          border-color: $border;
     }
   }
 
