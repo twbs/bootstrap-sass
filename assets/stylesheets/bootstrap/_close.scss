@@ -12,12 +12,14 @@
   text-shadow: $close-text-shadow;
   @include opacity(.2);
 
-  &:hover,
-  &:focus {
-    color: $close-color;
-    text-decoration: none;
-    cursor: pointer;
-    @include opacity(.5);
+  @include hover-support {
+    &:hover,
+    &:focus {
+      color: $close-color;
+      text-decoration: none;
+      cursor: pointer;
+      @include opacity(.5);
+    }
   }
 
   // [converter] extracted button& to button.close

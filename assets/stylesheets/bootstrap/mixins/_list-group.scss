@@ -16,10 +16,12 @@
       color: inherit;
     }
 
-    &:hover,
-    &:focus {
-      color: $color;
-      background-color: darken($background, 5%);
+    @include hover-support {
+      &:hover,
+      &:focus {
+        color: $color;
+        background-color: darken($background, 5%);
+      }
     }
     &.active,
     &.active:hover,

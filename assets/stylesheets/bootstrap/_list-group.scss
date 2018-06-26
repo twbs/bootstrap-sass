@@ -52,11 +52,13 @@ button.list-group-item {
   }
 
   // Hover state
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    color: $list-group-link-hover-color;
-    background-color: $list-group-hover-bg;
+  @include hover-support {
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $list-group-link-hover-color;
+      background-color: $list-group-hover-bg;
+    }
   }
 }
 

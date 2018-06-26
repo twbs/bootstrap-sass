@@ -59,10 +59,12 @@
 
 // Hover state, but only for links
 a.badge {
-  &:hover,
-  &:focus {
-    color: $badge-link-hover-color;
-    text-decoration: none;
-    cursor: pointer;
+  @include hover-support {
+    &:hover,
+    &:focus {
+      color: $badge-link-hover-color;
+      text-decoration: none;
+      cursor: pointer;
+    }
   }
 }
