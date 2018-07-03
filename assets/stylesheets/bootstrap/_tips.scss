@@ -1,0 +1,28 @@
+.c-tip {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  margin-bottom: 1.5em;
+  color: $black;
+  background-color: $gray100;
+  border-left: 3px solid transparent;
+}
+
+.c-tip--onboarding {
+  border-color: $yellow;
+}
+
+.c-tip--onboarding .c-tip__icon {
+  margin-right: 0.25em;
+  font-size: 3em;
+  color: $yellow;
+}
+
+.c-tip__title {
+  display: block;
+  font-weight: 600;
+}
+
+.c-tip__content {
+  margin-bottom: 0;
+}
