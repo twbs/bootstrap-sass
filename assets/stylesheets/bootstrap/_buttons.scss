@@ -29,17 +29,20 @@
     }
   }
 
-  &:hover,
-  &:focus,
-  &.focus {
-    color: $btn-default-color;
-    text-decoration: none;
+  @include hover-support {
+    &:hover,
+    &:focus,
+    &.focus {
+      color: $btn-default-color;
+      text-decoration: none;
+    }
   }
 
   &:active,
   &.active {
     outline: 0;
     background-image: none;
+    text-decoration: none;
     @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
   }
 
@@ -112,11 +115,13 @@ a.btn {
   &:active {
     border-color: transparent;
   }
-  &:hover,
-  &:focus {
-    color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
-    background-color: transparent;
+  @include hover-support {
+    &:hover,
+    &:focus {
+      color: $link-hover-color;
+      text-decoration: $link-hover-decoration;
+      background-color: transparent;
+    }
   }
   &[disabled],
   fieldset[disabled] & {

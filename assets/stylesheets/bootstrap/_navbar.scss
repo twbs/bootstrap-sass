@@ -236,6 +236,7 @@
     padding-top:    10px;
     padding-bottom: 10px;
     line-height: $line-height-computed;
+    @include user-select(none);
   }
 
   @media (max-width: $grid-float-breakpoint-max) {
@@ -400,10 +401,16 @@
 
   .navbar-brand {
     color: $navbar-default-brand-color;
-    &:hover,
-    &:focus {
+    &:active {
       color: $navbar-default-brand-hover-color;
       background-color: $navbar-default-brand-hover-bg;
+    }
+    @include hover-support {
+      &:hover,
+      &:focus {
+        color: $navbar-default-brand-hover-color;
+        background-color: $navbar-default-brand-hover-bg;
+      }
     }
   }
 
@@ -414,16 +421,22 @@
   .navbar-nav {
     > li > a {
       color: $navbar-default-link-color;
-
-      &:hover,
-      &:focus {
+      &:active {
         color: $navbar-default-link-hover-color;
         background-color: $navbar-default-link-hover-bg;
+      }
+      @include hover-support {
+        &:hover,
+        &:focus {
+          color: $navbar-default-link-hover-color;
+          background-color: $navbar-default-link-hover-bg;
+        }
       }
     }
     > .active > a {
       &,
       &:hover,
+      &:active,
       &:focus {
         color: $navbar-default-link-active-color;
         background-color: $navbar-default-link-active-bg;
@@ -432,6 +445,7 @@
     > .disabled > a {
       &,
       &:hover,
+      &:active,
       &:focus {
         color: $navbar-default-link-disabled-color;
         background-color: $navbar-default-link-disabled-bg;
@@ -441,9 +455,14 @@
 
   .navbar-toggle {
     border-color: $navbar-default-toggle-border-color;
-    &:hover,
-    &:focus {
+    &:active {
       background-color: $navbar-default-toggle-hover-bg;
+    }
+    @include hover-support {
+      &:hover,
+      &:focus {
+        background-color: $navbar-default-toggle-hover-bg;
+      }
     }
     .icon-bar {
       background-color: $navbar-default-toggle-icon-bar-bg;
@@ -461,6 +480,7 @@
     > .open > a {
       &,
       &:hover,
+      &:active,
       &:focus {
         background-color: $navbar-default-link-active-bg;
         color: $navbar-default-link-active-color;
@@ -472,15 +492,22 @@
       .open .dropdown-menu {
         > li > a {
           color: $navbar-default-link-color;
-          &:hover,
-          &:focus {
+          &:active {
             color: $navbar-default-link-hover-color;
             background-color: $navbar-default-link-hover-bg;
+          }
+          @include hover-support {
+            &:hover,
+            &:focus {
+              color: $navbar-default-link-hover-color;
+              background-color: $navbar-default-link-hover-bg;
+            }
           }
         }
         > .active > a {
           &,
           &:hover,
+          &:active,
           &:focus {
             color: $navbar-default-link-active-color;
             background-color: $navbar-default-link-active-bg;
@@ -489,6 +516,7 @@
         > .disabled > a {
           &,
           &:hover,
+          &:active,
           &:focus {
             color: $navbar-default-link-disabled-color;
             background-color: $navbar-default-link-disabled-bg;
@@ -512,9 +540,11 @@
 
   .btn-link {
     color: $navbar-default-link-color;
-    &:hover,
-    &:focus {
-      color: $navbar-default-link-hover-color;
+    @include hover-support {
+      &:hover,
+      &:focus {
+        color: $navbar-default-link-hover-color;
+      }
     }
     &[disabled],
     fieldset[disabled] & {
@@ -534,10 +564,16 @@
 
   .navbar-brand {
     color: $navbar-inverse-brand-color;
-    &:hover,
-    &:focus {
+    &:active {
       color: $navbar-inverse-brand-hover-color;
       background-color: $navbar-inverse-brand-hover-bg;
+    }
+    @include hover-support {
+      &:hover,
+      &:focus {
+        color: $navbar-inverse-brand-hover-color;
+        background-color: $navbar-inverse-brand-hover-bg;
+      }
     }
   }
 
@@ -548,11 +584,16 @@
   .navbar-nav {
     > li > a {
       color: $navbar-inverse-link-color;
-
-      &:hover,
-      &:focus {
+      &:active {
         color: $navbar-inverse-link-hover-color;
         background-color: $navbar-inverse-link-hover-bg;
+      }
+      @include hover-support {
+        &:hover,
+        &:focus {
+          color: $navbar-inverse-link-hover-color;
+          background-color: $navbar-inverse-link-hover-bg;
+        }
       }
     }
     > .active > a {
@@ -576,9 +617,14 @@
   // Darken the responsive nav toggle
   .navbar-toggle {
     border-color: $navbar-inverse-toggle-border-color;
-    &:hover,
-    &:focus {
+    &:active {
       background-color: $navbar-inverse-toggle-hover-bg;
+    }
+    @include hover-support {
+      &:hover,
+      &:focus {
+        background-color: $navbar-inverse-toggle-hover-bg;
+      }
     }
     .icon-bar {
       background-color: $navbar-inverse-toggle-icon-bar-bg;
@@ -612,15 +658,22 @@
         }
         > li > a {
           color: $navbar-inverse-link-color;
-          &:hover,
-          &:focus {
+          &:active {
             color: $navbar-inverse-link-hover-color;
             background-color: $navbar-inverse-link-hover-bg;
+          }
+          @include hover-support {
+            &:hover,
+            &:focus {
+              color: $navbar-inverse-link-hover-color;
+              background-color: $navbar-inverse-link-hover-bg;
+            }
           }
         }
         > .active > a {
           &,
           &:hover,
+          &:active,
           &:focus {
             color: $navbar-inverse-link-active-color;
             background-color: $navbar-inverse-link-active-bg;
@@ -629,6 +682,7 @@
         > .disabled > a {
           &,
           &:hover,
+          &:active,
           &:focus {
             color: $navbar-inverse-link-disabled-color;
             background-color: $navbar-inverse-link-disabled-bg;
@@ -640,16 +694,20 @@
 
   .navbar-link {
     color: $navbar-inverse-link-color;
-    &:hover {
-      color: $navbar-inverse-link-hover-color;
+    @include hover-support {
+      &:hover {
+        color: $navbar-inverse-link-hover-color;
+      }
     }
   }
 
   .btn-link {
     color: $navbar-inverse-link-color;
-    &:hover,
-    &:focus {
-      color: $navbar-inverse-link-hover-color;
+    @include hover-support {
+      &:hover,
+      &:focus {
+        color: $navbar-inverse-link-hover-color;
+      }
     }
     &[disabled],
     fieldset[disabled] & {

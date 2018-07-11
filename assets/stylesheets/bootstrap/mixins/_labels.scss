@@ -4,9 +4,14 @@
   background-color: $color;
 
   &[href] {
-    &:hover,
-    &:focus {
+    &:active {
       background-color: darken($color, 10%);
+    }
+    @include hover-support {
+      &:hover,
+      &:focus {
+        background-color: darken($color, 10%);
+      }
     }
   }
 }

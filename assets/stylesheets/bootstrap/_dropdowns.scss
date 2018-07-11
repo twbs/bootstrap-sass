@@ -70,16 +70,25 @@
     line-height: $line-height-base;
     color: $dropdown-link-color;
     white-space: nowrap; // prevent links from randomly breaking onto new lines
+    @include user-select(none);
   }
 }
 
 // Hover/Focus state
 .dropdown-menu > li > a {
-  &:hover,
-  &:focus {
+  &:active {
     text-decoration: none;
     color: $dropdown-link-hover-color;
     background-color: $dropdown-link-hover-bg;
+  }
+
+  @include hover-support {
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $dropdown-link-hover-color;
+      background-color: $dropdown-link-hover-bg;
+    }
   }
 }
 
@@ -87,6 +96,7 @@
 .dropdown-menu > .active > a {
   &,
   &:hover,
+  &:active,
   &:focus {
     color: $dropdown-link-active-color;
     text-decoration: none;
@@ -102,12 +112,14 @@
 .dropdown-menu > .disabled > a {
   &,
   &:hover,
+  &:active,
   &:focus {
     color: $dropdown-link-disabled-color;
   }
 
-  // Nuke hover/focus effects
+  // Nuke hover/active/focus effects
   &:hover,
+  &:active,
   &:focus {
     text-decoration: none;
     background-color: transparent;

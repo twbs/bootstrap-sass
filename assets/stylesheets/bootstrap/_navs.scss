@@ -20,10 +20,13 @@
       position: relative;
       display: block;
       padding: $nav-link-padding;
-      &:hover,
-      &:focus {
-        text-decoration: none;
-        background-color: $nav-link-hover-bg;
+
+      @include hover-support {
+        &:hover,
+        &:focus {
+          text-decoration: none;
+          background-color: $nav-link-hover-bg;
+        }
       }
     }
 
@@ -31,12 +34,14 @@
     &.disabled > a {
       color: $nav-disabled-link-color;
 
-      &:hover,
-      &:focus {
-        color: $nav-disabled-link-hover-color;
-        text-decoration: none;
-        background-color: transparent;
-        cursor: $cursor-disabled;
+      @include hover-support {
+        &:hover,
+        &:focus {
+          color: $nav-disabled-link-hover-color;
+          text-decoration: none;
+          background-color: transparent;
+          cursor: $cursor-disabled;
+        }
       }
     }
   }
@@ -86,8 +91,11 @@
       line-height: $line-height-base;
       border: 1px solid transparent;
       border-radius: $border-radius-base $border-radius-base 0 0;
-      &:hover {
-        border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
+
+      @include hover-support {
+        &:hover {
+          border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
+        }
       }
     }
 
