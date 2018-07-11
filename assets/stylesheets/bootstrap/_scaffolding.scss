@@ -49,6 +49,11 @@ a {
   color: $link-color;
   text-decoration: none;
 
+  &:active {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+
   @include hover-support {
     &:hover,
     &:focus {
