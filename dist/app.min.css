@@ -2455,41 +2455,72 @@ tbody.collapse.in {
     line-height: 1.6;
     color: #017d87;
     white-space: nowrap; }
+  .dropdown-menu > li > button {
+    touch-action: manipulation;
+    width: 100%;
+    padding: 2px 20px;
+    font-weight: normal;
+    text-align: left;
+    color: #017d87;
+    white-space: nowrap;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
 
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus,
+.dropdown-menu > li > button:hover,
+.dropdown-menu > li > button:focus {
   text-decoration: none;
   color: #fff;
   background-color: #005d64; }
 
-.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus,
+.dropdown-menu > .active > button,
+.dropdown-menu > .active > button:hover,
+.dropdown-menu > .active > button:focus {
   color: #fff;
   text-decoration: none;
   outline: 0;
   background-color: #005d64; }
 
-.dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
+.dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus,
+.dropdown-menu > .disabled > button,
+.dropdown-menu > .disabled > button:hover,
+.dropdown-menu > .disabled > button:focus {
   color: #495057; }
 
-.dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
+.dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus,
+.dropdown-menu > .disabled > button:hover,
+.dropdown-menu > .disabled > button:focus {
   text-decoration: none;
   background-color: transparent;
   background-image: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   cursor: not-allowed; }
 
-.dropdown-menu > .danger > a {
+.dropdown-menu > .danger > a,
+.dropdown-menu > .danger > button {
   color: #a02f2b; }
-  .dropdown-menu > .danger > a:hover, .dropdown-menu > .danger > a:focus {
+  .dropdown-menu > .danger > a:hover, .dropdown-menu > .danger > a:focus,
+  .dropdown-menu > .danger > button:hover,
+  .dropdown-menu > .danger > button:focus {
     color: #ffffff; }
-  .dropdown-menu > .danger > a:hover {
+  .dropdown-menu > .danger > a:hover,
+  .dropdown-menu > .danger > button:hover {
     background-color: #a02f2b; }
-  .dropdown-menu > .danger > a:focus {
+  .dropdown-menu > .danger > a:focus,
+  .dropdown-menu > .danger > button:focus {
     background-color: #852522; }
 
 .open > .dropdown-menu {
   display: block; }
 
-.open > a {
+.open > a,
+.open > button {
   outline: 0; }
 
 .dropdown-menu-right {

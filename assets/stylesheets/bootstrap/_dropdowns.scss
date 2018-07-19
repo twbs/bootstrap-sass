@@ -71,10 +71,25 @@
     color: $dropdown-link-color;
     white-space: nowrap; // prevent links from randomly breaking onto new lines
   }
+
+  > li > button {
+    touch-action: manipulation;
+    width: 100%;
+    padding: 2px 20px;
+    font-weight: normal;
+    text-align: left;
+    color: $dropdown-link-color;
+    white-space: nowrap; // prevent links from randomly breaking onto new lines
+    background-color: transparent;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: 1px solid transparent;
+    @include user-select(none);
+  }
 }
 
 // Hover/Focus state
-.dropdown-menu > li > a {
+.dropdown-menu > li > a,
+.dropdown-menu > li > button {
   &:hover,
   &:focus {
     text-decoration: none;
@@ -84,7 +99,8 @@
 }
 
 // Active state
-.dropdown-menu > .active > a {
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > button {
   &,
   &:hover,
   &:focus {
@@ -99,7 +115,8 @@
 //
 // Gray out text and ensure the hover/focus state remains gray
 
-.dropdown-menu > .disabled > a {
+.dropdown-menu > .disabled > a,
+.dropdown-menu > .disabled > button {
   &,
   &:hover,
   &:focus {
@@ -119,7 +136,8 @@
 
 // Danger (!) state
 // List item appears in red and darkens on hover/focus
-.dropdown-menu > .danger > a {
+.dropdown-menu > .danger > a,
+.dropdown-menu > .danger > button {
   color: $red;
   &:hover,
   &:focus {
@@ -141,7 +159,8 @@
   }
 
   // Remove the outline when :focus is triggered
-  > a {
+  > a,
+  > button {
     outline: 0;
   }
 }
