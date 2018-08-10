@@ -21,7 +21,7 @@ Please see the appropriate guide for your environment of choice:
 
 `bootstrap-sass` is easy to drop into Rails with the asset pipeline.
 
-In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `sassc`.
+In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `sassc` gem is present.
 
 ```ruby
 gem 'bootstrap-sass', '~> 3.3.7'
