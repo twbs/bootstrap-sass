@@ -2,7 +2,7 @@ language: ruby
 cache: bundler
 bundler_args: --path ../../vendor/bundle --without debug
 rvm:
-  - 2.2.3
+  - 2.3.7
 gemfile:
   - test/gemfiles/rails_head.gemfile
   - test/gemfiles/sass_3_3.gemfile
