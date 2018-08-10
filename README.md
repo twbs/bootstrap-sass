@@ -21,11 +21,11 @@ Please see the appropriate guide for your environment of choice:
 
 `bootstrap-sass` is easy to drop into Rails with the asset pipeline.
 
-In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `sass-rails` gem is present - it is added to new Rails applications by default.
+In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `sassc`.
 
 ```ruby
 gem 'bootstrap-sass', '~> 3.3.7'
-gem 'sass-rails', '>= 3.2'
+gem 'sassc', '>= 1.12.1'
 ```
 
 `bundle install` and restart your server to make the files available through the pipeline.
