@@ -27,6 +27,7 @@ In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `s
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'sass-rails', '>= 3.2'
 ```
+Since Rails v5.1+ the jquery gem is not included by default, so you also have to add `gem 'jquery-rails'` to your Gemfile.
 
 `bundle install` and restart your server to make the files available through the pipeline.
 
