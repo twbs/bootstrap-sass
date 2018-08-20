@@ -6,7 +6,7 @@
 
 `bootstrap-sass` is a Sass-powered version of [Bootstrap](https://github.com/twbs/bootstrap) 3, ready to drop right into your Sass powered applications.
 
-This is Bootstrap 3. For Bootstrap 4 use the [Bootstrap Ruby gem](http://github.com/twbs/bootstrap-rubygem) if you use Ruby, and the [main repo](http://github.com/twbs/bootstrap) otherwise.
+This is Bootstrap 3. For Bootstrap 4 use the [Bootstrap Ruby gem](https://github.com/twbs/bootstrap-rubygem) if you use Ruby, and the [main repo](https://github.com/twbs/bootstrap) otherwise.
 
 ## Installation
 
@@ -222,9 +222,9 @@ When using Ruby Sass compiler standalone or with the Bower version you can set i
 ### Sass: Autoprefixer
 
 Bootstrap requires the use of [Autoprefixer][autoprefixer].
-[Autoprefixer][autoprefixer] adds vendor prefixes to CSS rules using values from [Can I Use](http://caniuse.com/).
+[Autoprefixer][autoprefixer] adds vendor prefixes to CSS rules using values from [Can I Use](https://caniuse.com/).
 
-To match [upstream Bootstrap's level of browser compatibility](http://getbootstrap.com/getting-started/#support), set Autoprefixer's `browsers` option to:
+To match [upstream Bootstrap's level of browser compatibility](https://getbootstrap.com/getting-started/#support), set Autoprefixer's `browsers` option to:
 ```json
 [
   "Android 2.3",
@@ -295,7 +295,7 @@ You can also include optional Bootstrap theme:
 @import "bootstrap/theme";
 ```
 
-The full list of Bootstrap variables can be found [here](http://getbootstrap.com/customize/#less-variables). You can override these by simply redefining the variable before the `@import` directive, e.g.:
+The full list of Bootstrap variables can be found [here](https://getbootstrap.com/customize/#less-variables). You can override these by simply redefining the variable before the `@import` directive, e.g.:
 
 ```scss
 $navbar-default-bg: #312312;
@@ -324,7 +324,7 @@ or import only the parts of Bootstrap you need:
 ## Version
 
 Bootstrap for Sass version may differ from the upstream version in the last number, known as
-[PATCH](http://semver.org/spec/v2.0.0.html). The patch version may be ahead of the corresponding upstream minor.
+[PATCH](https://semver.org/spec/v2.0.0.html). The patch version may be ahead of the corresponding upstream minor.
 This happens when we need to release Sass-specific changes.
 
 Before v3.3.2, Bootstrap for Sass version used to reflect the upstream version, with an additional number for
@@ -395,7 +395,7 @@ Michael Hartl's [Rails Tutorial](https://www.railstutorial.org/), [gitlabhq](htt
 [version]: https://github.com/twbs/bootstrap-sass/blob/master/lib/bootstrap-sass/version.rb
 [contrib]: https://github.com/twbs/bootstrap-sass/graphs/contributors
 [antirequire]: https://github.com/twbs/bootstrap-sass/issues/79#issuecomment-4428595
-[jsdocs]: http://getbootstrap.com/javascript/#transitions
+[jsdocs]: https://getbootstrap.com/javascript/#transitions
 [sass-precision]: http://sass-lang.com/documentation/Sass/Script/Value/Number.html#precision%3D-class_method
 [mincer]: https://github.com/nodeca/mincer
 [autoprefixer]: https://github.com/postcss/autoprefixer
