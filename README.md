@@ -1,4 +1,4 @@
-# Bootstrap for Sass
+# Bootstrap 3 for Sass
 [![Gem Version](https://badge.fury.io/rb/bootstrap-sass.svg)](http://badge.fury.io/rb/bootstrap-sass)
 [![npm version](https://img.shields.io/npm/v/bootstrap-sass.svg?style=flat)](https://www.npmjs.com/package/bootstrap-sass)
 [![Bower Version](https://badge.fury.io/bo/bootstrap-sass.svg)](http://badge.fury.io/bo/bootstrap-sass)
@@ -6,7 +6,7 @@
 
 `bootstrap-sass` is a Sass-powered version of [Bootstrap](https://github.com/twbs/bootstrap) 3, ready to drop right into your Sass powered applications.
 
-This is Bootstrap 3. For Bootstrap 4 use the [Bootstrap Ruby gem](https://github.com/twbs/bootstrap-rubygem) if you use Ruby, and the [main repo](https://github.com/twbs/bootstrap) otherwise.
+This is Bootstrap **3**. For Bootstrap **4** use the [Bootstrap rubygem](https://github.com/twbs/bootstrap-rubygem) if you use Ruby, and the [main repo](https://github.com/twbs/bootstrap) otherwise.
 
 ## Installation
 
