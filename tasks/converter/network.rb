@@ -32,7 +32,7 @@ class Converter
       if File.directory?(full_path)
         files.each do |name|
           path = "#{full_path}/#{name}"
-          contents[name] = File.read(path, mode: 'rb') if File.exists?(path)
+          contents[name] = File.read(path, mode: 'rb') if File.exist?(path)
         end
       end
       contents
@@ -51,7 +51,7 @@ class Converter
       uri = URI(url)
       cache_path = "./#@cache_path#{uri.path}#{uri.query.tr('?&=', '-') if uri.query}"
       FileUtils.mkdir_p File.dirname(cache_path)
-      if File.exists?(cache_path)
+      if File.exist?(cache_path)
         log_http_get_file url, true
         File.read(cache_path, mode: 'rb')
       else

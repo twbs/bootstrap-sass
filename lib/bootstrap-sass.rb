@@ -11,9 +11,12 @@ module Bootstrap
         register_lotus
       elsif sprockets?
         register_sprockets
+      elsif defined?(::Sass) && ::Sass.respond_to?(:load_paths)
+        # The deprecated `sass` gem:
+        ::Sass.load_paths << stylesheets_path
+        # bootstrap requires minimum precision of 8, see https://github.com/twbs/bootstrap-sass/issues/409
+        ::Sass::Script::Number.precision = [8, ::Sass::Script::Number.precision].max
       end
-
-      configure_sass
     end
 
     # Paths
@@ -55,15 +58,6 @@ module Bootstrap
     end
 
     private
-
-    def configure_sass
-      require 'sass'
-
-      ::Sass.load_paths << stylesheets_path
-
-      # bootstrap requires minimum precision of 8, see https://github.com/twbs/bootstrap-sass/issues/409
-      ::Sass::Script::Number.precision = [8, ::Sass::Script::Number.precision].max
-    end
 
     def register_compass_extension
       ::Compass::Frameworks.register(

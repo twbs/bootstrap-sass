@@ -1,13 +1,20 @@
-require 'sass'
+# frozen_string_literal: true
+
+require 'sassc'
 require 'bootstrap-sass'
 require 'fileutils'
 
-scss_path = File.expand_path('./import_all.sass', File.dirname(__FILE__))
-css = Sass.compile File.read(scss_path), syntax: 'sass'
+load_path = ARGV[0]
+out_path = ARGV[1]
 
-if ARGV[0]
-  FileUtils.mkdir_p File.dirname(ARGV[0])
-  File.open(ARGV[0], 'w') { |f| f.write css }
+output = SassC::Engine.new(
+  File.read(File.expand_path('./import_all.scss', __dir__)),
+  syntax: :scss, load_paths: [load_path]
+).render
+
+if out_path
+  FileUtils.mkdir_p(File.dirname(out_path))
+  File.write(out_path, output)
 else
-  puts css
+  puts output
 end

@@ -1,23 +1,25 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 require 'shellwords'
+require 'fileutils'
 
 class SassTest < Minitest::Test
   DUMMY_PATH = 'test/dummy_sass_only'
 
   def test_font_helper
-    assert_match %r(url\(['"]?.*eot['"]?\)), @css
+    assert_match %r{url\(['"]?.*eot['"]?\)}, @css
   end
 
   def setup
-    Dir.chdir DUMMY_PATH do
-      %x[rm -rf .sass-cache/]
-      %x[bundle]
-    end
+    FileUtils.rm_rf(File.join(DUMMY_PATH, '.sass-cache'), secure: true)
     css_path = File.join GEM_PATH, 'tmp/bootstrap-sass-only.css'
-    command  = "bundle exec ruby compile.rb #{Shellwords.escape css_path}"
     success  = Dir.chdir DUMMY_PATH do
       silence_stdout_if !ENV['VERBOSE'] do
-        system(command)
+        Bundler.with_original_env do
+          system('bundle') && system('bundle', 'exec', 'ruby', 'compile.rb',
+                                     Bootstrap.stylesheets_path, css_path)
+        end
       end
     end
     assert success, 'Sass-only compilation failed'
