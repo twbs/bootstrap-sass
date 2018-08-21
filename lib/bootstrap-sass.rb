@@ -7,8 +7,8 @@ module Bootstrap
 
       if rails?
         register_rails_engine
-      elsif lotus?
-        register_lotus
+      elsif hanami?
+        register_hanami
       elsif sprockets?
         register_sprockets
       elsif defined?(::Sass) && ::Sass.respond_to?(:load_paths)
@@ -53,8 +53,8 @@ module Bootstrap
       defined?(::Rails)
     end
 
-    def lotus?
-      defined?(::Lotus)
+    def hanami?
+      defined?(::Hanami)
     end
 
     private
@@ -73,8 +73,8 @@ module Bootstrap
       require 'bootstrap-sass/engine'
     end
 
-    def register_lotus
-      Lotus::Assets.sources << assets_path
+    def register_hanami
+      Hanami::Assets.sources << assets_path
     end
 
     def register_sprockets
