@@ -1,9 +1,0 @@
-source "https://rubygems.org"
-
-gem 'sass', '~> 3.3.14'
-gem 'compass', '~> 1.0.1', require: false
-
-# See https://github.com/sass/sass/pull/2015
-gem 'rake', '~> 10.5.0'
-
-gemspec path: '../../'

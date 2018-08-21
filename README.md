@@ -13,9 +13,8 @@ This is Bootstrap **3**. For Bootstrap **4** use the [Bootstrap rubygem](https:/
 Please see the appropriate guide for your environment of choice:
 
 * [Ruby on Rails](#a-ruby-on-rails).
-* [Compass](#b-compass-without-rails) not on Rails.
-* [Bower](#c-bower).
-* [npm / Node.js](#d-npm--nodejs).
+* [Bower](#b-bower).
+* [npm / Node.js](#c-npm--nodejs).
 
 ### a. Ruby on Rails
 
@@ -25,7 +24,7 @@ In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `s
 
 ```ruby
 gem 'bootstrap-sass', '~> 3.3.7'
-gem 'sass-rails', '>= 3.2'
+gem 'sassc-rails', '>= 1.3.0'
 ```
 
 `bundle install` and restart your server to make the files available through the pipeline.
@@ -112,49 +111,7 @@ Please make sure `sprockets-rails` is at least v2.1.4.
 
 bootstrap-sass is no longer compatible with Rails 3. The latest version of bootstrap-sass compatible with Rails 3.2 is v3.1.1.0.
 
-### b. Compass without Rails
-
-Install the gem:
-
-```console
-$ gem install bootstrap-sass
-```
-
-If you have an existing Compass project:
-
-1. Require `bootstrap-sass` in `config.rb`:
-
-    ```ruby
-    require 'bootstrap-sass'
-    ```
-
-2. Install Bootstrap with:
-
-    ```console
-    $ bundle exec compass install bootstrap -r bootstrap-sass
-    ```
-
-If you are creating a new Compass project, you can generate it with bootstrap-sass support:
-
-```console
-$ bundle exec compass create my-new-project -r bootstrap-sass --using bootstrap
-```
-
-or, alternatively, if you're not using a Gemfile for your dependencies:
-
-```console
-$ compass create my-new-project -r bootstrap-sass --using bootstrap
-```
-
-This will create a new Compass project with the following files in it:
-
-* [styles.sass](/templates/project/styles.sass) - main project Sass file, imports Bootstrap and variables.
-* [_bootstrap-variables.sass](/templates/project/_bootstrap-variables.sass) - all of Bootstrap variables, override them here.
-
-Some bootstrap-sass mixins may conflict with the Compass ones.
-If this happens, change the import order so that Compass mixins are loaded later.
-
-### c. Bower
+### b. Bower
 
 bootstrap-sass Bower package is compatible with node-sass 3.2.0+. You can install it with:
 
@@ -187,7 +144,7 @@ In `application.js`:
 
 See also this [example manifest.js](/test/dummy_node_mincer/manifest.js) for mincer.
 
-### d. npm / Node.js
+### c. npm / Node.js
 ```console
 $ npm install bootstrap-sass
 ```
@@ -212,8 +169,8 @@ In the application Sass file, replace `@import 'bootstrap'` with:
 
 bootstrap-sass [requires](https://github.com/twbs/bootstrap-sass/issues/409) minimum [Sass number precision][sass-precision] of 8 (default is 5).
 
-Precision is set for Rails and Compass automatically.
-When using Ruby Sass compiler standalone or with the Bower version you can set it with:
+Precision is set for Ruby automatically when using the `sassc-rails` gem.
+When using the npm or Bower version with Ruby, you can set it with:
 
 ```ruby
 ::Sass::Script::Value::Number.precision = [8, ::Sass::Script::Value::Number.precision].max

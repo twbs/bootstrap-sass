@@ -14,7 +14,7 @@ class SprocketsRailsTest < Minitest::Test
         Bundler.with_original_env do
           system({ 'BUNDLE_GEMFILE' => File.join(GEM_PATH, 'Gemfile'),
                    'RAILS_ENV' => 'production' },
-                 'bundle exec rake assets:precompile')
+                 'bundle && bundle exec rake assets:precompile')
         end
       end
     end

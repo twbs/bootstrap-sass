@@ -14,8 +14,11 @@ module Bootstrap
       elsif defined?(::Sass) && ::Sass.respond_to?(:load_paths)
         # The deprecated `sass` gem:
         ::Sass.load_paths << stylesheets_path
+      end
+
+      if defined?(::Sass::Script::Value::Number)
         # bootstrap requires minimum precision of 8, see https://github.com/twbs/bootstrap-sass/issues/409
-        ::Sass::Script::Number.precision = [8, ::Sass::Script::Number.precision].max
+        ::Sass::Script::Value::Number.precision = [8, ::Sass::Script::Value::Number.precision].max
       end
     end
 
