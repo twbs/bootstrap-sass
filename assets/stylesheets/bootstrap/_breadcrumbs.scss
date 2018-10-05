@@ -14,11 +14,11 @@
     display: inline-block;
 
     + li:before {
+      padding: 0 5px;
+      color: $breadcrumb-color;
       // [converter] Workaround for https://github.com/sass/libsass/issues/1115
       $nbsp: "\00a0";
       content: "#{$breadcrumb-separator}#{$nbsp}"; // Unicode space added since inline-block means non-collapsing white-space
-      padding: 0 5px;
-      color: $breadcrumb-color;
     }
   }
 

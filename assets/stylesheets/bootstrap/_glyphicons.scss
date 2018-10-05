@@ -1,3 +1,5 @@
+// stylelint-disable value-list-comma-newline-after, value-list-comma-space-after, indentation, declaration-colon-newline-after, font-family-no-missing-generic-family-keyword
+
 //
 // Glyphicons for Bootstrap
 //
@@ -10,13 +12,13 @@
 @at-root {
   // Import the fonts
   @font-face {
-    font-family: 'Glyphicons Halflings';
-    src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot'), '#{$icon-font-path}#{$icon-font-name}.eot'));
-    src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot?#iefix'), '#{$icon-font-path}#{$icon-font-name}.eot?#iefix')) format('embedded-opentype'),
-         url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.woff2'), '#{$icon-font-path}#{$icon-font-name}.woff2')) format('woff2'),
-         url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.woff'), '#{$icon-font-path}#{$icon-font-name}.woff')) format('woff'),
-         url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.ttf'), '#{$icon-font-path}#{$icon-font-name}.ttf')) format('truetype'),
-         url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}'), '#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}')) format('svg');
+    font-family: "Glyphicons Halflings";
+    src: url(if($bootstrap-sass-asset-helper, twbs-font-path("#{$icon-font-path}#{#{$icon-font-name}}.eot"), "#{$icon-font-path}#{#{$icon-font-name}}.eot"));
+    src: url(if($bootstrap-sass-asset-helper, twbs-font-path("#{$icon-font-path}#{#{$icon-font-name}}.eot?#iefix"), "#{$icon-font-path}#{#{$icon-font-name}}.eot?#iefix")) format("embedded-opentype"),
+         url(if($bootstrap-sass-asset-helper, twbs-font-path("#{$icon-font-path}#{#{$icon-font-name}}.woff2"), "#{$icon-font-path}#{#{$icon-font-name}}.woff2")) format("woff2"),
+         url(if($bootstrap-sass-asset-helper, twbs-font-path("#{$icon-font-path}#{#{$icon-font-name}}.woff"), "#{$icon-font-path}#{#{$icon-font-name}}.woff")) format("woff"),
+         url(if($bootstrap-sass-asset-helper, twbs-font-path("#{$icon-font-path}#{#{$icon-font-name}}.ttf"), "#{$icon-font-path}#{#{$icon-font-name}}.ttf")) format("truetype"),
+         url(if($bootstrap-sass-asset-helper, twbs-font-path("#{$icon-font-path}#{$icon-font-name}.svg##{#{$icon-font-svg-id}}"), "#{$icon-font-path}#{$icon-font-name}.svg##{#{$icon-font-svg-id}}")) format("svg");
   }
 }
 
@@ -25,9 +27,9 @@
   position: relative;
   top: 1px;
   display: inline-block;
-  font-family: 'Glyphicons Halflings';
+  font-family: "Glyphicons Halflings";
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
