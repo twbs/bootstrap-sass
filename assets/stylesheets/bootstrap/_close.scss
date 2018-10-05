@@ -1,3 +1,5 @@
+// stylelint-disable property-no-vendor-prefix
+
 //
 // Close icons
 // --------------------------------------------------
@@ -20,17 +22,25 @@
     @include opacity(.5);
   }
 
-  // [converter] extracted button& to button.close
+  // [converter] extracted button& to buttonstylelint-disable property-no-vendor-prefix // // Close icons // -------------------------------------------------- .close
 }
 
 // Additional properties for button version
 // iOS requires the button element instead of an anchor tag.
 // If you want the anchor version, it requires `href="#"`.
 // See https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
-button.close {
+buttonstylelint-disable property-no-vendor-prefix
+
+//
+// Close icons
+// --------------------------------------------------
+
+
+.close {
   padding: 0;
   cursor: pointer;
   background: transparent;
   border: 0;
   -webkit-appearance: none;
+  appearance: none;
 }

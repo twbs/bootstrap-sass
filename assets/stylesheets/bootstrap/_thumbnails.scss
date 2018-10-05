@@ -1,3 +1,5 @@
+// stylelint-disable selector-no-qualifying-type
+
 //
 // Thumbnails
 // --------------------------------------------------
@@ -17,11 +19,11 @@
   > img,
   a > img {
     @include img-responsive;
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
   }
 
-  // [converter] extracted a&:hover, a&:focus, a&.active to a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active
+  // [converter] extracted a&:hover, a&:focus, a&.active to astylelint-disable selector-no-qualifying-type // // Thumbnails // -------------------------------------------------- // Mixin and adjust the regular image class .thumbnail:hover, astylelint-disable selector-no-qualifying-type // // Thumbnails // -------------------------------------------------- // Mixin and adjust the regular image class .thumbnail:focus, astylelint-disable selector-no-qualifying-type // // Thumbnails // -------------------------------------------------- // Mixin and adjust the regular image class .thumbnail.active
 
   // Image captions
   .caption {
@@ -31,8 +33,32 @@
 }
 
 // Add a hover state for linked versions only
-a.thumbnail:hover,
-a.thumbnail:focus,
-a.thumbnail.active {
+astylelint-disable selector-no-qualifying-type
+
+//
+// Thumbnails
+// --------------------------------------------------
+
+
+// Mixin and adjust the regular image class
+.thumbnail:hover,
+astylelint-disable selector-no-qualifying-type
+
+//
+// Thumbnails
+// --------------------------------------------------
+
+
+// Mixin and adjust the regular image class
+.thumbnail:focus,
+astylelint-disable selector-no-qualifying-type
+
+//
+// Thumbnails
+// --------------------------------------------------
+
+
+// Mixin and adjust the regular image class
+.thumbnail.active {
   border-color: $link-color;
 }
