@@ -1,0 +1,21 @@
+{
+  "name": "PWA UI",
+  "short_name": "PWA UI",
+  "theme_color": "#222",
+  "background_color": "#fff",
+  "icons": [
+    {
+      "src": "/assets/img/favicon/chrome-icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/favicon/chrome-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "minimal-ui",
+  "orientation": "any"
+}

@@ -1,0 +1,20 @@
+.btn-flat {
+  color: #333;
+  background-color: transparent;
+  border-radius: 4px;
+
+  @include hover-support {
+    &:hover {
+      color: #333;
+      background-color: rgba(0,0,0,.05);
+    }
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: #333;
+    box-shadow: none;
+    background-color: rgba(0,0,0,.1);
+  }
+}

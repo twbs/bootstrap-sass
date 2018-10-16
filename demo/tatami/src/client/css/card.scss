@@ -1,0 +1,32 @@
+.card {
+  border: 1px solid #ccc;
+  width: 30%;
+  padding: 30px;
+  display: block;
+  color: #222;
+  user-select: none;
+  -webkit-user-select: none; // For iOS Safari
+  //-webkit-tap-highlight-color: rgba(0,0,0,.05);
+  -webkit-touch-callout:none;
+  text-decoration: none;
+
+  @include hover-support {
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: inherit;
+      background-color: rgba(0,0,0,.05);
+    }
+  }
+
+  &:active {
+    text-decoration: none;
+    color: inherit;
+    background-color: rgba(0,0,0,.1);
+  }
+
+  &.focus-visible {
+    border-color: $input-border-focus;
+    // box-shadow: 0 0 0 1px $color-rgba;
+  }
+}

@@ -1,0 +1,20 @@
+@import 'bootstrap_variable';
+@import 'bootstrap_loader';
+@import 'mixins/hover';
+
+@import 'btn-flat';
+@import 'card';
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 80px;
+  margin-bottom: 500px;
+}
+
+h1 {
+  color: black;
+}
+
+.logoimg {
+  margin-right: 10px;
+}
