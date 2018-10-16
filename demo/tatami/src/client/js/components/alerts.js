@@ -3,7 +3,7 @@ import React from 'react'
 export default function Alerts () {
   return (
     <div>
-      <h4>Alerts</h4>
+      <h2>Alerts</h2>
       <div className='alert alert-success' role='alert'>
         <button type='button' className='close' data-dismiss='alert' aria-label='Close'>
           <span aria-hidden='true'>&times;</span>

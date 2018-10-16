@@ -3,6 +3,8 @@ import React from 'react'
 export default function Buttons () {
   return (
     <div>
+      <h2>Buttons</h2>
+
       <h4>Buttons</h4>
       <button className='btn btn-default'>Default</button>&nbsp;
       <button className='btn btn-primary'>Primary</button>&nbsp;
@@ -19,7 +21,7 @@ export default function Buttons () {
 
       <br />
       <br />
-      <h4>Size</h4>
+      <h4>Size variation</h4>
       <p>
         <button className='btn btn-primary btn-lg'>Large button</button>&nbsp;
         <button className='btn btn-default btn-lg'>Large button</button>

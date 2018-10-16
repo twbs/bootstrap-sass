@@ -3,6 +3,7 @@ import React from 'react'
 export default function Dropdowns () {
   return (
     <div>
+      <h2>Dropdowns</h2>
       <div className='dropdown'>
         <button className='btn btn-default dropdown-toggle' type='button' id='dropdownMenu1'
           data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
@@ -20,7 +21,7 @@ export default function Dropdowns () {
       <hr />
       <div className='dropdown'>
         <button className='btn btn-flat dropdown-toggle' type='button' id='dropdownMenu2'
-          tabindex='0'
+          tabIndex='0'
           data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
           Dropdown <span className='caret' />
         </button>

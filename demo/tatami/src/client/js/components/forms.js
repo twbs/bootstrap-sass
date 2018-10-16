@@ -3,7 +3,7 @@ import React from 'react'
 export default function Forms () {
   return (
     <div>
-      <h4>Forms</h4>
+      <h2>Forms</h2>
       <form>
         <div className='form-group'>
           <div className='input-group'>

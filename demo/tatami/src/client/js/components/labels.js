@@ -3,7 +3,7 @@ import React from 'react'
 export default function Labels () {
   return (
     <div>
-      <h4>Labels</h4>
+      <h2>Labels</h2>
       <span className='label label-default'>Default</span>{' '}
       <a href='javascript:;' className='label label-default'>Link</a>{' '}
       <span className='label label-primary'>Primary</span>{' '}

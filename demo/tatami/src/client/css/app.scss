@@ -18,3 +18,17 @@ h1 {
 .logoimg {
   margin-right: 10px;
 }
+
+.grid {
+  .row {
+    margin-bottom: 30px;
+
+    div {
+      div {
+        background-color: #ccc;
+        text-align: center;
+        padding: 10px 0;
+      }
+    }
+  }
+}

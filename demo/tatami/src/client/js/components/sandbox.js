@@ -5,39 +5,41 @@
 import React, {Component} from 'react'
 import Alerts from './alerts'
 import Buttons from './buttons'
+import Cards from './cards'
 import Dropdowns from './dropdowns'
 import Forms from './forms'
+import Grid from './grid'
 import Labels from './labels'
 import Modals from './modals'
-import Tooltips from './tooltips'
 import Tabs from './tabs'
+import Tooltips from './tooltips'
+import Type from './type'
 
-export default class Sandbox extends Component {
-  render () {
-    return (
-      <div>
-        <Buttons />
-        <hr />
-        <Modals />
-        <hr />
-        <Tooltips />
-        <hr />
-        <Alerts />
-        <hr />
-        <Labels />
-        <hr />
-        <h4>Card</h4>
-        <a href='javascript:;' className='card'>Sample Card Link</a>
-        <hr />
-        <p><a href='javascript:;'>Here is a text link</a></p>
-        <p><button className='btn btn-link'>Button link</button></p>
-        <hr />
-        <Dropdowns />
-        <hr />
-        <Forms />
-        <hr />
-        <Tabs />
-      </div>
-    )
+export default function Sandbox ({component}) {
+  switch (component) {
+    case 'alerts':
+      return <Alerts />
+    case 'buttons':
+      return <Buttons />
+    case 'cards':
+      return <Cards />
+    case 'dropdowns':
+      return <Dropdowns />
+    case 'forms':
+      return <Forms />
+    case 'grid':
+      return <Grid />
+    case 'labels':
+      return <Labels />
+    case 'modals':
+      return <Modals />
+    case 'tabs':
+      return <Tabs />
+    case 'tooltips':
+      return <Tooltips />
+    case 'type':
+      return <Type />
+
   }
+  return null
 }

@@ -3,7 +3,7 @@ import React from 'react'
 export default function Tabs () {
   return (
     <div>
-      <h4>Tabs</h4>
+      <h2>Tabs</h2>
       <div>
         <ul className='nav nav-tabs' role='tablist'>
           <li role='presentation' className='active'><a href='#home' aria-controls='home' role='tab' data-toggle='tab'>Home</a></li>

@@ -11,7 +11,7 @@ export default function NavbarSample () {
             <span className='icon-bar' />
             <span className='icon-bar' />
           </button>
-          <a className='navbar-brand' href='javascript:;'>PWA UI</a>
+          <a className='navbar-brand' href='javascript:;'>Tatami</a>
         </div>
 
         <div className='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>

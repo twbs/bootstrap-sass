@@ -11,7 +11,7 @@ export default class Modals extends Component {
   render () {
     return (
       <div>
-        <h4>Modals</h4>
+        <h2>Modals</h2>
         <SampleModal show={this.state.showModal} onHide={() => this.setState({showModal: false})} />
         <button className='btn btn-default' onClick={() => this.setState({showModal: true})}>
           Show Modal

@@ -8,7 +8,7 @@ export default function Tooltips () {
 
   return (
     <div>
-      <h4>Tooltips</h4>
+      <h2>Tooltips</h2>
       <OverlayTrigger placement='top' overlay={tooltip}>
         <a href='javascript:;'>
           Hover me
