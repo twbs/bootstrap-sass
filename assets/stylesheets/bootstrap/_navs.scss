@@ -10,11 +10,11 @@
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   list-style: none;
-  @include clearfix;
+  display: flex;
+  flex-wrap: wrap;
 
   > li {
     position: relative;
-    display: block;
 
     > a {
       position: relative;
@@ -86,7 +86,6 @@
 .nav-tabs {
   border-bottom: 1px solid $nav-tabs-border-color;
   > li {
-    float: left;
     // Make the list-items overlay the bottom border
     margin-bottom: -1px;
 
@@ -130,14 +129,10 @@
 // -------------------------
 .nav-pills {
   > li {
-    float: left;
-
     // Links rendered as pills
     > a {
       border-radius: $nav-pills-border-radius;
-    }
-    + li {
-      margin-left: 2px;
+      margin-right: 2px;
     }
 
     // Active state
@@ -156,11 +151,14 @@
 
 // Stacked pills
 .nav-stacked {
+  flex-direction: column;
+
   > li {
-    float: none;
+    > a {
+      margin-right: 0; // no need for this gap between nav items
+    }
     + li {
       margin-top: 2px;
-      margin-left: 0; // no need for this gap between nav items
     }
   }
 }
@@ -173,10 +171,10 @@
 // -------------------------
 
 .nav-justified {
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 
   > li {
-    float: none;
     > a {
       text-align: center;
       margin-bottom: 5px;
@@ -190,8 +188,6 @@
 
   @media (min-width: $screen-sm-min) {
     > li {
-      display: table-cell;
-      width: 1%;
       > a {
         margin-bottom: 0;
       }

@@ -31,7 +31,7 @@ export default class App extends Component {
       'grid',
       'labels',
       'modals',
-      'tabs',
+      'navs',
       'tooltips',
       'type'
     ]

@@ -11,7 +11,7 @@ import Forms from './forms'
 import Grid from './grid'
 import Labels from './labels'
 import Modals from './modals'
-import Tabs from './tabs'
+import Navs from './navs'
 import Tooltips from './tooltips'
 import Type from './type'
 
@@ -33,8 +33,8 @@ export default function Sandbox ({component}) {
       return <Labels />
     case 'modals':
       return <Modals />
-    case 'tabs':
-      return <Tabs />
+    case 'navs':
+      return <Navs />
     case 'tooltips':
       return <Tooltips />
     case 'type':
