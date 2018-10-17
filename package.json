@@ -9,7 +9,10 @@
     "build-demo": "cd demo/tatami && npm run build",
     "watch-demo": "cd demo/tatami && npm run watch",
     "prepare-demo": "cd demo/tatami && npm install",
-    "start": "cd demo/tatami && npm run start"
+    "start": "cd demo/tatami && npm run start",
+    "sass-lint": "sass-lint -v --no-exit",
+    "sass-lint-fix": "sass-lint-auto-fix",
+    "test": "npm run sass-lint && sh test/*.sh"
   },
   "files": [
     "assets",
@@ -39,9 +42,10 @@
     "url": "https://github.com/twbs/bootstrap-sass/issues"
   },
   "devDependencies": {
-    "node-sass": "^3.8.0",
+    "ejs": "~2.4.2",
     "mincer": "~1.4.0",
-    "ejs": "~2.4.2"
+    "node-sass": "^3.8.0",
+    "sass-lint": "^1.12.1"
   },
   "eyeglass": {
     "exports": "eyeglass-exports.js",

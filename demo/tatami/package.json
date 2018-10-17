@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "engines": {
-    "node": "8.x",
-    "npm": "5.x"
+    "node": "10.x",
+    "npm": "6.x"
   },
   "description": "tatami",
   "scripts": {
