@@ -12,7 +12,7 @@
     "build:client": "browserify --verbose -t [ babelify ] -g [ uglifyify --keep_fnames ] src/client/js/index.js -o public/index.js",
     "build:sass": "sh scripts/build-sass.sh",
     "build:assets": "sh scripts/build-assets.sh",
-    "start": "./node_modules/.bin/http-server ./ -p 2500",
+    "start": "./node_modules/.bin/http-server ./ -p 2500 -c-1",
     "watch": "run-p watch:**",
     "watch:client": "watchify --verbose --debug -t [ babelify ] -g [ uglifyify --keep_fnames ] -p browserify-notify src/client/js/index.js -o public/index.js",
     "watch:sass": "chokidar 'src/client/css/**/*.scss' '../../assets/stylesheets' -c 'npm run build:sass -- --source-map-embed' --initial",
