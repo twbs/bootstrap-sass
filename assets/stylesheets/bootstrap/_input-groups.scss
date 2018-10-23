@@ -6,8 +6,7 @@
 // -------------------------
 .input-group {
   position: relative; // For dropdowns
-  display: table;
-  border-collapse: separate; // prevent input groups from inheriting border styles from table cells when placed within a table
+  display: flex;
 
   // Undo padding and float of grid classes
   &[class*="col-"] {
@@ -19,13 +18,7 @@
   .form-control {
     // Ensure that the input is always above the *appended* addon button for
     // proper border colors.
-    position: relative;
     z-index: 2;
-
-    // IE9 fubars the placeholder attribute in text inputs and the arrows on
-    // select elements in input groups. To fix it, we float the input. Details:
-    // https://github.com/twbs/bootstrap/issues/11561#issuecomment-28936855
-    float: left;
 
     width: 100%;
     margin-bottom: 0;
@@ -58,8 +51,6 @@
 .input-group-addon,
 .input-group-btn,
 .input-group .form-control {
-  display: table-cell;
-
   &:not(:first-child):not(:last-child) {
     border-radius: 0;
   }
@@ -67,9 +58,7 @@
 // Addon and addon wrapper for buttons
 .input-group-addon,
 .input-group-btn {
-  width: 1%;
-  white-space: nowrap;
-  vertical-align: middle; // Match the inputs
+  flex-shrink: 0;
 }
 
 // Text input groups
@@ -78,12 +67,12 @@
   padding: $padding-base-vertical $padding-base-horizontal;
   font-size: $font-size-base;
   font-weight: normal;
-  line-height: 1;
   color: $input-color;
   text-align: center;
   background-color: $input-group-addon-bg;
   border: 1px solid $input-group-addon-border-color;
   border-radius: $input-border-radius;
+  white-space: nowrap;
 
   // Sizing
   &.input-sm {
@@ -133,24 +122,23 @@
 // Button input groups
 // -------------------------
 .input-group-btn {
-  position: relative;
-  // Jankily prevent input button groups from wrapping with `white-space` and
-  // `font-size` in combination with `inline-block` on buttons.
-  font-size: 0;
-  white-space: nowrap;
+  display: flex;
 
   // Negative margin for spacing, position for bringing hovered/focused/actived
   // element above the siblings.
   > .btn {
-    position: relative;
     + .btn {
       margin-left: -1px;
     }
     // Bring the "active" button to the front
     &:active,
-    [data-use-hover] &:hover,
-    [data-use-focus] &:focus {
+    [data-use-hover] &:hover {
       z-index: 2;
+    }
+
+    // Bring the "focus" button to the most front
+    [data-use-focus] &:focus {
+      z-index: 3;
     }
   }
 

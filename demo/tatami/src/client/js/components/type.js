@@ -14,6 +14,67 @@ export default function Type () {
         <p><a href='javascript:;'>Here is a text link</a></p>
         <p><button className='btn btn-link'>Button link</button></p>
       </div>
+
+
+      <br />
+      <br />
+      <h4>Horizontal description</h4>
+      <dl className="dl-horizontal">
+        <dt>Description lists</dt>
+        <dd>A description list is perfect for defining terms.</dd>
+        <dt>Euismod</dt>
+        <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.<br />
+        Donec id elit non mi porta gravida at eget metus.</dd>
+        <dt>Malesuada porta</dt>
+        <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+        <dt>Felis euismod semper eget lacinia</dt>
+        <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+      </dl>
+
+      <br />
+      <br />
+
+      <h4>Pagination</h4>
+      <nav aria-label="Page navigation">
+        <ul className="pagination">
+          <li className="disabled">
+            <a href="javascript:;" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li className="active"><a href="javascript:;">1</a></li>
+          <li><a href="javascript:;">2</a></li>
+          <li><a href="javascript:;">3</a></li>
+          <li><a href="javascript:;">4</a></li>
+          <li><a href="javascript:;">5</a></li>
+          <li>
+            <a href="javascript:;" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <br />
+      <br />
+
+      <h4>Pager</h4>
+      <nav aria-label="...">
+        <ul className="pager">
+          <li><a href="javascript:;">Previous</a></li>
+          <li><a href="javascript:;">Next</a></li>
+        </ul>
+      </nav>
+
+      <br />
+      <br />
+      Alternatively, you can align each link to the sides:
+      <br />
+      <nav aria-label="...">
+        <ul className="pager">
+          <li className="previous"><a href="javascript:;"><span aria-hidden="true">&larr;</span> Older</a></li>
+          <li className="next"><a href="javascript:;">Newer <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+      </nav>
     </div>
   )
 }

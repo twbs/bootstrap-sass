@@ -4,12 +4,16 @@
 
 
 .close {
+  display: block;
   float: right;
   font-size: ($font-size-base * 1.5);
   font-weight: $close-font-weight;
   line-height: 1;
   color: $close-color;
   text-shadow: $close-text-shadow;
+  width: 21px;
+  height: 21px;
+  order: 2;
   @include opacity(.2);
 
   [data-use-hover] &:hover,
@@ -23,7 +27,6 @@
   [data-use-focus] &:focus {
     @include tab-focus;
   }
-  // [converter] extracted button& to button.close
 }
 
 // Additional properties for button version

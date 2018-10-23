@@ -2,17 +2,20 @@
 // Pagination (multiple pages)
 // --------------------------------------------------
 .pagination {
-  display: inline-block;
+  display: flex;
   padding-left: 0;
+  list-style: none;
   margin: $line-height-computed 0;
   border-radius: $border-radius-base;
+  justify-content: center;
 
   > li {
-    display: inline; // Remove list-style and block-level defaults
+
+
     > a,
     > span {
+      display: block;
       position: relative;
-      float: left; // Collapse white-space
       padding: $padding-base-vertical $padding-base-horizontal;
       line-height: $line-height-base;
       text-decoration: none;

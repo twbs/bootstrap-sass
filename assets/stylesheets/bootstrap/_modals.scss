@@ -79,17 +79,21 @@
 .modal-header {
   padding: $modal-title-padding;
   border-bottom: 1px solid $modal-header-border-color;
-  @include clearfix;
-}
-// Close icon
-.modal-header .close {
-  margin-top: -2px;
+  display: flex;
+
+  // Close icon
+  .close {
+    order: 2;
+    margin-left: 8px;
+    margin-top: 2px;
+  }
 }
 
 // Title text within header
 .modal-title {
   margin: 0;
   line-height: $modal-title-line-height;
+  flex-grow: 1;
 }
 
 // Modal body
@@ -101,10 +105,10 @@
 
 // Footer (for actions)
 .modal-footer {
+  display: flex;
   padding: $modal-inner-padding;
-  text-align: right; // right align buttons
+  justify-content: flex-end; // right align buttons
   border-top: 1px solid $modal-footer-border-color;
-  @include clearfix; // clear it in case folks use .pull-* classes on buttons
 
   // Properly space out buttons
   .btn + .btn {

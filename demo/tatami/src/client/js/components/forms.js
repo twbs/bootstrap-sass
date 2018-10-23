@@ -27,7 +27,9 @@ export default function Forms () {
         <div className='form-group'>
           <label className='control-label' htmlFor='exampleInputPassword1'>Password</label>
           <input type='password' className='form-control' id='exampleInputPassword1' placeholder='Password' />
-          <span id='helpBlock' className='help-block'>A block of help text that breaks onto a new line and may extend beyond one line.</span>
+          <span id='helpBlock' className='help-block'>
+            A block of help text that breaks onto a new line and may extend beyond one line.
+          </span>
         </div>
         <div className='form-group'>
           <label className='control-label' htmlFor='exampleInputEmail1'>Select</label>
@@ -88,10 +90,84 @@ export default function Forms () {
           <input className='form-control input-sm' type='text' placeholder='.input-sm' />
         </div>
 
+        <h3>Input groups</h3>
+
+        <div className='input-group input-group-lg'>
+          <span className='input-group-addon' id='sizing-addon1'>@</span>
+          <input type='text' className='form-control' placeholder='Username' aria-describedby='sizing-addon1' />
+          <span className='input-group-addon'>.00</span>
+        </div>
+        <br />
+
+        <div className='input-group'>
+          <span className='input-group-addon' id='sizing-addon2'>@</span>
+          <input type='text' className='form-control' placeholder='Username' aria-describedby='sizing-addon2' />
+          <span className='input-group-addon'>.00</span>
+        </div>
+        <br />
+
+        <div className='input-group input-group-sm'>
+          <span className='input-group-addon' id='sizing-addon3'>@</span>
+          <input type='text' className='form-control' placeholder='Username' aria-describedby='sizing-addon3' />
+          <span className='input-group-addon'>.00</span>
+        </div>
+        <br />
+
+
+        <div className='row'>
+          <div className='col-lg-6'>
+            <div className='input-group'>
+              <div className='input-group-btn'>
+                <button type='button' className='btn btn-default dropdown-toggle' data-toggle='dropdown'
+                  aria-haspopup='true' aria-expanded='false'>
+                  Action <span className='caret'></span>
+                </button>
+                <ul className='dropdown-menu'>
+                  <li><a href='javascript:;'>Action</a></li>
+                  <li><a href='javascript:;'>Another action</a></li>
+                  <li><a href='javascript:;'>Something else here</a></li>
+                  <li role='separator' className='divider'></li>
+                  <li><a href='javascript:;'>Separated link</a></li>
+                </ul>
+                <button type='button' className='btn btn-default' aria-label='Bold'>
+                  Go
+                </button>
+              </div>
+              <input type='text' className='form-control' aria-label='...' />
+            </div>
+          </div>
+          <div className='col-lg-6'>
+            <div className='input-group'>
+              <input type='text' className='form-control' aria-label='...' />
+              <div className='input-group-btn'>
+                <button type='button' className='btn btn-default dropdown-toggle' data-toggle='dropdown'
+                  aria-haspopup='true' aria-expanded='false'>
+                  Action <span className='caret'></span>
+                </button>
+                <ul className='dropdown-menu dropdown-menu-right'>
+                  <li><a href='javascript:;'>Action</a></li>
+                  <li><a href='javascript:;'>Another action</a></li>
+                  <li><a href='javascript:;'>Something else here</a></li>
+                  <li role='separator' className='divider'></li>
+                  <li><a href='javascript:;'>Separated link</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <h4>Panels</h4>
         <div className='panel panel-default'>
+          <div className='panel-heading'>
+            <div className='panel-title'>
+              Panel title
+            </div>
+          </div>
           <div className='panel-body'>
             Basic panel example
+          </div>
+          <div className='panel-footer'>
+            Footer
           </div>
         </div>
       </form>

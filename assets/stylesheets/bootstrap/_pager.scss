@@ -4,16 +4,21 @@
 
 
 .pager {
+  display: flex;
   padding-left: 0;
   margin: $line-height-computed 0;
   list-style: none;
   text-align: center;
-  @include clearfix;
+  justify-content: center;
+
   li {
-    display: inline;
+    +li {
+      margin-left: 4px;
+    }
+
     > a,
     > span {
-      display: inline-block;
+      display: block;
       padding: 5px 14px;
       background-color: $pager-bg;
       border: 1px solid $pager-border;
@@ -30,17 +35,11 @@
   }
 
   .next {
-    > a,
-    > span {
-      float: right;
-    }
+    margin-left: auto;
   }
 
   .previous {
-    > a,
-    > span {
-      float: left;
-    }
+    margin-right: auto;
   }
 
   .disabled {

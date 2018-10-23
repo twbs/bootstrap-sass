@@ -35,6 +35,10 @@ export default class SampleModal extends Component {
           A<br />
           A<br />
         </Modal.Body>
+        <Modal.Footer>
+          <button className='btn btn-primary' onClick={onHide}>OK</button>
+          <button className='btn btn-default' onClick={onHide}>Cancel</button>
+        </Modal.Footer>
       </Modal>
     )
   }
