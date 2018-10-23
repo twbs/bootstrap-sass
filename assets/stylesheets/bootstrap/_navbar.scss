@@ -14,11 +14,17 @@
   margin-bottom: $navbar-margin-bottom;
   border: 1px solid transparent;
 
-  // Prevent floats from breaking the navbar
-  @include clearfix;
-
   @media (min-width: $grid-float-breakpoint) {
     border-radius: $navbar-border-radius;
+  }
+
+  > .container,
+  > .container-fluid {
+    display: flex;
+
+    @media (max-width: $grid-float-breakpoint-max) {
+      flex-direction: column;
+    }
   }
 }
 
@@ -29,11 +35,7 @@
 // styling of responsive aspects.
 
 .navbar-header {
-  @include clearfix;
-
-  @media (min-width: $grid-float-breakpoint) {
-    float: left;
-  }
+  display: flex;
 }
 
 
@@ -53,20 +55,33 @@
   padding-left:  $navbar-padding-horizontal;
   border-top: 1px solid transparent;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
-  @include clearfix;
+  display: flex;
+  flex-direction: column;
+
   -webkit-overflow-scrolling: touch;
 
   &.in {
     overflow-y: auto;
   }
 
+  &.collapse {
+    display: none;
+
+    &.in {
+      display: flex;
+    }
+  }
+
+
   @media (min-width: $grid-float-breakpoint) {
     width: auto;
+    flex-grow: 1;
+    flex-direction: row;
     border-top: 0;
     box-shadow: none;
 
     &.collapse {
-      display: block !important;
+      display: flex !important;
       height: auto !important;
       padding-bottom: 0; // Override default setting
       overflow: visible !important;
@@ -161,7 +176,6 @@
 // Brand/project name
 
 .navbar-brand {
-  float: left;
   padding: $navbar-padding-vertical $navbar-padding-horizontal;
   font-size: $font-size-large;
   line-height: $line-height-computed;
@@ -193,7 +207,7 @@
 
 .navbar-toggle {
   position: relative;
-  float: right;
+  margin-left: auto;
   margin-right: $navbar-padding-horizontal;
   padding: 9px 10px;
   @include navbar-vertical-align(34px);
@@ -232,6 +246,9 @@
 
 .navbar-nav {
   margin: ($navbar-padding-vertical / 2) (-$navbar-padding-horizontal);
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: nowrap;
 
   > li > a {
     padding-top:    10px;
@@ -241,6 +258,8 @@
   }
 
   @media (max-width: $grid-float-breakpoint-max) {
+    flex-direction: column;
+
     // Dropdowns get custom display when collapsed
     .open .dropdown-menu {
       position: static;
@@ -266,11 +285,9 @@
 
   // Uncollapse the nav
   @media (min-width: $grid-float-breakpoint) {
-    float: left;
     margin: 0;
 
     > li {
-      float: left;
       > a {
         padding-top:    $navbar-padding-vertical;
         padding-bottom: $navbar-padding-vertical;
@@ -293,6 +310,7 @@
   border-bottom: 1px solid transparent;
   $shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
   @include box-shadow($shadow);
+  flex-shrink: 0;
 
   // Mixin behavior for optimum display
   @include form-inline;
@@ -362,7 +380,6 @@
   @include navbar-vertical-align($line-height-computed);
 
   @media (min-width: $grid-float-breakpoint) {
-    float: left;
     margin-left: $navbar-padding-horizontal;
     margin-right: $navbar-padding-horizontal;
   }
@@ -378,12 +395,9 @@
 // Declared after the navbar components to ensure more specificity on the margins.
 
 @media (min-width: $grid-float-breakpoint) {
-  .navbar-left {
-    float: left !important;
-  }
   .navbar-right {
-    float: right !important;
-  margin-right: -$navbar-padding-horizontal;
+    margin-left: auto;
+    margin-right: -$navbar-padding-horizontal;
 
     ~ .navbar-right {
       margin-right: 0;

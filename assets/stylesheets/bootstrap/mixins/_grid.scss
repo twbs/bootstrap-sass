@@ -8,7 +8,6 @@
   margin-left: auto;
   padding-left:  floor(($gutter / 2));
   padding-right: ceil(($gutter / 2));
-  @include clearfix;
 }
 
 // Creates a wrapper for a series of columns

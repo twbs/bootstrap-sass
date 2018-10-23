@@ -5,13 +5,13 @@ export default function NavbarSample () {
     <nav className='navbar navbar-inverse navbar-fixed-top'>
       <div className='container-fluid'>
         <div className='navbar-header'>
+          <a className='navbar-brand' href='javascript:;'>Tatami</a>
           <button type='button' className='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1' aria-expanded='false'>
             <span className='sr-only'>Toggle navigation</span>
             <span className='icon-bar' />
             <span className='icon-bar' />
             <span className='icon-bar' />
           </button>
-          <a className='navbar-brand' href='javascript:;'>Tatami</a>
         </div>
 
         <div className='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
@@ -36,6 +36,7 @@ export default function NavbarSample () {
             </div>
             <button type='submit' className='btn btn-default'>Submit</button>
           </form>
+          <p className='navbar-text'>Signed in as Mark Otto</p>
           <ul className='nav navbar-nav navbar-right'>
             <li><a href='javascript:;'>Link</a></li>
             <li className='dropdown'>
