@@ -55,6 +55,7 @@
     "react": "^15.6.2",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^15.6.2",
-    "uglifyify": "^5.0.0"
+    "uglifyify": "^5.0.0",
+    "what-input": "^5.1.2"
   }
 }

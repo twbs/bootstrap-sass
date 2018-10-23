@@ -116,14 +116,12 @@
   }
 
   // Hover/focus state
-  @include hover-support {
-    &:hover,
-    &:focus {
-      outline: 0;
-      color: $carousel-control-color;
-      text-decoration: none;
-      @include opacity(.9);
-    }
+  [data-use-hover] &:hover,
+  [data-use-focus] &:focus {
+    outline: 0;
+    color: $carousel-control-color;
+    text-decoration: none;
+    @include opacity(.9);
   }
 
   // Toggles

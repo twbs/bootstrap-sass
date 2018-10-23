@@ -20,10 +20,12 @@
       border-radius: $pager-border-radius;
     }
 
-    > a:hover,
-    > a:focus {
-      text-decoration: none;
-      background-color: $pager-hover-bg;
+    > a {
+      [data-use-hover] &:hover,
+      [data-use-focus] &:focus {
+        text-decoration: none;
+        background-color: $pager-hover-bg;
+      }
     }
   }
 
@@ -43,12 +45,14 @@
 
   .disabled {
     > a,
-    > a:hover,
-    > a:focus,
     > span {
-      color: $pager-disabled-color;
-      background-color: $pager-bg;
-      cursor: $cursor-disabled;
+      &,
+      [data-use-hover] &:hover,
+      [data-use-focus] &:focus {
+        color: $pager-disabled-color;
+        background-color: $pager-bg;
+        cursor: $cursor-disabled;
+      }
     }
   }
 }

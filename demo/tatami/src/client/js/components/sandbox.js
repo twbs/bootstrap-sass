@@ -39,7 +39,6 @@ export default function Sandbox ({component}) {
       return <Tooltips />
     case 'type':
       return <Type />
-
   }
   return null
 }

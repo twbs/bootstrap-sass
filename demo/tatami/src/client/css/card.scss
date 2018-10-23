@@ -10,23 +10,16 @@
   -webkit-touch-callout:none;
   text-decoration: none;
 
-  @include hover-support {
-    &:hover,
-    &:focus {
-      text-decoration: none;
-      color: inherit;
-      background-color: rgba(0,0,0,.05);
-    }
+  [data-use-hover] &:hover,
+  [data-use-focus] &:focus {
+    text-decoration: none;
+    color: inherit;
+    background-color: rgba(0,0,0,.05);
   }
 
   &:active {
     text-decoration: none;
     color: inherit;
     background-color: rgba(0,0,0,.1);
-  }
-
-  &.focus-visible {
-    border-color: $input-border-focus;
-    // box-shadow: 0 0 0 1px $color-rgba;
   }
 }

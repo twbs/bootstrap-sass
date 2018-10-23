@@ -5,9 +5,9 @@
   #{$parent} {
     color: $color;
   }
-  @include hover-support {
-    a#{$parent}:hover,
-    a#{$parent}:focus {
+  a#{$parent} {
+    [data-use-hover] &:hover,
+    [data-use-focus] &:focus {
       color: darken($color, 10%);
     }
   }

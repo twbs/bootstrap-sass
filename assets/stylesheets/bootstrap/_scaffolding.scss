@@ -16,6 +16,10 @@
   @include box-sizing(border-box);
 }
 
+// Reset focus
+*:focus {
+  outline: 0;
+}
 
 // Body reset
 
@@ -49,20 +53,14 @@ a {
   color: $link-color;
   text-decoration: none;
 
-  &:active {
+  &:active,
+  [data-use-hover] &:hover,
+  [data-use-focus] &:focus {
     color: $link-hover-color;
     text-decoration: $link-hover-decoration;
   }
 
-  @include hover-support {
-    &:hover,
-    &:focus {
-      color: $link-hover-color;
-      text-decoration: $link-hover-decoration;
-    }
-  }
-
-  &:focus {
+  [data-use-focus] &:focus {
     @include tab-focus;
   }
 }

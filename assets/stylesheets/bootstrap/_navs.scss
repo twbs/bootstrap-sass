@@ -26,12 +26,10 @@
         background-color: $nav-link-hover-bg;
       }
 
-      @include hover-support {
-        &:hover,
-        &:focus {
-          text-decoration: none;
-          background-color: $nav-link-hover-bg;
-        }
+      [data-use-hover] &:hover,
+      [data-use-focus] &:focus {
+        text-decoration: none;
+        background-color: $nav-link-hover-bg;
       }
     }
 
@@ -40,13 +38,18 @@
       color: $nav-disabled-link-color;
 
       &:active,
-      &:hover,
-      &:focus {
+      [data-use-hover] &:hover,
+      [data-use-focus] &:focus {
         color: $nav-disabled-link-hover-color;
         text-decoration: none;
         background-color: transparent;
         cursor: $cursor-disabled;
       }
+    }
+
+    // Bring the focused item to the front
+    &:focus-within {
+      z-index: 2;
     }
   }
 
@@ -54,8 +57,8 @@
   .open > a {
     &,
     &:active,
-    &:hover,
-    &:focus {
+    [data-use-hover] &:hover,
+    [data-use-focus] &:focus {
       background-color: $nav-link-hover-bg;
       border-color: $link-color;
     }
@@ -96,10 +99,8 @@
       border: 1px solid transparent;
       border-radius: $border-radius-base $border-radius-base 0 0;
 
-      @include hover-support {
-        &:hover {
-          border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
-        }
+      [data-use-hover] &:hover {
+        border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
       }
     }
 
@@ -107,8 +108,8 @@
     &.active > a {
       &,
       &:active,
-      &:hover,
-      &:focus {
+      [data-use-hover] &:hover,
+      [data-use-focus] &:focus {
         color: $nav-tabs-active-link-hover-color;
         background-color: $nav-tabs-active-link-hover-bg;
         border: 1px solid $nav-tabs-active-link-hover-border-color;
@@ -139,8 +140,8 @@
     &.active > a {
       &,
       &:active,
-      &:hover,
-      &:focus {
+      [data-use-hover] &:hover,
+      [data-use-focus] &:focus {
         color: $nav-pills-active-link-hover-color;
         background-color: $nav-pills-active-link-hover-bg;
       }
@@ -207,11 +208,14 @@
     border-radius: $border-radius-base;
   }
 
-  > .active > a,
-  > .active > a:active,
-  > .active > a:hover,
-  > .active > a:focus {
-    border: 1px solid $nav-tabs-justified-link-border-color;
+  > .active > a {
+    &,
+    &:active,
+    [data-use-hover] &:hover,
+    [data-use-focus] &:focus {
+      border: 1px solid $nav-tabs-justified-link-border-color;
+    }
+
   }
 
   @media (min-width: $screen-sm-min) {
@@ -219,11 +223,13 @@
       border-bottom: 1px solid $nav-tabs-justified-link-border-color;
       border-radius: $border-radius-base $border-radius-base 0 0;
     }
-    > .active > a,
-    > .active > a:active,
-    > .active > a:hover,
-    > .active > a:focus {
-      border-bottom-color: $nav-tabs-justified-active-link-border-color;
+    > .active > a {
+      &,
+      &:active,
+      [data-use-hover] &:hover,
+      [data-use-focus] &:focus {
+        border-bottom-color: $nav-tabs-justified-active-link-border-color;
+      }
     }
   }
 }

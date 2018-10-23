@@ -121,9 +121,9 @@ th {
 //
 // Placed here since it has to come after the potential zebra striping
 
-@include hover-support {
-  .table-hover {
-    > tbody > tr:hover {
+.table-hover {
+  > tbody > tr {
+    [data-use-hover] &:hover {
       background-color: $table-bg-hover;
     }
   }

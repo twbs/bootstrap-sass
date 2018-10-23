@@ -23,19 +23,15 @@
   &,
   &:active,
   &.active {
-    &:focus,
-    &.focus {
+    [data-use-focus] &:focus {
       @include tab-focus;
     }
   }
 
-  @include hover-support {
-    &:hover,
-    &:focus,
-    &.focus {
-      color: $btn-default-color;
-      text-decoration: none;
-    }
+  [data-use-hover] &:hover,
+  [data-use-focus] &:focus {
+    color: $btn-default-color;
+    text-decoration: none;
   }
 
   &:active,
@@ -110,23 +106,21 @@ a.btn {
     @include box-shadow(none);
   }
   &,
-  &:hover,
-  &:focus,
+  [data-use-hover] &:hover,
+  [data-use-focus] &:focus,
   &:active {
     border-color: transparent;
   }
-  @include hover-support {
-    &:hover,
-    &:focus {
-      color: $link-hover-color;
-      text-decoration: $link-hover-decoration;
-      background-color: transparent;
-    }
+  [data-use-hover] &:hover,
+  [data-use-focus] &:focus {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+    background-color: transparent;
   }
   &[disabled],
   fieldset[disabled] & {
-    &:hover,
-    &:focus {
+    [data-use-hover] &:hover,
+    [data-use-focus] &:focus {
       color: $btn-link-disabled-color;
       text-decoration: none;
     }

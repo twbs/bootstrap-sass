@@ -31,12 +31,10 @@
 }
 
 // Add a hover state for linked versions only
-@include hover-support {
-  a.thumbnail:hover,
-  a.thumbnail:focus {
+a.thumbnail {
+  &.active,
+  [data-use-hover] &:hover,
+  [data-use-focus] &:focus {
     border-color: $link-color;
   }
-}
-a.thumbnail.active {
-  border-color: $link-color;
 }

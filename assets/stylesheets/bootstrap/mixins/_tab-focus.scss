@@ -1,9 +1,12 @@
-// WebKit-style focus
-
 @mixin tab-focus() {
-  // WebKit-specific. Other browsers will keep their default outline style.
-  // (Initially tried to also force default via `outline: initial`,
-  // but that seems to erroneously remove the outline in Firefox altogether.)
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
+  $color-rgba: rgba(red($input-border-focus), green($input-border-focus), blue($input-border-focus), .6);
+  outline: 0;
+  box-shadow: 0 0px 0px 3px $color-rgba;
+  border-color: $input-border-focus;
+  @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
+}
+
+@mixin tab-focus-outline() {
+  $color-rgba: rgba(red($input-border-focus), green($input-border-focus), blue($input-border-focus), .6);
+  outline: 3px solid $color-rgba;
 }

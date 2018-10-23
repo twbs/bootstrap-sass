@@ -16,19 +16,20 @@
       color: inherit;
     }
 
-    @include hover-support {
-      &:hover,
-      &:focus {
-        color: $color;
-        background-color: darken($background, 5%);
-      }
+    [data-use-hover] &:hover,
+    [data-use-focus] &:focus {
+      color: $color;
+      background-color: darken($background, 5%);
     }
-    &.active,
-    &.active:hover,
-    &.active:focus {
-      color: #fff;
-      background-color: $color;
-      border-color: $color;
+
+    &.active {
+      &,
+      [data-use-hover] &:hover,
+      [data-use-focus] &:focus {
+        color: #fff;
+        background-color: $color;
+        border-color: $color;
+      }
     }
   }
 }
