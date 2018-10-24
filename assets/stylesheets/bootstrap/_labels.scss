@@ -14,9 +14,7 @@
   vertical-align: baseline;
   border-radius: .25em;
 
-  // [converter] extracted a& to a.label
-
-  // Empty labels collapse automatically (not available in IE8)
+  // Empty labels collapse automatically
   &:empty {
     display: none;
   }

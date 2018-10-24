@@ -12,6 +12,7 @@ import Grid from './grid'
 import Labels from './labels'
 import Modals from './modals'
 import Navs from './navs'
+import Tables from './tables'
 import Tooltips from './tooltips'
 import Type from './type'
 
@@ -35,6 +36,8 @@ export default function Sandbox ({component}) {
       return <Modals />
     case 'navs':
       return <Navs />
+    case 'tables':
+      return <Tables />
     case 'tooltips':
       return <Tooltips />
     case 'type':
