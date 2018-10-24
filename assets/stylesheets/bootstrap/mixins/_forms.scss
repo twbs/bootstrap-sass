@@ -62,9 +62,7 @@
 // Form control sizing
 //
 // Relative text size, padding, and border-radii changes for form controls. For
-// horizontal sizing, wrap controls in the predefined grid classes. `<select>`
-// element gets special love because it's special, and that's a fact!
-// [converter] $parent hack
+// horizontal sizing, wrap controls in the predefined grid classes.
 @mixin input-size($parent, $input-height, $padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
   #{$parent} {
     height: $input-height;
@@ -72,11 +70,6 @@
     font-size: $font-size;
     line-height: $line-height;
     border-radius: $border-radius;
-  }
-
-  select#{$parent} {
-    height: $input-height;
-    line-height: $input-height;
   }
 
   textarea#{$parent},

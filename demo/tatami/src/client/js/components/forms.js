@@ -90,6 +90,22 @@ export default function Forms () {
           <input className='form-control input-sm' type='text' placeholder='.input-sm' />
         </div>
 
+        <div className='form-group'>
+          <select className="form-control input-lg">
+            <option>Large select</option>
+          </select>
+        </div>
+        <div className='form-group'>
+          <select className="form-control">
+            <option>Default select</option>
+          </select>
+        </div>
+        <div className='form-group'>
+          <select className="form-control input-sm">
+            <option>Small select</option>
+          </select>
+        </div>
+
         <h3>Input groups</h3>
 
         <div className='input-group input-group-lg'>
