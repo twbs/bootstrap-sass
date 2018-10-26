@@ -5,8 +5,3 @@
   border-color: $input-border-focus;
   @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
 }
-
-@mixin tab-focus-outline() {
-  $color-rgba: rgba(red($input-border-focus), green($input-border-focus), blue($input-border-focus), .6);
-  outline: 3px solid $color-rgba;
-}

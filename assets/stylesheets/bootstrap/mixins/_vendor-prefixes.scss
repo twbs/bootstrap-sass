@@ -4,6 +4,7 @@
 // Autoprefixer in our Gruntfile. They have been removed in v4.
 
 // - Animations
+// - Appearance
 // - Backface visibility
 // - Box shadow
 // - Box sizing
@@ -39,6 +40,13 @@
 }
 @mixin animation-fill-mode($fill-mode) {
   animation-fill-mode: $fill-mode;
+}
+
+// Appearance
+@mixin appearance($style) {
+          appearance: $style;
+  -webkit-appearance: $style;
+     -moz-appearance: $style;
 }
 
 // Backface visibility

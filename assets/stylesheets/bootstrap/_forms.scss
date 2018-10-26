@@ -47,13 +47,6 @@ input[type="search"] {
   @include box-sizing(border-box);
 }
 
-// Position radios and checkboxes better
-input[type="radio"],
-input[type="checkbox"] {
-  margin: 4px 0 0;
-  line-height: normal;
-}
-
 input[type="file"] {
   display: block;
 }
@@ -75,8 +68,7 @@ input[type="file"],
 input[type="radio"],
 input[type="checkbox"] {
   [data-use-focus] &:focus {
-    // Note: box shadow does not work on Safari, so use outline for focus
-    @include tab-focus-outline;
+    @include tab-focus;
   }
 }
 
@@ -123,7 +115,7 @@ output {
   background-color: $input-bg;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid $input-border;
-  border-radius: $input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
+  border-radius: $input-border-radius;
   @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
 
   // Customize the `:focus` state to imitate native WebKit styles.
@@ -216,10 +208,7 @@ select.form-control {
   $double-arrow: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='#343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>";
   background: $input-bg svg-uri($double-arrow) no-repeat right .75rem center;
   background-size: 8px 10px;
-
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  @include appearance(none);
 
   // Unstyle the caret on `<select>`s in IE10+.
   &::-ms-expand {
@@ -230,29 +219,90 @@ select.form-control {
 
 // Checkboxes and radios
 //
-// Indent the labels to position radios/checkboxes as hanging controls.
 
 .radio,
 .checkbox {
-  position: relative;
-  display: block;
   margin-top: 10px;
   margin-bottom: 10px;
 
   label {
-    min-height: $line-height-computed; // Ensure the input doesn't jump when there is no text
-    padding-left: 20px;
+    display: flex;
     margin-bottom: 0;
     font-weight: normal;
     cursor: pointer;
   }
 }
-.radio input[type="radio"],
-.radio-inline input[type="radio"],
-.checkbox input[type="checkbox"],
-.checkbox-inline input[type="checkbox"] {
-  position: absolute;
-  margin-left: -20px;
+
+.radio,
+.radio-inline {
+  input[type="radio"] {
+    @include appearance(none);
+    border-radius: 50%;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px 0 0;
+    cursor: pointer;
+    border: 1px solid $input-border;
+    background-color: $input-bg;
+    transition: background .3s, border-color .3s, box-shadow .3s;
+
+    &::-ms-check  { // for IE11 (not Edge)
+      border: 1px solid $input-border;
+      background-color: $input-bg;
+      color: transparent; // remove color of preset inner circle style
+    }
+
+    &:checked {
+      border: 6px solid $link-color;
+
+      &::-ms-check  { // for IE11 (not Edge)
+        border: 6px solid $link-color;
+      }
+
+      [data-use-focus] &:focus {
+        border-color: $link-color; // override tab-focus
+      }
+    }
+  }
+}
+
+.checkbox,
+.checkbox-inline {
+  input[type="checkbox"] {
+    @include appearance(none);
+    border-radius: $input-border-radius;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin: 0 5px 0 0;
+    cursor: pointer;
+    border: 1px solid $input-border;
+    background-color: $input-bg;
+    transition: background-color .3s, border-color .3s, box-shadow .3s;
+
+    &::-ms-check { // for IE11 (not Edge)
+      border: 1px solid $input-border;
+      border-radius: $input-border-radius;
+      background-color: $input-bg;
+      color: transparent; // remove color of preset check mark style
+    }
+
+    $checkbox-svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='8 8 36 36' version='1.1' xml:space='preserve'><path d='M14.1 27.2l7.1 7.2 16.7-16.8' fill='none' stroke='rgba(255,255,255,1)' stroke-width='5'/></svg>";
+
+    &:checked {
+      border-color: $link-color;
+      background: $link-color svg-uri($checkbox-svg) no-repeat center;
+      background-size: 90%;
+
+      // we can not mix ::-ms-check and :checked in the same line
+      &::-ms-check { // for IE11 (not Edge)
+        border-color: $link-color;
+        background: $link-color svg-uri($checkbox-svg) no-repeat center;
+        background-size: 90%;
+      }
+    }
+  }
 }
 
 .radio + .radio,
@@ -263,9 +313,7 @@ select.form-control {
 // Radios and checkboxes on same line
 .radio-inline,
 .checkbox-inline {
-  position: relative;
-  display: inline-block;
-  padding-left: 20px;
+  display: inline-flex;
   margin-bottom: 0;
   vertical-align: middle;
   font-weight: normal;
@@ -287,6 +335,11 @@ input[type="checkbox"] {
   &.disabled,
   fieldset[disabled] & {
     cursor: $cursor-disabled;
+    background-color: $input-bg-disabled;
+
+    &::-ms-check { // for IE11 (not Edge)
+      background-color: $input-bg-disabled;
+    }
   }
 }
 // These classes are used directly on <label>s
@@ -470,43 +523,49 @@ input[type="checkbox"] {
 
 // Inline forms
 //
-// Make forms appear inline(-block) by adding the `.form-inline` class. Inline
+// Make forms appear inline by adding the `.form-inline` class. Inline
 // forms begin stacked on extra small (mobile) devices and then go inline when
 // viewports reach <768px.
 //
 // Requires wrapping inputs and labels with `.form-group` for proper display of
 // default HTML form controls and our custom form controls (e.g., input groups).
 //
-// Heads up! This is mixin-ed into `.navbar-form` in navbars.less.
+// Heads up! This is mixin-ed into `.navbar-form` in navbars.
 
-// [converter] extracted from `.form-inline` for libsass compatibility
 @mixin form-inline {
 
   // Kick in the inline
   @media (min-width: $screen-sm-min) {
-    // Inline-block all the things for "inline"
+    display: flex;
+    align-items: center;
+
+    > *:not(:last-child) {
+      margin-right: 5px;
+    }
+
+    // flex all the things for "inline"
     .form-group {
-      display: inline-block;
+      display: flex;
+      align-items: center;
       margin-bottom: 0;
-      vertical-align: middle;
+
+      label {
+        margin-bottom: 0;
+        margin-right: 5px;
+      }
     }
 
     // In navbar-form, allow folks to *not* use `.form-group`
     .form-control {
-      display: inline-block;
       width: auto; // Prevent labels from stacking above inputs in `.form-group`
-      vertical-align: middle;
     }
 
     // Make static controls behave like regular ones
     .form-control-static {
-      display: inline-block;
+      min-height: auto;
     }
 
     .input-group {
-      display: inline-table;
-      vertical-align: middle;
-
       .input-group-addon,
       .input-group-btn,
       .form-control {
@@ -516,31 +575,14 @@ input[type="checkbox"] {
 
     // Input groups need that 100% width though
     .input-group > .form-control {
-      width: 100%;
+      width: auto;
     }
 
-    .control-label {
-      margin-bottom: 0;
-      vertical-align: middle;
-    }
-
-    // Remove default margin on radios/checkboxes that were used for stacking, and
-    // then undo the floating of radios and checkboxes to match.
+    // Remove default margin on radios/checkboxes that were used for stacking
     .radio,
     .checkbox {
-      display: inline-block;
       margin-top: 0;
       margin-bottom: 0;
-      vertical-align: middle;
-
-      label {
-        padding-left: 0;
-      }
-    }
-    .radio input[type="radio"],
-    .checkbox input[type="checkbox"] {
-      position: relative;
-      margin-left: 0;
     }
 
     // Re-override the feedback icon.
@@ -549,7 +591,7 @@ input[type="checkbox"] {
     }
   }
 }
-// [converter] extracted as `@mixin form-inline` for libsass compatibility
+
 .form-inline {
   @include form-inline;
 }
