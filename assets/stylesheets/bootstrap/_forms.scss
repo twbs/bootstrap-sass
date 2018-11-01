@@ -63,8 +63,7 @@ select[size] {
   height: auto;
 }
 
-// Focus for file, radio, and checkbox
-input[type="file"],
+// Focus for radio, and checkbox
 input[type="radio"],
 input[type="checkbox"] {
   [data-use-focus] &:focus {
@@ -214,8 +213,30 @@ select.form-control {
   &::-ms-expand {
     display: none;
   }
+
+  // Unstyle the active color of the selected item in IE10+.
+  &::-ms-value {
+    color: $input-color; // we don't know, why but necessary
+    background-color: transparent;
+  }
 }
 
+// Range
+input[type="range"] {
+  @include make-range(18px, 2px);
+}
+
+// File upload
+// Customizable on chrome and safari only
+//
+
+// use supoprt to appliy only chrome, safari (and not edge)
+@supports (-webkit-appearance: none) and (not (-ms-ime-align:auto)) {
+  input[type="file"] {
+    // show the focus shadow around the ::-webkit-file-upload-button
+    margin: -3px 0 -3px -3px;
+  }
+}
 
 // Checkboxes and radios
 //

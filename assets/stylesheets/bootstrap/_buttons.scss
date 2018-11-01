@@ -6,7 +6,7 @@
 // Base styles
 // --------------------------------------------------
 
-.btn {
+@mixin button {
   display: inline-block;
   margin-bottom: 0; // For input.btn
   font-weight: $btn-font-weight;
@@ -49,8 +49,10 @@
     @include opacity(.65);
     @include box-shadow(none);
   }
+}
 
-  // [converter] extracted a& to a.btn
+.btn {
+  @include button;
 }
 
 a.btn {
@@ -87,6 +89,19 @@ a.btn {
   @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
 }
 
+.file-upload-btn {
+  @include button;
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+}
+
+// this entity can not be combined with .btn
+input[type="file"]::-webkit-file-upload-button {
+  @extend .file-upload-btn; // must be extended to have right :focus, :hover, and :active
+
+  margin: 3px; // we need this to show focus shadow
+  outline: 0; // remove default focus ring
+  -webkit-appearance: none;
+}
 
 // Link buttons
 // -------------------------

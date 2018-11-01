@@ -129,7 +129,7 @@ module.exports = (() => {
     doUpdate('focus')
 
     // disable hover when focus changed by keyboard
-    if (currentInput === 'keyboard') {
+    if (currentInput === 'keyboard' && window.PointerEvent) {
       currentIntent = currentInput
       doUpdate('hover')
     }
@@ -158,6 +158,16 @@ module.exports = (() => {
           body.dataset.useFocus = ''
         } else {
           delete body.dataset.useFocus
+        }
+        // add class that can not apply css with [use-focus] syntax
+        // eg: input[type="range"]:focus::-webkit-slider-thumb
+        const elements = document.querySelectorAll('[data-require-use-focus-class]')
+        for (const element of elements) {
+          if (currentInput === 'keyboard') {
+            element.classList.add('use-focus');
+          } else {
+            element.classList.remove('use-focus');
+          }
         }
         break
       case 'hover':

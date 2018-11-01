@@ -114,12 +114,22 @@ export default function Forms () {
 
         <div className='form-group'>
           <label htmlFor='slider'>Process nice score from -20 to +20</label>
-          <input type='range' min='-20' max='20' defaultValue='0' />
+          <input type='range' min='-20' max='20' defaultValue='0' data-require-use-focus-class />
+        </div>
+
+        <div className='form-group'>
+          <label htmlFor='slider'>Disabled slider</label>
+          <input type='range' min='-20' max='20' defaultValue='0' disabled />
         </div>
 
         <div className='form-group'>
           <label htmlFor='file'>Upload file</label>
           <input type='file' title='File' />
+        </div>
+
+        <div className='form-group'>
+          <label htmlFor='file'>Upload file disabled</label>
+          <input type='file' title='File' disabled />
         </div>
 
         <button className='btn btn-default'>Submit</button>
