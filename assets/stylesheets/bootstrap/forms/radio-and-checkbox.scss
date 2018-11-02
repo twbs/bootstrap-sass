@@ -1,0 +1,143 @@
+// Radios and checkboxes
+//
+
+.radio,
+.checkbox {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  label {
+    display: flex;
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+  }
+}
+
+.radio,
+.radio-inline {
+  input[type="radio"] {
+    @include appearance(none);
+    border-radius: 50%;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px 0 0;
+    cursor: pointer;
+    border: 1px solid $input-border;
+    background-color: $input-bg;
+    transition: background .3s, border-color .3s, box-shadow .3s;
+
+    &::-ms-check  { // for IE11 (not Edge)
+      border: 1px solid $input-border;
+      background-color: $input-bg;
+      color: transparent; // remove color of preset inner circle style
+    }
+
+    &:checked {
+      border: 6px solid $link-color;
+
+      &::-ms-check  { // for IE11 (not Edge)
+        border: 6px solid $link-color;
+      }
+
+      [data-use-focus] &:focus {
+        border-color: $link-color; // override tab-focus
+      }
+    }
+  }
+}
+
+.checkbox,
+.checkbox-inline {
+  input[type="checkbox"] {
+    @include appearance(none);
+    border-radius: $input-border-radius;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin: 0 5px 0 0;
+    cursor: pointer;
+    border: 1px solid $input-border;
+    background-color: $input-bg;
+    transition: background-color .3s, border-color .3s, box-shadow .3s;
+
+    &::-ms-check { // for IE11 (not Edge)
+      border: 1px solid $input-border;
+      border-radius: $input-border-radius;
+      background-color: $input-bg;
+      color: transparent; // remove color of preset check mark style
+    }
+
+    $checkbox-svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='8 8 36 36' version='1.1' xml:space='preserve'><path d='M14.1 27.2l7.1 7.2 16.7-16.8' fill='none' stroke='rgba(255,255,255,1)' stroke-width='5'/></svg>";
+
+    &:checked {
+      border-color: $link-color;
+      background: $link-color svg-uri($checkbox-svg) no-repeat center;
+      background-size: 90%;
+
+      // we can not mix ::-ms-check and :checked in the same line
+      &::-ms-check { // for IE11 (not Edge)
+        border-color: $link-color;
+        background: $link-color svg-uri($checkbox-svg) no-repeat center;
+        background-size: 90%;
+      }
+    }
+  }
+}
+
+.radio + .radio,
+.checkbox + .checkbox {
+  margin-top: -5px; // Move up sibling radios or checkboxes for tighter spacing
+}
+
+// Radios and checkboxes on same line
+.radio-inline,
+.checkbox-inline {
+  display: inline-flex;
+  margin-bottom: 0;
+  vertical-align: middle;
+  font-weight: normal;
+  cursor: pointer;
+}
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+  margin-top: 0;
+  margin-left: 10px; // space out consecutive inline controls
+}
+
+// Apply same disabled cursor tweak as for inputs
+// Some special care is needed because <label>s don't inherit their parent's `cursor`.
+//
+// Note: Neither radios nor checkboxes can be readonly.
+input[type="radio"],
+input[type="checkbox"] {
+  &[disabled],
+  &.disabled,
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+    background-color: $input-bg-disabled;
+
+    &::-ms-check { // for IE11 (not Edge)
+      background-color: $input-bg-disabled;
+    }
+  }
+}
+// These classes are used directly on <label>s
+.radio-inline,
+.checkbox-inline {
+  &.disabled,
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+  }
+}
+// These classes are used on elements with <label> descendants
+.radio,
+.checkbox {
+  &.disabled,
+  fieldset[disabled] & {
+    label {
+      cursor: $cursor-disabled;
+    }
+  }
+}

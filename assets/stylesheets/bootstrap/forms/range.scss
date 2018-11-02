@@ -1,0 +1,119 @@
+// Range
+
+input[type="range"] {
+  $range-thumb-size: 18px;
+  $range-track-height: 2px;
+  $range-thumb-color: #444;
+  $range-active-thumb-color: darken($range-thumb-color, 20%);
+  $range-track-color: $input-border;
+  $range-active-track-color: darken($input-border, 20%);
+
+  border: none;
+  padding: 0; // for IE and Edge
+  height: $range-thumb-size;
+  width: 100%;
+  cursor: pointer;
+  background: transparent; // for webkit and firefox
+  -webkit-appearance: none;
+
+  &:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  // reset for moz
+  &::-moz-focus-outer {
+    border: 0;
+  }
+
+  // reset track line detail in MS browser
+  // upper is the right side of thumb, and lower is the left side of thumb
+  &::-ms-fill-lower,
+  &::-ms-fill-upper {
+    background: transparent;
+  }
+
+  // thumb parts
+
+  &::-webkit-slider-thumb {
+    @include range-thumb($range-thumb-size, $range-thumb-color);
+    margin-top: -(($range-thumb-size - $range-track-height) / 2);
+    -webkit-appearance: none;
+  }
+
+  &::-moz-range-thumb {
+    @include range-thumb($range-thumb-size, $range-thumb-color);
+  }
+
+  &::-ms-thumb {
+    @include range-thumb($range-thumb-size, $range-thumb-color);
+    margin-top: 0; // we need this in Edge (not IE)
+  }
+
+  &:active::-webkit-slider-thumb,
+  &.use-focus:focus::-webkit-slider-thumb {
+    @include acitve-range-thumb($range-active-thumb-color);
+  }
+
+  &:active::-moz-range-thumb,
+  &.use-focus:focus::-moz-range-thumb {
+    @include acitve-range-thumb($range-active-thumb-color);
+  }
+
+  &:active::-ms-thumb,
+  &.use-focus:focus::-ms-thumb {
+    @include acitve-range-thumb($range-active-thumb-color);
+  }
+
+  &.use-focus:focus::-webkit-slider-thumb {
+    @include tab-focus;
+  }
+
+  &.use-focus:focus::-moz-range-thumb {
+    @include tab-focus;
+  }
+
+  &.use-focus:focus::-ms-thumb {
+    @include tab-focus;
+  }
+
+  &:disabled::-webkit-slider-thumb {
+    @include diabled-range-thumb;
+  }
+
+  &:disabled::-moz-range-thumb {
+    @include diabled-range-thumb;
+  }
+
+  &:disabled::-ms-thumb {
+    @include diabled-range-thumb;
+  }
+
+  // track parts
+
+  &::-webkit-slider-runnable-track {
+    @include range-track($range-track-height, $range-track-color);
+  }
+
+  &::-moz-range-track {
+    @include range-track($range-track-height, $range-track-color);
+  }
+
+  &::-ms-track {
+    @include range-track($range-track-height, $range-track-color);
+    border-width: 0; // remove border around the track
+    color: transparent; // remove vertical scale lines on the track
+  }
+
+  &:disabled::-webkit-slider-runnable-track {
+    @include disabled-range-track($range-track-color);
+  }
+
+  &:disabled::-moz-range-track {
+    @include disabled-range-track($range-track-color);
+  }
+
+  &:disabled::-ms-track {
+    @include disabled-range-track($range-track-color);
+  }
+}

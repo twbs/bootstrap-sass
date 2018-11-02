@@ -1,0 +1,69 @@
+// Horizontal forms
+//
+// Horizontal forms are built on grid classes and allow you to create forms with
+// labels on the left and inputs on the right.
+
+.form-horizontal {
+
+  // Consistent vertical alignment of radios and checkboxes
+  //
+  // Labels also get some reset styles, but that is scoped to a media query below.
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: ($padding-base-vertical + 1); // Default padding plus a border
+  }
+  // Account for padding we're adding to ensure the alignment and of help text
+  // and other content below items
+  .radio,
+  .checkbox {
+    min-height: ($line-height-computed + ($padding-base-vertical + 1));
+  }
+
+  // Make form groups behave like rows
+  .form-group {
+    @include make-row;
+  }
+
+  // Reset spacing and right align labels, but scope to media queries so that
+  // labels on narrow viewports stack the same as a default form example.
+  @media (min-width: $screen-sm-min) {
+    .control-label {
+      text-align: right;
+      margin-bottom: 0;
+      padding-top: ($padding-base-vertical + 1); // Default padding plus a border
+    }
+  }
+
+  // Validation states
+  //
+  // Reposition the icon because it's now within a grid column and columns have
+  // `position: relative;` on them. Also accounts for the grid gutter padding.
+  .has-feedback .form-control-feedback {
+    right: floor(($grid-gutter-width / 2));
+  }
+
+  // Form group sizes
+  //
+  // Quick utility class for applying `.input-lg` and `.input-sm` styles to the
+  // inputs and labels within a `.form-group`.
+  .form-group-lg {
+    @media (min-width: $screen-sm-min) {
+      .control-label {
+        padding-top: ($padding-large-vertical + 1);
+        font-size: $font-size-large;
+      }
+    }
+  }
+  .form-group-sm {
+    @media (min-width: $screen-sm-min) {
+      .control-label {
+        padding-top: ($padding-small-vertical + 1);
+        font-size: $font-size-small;
+      }
+    }
+  }
+}

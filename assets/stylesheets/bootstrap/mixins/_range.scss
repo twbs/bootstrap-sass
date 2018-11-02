@@ -1,121 +1,4 @@
-@mixin make-range($slider-thumb-size: 18px, $slider-track-height: 2px) {
-  $slider-thumb-color: #444;
-  $slider-active-thumb-color: darken($slider-thumb-color, 20%);
-  $slider-track-color: $input-border;
-  $slider-active-track-color: darken($input-border, 20%);
-
-  border: none;
-  padding: 0; // for IE and Edge
-  height: $slider-thumb-size;
-  width: 100%;
-  cursor: pointer;
-  background: transparent; // for webkit and firefox
-  -webkit-appearance: none;
-
-  &:disabled {
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-
-  // reset for moz
-  &::-moz-focus-outer {
-    border: 0;
-  }
-
-  // reset track line detail in MS browser
-  // upper is the right side of thumb, and lower is the left side of thumb
-  &::-ms-fill-lower,
-  &::-ms-fill-upper {
-    background: transparent;
-  }
-
-  // thumb parts
-
-  &::-webkit-slider-thumb {
-    @include slider-thumb($slider-thumb-size, $slider-thumb-color);
-    margin-top: -(($slider-thumb-size - $slider-track-height) / 2);
-    -webkit-appearance: none;
-  }
-
-  &::-moz-range-thumb {
-    @include slider-thumb($slider-thumb-size, $slider-thumb-color);
-  }
-
-  &::-ms-thumb {
-    @include slider-thumb($slider-thumb-size, $slider-thumb-color);
-    margin-top: 0; // we need this in Edge (not IE)
-  }
-
-  &:active::-webkit-slider-thumb,
-  &.use-focus:focus::-webkit-slider-thumb {
-    @include acitve-slider-thumb($slider-active-thumb-color);
-  }
-
-  &:active::-moz-range-thumb,
-  &.use-focus:focus::-moz-range-thumb {
-    @include acitve-slider-thumb($slider-active-thumb-color);
-  }
-
-  &:active::-ms-thumb,
-  &.use-focus:focus::-ms-thumb {
-    @include acitve-slider-thumb($slider-active-thumb-color);
-  }
-
-  &.use-focus:focus::-webkit-slider-thumb {
-    @include tab-focus;
-  }
-
-  &.use-focus:focus::-moz-range-thumb {
-    @include tab-focus;
-  }
-
-  &.use-focus:focus::-ms-thumb {
-    @include tab-focus;
-  }
-
-
-  &:disabled::-webkit-slider-thumb {
-    @include diabled-slider-thumb;
-  }
-
-  &:disabled::-moz-range-thumb {
-    @include diabled-slider-thumb;
-  }
-
-  &:disabled::-ms-thumb {
-    @include diabled-slider-thumb;
-  }
-
-  // track parts
-
-  &::-webkit-slider-runnable-track {
-    @include slider-runnable-track($slider-track-height, $slider-track-color);
-  }
-
-  &::-moz-range-track {
-    @include slider-runnable-track($slider-track-height, $slider-track-color);
-  }
-
-  &::-ms-track {
-    @include slider-runnable-track($slider-track-height, $slider-track-color);
-    border-width: 0; // remove border around the track
-    color: transparent; // remove vertical scale lines on the track
-  }
-
-  &:disabled::-webkit-slider-runnable-track {
-    @include disabled-slider-runnable-track($slider-track-color);
-  }
-
-  &:disabled::-moz-range-track {
-    @include disabled-slider-runnable-track($slider-track-color);
-  }
-
-  &:disabled::-ms-track {
-    @include disabled-slider-runnable-track($slider-track-color);
-  }
-}
-
-@mixin slider-thumb($size, $color) {
+@mixin range-thumb($size, $color) {
   cursor: pointer;
   background: $color;
   height: $size;
@@ -124,17 +7,17 @@
   border: 0;
 }
 
-@mixin acitve-slider-thumb($color) {
+@mixin acitve-range-thumb($color) {
   outline: none;
   background: $color;
 }
 
-@mixin diabled-slider-thumb {
+@mixin diabled-range-thumb {
   cursor: not-allowed;
   background: #ccc;
 }
 
-@mixin slider-runnable-track($height, $color) {
+@mixin range-track($height, $color) {
   width: 100%;
   height: $height;
   cursor: pointer;
@@ -142,7 +25,7 @@
   background: $color;
 }
 
-@mixin disabled-slider-runnable-track($color) {
+@mixin disabled-range-track($color) {
   cursor: not-allowed;
   background: lighten($color, 10%);
 }

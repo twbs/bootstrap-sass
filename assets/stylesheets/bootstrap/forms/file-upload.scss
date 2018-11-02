@@ -1,0 +1,11 @@
+// File upload
+// Customizable on chrome and safari only
+//
+
+// use supoprt to appliy only chrome, safari (and not edge)
+@supports (-webkit-appearance: none) and (not (-ms-ime-align:auto)) {
+  input[type="file"] {
+    // show the focus shadow around the ::-webkit-file-upload-button
+    margin: -3px 0 -3px -3px;
+  }
+}

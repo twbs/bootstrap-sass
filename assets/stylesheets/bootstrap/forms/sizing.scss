@@ -1,0 +1,59 @@
+// Form control sizing
+//
+// Build on `.form-control` with modifier classes to decrease or increase the
+// height and font-size of form controls.
+//
+// The `.form-group-* form-control` variations are sadly duplicated to avoid the
+// issue documented in https://github.com/twbs/bootstrap/issues/15074.
+
+@include input-size('.input-sm', $input-height-small, $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $input-border-radius-small);
+.form-group-sm {
+  .form-control {
+    height: $input-height-small;
+    padding: $padding-small-vertical $padding-small-horizontal;
+    font-size: $font-size-small;
+    line-height: $line-height-small;
+    border-radius: $input-border-radius-small;
+  }
+  select.form-control {
+    height: $input-height-small;
+    line-height: $input-height-small;
+  }
+  textarea.form-control,
+  select[multiple].form-control {
+    height: auto;
+  }
+  .form-control-static {
+    height: $input-height-small;
+    min-height: ($line-height-computed + $font-size-small);
+    padding: ($padding-small-vertical + 1) $padding-small-horizontal;
+    font-size: $font-size-small;
+    line-height: $line-height-small;
+  }
+}
+
+@include input-size('.input-lg', $input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $input-border-radius-large);
+.form-group-lg {
+  .form-control {
+    height: $input-height-large;
+    padding: $padding-large-vertical $padding-large-horizontal;
+    font-size: $font-size-large;
+    line-height: $line-height-large;
+    border-radius: $input-border-radius-large;
+  }
+  select.form-control {
+    height: $input-height-large;
+    line-height: $input-height-large;
+  }
+  textarea.form-control,
+  select[multiple].form-control {
+    height: auto;
+  }
+  .form-control-static {
+    height: $input-height-large;
+    min-height: ($line-height-computed + $font-size-large);
+    padding: ($padding-large-vertical + 1) $padding-large-horizontal;
+    font-size: $font-size-large;
+    line-height: $line-height-large;
+  }
+}
