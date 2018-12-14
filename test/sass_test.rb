@@ -3,6 +3,7 @@
 require 'test_helper'
 require 'shellwords'
 require 'fileutils'
+require 'bootstrap-sass'
 
 class SassTest < Minitest::Test
   DUMMY_PATH = 'test/dummy_sass_only'

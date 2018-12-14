@@ -9,7 +9,7 @@ out_path = ARGV[1]
 
 output = SassC::Engine.new(
   File.read(File.expand_path('./import_all.scss', __dir__)),
-  syntax: :scss, load_paths: [load_path]
+  syntax: :scss, load_paths: ['.', load_path]
 ).render
 
 if out_path
