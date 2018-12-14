@@ -67,7 +67,7 @@ class Converter
         log_processing name
         # apply common conversions
         file = convert_less(file)
-        file = replace_all file, %r{/\* stylelint-disable.*?\*/\n*}, '', optional: true
+        file = replace_all file, %r{// stylelint-disable.*?\n*}, '', optional: true
         if name.start_with?('mixins/')
           file = varargify_mixin_definitions(file, *VARARG_MIXINS)
           %w(responsive-(in)?visibility input-size text-emphasis-variant bg-variant).each do |mixin|
