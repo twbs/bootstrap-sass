@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.4.0
+
+* Bootstrap rubygem now depends on SassC instead of Sass.
+* Compass no longer supported.
+
 ## 3.3.7
 
 * Allows jQuery 3.x in bower.json. [#1048](https://github.com/twbs/bootstrap-sass/issues/1048)

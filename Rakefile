@@ -46,7 +46,7 @@ task :debug do
   require 'bootstrap-sass'
   path = Bootstrap.stylesheets_path
   %w(_bootstrap).each do |file|
-    engine = SassC::Engine.new(File.read("#{path}/#{file}.scss"), syntax: :scss, load_paths: [path])
+    engine = SassC::Engine.new(File.read("#{path}/#{file}.scss"), syntax: :scss, load_paths: ['.', path])
     File.open("tmp/#{file}.css", 'w') { |f| f.write(engine.render) }
   end
 end
@@ -76,7 +76,7 @@ task :compile, :css_path do |t, args|
   %w(_bootstrap bootstrap/_theme).each do |file|
     save_path = "#{css_path}/#{file.sub(/(^|\/)?_+/, '\1').sub('/', '-')}.css"
     puts Term::ANSIColor.cyan("  #{save_path}") + '...'
-    engine = SassC::Engine.new(File.read("#{path}/#{file}.scss"), syntax: :scss, load_paths: [path])
+    engine = SassC::Engine.new(File.read("#{path}/#{file}.scss"), syntax: :scss, load_paths: ['.', path])
     css = engine.render
     File.open(save_path, 'w') { |f| f.write css }
   end
