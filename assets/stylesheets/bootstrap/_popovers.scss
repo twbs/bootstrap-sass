@@ -29,12 +29,12 @@
   &.left { margin-left: -$popover-arrow-width; }
 
   // Arrows
-  // .arrow is outer, .arrow::after is inner
+  // .arrow is outer, .arrow:after is inner
   > .arrow {
     border-width: $popover-arrow-outer-width;
 
     &,
-    &::after {
+    &:after {
       position: absolute;
       display: block;
       width: 0;
@@ -43,27 +43,12 @@
       border-style: solid;
     }
 
-    &::after {
+    &:after {
       content: "";
       border-width: $popover-arrow-width;
     }
   }
-}
 
-.popover-title {
-  padding: 8px 14px;
-  margin: 0; // reset heading margin
-  font-size: $font-size-base;
-  background-color: $popover-title-bg;
-  border-bottom: 1px solid darken($popover-title-bg, 5%);
-  border-radius: ($border-radius-large - 1) ($border-radius-large - 1) 0 0;
-}
-
-.popover-content {
-  padding: 9px 14px;
-}
-
-.popover {
   &.top > .arrow {
     bottom: -$popover-arrow-outer-width;
     left: 50%;
@@ -71,7 +56,7 @@
     border-top-color: $popover-arrow-outer-fallback-color; // IE8 fallback
     border-top-color: $popover-arrow-outer-color;
     border-bottom-width: 0;
-    &::after {
+    &:after {
       bottom: 1px;
       margin-left: -$popover-arrow-width;
       content: " ";
@@ -86,7 +71,7 @@
     border-right-color: $popover-arrow-outer-fallback-color; // IE8 fallback
     border-right-color: $popover-arrow-outer-color;
     border-left-width: 0;
-    &::after {
+    &:after {
       bottom: -$popover-arrow-width;
       left: 1px;
       content: " ";
@@ -101,7 +86,7 @@
     border-top-width: 0;
     border-bottom-color: $popover-arrow-outer-fallback-color; // IE8 fallback
     border-bottom-color: $popover-arrow-outer-color;
-    &::after {
+    &:after {
       top: 1px;
       margin-left: -$popover-arrow-width;
       content: " ";
@@ -117,7 +102,7 @@
     border-right-width: 0;
     border-left-color: $popover-arrow-outer-fallback-color; // IE8 fallback
     border-left-color: $popover-arrow-outer-color;
-    &::after {
+    &:after {
       right: 1px;
       bottom: -$popover-arrow-width;
       content: " ";
@@ -125,4 +110,17 @@
       border-left-color: $popover-arrow-color;
     }
   }
+}
+
+.popover-title {
+  padding: 8px 14px;
+  margin: 0; // reset heading margin
+  font-size: $font-size-base;
+  background-color: $popover-title-bg;
+  border-bottom: 1px solid darken($popover-title-bg, 5%);
+  border-radius: ($border-radius-large - 1) ($border-radius-large - 1) 0 0;
+}
+
+.popover-content {
+  padding: 9px 14px;
 }
