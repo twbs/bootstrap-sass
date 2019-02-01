@@ -1,7 +1,7 @@
 {
-  "name": "bootstrap-sass",
-  "version": "3.3.7",
-  "description": "bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications.",
+  "name": "tatami",
+  "version": "1.0.0",
+  "description": "Tatami is Nota's fork of Bootstrap 3. Specialized modern web app UI. Support touch and mouse inputs.",
   "main": "assets/javascripts/bootstrap.js",
   "style": "assets/stylesheets/_bootstrap.scss",
   "sass": "assets/stylesheets/_bootstrap.scss",
