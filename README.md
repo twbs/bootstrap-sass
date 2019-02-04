@@ -1,6 +1,6 @@
 # tatami
 [![npm version](https://img.shields.io/npm/v/@notainc/tatami.svg?style=flat)](https://www.npmjs.com/package/bootstrap-sass)
-[![CircleCI](https://circleci.com/gh/nota/tatami.svg?style=svg)](https://circleci.com/gh/nota/tatami)
+[![CircleCI](https://circleci.com/gh/nota/tatami/tree/master.svg?style=svg)](https://circleci.com/gh/nota/tatami/tree/master)
 
 Tatami is Nota's fork of Bootstrap 3. Specialized modern web app UI. Support touch and mouse inputs. https://nota-tatami.herokuapp.com/
 
