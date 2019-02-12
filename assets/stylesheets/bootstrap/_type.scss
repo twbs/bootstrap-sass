@@ -2,6 +2,8 @@
 // Typography
 // --------------------------------------------------
 
+// Kamon uses Open-sans as base font
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i');
 
 // Headings
 // -------------------------
@@ -61,9 +63,7 @@ p {
 
 .lead {
   margin-bottom: $line-height-computed;
-  font-size: floor(($font-size-base * 1.15));
-  font-weight: 300;
-  line-height: 1.4;
+  font-size: $font-size-large;
 
   @media (min-width: $screen-sm-min) {
     font-size: ($font-size-base * 1.5);
