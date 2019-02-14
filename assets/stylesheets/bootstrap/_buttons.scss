@@ -28,7 +28,7 @@
     }
   }
 
-  [data-use-hover] &:hover,
+  [data-hover-visible] &:hover,
   [data-focus-visible] &:focus {
     color: $btn-default-color;
     text-decoration: none;
@@ -121,12 +121,12 @@ input[type="file"]::-webkit-file-upload-button {
     @include box-shadow(none);
   }
   &,
-  [data-use-hover] &:hover,
+  [data-hover-visible] &:hover,
   [data-focus-visible] &:focus,
   &:active {
     border-color: transparent;
   }
-  [data-use-hover] &:hover,
+  [data-hover-visible] &:hover,
   [data-focus-visible] &:focus {
     color: $link-hover-color;
     text-decoration: $link-hover-decoration;
@@ -134,7 +134,7 @@ input[type="file"]::-webkit-file-upload-button {
   }
   &[disabled],
   fieldset[disabled] & {
-    [data-use-hover] &:hover,
+    [data-hover-visible] &:hover,
     [data-focus-visible] &:focus {
       color: $btn-link-disabled-color;
       text-decoration: none;

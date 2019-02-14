@@ -132,7 +132,7 @@
     }
     // Bring the "active" button to the front
     &:active,
-    [data-use-hover] &:hover {
+    [data-hover-visible] &:hover {
       z-index: 2;
     }
 

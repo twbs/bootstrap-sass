@@ -70,7 +70,7 @@
 // Hover/Focus state
 .dropdown-menu > li > a {
   &:active,
-  [data-use-hover] &:hover,
+  [data-hover-visible] &:hover,
   [data-focus-visible] &:focus {
     text-decoration: none;
     color: $dropdown-link-hover-color;
@@ -89,7 +89,7 @@
 .dropdown-menu > .active > a {
   &,
   &:active,
-  [data-use-hover] &:hover,
+  [data-hover-visible] &:hover,
   [data-focus-visible] &:focus {
     color: $dropdown-link-active-color;
     text-decoration: none;
@@ -105,14 +105,14 @@
 .dropdown-menu > .disabled > a {
   &,
   &:active,
-  [data-use-hover] &:hover,
+  [data-hover-visible] &:hover,
   [data-focus-visible] &:focus {
     color: $dropdown-link-disabled-color;
   }
 
   // Nuke hover/active/focus effects
   &:active,
-  [data-use-hover] &:hover,
+  [data-hover-visible] &:hover,
   [data-focus-visible] &:focus {
     text-decoration: none;
     background-color: transparent;

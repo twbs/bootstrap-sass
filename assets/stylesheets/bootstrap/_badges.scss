@@ -59,7 +59,7 @@
 
 // Hover state, but only for links
 a.badge {
-  [data-use-hover] &:hover,
+  [data-hover-visible] &:hover,
   [data-focus-visible] &:focus {
     color: $badge-link-hover-color;
     text-decoration: none;

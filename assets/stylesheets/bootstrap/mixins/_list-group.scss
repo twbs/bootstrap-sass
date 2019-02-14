@@ -16,7 +16,7 @@
       color: inherit;
     }
 
-    [data-use-hover] &:hover,
+    [data-hover-visible] &:hover,
     [data-focus-visible] &:focus {
       color: $color;
       background-color: darken($background, 5%);
@@ -24,7 +24,7 @@
 
     &.active {
       &,
-      [data-use-hover] &:hover,
+      [data-hover-visible] &:hover,
       [data-focus-visible] &:focus {
         color: #fff;
         background-color: $color;

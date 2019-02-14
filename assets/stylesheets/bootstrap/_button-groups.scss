@@ -13,7 +13,7 @@
     // Bring the "active" button to the front
     &:active,
     &.active,
-    [data-use-hover] &:hover {
+    [data-hover-visible] &:hover {
       z-index: 2;
     }
     // Bring the focused button to the most front

@@ -14,7 +14,7 @@
         border-color: darken($border, 25%);
   }
 
-  [data-use-hover] &:hover {
+  [data-hover-visible] &:hover {
     color: $color;
     background-color: darken($background, 10%);
         border-color: darken($border, 12%);
@@ -27,7 +27,7 @@
     background-color: darken($background, 10%);
         border-color: darken($border, 12%);
 
-    [data-use-hover] &:hover,
+    [data-hover-visible] &:hover,
     [data-focus-visible] &:focus {
       color: $color;
       background-color: darken($background, 17%);
@@ -42,7 +42,7 @@
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
-    [data-use-hover] &:hover,
+    [data-hover-visible] &:hover,
     [data-focus-visible] &:focus {
       background-color: $background;
           border-color: $border;

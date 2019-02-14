@@ -3,7 +3,7 @@
   background-color: transparent;
   border-radius: 4px;
 
-  [data-use-hover] &:hover {
+  [data-hover-visible] &:hover {
     color: #333;
     background-color: rgba(0,0,0,.05);
   }

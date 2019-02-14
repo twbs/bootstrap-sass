@@ -10,7 +10,7 @@
   -webkit-touch-callout:none;
   text-decoration: none;
 
-  [data-use-hover] &:hover,
+  [data-hover-visible] &:hover,
   [data-focus-visible] &:focus {
     text-decoration: none;
     color: inherit;

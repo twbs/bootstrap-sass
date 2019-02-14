@@ -16,7 +16,7 @@
   order: 2;
   @include opacity(.2);
 
-  [data-use-hover] &:hover,
+  [data-hover-visible] &:hover,
   [data-focus-visible] &:focus {
     color: $close-color;
     text-decoration: none;

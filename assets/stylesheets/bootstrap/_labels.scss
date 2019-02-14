@@ -29,7 +29,7 @@
 // Add hover effects, but only for links
 a.label {
   &:active,
-  [data-use-hover] &:hover,
+  [data-hover-visible] &:hover,
   [data-focus-visible] &:focus {
     color: $label-link-hover-color;
     text-decoration: none;
