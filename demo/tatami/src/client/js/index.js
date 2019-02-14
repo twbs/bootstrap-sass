@@ -5,7 +5,6 @@ import 'babel-polyfill'
 import React from 'react'
 import {render} from 'react-dom'
 
-import './lib/use-focus'
 // import 'what-input'
 
 import App from './components/app'
