@@ -79,6 +79,12 @@ You can check dependencies in the [Bootstrap JS documentation][jsdocs].
 //= require bootstrap/dropdown
 ```
 
+Tatami also depends on the library [@notainc/mouse-hover-visible](https://github.com/nota/mouse-hover-visible) and [@notainc/key-focus-visible](https://github.com/nota/key-focus-visible). These libraries realize behavior like native application about the point of hover and foucs states. To activate them, import or require in your main javascript file.
+```js
+//= require @notainc/mouse-hover-visible
+//= require @notainc/key-focus-visible'
+```
+
 ### Fonts
 
 The fonts are referenced as:
