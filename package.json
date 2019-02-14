@@ -53,6 +53,7 @@
     "needs": "^0.7.1"
   },
   "dependencies": {
-    "@notainc/key-focus-visible": "~0.0.1"
+    "@notainc/key-focus-visible": "~0.0.1",
+    "@notainc/mouse-hover-visible": "0.0.1"
   }
 }
