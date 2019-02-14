@@ -51,29 +51,29 @@ input[type="range"] {
   }
 
   &:active::-webkit-slider-thumb,
-  &.use-focus:focus::-webkit-slider-thumb {
+  &.focus-visible:focus::-webkit-slider-thumb {
     @include acitve-range-thumb($range-active-thumb-color);
   }
 
   &:active::-moz-range-thumb,
-  &.use-focus:focus::-moz-range-thumb {
+  &.focus-visible:focus::-moz-range-thumb {
     @include acitve-range-thumb($range-active-thumb-color);
   }
 
   &:active::-ms-thumb,
-  &.use-focus:focus::-ms-thumb {
+  &.focus-visible:focus::-ms-thumb {
     @include acitve-range-thumb($range-active-thumb-color);
   }
 
-  &.use-focus:focus::-webkit-slider-thumb {
+  &.focus-visible:focus::-webkit-slider-thumb {
     @include tab-focus;
   }
 
-  &.use-focus:focus::-moz-range-thumb {
+  &.focus-visible:focus::-moz-range-thumb {
     @include tab-focus;
   }
 
-  &.use-focus:focus::-ms-thumb {
+  &.focus-visible:focus::-ms-thumb {
     @include tab-focus;
   }
 
