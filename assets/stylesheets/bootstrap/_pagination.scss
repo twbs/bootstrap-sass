@@ -42,7 +42,7 @@
   > li > a,
   > li > span {
     [data-use-hover] &:hover,
-    [data-use-focus] &:focus {
+    [data-focus-visible] &:focus {
       z-index: 2;
       color: $pagination-hover-color;
       background-color: $pagination-hover-bg;
@@ -54,7 +54,7 @@
   > .active > span {
     &,
     [data-use-hover] &:hover,
-    [data-use-focus] &:focus {
+    [data-focus-visible] &:focus {
       z-index: 3;
       color: $pagination-active-color;
       background-color: $pagination-active-bg;
@@ -68,7 +68,7 @@
     > a {
       &,
       [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-focus-visible] &:focus {
         color: $pagination-disabled-color;
         background-color: $pagination-disabled-bg;
         border-color: $pagination-disabled-border;

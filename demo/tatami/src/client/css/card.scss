@@ -11,7 +11,7 @@
   text-decoration: none;
 
   [data-use-hover] &:hover,
-  [data-use-focus] &:focus {
+  [data-focus-visible] &:focus {
     text-decoration: none;
     color: inherit;
     background-color: rgba(0,0,0,.05);

@@ -30,7 +30,7 @@
 a.label {
   &:active,
   [data-use-hover] &:hover,
-  [data-use-focus] &:focus {
+  [data-focus-visible] &:focus {
     color: $label-link-hover-color;
     text-decoration: none;
     cursor: pointer;

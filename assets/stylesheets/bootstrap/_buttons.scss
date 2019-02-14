@@ -23,13 +23,13 @@
   &,
   &:active,
   &.active {
-    [data-use-focus] &:focus {
+    [data-focus-visible] &:focus {
       @include tab-focus;
     }
   }
 
   [data-use-hover] &:hover,
-  [data-use-focus] &:focus {
+  [data-focus-visible] &:focus {
     color: $btn-default-color;
     text-decoration: none;
   }
@@ -122,12 +122,12 @@ input[type="file"]::-webkit-file-upload-button {
   }
   &,
   [data-use-hover] &:hover,
-  [data-use-focus] &:focus,
+  [data-focus-visible] &:focus,
   &:active {
     border-color: transparent;
   }
   [data-use-hover] &:hover,
-  [data-use-focus] &:focus {
+  [data-focus-visible] &:focus {
     color: $link-hover-color;
     text-decoration: $link-hover-decoration;
     background-color: transparent;
@@ -135,7 +135,7 @@ input[type="file"]::-webkit-file-upload-button {
   &[disabled],
   fieldset[disabled] & {
     [data-use-hover] &:hover,
-    [data-use-focus] &:focus {
+    [data-focus-visible] &:focus {
       color: $btn-link-disabled-color;
       text-decoration: none;
     }

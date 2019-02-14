@@ -137,7 +137,7 @@
     }
 
     // Bring the "focus" button to the most front
-    [data-use-focus] &:focus {
+    [data-focus-visible] &:focus {
       z-index: 3;
     }
   }

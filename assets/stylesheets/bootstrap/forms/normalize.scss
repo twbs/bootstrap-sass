@@ -61,7 +61,7 @@ select[size] {
 // Focus for radio, and checkbox
 input[type="radio"],
 input[type="checkbox"] {
-  [data-use-focus] &:focus {
+  [data-focus-visible] &:focus {
     @include tab-focus;
   }
 }

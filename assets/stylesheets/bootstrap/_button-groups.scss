@@ -17,7 +17,7 @@
       z-index: 2;
     }
     // Bring the focused button to the most front
-    [data-use-focus] &:focus {
+    [data-focus-visible] &:focus {
       z-index: 3;
     }
   }

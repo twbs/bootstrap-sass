@@ -7,7 +7,7 @@
   }
   a#{$parent} {
     [data-use-hover] &:hover,
-    [data-use-focus] &:focus {
+    [data-focus-visible] &:focus {
       color: darken($color, 10%);
     }
   }

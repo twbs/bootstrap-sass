@@ -17,7 +17,7 @@
     }
 
     [data-use-hover] &:hover,
-    [data-use-focus] &:focus {
+    [data-focus-visible] &:focus {
       color: $color;
       background-color: darken($background, 5%);
     }
@@ -25,7 +25,7 @@
     &.active {
       &,
       [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-focus-visible] &:focus {
         color: #fff;
         background-color: $color;
         border-color: $color;

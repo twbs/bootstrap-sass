@@ -17,14 +17,14 @@
   @include opacity(.2);
 
   [data-use-hover] &:hover,
-  [data-use-focus] &:focus {
+  [data-focus-visible] &:focus {
     color: $close-color;
     text-decoration: none;
     cursor: pointer;
     @include opacity(.5);
   }
 
-  [data-use-focus] &:focus {
+  [data-focus-visible] &:focus {
     @include tab-focus;
   }
 }

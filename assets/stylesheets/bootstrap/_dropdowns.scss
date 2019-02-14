@@ -71,7 +71,7 @@
 .dropdown-menu > li > a {
   &:active,
   [data-use-hover] &:hover,
-  [data-use-focus] &:focus {
+  [data-focus-visible] &:focus {
     text-decoration: none;
     color: $dropdown-link-hover-color;
     background-color: $dropdown-link-hover-bg;
@@ -90,7 +90,7 @@
   &,
   &:active,
   [data-use-hover] &:hover,
-  [data-use-focus] &:focus {
+  [data-focus-visible] &:focus {
     color: $dropdown-link-active-color;
     text-decoration: none;
     outline: 0;
@@ -106,14 +106,14 @@
   &,
   &:active,
   [data-use-hover] &:hover,
-  [data-use-focus] &:focus {
+  [data-focus-visible] &:focus {
     color: $dropdown-link-disabled-color;
   }
 
   // Nuke hover/active/focus effects
   &:active,
   [data-use-hover] &:hover,
-  [data-use-focus] &:focus {
+  [data-focus-visible] &:focus {
     text-decoration: none;
     background-color: transparent;
     background-image: none; // Remove CSS gradient

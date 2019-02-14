@@ -183,7 +183,7 @@
 
   &:active,
   [data-use-hover] &:hover,
-  [data-use-focus] &:focus {
+  [data-focus-visible] &:focus {
     text-decoration: none;
   }
 
@@ -271,7 +271,7 @@
         line-height: $line-height-computed;
 
         [data-use-hover] &:hover,
-        [data-use-focus] &:focus {
+        [data-focus-visible] &:focus {
           background-image: none;
         }
       }
@@ -413,7 +413,7 @@
 
     &:active,
     [data-use-hover] &:hover,
-    [data-use-focus] &:focus {
+    [data-focus-visible] &:focus {
       color: $navbar-default-brand-hover-color;
       background-color: $navbar-default-brand-hover-bg;
     }
@@ -429,7 +429,7 @@
 
       &:active,
       [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-focus-visible] &:focus {
         color: $navbar-default-link-hover-color;
         background-color: $navbar-default-link-hover-bg;
       }
@@ -438,7 +438,7 @@
       &,
       &:active,
       [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-focus-visible] &:focus {
         color: $navbar-default-link-active-color;
         background-color: $navbar-default-link-active-bg;
       }
@@ -447,7 +447,7 @@
       &,
       &:active,
       [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-focus-visible] &:focus {
         color: $navbar-default-link-disabled-color;
         background-color: $navbar-default-link-disabled-bg;
       }
@@ -458,7 +458,7 @@
     border-color: $navbar-default-toggle-border-color;
     &:active,
     [data-use-hover] &:hover,
-    [data-use-focus] &:focus {
+    [data-focus-visible] &:focus {
       background-color: $navbar-default-toggle-hover-bg;
       background-color: $navbar-default-toggle-hover-bg;
     }
@@ -479,7 +479,7 @@
       &,
       &:active,
       [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-focus-visible] &:focus {
         background-color: $navbar-default-link-active-bg;
         color: $navbar-default-link-active-color;
       }
@@ -493,7 +493,7 @@
 
           &:active,
           [data-use-hover] &:hover,
-          [data-use-focus] &:focus {
+          [data-focus-visible] &:focus {
             color: $navbar-default-link-hover-color;
             background-color: $navbar-default-link-hover-bg;
           }
@@ -502,7 +502,7 @@
           &,
           &:active,
           [data-use-hover] &:hover,
-          [data-use-focus] &:focus {
+          [data-focus-visible] &:focus {
             color: $navbar-default-link-active-color;
             background-color: $navbar-default-link-active-bg;
           }
@@ -511,7 +511,7 @@
           &,
           &:active,
           [data-use-hover] &:hover,
-          [data-use-focus] &:focus {
+          [data-focus-visible] &:focus {
             color: $navbar-default-link-disabled-color;
             background-color: $navbar-default-link-disabled-bg;
           }
@@ -537,13 +537,13 @@
     color: $navbar-default-link-color;
 
     [data-use-hover] &:hover,
-    [data-use-focus] &:focus {
+    [data-focus-visible] &:focus {
       color: $navbar-default-link-hover-color;
     }
     &[disabled],
     fieldset[disabled] & {
       [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-focus-visible] &:focus {
         color: $navbar-default-link-disabled-color;
       }
     }
@@ -561,7 +561,7 @@
 
     &:active,
     [data-use-hover] &:hover,
-    [data-use-focus] &:focus {
+    [data-focus-visible] &:focus {
       color: $navbar-inverse-brand-hover-color;
       background-color: $navbar-inverse-brand-hover-bg;
     }
@@ -577,7 +577,7 @@
 
       &:active,
       [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-focus-visible] &:focus {
         color: $navbar-inverse-link-hover-color;
         background-color: $navbar-inverse-link-hover-bg;
       }
@@ -585,7 +585,7 @@
     > .active > a {
       &,
       [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-focus-visible] &:focus {
         color: $navbar-inverse-link-active-color;
         background-color: $navbar-inverse-link-active-bg;
       }
@@ -593,7 +593,7 @@
     > .disabled > a {
       &,
       [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-focus-visible] &:focus {
         color: $navbar-inverse-link-disabled-color;
         background-color: $navbar-inverse-link-disabled-bg;
       }
@@ -606,7 +606,7 @@
 
     &:active,
     [data-use-hover] &:hover,
-    [data-use-focus] &:focus {
+    [data-focus-visible] &:focus {
       background-color: $navbar-inverse-toggle-hover-bg;
     }
     .icon-bar {
@@ -624,7 +624,7 @@
     > .open > a {
       &,
       [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-focus-visible] &:focus {
         background-color: $navbar-inverse-link-active-bg;
         color: $navbar-inverse-link-active-color;
       }
@@ -644,7 +644,7 @@
 
           &:active,
           [data-use-hover] &:hover,
-          [data-use-focus] &:focus {
+          [data-focus-visible] &:focus {
             color: $navbar-inverse-link-hover-color;
             background-color: $navbar-inverse-link-hover-bg;
           }
@@ -653,7 +653,7 @@
           &,
           &:active,
           [data-use-hover] &:hover,
-          [data-use-focus] &:focus {
+          [data-focus-visible] &:focus {
             color: $navbar-inverse-link-active-color;
             background-color: $navbar-inverse-link-active-bg;
           }
@@ -662,7 +662,7 @@
           &,
           &:active,
           [data-use-hover] &:hover,
-          [data-use-focus] &:focus {
+          [data-focus-visible] &:focus {
             color: $navbar-inverse-link-disabled-color;
             background-color: $navbar-inverse-link-disabled-bg;
           }
@@ -683,14 +683,14 @@
     color: $navbar-inverse-link-color;
 
     [data-use-hover] &:hover,
-    [data-use-focus] &:focus {
+    [data-focus-visible] &:focus {
       color: $navbar-inverse-link-hover-color;
     }
 
     &[disabled],
     fieldset[disabled] & {
       [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-focus-visible] &:focus {
         color: $navbar-inverse-link-disabled-color;
       }
     }
