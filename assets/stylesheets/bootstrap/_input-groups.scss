@@ -132,12 +132,12 @@
     }
     // Bring the "active" button to the front
     &:active,
-    [data-use-hover] &:hover {
+    [data-hover-visible] &:hover {
       z-index: 2;
     }
 
     // Bring the "focus" button to the most front
-    [data-use-focus] &:focus {
+    [data-focus-visible] &:focus {
       z-index: 3;
     }
   }

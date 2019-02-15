@@ -33,8 +33,8 @@
 // Add a hover state for linked versions only
 a.thumbnail {
   &.active,
-  [data-use-hover] &:hover,
-  [data-use-focus] &:focus {
+  [data-hover-visible] &:hover,
+  [data-focus-visible] &:focus {
     border-color: $link-color;
   }
 }

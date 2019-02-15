@@ -41,7 +41,7 @@
         border: 6px solid $link-color;
       }
 
-      [data-use-focus] &:focus {
+      [data-focus-visible] &:focus {
         border-color: $link-color; // override tab-focus
       }
     }

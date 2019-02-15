@@ -115,8 +115,8 @@
   }
 
   // Hover/focus state
-  [data-use-hover] &:hover,
-  [data-use-focus] &:focus {
+  [data-hover-visible] &:hover,
+  [data-focus-visible] &:focus {
     outline: 0;
     color: $carousel-control-color;
     text-decoration: none;

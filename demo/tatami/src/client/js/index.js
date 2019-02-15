@@ -5,7 +5,8 @@ import 'babel-polyfill'
 import React from 'react'
 import {render} from 'react-dom'
 
-import './lib/use-focus'
+import '@notainc/key-focus-visible'
+import '@notainc/mouse-hover-visible'
 // import 'what-input'
 
 import App from './components/app'

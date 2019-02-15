@@ -50,8 +50,8 @@
   background-repeat: repeat-x;
   border-color: darken($btn-color, 14%);
 
-  [data-use-hover] &:hover,
-  [data-use-focus] &:focus  {
+  [data-hover-visible] &:hover,
+  [data-focus-visible] &:focus  {
     background-color: darken($btn-color, 12%);
     background-position: 0 -15px;
   }
@@ -68,8 +68,8 @@
     &,
     &:active,
     &.active,
-    [data-use-hover] &:hover,
-    [data-use-focus] &:focus {
+    [data-hover-visible] &:hover,
+    [data-focus-visible] &:focus {
       background-color: darken($btn-color, 12%);
       background-image: none;
     }
@@ -109,8 +109,8 @@
 // --------------------------------------------------
 
 .dropdown-menu > li > a {
-  [data-use-hover] &:hover,
-  [data-use-focus] &:focus {
+  [data-hover-visible] &:hover,
+  [data-focus-visible] &:focus {
     @include gradient-vertical($start-color: $dropdown-link-hover-bg, $end-color: darken($dropdown-link-hover-bg, 5%));
     background-color: darken($dropdown-link-hover-bg, 5%);
   }
@@ -118,8 +118,8 @@
 
 .dropdown-menu > .active > a {
   &,
-  [data-use-hover] &:hover,
-  [data-use-focus] &:focus {
+  [data-hover-visible] &:hover,
+  [data-focus-visible] &:focus {
     @include gradient-vertical($start-color: $dropdown-link-active-bg, $end-color: darken($dropdown-link-active-bg, 5%));
     background-color: darken($dropdown-link-active-bg, 5%);
   }
@@ -175,8 +175,8 @@
 @media (max-width: $grid-float-breakpoint-max) {
   .navbar .navbar-nav .open .dropdown-menu > .active > a {
     &,
-    [data-use-hover] &:hover,
-    [data-use-focus] &:focus {
+    [data-hover-visible] &:hover,
+    [data-focus-visible] &:focus {
       color: #fff;
       @include gradient-vertical($start-color: $dropdown-link-active-bg, $end-color: darken($dropdown-link-active-bg, 5%));
     }
@@ -246,8 +246,8 @@
 }
 .list-group-item.active {
   &,
-  [data-use-hover] &:hover,
-  [data-use-focus] &:focus {
+  [data-hover-visible] &:hover,
+  [data-focus-visible] &:focus {
     text-shadow: 0 -1px 0 darken($list-group-active-bg, 10%);
     @include gradient-vertical($start-color: $list-group-active-bg, $end-color: darken($list-group-active-bg, 7.5%));
     border-color: darken($list-group-active-border, 7.5%);

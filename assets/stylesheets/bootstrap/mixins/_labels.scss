@@ -5,8 +5,8 @@
 
   &[href] {
     &:active,
-    [data-use-hover] &:hover,
-    [data-use-focus] &:focus {
+    [data-hover-visible] &:hover,
+    [data-focus-visible] &:focus {
       background-color: darken($color, 10%);
     }
   }

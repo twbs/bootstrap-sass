@@ -26,8 +26,8 @@
         background-color: $nav-link-hover-bg;
       }
 
-      [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-hover-visible] &:hover,
+      [data-focus-visible] &:focus {
         text-decoration: none;
         background-color: $nav-link-hover-bg;
       }
@@ -38,8 +38,8 @@
       color: $nav-disabled-link-color;
 
       &:active,
-      [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-hover-visible] &:hover,
+      [data-focus-visible] &:focus {
         color: $nav-disabled-link-hover-color;
         text-decoration: none;
         background-color: transparent;
@@ -57,8 +57,8 @@
   .open > a {
     &,
     &:active,
-    [data-use-hover] &:hover,
-    [data-use-focus] &:focus {
+    [data-hover-visible] &:hover,
+    [data-focus-visible] &:focus {
       background-color: $nav-link-hover-bg;
       border-color: $link-color;
     }
@@ -92,7 +92,7 @@
       border: 1px solid transparent;
       border-radius: $border-radius-base $border-radius-base 0 0;
 
-      [data-use-hover] &:hover {
+      [data-hover-visible] &:hover {
         border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
       }
     }
@@ -101,8 +101,8 @@
     &.active > a {
       &,
       &:active,
-      [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-hover-visible] &:hover,
+      [data-focus-visible] &:focus {
         color: $nav-tabs-active-link-hover-color;
         background-color: $nav-tabs-active-link-hover-bg;
         border: 1px solid $nav-tabs-active-link-hover-border-color;
@@ -133,8 +133,8 @@
     &.active > a {
       &,
       &:active,
-      [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-hover-visible] &:hover,
+      [data-focus-visible] &:focus {
         color: $nav-pills-active-link-hover-color;
         background-color: $nav-pills-active-link-hover-bg;
       }
@@ -204,8 +204,8 @@
   > .active > a {
     &,
     &:active,
-    [data-use-hover] &:hover,
-    [data-use-focus] &:focus {
+    [data-hover-visible] &:hover,
+    [data-focus-visible] &:focus {
       border: 1px solid $nav-tabs-justified-link-border-color;
     }
 
@@ -219,8 +219,8 @@
     > .active > a {
       &,
       &:active,
-      [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-hover-visible] &:hover,
+      [data-focus-visible] &:focus {
         border-bottom-color: $nav-tabs-justified-active-link-border-color;
       }
     }

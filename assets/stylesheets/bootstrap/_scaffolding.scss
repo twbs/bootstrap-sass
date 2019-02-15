@@ -54,13 +54,13 @@ a {
   text-decoration: none;
 
   &:active,
-  [data-use-hover] &:hover,
-  [data-use-focus] &:focus {
+  [data-hover-visible] &:hover,
+  [data-focus-visible] &:focus {
     color: $link-hover-color;
     text-decoration: $link-hover-decoration;
   }
 
-  [data-use-focus] &:focus {
+  [data-focus-visible] &:focus {
     @include tab-focus;
   }
 }

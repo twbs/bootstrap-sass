@@ -26,8 +26,8 @@
     }
 
     > a {
-      [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-hover-visible] &:hover,
+      [data-focus-visible] &:focus {
         text-decoration: none;
         background-color: $pager-hover-bg;
       }
@@ -46,8 +46,8 @@
     > a,
     > span {
       &,
-      [data-use-hover] &:hover,
-      [data-use-focus] &:focus {
+      [data-hover-visible] &:hover,
+      [data-focus-visible] &:focus {
         color: $pager-disabled-color;
         background-color: $pager-bg;
         cursor: $cursor-disabled;
