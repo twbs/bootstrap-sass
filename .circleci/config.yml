@@ -16,6 +16,4 @@ jobs:
       - run: 'npm -v'
       - checkout
       - run: 'npm ci'
-      - run: 'npm run prepare-demo'
-      - run: 'npm run build-demo'
       - run: 'npm run test'
