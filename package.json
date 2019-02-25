@@ -1,6 +1,6 @@
 {
   "name": "@notainc/tatami",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Tatami is Nota's fork of Bootstrap 3. Specialized modern web app UI. Support touch and mouse inputs.",
   "main": "assets/javascripts/bootstrap.js",
   "style": "assets/stylesheets/_bootstrap.scss",
