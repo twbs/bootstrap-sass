@@ -56,6 +56,8 @@
     "standard": "11.0.0",
     "uglifyify": "^5.0.0",
     "watchify": "^3.11.0",
-    "what-input": "^5.1.2"
+    "what-input": "^5.1.2",
+    "@notainc/key-focus-visible": "~0.0.4",
+    "@notainc/mouse-hover-visible": "~0.0.6"
   }
 }
