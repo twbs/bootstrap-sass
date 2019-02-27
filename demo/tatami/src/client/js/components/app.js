@@ -52,7 +52,7 @@ export default class App extends Component {
                   components.map(c => {
                     return (
                       <li key={c} className={c === component ? 'active' : ''}>
-                        <a href={'#'+c}>{capitalize(c)}</a>
+                        <a href={'#'+c}>{capitalize(c).replace('-', ' ')}</a>
                       </li>
                     )
                   })
