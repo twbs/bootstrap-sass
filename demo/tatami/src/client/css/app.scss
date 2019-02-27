@@ -15,15 +15,14 @@ h1 {
   color: black;
 }
 
-.btn {
-  min-width: 100px;
-
-  .single-buttons & {
+.single-buttons {
+  .btn {
+    min-width: 100px;
     margin-bottom: 16px;
-  }
 
-  &.btn-lg {
-    min-width: 220px;
+    &.btn-lg {
+      min-width: 220px;
+    }
   }
 }
 
