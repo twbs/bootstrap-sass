@@ -25,6 +25,7 @@ export default class App extends Component {
     const components = [
       'alerts',
       'buttons',
+      'button-groups',
       'cards',
       'dropdowns',
       'forms',
