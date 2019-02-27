@@ -55,6 +55,54 @@
   }
 }
 
+@mixin button-transparent($color) {
+  color: $color;
+  background-color: transparent;
+  border-color: transparent;
+
+  [data-focus-visible] &:focus {
+    color: $color;
+    background-color: rgba(0, 0, 0, .05);
+  }
+
+  [data-hover-visible] &:hover {
+    color: $color;
+    background-color: rgba(0, 0, 0, .05);
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $color;
+    background-color: rgba(0, 0, 0, .05);
+
+    [data-hover-visible] &:hover,
+    [data-focus-visible] &:focus {
+      color: $color;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    [data-hover-visible] &:hover,
+    [data-focus-visible] &:focus {
+      background-color: transparent;
+          border-color: transparent;
+    }
+  }
+
+  .badge {
+    color: transparent;
+    background-color: transparent;
+  }
+}
+
 // Button sizes
 @mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
   padding: $padding-vertical $padding-horizontal;

@@ -9,7 +9,7 @@ export default function Buttons () {
       <button className='btn btn-default'>Default</button>&nbsp;
       <button className='btn btn-primary'>Primary</button>&nbsp;
       <button className='btn btn-danger'>Danger</button>&nbsp;
-      <button className='btn btn-flat'>Flat</button>
+      <button className='btn btn-clear'>Clear</button>
 
       <br />
       <br />
@@ -17,7 +17,7 @@ export default function Buttons () {
       <a href='javascript:;' className='btn btn-default'>Default</a>&nbsp;
       <a href='javascript:;' className='btn btn-primary'>Primary</a>&nbsp;
       <a href='javascript:;' className='btn btn-danger'>Danger</a>&nbsp;
-      <a href='javascript:;' className='btn btn-flat'>Flat</a>
+      <a href='javascript:;' className='btn btn-clear'>Clear</a>
 
       <br />
       <br />
