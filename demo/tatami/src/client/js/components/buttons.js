@@ -27,9 +27,9 @@ export default function Buttons () {
 
       <h4>Large</h4>
       <button className='btn btn-default btn-lg'>Default</button>&nbsp;
-      <button className='btn btn-primary btn-lg'>Primary</button>&nbsp;<br /><br />
+      <button className='btn btn-primary btn-lg'>Primary</button>&nbsp;
       <button className='btn btn-warning btn-lg'>Warning</button>&nbsp;
-      <button className='btn btn-danger btn-lg'>Danger</button>&nbsp;<br /><br />
+      <button className='btn btn-danger btn-lg'>Danger</button>&nbsp;
       <button className='btn btn-clear btn-lg'>Clear</button>
 
       <h4>Small</h4>
