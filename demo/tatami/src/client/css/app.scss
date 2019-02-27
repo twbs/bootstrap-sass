@@ -6,12 +6,21 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
   margin-top: 80px;
   margin-bottom: 500px;
 }
 
 h1 {
   color: black;
+}
+
+.btn {
+  min-width: 100px;
+
+  &.btn-lg {
+    min-width: 220px;
+  }
 }
 
 .logoimg {
