@@ -10,14 +10,14 @@
 
   [data-focus-visible] &:focus {
     color: $color;
-    background-color: darken($background, 10%);
-        border-color: darken($border, 25%);
+    background-color: darken($background, 5%);
+        border-color: darken($border, 5%);
   }
 
   [data-hover-visible] &:hover {
     color: $color;
-    background-color: darken($background, 10%);
-        border-color: darken($border, 12%);
+    background-color: darken($background, 5%);
+        border-color: darken($border, 5%);
   }
 
   &:active,
@@ -25,13 +25,13 @@
   .open > &.dropdown-toggle {
     color: $color;
     background-color: darken($background, 10%);
-        border-color: darken($border, 12%);
+        border-color: darken($border, 10%);
 
     [data-hover-visible] &:hover,
     [data-focus-visible] &:focus {
       color: $color;
-      background-color: darken($background, 17%);
-          border-color: darken($border, 25%);
+      background-color: darken($background, 10%);
+          border-color: darken($border, 10%);
     }
   }
   &:active,
