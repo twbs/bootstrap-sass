@@ -2,7 +2,6 @@
 @import 'bootstrap_loader';
 @import 'mixins/hover';
 
-@import 'btn-flat';
 @import 'card';
 
 body {
@@ -13,6 +12,17 @@ body {
 
 h1 {
   color: black;
+}
+
+.single-buttons {
+  .btn {
+    min-width: 100px;
+    margin-bottom: 16px;
+
+    &.btn-lg {
+      min-width: 220px;
+    }
+  }
 }
 
 .logoimg {

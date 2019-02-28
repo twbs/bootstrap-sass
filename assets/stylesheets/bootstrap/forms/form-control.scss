@@ -33,7 +33,7 @@
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid $input-border;
   border-radius: $input-border-radius;
-  @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
+  @include transition(box-shadow ease-in-out .15s);
 
   // Customize the `:focus` state to imitate native WebKit styles.
   @include form-control-focus;

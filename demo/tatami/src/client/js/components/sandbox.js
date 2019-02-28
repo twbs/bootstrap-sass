@@ -5,6 +5,7 @@
 import React, {Component} from 'react'
 import Alerts from './alerts'
 import Buttons from './buttons'
+import ButtonGroups from './button-groups'
 import Cards from './cards'
 import Dropdowns from './dropdowns'
 import Forms from './forms'
@@ -22,6 +23,8 @@ export default function Sandbox ({component}) {
       return <Alerts />
     case 'buttons':
       return <Buttons />
+    case 'button-groups':
+      return <ButtonGroups />
     case 'cards':
       return <Cards />
     case 'dropdowns':

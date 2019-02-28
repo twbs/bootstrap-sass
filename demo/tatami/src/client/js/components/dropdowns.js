@@ -20,7 +20,7 @@ export default function Dropdowns () {
       </div>
       <hr />
       <div className='dropdown'>
-        <button className='btn btn-flat dropdown-toggle' type='button' id='dropdownMenu2'
+        <button className='btn btn-clear dropdown-toggle' type='button' id='dropdownMenu2'
           tabIndex='0'
           data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
           Dropdown <span className='caret' />

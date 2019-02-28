@@ -25,6 +25,7 @@ export default class App extends Component {
     const components = [
       'alerts',
       'buttons',
+      'button-groups',
       'cards',
       'dropdowns',
       'forms',
@@ -51,7 +52,7 @@ export default class App extends Component {
                   components.map(c => {
                     return (
                       <li key={c} className={c === component ? 'active' : ''}>
-                        <a href={'#'+c}>{capitalize(c)}</a>
+                        <a href={'#'+c}>{capitalize(c).replace('-', ' ')}</a>
                       </li>
                     )
                   })

@@ -52,6 +52,55 @@ export default function Forms () {
 
         <br />
 
+        <h3>Large</h3>
+
+        <div className='form-group'>
+          <div className='input-group input-group-lg'>
+            <div className='input-group-addon'>https://scrapbox.io/</div>
+            <input type='text' className='form-control' />
+          </div>
+        </div>
+
+        <div className='form-group has-error'>
+          <label className='control-label' htmlFor='exampleInputEmail1'>Has error</label>
+          <div className='input-group input-group-lg'>
+            <div className='input-group-addon'>https://scrapbox.io/</div>
+            <input type='text' className='form-control' />
+          </div>
+        </div>
+
+        <div className='form-group'>
+          <label className='control-label' htmlFor='exampleInputEmail1'>Email address</label>
+          <input type='email' className='form-control input-lg' id='exampleInputEmail1' placeholder='Email' />
+        </div>
+        <div className='form-group'>
+          <label className='control-label' htmlFor='exampleInputPassword1'>Password</label>
+          <input type='password' className='form-control input-lg' id='exampleInputPassword1' placeholder='Password' />
+          <span className='help-block'>
+            A block of help text that breaks onto a new line and may extend beyond one line.
+          </span>
+        </div>
+        <div className='form-group'>
+          <label className='control-label' htmlFor='exampleInputEmail1'>Select</label>
+          <select className='form-control input-lg'>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div className='form-group'>
+          <label className='control-label' htmlFor='disabledTextInput'>Disabled input</label>
+          <input type='text' id='disabledTextInput' className='form-control input-lg' placeholder='Disabled input' disabled />
+        </div>
+        <div className='form-group'>
+          <label className='control-label' htmlFor='freetext'>Free text</label>
+          <textarea className='form-control input-lg' id='freetext'  />
+        </div>
+
+        <br />
+
         <h3>Checkboxes and radios</h3>
         <h4>Default (stacked)</h4>
         <div className='checkbox'>
@@ -134,27 +183,11 @@ export default function Forms () {
 
         <button className='btn btn-default'>Submit</button>
 
-        <h4>Sizes</h4>
-        <div className='form-group'>
-          <input className='form-control input-lg' type='text' placeholder='.input-lg' />
-        </div>
-        <div className='form-group'>
-          <input className='form-control' type='text' placeholder='Default input' />
-        </div>
+        <h4>Samll sizes</h4>
         <div className='form-group'>
           <input className='form-control input-sm' type='text' placeholder='.input-sm' />
         </div>
 
-        <div className='form-group'>
-          <select className='form-control input-lg'>
-            <option>Large select</option>
-          </select>
-        </div>
-        <div className='form-group'>
-          <select className='form-control'>
-            <option>Default select</option>
-          </select>
-        </div>
         <div className='form-group'>
           <select className='form-control input-sm'>
             <option>Small select</option>
