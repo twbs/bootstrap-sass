@@ -29,7 +29,7 @@ $brand-danger:          #F85C5F !default;
 //** Background color for `<body>`.
 $body-bg:               #eee !default;
 //** Global text color on `<body>`.
-$text-color:            $gray-dark !default;
+$text-color:            lighten($gray-base, 25%) !default;
 
 //** Global textual link color.
 $link-color:            $brand-primary !default;
@@ -53,22 +53,22 @@ $font-size-base:          14px !default;
 $font-size-large:         16px !default;
 $font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
 
-$font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
-$font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
-$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
-$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-h1:            floor(($font-size-base * 2.5)) !default; // ~35px
+$font-size-h2:            floor(($font-size-base * 2)) !default; // ~28px
+$font-size-h3:            ceil(($font-size-base * 1.5)) !default; // ~21px
+$font-size-h4:            ceil(($font-size-base * 1.14)) !default; // ~16px
 $font-size-h5:            $font-size-base !default;
 $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 
 //** Unit-less `line-height` for use in components like buttons.
-$line-height-base:        1.71428571 !default; // 24/14
+$line-height-base:        1.71429 !default; // 24/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-$line-height-computed:    round(($font-size-base * $line-height-base)) !default; // ~20px
+$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~24px
 
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    inherit !default;
 $headings-font-weight:    500 !default;
-$headings-line-height:    1.1 !default;
+$headings-line-height:    1.14286 !default; // 8/7
 $headings-color:          inherit !default;
 
 
@@ -220,7 +220,7 @@ $input-height-small:             (floor($font-size-small * $line-height-small) +
 //** `.form-group` margin
 $form-group-margin-bottom:       15px !default;
 
-$legend-color:                   $gray-dark !default;
+$legend-color:                   $text-color !default;
 $legend-border-color:            #e5e5e5 !default;
 
 //** Background color for textual input addons
@@ -244,9 +244,9 @@ $dropdown-border:                rgba(0,0,0,.15) !default;
 $dropdown-divider-bg:            #e5e5e5 !default;
 
 //** Dropdown link text color.
-$dropdown-link-color:            $gray-dark !default;
+$dropdown-link-color:            $text-color !default;
 //** Hover color for dropdown links.
-$dropdown-link-hover-color:      darken($gray-dark, 5%) !default;
+$dropdown-link-hover-color:      darken($text-color, 5%) !default;
 //** Hover background for dropdown links.
 $dropdown-link-hover-bg:         #f5f5f5 !default;
 
@@ -711,7 +711,7 @@ $panel-border-radius:         $border-radius-base !default;
 $panel-inner-border:          #ddd !default;
 $panel-footer-bg:             #f5f5f5 !default;
 
-$panel-default-text:          $gray-dark !default;
+$panel-default-text:          $text-color !default;
 $panel-default-border:        #ddd !default;
 $panel-default-heading-bg:    #f5f5f5 !default;
 
@@ -835,7 +835,7 @@ $kbd-color:                   #fff !default;
 $kbd-bg:                      #333 !default;
 
 $pre-bg:                      #f5f5f5 !default;
-$pre-color:                   $gray-dark !default;
+$pre-color:                   $text-color !default;
 $pre-border-color:            #ccc !default;
 $pre-scrollable-max-height:   340px !default;
 
