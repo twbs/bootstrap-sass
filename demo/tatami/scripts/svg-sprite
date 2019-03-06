@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+
+const svgSprite = require('svg-sprite')
+const fs = require('fs')
+const path = require('path')
+const mkdirp = require('mkdirp')
+
+const config = {
+  dest: './public/assets',
+  mode: {
+    'symbol': {
+      'dest': '.',
+      'sprite': 'sprite.svg'
+    }
+  },
+  shape: {
+    id: {
+      generator: function (name, file) {
+        return path.basename(name, path.extname(name))
+      }
+    },
+    transform: [
+      {
+        svgo: {
+          plugins: [
+            { removeTitles: true },
+            { removeAttrs: { attrs: 'fill' } }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+const spriter = new svgSprite(config)
+const svgFiles = fs.readdirSync('./node_modules/@notainc/kamon/svg/')
+
+svgFiles.forEach(function (fileName) {
+  const filePath = path.resolve(`./node_modules/@notainc/kamon/svg/${fileName}`)　// APIの構造上絶対パスでなければ動かない
+  spriter.add(filePath, null, fs.readFileSync(filePath, {encoding: 'utf-8'}))
+})
+
+spriter.compile(function (error, result) {
+  mkdirp(path.dirname(result.symbol.sprite.path))
+  fs.writeFileSync(result.symbol.sprite.path, result.symbol.sprite.contents)
+})
