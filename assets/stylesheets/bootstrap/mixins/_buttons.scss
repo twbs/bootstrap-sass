@@ -53,6 +53,10 @@
     color: $background;
     background-color: $color;
   }
+
+  .kamon {
+    fill: $color;
+  }
 }
 
 @mixin button-transparent($color) {
@@ -100,6 +104,10 @@
   .badge {
     color: transparent;
     background-color: transparent;
+  }
+
+  .kamon {
+    fill: $color;
   }
 }
 

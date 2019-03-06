@@ -1,4 +1,5 @@
 import React from 'react'
+import Kamon from './kamon'
 
 export default function Buttons () {
   return (
@@ -30,7 +31,7 @@ export default function Buttons () {
         <button className='btn btn-primary btn-lg'>Primary</button>&nbsp;
         <button className='btn btn-warning btn-lg'>Warning</button>&nbsp;
         <button className='btn btn-danger btn-lg'>Danger</button>&nbsp;
-        <button className='btn btn-clear btn-lg'>Clear</button>
+        <button className='btn btn-clear btn-lg'>Clear</button>&nbsp;
 
         <h4>Small</h4>
         <p>
@@ -48,6 +49,45 @@ export default function Buttons () {
         <h4>Block level button</h4>
         <a href='javascript:;' className='btn btn-default btn-lg btn-block'>Block level button</a>&nbsp;
         <a href='javascript:;' className='btn btn-primary btn-lg btn-block'>Block level button</a>&nbsp;
+
+        <br />
+        <br />
+        <h3>With icons </h3>
+        <button className='btn btn-default btn-forward-icon'>
+          <Kamon name='check' />Forward icon
+        </button>&nbsp;
+        <button className='btn btn-default btn-backward-icon'>
+          Backward icon<Kamon name='plus' />
+        </button>
+
+        <br />
+        <button className='btn btn-default btn-lg btn-forward-icon'>
+          <Kamon name='check' />Forward icon
+        </button>&nbsp;
+        <button className='btn btn-default btn-lg btn-backward-icon'>
+          Backward icon<Kamon name='plus' />
+        </button>&nbsp;
+
+        <br />
+        <button className='btn btn-default btn-icon'>
+          <Kamon name='trash' />
+        </button>&nbsp;
+        <button className='btn btn-default btn-icon'>
+          <Kamon name='pencil' />
+        </button>&nbsp;
+        <button className='btn btn-default btn-icon'>
+          <Kamon name='plus' />
+        </button>&nbsp;
+        <button className='btn btn-clear btn-icon'>
+          <Kamon name='trash' />
+        </button>&nbsp;
+        <button className='btn btn-clear btn-icon'>
+          <Kamon name='pencil' />
+        </button>&nbsp;
+        <button className='btn btn-clear btn-icon'>
+          <Kamon name='plus' />
+        </button>&nbsp;
+
 
         <br />
         <br />
