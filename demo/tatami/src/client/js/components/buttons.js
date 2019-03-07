@@ -1,7 +1,7 @@
 import React from 'react'
 import Kamon from './kamon'
 
-export default function Buttons() {
+export default function Buttons () {
   return (
     <div>
       <h2>Buttons</h2>

@@ -147,7 +147,6 @@
     &:only-child {
       margin: 0 ($btn-height - ($padding-horizontal + 1) * 2 - $icon-size) / 2;
       height: $line-height-computed;
-      top: $icon-size
     }
   }
 }
