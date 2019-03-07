@@ -18,6 +18,8 @@
   border: 1px solid transparent;
   white-space: nowrap;
   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
+
+  @include icon-layout($icon-size-base, $font-size-base, $line-height-base, $padding-base-horizontal, $padding-base-vertical);
   @include user-select(none);
 
   &,
@@ -151,6 +153,8 @@ input[type="file"]::-webkit-file-upload-button {
 .btn-lg {
   // line-height: ensure even-numbered height of button next to large input
   @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
+
+  @include icon-layout($icon-size-large, $font-size-large, $line-height-large ,$padding-large-horizontal, $padding-large-vertical);
 }
 .btn-sm {
   // line-height: ensure proper height of button next to small input
@@ -158,61 +162,6 @@ input[type="file"]::-webkit-file-upload-button {
 }
 .btn-xs {
   @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
-}
-
-.btn.btn-forward-icon {
-  .kamon {
-    width: 20px;
-    height: 20px;
-    margin-top: -2px;
-    vertical-align: middle;
-    margin-right: 6px;
-    margin-left: -4px;
-  }
-}
-
-.btn-lg.btn-forward-icon {
-  .kamon {
-    width: 24px;
-    height: 24px;
-    margin-top: -4px;
-    vertical-align: middle;
-    margin-right: 8px;
-  }
-}
-
-
-.btn.btn-backward-icon {
-  .kamon  {
-    width: 20px;
-    height: 20px;
-    margin-top: -2px;
-    vertical-align: middle;
-    margin-right: -2px;
-    margin-left: 6px;
-  }
-}
-
-.btn-lg.btn-backward-icon {
-  .kamon  {
-    width: 24px;
-    height: 24px;
-    margin-top: -4px;
-    vertical-align: middle;
-    margin-left: 6px;
-  }
-}
-
-.btn-icon {
-  min-width: 0;
-  padding: 6px;
-}
-
-.btn {
-  .kamon {
-    width: 20px;
-    height: 20px;
-  }
 }
 
 // Block button
