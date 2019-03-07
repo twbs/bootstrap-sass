@@ -1,7 +1,7 @@
 import React from 'react'
 import Kamon from './kamon'
 
-export default function Buttons () {
+export default function Buttons() {
   return (
     <div>
       <h2>Buttons</h2>
@@ -52,42 +52,63 @@ export default function Buttons () {
 
         <br />
         <br />
-        <h3>With icons </h3>
-        <button className='btn btn-default btn-forward-icon'>
-          <Kamon name='check' />Forward icon
+        <h3>Icon buttons</h3>
+        <button className='btn btn-default'>
+          <Kamon name='check' />
+          <span>Forward icon</span>
         </button>&nbsp;
-        <button className='btn btn-default btn-backward-icon'>
-          Backward icon<Kamon name='plus' />
+        <button className='btn btn-default'>
+          <span>Backward icon</span>
+          <Kamon name='plus' />
+        </button>&nbsp;
+
+        <button className='btn btn-default'>
+          <Kamon name='trash' />
+        </button>&nbsp;
+        <button className='btn btn-default'>
+          <Kamon name='pencil' />
+        </button>&nbsp;
+        <button className='btn btn-default'>
+          <Kamon name='plus' />
+        </button>&nbsp;
+        <button className='btn btn-clear'>
+          <Kamon name='trash' />
+        </button>&nbsp;
+        <button className='btn btn-clear'>
+          <Kamon name='pencil' />
+        </button>&nbsp;
+        <button className='btn btn-clear'>
+          <Kamon name='plus' />
         </button>
 
         <br />
-        <button className='btn btn-default btn-lg btn-forward-icon'>
-          <Kamon name='check' />Forward icon
+        <button className='btn btn-default btn-lg'>
+          <Kamon name='check' />
+          <span>Forward icon</span>
         </button>&nbsp;
-        <button className='btn btn-default btn-lg btn-backward-icon'>
-          Backward icon<Kamon name='plus' />
-        </button>&nbsp;
-
-        <br />
-        <button className='btn btn-default btn-icon'>
-          <Kamon name='trash' />
-        </button>&nbsp;
-        <button className='btn btn-default btn-icon'>
-          <Kamon name='pencil' />
-        </button>&nbsp;
-        <button className='btn btn-default btn-icon'>
-          <Kamon name='plus' />
-        </button>&nbsp;
-        <button className='btn btn-clear btn-icon'>
-          <Kamon name='trash' />
-        </button>&nbsp;
-        <button className='btn btn-clear btn-icon'>
-          <Kamon name='pencil' />
-        </button>&nbsp;
-        <button className='btn btn-clear btn-icon'>
+        <button className='btn btn-default btn-lg'>
+          <span>Backward icon</span>
           <Kamon name='plus' />
         </button>&nbsp;
 
+        <button className='btn btn-default btn-lg'>
+          <Kamon name='trash' />
+        </button>&nbsp;
+        <button className='btn btn-default btn-lg'>
+          <Kamon name='pencil' />
+        </button>&nbsp;
+        <button className='btn btn-default btn-lg'>
+          <Kamon name='plus' />
+        </button>&nbsp;
+        <button className='btn btn-clear btn-lg'>
+          <Kamon name='trash' />
+        </button>&nbsp;
+        <button className='btn btn-clear btn-lg'>
+          <Kamon name='pencil' />
+        </button>&nbsp;
+        <button className='btn btn-clear btn-lg'>
+          <Kamon name='plus' />
+        </button>&nbsp;
 
         <br />
         <br />
