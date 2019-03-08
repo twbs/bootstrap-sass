@@ -1,4 +1,5 @@
 import React from 'react'
+import Kamon from './kamon'
 
 export default function ButtonGroups () {
   return (
@@ -8,6 +9,24 @@ export default function ButtonGroups () {
         <button type='button' className='btn btn-default active'>Left</button>
         <button type='button' className='btn btn-default'>Middle</button>
         <button type='button' className='btn btn-default'>Right</button>
+      </div>&nbsp;&nbsp;
+
+      <div className='btn-group' role='group' aria-label='...'>
+        <button type='button' className='btn btn-default'>
+          <Kamon name='share' />
+        </button>
+        <button type='button' className='btn btn-default'>
+          <Kamon name='pencil' />
+        </button>
+        <button type='button' className='btn btn-default'>
+          <Kamon name='card-plus' />
+        </button>
+        <button type='button' className='btn btn-default'>
+          <Kamon name='unlocked' />
+        </button>
+        <button type='button' className='btn btn-default'>
+          <Kamon name='trash' />
+        </button>
       </div>
 
       <h4>Vertical</h4>
@@ -26,6 +45,24 @@ export default function ButtonGroups () {
           </ul>
         </div>
         <button type='button' className='btn btn-default'>Four</button>
+      </div>&nbsp;&nbsp;
+
+      <div className='btn-group-vertical' role='group' aria-label='...'>
+        <button type='button' className='btn btn-default'>
+          <Kamon name='share' />
+        </button>
+        <button type='button' className='btn btn-default'>
+          <Kamon name='pencil' />
+        </button>
+        <button type='button' className='btn btn-default'>
+          <Kamon name='card-plus' />
+        </button>
+        <button type='button' className='btn btn-default'>
+          <Kamon name='unlocked' />
+        </button>
+        <button type='button' className='btn btn-default'>
+          <Kamon name='trash' />
+        </button>
       </div>
 
       <h4>Toolbar</h4>
