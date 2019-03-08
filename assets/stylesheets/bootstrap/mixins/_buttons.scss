@@ -132,15 +132,15 @@
     vertical-align: middle;
 
     // Forward icon
-    &:first-child {
-      margin-right: $padding-horizontal / 2;
-      margin-left: $padding-horizontal / -3;
+    &:first-child:not(:only-child) {
+      margin-right: round($padding-horizontal / 2);
+      margin-left: round($padding-horizontal / -3);
     }
 
     // Backward icon
-    * + & {
-      margin-right: $padding-horizontal / -3;
-      margin-left: $padding-horizontal / 3;
+    &:last-child:not(:only-child) {
+      margin-right: round($padding-horizontal / -2.5);
+      margin-left: round($padding-horizontal / 2.5);
     }
 
     // Only icon

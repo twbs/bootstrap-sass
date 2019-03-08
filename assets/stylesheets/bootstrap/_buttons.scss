@@ -90,7 +90,7 @@ a.btn {
 }
 // Transparent
 .btn-clear {
-  @include button-transparent(#333);
+  @include button-transparent($btn-default-color);
 }
 
 .file-upload-btn {
