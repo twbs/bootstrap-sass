@@ -1,4 +1,5 @@
 import React from 'react'
+import Kamon from './kamon'
 
 export default function Dropdowns () {
   return (
@@ -7,7 +8,8 @@ export default function Dropdowns () {
       <div className='dropdown'>
         <button className='btn btn-default dropdown-toggle' type='button' id='dropdownMenu1'
           data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-          Dropdown <span className='caret' />
+          <span>Dropdown</span>
+          <Kamon name='caret-down' />
         </button>
         <ul className='dropdown-menu' aria-labelledby='dropdownMenu1'>
           <li><a href='javascript:;'>Action</a></li>
@@ -23,7 +25,8 @@ export default function Dropdowns () {
         <button className='btn btn-clear dropdown-toggle' type='button' id='dropdownMenu2'
           tabIndex='0'
           data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-          Dropdown <span className='caret' />
+          <span>Dropdown</span>
+          <Kamon name='caret-down' />
         </button>
         <ul className='dropdown-menu' aria-labelledby='dropdownMenu2'>
           <li><a href='javascript:;'>Action</a></li>
@@ -41,7 +44,7 @@ export default function Dropdowns () {
       <div className='btn-group'>
         <button type='button' className='btn btn-danger'>Action</button>
         <button type='button' className='btn btn-danger dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-          <span className='caret'></span>
+          <Kamon name='caret-down' />
           <span className='sr-only'>Toggle Dropdown</span>
         </button>
         <ul className='dropdown-menu'>
@@ -56,7 +59,7 @@ export default function Dropdowns () {
       <div className='btn-group dropup'>
         <button type='button' className='btn btn-default'>Dropup</button>
         <button type='button' className='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-          <span className='caret'></span>
+          <Kamon name='caret-down' />
           <span className='sr-only'>Toggle Dropdown</span>
         </button>
         <ul className='dropdown-menu'>
