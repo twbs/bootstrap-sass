@@ -36,8 +36,8 @@ export default function ButtonGroups () {
         <button type='button' className='btn btn-default'>Three</button>
         <div className='btn-group' role='group' aria-label='...'>
           <button type='button' className='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-            <span>Dropdown{' '}</span>
-            <Kamon name='caret-down' />
+            Dropdown{' '}
+            <span className='caret'></span>
           </button>
           <ul className='dropdown-menu'>
             <li><a href='#'>Dropdown link</a></li>
@@ -75,8 +75,8 @@ export default function ButtonGroups () {
         <div className='btn-group' role='group' aria-label='...'>
           <div className='btn-group' role='group'>
             <button type='button' className='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-              <span>Dropdown{' '}</span>
-              <Kamon name='caret-down' />
+              Dropdown{' '}
+              <span className='caret'></span>
             </button>
             <ul className='dropdown-menu'>
               <li><a href='#'>Dropdown link</a></li>
@@ -103,8 +103,8 @@ export default function ButtonGroups () {
         <button type='button' className='btn btn-default'>Right</button>
         <div className='btn-group' role='group'>
           <button type='button' className='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-            <span>Dropdown{' '}</span>
-            <Kamon name='caret-down' />
+            Dropdown{' '}
+            <span className='caret'></span>
           </button>
           <ul className='dropdown-menu'>
             <li><a href='#'>Dropdown link</a></li>
