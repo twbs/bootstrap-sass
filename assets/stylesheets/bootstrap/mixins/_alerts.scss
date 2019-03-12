@@ -8,7 +8,22 @@
   hr {
     border-top-color: darken($border, 5%);
   }
+
+  @if $background != #fff {
+    button {
+      &,
+      [data-hover-visible] &:hover,
+      [data-hover-visible] &:hover:active,
+      &:active {
+        border-color: transparent;
+      }
+    }
+  }
+
   .alert-link {
-    color: darken($text-color, 10%);
+    &,
+    [data-hover-visible] &:hover {
+      color: $text-color;
+    }
   }
 }

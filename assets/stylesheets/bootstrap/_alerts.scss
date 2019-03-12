@@ -11,9 +11,24 @@
   margin-bottom: $line-height-computed;
   border: 1px solid transparent;
   border-radius: $alert-border-radius;
+  display: flex;
+
+  &.alert-vertical {
+    flex-direction: column;
+
+    > button {
+      margin-top: 12px;
+      margin-left: 0;
+    }
+  }
+
+  .alert-body {
+    flex-grow: 1;
+    padding: $alert-body-padding;
+  }
 
   // Headings for larger alerts
-  h4 {
+  h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     // Specified for the h4 to prevent conflicts of changing $headings-color
     color: inherit;
@@ -34,26 +49,32 @@
     margin-top: 5px;
   }
 
+  > button {
+    align-self: center;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+
   // Adjust close link position
   .close {
-    position: relative;
-    top: -2px;
-    right: -21px;
-    color: inherit;
+    margin-left: 12px;
   }
 }
 
 // Dismissible alerts
 //
-// Expand the right padding and account for the close button's positioning.
+// We have removed this class, and switched to flexbox
 
 .alert-dismissible {
-  padding-right: ($alert-padding + 20);
 }
 
 // Alternate styles
 //
 // Generate contextual modifier classes for colorizing the alert.
+
+.alert-default {
+  @include alert-variant($alert-default-bg, $alert-default-border, $alert-default-text);
+}
 
 .alert-success {
   @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);

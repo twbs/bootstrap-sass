@@ -499,22 +499,25 @@ $jumbotron-heading-font-size:    ceil(($font-size-base * 4.5)) !default;
 //
 //## Define colors for form feedback states and, by default, alerts.
 
-$state-success-text:             #3c763d !default;
-$state-success-bg:               #dff0d8 !default;
-$state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%) !default;
+$state-default-text:             $text-color !default;
+$state-default-bg:               #fff !default;
+$state-default-border:           lighten($gray-base, 85%) !default;
 
-$state-info-text:                #31708f !default;
-$state-info-bg:                  #d9edf7 !default;
-$state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
+$state-success-text:             darken($brand-success, 10%) !default;
+$state-success-bg:               lighten($brand-success, 35%) !default;
+$state-success-border:           darken(desaturate($state-success-bg, 30%), 5%) !default;
 
-$state-warning-text:             #8a6d3b !default;
-$state-warning-bg:               #fcf8e3 !default;
-$state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
+$state-info-text:                darken($brand-primary, 10%) !default;
+$state-info-bg:                  lighten($brand-primary, 35%) !default;
+$state-info-border:              darken(desaturate($state-info-bg, 30%), 5%) !default;
 
-$state-danger-text:              #a94442 !default;
-$state-danger-bg:                #f2dede !default;
-$state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%) !default;
+$state-warning-text:             darken($brand-warning, 20%) !default;
+$state-warning-bg:               lighten($brand-warning, 15%) !default;
+$state-warning-border:           darken(desaturate($state-warning-bg, 30%), 3%) !default;
 
+$state-danger-text:              darken($brand-danger, 10%) !default;
+$state-danger-bg:                lighten($brand-danger, 25%) !default;
+$state-danger-border:            darken(desaturate($state-danger-bg, 30%), 5%) !default;
 
 //== Tooltips
 //
@@ -619,26 +622,30 @@ $modal-sm:                    300px !default;
 //
 //## Define alert colors, border radius, and padding.
 
-$alert-padding:               15px !default;
-$alert-border-radius:         $border-radius-base !default;
+$alert-padding:               ((56px - $input-height-base - 2px) / 2) !default;
+$alert-body-padding:          (($input-height-base - $line-height-computed) / 2) 8px !default;
+$alert-border-radius:         4px !default;
 $alert-link-font-weight:      bold !default;
 
+$alert-default-text:          $text-color !default;
+$alert-default-bg:            $state-default-bg !default;
+$alert-default-border:        $state-default-border !default;
+
+$alert-success-text:          $text-color !default;
 $alert-success-bg:            $state-success-bg !default;
-$alert-success-text:          $state-success-text !default;
 $alert-success-border:        $state-success-border !default;
 
-$alert-info-bg:               $state-info-bg !default;
-$alert-info-text:             $state-info-text !default;
+$alert-info-text:             $text-color !default;
+$alert-info-bg:               $state-info-bg  !default;
 $alert-info-border:           $state-info-border !default;
 
+$alert-warning-text:          $text-color !default;
 $alert-warning-bg:            $state-warning-bg !default;
-$alert-warning-text:          $state-warning-text !default;
 $alert-warning-border:        $state-warning-border !default;
 
+$alert-danger-text:           $text-color !default;
 $alert-danger-bg:             $state-danger-bg !default;
-$alert-danger-text:           $state-danger-text !default;
 $alert-danger-border:         $state-danger-border !default;
-
 
 //== Progress bars
 //
@@ -720,19 +727,19 @@ $panel-primary-border:        $brand-primary !default;
 $panel-primary-heading-bg:    $brand-primary !default;
 
 $panel-success-text:          $state-success-text !default;
-$panel-success-border:        $state-success-border !default;
+$panel-success-border:        $state-success-text !default;
 $panel-success-heading-bg:    $state-success-bg !default;
 
 $panel-info-text:             $state-info-text !default;
-$panel-info-border:           $state-info-border !default;
+$panel-info-border:           $state-info-text !default;
 $panel-info-heading-bg:       $state-info-bg !default;
 
 $panel-warning-text:          $state-warning-text !default;
-$panel-warning-border:        $state-warning-border !default;
+$panel-warning-border:        $state-warning-text !default;
 $panel-warning-heading-bg:    $state-warning-bg !default;
 
 $panel-danger-text:           $state-danger-text !default;
-$panel-danger-border:         $state-danger-border !default;
+$panel-danger-border:         $state-danger-text !default;
 $panel-danger-heading-bg:     $state-danger-bg !default;
 
 
@@ -819,9 +826,9 @@ $carousel-caption-color:                      #fff !default;
 //
 //##
 
-$close-font-weight:           bold !default;
+$close-font-weight:           normal !default;
 $close-color:                 #000 !default;
-$close-text-shadow:           0 1px 0 #fff !default;
+$close-text-shadow:           none !default;
 
 
 //== Code

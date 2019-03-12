@@ -6,22 +6,28 @@
 .close {
   display: block;
   float: right;
-  font-size: ($font-size-base * 1.5);
+  font-size: 28px;
   font-weight: $close-font-weight;
   line-height: 1;
   color: $close-color;
   text-shadow: $close-text-shadow;
-  width: 21px;
-  height: 21px;
+  width: 28px;
+  height: 28px;
   order: 2;
-  @include opacity(.2);
+
+  span {
+    opacity: .3;
+  }
 
   [data-hover-visible] &:hover,
   [data-focus-visible] &:focus {
     color: $close-color;
     text-decoration: none;
     cursor: pointer;
-    @include opacity(.5);
+
+    span {
+      opacity: .5;
+    }
   }
 
   [data-focus-visible] &:focus {
@@ -38,5 +44,6 @@ button.close {
   cursor: pointer;
   background: transparent;
   border: 0;
+  border-radius: $btn-border-radius-base;
   -webkit-appearance: none;
 }
