@@ -122,7 +122,7 @@
 // Icon layout
 @mixin icon-layout ($icon-size, $font-size, $line-height, $padding-horizontal, $padding-vertical) {
 
-  $line-height-computed: floor(($font-size * $line-height));
+  $line-height-computed: floor($font-size * $line-height);
   $btn-height: $padding-vertical * 2 + $line-height-computed + 2;
 
   .kamon {
