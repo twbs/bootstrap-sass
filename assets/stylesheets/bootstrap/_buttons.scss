@@ -18,6 +18,8 @@
   border: 1px solid transparent;
   white-space: nowrap;
   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
+
+  @include icon-layout($icon-size-base, $font-size-base, $line-height-base, $padding-base-horizontal, $padding-base-vertical);
   @include user-select(none);
 
   &,
@@ -88,7 +90,7 @@ a.btn {
 }
 // Transparent
 .btn-clear {
-  @include button-transparent(#333);
+  @include button-transparent($btn-default-color);
 }
 
 .file-upload-btn {
@@ -151,6 +153,8 @@ input[type="file"]::-webkit-file-upload-button {
 .btn-lg {
   // line-height: ensure even-numbered height of button next to large input
   @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
+
+  @include icon-layout($icon-size-large, $font-size-large, $line-height-large ,$padding-large-horizontal, $padding-large-vertical);
 }
 .btn-sm {
   // line-height: ensure proper height of button next to small input

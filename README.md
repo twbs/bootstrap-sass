@@ -87,22 +87,9 @@ import '@notainc/mouse-hover-visible'
 import '@notainc/key-focus-visible'
 ```
 
-### Fonts
+### Iconography
+We recommend to use the icon set named [kamon](https://github.com/nota/kamon). Each components in tatami are adjusted for kamon icons.
 
-The fonts are referenced as:
-
-```scss
-"#{$icon-font-path}#{$icon-font-name}.eot"
-```
-
-`$icon-font-path` defaults to `bootstrap/` if asset path helpers are used, and `../fonts/bootstrap/` otherwise.
-
-When using bootstrap-sass with Compass, Sprockets, or Mincer, you **must** import the relevant path helpers before Bootstrap itself, for example:
-
-```scss
-@import "bootstrap-compass";
-@import "bootstrap";
-```
 
 ## Usage
 

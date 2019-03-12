@@ -53,6 +53,10 @@
     color: $background;
     background-color: $color;
   }
+
+  .kamon {
+    fill: $color;
+  }
 }
 
 @mixin button-transparent($color) {
@@ -101,6 +105,10 @@
     color: transparent;
     background-color: transparent;
   }
+
+  .kamon {
+    fill: $color;
+  }
 }
 
 // Button sizes
@@ -109,4 +117,36 @@
   font-size: $font-size;
   line-height: $line-height;
   border-radius: $border-radius;
+}
+
+// Icon layout
+@mixin icon-layout ($icon-size, $font-size, $line-height, $padding-horizontal, $padding-vertical) {
+
+  $line-height-computed: floor($font-size * $line-height);
+  $btn-height: $padding-vertical * 2 + $line-height-computed + 2;
+
+  .kamon {
+    width: $icon-size;
+    height: $icon-size;
+    margin-top: ceil($btn-height / -12);
+    vertical-align: middle;
+
+    // Forward icon
+    &:first-child:not(:only-child) {
+      margin-right: round($padding-horizontal / 2);
+      margin-left: round($padding-horizontal / -3);
+    }
+
+    // Backward icon
+    &:last-child:not(:only-child) {
+      margin-right: round($padding-horizontal / -2.5);
+      margin-left: round($padding-horizontal / 2.5);
+    }
+
+    // Only icon
+    &:only-child {
+      margin: 0 ($btn-height - ($padding-horizontal + 1) * 2 - $icon-size) / 2;
+      height: $line-height-computed;
+    }
+  }
 }

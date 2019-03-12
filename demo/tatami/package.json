@@ -12,6 +12,7 @@
     "build:client": "browserify --verbose -t [ babelify ] -g [ uglifyify --keep_fnames ] src/client/js/index.js -o public/index.js",
     "build:sass": "sh scripts/build-sass.sh",
     "build:assets": "sh scripts/build-assets.sh",
+    "build:svg-sprite": "scripts/svg-sprite",
     "start": "./node_modules/.bin/http-server ./ -p 2500 -c-1",
     "watch": "run-p watch:**",
     "watch:client": "watchify --verbose --debug -t [ babelify ] -g [ uglifyify --keep_fnames ] -p browserify-notify src/client/js/index.js -o public/index.js",
@@ -23,6 +24,9 @@
   "author": "notainc",
   "license": "MIT",
   "devDependencies": {
+    "@notainc/kamon": "^1.1.9",
+    "@notainc/key-focus-visible": "~0.0.4",
+    "@notainc/mouse-hover-visible": "~0.0.6",
     "babel-cli": "^6.24.1",
     "babel-eslint": "^8.2.3",
     "babel-polyfill": "^6.26.0",
@@ -54,10 +58,10 @@
     "react-bootstrap": "^0.32.1",
     "react-dom": "^15.6.2",
     "standard": "11.0.0",
+    "svg-sprite": "^1.5.0",
     "uglifyify": "^5.0.0",
     "watchify": "^3.11.0",
-    "what-input": "^5.1.2",
-    "@notainc/key-focus-visible": "~0.0.4",
-    "@notainc/mouse-hover-visible": "~0.0.6"
-  }
+    "what-input": "^5.1.2"
+  },
+  "dependencies": {}
 }
