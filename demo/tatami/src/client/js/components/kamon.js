@@ -11,8 +11,10 @@ export default class Kamon extends Component {
   }
 
   render () {
+    const { className } = this.props
+
     return (
-      <svg className={`kamon ${this.props.className}`}>
+      <svg className={`kamon ${className ? className : ''}`}>
         <use xlinkHref={`${spritePath}#${this.props.name}`} />
       </svg>
     )
