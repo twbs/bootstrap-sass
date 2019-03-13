@@ -51,12 +51,15 @@
 .modal-content {
   position: relative;
   background-color: $modal-content-bg;
-  border: 1px solid $modal-content-border-color;
-  border-radius: $border-radius-large;
-  @include box-shadow(0 3px 9px rgba(0,0,0,.5));
+  border-radius: $modal-border-radius;
+  box-shadow: 0 4px 10px rgba(0,0,0,.25);
   background-clip: padding-box;
   // Remove focus outline from opened modal
   outline: 0;
+
+  form {
+    margin: 0;
+  }
 }
 
 // Modal background
@@ -77,22 +80,29 @@
 // Top section of the modal w/ title and dismiss
 .modal-header {
   padding: $modal-title-padding;
-  border-bottom: 1px solid $modal-header-border-color;
   display: flex;
+  align-items: center;
+  border-bottom: 1px solid $modal-header-border-color;
 
   // Close icon
   .close {
     order: 2;
     margin-left: 8px;
-    margin-top: -2px;
-    margin-right: -2px;
+    margin-right: -4px;
     flex-shrink: 0;
   }
+}
+
+.modal-header-no-border {
+  padding-top: 24px;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 // Title text within header
 .modal-title {
   margin: 0;
+  padding: 4px 0;
   line-height: $modal-title-line-height;
   flex-grow: 1;
 }
@@ -101,19 +111,18 @@
 // Where all modal content resides (sibling of .modal-header and .modal-footer)
 .modal-body {
   position: relative;
-  padding: $modal-inner-padding;
+  padding: $modal-body-inner-padding;
 }
 
 // Footer (for actions)
 .modal-footer {
   display: flex;
-  padding: $modal-inner-padding;
+  padding: $modal-footer-inner-padding;
   justify-content: flex-end; // right align buttons
-  border-top: 1px solid $modal-footer-border-color;
 
   // Properly space out buttons
   .btn + .btn {
-    margin-left: 5px;
+    margin-left: 8px;
     margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
   }
   // but override that for button groups
@@ -124,6 +133,10 @@
   .btn-block + .btn-block {
     margin-left: 0;
   }
+}
+
+.modal-footer-vertical {
+  flex-direction: column;
 }
 
 // Measure scrollbar width for padding body during modal show/hide
@@ -143,7 +156,6 @@
     margin: 30px auto;
   }
   .modal-content {
-    @include box-shadow(0 5px 15px rgba(0,0,0,.5));
   }
 
   // Modal sizes

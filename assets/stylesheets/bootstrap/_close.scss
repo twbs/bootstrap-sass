@@ -11,12 +11,15 @@
   line-height: 1;
   color: $close-color;
   text-shadow: $close-text-shadow;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
+  padding: 2px;
   order: 2;
+  user-select: none;
 
   span {
     opacity: .3;
+    display: inline-block;
   }
 
   [data-hover-visible] &:hover,
@@ -24,9 +27,18 @@
     color: $close-color;
     text-decoration: none;
     cursor: pointer;
+    background-color: $btn-clear-bg;
 
     span {
       opacity: .5;
+    }
+  }
+
+  &:active {
+    &,
+    [data-hover-visible] &:hover,
+    [data-focus-visible] &:focus {
+      background-color: rgba(0, 0, 0, 0.1);
     }
   }
 
@@ -40,10 +52,9 @@
 // If you want the anchor version, it requires `href="#"`.
 // See https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
 button.close {
-  padding: 0;
   cursor: pointer;
   background: transparent;
   border: 0;
-  border-radius: $btn-border-radius-base;
+  border-radius: 50%;
   -webkit-appearance: none;
 }
