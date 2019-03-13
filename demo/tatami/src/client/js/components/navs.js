@@ -53,42 +53,73 @@ export default function Navs () {
       <br /><br />
 
       <h3>Stacked pills</h3>
-      <ul className='nav nav-pills nav-stacked'>
-        <li role='presentation' className='active'><a href='javascript:;'>Home</a></li>
-        <li role='presentation' className='disabled'><a href='javascript:;'>Profile</a></li>
-        <li role='presentation'><a href='javascript:;'>Messages</a></li>
-        <li role='presentation'>
-          <a href='javascript:;'>
-            <Kamon name='arro-down-rect' />
-            <span>Forward icon</span>
-          </a>
-        </li>
-        <li role='presentation'>
-          <a href='javascript:;'>
-            <span>Backward icon</span>
-            <Kamon name='check' />
-          </a>
-        </li>
-        <li role='presentation'>
-          <a href='javascript:;'>
-            <img src='' className='nav-stacked-thumbnaiil' />
-            <span>Square thumbnail</span>
-          </a>
-        </li>
-        <li role='presentation'>
-          <a href='javascript:;'>
-            <img src='' className='img-circle nav-stacked-thumbnail' />
-            <span>Circle thumbnail</span>
-          </a>
-        </li>
-      </ul>
-
-      <h3>Stacked pills fixed</h3>
-      <ul className='nav nav-pills nav-stacked nav-stacked-fixed'>
-        <li role='presentation' className='active'><a href='javascript:;'>Home</a></li>
-        <li role='presentation' className='disabled'><a href='javascript:;'>Profile</a></li>
-        <li role='presentation'><a href='javascript:;'>Messages</a></li>
-      </ul>
+      <div className='row'>
+        <ul className='nav nav-pills nav-stacked col-sm-4'>
+          <li role='presentation' className='active'><a href='javascript:;'>Home</a></li>
+          <li role='presentation' className='disabled'><a href='javascript:;'>Profile</a></li>
+          <li role='presentation'><a href='javascript:;'>Messages</a></li>
+          <li role='presentation'><a href='javascript:;'>Messages</a></li>
+          <li role='presentation'><a href='javascript:;'>Messages</a></li>
+          <div className='nav-divider' />
+          <li role='presentation'>
+            <a href='javascript:;'>
+              <Kamon name='arrow-down-rect' />
+              <span>Forward icon</span>
+            </a>
+          </li>
+          <li role='presentation'>
+            <a href='javascript:;'>
+              <Kamon name='trash' />
+              <span>Forward icon</span>
+            </a>
+          </li>
+          <li role='presentation'>
+            <a href='javascript:;'>
+              <Kamon name='enter' />
+              <span>Forward icon</span>
+            </a>
+          </li>
+          <div className='nav-divider' />
+          <li role='presentation'>
+            <a href='javascript:;'>
+              <span>Backward icon</span>
+              <Kamon name='check' />
+            </a>
+          </li>
+          <li role='presentation'>
+            <a href='javascript:;'>
+              <span>Backward icon</span>
+              <Kamon name='locked' />
+            </a>
+          </li>
+          <li role='presentation'>
+            <a href='javascript:;'>
+              <span>Backward icon</span>
+              <Kamon name='direction-right' />
+            </a>
+          </li>
+          <div className='nav-divider' />
+          <li role='presentation'>
+            <a href='javascript:;'>
+              <img src='https://i.gyazo.com/4666f59908357a9ddf38d17cd36ad295.jpg' className='nav-stacked-thumbnail' />
+              <span>Square thumbnail</span>
+            </a>
+          </li>
+          <li role='presentation'>
+            <a href='javascript:;'>
+              <img src='https://i.gyazo.com/4666f59908357a9ddf38d17cd36ad295.jpg' className='img-circle nav-stacked-thumbnail' />
+              <span>Circle thumbnail</span>
+            </a>
+          </li>
+        </ul>
+        <ul className='nav nav-pills nav-stacked nav-stacked-fixed col-sm-4'>
+          <li role='presentation' className='active'><a href='javascript:;'>Home</a></li>
+          <li role='presentation' className='disabled'><a href='javascript:;'>Profile</a></li>
+          <li role='presentation'><a href='javascript:;'>Messages</a></li>
+          <li role='presentation'><a href='javascript:;'>Messages</a></li>
+          <li role='presentation'><a href='javascript:;'>Messages</a></li>
+        </ul>
+      </div>
 
       <br /><br />
 
@@ -156,21 +187,81 @@ export default function Navs () {
       <br /><br />
 
       <h3>Stacked pills</h3>
-      <ul className='nav nav-pills nav-stacked nav-lg'>
-        <li role='presentation' className='active'><a href='javascript:;'>Home</a></li>
-        <li role='presentation' className='disabled'><a href='javascript:;'>Profile</a></li>
-        <li role='presentation'><a href='javascript:;'>Messages</a></li>
-      </ul>
-
-      <h3>Stacked pills fixed</h3>
-      <ul className='nav nav-pills nav-stacked nav-stacked-fixed nav-lg'>
-        <li role='presentation' className='active'><a href='javascript:;'>Home</a></li>
-        <li role='presentation' className='disabled'><a href='javascript:;'>Profile</a></li>
-        <li role='presentation'><a href='javascript:;'>Messages</a></li>
-      </ul>
+      <div className='row'>
+        <ul className='nav nav-pills nav-stacked nav-lg col-sm-4'>
+          <li role='presentation' className='active'><a href='javascript:;'>Home</a></li>
+          <li role='presentation' className='disabled'><a href='javascript:;'>Profile</a></li>
+          <li role='presentation'><a href='javascript:;'>Messages</a></li>
+          <li role='presentation'><a href='javascript:;'>Messages</a></li>
+          <li role='presentation'><a href='javascript:;'>Messages</a></li>
+          <div className='nav-divider' />
+          <li role='presentation'>
+            <a href='javascript:;'>
+              <Kamon name='arrow-down-rect' />
+              <span>Forward icon</span>
+            </a>
+          </li>
+          <li role='presentation'>
+            <a href='javascript:;'>
+              <Kamon name='trash' />
+              <span>Forward icon</span>
+            </a>
+          </li>
+          <li role='presentation'>
+            <a href='javascript:;'>
+              <Kamon name='enter' />
+              <span>Forward icon</span>
+            </a>
+          </li>
+          <div className='nav-divider' />
+          <li role='presentation'>
+            <a href='javascript:;'>
+              <span>Backward icon</span>
+              <Kamon name='check' />
+            </a>
+          </li>
+          <li role='presentation'>
+            <a href='javascript:;'>
+              <span>Backward icon</span>
+              <Kamon name='locked' />
+            </a>
+          </li>
+          <li role='presentation'>
+            <a href='javascript:;'>
+              <span>Backward icon</span>
+              <Kamon name='direction-right' />
+            </a>
+          </li>
+          <div className='nav-divider' />
+          <li role='presentation'>
+            <a href='javascript:;'>
+              <img src='https://i.gyazo.com/4666f59908357a9ddf38d17cd36ad295.jpg' className='nav-stacked-thumbnail'/>
+              <span>Square thumbnail</span>
+            </a>
+          </li>
+          <li role='presentation'>
+            <a href='javascript:;'>
+              <img src='https://i.gyazo.com/4666f59908357a9ddf38d17cd36ad295.jpg' className='img-circle nav-stacked-thumbnail' />
+              <span>Circle thumbnail</span>
+            </a>
+          </li>
+          <li role='presentation'>
+            <a href='javascript:;'>
+              <span>Backward icon</span>
+              <Kamon name='direction-right' />
+            </a>
+          </li>
+        </ul>
+        <ul className='nav nav-pills nav-stacked nav-stacked-fixed nav-lg col-sm-4'>
+          <li role='presentation' className='active'><a href='javascript:;'>Home</a></li>
+          <li role='presentation' className='disabled'><a href='javascript:;'>Profile</a></li>
+          <li role='presentation'><a href='javascript:;'>Messages</a></li>
+          <li role='presentation'><a href='javascript:;'>Messages</a></li>
+          <li role='presentation'><a href='javascript:;'>Messages</a></li>
+        </ul>
+      </div>
 
       <br /><br />
-
       <h3>Justified</h3>
       <ul className='nav nav-tabs nav-justified nav-lg' role='tablist'>
         <li role='presentation' className='active'><a href='#home' aria-controls='home' role='tab' data-toggle='tab'>Home</a></li>
