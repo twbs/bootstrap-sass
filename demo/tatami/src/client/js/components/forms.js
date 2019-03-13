@@ -311,21 +311,6 @@ export default function Forms () {
             </div>
           </div>
         </div>
-
-        <h4>Panels</h4>
-        <div className='panel panel-default'>
-          <div className='panel-heading'>
-            <div className='panel-title'>
-              Panel title
-            </div>
-          </div>
-          <div className='panel-body'>
-            Basic panel example
-          </div>
-          <div className='panel-footer'>
-            Footer
-          </div>
-        </div>
       </form>
 
       <br />

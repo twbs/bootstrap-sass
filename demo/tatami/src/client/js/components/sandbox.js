@@ -6,13 +6,13 @@ import React, {Component} from 'react'
 import Alerts from './alerts'
 import Buttons from './buttons'
 import ButtonGroups from './button-groups'
-import Cards from './cards'
 import Dropdowns from './dropdowns'
 import Forms from './forms'
 import Grid from './grid'
 import Labels from './labels'
 import Modals from './modals'
 import Navs from './navs'
+import Panels from './panels'
 import Tables from './tables'
 import Tooltips from './tooltips'
 import Type from './type'
@@ -25,8 +25,6 @@ export default function Sandbox ({component}) {
       return <Buttons />
     case 'button-groups':
       return <ButtonGroups />
-    case 'cards':
-      return <Cards />
     case 'dropdowns':
       return <Dropdowns />
     case 'forms':
@@ -39,6 +37,8 @@ export default function Sandbox ({component}) {
       return <Modals />
     case 'navs':
       return <Navs />
+    case 'panels':
+      return <Panels />
     case 'tables':
       return <Tables />
     case 'tooltips':
