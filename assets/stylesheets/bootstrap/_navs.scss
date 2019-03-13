@@ -20,14 +20,18 @@
       position: relative;
       display: block;
       padding: $nav-link-padding;
+      color: $nav-link-color;
+      line-height: $line-height-base;
 
       &:active {
+        color: $nav-link-color;
         text-decoration: none;
         background-color: $nav-link-hover-bg;
       }
 
       [data-hover-visible] &:hover,
       [data-focus-visible] &:focus {
+        color: $nav-link-color;
         text-decoration: none;
         background-color: $nav-link-hover-bg;
       }
@@ -60,7 +64,6 @@
     [data-hover-visible] &:hover,
     [data-focus-visible] &:focus {
       background-color: $nav-link-hover-bg;
-      border-color: $link-color;
     }
   }
 
@@ -74,26 +77,41 @@
   }
 }
 
+// Large
+
+.nav-lg {
+  > li {
+    > a {
+      font-size: $font-size-large;
+      padding: $nav-link-padding-lg;
+      line-height: $line-height-large;
+    }
+  }
+}
+
 
 // Tabs
 // -------------------------
 
 // Give the tabs something to sit on
 .nav-tabs {
-  border-bottom: 1px solid $nav-tabs-border-color;
   > li {
     // Make the list-items overlay the bottom border
     margin-bottom: -1px;
 
     // Actual tabs (as links)
     > a {
-      margin-right: 2px;
-      line-height: $line-height-base;
-      border: 1px solid transparent;
-      border-radius: $border-radius-base $border-radius-base 0 0;
+      margin-right: -1px;
+      border: 1px solid $nav-tabs-border-color;
+      border-radius: 0;
+      background-color: $nav-tabs-link-bg;
+      color: $nav-tabs-link-color;
 
-      [data-hover-visible] &:hover {
-        border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
+      &:active,
+      [data-hover-visible] &:hover,
+      [data-focus-visible] &:focus {
+        color: $nav-tabs-link-color;
+        background-color: $nav-tabs-link-hover-bg;
       }
     }
 
@@ -106,16 +124,38 @@
         color: $nav-tabs-active-link-hover-color;
         background-color: $nav-tabs-active-link-hover-bg;
         border: 1px solid $nav-tabs-active-link-hover-border-color;
-        border-bottom-color: transparent;
+        border-bottom-color: $nav-tabs-active-link-hover-bg;
         cursor: default;
+      }
+    }
+
+
+    &:first-of-type {
+      > a {
+        border-radius: $border-radius-base 0 0 0;
+      }
+    }
+
+    &:last-of-type {
+      > a {
+        border-radius: 0 $border-radius-base 0 0;
       }
     }
   }
   // pulling this in mainly for less shorthand
   &.nav-justified {
     @extend .nav-justified;
-    @extend .nav-tabs-justified;
   }
+}
+
+.tab-content {
+  background-color: $nav-tabs-active-link-hover-bg;
+  border: 1px solid $nav-tabs-border-color;
+  border-radius: 0 $border-radius-base $border-radius-base $border-radius-base;
+}
+
+.tab-pane {
+  padding: 32px;
 }
 
 
@@ -126,6 +166,7 @@
     // Links rendered as pills
     > a {
       border-radius: $nav-pills-border-radius;
+      border: 1px transparent solid;
       margin-right: 2px;
     }
 
@@ -152,11 +193,17 @@
       margin-right: 0; // no need for this gap between nav items
     }
     + li {
-      margin-top: 2px;
     }
   }
 }
 
+.nav-stacked-fixed {
+  > li {
+    > a {
+      border-radius: 0;
+    }
+  }
+}
 
 // Nav variations
 // --------------------------------------------------
@@ -171,7 +218,6 @@
   > li {
     > a {
       text-align: center;
-      margin-bottom: 5px;
     }
   }
 
@@ -179,54 +225,7 @@
     top: auto;
     left: auto;
   }
-
-  @media (min-width: $screen-sm-min) {
-    > li {
-      > a {
-        margin-bottom: 0;
-      }
-    }
-  }
 }
-
-// Move borders to anchors instead of bottom of list
-//
-// Mixin for adding on top the shared `.nav-justified` styles for our tabs
-.nav-tabs-justified {
-  border-bottom: 0;
-
-  > li > a {
-    // Override margin from .nav-tabs
-    margin-right: 0;
-    border-radius: $border-radius-base;
-  }
-
-  > .active > a {
-    &,
-    &:active,
-    [data-hover-visible] &:hover,
-    [data-focus-visible] &:focus {
-      border: 1px solid $nav-tabs-justified-link-border-color;
-    }
-
-  }
-
-  @media (min-width: $screen-sm-min) {
-    > li > a {
-      border-bottom: 1px solid $nav-tabs-justified-link-border-color;
-      border-radius: $border-radius-base $border-radius-base 0 0;
-    }
-    > .active > a {
-      &,
-      &:active,
-      [data-hover-visible] &:hover,
-      [data-focus-visible] &:focus {
-        border-bottom-color: $nav-tabs-justified-active-link-border-color;
-      }
-    }
-  }
-}
-
 
 // Tabbable tabs
 // -------------------------

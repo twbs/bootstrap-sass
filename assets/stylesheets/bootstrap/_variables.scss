@@ -177,6 +177,10 @@ $btn-danger-color:               #fff !default;
 $btn-danger-bg:                  $brand-danger !default;
 $btn-danger-border:              $brand-danger !default;
 
+$btn-clear-color:                $text-color !default;
+$btn-clear-bg:                   rgba(0, 0, 0, .05) !default;
+$btn-clear-border:               transparent !default;
+
 $btn-link-disabled-color:        $gray-light !default;
 
 // Allows for customizing button radius independently from global border radius
@@ -197,7 +201,7 @@ $input-bg-disabled:              $gray-lighter !default;
 //** Text color for `<input>`s
 $input-color:                    $gray !default;
 //** `<input>` border color
-$input-border:                   #ccc !default;
+$input-border:                   lighten($gray-base, 80%) !default;
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -222,7 +226,7 @@ $input-height-large:             (ceil($font-size-large * $line-height-large) + 
 $input-height-small:             (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2) !default;
 
 //** `.form-group` margin
-$form-group-margin-bottom:       15px !default;
+$form-group-margin-bottom:       16px !default;
 
 $legend-color:                   $text-color !default;
 $legend-border-color:            #e5e5e5 !default;
@@ -426,23 +430,26 @@ $navbar-inverse-toggle-border-color:        #333 !default;
 //##
 
 //=== Shared nav styles
-$nav-link-padding:                          10px 15px !default;
-$nav-link-hover-bg:                         $gray-lighter !default;
+$nav-link-padding:                          5px 16px !default;
+$nav-link-color:                            $text-color !default;
+$nav-link-hover-bg:                         $btn-clear-bg !default;
 
 $nav-disabled-link-color:                   $gray-light !default;
 $nav-disabled-link-hover-color:             $gray-light !default;
 
-//== Tabs
-$nav-tabs-border-color:                     #ddd !default;
+$nav-link-padding-lg:                       11px 24px !default;
 
+//== Tabs
+$nav-tabs-link-color:                       $nav-link-color !default;
+$nav-tabs-link-bg:                          rgba(0, 0, 0, 0.05) !default;
+$nav-tabs-border-color:                     lighten($gray-base, 80%) !default;
+
+$nav-tabs-link-hover-bg:                    rgba(0, 0, 0, 0.1) !default;
 $nav-tabs-link-hover-border-color:          $gray-lighter !default;
 
-$nav-tabs-active-link-hover-bg:             $body-bg !default;
-$nav-tabs-active-link-hover-color:          $gray !default;
-$nav-tabs-active-link-hover-border-color:   #ddd !default;
-
-$nav-tabs-justified-link-border-color:            #ddd !default;
-$nav-tabs-justified-active-link-border-color:     $body-bg !default;
+$nav-tabs-active-link-hover-bg:             #fff !default;
+$nav-tabs-active-link-hover-color:          $text-color !default;
+$nav-tabs-active-link-hover-border-color:   $nav-tabs-border-color !default;
 
 //== Pills
 $nav-pills-border-radius:                   $border-radius-base !default;
@@ -681,7 +688,7 @@ $progress-bar-info-bg:        $brand-info !default;
 //** Background color on `.list-group-item`
 $list-group-bg:                 #fff !default;
 //** `.list-group-item` border color
-$list-group-border:             #ddd !default;
+$list-group-border:             lighten($gray-base, 80%) !default;
 //** List group border radius
 $list-group-border-radius:      $border-radius-base !default;
 

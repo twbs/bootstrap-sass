@@ -55,7 +55,6 @@ export default function Alerts () {
         </button>
       </div>
 
-
       <h3>Small size</h3>
       <div className='row'>
         <div className='col-md-4'>
@@ -110,6 +109,7 @@ export default function Alerts () {
           <span aria-hidden='true'>&times;</span>
         </button>
       </div>
+
       <h3>With heading</h3>
       <div className='alert alert-default' role='alert'>
         <div className='alert-body'>
@@ -117,8 +117,6 @@ export default function Alerts () {
           Effects present letters inquiry no an removed or friends. Desire behind latter me though in. Supposing shameless am he engrossed up additions. My possible peculiar together to. Desire so better am cannot he up before points. Remember mistaken opinions it pleasure of debating.
         </div>
       </div>
-
-
     </div>
   )
 }

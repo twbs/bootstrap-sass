@@ -59,26 +59,26 @@
   }
 }
 
-@mixin button-transparent($color) {
+@mixin button-transparent($color, $background, $border) {
   color: $color;
   background-color: transparent;
-  border-color: transparent;
+  border-color: $border;
 
   [data-focus-visible] &:focus {
     color: $color;
-    background-color: rgba(0, 0, 0, .05);
+    background-color: $background;
   }
 
   [data-hover-visible] &:hover {
     color: $color;
-    background-color: rgba(0, 0, 0, .05);
+    background-color: $background;
   }
 
   &:active,
   &.active,
   .open > &.dropdown-toggle {
     color: $color;
-    background-color: rgba(0, 0, 0, .05);
+    background-color: $background;
 
     [data-hover-visible] &:hover,
     [data-focus-visible] &:focus {
@@ -96,8 +96,8 @@
   fieldset[disabled] & {
     [data-hover-visible] &:hover,
     [data-focus-visible] &:focus {
-      background-color: transparent;
-          border-color: transparent;
+      background-color: $background;
+          border-color: $border;
     }
   }
 
