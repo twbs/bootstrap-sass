@@ -1,4 +1,5 @@
 import React from 'react'
+import Kamon from './kamon'
 
 export default function Navs () {
   return (
@@ -56,6 +57,30 @@ export default function Navs () {
         <li role='presentation' className='active'><a href='javascript:;'>Home</a></li>
         <li role='presentation' className='disabled'><a href='javascript:;'>Profile</a></li>
         <li role='presentation'><a href='javascript:;'>Messages</a></li>
+        <li role='presentation'>
+          <a href='javascript:;'>
+            <Kamon name='arro-down-rect' />
+            <span>Forward icon</span>
+          </a>
+        </li>
+        <li role='presentation'>
+          <a href='javascript:;'>
+            <span>Backward icon</span>
+            <Kamon name='check' />
+          </a>
+        </li>
+        <li role='presentation'>
+          <a href='javascript:;'>
+            <img src='' className='nav-stacked-thumbnaiil' />
+            <span>Square thumbnail</span>
+          </a>
+        </li>
+        <li role='presentation'>
+          <a href='javascript:;'>
+            <img src='' className='img-circle nav-stacked-thumbnail' />
+            <span>Circle thumbnail</span>
+          </a>
+        </li>
       </ul>
 
       <h3>Stacked pills fixed</h3>
