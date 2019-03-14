@@ -132,6 +132,13 @@ export default function Forms () {
           </label>
         </div>
 
+        <div className='toggle-switch'>
+          <label>
+            <input type='checkbox' />
+            This is checkbox
+          </label>
+        </div>
+
         <br />
         <h4>Inline checkboxes and radios</h4>
         <div className='form-group'>

@@ -2,7 +2,8 @@
 //
 
 .radio,
-.checkbox {
+.checkbox,
+.toggle-switch {
   margin-top: 10px;
   margin-bottom: 10px;
 
@@ -11,6 +12,39 @@
     margin-bottom: 0;
     font-weight: normal;
     cursor: pointer;
+  }
+}
+
+.toggle-switch {
+  input[type="checkbox"] {
+    @include appearance(none);
+    width: 42px;
+    height: 24px;
+    background: lighten($gray-base, 80%);
+    border-radius: $input-border-radius;
+    transition: 150ms;
+    padding: 3px;
+    cursor: pointer;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 50%;
+      height: 100%;
+      background: #fff;
+      box-shadow: 0 2px 3px rgba(#000, .1);
+      transition:  150ms;
+      border-radius: $input-border-radius - 1;
+    }
+
+    &:checked {
+      background: $brand-primary;
+      justify-content: flex-end;
+
+      &:after {
+        transform: translateX(100%);
+      }
+    }
   }
 }
 
