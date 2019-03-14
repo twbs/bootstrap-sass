@@ -201,7 +201,7 @@
         // Forward icon
         &:first-child {
           float: left;
-          margin-right: 12px;
+          margin-right: 10px;
         }
 
         // Backward icon
@@ -218,7 +218,7 @@
         width: 24px;
         height: 24px;
         float: left;
-        margin-right: 12px;
+        margin-right: 10px;
       }
     }
   }
@@ -227,16 +227,17 @@
   &.nav-lg > li > a {
     .kamon {
       &:first-child {
-        margin-right: 20px;
+        margin-right: 14px;
       }
 
       &:last-child {
-        margin-left: 20px;
+        margin-right: -2px;
+        margin-left: 16px;
       }
     }
 
     .nav-stacked-thumbnail {
-      margin-right: 20px;
+      margin-right: 14px;
     }
   }
 }

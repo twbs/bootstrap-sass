@@ -95,7 +95,7 @@ export default function Navs () {
           <li role='presentation'>
             <a href='javascript:;'>
               <span>Backward icon</span>
-              <Kamon name='direction-right' />
+              <Kamon name='star' />
             </a>
           </li>
           <div className='nav-divider' />
@@ -229,7 +229,7 @@ export default function Navs () {
           <li role='presentation'>
             <a href='javascript:;'>
               <span>Backward icon</span>
-              <Kamon name='direction-right' />
+              <Kamon name='star' />
             </a>
           </li>
           <div className='nav-divider' />
@@ -243,12 +243,6 @@ export default function Navs () {
             <a href='javascript:;'>
               <img src='https://i.gyazo.com/4666f59908357a9ddf38d17cd36ad295.jpg' className='img-circle nav-stacked-thumbnail' />
               <span>Circle thumbnail</span>
-            </a>
-          </li>
-          <li role='presentation'>
-            <a href='javascript:;'>
-              <span>Backward icon</span>
-              <Kamon name='direction-right' />
             </a>
           </li>
         </ul>
