@@ -1,0 +1,83 @@
+.toggle-switch {
+  margin: 10px 0;
+
+  label {
+    margin-bottom: 0;
+    font-weight: normal;
+    display: flex;
+    cursor: pointer;
+  }
+}
+
+.toggle-switch {
+  input[type="checkbox"] {
+    display: none;
+
+    & + label {
+      .switch-image {
+        width: 42px;
+        height: 24px;
+        background: lighten($gray-base, 80%);
+        border-radius: $input-border-radius;
+        transition: 150ms;
+        padding: 3px;
+        cursor: pointer;
+        margin-right: 8px;
+
+        &:after {
+          content: '';
+          display: block;
+          width: 50%;
+          height: 100%;
+          background: #fff;
+          box-shadow: 0 2px 3px rgba(#000, .1);
+          transition:  150ms;
+          border-radius: $input-border-radius - 1;
+        }
+      }
+
+      .switch-label-on {
+        display: none;
+      }
+
+      .switch-label-off {
+        display: inline-block;
+      }
+    }
+
+    // ON state
+    &:checked + label {
+      .switch-image {
+        background: $link-color;
+
+        &:after {
+          transform :translateX(100%);
+        }
+      }
+
+      .switch-label-on {
+        display: inline-block;
+        color: $link-color;
+      }
+
+      .switch-label-off {
+        display: none;
+      }
+    }
+  }
+
+  // Disabled state
+  input[type="checkbox"] {
+    &[disabled],
+    &.disabled,
+    fieldset[disabled] & {
+      cursor: $cursor-disabled;
+
+      & + label {
+        .switch-image {
+          opacity: .5;
+        }
+      }
+    }
+  }
+}

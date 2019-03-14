@@ -2,8 +2,7 @@
 //
 
 .radio,
-.checkbox,
-.toggle-switch {
+.checkbox {
   margin-top: 10px;
   margin-bottom: 10px;
 
@@ -16,33 +15,68 @@
 }
 
 .toggle-switch {
+  label {
+    display: flex;
+    cursor: pointer;
+  }
+}
+
+.toggle-switch {
   input[type="checkbox"] {
     @include appearance(none);
-    width: 42px;
-    height: 24px;
-    background: lighten($gray-base, 80%);
-    border-radius: $input-border-radius;
-    transition: 150ms;
-    padding: 3px;
-    cursor: pointer;
 
-    &:after {
-      content: '';
-      display: block;
-      width: 50%;
-      height: 100%;
-      background: #fff;
-      box-shadow: 0 2px 3px rgba(#000, .1);
-      transition:  150ms;
-      border-radius: $input-border-radius - 1;
+    &::-ms-check  {
+      display: none; // remove checkbox for IE
     }
 
-    &:checked {
-      background: $brand-primary;
-      justify-content: flex-end;
+    & + label {
+      .switch-image {
+        width: 42px;
+        height: 24px;
+        background: lighten($gray-base, 80%);
+        border-radius: $input-border-radius;
+        transition: 150ms;
+        padding: 3px;
+        cursor: pointer;
+        margin-right: 8px;
 
-      &:after {
-        transform: translateX(100%);
+        &:after {
+          content: '';
+          display: block;
+          width: 50%;
+          height: 100%;
+          background: #fff;
+          box-shadow: 0 2px 3px rgba(#000, .1);
+          transition:  150ms;
+          border-radius: $input-border-radius - 1;
+        }
+      }
+
+      .switch-label-on {
+        display: none;
+      }
+
+      .switch-label-off {
+        display: inline-block;
+      }
+    }
+
+    &:checked + label {
+      .switch-image {
+        background: $link-color;
+
+        &:after {
+          transform :translateX(100%);
+        }
+      }
+
+      .switch-label-on {
+        display: inline-block;
+        color: $link-color;
+      }
+
+      .switch-label-off {
+        display: none;
       }
     }
   }
@@ -56,7 +90,7 @@
     flex-shrink: 0;
     width: 20px;
     height: 20px;
-    margin-right: 5px;
+    margin-right: 8px;
     margin-top: ($line-height-computed - 20) / 2;
     cursor: pointer;
     border: 1px solid $input-border;
@@ -91,7 +125,7 @@
     flex-shrink: 0;
     width: 18px;
     height: 18px;
-    margin-right: 5px;
+    margin-right: 8px;
     margin-top: ($line-height-computed - 20) / 2;
     cursor: pointer;
     border: 1px solid $input-border;
