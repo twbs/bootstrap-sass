@@ -207,6 +207,7 @@
         // Backward icon
         &:last-child {
           float: right;
+          margin-right: -4px;
           margin-left: 12px;
           opacity: .5;
         }
