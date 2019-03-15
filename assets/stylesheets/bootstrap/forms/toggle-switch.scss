@@ -16,7 +16,7 @@
         height: 24px;
         background: lighten($gray-base, 80%);
         border-radius: $input-border-radius;
-        transition: 150ms transform;
+        transition: 150ms background-color;
         padding: 3px;
         margin-right: 8px;
 
@@ -27,7 +27,7 @@
           height: 100%;
           background: #fff;
           box-shadow: 0 2px 3px rgba(#000, .1);
-          transition:  150ms;
+          transition:  150ms transform;
           border-radius: $input-border-radius - 1;
         }
       }
