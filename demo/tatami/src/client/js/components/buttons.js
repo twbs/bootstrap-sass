@@ -60,11 +60,11 @@ export default function Buttons () {
         <br />
         <br />
         <h3>Icon buttons</h3>
-        <button className='btn btn-default btn-auto-size'>
+        <button className='btn btn-default'>
           <Kamon name='check' />
           <span>Forward icon</span>
         </button>&nbsp;
-        <button className='btn btn-default btn-auto-size'>
+        <button className='btn btn-default'>
           <span>Backward icon</span>
           <Kamon name='plus' />
         </button>&nbsp;

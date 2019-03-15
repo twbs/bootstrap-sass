@@ -1,6 +1,6 @@
 @mixin when-os-is($oses: mac) {
   @each $os in $oses {
-    html[data-os*='#{$os}'] { // sass-lint:disable-line force-attribute-nesting
+    html[data-os*='#{$os}'] &, { // sass-lint:disable-line force-attribute-nesting
       @content;
     }
   }
