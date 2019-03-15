@@ -88,7 +88,6 @@
 
 // Active/Hover/Focus state
 .dropdown-menu > li > a {
-  &:active,
   [data-hover-visible] &:hover,
   [data-focus-visible] &:focus {
     text-decoration: none;
@@ -96,8 +95,13 @@
     background-color: $dropdown-link-hover-bg;
   }
 
-  [data-focus-visible] &:focus {
-    box-shadow: none;
+  &:active {
+    &,
+    [data-hover-visible] &:hover {
+      text-decoration: none;
+      color: $dropdown-link-hover-color;
+      background-color: darken($btn-default-bg, 10%);
+    }
   }
 }
 
@@ -120,43 +124,6 @@
     background-color: $dropdown-link-active-bg;
   }
 }
-
-// Selected state
-.dropdown-menu > .selected > a {
-  color: $brand-primary;
-}
-
-// Light gray hover style
-.dropdown-menu-light-hover-style {
-  > li > a {
-    // hover / focus
-    [data-hover-visible] &:hover,
-    [data-focus-visible] &:focus {
-      text-decoration: none;
-      color: $dropdown-link-color;
-      background-color: darken($btn-default-bg, 5%);
-    }
-
-    // hover / focus
-    &:active {
-      &,
-      [data-hover-visible] &:hover,
-      [data-focus-visible] &:focus {
-
-        text-decoration: none;
-        color: $dropdown-link-color;
-        background-color: darken($btn-default-bg, 10%);
-
-      }
-    }
-  }
-
-  > .selected > a {
-    color: $brand-primary !important;
-  }
-}
-
-
 
 // Disabled state
 //

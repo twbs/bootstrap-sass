@@ -14,7 +14,6 @@ export default function Dropdowns () {
           <li><a href='javascript:;'>Save</a></li>
           <li><a href='javascript:;'>Open in Chrome</a></li>
           <li role='separator' className='divider' />
-          <li className='selected'><a href='javascript:;'>Selected link</a></li>
           <li className='disabled'><a href='javascript:;'>Disabled link</a></li>
         </ul>
       </div>
@@ -32,7 +31,6 @@ export default function Dropdowns () {
           <li><a href='javascript:;'>Save</a></li>
           <li><a href='javascript:;'>Open in Chrome</a></li>
           <li role='separator' className='divider' />
-          <li className='selected'><a href='javascript:;'>Selected link</a></li>
           <li className='disabled'><a href='javascript:;'>Disabled link</a></li>
         </ul>
       </div>
@@ -80,27 +78,7 @@ export default function Dropdowns () {
           <li><a href='javascript:;'>Save</a></li>
           <li><a href='javascript:;'>Open in Chrome</a></li>
           <li><a href='javascript:;'>Print</a></li>
-          <li className='selected'><a href='javascript:;'>Share</a></li>
-          <li className='dropdown-header'>Header</li>
-          <li><a href='javascript:;'>Download</a></li>
-          <li><a href='javascript:;'>Delete</a></li>
-        </ul>
-      </div>
-
-      <h3>Light hover style</h3>
-
-      <div className='dropdown'>
-        <button className='btn btn-clear btn-lg dropdown-toggle' type='button' id='dropdownMenu2'
-          tabIndex='0'
-          data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-          Dropdown <span className='caret' />
-        </button>
-        <ul className='dropdown-menu dropdown-menu-lg dropdown-menu-light-hover-style' aria-labelledby='dropdownMenu2'>
-          <li><a href='javascript:;'>New</a></li>
-          <li><a href='javascript:;'>Save</a></li>
-          <li><a href='javascript:;'>Open in Chrome</a></li>
-          <li><a href='javascript:;'>Print</a></li>
-          <li className='selected'><a href='javascript:;'>Share</a></li>
+          <li><a href='javascript:;'>Share</a></li>
           <li className='dropdown-header'>Header</li>
           <li><a href='javascript:;'>Download</a></li>
           <li><a href='javascript:;'>Delete</a></li>

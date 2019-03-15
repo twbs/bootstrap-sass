@@ -254,9 +254,9 @@ $dropdown-divider-bg:            #e5e5e5 !default;
 //** Dropdown link text color.
 $dropdown-link-color:            $text-color !default;
 //** Hover color for dropdown links.
-$dropdown-link-hover-color:      $component-active-color !default;
+$dropdown-link-hover-color:      $text-color !default;
 //** Hover background for dropdown links.
-$dropdown-link-hover-bg:         $component-active-bg !default;
+$dropdown-link-hover-bg:         darken($btn-default-bg, 5%) !default;
 
 //** Active dropdown menu item text color.
 $dropdown-link-active-color:     $component-active-color !default;
