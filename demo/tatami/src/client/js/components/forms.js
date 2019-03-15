@@ -47,7 +47,7 @@ export default function Forms () {
         </div>
         <div className='form-group'>
           <label className='control-label' htmlFor='freetext'>Free text</label>
-          <textarea className='form-control' id='freetext'  />
+          <textarea className='form-control' id='freetext' />
         </div>
 
         <br />
@@ -96,7 +96,7 @@ export default function Forms () {
         </div>
         <div className='form-group'>
           <label className='control-label' htmlFor='freetext'>Free text</label>
-          <textarea className='form-control input-lg' id='freetext'  />
+          <textarea className='form-control input-lg' id='freetext' />
         </div>
 
         <br />
@@ -161,6 +161,33 @@ export default function Forms () {
         <br />
         <br />
 
+        <h3> Toggle Switch </h3>
+        <div className='toggle-switch'>
+          <input type='checkbox' id='toggle-switch-1'/>
+          <label htmlFor='toggle-switch-1'>
+            <span className='switch-image' />
+            <span className='switch-label-off'>OFF</span>
+            <span className='switch-label-on'>ON</span>
+          </label>
+        </div>
+        <div className='toggle-switch'>
+          <input type='checkbox' defaultChecked id='toggle-switch-2'/>
+          <label htmlFor='toggle-switch-2'>
+            <span className='switch-image' />
+            <span className='switch-label-off'>OFF</span>
+            <span className='switch-label-on'>ON</span>
+          </label>
+        </div>
+        <div className='toggle-switch'>
+          <input type='checkbox' id='toggle-switch-2' disabled/>
+          <label htmlFor='toggle-switch-2'>
+            <span className='switch-image' />
+            <span className='switch-label-off'>Disabled</span>
+          </label>
+        </div>
+
+        <br />
+        <br />
         <h3>Validation states</h3>
         <div className="form-group has-success">
           <label className="control-label" htmlFor="inputSuccess1">Input with success</label>

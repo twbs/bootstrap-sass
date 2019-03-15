@@ -1,0 +1,79 @@
+.toggle-switch {
+  margin: 10px 0;
+
+  input[type="checkbox"] {
+    display: none;
+
+    & + label {
+      margin-bottom: 0;
+      font-weight: normal;
+      cursor: pointer;
+      display: flex;
+      user-select: none;
+
+      .switch-image {
+        width: 42px;
+        height: 24px;
+        background: lighten($gray-base, 80%);
+        border-radius: $input-border-radius;
+        transition: 150ms background-color;
+        padding: 3px;
+        margin-right: 8px;
+
+        &:after {
+          content: '';
+          display: block;
+          width: 50%;
+          height: 100%;
+          background: #fff;
+          box-shadow: 0 2px 3px rgba(#000, .1);
+          transition:  150ms transform;
+          border-radius: $input-border-radius - 1;
+        }
+      }
+
+      .switch-label-on {
+        display: none;
+      }
+
+      .switch-label-off {
+        display: inline-block;
+      }
+    }
+
+    // ON state
+    &:checked + label {
+      .switch-image {
+        background: $link-color;
+
+        &:after {
+          transform :translateX(100%);
+        }
+      }
+
+      .switch-label-on {
+        display: inline-block;
+        color: $link-color;
+      }
+
+      .switch-label-off {
+        display: none;
+      }
+    }
+  }
+
+  // Disabled state
+  input[type="checkbox"] {
+    &[disabled],
+    &.disabled,
+    fieldset[disabled] & {
+      & + label {
+        cursor: $cursor-disabled;
+
+        .switch-image {
+          opacity: .5;
+        }
+      }
+    }
+  }
+}
