@@ -1,19 +1,16 @@
 .toggle-switch {
   margin: 10px 0;
 
-  label {
-    margin-bottom: 0;
-    font-weight: normal;
-    display: flex;
-    cursor: pointer;
-  }
-}
-
-.toggle-switch {
   input[type="checkbox"] {
     display: none;
 
     & + label {
+      margin-bottom: 0;
+      font-weight: normal;
+      cursor: pointer;
+      display: flex;
+      user-select: none;
+
       .switch-image {
         width: 42px;
         height: 24px;
@@ -21,7 +18,6 @@
         border-radius: $input-border-radius;
         transition: 150ms;
         padding: 3px;
-        cursor: pointer;
         margin-right: 8px;
 
         &:after {
@@ -71,9 +67,9 @@
     &[disabled],
     &.disabled,
     fieldset[disabled] & {
-      cursor: $cursor-disabled;
-
       & + label {
+        cursor: $cursor-disabled;
+
         .switch-image {
           opacity: .5;
         }
