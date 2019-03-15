@@ -247,16 +247,16 @@ $cursor-disabled:                not-allowed !default;
 //** Background for the dropdown menu.
 $dropdown-bg:                    #fff !default;
 //** Dropdown menu `border-color`.
-$dropdown-border:                rgba(0,0,0,.15) !default;
+$dropdown-border:                rgba(0,0,0,.1) !default;
 //** Divider color for between dropdown items.
 $dropdown-divider-bg:            #e5e5e5 !default;
 
 //** Dropdown link text color.
 $dropdown-link-color:            $text-color !default;
 //** Hover color for dropdown links.
-$dropdown-link-hover-color:      darken($text-color, 5%) !default;
+$dropdown-link-hover-color:      $component-active-color !default;
 //** Hover background for dropdown links.
-$dropdown-link-hover-bg:         #f5f5f5 !default;
+$dropdown-link-hover-bg:         $component-active-bg !default;
 
 //** Active dropdown menu item text color.
 $dropdown-link-active-color:     $component-active-color !default;
