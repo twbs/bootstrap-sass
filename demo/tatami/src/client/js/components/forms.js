@@ -171,7 +171,7 @@ export default function Forms () {
           </label>
         </div>
         <div className='toggle-switch'>
-          <input type='checkbox' checked id='toggle-switch-2'/>
+          <input type='checkbox' defaultChecked id='toggle-switch-2'/>
           <label htmlFor='toggle-switch-2'>
             <span className='switch-image' />
             <span className='switch-label-off'>OFF</span>
