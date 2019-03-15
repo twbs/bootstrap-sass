@@ -1,0 +1,13 @@
+@mixin when-os-is($oses: mac) {
+  @each $os in $oses {
+    html[data-os*='#{$os}'] { // sass-lint:disable-line force-attribute-nesting
+      @content;
+    }
+  }
+}
+
+@mixin when-touch-device {
+  @include when-os-is([android, ios]) {
+    @content;
+  }
+}

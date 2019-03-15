@@ -44,6 +44,11 @@
 .input-group-sm > .input-group-btn > .btn {
   @extend .input-sm;
 }
+.input-group-auto-size {
+  @include when-touch-device {
+    @extend .input-group-lg
+  }
+}
 
 
 // Display as table-cell
@@ -101,7 +106,8 @@
 .input-group-btn:first-child > .dropdown-toggle,
 .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
 .input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
-  @include border-right-radius(0);
+  border-bottom-right-radius: 0 !important;
+     border-top-right-radius: 0 !important;
 }
 .input-group-addon:first-child {
   border-right: 0;
@@ -113,7 +119,8 @@
 .input-group-btn:last-child > .dropdown-toggle,
 .input-group-btn:first-child > .btn:not(:first-child),
 .input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
-  @include border-left-radius(0);
+  border-bottom-left-radius: 0 !important;
+     border-top-left-radius: 0 !important;
 }
 .input-group-addon:last-child {
   border-left: 0;

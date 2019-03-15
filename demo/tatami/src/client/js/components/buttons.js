@@ -45,6 +45,13 @@ export default function Buttons () {
           <button className='btn btn-primary btn-xs'>Primary</button>
         </p>
 
+        <h4>Auto size</h4>
+        <button className='btn btn-default btn-auto-size'>Default</button>&nbsp;
+        <button className='btn btn-primary btn-auto-size'>Primary</button>&nbsp;
+        <button className='btn btn-warning btn-auto-size'>Warning</button>&nbsp;
+        <button className='btn btn-danger btn-auto-size'>Danger</button>&nbsp;
+        <button className='btn btn-clear btn-auto-size'>Clear</button>&nbsp;
+
         <br />
         <h4>Block level button</h4>
         <a href='javascript:;' className='btn btn-default btn-lg btn-block'>Block level button</a>&nbsp;
@@ -53,11 +60,11 @@ export default function Buttons () {
         <br />
         <br />
         <h3>Icon buttons</h3>
-        <button className='btn btn-default'>
+        <button className='btn btn-default btn-auto-size'>
           <Kamon name='check' />
           <span>Forward icon</span>
         </button>&nbsp;
-        <button className='btn btn-default'>
+        <button className='btn btn-default btn-auto-size'>
           <span>Backward icon</span>
           <Kamon name='plus' />
         </button>&nbsp;
@@ -113,23 +120,23 @@ export default function Buttons () {
         <br />
         <br />
         <h3>Disabled state</h3>
-        <button className='btn btn-default' disabled>
+        <button className='btn btn-default btn-auto-size' disabled>
           Default
         </button>
         &nbsp;
-        <button className='btn btn-primary' disabled>
+        <button className='btn btn-primary btn-auto-size' disabled>
           Primary
         </button>
         &nbsp;
-        <button className='btn btn-warning' disabled>
+        <button className='btn btn-warning btn-auto-size' disabled>
           Warning
         </button>
         &nbsp;
-        <button className='btn btn-danger' disabled>
+        <button className='btn btn-danger btn-auto-size' disabled>
           Danger
         </button>
         &nbsp;
-        <button className='btn btn-clear' disabled>
+        <button className='btn btn-clear btn-auto-size' disabled>
           Clear
         </button>
       </div>

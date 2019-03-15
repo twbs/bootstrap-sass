@@ -44,7 +44,7 @@ export default class App extends Component {
         <div className='container' id='cont'>
           <div className='row'>
             <div className='col-md-3'>
-              <ul className='nav nav-pills nav-stacked'>
+              <ul className='nav nav-pills nav-stacked nav-auto-size'>
                 <li className={component ===  '' ? 'active' : ''}>
                   <a href='#'>Home</a>
                 </li>

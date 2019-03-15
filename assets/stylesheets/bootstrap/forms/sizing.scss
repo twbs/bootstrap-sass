@@ -57,3 +57,9 @@
     line-height: $line-height-large;
   }
 }
+
+.input-auto-size {
+  @include when-touch-device {
+    @extend .input-lg
+  }
+}

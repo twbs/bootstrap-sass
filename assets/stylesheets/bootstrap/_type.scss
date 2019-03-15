@@ -2,6 +2,18 @@
 // Typography
 // --------------------------------------------------
 
+// body text sizing. see <small> for small size
+// -------------------------
+
+.text-lg {
+  font-size: $font-size-large;
+}
+
+.text-auto-size {
+  @include when-touch-device {
+    @extend .text-lg
+  }
+}
 
 // Headings
 // -------------------------

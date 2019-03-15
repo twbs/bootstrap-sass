@@ -18,6 +18,8 @@ export default function Type () {
       <h5>h5. Far far away, behind the word mountains</h5>
       <h6><strong>h6. Far far away, behind the word mountains</strong></h6>
       <h6>h6. Far far away, behind the word mountains</h6>
+      <p className='text-lg'>This is large body text</p>
+      <p className='text-lg'>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
       <small><strong>Small text</strong></small><br />
       <small>Small text</small>
 

@@ -89,6 +89,11 @@
   }
 }
 
+.nav-auto-size {
+  @include when-touch-device {
+    @extend .nav-lg
+  }
+}
 
 // Tabs
 // -------------------------

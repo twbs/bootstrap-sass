@@ -159,13 +159,13 @@ export default function Navs () {
         </ul>
         <div className='tab-content'>
           <div role='tabpanel' className='tab-pane active' id='home-lg'>
-            this is home...
+            <div className='text-lg'>this is home...</div>
           </div>
           <div role='tabpanel' className='tab-pane' id='profile-lg'>
-            this is profile...
+            <div className='text-lg'>this is profile...</div>
           </div>
           <div role='tabpanel' className='tab-pane' id='settings-lg'>
-            this is settings...
+            <div className='text-lg'>this is settings...</div>
           </div>
         </div>
       </div>
@@ -181,7 +181,7 @@ export default function Navs () {
           <a className='dropdown-toggle' data-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>
             Dropdown <span className='caret'></span>
           </a>
-          <ul className='dropdown-menu'>
+          <ul className='dropdown-menu dropdown-menu-lg'>
             <li><a href='javascript:;'>Action</a></li>
             <li><a href='javascript:;'>Another action</a></li>
           </ul>
@@ -276,6 +276,86 @@ export default function Navs () {
         <li role='presentation'><a href='javascript:;'>Profile</a></li>
         <li role='presentation'><a href='javascript:;'>Messages</a></li>
       </ul>
+
+      <br /><br />
+
+      <h2>Auto size</h2>
+
+      <h3>Tabs</h3>
+      <div>
+        <ul className='nav nav-tabs nav-auto-size' role='tablist'>
+          <li role='presentation' className='active'>
+            <a href='#home-auto-size' aria-controls='home-auto-size' role='tab' data-toggle='tab'>Home</a>
+          </li>
+          <li role='presentation'>
+            <a href='#profile-auto-size' aria-controls='profile-auto-size' role='tab' data-toggle='tab'>Profile</a>
+          </li>
+          <li role='presentation'>
+            <a href='#settings-auto-size' aria-controls='settings-auto-size' role='tab' data-toggle='tab'>Settings</a>
+          </li>
+        </ul>
+        <div className='tab-content'>
+          <div role='tabpanel' className='tab-pane active' id='home-auto-size'>
+            <div className='text-auto-size'>this is home...</div>
+          </div>
+          <div role='tabpanel' className='tab-pane' id='profile-auto-size'>
+            <div className='text-auto-size'>this is profile...</div>
+          </div>
+          <div role='tabpanel' className='tab-pane' id='settings-auto-size'>
+            <div className='text-auto-size'>this is settings...</div>
+          </div>
+        </div>
+      </div>
+
+      <br /><br />
+
+      <h3>Pills</h3>
+      <ul className='nav nav-pills nav-auto-size'>
+        <li role='presentation' className='active'><a href='javascript:;'>Home</a></li>
+        <li role='presentation'><a href='javascript:;'>Profile</a></li>
+        <li role='presentation'><a href='javascript:;'>Messages</a></li>
+        <li role='presentation' className='dropdown'>
+          <a className='dropdown-toggle' data-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>
+            Dropdown <span className='caret'></span>
+          </a>
+          <ul className='dropdown-menu dropdown-menu-auto-size'>
+            <li><a href='javascript:;'>Action</a></li>
+            <li><a href='javascript:;'>Another action</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <br /><br />
+
+      <h3>Stacked pills</h3>
+      <ul className='nav nav-pills nav-stacked nav-auto-size'>
+        <li role='presentation' className='active'><a href='javascript:;'>Home</a></li>
+        <li role='presentation' className='disabled'><a href='javascript:;'>Profile</a></li>
+        <li role='presentation'><a href='javascript:;'>Messages</a></li>
+      </ul>
+
+      <h3>Stacked pills fixed</h3>
+      <ul className='nav nav-pills nav-stacked nav-stacked-fixed nav-auto-size'>
+        <li role='presentation' className='active'><a href='javascript:;'>Home</a></li>
+        <li role='presentation' className='disabled'><a href='javascript:;'>Profile</a></li>
+        <li role='presentation'><a href='javascript:;'>Messages</a></li>
+      </ul>
+
+      <br /><br />
+
+      <h3>Justified</h3>
+      <ul className='nav nav-tabs nav-justified nav-auto-size' role='tablist'>
+        <li role='presentation' className='active'><a href='#home' aria-controls='home' role='tab' data-toggle='tab'>Home</a></li>
+        <li role='presentation'><a href='#profile' aria-controls='profile' role='tab' data-toggle='tab'>Profile</a></li>
+        <li role='presentation'><a href='#messages' aria-controls='profile' role='tab' data-toggle='tab'>Messages</a></li>
+      </ul>
+      <br />
+      <ul className='nav nav-pills nav-justified nav-auto-size'>
+        <li role='presentation' className='active'><a href='javascript:;'>Home</a></li>
+        <li role='presentation'><a href='javascript:;'>Profile</a></li>
+        <li role='presentation'><a href='javascript:;'>Messages</a></li>
+      </ul>
+
 
       <h2>List group</h2>
       <div className='list-group'>

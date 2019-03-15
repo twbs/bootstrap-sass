@@ -15,5 +15,5 @@ jobs:
       - run: 'node -v'
       - run: 'npm -v'
       - checkout
-      - run: 'npm ci'
+      - run: 'npm i'
       - run: 'npm run test'
