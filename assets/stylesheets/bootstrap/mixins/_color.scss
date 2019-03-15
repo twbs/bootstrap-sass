@@ -1,0 +1,8 @@
+// Color
+@mixin color-and-fill($color) {
+  color: $color;
+
+  .kamon {
+    fill: $color;
+  }
+}

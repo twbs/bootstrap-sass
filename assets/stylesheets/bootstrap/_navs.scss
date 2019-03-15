@@ -20,18 +20,18 @@
       position: relative;
       display: block;
       padding: $nav-link-padding;
-      color: $nav-link-color;
       line-height: $line-height-base;
+      @include color-and-fill($nav-link-color);
 
       &:active {
-        color: $nav-link-color;
+        @include color-and-fill($nav-link-color);
         text-decoration: none;
         background-color: $nav-link-hover-bg;
       }
 
       [data-hover-visible] &:hover,
       [data-focus-visible] &:focus {
-        color: $nav-link-color;
+        @include color-and-fill($nav-link-color);
         text-decoration: none;
         background-color: $nav-link-hover-bg;
       }
@@ -39,12 +39,12 @@
 
     // Disabled state sets text to gray and nukes hover/tab effects
     &.disabled > a {
-      color: $nav-disabled-link-color;
+      @include color-and-fill($nav-disabled-link-color);
 
       &:active,
       [data-hover-visible] &:hover,
       [data-focus-visible] &:focus {
-        color: $nav-disabled-link-hover-color;
+        @include color-and-fill($nav-disabled-link-hover-color);
         text-decoration: none;
         background-color: transparent;
         cursor: $cursor-disabled;
@@ -176,7 +176,7 @@
       &:active,
       [data-hover-visible] &:hover,
       [data-focus-visible] &:focus {
-        color: $nav-pills-active-link-hover-color;
+        @include color-and-fill($nav-pills-active-link-hover-color);
         background-color: $nav-pills-active-link-hover-bg;
       }
     }
@@ -191,11 +191,57 @@
   > li {
     > a {
       margin-right: 0; // no need for this gap between nav items
+
+      // Icons
+      .kamon {
+        width: $icon-size-large;
+        height: $icon-size-large;
+        vertical-align: middle;
+
+        // Forward icon
+        &:first-child {
+          float: left;
+          margin-right: 10px;
+        }
+
+        // Backward icon
+        &:last-child {
+          float: right;
+          margin-right: -4px;
+          margin-left: 12px;
+          opacity: .5;
+        }
+      }
+
+      // Thumbnails
+      .nav-stacked-thumbnail {
+        width: 24px;
+        height: 24px;
+        float: left;
+        margin-right: 10px;
+      }
     }
-    + li {
+  }
+
+  // Icons and thumbnails for large size
+  &.nav-lg > li > a {
+    .kamon {
+      &:first-child {
+        margin-right: 14px;
+      }
+
+      &:last-child {
+        margin-right: -2px;
+        margin-left: 16px;
+      }
+    }
+
+    .nav-stacked-thumbnail {
+      margin-right: 14px;
     }
   }
 }
+
 
 .nav-stacked-fixed {
   > li {
