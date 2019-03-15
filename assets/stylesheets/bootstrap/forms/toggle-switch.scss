@@ -16,7 +16,7 @@
         height: 24px;
         background: lighten($gray-base, 80%);
         border-radius: $input-border-radius;
-        transition: 150ms;
+        transition: 150ms transform;
         padding: 3px;
         margin-right: 8px;
 
