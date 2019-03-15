@@ -3,22 +3,24 @@ import React from 'react'
 export default function Dropdowns () {
   return (
     <div>
-      <h2>Dropdowns</h2>
+      <h1>Dropdowns</h1>
       <div className='dropdown'>
         <button className='btn btn-default dropdown-toggle' type='button' id='dropdownMenu1'
           data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
           Dropdown <span className='caret' />
         </button>
         <ul className='dropdown-menu' aria-labelledby='dropdownMenu1'>
-          <li><a href='javascript:;'>Action</a></li>
-          <li><a href='javascript:;'>Another action</a></li>
-          <li><a href='javascript:;'>Something else here</a></li>
+          <li><a href='javascript:;'>New</a></li>
+          <li><a href='javascript:;'>Save</a></li>
+          <li><a href='javascript:;'>Open in Chrome</a></li>
           <li role='separator' className='divider' />
-          <li className='active'><a href='javascript:;'>Active link</a></li>
+          <li className='selected'><a href='javascript:;'>Selected link</a></li>
           <li className='disabled'><a href='javascript:;'>Disabled link</a></li>
         </ul>
       </div>
-      <hr />
+
+      <br /><br />
+
       <div className='dropdown'>
         <button className='btn btn-clear dropdown-toggle' type='button' id='dropdownMenu2'
           tabIndex='0'
@@ -26,17 +28,16 @@ export default function Dropdowns () {
           Dropdown <span className='caret' />
         </button>
         <ul className='dropdown-menu' aria-labelledby='dropdownMenu2'>
-          <li><a href='javascript:;'>Action</a></li>
-          <li><a href='javascript:;'>Another action</a></li>
-          <li><a href='javascript:;'>Something else here</a></li>
+          <li><a href='javascript:;'>New</a></li>
+          <li><a href='javascript:;'>Save</a></li>
+          <li><a href='javascript:;'>Open in Chrome</a></li>
           <li role='separator' className='divider' />
-          <li className='active'><a href='javascript:;'>Active link</a></li>
+          <li className='selected'><a href='javascript:;'>Selected link</a></li>
           <li className='disabled'><a href='javascript:;'>Disabled link</a></li>
         </ul>
       </div>
 
-      <br />
-      <br />
+      <br /><br />
 
       <div className='btn-group'>
         <button type='button' className='btn btn-danger'>Action</button>
@@ -45,11 +46,11 @@ export default function Dropdowns () {
           <span className='sr-only'>Toggle Dropdown</span>
         </button>
         <ul className='dropdown-menu'>
-          <li><a href='#'>Action</a></li>
-          <li><a href='#'>Another action</a></li>
-          <li><a href='#'>Something else here</a></li>
+          <li><a href='javascript:;'>New</a></li>
+          <li><a href='javascript:;'>Save</a></li>
+          <li><a href='javascript:;'>Open in Chrome</a></li>
           <li role='separator' className='divider'></li>
-          <li><a href='#'>Separated link</a></li>
+          <li><a href='javascript:;'>Delete</a></li>
         </ul>
       </div>
       {' '}
@@ -60,8 +61,49 @@ export default function Dropdowns () {
           <span className='sr-only'>Toggle Dropdown</span>
         </button>
         <ul className='dropdown-menu'>
-          <li><a href='#'>Action</a></li>
-          <li><a href='#'>Another action</a></li>
+          <li><a href='javascript:;'>Action</a></li>
+          <li><a href='javascript:;'>Another action</a></li>
+        </ul>
+      </div>
+
+      <br /><br />
+      <h3>Large size</h3>
+
+      <div className='dropdown'>
+        <button className='btn btn-clear btn-lg dropdown-toggle' type='button' id='dropdownMenu2'
+          tabIndex='0'
+          data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+          Dropdown <span className='caret' />
+        </button>
+        <ul className='dropdown-menu dropdown-menu-lg' aria-labelledby='dropdownMenu2'>
+          <li><a href='javascript:;'>New</a></li>
+          <li><a href='javascript:;'>Save</a></li>
+          <li><a href='javascript:;'>Open in Chrome</a></li>
+          <li><a href='javascript:;'>Print</a></li>
+          <li className='selected'><a href='javascript:;'>Share</a></li>
+          <li className='dropdown-header'>Header</li>
+          <li><a href='javascript:;'>Download</a></li>
+          <li><a href='javascript:;'>Delete</a></li>
+        </ul>
+      </div>
+
+      <h3>Light hover style</h3>
+
+      <div className='dropdown'>
+        <button className='btn btn-clear btn-lg dropdown-toggle' type='button' id='dropdownMenu2'
+          tabIndex='0'
+          data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+          Dropdown <span className='caret' />
+        </button>
+        <ul className='dropdown-menu dropdown-menu-lg dropdown-menu-light-hover-style' aria-labelledby='dropdownMenu2'>
+          <li><a href='javascript:;'>New</a></li>
+          <li><a href='javascript:;'>Save</a></li>
+          <li><a href='javascript:;'>Open in Chrome</a></li>
+          <li><a href='javascript:;'>Print</a></li>
+          <li className='selected'><a href='javascript:;'>Share</a></li>
+          <li className='dropdown-header'>Header</li>
+          <li><a href='javascript:;'>Download</a></li>
+          <li><a href='javascript:;'>Delete</a></li>
         </ul>
       </div>
     </div>
