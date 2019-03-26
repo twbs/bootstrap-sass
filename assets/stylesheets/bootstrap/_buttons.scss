@@ -163,7 +163,7 @@ input[type="file"]::-webkit-file-upload-button {
 .btn-xs {
   @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
 }
-.btn-auto-size {
+.btn-auto-lg {
   @include when-touch-device {
     @extend .btn-lg
   }

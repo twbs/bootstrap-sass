@@ -44,7 +44,7 @@
 .input-group-sm > .input-group-btn > .btn {
   @extend .input-sm;
 }
-.input-group-auto-size {
+.input-group-auto-lg {
   @include when-touch-device {
     @extend .input-group-lg
   }

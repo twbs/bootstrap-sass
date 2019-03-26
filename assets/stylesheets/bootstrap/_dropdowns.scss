@@ -85,7 +85,7 @@
     }
   }
 
-  &.dropdown-menu-auto-size {
+  &.dropdown-menu-auto-lg {
     @include when-touch-device {
       @extend .dropdown-menu-lg
     }

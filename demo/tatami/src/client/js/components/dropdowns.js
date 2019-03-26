@@ -86,15 +86,15 @@ export default function Dropdowns () {
       </div>
 
       <br />
-      <h3>Auto size</h3>
+      <h3>Auto large</h3>
 
       <div className='dropdown'>
-        <button className='btn btn-clear btn-auto-size dropdown-toggle' type='button' id='dropdownMenu2'
+        <button className='btn btn-clear btn-auto-lg dropdown-toggle' type='button' id='dropdownMenu2'
           tabIndex='0'
           data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
           Dropdown <span className='caret' />
         </button>
-        <ul className='dropdown-menu dropdown-menu-auto-size' aria-labelledby='dropdownMenu2'>
+        <ul className='dropdown-menu dropdown-menu-auto-lg' aria-labelledby='dropdownMenu2'>
           <li><a href='javascript:;'>New</a></li>
           <li><a href='javascript:;'>Save</a></li>
           <li><a href='javascript:;'>Open in Chrome</a></li>

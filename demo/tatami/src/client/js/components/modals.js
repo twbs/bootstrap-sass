@@ -31,49 +31,49 @@ export default class Modals extends Component {
         <h3>Sizes</h3>
 
         <SampleModal2 show={this.state.showModal2} onHide={() => this.setState({showModal2: false})} />
-        <button className='btn btn-default btn-auto-size' onClick={() => this.setState({showModal2: true})}>
+        <button className='btn btn-default btn-auto-lg' onClick={() => this.setState({showModal2: true})}>
           Default modal
         </button>
 
         <br /><br />
 
         <SampleModalSmall show={this.state.showModalSmall} onHide={() => this.setState({showModalSmall: false})} />
-        <button className='btn btn-default btn-auto-size' onClick={() => this.setState({showModalSmall: true})}>
+        <button className='btn btn-default btn-auto-lg' onClick={() => this.setState({showModalSmall: true})}>
           Small modal
         </button>
 
         <br /><br />
 
         <SampleModalLarge show={this.state.showModalLarge} onHide={() => this.setState({showModalLarge: false})} />
-        <button className='btn btn-default btn-auto-size' onClick={() => this.setState({showModalLarge: true})}>
+        <button className='btn btn-default btn-auto-lg' onClick={() => this.setState({showModalLarge: true})}>
           Large modal
         </button>
 
         <h3>Use cases</h3>
 
         <SampleModalSmall2 show={this.state.showModalSmall2} onHide={() => this.setState({showModalSmall2: false})} />
-        <button className='btn btn-default btn-auto-size' onClick={() => this.setState({showModalSmall2: true})}>
+        <button className='btn btn-default btn-auto-lg' onClick={() => this.setState({showModalSmall2: true})}>
           Delete?
         </button>
 
         <br /><br />
 
         <SampleModalSmall4 show={this.state.showModalSmall4} onHide={() => this.setState({showModalSmall4: false})} />
-        <button className='btn btn-default btn-auto-size' onClick={() => this.setState({showModalSmall4: true})}>
+        <button className='btn btn-default btn-auto-lg' onClick={() => this.setState({showModalSmall4: true})}>
           Set password
         </button>
 
         <br /><br />
 
         <SampleModal1 show={this.state.showModal1} onHide={() => this.setState({showModal1: false})} />
-        <button className='btn btn-default btn-auto-size' onClick={() => this.setState({showModal1: true})}>
+        <button className='btn btn-default btn-auto-lg' onClick={() => this.setState({showModal1: true})}>
           Upgrade induction
         </button>
 
         <br /><br />
 
         <SampleModal3 show={this.state.showModal4} onHide={() => this.setState({showModal4: false})} />
-        <button className='btn btn-default btn-auto-size' onClick={() => this.setState({showModal4: true})}>
+        <button className='btn btn-default btn-auto-lg' onClick={() => this.setState({showModal4: true})}>
           Edit account info
         </button>
 

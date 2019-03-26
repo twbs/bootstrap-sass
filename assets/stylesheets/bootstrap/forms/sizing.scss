@@ -58,7 +58,7 @@
   }
 }
 
-.input-auto-size {
+.input-auto-lg {
   @include when-touch-device {
     @extend .input-lg
   }

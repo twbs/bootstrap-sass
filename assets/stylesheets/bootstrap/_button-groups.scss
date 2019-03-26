@@ -86,7 +86,7 @@
 .btn-group-xs > .btn { @extend .btn-xs; }
 .btn-group-sm > .btn { @extend .btn-sm; }
 .btn-group-lg > .btn { @extend .btn-lg; }
-.btn-group-auto-size {
+.btn-group-auto-lg {
   @include when-touch-device {
     @extend .btn-group-lg
   }

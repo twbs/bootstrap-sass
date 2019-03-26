@@ -89,7 +89,7 @@
   }
 }
 
-.nav-auto-size {
+.nav-auto-lg {
   @include when-touch-device {
     @extend .nav-lg
   }

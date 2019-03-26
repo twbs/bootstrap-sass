@@ -10,13 +10,13 @@ export function SampleModal1({ show, onHide }) {
         <h3 className='modal-title'><strong>Some induction title</strong></h3>
       </Modal.Header>
       <Modal.Body>
-        <div className='text-auto-size'>
+        <div className='text-auto-lg'>
           Instantly browse, search, and collect all your captures with unlimited access when you upgrade to Gyazo Pro, including this one.
         </div>
         <div style={ {  width: 292, height: 168, background: '#d8d8d8', margin: '24px auto 0' } } />
       </Modal.Body>
       <Modal.Footer>
-        <button className='btn btn-primary btn-auto-size' onClick={onHide}>Upgrade</button>
+        <button className='btn btn-primary btn-auto-lg' onClick={onHide}>Upgrade</button>
       </Modal.Footer>
     </Modal>
   )
@@ -29,11 +29,11 @@ export function SampleModal2({ show, onHide }) {
         <Modal.Title><strong>Modal title</strong></Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <div className='text-auto-size'>Modal body text goes here. Max width is 600px.</div>
+        <div className='text-auto-lg'>Modal body text goes here. Max width is 600px.</div>
       </Modal.Body>
       <Modal.Footer>
-        <button className='btn btn-primary btn-auto-size' onClick={onHide}>Button</button>
-        <button className='btn btn-default btn-auto-size' onClick={onHide}>Button</button>
+        <button className='btn btn-primary btn-auto-lg' onClick={onHide}>Button</button>
+        <button className='btn btn-default btn-auto-lg' onClick={onHide}>Button</button>
       </Modal.Footer>
     </Modal>
   )
@@ -49,20 +49,20 @@ export function SampleModal3({ show, onHide }) {
         <Modal.Body>
           <div className='form-group'>
             <label className='control-label' htmlFor='exampleInput1'>Profile image</label>
-            <input type='text' className='form-control input-auto-size' id='exampleInput1' placeholder='Type something' />
+            <input type='text' className='form-control input-auto-lg' id='exampleInput1' placeholder='Type something' />
           </div>
           <div className='form-group'>
             <label className='control-label' htmlFor='exampleInput2'>Name</label>
-            <input type='text' className='form-control input-auto-size' id='exampleInput2' placeholder='Type something' />
+            <input type='text' className='form-control input-auto-lg' id='exampleInput2' placeholder='Type something' />
           </div>
           <div className='form-group'>
             <label className='control-label' htmlFor='exampleInputEmail1'>Email</label>
-            <input type='email' className='form-control input-auto-size' id='exampleInputEmail1' placeholder='Type something' />
+            <input type='email' className='form-control input-auto-lg' id='exampleInputEmail1' placeholder='Type something' />
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <button className='btn btn-primary btn-auto-size' onClick={onHide}>Button</button>
-          <button className='btn btn-default btn-auto-size' onClick={onHide}>Button</button>
+          <button className='btn btn-primary btn-auto-lg' onClick={onHide}>Button</button>
+          <button className='btn btn-default btn-auto-lg' onClick={onHide}>Button</button>
         </Modal.Footer>
       </form>
     </Modal>
@@ -76,11 +76,11 @@ export function SampleModalSmall({ show, onHide }) {
         <h3 className='modal-title'><strong>Small modal</strong></h3>
       </Modal.Header>
       <Modal.Body>
-        <div className='text-auto-size'>Max width is 300px.</div>
+        <div className='text-auto-lg'>Max width is 300px.</div>
       </Modal.Body>
       <Modal.Footer>
-        <button className='btn btn-primary btn-auto-size' onClick={onHide}>Button</button>
-        <button className='btn btn-default btn-auto-size' onClick={onHide}>Button</button>
+        <button className='btn btn-primary btn-auto-lg' onClick={onHide}>Button</button>
+        <button className='btn btn-default btn-auto-lg' onClick={onHide}>Button</button>
       </Modal.Footer>
     </Modal>
   )
@@ -93,11 +93,11 @@ export function SampleModalSmall2({ show, onHide }) {
         <h3 className='modal-title'><strong>Delete?</strong></h3>
       </Modal.Header>
       <Modal.Body>
-        <div className='text-auto-size'>There is no undo for this action.</div>
+        <div className='text-auto-lg'>There is no undo for this action.</div>
       </Modal.Body>
       <Modal.Footer>
-        <button className='btn btn-primary btn-auto-size' onClick={onHide}>Copy link</button>
-        <button className='btn btn-default btn-auto-size' onClick={onHide}>Delete now</button>
+        <button className='btn btn-primary btn-auto-lg' onClick={onHide}>Copy link</button>
+        <button className='btn btn-default btn-auto-lg' onClick={onHide}>Delete now</button>
       </Modal.Footer>
     </Modal>
   )
@@ -130,12 +130,12 @@ export function SampleModalSmall4({ show, onHide }) {
         <Modal.Body>
           <div className='form-group'>
             <label className='control-label' htmlFor='exampleInput1'>Password</label>
-            <input type='password' className='form-control input-auto-size' id='exampleInput1' />
+            <input type='password' className='form-control input-auto-lg' id='exampleInput1' />
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <button className='btn btn-primary btn-auto-size' onClick={onHide}>Button</button>
-          <button className='btn btn-default btn-auto-size' onClick={onHide}>Button</button>
+          <button className='btn btn-primary btn-auto-lg' onClick={onHide}>Button</button>
+          <button className='btn btn-default btn-auto-lg' onClick={onHide}>Button</button>
         </Modal.Footer>
       </form>
     </Modal>
@@ -149,11 +149,11 @@ export function SampleModalLarge({ show, onHide }) {
         <h3 className='modal-title'><strong>Large modal</strong></h3>
       </Modal.Header>
       <Modal.Body>
-        <div className='text-auto-size'>Max width is 900px.</div>
+        <div className='text-auto-lg'>Max width is 900px.</div>
       </Modal.Body>
       <Modal.Footer>
-        <button className='btn btn-primary btn-auto-size' onClick={onHide}>Button</button>
-        <button className='btn btn-default btn-auto-size' onClick={onHide}>Button</button>
+        <button className='btn btn-primary btn-auto-lg' onClick={onHide}>Button</button>
+        <button className='btn btn-default btn-auto-lg' onClick={onHide}>Button</button>
       </Modal.Footer>
     </Modal>
   )

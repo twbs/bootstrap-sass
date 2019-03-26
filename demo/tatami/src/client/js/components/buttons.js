@@ -45,12 +45,12 @@ export default function Buttons () {
           <button className='btn btn-primary btn-xs'>Primary</button>
         </p>
 
-        <h4>Auto size</h4>
-        <button className='btn btn-default btn-auto-size'>Default</button>&nbsp;
-        <button className='btn btn-primary btn-auto-size'>Primary</button>&nbsp;
-        <button className='btn btn-warning btn-auto-size'>Warning</button>&nbsp;
-        <button className='btn btn-danger btn-auto-size'>Danger</button>&nbsp;
-        <button className='btn btn-clear btn-auto-size'>Clear</button>&nbsp;
+        <h4>Auto large</h4>
+        <button className='btn btn-default btn-auto-lg'>Default</button>&nbsp;
+        <button className='btn btn-primary btn-auto-lg'>Primary</button>&nbsp;
+        <button className='btn btn-warning btn-auto-lg'>Warning</button>&nbsp;
+        <button className='btn btn-danger btn-auto-lg'>Danger</button>&nbsp;
+        <button className='btn btn-clear btn-auto-lg'>Clear</button>&nbsp;
 
         <br />
         <h4>Block level button</h4>
@@ -120,23 +120,23 @@ export default function Buttons () {
         <br />
         <br />
         <h3>Disabled state</h3>
-        <button className='btn btn-default btn-auto-size' disabled>
+        <button className='btn btn-default btn-auto-lg' disabled>
           Default
         </button>
         &nbsp;
-        <button className='btn btn-primary btn-auto-size' disabled>
+        <button className='btn btn-primary btn-auto-lg' disabled>
           Primary
         </button>
         &nbsp;
-        <button className='btn btn-warning btn-auto-size' disabled>
+        <button className='btn btn-warning btn-auto-lg' disabled>
           Warning
         </button>
         &nbsp;
-        <button className='btn btn-danger btn-auto-size' disabled>
+        <button className='btn btn-danger btn-auto-lg' disabled>
           Danger
         </button>
         &nbsp;
-        <button className='btn btn-clear btn-auto-size' disabled>
+        <button className='btn btn-clear btn-auto-lg' disabled>
           Clear
         </button>
       </div>

@@ -9,7 +9,7 @@
   font-size: $font-size-large;
 }
 
-.text-auto-size {
+.text-auto-lg {
   @include when-touch-device {
     @extend .text-lg
   }

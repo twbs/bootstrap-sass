@@ -102,10 +102,10 @@ export default function Forms () {
         <br /><br />
 
 
-        <h3>Auto size</h3>
+        <h3>Auto large</h3>
 
         <div className='form-group'>
-          <div className='input-group input-group-auto-size'>
+          <div className='input-group input-group-auto-lg'>
             <div className='input-group-addon'>https://scrapbox.io/</div>
             <input type='text' className='form-control' />
           </div>
@@ -113,7 +113,7 @@ export default function Forms () {
 
         <div className='form-group has-error'>
           <label className='control-label' htmlFor='exampleInputEmail1'>Has error</label>
-          <div className='input-group input-group-auto-size'>
+          <div className='input-group input-group-auto-lg'>
             <div className='input-group-addon'>https://scrapbox.io/</div>
             <input type='text' className='form-control' />
           </div>
@@ -121,18 +121,18 @@ export default function Forms () {
 
         <div className='form-group'>
           <label className='control-label' htmlFor='exampleInputEmail1'>Email address</label>
-          <input type='email' className='form-control input-auto-size' id='exampleInputEmail1' placeholder='Email' />
+          <input type='email' className='form-control input-auto-lg' id='exampleInputEmail1' placeholder='Email' />
         </div>
         <div className='form-group'>
           <label className='control-label' htmlFor='exampleInputPassword1'>Password</label>
-          <input type='password' className='form-control input-auto-size' id='exampleInputPassword1' placeholder='Password' />
+          <input type='password' className='form-control input-auto-lg' id='exampleInputPassword1' placeholder='Password' />
           <span className='help-block'>
             A block of help text that breaks onto a new line and may extend beyond one line.
           </span>
         </div>
         <div className='form-group'>
           <label className='control-label' htmlFor='exampleInputEmail1'>Select</label>
-          <select className='form-control input-auto-size'>
+          <select className='form-control input-auto-lg'>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -142,11 +142,11 @@ export default function Forms () {
         </div>
         <div className='form-group'>
           <label className='control-label' htmlFor='disabledTextInput'>Disabled input</label>
-          <input type='text' id='disabledTextInput' className='form-control input-auto-size' placeholder='Disabled input' disabled />
+          <input type='text' id='disabledTextInput' className='form-control input-auto-lg' placeholder='Disabled input' disabled />
         </div>
         <div className='form-group'>
           <label className='control-label' htmlFor='freetext'>Free text</label>
-          <textarea className='form-control input-auto-size' id='freetext'  />
+          <textarea className='form-control input-auto-lg' id='freetext'  />
         </div>
 
         <br /><br />
@@ -241,7 +241,7 @@ export default function Forms () {
         <h3>Validation states</h3>
         <div className="form-group has-success">
           <label className="control-label" htmlFor="inputSuccess1">Input with success</label>
-          <div className='input-group input-group-auto-size'>
+          <div className='input-group input-group-auto-lg'>
             <div className='input-group-addon'>scrapbox.io/</div>
             <input type='text' className='form-control' id="inputSuccess1" aria-describedby="helpBlock2" />
           </div>
@@ -249,14 +249,14 @@ export default function Forms () {
         </div>
         <div className="form-group has-warning">
           <label className="control-label" htmlFor="inputWarning1">Input with warning</label>
-          <div className='input-group input-group-auto-size'>
+          <div className='input-group input-group-auto-lg'>
             <div className='input-group-addon'>scrapbox.io/</div>
             <input type='text' className='form-control' id="inputWarning1" />
           </div>
         </div>
         <div className="form-group has-error">
           <label className="control-label" htmlFor="inputError1">Input with error</label>
-          <div className='input-group input-group-auto-size'>
+          <div className='input-group input-group-auto-lg'>
             <div className='input-group-addon'>scrapbox.io/</div>
             <input type='text' className='form-control' id="inputError1" />
           </div>
@@ -310,7 +310,7 @@ export default function Forms () {
           <input type='file' title='File' disabled />
         </div>
 
-        <button className='btn btn-default btn-auto-size'>Submit</button>
+        <button className='btn btn-default btn-auto-lg'>Submit</button>
 
         <h4>Small sizes</h4>
         <div className='form-group'>
@@ -395,22 +395,22 @@ export default function Forms () {
       <form className='form-inline'>
         <div className='form-group'>
           <label htmlFor='exampleInputName2'>Name</label>
-          <input type='text' className='form-control input-auto-size' id='exampleInputName2' placeholder='Jane Doe' />
+          <input type='text' className='form-control input-auto-lg' id='exampleInputName2' placeholder='Jane Doe' />
         </div>
         <div className='form-group'>
           <label htmlFor='exampleInputEmail2'>Email</label>
-          <input type='email' className='form-control input-auto-size' id='exampleInputEmail2' placeholder='jane.doe@example.com' />
+          <input type='email' className='form-control input-auto-lg' id='exampleInputEmail2' placeholder='jane.doe@example.com' />
         </div>
         <div className='checkbox'>
           <label>
             <input type='checkbox' /> Remember me
           </label>
         </div>
-        <button type='submit' className='btn btn-default btn-auto-size'>Send invitation</button>
+        <button type='submit' className='btn btn-default btn-auto-lg'>Send invitation</button>
       </form>
 
       <form className='form-inline'>
-        <div className='input-group input-group-auto-size'>
+        <div className='input-group input-group-auto-lg'>
           <span className='input-group-addon'>@</span>
           <input type='text' className='form-control' placeholder='Username' aria-describedby='sizing-addon2' />
           <span className='input-group-addon'>.00</span>
@@ -418,7 +418,7 @@ export default function Forms () {
         <div className='form-group'>
           <p className='form-control-static'>note</p>
         </div>
-        <button type='submit' className='btn btn-default btn-auto-size'>Send invitation</button>
+        <button type='submit' className='btn btn-default btn-auto-lg'>Send invitation</button>
       </form>
 
       <br />
@@ -427,13 +427,13 @@ export default function Forms () {
         <div className='form-group'>
           <label htmlFor='inputEmail3' className='col-sm-2 control-label'>Email</label>
           <div className='col-sm-10'>
-            <input type='email' className='form-control input-auto-size' id='inputEmail3' placeholder='Email' />
+            <input type='email' className='form-control input-auto-lg' id='inputEmail3' placeholder='Email' />
           </div>
         </div>
         <div className='form-group'>
           <label htmlFor='inputPassword3' className='col-sm-2 control-label'>Password</label>
           <div className='col-sm-10'>
-            <input type='password' className='form-control input-auto-size' id='inputPassword3' placeholder='Password' />
+            <input type='password' className='form-control input-auto-lg' id='inputPassword3' placeholder='Password' />
           </div>
         </div>
         <div className='form-group'>
@@ -447,7 +447,7 @@ export default function Forms () {
         </div>
         <div className='form-group'>
           <div className='col-sm-offset-2 col-sm-10'>
-            <button type='submit' className='btn btn-default btn-auto-size'>Sign in</button>
+            <button type='submit' className='btn btn-default btn-auto-lg'>Sign in</button>
           </div>
         </div>
       </form>
