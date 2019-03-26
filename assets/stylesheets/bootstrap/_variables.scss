@@ -259,9 +259,9 @@ $dropdown-link-hover-color:      $text-color !default;
 $dropdown-link-hover-bg:         darken($btn-default-bg, 5%) !default;
 
 //** Active dropdown menu item text color.
-$dropdown-link-active-color:     $component-active-color !default;
+$dropdown-link-active-color:     $brand-primary !default;
 //** Active dropdown menu item background color.
-$dropdown-link-active-bg:        $component-active-bg !default;
+$dropdown-link-active-bg:        $dropdown-bg !default;
 
 //** Disabled dropdown menu item background color.
 $dropdown-link-disabled-color:   $gray-light !default;
