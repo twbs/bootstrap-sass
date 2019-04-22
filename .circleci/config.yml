@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:10.5.0
+      - image: circleci/node:10.15.3
 
     working_directory: ~/app
 

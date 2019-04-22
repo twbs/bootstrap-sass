@@ -8,7 +8,8 @@
   "scripts": {
     "sass-lint": "sass-lint -v --no-exit",
     "sass-lint-fix": "sass-lint-auto-fix",
-    "test": "npm run sass-lint && sh test/*.sh"
+    "test": "npm run sass-lint && sh test/*.sh",
+    "prepublishOnly": "npm test"
   },
   "files": [
     "assets",
