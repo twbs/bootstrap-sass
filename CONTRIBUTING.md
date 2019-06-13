@@ -72,6 +72,10 @@ Make sure to adhere to the coding conventions used throughout a project
 (indentation, accurate comments, etc.). Please update any documentation that is
 relevant to the change you're making.
 
+## Issue triage [![Open Source Helpers](https://www.codetriage.com/twbs/bootstrap-sass/badges/users.svg)](https://www.codetriage.com/twbs/bootstrap-sass)
+
+You can contribute by triaging issues which may include reproducing bug reports or asking for vital information, such as version numbers or reproduction instructions. If you would like to start triaging issues, one easy way to get started is to [subscribe to bootstrap-sass on CodeTriage](https://www.codetriage.com/twbs/bootstrap-sass).
+
 ## Do not…
 
 Please **do not** use the issue tracker for personal support requests (use
