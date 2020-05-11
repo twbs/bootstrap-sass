@@ -32,7 +32,7 @@ $turqoise: #017d87;
 $accent: #005d64;
 $pink: #c5197d;
 $green: #3f9e76;
-$yellow: #fdb515;
+$yellow: #FFC943;
 $red: #a02f2b;
 $purple: #4a2b80;
 $orange: #f47821;
@@ -42,11 +42,11 @@ $deathstar: $gray;
 $battleship: $gray-light;
 $misty: $gray-lighter;
 
-$brand-primary:         $turqoise !default;
-$brand-success:         $green !default;
-$brand-info:            $pink !default;
-$brand-warning:         $yellow !default;
-$brand-danger:          $red !default;
+$brand-primary:         #117D85 !default;
+$brand-success:         #77E0CE !default;
+$brand-info:            #4CC3D6 !default;
+$brand-warning:         #FFC943 !default;
+$brand-danger:          #FF4D96 !default;
 
 
 //== Scaffolding
@@ -530,7 +530,7 @@ $pager-disabled-color:                 $pagination-disabled-color !default;
 //
 //## Define colors for form feedback states and, by default, alerts.
 
-$state-success-text:             $brand-success !default;
+$state-success-text:             $green !default;
 $state-success-bg:               #e3f1eb;
 $state-success-border:           #3f9e76 !default;
 
@@ -542,7 +542,7 @@ $state-warning-text:             $brand-warning !default;
 $state-warning-bg:               #fff2d4;
 $state-warning-border:           $yellow !default;
 
-$state-danger-text:              $brand-danger !default;
+$state-danger-text:              $red !default;
 $state-danger-bg:                #fee0e0 !default;
 $state-danger-border:            $red !default;
 
@@ -599,17 +599,17 @@ $popover-arrow-outer-fallback-color:  darken($popover-fallback-border-color, 20%
 //##
 
 //** Default label background color
-$label-default-bg:            $gray !default;
+$label-default-bg:            #AAD0D0 !default;
 //** Primary label background color
 $label-primary-bg:            $brand-primary !default;
 //** Success label background color
-$label-success-bg:            #a2cfbc !default;
+$label-success-bg:            $brand-success !default;
 //** Info label background color
 $label-info-bg:               $brand-info !default;
 //** Warning label background color
-$label-warning-bg:            #ffd992 !default;
+$label-warning-bg:            $brand-warning !default;
 //** Danger label background color
-$label-danger-bg:             #fcacac !default;
+$label-danger-bg:             $brand-danger !default;
 
 //** Default label text color
 $label-color:                 #fff !default;
@@ -662,19 +662,19 @@ $alert-border-radius:         0 !default;
 $alert-link-font-weight:      bold !default;
 $alert-default-text:          $black;
 
-$alert-success-border:        $state-success-border !default;
-$alert-success-bg:            $state-success-bg !default;
+$alert-success-border:        #77E0CE !default;
+$alert-success-bg:            #C9F3EB !default;
 $alert-success-text:          $state-success-text !default;
 
-$alert-info-border:           $state-info-border !default;
-$alert-info-bg:               $state-info-bg !default;
+$alert-info-border:           #4CC3D6 !default;
+$alert-info-bg:               #B7E7EF !default;
 
-$alert-warning-border:        $state-warning-border !default;
-$alert-warning-bg:            $state-warning-bg !default;
+$alert-warning-border:        #FFC943 !default;
+$alert-warning-bg:            #ffeab6 !default;
 $alert-warning-text:          $state-warning-text !default;
 
-$alert-danger-border:         $state-danger-border !default;
-$alert-danger-bg:             $state-danger-bg !default;
+$alert-danger-border:         #FF4D96 !default;
+$alert-danger-bg:             #FFB8D5 !default;
 $alert-danger-text:           $state-danger-text !default;
 
 //== Panels
