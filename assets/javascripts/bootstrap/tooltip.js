@@ -220,7 +220,7 @@
     var dataAttributes = this.$element.data()
 
     for (var dataAttr in dataAttributes) {
-      if (dataAttributes.hasOwnProperty(dataAttr) && $.inArray(dataAttr, DISALLOWED_ATTRIBUTES) !== -1) {
+      if (Object.prototype.hasOwnProperty.call(dataAttributes, dataAttr) && $.inArray(dataAttr, DISALLOWED_ATTRIBUTES) !== -1) {
         delete dataAttributes[dataAttr]
       }
     }
