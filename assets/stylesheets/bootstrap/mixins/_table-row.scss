@@ -6,8 +6,8 @@
   .table > thead > tr,
   .table > tbody > tr,
   .table > tfoot > tr {
-    > td.#{$state},
-    > th.#{$state},
+    & > td.#{$state},
+    & > th.#{$state},
     &.#{$state} > td,
     &.#{$state} > th {
       background-color: $background;
@@ -17,8 +17,8 @@
   // Hover states for `.table-hover`
   // Note: this is not available for cells or rows within `thead` or `tfoot`.
   .table-hover > tbody > tr {
-    > td.#{$state}:hover,
-    > th.#{$state}:hover,
+    & > td.#{$state}:hover,
+    & > th.#{$state}:hover,
     &.#{$state}:hover > td,
     &:hover > .#{$state},
     &.#{$state}:hover > th {
