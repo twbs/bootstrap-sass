@@ -3628,6 +3628,9 @@ a.label:hover, a.label:focus {
     border-top-color: #62dbc7; }
   .alert-success .alert-link {
     color: black; }
+  .alert-success a {
+    color: #000000 !important;
+    text-decoration: underline; }
 
 .alert-info {
   color: #000000;
@@ -3637,6 +3640,9 @@ a.label:hover, a.label:focus {
     border-top-color: #37bcd1; }
   .alert-info .alert-link {
     color: black; }
+  .alert-info a {
+    color: #000000 !important;
+    text-decoration: underline; }
 
 .alert-warning {
   color: #000000;
@@ -3646,6 +3652,9 @@ a.label:hover, a.label:focus {
     border-top-color: #ffc22a; }
   .alert-warning .alert-link {
     color: black; }
+  .alert-warning a {
+    color: #000000 !important;
+    text-decoration: underline; }
 
 .alert-danger {
   color: #000000;
@@ -3655,6 +3664,9 @@ a.label:hover, a.label:focus {
     border-top-color: #ff3487; }
   .alert-danger .alert-link {
     color: black; }
+  .alert-danger a {
+    color: #000000 !important;
+    text-decoration: underline; }
 
 .well {
   min-height: 20px;
