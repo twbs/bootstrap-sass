@@ -29,7 +29,9 @@
     "ejs": "~2.4.2",
     "http-server": "^0.11.1",
     "mincer": "~1.4.0",
-    "node-sass": "^4.12.0"
+    "node-sass": "^4.12.0",
+    "npm-run-all": "^4.1.5",
+    "serve": "^11.3.2"
   },
   "eyeglass": {
     "exports": "eyeglass-exports.js",
@@ -39,7 +41,8 @@
     "build-compressed": "./node_modules/node-sass/bin/node-sass app.scss dist/app.min.css --output-style compressed",
     "build-uncompressed": "./node_modules/node-sass/bin/node-sass app.scss dist/app.css",
     "build": "npm run build-compressed && npm run build-uncompressed",
-    "serve": "http-server",
+    "serve": "serve",
+    "start": "run-p watch serve",
     "watch": "./node_modules/node-sass/bin/node-sass --watch app.scss dist/app.min.css --output-style compressed"
   }
 }
