@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-sass",
-  "version": "3.3.6-talis.26",
+  "version": "3.3.6-talis.27",
   "description": "bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications.",
   "main": "assets/javascripts/bootstrap.js",
   "style": "assets/stylesheets/_bootstrap.scss",
@@ -28,11 +28,9 @@
   "devDependencies": {
     "ejs": "~2.4.2",
     "es-dev-server": "^1.57.1",
-    "http-server": "^0.11.1",
     "mincer": "~1.4.0",
     "node-sass": "^4.12.0",
-    "npm-run-all": "^4.1.5",
-    "serve": "^11.3.2"
+    "npm-run-all": "^4.1.5"
   },
   "eyeglass": {
     "exports": "eyeglass-exports.js",
