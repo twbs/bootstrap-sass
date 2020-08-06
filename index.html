@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Talis Components</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="dist/app.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -120,10 +121,10 @@
         <h4>h4, .delta</h4>
         <h5>h5, .epsilon</h5>
         <h6>h6, .zeta</h6>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at augue leo. In eros ligula, volutpat id neque eu, maximus
+        <p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>. Ut at augue leo. In eros ligula, volutpat id neque eu, maximus
           pretium nisl. Aliquam non mi lobortis augue cursus dignissim. Vivamus blandit augue eget sapien facilisis suscipit.
-          In bibendum lacus sed orci condimentum, a faucibus ante dignissim. Quisque vel mi dolor. Vestibulum ante ipsum
-          primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus et erat eu tellus sollicitudin egestas
+          In bibendum lacus sed orci condimentum, a faucibus ante dignissim. <a href="#">Quisque vel mi dolor. Vestibulum ante ipsum
+          primis in faucibus orci luctus et ultrices posuere cubilia Curae</a>a; Vivamus et erat eu tellus sollicitudin egestas
           venenatis consectetur massa. Curabitur non euismod lorem. Vivamus viverra nisl at vulputate pharetra. In hac habitasse
           platea dictumst.</p>
         <ul>
@@ -231,6 +232,30 @@
 
           <hr>
 
+          <div class="col-xs-12">
+            <h2>Buttons</h2>
+            <h3>Normal</h3>
+            <button type="button" class="btn btn-default">Normal button</button>
+            <button type="button" class="btn btn-primary">Primary button</button>
+            <button type="button" class="btn btn-success">Success button</button>
+            <button type="button" class="btn btn-warning">Warning button</button>
+            <button type="button" class="btn btn-info">Info button</button>
+            <button type="button" class="btn btn-danger">Danger button</button>
+            <button type="button" class="btn btn-link">Link button</button>
+          </div>
+          <div class="col-xs-12">
+            <h3>Large</h3>
+            <button type="button" class="btn btn-lg btn-default">Normal button</button>
+            <button type="button" class="btn btn-lg btn-primary">Primary button</button>
+            <button type="button" class="btn btn-lg btn-success">Success button</button>
+            <button type="button" class="btn btn-lg btn-warning">Warning button</button>
+            <button type="button" class="btn btn-lg btn-info">Info button</button>
+            <button type="button" class="btn btn-lg btn-danger">Danger button</button>
+            <button type="button" class="btn btn-lg btn-link">Link button</button>
+            <button type="button" class="btn btn-default btn-lg" disabled>Default inactive button</button>
+            <button type="button" class="btn btn-primary btn-lg" disabled>Default inactive button</button>
+          </div>
+
           <div class="btn-group">
             <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" disabled>
               I'm a disabled dropdown
@@ -263,23 +288,25 @@
       <div class="col-xs-12">
         <h2>Buttons</h2>
         <h3>Normal</h3>
-        <button class="btn btn-default">Normal button</button>
-        <button class="btn btn-primary">Primary button</button>
-        <button class="btn btn-success">Success button</button>
-        <button class="btn btn-warning">Warning button</button>
-        <button class="btn btn-info">Info button</button>
-        <button class="btn btn-danger">Danger button</button>
-        <button class="btn btn-link">Link button</button>
+        <button type="button" class="btn btn-default">Normal button</button>
+        <button type="button" class="btn btn-primary">Primary button</button>
+        <button type="button" class="btn btn-success">Success button</button>
+        <button type="button" class="btn btn-warning">Warning button</button>
+        <button type="button" class="btn btn-info">Info button</button>
+        <button type="button" class="btn btn-danger">Danger button</button>
+        <button type="button" class="btn btn-link">Link button</button>
       </div>
       <div class="col-xs-12">
         <h3>Large</h3>
-        <button class="btn btn-lg btn-default">Normal button</button>
-        <button class="btn btn-lg btn-primary">Primary button</button>
-        <button class="btn btn-lg btn-success">Success button</button>
-        <button class="btn btn-lg btn-warning">Warning button</button>
-        <button class="btn btn-lg btn-info">Info button</button>
-        <button class="btn btn-lg btn-danger">Danger button</button>
-        <button class="btn btn-lg btn-link">Link button</button>
+        <button type="button" class="btn btn-lg btn-default">Normal button</button>
+        <button type="button" class="btn btn-lg btn-primary">Primary button</button>
+        <button type="button" class="btn btn-lg btn-success">Success button</button>
+        <button type="button" class="btn btn-lg btn-warning">Warning button</button>
+        <button type="button" class="btn btn-lg btn-info">Info button</button>
+        <button type="button" class="btn btn-lg btn-danger">Danger button</button>
+        <button type="button" class="btn btn-lg btn-link">Link button</button>
+        <button type="button" class="btn btn-default btn-lg" disabled>Default inactive button</button>
+        <button type="button" class="btn btn-primary btn-lg" disabled>Default inactive button</button>
       </div>
       <div class="col-xs-12">
         <h3>XS</h3>
@@ -746,6 +773,33 @@
             <h2 class="panel-title gamma">Panel title</h3>
           </div>
           <div class="panel-body">
+
+            <div class="col-xs-12">
+              <h2>Buttons</h2>
+              <h3>Normal</h3>
+              <button type="button" class="btn btn-default">Normal button</button>
+              <button type="button" class="btn btn-primary">Primary button</button>
+              <button type="button" class="btn btn-success">Success button</button>
+              <button type="button" class="btn btn-warning">Warning button</button>
+              <button type="button" class="btn btn-info">Info button</button>
+              <button type="button" class="btn btn-danger">Danger button</button>
+              <button type="button" class="btn btn-link">Link button</button>
+            </div>
+            <div class="col-xs-12">
+              <h3>Large</h3>
+              <button type="button" class="btn btn-lg btn-default">Normal button</button>
+              <button type="button" class="btn btn-lg btn-primary">Primary button</button>
+              <button type="button" class="btn btn-lg btn-success">Success button</button>
+              <button type="button" class="btn btn-lg btn-warning">Warning button</button>
+              <button type="button" class="btn btn-lg btn-info">Info button</button>
+              <button type="button" class="btn btn-lg btn-danger">Danger button</button>
+              <button type="button" class="btn btn-lg btn-link">Link button</button>
+              <button type="button" class="btn btn-default btn-lg" disabled>Default inactive button</button>
+              <button type="button" class="btn btn-primary btn-lg" disabled>Default inactive button</button>
+            </div>
+
+
+
             <img src="http://placehold.it/50.60" />
             <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat commodi reprehenderit autem, eaque earum, similique
               nostrum ipsam, asperiores est mollitia, libero repudiandae. Sunt pariatur sapiente placeat labore odit officia
@@ -817,7 +871,7 @@
       <div class="col-xs-12">
         <h2>Onboarding Tips</h2>
 
-        <aside class="c-tip c-tip--onboarding" aria-describedby="tipTitle tipContent" tabindex="0">
+        <aside class="c-tip c-tip--onboarding" aria-describedby="tipTitle tipContent">
           <i class="c-tip__icon far fa-lightbulb" role="presentation"></i>
           <div class="c-tip__text">
             <strong class="c-tip__title" id="tipTitle">Title</strong>
