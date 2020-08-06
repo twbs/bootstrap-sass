@@ -16,6 +16,10 @@
   border-left:  $caret-width-base solid transparent;
 }
 
+.open .caret {
+  transform: rotate(180deg);
+}
+
 // The dropdown wrapper (div)
 .dropup,
 .dropdown {
@@ -70,19 +74,20 @@
     line-height: $line-height-base;
     color: $dropdown-link-color;
     white-space: nowrap; // prevent links from randomly breaking onto new lines
+    text-decoration: none;
   }
 
   > li > button {
     touch-action: manipulation;
     width: 100%;
-    padding: 2px 20px;
+    padding: 4px 20px;
     font-weight: normal;
     text-align: left;
     color: $dropdown-link-color;
     white-space: nowrap; // prevent links from randomly breaking onto new lines
     background-color: transparent;
     background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-    border: 1px solid transparent;
+    border: 0px solid transparent;
     @include user-select(none);
   }
 }
@@ -90,12 +95,29 @@
 // Hover/Focus state
 .dropdown-menu > li > a,
 .dropdown-menu > li > button {
-  &:hover,
-  &:focus {
+  &:hover {
     text-decoration: none;
-    color: $dropdown-link-hover-color;
-    background-color: $dropdown-link-hover-bg;
+    color: $dropdown-link-hover-bg;
+    // color: $dropdown-link-hover-color;
+    background-color: $gray200;
+    // background-color: $dropdown-link-hover-bg;
   }
+
+  &:focus {
+    outline: 2px solid $dropdown-link-color;
+    outline-offset: -2px;
+    color: $dropdown-link-hover-bg;
+    // border: 1px solid $dropdown-link-hover-bg;
+    // box-shadow: 0 0 0 1px inset $dropdown-link-hover-bg;
+  }
+
+  // &:hover:focus,
+  // :active {
+  //   color: $dropdown-link-hover-bg;
+  //   background-color: $gray200;
+  //   border: 1px solid $dropdown-link-hover-bg;
+  //   box-shadow: 0 0 0 1px inset $dropdown-link-hover-bg;
+  // }
 }
 
 // Active state
@@ -104,10 +126,12 @@
   &,
   &:hover,
   &:focus {
-    color: $dropdown-link-active-color;
-    text-decoration: none;
-    outline: 0;
-    background-color: $dropdown-link-active-bg;
+    padding-left: 20px;
+    // border-left: 3px solid $dropdown-link-hover-bg;
+    font-weight: 600;
+    background-image: linear-gradient(to right, $dropdown-link-color 4px, transparent 4px);
+    background-repeat: no-repeat;
+
   }
 }
 
@@ -120,7 +144,8 @@
   &,
   &:hover,
   &:focus {
-    color: $dropdown-link-disabled-color;
+    // color: $dropdown-link-disabled-color;
+    color: #ADB5BD;
   }
 
   // Nuke hover/focus effects
@@ -139,15 +164,17 @@
 .dropdown-menu > .danger > a,
 .dropdown-menu > .danger > button {
   color: $red;
-  &:hover,
-  &:focus {
-    color: $white;
-  }
   &:hover {
-    background-color: $red;
+    color: $red;
+    background-color: $gray200;
   }
+
   &:focus {
-    background-color: darken(saturate(adjust-hue($red, -0.2776), 1.4706), 7.0588)
+    color: $red;
+    outline: 2px solid $red;
+    outline-offset: -2px;
+
+    // background-color: darken(saturate(adjust-hue($red, -0.2776), 1.4706), 7.0588)
   }
 }
 
@@ -191,6 +218,7 @@
   font-size: $font-size-small;
   line-height: $line-height-base;
   color: $dropdown-header-color;
+  font-weight: 600;
   text-transform: uppercase;
   white-space: nowrap; // as with > li > a
 }

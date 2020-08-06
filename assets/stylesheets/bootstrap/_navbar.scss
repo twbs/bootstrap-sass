@@ -161,9 +161,16 @@
   line-height: $line-height-computed;
   height: $navbar-height;
 
+  text-decoration: none;
+
   &:hover,
   &:focus {
     text-decoration: none;
+  }
+
+  &:focus {
+    outline: 2px solid $white;
+    outline-offset: -2px;
   }
 
   > img {
@@ -412,18 +419,25 @@
     > li > a {
       color: $navbar-default-link-color;
 
-      &:hover,
       &:focus {
+        outline: 2px solid $white;
+        outline-offset: -2px;
+        background-color: $navbar-default-bg;
+      }
+
+      &:hover {
         color: $navbar-default-link-hover-color;
         background-color: $navbar-default-link-hover-bg;
       }
+
     }
     > .active > a {
       &,
       &:hover,
       &:focus {
         color: $navbar-default-link-active-color;
-        background-color: $navbar-default-link-active-bg;
+        // background-color: $navbar-default-link-active-bg;
+        background-image: linear-gradient(0deg, white 4px, transparent 4px);
       }
     }
     > .disabled > a {

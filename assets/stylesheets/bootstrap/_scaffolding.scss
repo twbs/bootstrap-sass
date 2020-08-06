@@ -11,6 +11,7 @@
 * {
   @include box-sizing(border-box);
 }
+
 *:before,
 *:after {
   @include box-sizing(border-box);
@@ -42,17 +43,33 @@ textarea {
   line-height: inherit;
 }
 
+a, input, select, textarea {
+  outline: none;
+}
 
 // Links
 
 a {
   color: $link-color;
-  text-decoration: none;
+  // border-bottom: 1px solid $link-color;
+  text-decoration: underline;
+  text-underline-position: below;
+
 
   &:hover,
   &:focus {
     color: $link-hover-color;
     text-decoration: $link-hover-decoration;
+  }
+
+  &:focus {
+    text-decoration: none;
+    outline: 1px solid $link-hover-color;
+    // outline:
+  }
+
+  &:visited {
+    text-decoration-style: dashed;
   }
 }
 

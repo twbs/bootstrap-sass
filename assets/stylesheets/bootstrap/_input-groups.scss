@@ -143,21 +143,21 @@
   // element above the siblings.
   > .btn {
     position: relative;
-    background-color: $input-bg;
+    // background-color: $input-bg;
     + .btn {
       margin-left: -1px;
     }
     // Bring the "active" button to the front
     &:hover,
     &:focus {
-      background-color: darken($input-bg, 4%);
-      border-color: darken($input-bg, 4%);
+    //   background-color: darken($input-bg, 4%);
+    //   border-color: darken($input-bg, 4%);
       z-index: 2;
     }
-    &:active {
-      background-color: darken($input-bg, 10%);
-      border-color: darken($input-bg, 10%);
-    }
+    // &:active {
+    //   background-color: darken($input-bg, 10%);
+    //   border-color: darken($input-bg, 10%);
+    // }
   }
 
   // Negative margin to only have a 1px border between the two
@@ -171,7 +171,7 @@
     > .btn,
     > .btn-group {
       z-index: 2;
-      margin-left: 1px;
+      margin-left: -1px;
     }
   }
 }

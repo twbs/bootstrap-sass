@@ -21,6 +21,8 @@
   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
   @include user-select(none);
 
+  text-decoration: none;;
+
   &,
   &:active,
   &.active {
@@ -76,12 +78,12 @@ a.btn {
 
 // Info appears as pink
 .btn-info {
-  @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
+  @include button-variant-plain($btn-default-color, $btn-default-bg, $btn-default-border);
 }
 
 // Danger and error appear as a plain button with red text...
 .btn-danger {
-  @include button-variant-plain($btn-danger-color, $btn-danger-bg, $btn-default-border);
+  @include button-variant-plain($btn-danger-color, $btn-danger-bg, $btn-danger-color);
 }
 
 
@@ -91,7 +93,7 @@ a.btn {
 // Make a button look and behave like a link
 .btn-link {
   color: $link-color;
-  font-weight: normal;
+  font-weight: 600;
 
   &,
   &:active,
@@ -105,15 +107,30 @@ a.btn {
   &:active {
     color: $link-hover-color;
     text-decoration: none;
-    border-color: $btn-default-border;
+    // border-color: $btn-default-border;
   }
-  &:hover,
-  &:focus {
-    background-color: $gray100;
-  }
-  &:active {
+  &:hover {
     background-color: $gray200;
   }
+
+  &:focus {
+    border-color: $btn-default-color;
+    background-color: transparent;
+    box-shadow: 0px 0px 0px 1px $btn-default-border;
+  }
+
+  &:hover:focus {
+    background-color: $gray200;
+    border-color: $btn-default-color;
+    box-shadow: 0px 0px 0px 1px $btn-default-border;
+  }
+
+  &:active {
+    background-color: $gray200;
+    border-color: $btn-default-color;
+    box-shadow: 0px 0px 0px 1px $btn-default-border;
+  }
+
   &[disabled],
   fieldset[disabled] & {
     &:hover,
@@ -122,13 +139,17 @@ a.btn {
       text-decoration: none;
     }
   }
+
   .open > &.dropdown-toggle {
     color: darken(saturate(adjust-hue($link-hover-color, -0.2776), 1.4706), 7.0588);
     background-color: $gray200;
+
+    // box-shadow: 0px 0px 0px 1px $btn-default-border;
     &:focus,
     &.focus {
       background-color: $gray200;
-      border-color: $gray200;
+      // border-color: $gray200;
+      // box-shadow: 0px 0px 0px 1px $btn-default-border;
     }
   }
 }
@@ -140,6 +161,7 @@ a.btn {
 .btn-lg {
   // line-height: ensure even-numbered height of button next to large input
   @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
+  font-weight: 400;
 }
 .btn-sm {
   // line-height: ensure proper height of button next to small input
@@ -148,15 +170,15 @@ a.btn {
 .btn-xs {
   padding: $padding-xs-vertical $padding-xs-horizontal;
   font-size: $font-size-base;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.0769230769;
   border-radius: $border-radius-small;
   text-transform: uppercase;
   vertical-align: baseline;
 
-  &.btn-primary {
-    border-width: 0;
-  }
+  // &.btn-primary {
+  //   border-width: 0;
+  // }
 }
 
 

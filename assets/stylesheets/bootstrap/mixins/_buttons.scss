@@ -8,21 +8,39 @@
   background-color: $background;
   border-color: $border;
 
-  &:focus,
-  &.focus,
   &:hover {
-    color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
-    background-color: $gray100;
+    background-color: #E9ECEF;
+    // color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
+    color: $color;
   }
+
+  &:focus,
+  &.focus {
+    // color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
+    color: $color;
+    background-color: $background;
+    border-color: $color;
+    box-shadow: 0px 0px 0px 1px $color;
+  }
+
+  &:focus:hover {
+    // border-color: white;
+    background-color: #E9ECEF;
+    box-shadow: 0px 0px 0px 1px $color;
+  }
+
   &:active,
   &.active,
   .open > &.dropdown-toggle {
-    color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
-    background-color: $gray200;
+    // color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
+    color: $color;
+    background-color: #E9ECEF;
+    // box-shadow: 0px 0px 0px 1px $color;
 
     &:focus,
     &.focus {
-      background-color: $gray200;
+      background-color: #E9ECEF;
+      box-shadow: 0px 0px 0px 1px $color;
     }
   }
 
@@ -31,15 +49,25 @@
   .open > &.dropdown-toggle {
     background-image: none;
   }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] {
+    background-color: $white;
+    border-color: #ADB5BD;
+    color: #ADB5BD;
+  }
+
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
     &:hover,
     &:focus,
     &.focus {
-      background-color: $background;
-      border-color: $border;
-      color: $gray700;
+      background-color: $white;
+      border-color: #ADB5BD;
+      color: #ADB5BD;
+      box-shadow: none;
     }
   }
 
@@ -54,41 +82,70 @@
   background-color: $background;
   border-color: $border;
 
-  &:focus,
-  &.focus,
   &:hover {
-    color: $color;
     background-color: darken(saturate(adjust-hue($background, -0.2776), 1.4706), 7.0588);
-        border-color: darken(saturate(adjust-hue($border, -0.2776), 1.4706), 7.0588);
+    color: $color;
+    border-color: darken(saturate(adjust-hue($border, -0.2776), 1.4706), 7.0588);
   }
+
+  &:focus,
+  &.focus {
+    color: $color;
+    // background-color: darken(saturate(adjust-hue($background, -0.2776), 1.4706), 7.0588);
+    border-color: $color;
+    box-shadow:
+      // 0px 0px 0px 1px inset $color,
+      0px 0px 0px 1px $color,
+      0px 0px 0px 2px $background,
+  }
+
   &:active,
   &.active,
   .open > &.dropdown-toggle {
     color: $color;
     background-color: darken(saturate(adjust-hue($background, -0.7276), 1.4706), 10.9804);
-        border-color: darken(saturate(adjust-hue($border, -0.7276), 1.4706), 10.9804);
+    border-color: $color;
+    box-shadow:
+      0px 0px 0px 1px $color,
+      0px 0px 0px 2px darken(saturate(adjust-hue($background, -0.7276), 1.4706), 10.9804);
+
+
+    &:focus,
+    &.focus {
+      // background-color: darken(saturate(adjust-hue($background, -0.7276), 1.4706), 10.9804);
+      // border-color: darken(saturate(adjust-hue($background, -0.7276), 1.4706), 10.9804);
+      // box-shadow: 0 0 0 2px inset $white,
+    }
   }
+
   &:active,
   &.active,
   .open > &.dropdown-toggle {
     background-image: none;
   }
+
   &.disabled,
   &[disabled],
   fieldset[disabled] {
-    background-color: $btn-default-bg;
-    border-color: $btn-default-border;
-    color: $deathstar;
+    background-color: #ADB5BD;
+    border-color: #ADB5BD;
+    color: $white;
+    box-shadow: none;
   }
+
   &.disabled,
   &[disabled],
+  &[disabled]:active,
   fieldset[disabled] & {
+    // pointer-events: none;
+
     &:hover,
     &:focus,
     &.focus {
-      background-color: $btn-default-bg;
-      border-color: $btn-default-border;
-      color: $deathstar;
+      background-color: #ADB5BD;
+      border-color: #ADB5BD;
+      color: $white;
+      box-shadow: none;
     }
   }
 

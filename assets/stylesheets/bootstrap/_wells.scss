@@ -61,34 +61,35 @@ $all-text-inputs: _assing-inputs($_text-inputs-list);
 
   .form-control {
     background-color: $white;
-    border-color: $white;
+    border-color: $input-border;
 
     &:focus {
       border-color: $brand-primary;
+      // box-shado
     }
   }
   // #{$all-text-inputs} {
   //   background-color: $white;
   // }
 
-  .input-group-btn > .btn {
-    background-color: $white;
-    border-color: $white;
+  // .input-group-btn > .btn {
+  //   background-color: $white;
+  //   border-color: $brand-primary;
 
-    &:hover {
-      background-color: $gray-superlight;
-      border-color: $gray-superlight;
-    }
+  //   &:hover {
+  //     background-color: $gray-superlight;
+  //   //   border-color: $brand-primary;
+  //   }
 
-    &:active,
-    &:focus {
-      background-color: $gray-superlight;
-      border-color: $gray-superlight;
-    }
-  }
+    // &:active,
+    // &:focus {
+    //   background-color: $gray-superlight;
+    //   border-color: $gray-superlight;
+    // }
+  // }
 
   .open > &.dropdown-toggle {
-    background-color: $gray-superlight;
+    // background-color: $gray-superlight;
   }
 
   .btn-default,
@@ -96,7 +97,7 @@ $all-text-inputs: _assing-inputs($_text-inputs-list);
   .btn-danger {
     &:active,
     &:focus {
-      background-color: $gray-superlight;
+      // background-color: $gray-superlight;
     }
 
     &.disabled,

@@ -77,7 +77,9 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  @include tab-focus;
+  // @include tab-focus;
+  outline: 2px solid $brand-primary;
+  outline-offset: 2px;
 }
 
 // Adjust output element
@@ -115,7 +117,7 @@ output {
 .form-control {
   display: block;
   width: 100%;
-  height: $input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  // height: $input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
   padding: $padding-base-vertical $padding-base-horizontal;
   font-size: $font-size-base;
   line-height: $line-height-base;
@@ -152,8 +154,10 @@ output {
   &[disabled],
   &[readonly],
   fieldset[disabled] & {
-    background-color: $input-bg-disabled;
-    border-color: $input-bg-disabled;
+    // background-color: $input-bg-disabled;
+    background-color: $gray100;
+    // border-color: $input-border;
+    border-color: $gray200;
     color: $gray;
     cursor: $cursor-disabled;
   }
@@ -651,6 +655,7 @@ input[type="checkbox"] {
     opacity: 0;
 }
 
+
 .custom-checkbox .custom-control-label::before {
     border-radius: 3px;
 }
@@ -672,7 +677,14 @@ input[type="checkbox"] {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: #dee2e6;
+    // background-color: #dee2e6;
+    background-color: transparent;
+    // border: 1px solid $brand-primary;
+    box-shadow: 0 0 0 1px $brand-primary;
+}
+
+.custom-control-label:hover::before {
+  background-color: $gray200;
 }
 
 .custom-control-label::after {
@@ -685,11 +697,29 @@ input[type="checkbox"] {
     content: "";
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 50% 50%;
+    background-size: 0.7rem;
 }
 
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: $brand-primary;
+.custom-radio .custom-control-input:focus~.custom-control-label::after {
+  box-shadow: 0 0 0 2px #017d87;
+  border-radius: 1rem;
+}
+
+
+.custom-control-label:focus {
+  outline: none;
+
+  &::before {
+    box-shadow: 0 0 0px 1px #017d87;
+  }
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before,
+.custom-checkbox .custom-control-input:focus~.custom-control-label::before
+ {
+    // background-color: $brand-primary;
+    background-color: $white;
+    box-shadow: 0 0 0 2px #017d87;
 }
 
 .custom-control-input:checked~.custom-control-label::before {
@@ -698,7 +728,8 @@ input[type="checkbox"] {
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::after {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+  // box-shadow: 0 0 0px 1px #017d87;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23017d87' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
 }
 
 .custom-control-input:disabled~.custom-control-label {
@@ -710,16 +741,17 @@ input[type="checkbox"] {
 }
 
 .custom-radio .custom-control-input:checked~.custom-control-label::before {
-    background-color: $brand-primary;
+    background-color: $white;
 }
 
 .custom-control-input:checked~.custom-control-label::before {
-    color: $white;
-    background-color: $brand-primary;
+    color: $brand-primary;
+    background-color: $white;
 }
 
 .custom-radio .custom-control-input:checked~.custom-control-label::after {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23fff'/%3E%3C/svg%3E");
+    // box-shadow: 0 0 0px 1px #017d87;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='4' fill='%23017d87'/%3E%3C/svg%3E");
 }
 
 // Select
@@ -746,6 +778,7 @@ input[type="checkbox"] {
 
   &:focus {
     border-color: $input-border-focus;
+    box-shadow: 0 0 0 1px $input-border-focus;
     outline: 0;
 
     &::-ms-value {

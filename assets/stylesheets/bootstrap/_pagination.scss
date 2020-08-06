@@ -38,12 +38,28 @@
 
   > li > a,
   > li > span {
-    &:hover,
-    &:focus {
+    &:hover {
+      outline: 0;
       z-index: 2;
       color: $pagination-hover-color;
       background-color: $pagination-hover-bg;
-      border-color: $pagination-hover-border;
+      // background-color: $gray200;
+      // border-color:  $pagination-hover-border;
+      // border-color: $gray400;
+    }
+
+    &:focus {
+      z-index: 3;
+      outline: 0;
+      border-color: $brand-primary;
+      box-shadow: 0 0 0 1px inset $brand-primary;
+    }
+
+    &:hover:focus {
+      z-index: 3;
+      border-color: $brand-primary;
+      box-shadow: 0 0 0 1px inset $brand-primary;
+
     }
   }
 
@@ -53,6 +69,7 @@
       z-index: 2;
       color: $pagination-hover-color;
       background-color: $pagination-down-bg;
+      // background-image: linear-gradient(0deg, $brand-primary 4px, transparent 4px);
       border-color: $pagination-hover-border;
     }
   }
@@ -64,6 +81,9 @@
     &:focus {
       z-index: 3;
       color: $pagination-active-color;
+      background-image: linear-gradient(0deg, $brand-primary 4px, transparent 4px);
+      font-weight: 600;
+
       background-color: $pagination-active-bg;
       border-color: $pagination-active-border;
       cursor: default;
@@ -76,10 +96,14 @@
     > span:focus,
     > a,
     > a:hover,
-    > a:focus {
+    > a:focus,
+    > a:active {
+      pointer-events: none;
       color: $pagination-disabled-color;
       background-color: $pagination-disabled-bg;
-      border-color: $pagination-disabled-border;
+      // border-color: $pagination-disabled-border;
+      outline: 0;
+      // box-shadow: none;
       cursor: $cursor-disabled;
     }
 

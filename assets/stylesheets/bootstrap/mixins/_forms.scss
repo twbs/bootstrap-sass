@@ -50,6 +50,7 @@
   $color-rgba: rgba(red($color), green($color), blue($color), .6);
   &:focus {
     border-color: $color;
+    box-shadow: 0 0 0 1px $color;
     outline: 0;
   }
 }

@@ -31,9 +31,9 @@ $gray-darker:            $gray900 !default;
 $turqoise: #017d87;
 $accent: #005d64;
 $pink: #c5197d;
-$green: #3f9e76;
+$green: #25828d;
 $yellow: #FFC943;
-$red: #a02f2b;
+$red: #C42129;
 $purple: #4a2b80;
 $orange: #f47821;
 
@@ -46,7 +46,7 @@ $brand-primary:         #117D85 !default;
 $brand-success:         #77E0CE !default;
 $brand-info:            #4CC3D6 !default;
 $brand-warning:         #FFC943 !default;
-$brand-danger:          #FF4D96 !default;
+$brand-danger:          #C42129 !default;
 
 
 //== Scaffolding
@@ -182,11 +182,11 @@ $table-header-color:            $black !default;
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
 
-$btn-font-weight:                normal !default;
+$btn-font-weight:                600 !default;
 
 $btn-default-color:              $brand-primary !default;
 $btn-default-bg:                 $white !default;
-$btn-default-border:             $gray200 !default;
+$btn-default-border:             $brand-primary !default;
 
 $btn-primary-color:              $white !default;
 $btn-primary-bg:                 $brand-primary !default;
@@ -221,14 +221,14 @@ $btn-border-radius-small:        $border-radius-small !default;
 //##
 
 //** `<input>` background color
-$input-bg:                       $gray200 !default;
+$input-bg:                       $white !default;
 //** `<input disabled>` background color
-$input-bg-disabled:              #fff !default;
+$input-bg-disabled:              $gray100 !default;
 
 //** Text color for `<input>`s
 $input-color:                    $gray-base !default;
 //** `<input>` border color
-$input-border:                   $gray200 !default;
+$input-border:                   $gray600 !default;
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -243,7 +243,7 @@ $input-border-radius-small:      $border-radius-small !default;
 $input-border-focus:             $brand-primary !default;
 
 //** Placeholder text color
-$input-color-placeholder:        $gray700 !default;
+$input-color-placeholder:        $gray600 !default;
 
 //** Default `.form-control` height
 $input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
@@ -298,7 +298,7 @@ $dropdown-link-active-bg:        $component-active-bg !default;
 $dropdown-link-disabled-color:   $gray !default;
 
 //** Text color for headers within dropdown menus.
-$dropdown-header-color:          $gray !default;
+$dropdown-header-color:          $gray600 !default;
 
 //** Deprecated `$dropdown-caret-color` as of v3.1.0
 $dropdown-caret-color:           #fff !default;
@@ -462,20 +462,20 @@ $navbar-inverse-toggle-border-color:        #333 !default;
 
 //=== Shared nav styles
 $nav-link-padding:                          $padding-base-vertical $padding-base-horizontal !default;
-$nav-link-hover-bg:                         $gray100 !default;
+$nav-link-hover-bg:                         $gray400 !default;
 $nav-link-down-bg:                          $gray200 !default;
 
-$nav-disabled-link-color:                   $gray700 !default;
-$nav-disabled-link-hover-color:             $gray700 !default;
+$nav-disabled-link-color:                   #ADB5BD !default;
+$nav-disabled-link-hover-color:             #ADB5BD !default;
 
 //== Tabs
-$nav-tabs-border-color:                     $gray200 !default;
+$nav-tabs-border-color:                     $brand-primary !default;
 
 $nav-tabs-link-hover-border-color:          $gray200 !default;
 
 $nav-tabs-active-link-hover-bg:             $body-bg !default;
-$nav-tabs-active-link-hover-color:          $gray !default;
-$nav-tabs-active-link-hover-border-color:   $gray200 !default;
+$nav-tabs-active-link-hover-color:          $brand-primary !default;
+$nav-tabs-active-link-hover-border-color:   $brand-primary !default;
 
 $nav-tabs-justified-link-border-color:            $gray200 !default;
 $nav-tabs-justified-active-link-border-color:     $body-bg !default;
@@ -493,20 +493,20 @@ $nav-pills-active-link-hover-color:         $component-active-color !default;
 
 $pagination-color:                     $link-color !default;
 $pagination-bg:                        #fff !default;
-$pagination-border:                    $gray200 !default;
+$pagination-border:                    $brand-primary !default;
 
 $pagination-hover-color:               $link-hover-color !default;
-$pagination-hover-bg:                  $gray100 !default;
+$pagination-hover-bg:                  $gray200 !default;
 $pagination-down-bg:                   $gray200 !default;
-$pagination-hover-border:              $gray200 !default;
+$pagination-hover-border:              $brand-primary !default;
 
 $pagination-active-color:              $brand-primary !default;
 $pagination-active-bg:                 #fff !default;
 $pagination-active-border:             $brand-primary !default;
 
-$pagination-disabled-color:            $gray700 !default;
+$pagination-disabled-color:            #ADB5BD !default;
 $pagination-disabled-bg:               #fff !default;
-$pagination-disabled-border:           $gray200 !default;
+$pagination-disabled-border:           $gray400 !default;
 
 
 //== Pager
@@ -538,7 +538,7 @@ $state-info-text:                $black !default;
 $state-info-bg:                  $gray200 !default;
 $state-info-border:              $gray700 !default;
 
-$state-warning-text:             $brand-warning !default;
+$state-warning-text:             #bd8700 !default;
 $state-warning-bg:               #fff2d4;
 $state-warning-border:           $yellow !default;
 
@@ -673,8 +673,8 @@ $alert-warning-border:        #FFC943 !default;
 $alert-warning-bg:            #ffeab6 !default;
 $alert-warning-text:          $state-warning-text !default;
 
-$alert-danger-border:         #FF4D96 !default;
-$alert-danger-bg:             #FFB8D5 !default;
+$alert-danger-border:         $red !default;
+$alert-danger-bg:             #F3D5D5 !default;
 $alert-danger-text:           $state-danger-text !default;
 
 //== Panels
@@ -740,7 +740,7 @@ $thumbnail-caption-padding:   9px !default;
 //
 //##
 
-$well-bg:                     $gray200 !default;
+$well-bg:                     $gray100 !default;
 $well-border:                 $well-bg !default;
 
 

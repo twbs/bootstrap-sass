@@ -16,14 +16,20 @@
     position: relative;
     display: block;
 
+    &.active {
+      font-weight: 600;
+
+    }
+
     > a {
       position: relative;
       display: block;
       padding: $nav-link-padding;
+      text-decoration: none;
       &:hover,
       &:focus {
         text-decoration: none;
-        background-color: $nav-link-hover-bg;
+        background-color: $gray200;
       }
       &:active {
         text-decoration: none;
@@ -36,11 +42,14 @@
       color: $nav-disabled-link-color;
 
       &:hover,
-      &:focus {
+      &:focus,
+      &:active,
+      &:focus:hover {
         color: $nav-disabled-link-hover-color;
         text-decoration: none;
         background-color: transparent;
-        border-color: transparent;
+        // border-color: transparent;
+        // outline: none;
         cursor: $cursor-disabled;
       }
     }
@@ -83,16 +92,38 @@
   > li {
     float: left;
     // Make the list-items overlay the bottom border
-    margin-bottom: -1px;
+    // margin-bottom: -1px;
 
     // Actual tabs (as links)
     > a {
-      margin-right: 2px;
+      // margin-right: 2px;
+      // padding-top: 3px;
+      padding-bottom: 9px;
+
       line-height: $line-height-base;
-      border: 1px solid transparent;
-      border-radius: $border-radius-base $border-radius-base 0 0;
+      // border-top: 1px solid transparent;
+      // border-right: 1px solid transparent;
+      // border-left: 1px solid transparent;
+      // border-bottom: 4px solid transparent;
+      // border-radius: $border-radius-base $border-radius-base 0 0;
+
       &:hover {
-        border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
+        background-color: $gray200;
+        // border-color: $gray200;
+      }
+
+      &:focus {
+        outline: 2px solid #017d87;
+        outline-offset: -1px;
+        background-color: $white;
+        // border-top: 1px solid $nav-tabs-border-color;
+        // border-right: 1px solid $nav-tabs-border-color;
+        // border-left: 1px solid $nav-tabs-border-color;
+      }
+
+      &:hover:focus {
+        // border-color: $nav-tabs-border-color;
+        background-color: $gray200;
       }
     }
 
@@ -102,10 +133,20 @@
       &:hover,
       &:focus {
         color: $nav-tabs-active-link-hover-color;
-        background-color: $nav-tabs-active-link-hover-bg;
-        border: 1px solid $nav-tabs-active-link-hover-border-color;
-        border-bottom-color: transparent;
+        // background-color: $nav-tabs-active-link-hover-bg;
+        border-color: $white;
+        background-image: linear-gradient(0deg, $nav-tabs-active-link-hover-border-color 4px, transparent 4px);
+        // border-bottom: 4px solid $nav-tabs-active-link-hover-border-color;
         cursor: default;
+      }
+
+      &:hover {
+        background-color: $gray200;
+      }
+
+      &:hover:focus {
+        background-color: $gray200;
+        background-image: linear-gradient(0deg, $nav-tabs-active-link-hover-border-color 4px, transparent 4px);
       }
     }
   }
@@ -126,11 +167,23 @@
     // Links rendered as pills
     > a {
       border-radius: $nav-pills-border-radius;
-      border: 1px solid transparent;
-      &:hover,
+      border: 2px solid transparent;
+      &:hover {
+        background-color: $gray200;
+      }
+
+      &:focus {
+        background-color: $white;
+      }
+
       &:focus,
       &:active {
-        border: 1px solid $nav-tabs-border-color;
+        border-color: $nav-tabs-border-color;
+        outline: 0;
+      }
+
+      &:focus:hover {
+        background-color: $gray200;
       }
     }
     + li {
@@ -139,11 +192,22 @@
 
     // Active state
     &.active > a {
-      &,
-      &:hover,
-      &:focus {
-        background-color: $nav-pills-active-link-hover-bg;
+      & {
         border: 1px solid $nav-pills-active-link-border-color;
+
+      }
+      &:hover {
+        background-color: $gray200;
+      }
+
+      &:focus {
+        background-color: $white;
+        border: 1px solid $nav-pills-active-link-border-color;
+        box-shadow: 0 0 0 1px $nav-pills-active-link-border-color;
+      }
+
+      &:hover:focus {
+        background-color: $gray200;
       }
     }
   }
