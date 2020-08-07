@@ -65,7 +65,6 @@ $all-text-inputs: _assing-inputs($_text-inputs-list);
 
     &:focus {
       border-color: $brand-primary;
-      // box-shado
     }
   }
   // #{$all-text-inputs} {
