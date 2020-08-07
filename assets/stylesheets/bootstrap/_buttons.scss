@@ -110,6 +110,7 @@ a.btn {
     // border-color: $btn-default-border;
   }
   &:hover {
+    border-color: $btn-default-border;
     background-color: $gray200;
   }
 
