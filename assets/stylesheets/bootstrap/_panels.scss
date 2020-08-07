@@ -7,8 +7,7 @@
 .panel {
   margin-top: 0.5rem;
   background-color: $panel-bg;
-  border-left: 3px solid $panel-primary-border;
-  border-bottom: 1px solid $panel-footer-bg;
+  border: 1px solid $panel-default-border;
 
   &.odd {
     background-color: $white;
