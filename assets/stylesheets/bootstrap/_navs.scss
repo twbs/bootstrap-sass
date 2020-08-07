@@ -15,11 +15,7 @@
   > li {
     position: relative;
     display: block;
-
-    &.active {
-      font-weight: 600;
-
-    }
+    font-weight: 600;
 
     > a {
       position: relative;
