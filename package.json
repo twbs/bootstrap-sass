@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-sass",
-  "version": "3.3.6-talis.27",
+  "version": "3.3.6-talis.28",
   "description": "bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications.",
   "main": "assets/javascripts/bootstrap.js",
   "style": "assets/stylesheets/_bootstrap.scss",
@@ -38,11 +38,11 @@
     "needs": "^0.7.1"
   },
   "scripts": {
-    "build-compressed": "./node_modules/node-sass/bin/node-sass app.scss dist/app.min.css --output-style compressed",
-    "build-uncompressed": "./node_modules/node-sass/bin/node-sass app.scss dist/app.css",
+    "build-compressed": "npx node-sass app.scss dist/app.min.css --output-style compressed",
+    "build-uncompressed": "npx node-sass app.scss dist/app.css",
     "build": "npm run build-compressed && npm run build-uncompressed",
     "serve": "es-dev-server --watch --app-index index.html",
     "start": "run-p watch serve",
-    "watch": "./node_modules/node-sass/bin/node-sass --watch app.scss dist/app.min.css --output-style compressed"
+    "watch": "npx node-sass --watch app.scss dist/app.css"
   }
 }
