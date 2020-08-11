@@ -667,17 +667,15 @@ input[type="checkbox"] {
     top: .25rem;
     left: 0;
     display: block;
-    width: 1rem;
-    height: 1rem;
+    width: 16px;
+    height: 16px;
     pointer-events: none;
     content: "";
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    // background-color: #dee2e6;
     background-color: transparent;
-    // border: 1px solid $brand-primary;
     box-shadow: 0 0 0 1px $brand-primary;
 }
 
@@ -690,12 +688,12 @@ input[type="checkbox"] {
     top: .25rem;
     left: 0;
     display: block;
-    width: 1rem;
-    height: 1rem;
+    width: 16px;
+    height: 16px;
     content: "";
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 0.7rem;
+    background-size: 12px;
 }
 
 
