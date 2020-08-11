@@ -65,11 +65,6 @@ a {
   &:focus {
     text-decoration: none;
     outline: 1px solid $link-hover-color;
-    // outline:
-  }
-
-  &:visited {
-    text-decoration-style: dashed;
   }
 }
 
