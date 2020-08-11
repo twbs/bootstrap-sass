@@ -82,6 +82,10 @@ input[type="checkbox"]:focus {
   outline-offset: 2px;
 }
 
+.o-custom-control__input--pink.o-custom-control__input--pink:focus {
+  outline: 2px solid $pink;
+}
+
 // Adjust output element
 output {
   display: block;
@@ -644,8 +648,8 @@ input[type="checkbox"] {
 .custom-control {
     position: relative;
     display: block;
-    min-height: 1.5rem;
-    padding-left: 1.5rem;
+    min-height: 2rem;
+    padding-left: 2rem;
 }
 
 .custom-control-input {
@@ -723,14 +727,30 @@ input[type="checkbox"] {
 }
 
 .custom-checkbox {
-  .custom-control-input:checked~.custom-control-label::before,
+  .custom-control-input:checked~.custom-control-label::before {      background-color: $white;
+      box-shadow: 0 0 0 1px #017d87;
+  }
+
   .custom-control-input:focus~.custom-control-label::before {
-      background-color: $white;
-      box-shadow: 0 0 0 2px #017d87;
+    background-color: $white;
+    box-shadow: 0 0 0 2px #017d87;
+  }
+
+  .custom-control-input:focus:checked~.custom-control-label::before {
+    background-color: $white;
+    box-shadow: 0 0 0 2px #017d87;
+  }
+
+  .o-custom-control__input--pink:focus~.custom-control-label::before {
+      box-shadow: 0 0 0 2px $pink;
   }
 
   .o-custom-control__input--pink.custom-control-input:checked~.custom-control-label::before {
-      box-shadow: 0 0 0 2px $pink;
+    box-shadow: 0 0 0 1px $pink;
+  }
+
+  .o-custom-control__input--pink.custom-control-input:checked:focus~.custom-control-label::before {
+    box-shadow: 0 0 0 2px $pink;
   }
 
   .custom-control-input:checked~.custom-control-label::after {
