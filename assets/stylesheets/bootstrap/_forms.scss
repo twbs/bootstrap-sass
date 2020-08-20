@@ -688,18 +688,17 @@ input[type="checkbox"] {
 }
 
 .custom-control-label::after {
-    position: absolute;
-    top: .25rem;
-    left: 0;
-    display: block;
-    width: 16px;
-    height: 16px;
-    content: "";
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 12px;
+  position: absolute;
+  top: .25rem;
+  left: 0;
+  display: block;
+  width: 16px;
+  height: 16px;
+  content: "";
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100% 100%;
 }
-
 
 .custom-control-input:checked~.custom-control-label::before {
     color: #fff;
@@ -728,17 +727,17 @@ input[type="checkbox"] {
 
 .custom-checkbox {
   .custom-control-input:checked~.custom-control-label::before {      background-color: $white;
-      box-shadow: 0 0 0 1px #017d87;
+      box-shadow: 0 0 0 1px $brand-primary;
   }
 
   .custom-control-input:focus~.custom-control-label::before {
     background-color: $white;
-    box-shadow: 0 0 0 2px #017d87;
+    box-shadow: 0 0 0 2px $brand-primary;
   }
 
   .custom-control-input:focus:checked~.custom-control-label::before {
     background-color: $white;
-    box-shadow: 0 0 0 2px #017d87;
+    box-shadow: 0 0 0 2px $brand-primary;
   }
 
   .o-custom-control__input--pink:focus~.custom-control-label::before {
@@ -758,8 +757,9 @@ input[type="checkbox"] {
   }
 
   .o-custom-control__input--pink.custom-control-input:checked~.custom-control-label::after {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23c5197d' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 8 8'%3E%3Cpath fill='%23c5197d' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
   }
+
 }
 
 .custom-radio {
@@ -781,11 +781,11 @@ input[type="checkbox"] {
   }
 
   .custom-control-input:checked~.custom-control-label::after {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='4' fill='%23017d87'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' widht='16' height='16' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23017d87'/%3E%3C/svg%3E");
   }
 
   .o-custom-control__input--pink.custom-control-input:checked~.custom-control-label::after {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='4' fill='%23c5197d'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23c5197d'/%3E%3C/svg%3E");
   }
 }
 
