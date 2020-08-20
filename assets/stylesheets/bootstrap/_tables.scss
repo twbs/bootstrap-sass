@@ -37,6 +37,15 @@ th {
         line-height: $line-height-base;
         vertical-align: middle;
         border-top: 1px solid $table-border-color;
+
+        a {
+          text-decoration: none;
+
+          &:hover,
+          &:focus {
+            text-decoration: underline;
+          }
+        }
       }
     }
   }
