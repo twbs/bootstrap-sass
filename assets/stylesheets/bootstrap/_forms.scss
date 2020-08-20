@@ -697,7 +697,9 @@ input[type="checkbox"] {
   content: "";
   background-repeat: no-repeat;
   background-position: 50%;
-  background-size: 100% 100%;
+  background-size: 62.5%;
+  background-origin: padding-box;
+  background-clip: border-box;
 }
 
 .custom-control-input:checked~.custom-control-label::before {
@@ -781,7 +783,8 @@ input[type="checkbox"] {
   }
 
   .custom-control-input:checked~.custom-control-label::after {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' widht='16' height='16' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23017d87'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23017d87'/%3E%3C/svg%3E");
+    background-size: 14px;
   }
 
   .o-custom-control__input--pink.custom-control-input:checked~.custom-control-label::after {
