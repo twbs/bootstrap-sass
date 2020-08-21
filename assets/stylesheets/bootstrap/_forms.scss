@@ -774,7 +774,7 @@ input[type="checkbox"] {
 }
 
   .custom-control-input:focus~.custom-control-label::after {
-    box-shadow: 0 0 0 2px #017d87;
+    box-shadow: 0 0 0 2px $brand-primary;
     border-radius: 1rem;
   }
 

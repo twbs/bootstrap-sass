@@ -127,7 +127,6 @@
   &:hover,
   &:focus {
     padding-left: 20px;
-    // border-left: 3px solid $dropdown-link-hover-bg;
     font-weight: 600;
     background-image: linear-gradient(to right, $dropdown-link-color 4px, transparent 4px);
     background-repeat: no-repeat;
@@ -144,8 +143,7 @@
   &,
   &:hover,
   &:focus {
-    // color: $dropdown-link-disabled-color;
-    color: #ADB5BD;
+    color: $dropdown-link-disabled-color;
   }
 
   // Nuke hover/focus effects

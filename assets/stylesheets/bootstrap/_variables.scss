@@ -42,7 +42,7 @@ $deathstar: $gray;
 $battleship: $gray-light;
 $misty: $gray-lighter;
 
-$brand-primary:         #117D85 !default;
+$brand-primary:         $turqoise !default;
 $brand-success:         #77E0CE !default;
 $brand-info:            #4CC3D6 !default;
 $brand-warning:         #FFC943 !default;
@@ -295,7 +295,7 @@ $dropdown-link-active-color:     $component-active-color !default;
 $dropdown-link-active-bg:        $component-active-bg !default;
 
 //** Disabled dropdown menu item background color.
-$dropdown-link-disabled-color:   $gray !default;
+$dropdown-link-disabled-color:   $gray500 !default;
 
 //** Text color for headers within dropdown menus.
 $dropdown-header-color:          $gray600 !default;

@@ -10,21 +10,18 @@
 
   &:hover {
     background-color: #E9ECEF;
-    // color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
-    color: $color;
+    color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
   }
 
   &:focus,
   &.focus {
-    // color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
-    color: $color;
+    color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
     background-color: $background;
-    border-color: $color;
+    border-color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);;
     box-shadow: 0px 0px 0px 1px $color;
   }
 
   &:focus:hover {
-    // border-color: white;
     background-color: #E9ECEF;
     box-shadow: 0px 0px 0px 1px $color;
   }
@@ -32,10 +29,8 @@
   &:active,
   &.active,
   .open > &.dropdown-toggle {
-    // color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
-    color: $color;
+    color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
     background-color: #E9ECEF;
-    // box-shadow: 0px 0px 0px 1px $color;
 
     &:focus,
     &.focus {
