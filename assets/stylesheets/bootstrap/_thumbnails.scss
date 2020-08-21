@@ -17,8 +17,8 @@
   > img,
   a > img {
     @include img-responsive;
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
   }
 
   // [converter] extracted a&:hover, a&:focus, a&.active to a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active

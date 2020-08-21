@@ -1,7 +1,3 @@
-// Responsive utilities
-
-//
-// More easily include all the states for responsive-utilities.less.
 // [converter] $parent hack
 @mixin responsive-visibility($parent) {
   #{$parent} {

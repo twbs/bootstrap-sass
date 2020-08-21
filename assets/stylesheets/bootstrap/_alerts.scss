@@ -15,8 +15,7 @@
   // Headings for larger alerts
   h4 {
     margin-top: 0;
-    // Specified for the h4 to prevent conflicts of changing $headings-color
-    color: inherit;
+    color: inherit; // Specified for the h4 to prevent conflicts of changing $headings-color
   }
 
   // Provide class for links that match alerts
@@ -32,6 +31,24 @@
 
   > p + p {
     margin-top: 5px;
+  }
+}
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+// The misspelled .alert-dismissable was deprecated in 3.2.0.
+.alert-dismissable,
+.alert-dismissible {
+  padding-right: ($alert-padding + 20);
+
+  // Adjust close link position
+  .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit;
   }
 }
 

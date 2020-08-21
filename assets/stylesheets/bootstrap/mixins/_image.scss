@@ -1,8 +1,3 @@
-// Image Mixins
-// - Responsive image
-// - Retina image
-
-
 // Responsive image
 //
 // Keep images from scaling beyond the width of their parents.
@@ -22,11 +17,11 @@
 
   @media
   only screen and (-webkit-min-device-pixel-ratio: 2),
-  only screen and (   min--moz-device-pixel-ratio: 2),
-  only screen and (     -o-min-device-pixel-ratio: 2/1),
-  only screen and (        min-device-pixel-ratio: 2),
-  only screen and (                min-resolution: 192dpi),
-  only screen and (                min-resolution: 2dppx) {
+  only screen and ( min--moz-device-pixel-ratio: 2),
+  only screen and ( -o-min-device-pixel-ratio: 2/1),
+  only screen and ( min-device-pixel-ratio: 2),
+  only screen and ( min-resolution: 192dpi),
+  only screen and ( min-resolution: 2dppx) {
     background-image: url(if($bootstrap-sass-asset-helper, twbs-image-path("#{$file-2x}"), "#{$file-2x}"));
     background-size: $width-1x $height-1x;
   }

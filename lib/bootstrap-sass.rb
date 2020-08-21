@@ -7,13 +7,19 @@ module Bootstrap
 
       if rails?
         register_rails_engine
-      elsif lotus?
-        register_lotus
+      elsif hanami?
+        register_hanami
       elsif sprockets?
         register_sprockets
+      elsif defined?(::Sass) && ::Sass.respond_to?(:load_paths)
+        # The deprecated `sass` gem:
+        ::Sass.load_paths << stylesheets_path
       end
 
-      configure_sass
+      if defined?(::Sass::Script::Value::Number)
+        # bootstrap requires minimum precision of 8, see https://github.com/twbs/bootstrap-sass/issues/409
+        ::Sass::Script::Value::Number.precision = [8, ::Sass::Script::Value::Number.precision].max
+      end
     end
 
     # Paths
@@ -50,20 +56,11 @@ module Bootstrap
       defined?(::Rails)
     end
 
-    def lotus?
-      defined?(::Lotus)
+    def hanami?
+      defined?(::Hanami)
     end
 
     private
-
-    def configure_sass
-      require 'sass'
-
-      ::Sass.load_paths << stylesheets_path
-
-      # bootstrap requires minimum precision of 8, see https://github.com/twbs/bootstrap-sass/issues/409
-      ::Sass::Script::Number.precision = [8, ::Sass::Script::Number.precision].max
-    end
 
     def register_compass_extension
       ::Compass::Frameworks.register(
@@ -79,8 +76,8 @@ module Bootstrap
       require 'bootstrap-sass/engine'
     end
 
-    def register_lotus
-      Lotus::Assets.sources << assets_path
+    def register_hanami
+      Hanami::Assets.sources << assets_path
     end
 
     def register_sprockets

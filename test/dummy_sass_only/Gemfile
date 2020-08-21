@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'sass', '~> 3.3'
+gem 'sassc', '>= 2.0.0'
 gem 'bootstrap-sass', path: '../..'

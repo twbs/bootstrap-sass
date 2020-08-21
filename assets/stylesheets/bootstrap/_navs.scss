@@ -7,8 +7,8 @@
 // --------------------------------------------------
 
 .nav {
-  margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
+  margin-bottom: 0;
   list-style: none;
   @include clearfix;
 
@@ -47,6 +47,7 @@
         // border-color: transparent;
         // outline: none;
         cursor: $cursor-disabled;
+        background-color: transparent;
       }
     }
   }
@@ -234,8 +235,8 @@
   > li {
     float: none;
     > a {
-      text-align: center;
       margin-bottom: 5px;
+      text-align: center;
     }
   }
 

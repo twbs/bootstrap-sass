@@ -67,6 +67,7 @@ class Converter
         log_processing name
         # apply common conversions
         file = convert_less(file)
+        file = replace_all file, %r{// stylelint-disable.*?\n+}, '', optional: true
         if name.start_with?('mixins/')
           file = varargify_mixin_definitions(file, *VARARG_MIXINS)
           %w(responsive-(in)?visibility input-size text-emphasis-variant bg-variant).each do |mixin|
@@ -126,10 +127,7 @@ class Converter
           when 'thumbnails.less', 'labels.less', 'badges.less', 'buttons.less'
             file = extract_nested_rule file, 'a&'
           when 'glyphicons.less'
-            file = replace_rules(file, /\s*@font-face/) { |rule|
-              rule = replace_all rule, /(\$icon-font(?:-\w+)+)/, '#{\1}'
-              replace_asset_url rule, :font
-            }
+            file = replace_rules(file, /\s*@font-face/) { |rule| replace_asset_url rule, :font }
           when 'type.less'
             file = apply_mixin_parent_selector(file, '\.(text|bg)-(success|primary|info|warning|danger)')
             # .bg-primary will not get patched automatically as it includes an additional rule. fudge for now
@@ -325,10 +323,10 @@ SASS
                 %Q(@import "#{target_path}\\1";)
     end
 
-    def replace_all(file, regex, replacement = nil, &block)
+    def replace_all(file, regex, replacement = nil, optional: false, &block)
       log_transform regex, replacement
       new_file = file.gsub(regex, replacement, &block)
-      raise "replace_all #{regex}, #{replacement} NO MATCH" if file == new_file
+      raise "replace_all #{regex}, #{replacement} NO MATCH" if !optional && file == new_file
       new_file
     end
 
@@ -465,7 +463,7 @@ SASS
     def replace_ms_filters(file)
       log_transform
       file.gsub(
-          /filter: e\(%\("progid:DXImageTransform.Microsoft.gradient\(startColorstr='%d', endColorstr='%d', GradientType=(\d)\)",argb\(([\-$\w]+)\),argb\(([\-$\w]+)\)\)\);/,
+          /filter: e\(%\("progid:DXImageTransform.Microsoft.gradient\(startColorstr='%d', endColorstr='%d', GradientType=(\d)\)", ?argb\(([\-$\w]+)\), ?argb\(([\-$\w]+)\)\)\);/,
           %Q(filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='\#{ie-hex-str(\\2)}', endColorstr='\#{ie-hex-str(\\3)}', GradientType=\\1);)
       )
     end
@@ -511,7 +509,8 @@ SASS
     def replace_escaping(less)
       less = less.gsub(/~"([^"]+)"/, '\1').gsub(/~'([^']+)'/, '\1') # Get rid of ~"" escape
       less.gsub!(/\$\{([^}]+)\}/, '$\1') # Get rid of @{} escape
-      less.gsub!(/"([^"\n]*)(\$[\w\-]+)([^"\n]*)"/, '"\1#{\2}\3"') # interpolate variable in string, e.g. url("$file-1x") => url("#{$file-1x}")
+      # interpolate variables in strings, e.g. url("$file-1x") => url("#{$file-1x}")
+      less.gsub!(/"[^"\n]*"/) { |str| str.gsub(/\$[^"\n$.\\]+/, '#{\0}') }
       less.gsub(/(\W)e\(%\("?([^"]*)"?\)\)/, '\1\2') # Get rid of e(%("")) escape
     end
 

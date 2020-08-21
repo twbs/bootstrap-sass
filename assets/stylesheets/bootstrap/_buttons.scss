@@ -11,6 +11,7 @@
   margin-bottom: 0; // For input.btn
   font-weight: $btn-font-weight;
   text-align: center;
+  white-space: nowrap;
   vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
@@ -41,7 +42,6 @@
 
   &:active,
   &.active {
-    outline: 0;
     background-image: none;
   }
 
@@ -92,6 +92,7 @@ a.btn {
 
 // Make a button look and behave like a link
 .btn-link {
+  font-weight: 400;
   color: $link-color;
   font-weight: 600;
 
