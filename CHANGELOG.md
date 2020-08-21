@@ -1,5 +1,30 @@
 # Changelog
 
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [3.3.6-talis.32](https://github.com/twbs/bootstrap-sass/compare/v3.3.6-talis.9...v3.3.6-talis.32) (2020-08-21)
+
+
+### Features
+
+* add border to link button hover ([7fa7136](https://github.com/twbs/bootstrap-sass/commit/7fa713645baf07b72cea1f2226ad7676e87e5605))
+* add pink custom control ([f57f841](https://github.com/twbs/bootstrap-sass/commit/f57f841f921b3e4c7561ac11ea9e67898e3189b6))
+
+
+### Bug Fixes
+
+* a11y-specific base styling ([ba60bed](https://github.com/twbs/bootstrap-sass/commit/ba60bed6f603f628436a6fdb1065f496fd73e9b6))
+* all navs semibold ([ba7658b](https://github.com/twbs/bootstrap-sass/commit/ba7658b5c2dee8c62be258b2f42c137764d83a2e))
+* amend radio/check button sizing ([4cdeb82](https://github.com/twbs/bootstrap-sass/commit/4cdeb82c302b40e56f17519ca03cab394e35a367))
+* darken colour on hover and focus ([12f8f82](https://github.com/twbs/bootstrap-sass/commit/12f8f826b327838672f8dfe9e5f973c2a6a4b1b5))
+* halve tab padding ([5f77603](https://github.com/twbs/bootstrap-sass/commit/5f77603c81410b306f6f063fc88c3d2b991605ee))
+* remove link text-deocration in tables ([49258a4](https://github.com/twbs/bootstrap-sass/commit/49258a44ff5252d7d2f6e79e12ff4b06a9c37feb))
+* update custom control states ([8a4dffb](https://github.com/twbs/bootstrap-sass/commit/8a4dffb67a872a3e0d9783a1cc16ecd910fc9a31))
+* update custom controls to prevent rounding issues ([f13b877](https://github.com/twbs/bootstrap-sass/commit/f13b877d98b6179ebb025defb70327f9cbd27f64))
+* update panel border ([6285a54](https://github.com/twbs/bootstrap-sass/commit/6285a546f4f2539ea6abb286ee274f2f803d0b92))
+* update tab size to match navbar ([33bdd95](https://github.com/twbs/bootstrap-sass/commit/33bdd9571631d1c20f6bde10b1d13dcd16c73360))
+* update well border colour ([e91c992](https://github.com/twbs/bootstrap-sass/commit/e91c99221e299093fc4b5852039b6011f24fd3d2))
+
 ## 3.3.6
 
 * Bumps Sass dependency to 3.3.4+ to avoid compatibility issues with @at-root.
