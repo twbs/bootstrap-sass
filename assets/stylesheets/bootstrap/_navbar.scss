@@ -427,7 +427,6 @@
         color: $navbar-default-link-hover-color;
         background-color: $navbar-default-link-hover-bg;
       }
-
     }
     > .active > a {
       &,
@@ -446,17 +445,6 @@
         background-color: $navbar-default-link-disabled-bg;
       }
     }
-  }
-
-  .navbar-toggle {
-    &:hover,
-    &:focus {
-      background-color: $navbar-default-toggle-hover-bg;
-    }
-    .icon-bar {
-      background-color: $navbar-default-toggle-icon-bar-bg;
-    }
-  }
 
     // Dropdown menu items
     // Remove background color from open dropdown
@@ -497,6 +485,16 @@
           }
         }
       }
+    }
+  }
+
+  .navbar-toggle {
+    &:hover,
+    &:focus {
+      background-color: $navbar-default-toggle-hover-bg;
+    }
+    .icon-bar {
+      background-color: $navbar-default-toggle-icon-bar-bg;
     }
   }
 
@@ -543,6 +541,7 @@
     }
   }
 }
+
 
 // Inverse navbar
 
