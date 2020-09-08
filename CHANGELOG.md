@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.4.2](https://github.com/twbs/bootstrap-sass/compare/v3.3.6-talis.32...v3.4.2) (2020-09-08)
+
+### [3.4.1](https://github.com/twbs/bootstrap-sass/compare/v3.4.0...v3.4.1) (2019-02-13)
+
+## [3.4.0](https://github.com/twbs/bootstrap-sass/compare/v3.3.6-talis.9...v3.4.0) (2018-12-14)
+
+### [3.3.7](https://github.com/twbs/bootstrap-sass/compare/v3.3.8-talis...v3.3.7) (2016-07-25)
+
 ### [3.3.6-talis.32](https://github.com/twbs/bootstrap-sass/compare/v3.3.6-talis.9...v3.3.6-talis.32) (2020-08-21)
 
 
