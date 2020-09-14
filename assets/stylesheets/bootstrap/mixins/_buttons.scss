@@ -157,3 +157,70 @@
   line-height: $line-height;
   border-radius: $border-radius;
 }
+
+@mixin button-variant-alert() {
+  color: $black;
+  background-color: transparent;
+  border-color: $black;
+
+  &:hover {
+    background-color: $black;
+    color: $white;
+    border-color: $black;
+  }
+
+  &:focus,
+  &.focus {
+    color: $black;
+    border-color: $black;
+    box-shadow:
+      0px 0px 0px 1px $black,
+      0px 0px 0px 2px transparent,
+  }
+
+  &:hover:focus {
+    color: $white;
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $black;
+    background-color: transparent;
+    border-color: $black;
+    box-shadow:
+      0px 0px 0px 1px $black,
+      0px 0px 0px 2px transparent;
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-image: none;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] {
+    background-color: #ADB5BD;
+    border-color: #ADB5BD;
+    color: $white;
+    box-shadow: none;
+  }
+
+  &.disabled,
+  &[disabled],
+  &[disabled]:active,
+  fieldset[disabled] & {
+    // pointer-events: none;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: #ADB5BD;
+      border-color: #ADB5BD;
+      color: $white;
+      box-shadow: none;
+    }
+  }
+}

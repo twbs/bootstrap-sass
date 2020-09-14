@@ -86,6 +86,10 @@ a.btn {
   @include button-variant-plain($btn-danger-color, $btn-danger-bg, $btn-danger-color);
 }
 
+.btn-alert {
+  @include button-variant-alert();
+}
+
 
 // Link buttons
 // -------------------------
