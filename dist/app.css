@@ -2439,6 +2439,44 @@ fieldset[disabled] a.btn {
     color: #ffffff;
     background-color: #C42129; }
 
+.btn-alert {
+  color: #000000;
+  background-color: transparent;
+  border-color: #000000; }
+  .btn-alert:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #000000; }
+  .btn-alert:focus, .btn-alert.focus {
+    color: #000000;
+    border-color: #000000;
+    box-shadow: 0px 0px 0px 1px #000000, 0px 0px 0px 2px transparent; }
+  .btn-alert:hover:focus {
+    color: #ffffff; }
+  .btn-alert:active, .btn-alert.active,
+  .open > .btn-alert.dropdown-toggle {
+    color: #000000;
+    background-color: transparent;
+    border-color: #000000;
+    box-shadow: 0px 0px 0px 1px #000000, 0px 0px 0px 2px transparent; }
+  .btn-alert:active, .btn-alert.active,
+  .open > .btn-alert.dropdown-toggle {
+    background-image: none; }
+  .btn-alert.disabled, .btn-alert[disabled],
+  .btn-alert fieldset[disabled] {
+    background-color: #ADB5BD;
+    border-color: #ADB5BD;
+    color: #ffffff;
+    box-shadow: none; }
+  .btn-alert.disabled:hover, .btn-alert.disabled:focus, .btn-alert.disabled.focus, .btn-alert[disabled]:hover, .btn-alert[disabled]:focus, .btn-alert[disabled].focus, .btn-alert[disabled]:active:hover, .btn-alert[disabled]:active:focus, .btn-alert[disabled]:active.focus,
+  fieldset[disabled] .btn-alert:hover,
+  fieldset[disabled] .btn-alert:focus,
+  fieldset[disabled] .btn-alert.focus {
+    background-color: #ADB5BD;
+    border-color: #ADB5BD;
+    color: #ffffff;
+    box-shadow: none; }
+
 .btn-link {
   font-weight: 400;
   color: #017d87;

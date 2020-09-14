@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.5.0](https://github.com/twbs/bootstrap-sass/compare/v3.4.2...v3.5.0) (2020-09-14)
+
+
+### Features
+
+* add alert-specific button style ([e736c3b](https://github.com/twbs/bootstrap-sass/commit/e736c3b0b137ad0436934aee8a7ea611d4c1fac3))
+
 ### [3.4.2](https://github.com/twbs/bootstrap-sass/compare/v3.3.6-talis.32...v3.4.2) (2020-09-08)
 
 ### [3.4.1](https://github.com/twbs/bootstrap-sass/compare/v3.4.0...v3.4.1) (2019-02-13)
