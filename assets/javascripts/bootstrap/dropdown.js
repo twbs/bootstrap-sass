@@ -109,7 +109,7 @@
       return $this.trigger('click')
     }
 
-    var desc = ' li:not(.disabled):visible a'
+    var desc = ' li:not(.disabled):visible a, li:not(.disabled):visible button'
     var $items = $parent.find('.dropdown-menu' + desc)
 
     if (!$items.length) return
