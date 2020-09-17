@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.5.1](https://github.com/twbs/bootstrap-sass/compare/v3.5.0...v3.5.1) (2020-09-17)
+
+
+### Bug Fixes
+
+* **dropdowns:** add keyboard handling to menu buttons ([6bb4b67](https://github.com/twbs/bootstrap-sass/commit/6bb4b67a9be7a8ff4d450dc34c0160a054c82f88))
+
 ## [3.5.0](https://github.com/twbs/bootstrap-sass/compare/v3.4.2...v3.5.0) (2020-09-14)
 
 
