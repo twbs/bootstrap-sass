@@ -45,9 +45,10 @@
     "needs": "^0.7.1"
   },
   "scripts": {
-    "build-compressed": "npx node-sass app.scss dist/app.min.css --output-style compressed",
-    "build-uncompressed": "npx node-sass app.scss dist/app.css",
-    "build": "npm run build-compressed && npm run build-uncompressed",
+    "build:scripts": "",
+    "build:styles:compressed": "npx node-sass app.scss dist/app.min.css --output-style compressed",
+    "build:styles:uncompressed": "npx node-sass app.scss dist/app.css",
+    "build": "npm run build:styles:compressed && npm run build:styles:uncompressed",
     "serve": "es-dev-server --watch --app-index index.html",
     "start": "run-p watch serve",
     "watch": "npx node-sass --watch app.scss dist/app.css",
