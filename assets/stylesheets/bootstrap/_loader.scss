@@ -9,7 +9,7 @@ $cradle-ball-colour-pink: #fc4589;
 $cradle-ball-colour-blue: #59d1e4;
 $cradle-shadow-colour: rgba($black, 0.15);
 
-.loading-indicator {
+.loading-indicator:not([hidden]) {
   position: fixed;
   top: 0;
   right: 0;
