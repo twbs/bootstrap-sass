@@ -231,10 +231,21 @@
 .navbar-nav {
   margin: ($navbar-padding-vertical / 2) (-$navbar-padding-horizontal);
 
-  > li > a {
+  > li > a,
+  > li > button {
     padding-top: 10px;
     padding-bottom: 10px;
     line-height: $line-height-computed;
+  }
+
+  > li > button {
+    width: 100%;
+    padding: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: inherit;
+    border: 0;
+    border-radius: 0;
   }
 
   @media (max-width: $grid-float-breakpoint-max) {
@@ -271,7 +282,8 @@
 
     > li {
       float: left;
-      > a {
+      > a,
+      > button {
         padding-top: $navbar-padding-vertical;
         padding-bottom: $navbar-padding-vertical;
       }
@@ -414,7 +426,8 @@
   }
 
   .navbar-nav {
-    > li > a {
+    > li > a,
+    > li > button {
       color: $navbar-default-link-color;
 
       &:focus {
