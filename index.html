@@ -30,7 +30,7 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav navbar-right">
           <li class="active">
             <a href="#">Link
               <span class="sr-only">(current)</span>
@@ -40,9 +40,9 @@
             <a href="#">Link</a>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
+            <button class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="menu" aria-expanded="false">Dropdown
               <span class="caret"></span>
-            </a>
+            </button>
             <ul class="dropdown-menu">
               <li>
                 <a href="#">Action</a>
@@ -63,9 +63,9 @@
               </li>
             </ul>
           </li>
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <button class="js-loader-toggle" type="button">View loader</button>
+          </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Name
               <span class="caret"></span>
@@ -86,6 +86,7 @@
               </li>
             </ul>
           </li>
+
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -94,8 +95,8 @@
   </nav>
   <div class="container-fluid">
     <section class="page-header">
-      <h1>Page Title
-        <small>Page description</small>
+      <h1>Primary task
+        <small>Additional information</small>
       </h1>
     </section>
 
@@ -893,5 +894,34 @@
     <hr>
   </div>
 </body>
+<div
+  hidden
+  class="loading-indicator qa-loading-indicator"
+  role="status"
+  aria-live="polite">
 
+  <div class="cradle">
+    <div class="cradle-node">
+      <div class="cradle-ball"></div>
+    </div>
+    <div class="cradle-node">
+      <div class="cradle-ball"></div>
+    </div>
+    <div class="cradle-node">
+      <div class="cradle-ball"></div>
+    </div>
+    <div class="cradle-node">
+      <div class="cradle-ball"></div>
+    </div>
+  </div>
+
+  <span class="sr-only">Loading</span>
+
+</div>
+
+<script>
+  document.querySelector('.js-loader-toggle').addEventListener('click', () => {
+    document.querySelector('.loading-indicator').toggleAttribute('hidden');
+  });
+</script>
 </html>
