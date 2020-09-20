@@ -37,7 +37,6 @@
 @import "bootstrap/panels";
 @import "bootstrap/tips";
 @import "bootstrap/media";
-@import "bootstrap/loader";
 
 // Components w/ JavaScript
 @import "bootstrap/modals";
@@ -47,3 +46,7 @@
 // Utility classes
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
+
+// Talis Extras
+@import "loader";
+@import "skip-link";
