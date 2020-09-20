@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.6.0](https://github.com/twbs/bootstrap-sass/compare/v3.5.1...v3.6.0) (2020-09-20)
+
+
+### Features
+
+* **loader:** add loader styles ([279c24d](https://github.com/twbs/bootstrap-sass/commit/279c24df89c5529ffc9c561a9ba5ef43e50dd9fa))
+* add skip-link ([2952966](https://github.com/twbs/bootstrap-sass/commit/295296618810b81f8fff14fb2f9c48175b4e269e))
+
+
+### Bug Fixes
+
+* move all nav items right ([84afafa](https://github.com/twbs/bootstrap-sass/commit/84afafa07d3e8371c732d8dd57986bda3bc893b0))
+* **loader:** use hidden attribute ([a604763](https://github.com/twbs/bootstrap-sass/commit/a6047630b1e685fc91fa1d8b6b0d10a3073259d5))
+* **navbar:** support buttons in navbar ([9776d53](https://github.com/twbs/bootstrap-sass/commit/9776d5323f0f5d9f288918316c93e5164a9b45a5))
+
 ### [3.5.1](https://github.com/twbs/bootstrap-sass/compare/v3.5.0...v3.5.1) (2020-09-17)
 
 

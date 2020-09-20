@@ -3323,10 +3323,19 @@ tbody.collapse.in {
 
 .navbar-nav {
   margin: 10px -15px; }
-  .navbar-nav > li > a {
+  .navbar-nav > li > a,
+  .navbar-nav > li > button {
     padding-top: 10px;
     padding-bottom: 10px;
     line-height: 20px; }
+  .navbar-nav > li > button {
+    width: 100%;
+    padding: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: inherit;
+    border: 0;
+    border-radius: 0; }
   @media (max-width: 767px) {
     .navbar-nav .open .dropdown-menu {
       position: static;
@@ -3351,7 +3360,8 @@ tbody.collapse.in {
       margin: 0; }
       .navbar-nav > li {
         float: left; }
-        .navbar-nav > li > a {
+        .navbar-nav > li > a,
+        .navbar-nav > li > button {
           padding-top: 20px;
           padding-bottom: 20px; } }
 
@@ -3473,13 +3483,16 @@ tbody.collapse.in {
       background-color: transparent; }
   .navbar-default .navbar-text {
     color: #ffffff; }
-  .navbar-default .navbar-nav > li > a {
+  .navbar-default .navbar-nav > li > a,
+  .navbar-default .navbar-nav > li > button {
     color: #ffffff; }
-    .navbar-default .navbar-nav > li > a:focus {
+    .navbar-default .navbar-nav > li > a:focus,
+    .navbar-default .navbar-nav > li > button:focus {
       outline: 2px solid #ffffff;
       outline-offset: -2px;
       background-color: #017d87; }
-    .navbar-default .navbar-nav > li > a:hover {
+    .navbar-default .navbar-nav > li > a:hover,
+    .navbar-default .navbar-nav > li > button:hover {
       color: #ffffff;
       background-color: #005d64; }
   .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
@@ -4901,3 +4914,108 @@ a.label:hover, a.label:focus {
 @media print {
   .hidden-print {
     display: none !important; } }
+
+.loading-indicator:not([hidden]) {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.75); }
+
+.loader-background {
+  background-color: #ffffff; }
+
+.cradle {
+  display: flex;
+  font-size: 2em; }
+
+.cradle-node {
+  transform-origin: center -1em; }
+
+.cradle-ball {
+  width: 2em;
+  height: 2em;
+  background: #107179;
+  border-radius: 50%;
+  box-shadow: inset -0.08em -0.4em 1px rgba(0, 0, 0, 0.15); }
+
+.cradle-node:first-child {
+  animation: left-bounce 607.5ms cubic-bezier(0, 0, 0.5, 1) infinite alternate; }
+
+.cradle-node:last-child {
+  animation: right-bounce 607.5ms cubic-bezier(0, 0, 0.5, 1) 607.5ms infinite alternate; }
+
+.cradle-node:first-child .cradle-ball {
+  animation: left-shift-colour 2430ms cubic-bezier(0, 0, 0.5, 1) infinite; }
+
+.cradle-node:last-child .cradle-ball {
+  animation: right-shift-colour 2430ms cubic-bezier(0, 0, 0.5, 1) 607.5ms infinite; }
+
+@keyframes left-bounce {
+  0%,
+  50% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(35deg); } }
+
+@keyframes right-bounce {
+  0%,
+  50% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(-35deg); } }
+
+@keyframes left-shift-colour {
+  0%,
+  12.4%,
+  37.5%,
+  62.4%,
+  87.5% {
+    background: #107179;
+    box-shadow: inset -0.08em -0.4em 1px rgba(0, 0, 0, 0.15); }
+  25%,
+  75% {
+    box-shadow: inset -4px -8px 1px rgba(0, 0, 0, 0.15); }
+  12.5%,
+  37.4% {
+    background: #fbbf45; }
+  62.5%,
+  87.4% {
+    background: #59d1e4; } }
+
+@keyframes right-shift-colour {
+  0%,
+  12.4%,
+  37.5%,
+  62.4%,
+  87.5% {
+    background: #107179;
+    box-shadow: inset -0.08em -0.4em 1px rgba(0, 0, 0, 0.15); }
+  25%,
+  75% {
+    box-shadow: inset 0.08em -8px 1px rgba(0, 0, 0, 0.15); }
+  12.5%,
+  37.4% {
+    background: #6fdac9; }
+  62.5%,
+  87.4% {
+    background: #fc4589; } }
+
+.c-skip-link:focus {
+  position: absolute;
+  background-color: #005d64;
+  color: #fff;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  outline: 3px solid #fff;
+  opacity: initial;
+  text-decoration: underline;
+  text-underline-position: under;
+  transition: none; }
