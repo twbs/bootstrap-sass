@@ -2626,6 +2626,8 @@ tbody.collapse.in {
     margin: 9px 0;
     overflow: hidden;
     background-color: #e9ecef; }
+  .dropdown-menu a {
+    text-decoration: none; }
   .dropdown-menu > li > a {
     display: block;
     padding: 3px 20px;
@@ -4914,6 +4916,18 @@ a.label:hover, a.label:focus {
 @media print {
   .hidden-print {
     display: none !important; } }
+
+.o-dl--inline *:not(div) {
+  display: inline; }
+
+.u-selectable-text {
+  -webkit-user-select: text;
+  /* Chrome all / Safari all */
+  -moz-user-select: text;
+  /* Firefox all */
+  -ms-user-select: text;
+  /* IE 10+ */
+  user-select: text !important; }
 
 .loading-indicator:not([hidden]) {
   position: fixed;
