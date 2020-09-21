@@ -1,0 +1,10 @@
+.o-dl--inline *:not(div) {
+  display: inline;
+}
+
+.u-selectable-text {
+  -webkit-user-select: text;  /* Chrome all / Safari all */
+  -moz-user-select: text;     /* Firefox all */
+  -ms-user-select: text;      /* IE 10+ */
+  user-select: text !important;
+}

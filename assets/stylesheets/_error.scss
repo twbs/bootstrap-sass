@@ -1,0 +1,98 @@
+.plain.error-page-wrapper {
+    font-family: 'Open Sans', sans-serif;
+    padding: 0 5%;
+    position: relative;
+}
+
+.plain.error-page-wrapper .content-container {
+    -webkit-transition: left .5s ease-out, opacity .5s ease-out;
+    -moz-transition: left .5s ease-out, opacity .5s ease-out;
+    -ms-transition: left .5s ease-out, opacity .5s ease-out;
+    -o-transition: left .5s ease-out, opacity .5s ease-out;
+    transition: left .5s ease-out, opacity .5s ease-out;
+    max-width: 400px;
+    position: relative;
+    left: -30px;
+    opacity: 0;
+}
+
+.plain.error-page-wrapper .content-container.in {
+    left: 0px;
+    top: 123px;
+    opacity: 1;
+}
+
+.plain.error-page-wrapper .head-line {
+    transition: color .2s linear;
+    font-size: 48px;
+    line-height: 60px;
+    color: rgba(255, 255, 255, .2);
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+}
+
+.plain.error-page-wrapper .subheader {
+    transition: color .2s linear;
+    font-size: 36px;
+    line-height: 46px;
+    color: #fff;
+}
+
+.plain.error-page-wrapper hr {
+    height: 1px;
+    background-color: rgba(255, 255, 255, .2);
+    border: none;
+    width: 250px;
+    margin: 35px 0;
+}
+
+.plain.error-page-wrapper .context {
+    transition: color .2s linear;
+    font-size: 18px;
+    line-height: 27px;
+    color: #fff;
+}
+
+.plain.error-page-wrapper .context p {
+    margin: 0;
+}
+
+.plain.error-page-wrapper .context p:nth-child(n+2) {
+    margin-top: 12px;
+}
+
+@media screen and (max-width: 485px) {
+
+    .plain.error-page-wrapper .subheader {
+        font-size: 27px;
+        line-height: 38px;
+    }
+
+    .plain.error-page-wrapper hr {
+        width: 185px;
+        margin: 25px 0;
+    }
+
+    .plain.error-page-wrapper .context {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+.background-color {
+    background-color: rgba(1, 125, 135, 1) !important;
+}
+
+.primary-text-color {
+    color: #FFFFFF !important;
+}
+
+.secondary-text-color {
+    color: rgba(0, 93, 100, 1) !important;
+}
+
+.error-debug {
+    font-weight: 300;
+    line-height: initial;
+    font-size: small;
+}
