@@ -65,6 +65,10 @@
     @include nav-divider($dropdown-divider-bg);
   }
 
+  a {
+    text-decoration: none;
+  }
+
   // Links within the dropdown menu
   > li > a {
     display: block;
@@ -76,6 +80,7 @@
     white-space: nowrap; // prevent links from randomly breaking onto new lines
     text-decoration: none;
   }
+
 
   > li > button {
     touch-action: manipulation;
@@ -92,15 +97,15 @@
   }
 }
 
+
+
 // Hover/Focus state
 .dropdown-menu > li > a,
 .dropdown-menu > li > button {
   &:hover {
     text-decoration: none;
     color: $dropdown-link-hover-bg;
-    // color: $dropdown-link-hover-color;
     background-color: $gray200;
-    // background-color: $dropdown-link-hover-bg;
   }
 
   &:focus {
