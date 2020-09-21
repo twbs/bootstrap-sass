@@ -5033,3 +5033,33 @@ a.label:hover, a.label:focus {
   text-decoration: underline;
   text-underline-position: under;
   transition: none; }
+
+.t-error {
+  background-color: #017d87;
+  color: #ffffff; }
+  .t-error hr {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    max-width: 20rem;
+    margin: 2rem 0; }
+
+.c-error-page__container {
+  display: flex;
+  padding: 0 5vw;
+  max-width: 60rem;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center; }
+
+.c-error-page__header {
+  font-size: 52px;
+  font-weight: 700;
+  color: #ffffff; }
+
+.c-error-page__subheader {
+  font-size: 39px;
+  color: #ffffff; }
+
+.c-error-page__context {
+  font-size: 19px; }

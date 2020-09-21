@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.7.0](https://github.com/twbs/bootstrap-sass/compare/v3.6.1...v3.7.0) (2020-09-21)
+
+
+### Features
+
+* **error:** add error page styles ([4f68d7b](https://github.com/twbs/bootstrap-sass/commit/4f68d7b2b9fecada49bf1307b3352b1ca71c0a78))
+
 ### [3.6.1](https://github.com/twbs/bootstrap-sass/compare/v3.6.0...v3.6.1) (2020-09-21)
 
 
