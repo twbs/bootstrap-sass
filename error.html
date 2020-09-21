@@ -1,32 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="en-GB">
   <head>
     <title>Error – Talis</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="dist/app.css">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dist/app.css" />
   </head>
-    <body class="plain error-page-wrapper background-color background-image">
-        <main id="error-container" class="content-container in">
-            <header>
-              <hgroup>
-                <h1 class="head-line secondary-text-color">Error!
-                  <small class="subheader primary-text-color">Something has gone wrong, and our team has been notified</small>
-                </h1>
-              </hgroup>
-            </header>
-            <hr>
-            <section class="context primary-text-color">
-                <dl id="errorDesc" class="list-inline">
-                  <dt>
-                    Error code:
-                  </dt>
-                  <dd>
-                    Error message
-                  </dd>
-                </dl>
-                <p>A useful error message</p>
-            </section>
-          </main>
-    </body>
+  <body class="t-error">
+    <main class="c-error-page__container">
+      <h1 class="c-error-page__header">Error!</h1>
+      <h2 class="c-error-page__subheader">
+        Something has gone wrong, and our team has been notified
+      </h2>
+      <hr />
+      <section class="c-error-page__context">
+        <dl id="errorDesc" class="o-dl--inline">
+          <dt>Error code:</dt>
+          <dd>Error message</dd>
+        </dl>
+        <p>Further explanation about the error message</p>
+      </section>
+    </main>
+  </body>
 </html>
