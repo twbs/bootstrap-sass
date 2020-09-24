@@ -440,7 +440,7 @@
 
       &:hover {
         color: $navbar-default-link-hover-color;
-        background-color: $navbar-default-link-hover-bg;
+        background-color: transparentize($color: $black, $amount: 0.75);
       }
     }
     > .active > a {
@@ -469,7 +469,7 @@
       &:hover,
       &:focus {
         color: $navbar-default-link-active-color;
-        background-color: $navbar-default-link-active-bg;
+        background-color: transparentize($color: $black, $amount: 0.75);
       }
     }
 
@@ -482,7 +482,7 @@
           &:hover,
           &:focus {
             color: $navbar-default-link-hover-color;
-            background-color: $navbar-default-link-hover-bg;
+            background-color: $transparentize($color: $black, $amount: 0.75);
           }
         }
         > .active > a,
