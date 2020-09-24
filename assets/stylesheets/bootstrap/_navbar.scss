@@ -482,7 +482,7 @@
           &:hover,
           &:focus {
             color: $navbar-default-link-hover-color;
-            background-color: $transparentize($color: $black, $amount: 0.75);
+            background-color: transparentize($color: $black, $amount: 0.75);
           }
         }
         > .active > a,
