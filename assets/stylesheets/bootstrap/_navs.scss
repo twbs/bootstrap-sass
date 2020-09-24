@@ -17,7 +17,8 @@
     display: block;
     font-weight: 600;
 
-    > a {
+    > a,
+    > button {
       position: relative;
       display: block;
       padding: $nav-link-padding;

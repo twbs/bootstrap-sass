@@ -239,13 +239,13 @@
   }
 
   > li > button {
+    position: relative;
+    display: block;
     width: 100%;
-    padding: 1em;
-    margin-top: 0;
-    margin-bottom: 0;
     background-color: inherit;
     border: 0;
     border-radius: 0;
+    text-align: left;
   }
 
   @media (max-width: $grid-float-breakpoint-max) {
@@ -259,10 +259,12 @@
       border: 0;
       box-shadow: none;
       > li > a,
+      > li > button
       .dropdown-header {
         padding: 5px 15px 5px 25px;
       }
-      > li > a {
+      > li > a,
+      > li > button {
         line-height: $line-height-computed;
         &:hover,
         &:focus {
@@ -461,7 +463,8 @@
 
     // Dropdown menu items
     // Remove background color from open dropdown
-    > .open > a {
+    > .open > a,
+    > .open > button {
       &,
       &:hover,
       &:focus {
@@ -473,7 +476,8 @@
     @media (max-width: $grid-float-breakpoint-max) {
       // Dropdowns get custom display when collapsed
       .open .dropdown-menu {
-        > li > a {
+        > li > a,
+        > li > button {
           color: $navbar-default-link-color;
           &:hover,
           &:focus {
@@ -481,7 +485,8 @@
             background-color: $navbar-default-link-hover-bg;
           }
         }
-        > .active > a {
+        > .active > a,
+        > .active > button {
           &,
           &:hover,
           &:focus {
@@ -489,7 +494,8 @@
             background-color: $navbar-default-link-active-bg;
           }
         }
-        > .disabled > a {
+        > .disabled > a,
+        > .disabled > button {
           &,
           &:hover,
           &:focus {
