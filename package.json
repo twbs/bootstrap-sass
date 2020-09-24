@@ -51,7 +51,7 @@
     "build": "npm run build:styles:compressed && npm run build:styles:uncompressed",
     "serve": "es-dev-server --watch --app-index index.html",
     "start": "run-p watch serve",
-    "watch": "npx node-sass --watch app.scss dist/app.css",
+    "watch": "npx node-sass --watch app.scss dist/app.css --source-map true",
     "prerelease": "npm run build",
     "release": "git add dist/ && standard-version -a"
   }
