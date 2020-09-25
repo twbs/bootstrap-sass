@@ -7,21 +7,14 @@
   "sass": "assets/stylesheets/_bootstrap.scss",
   "files": [
     "assets",
-    "eyeglass-exports.js",
     "CHANGELOG.md",
     "LICENSE",
     "README.md"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/twbs/bootstrap-sass"
+    "url": "git://github.com/talis/bootstrap-sass"
   },
-  "keywords": [
-    "bootstrap",
-    "sass",
-    "css",
-    "eyeglass-module"
-  ],
   "contributors": [
     "Thomas McDonald",
     "Tristan Harward",
@@ -30,7 +23,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/twbs/bootstrap-sass/issues"
+    "url": "https://github.com/talis/bootstrap-sass/issues"
   },
   "devDependencies": {
     "ejs": "~2.4.2",
@@ -40,14 +33,10 @@
     "npm-run-all": "^4.1.5",
     "standard-version": "^8.0.2"
   },
-  "eyeglass": {
-    "exports": "eyeglass-exports.js",
-    "needs": "^0.7.1"
-  },
   "scripts": {
     "build:scripts": "",
-    "build:styles:compressed": "npx node-sass app.scss dist/app.min.css --output-style compressed",
-    "build:styles:uncompressed": "npx node-sass app.scss dist/app.css",
+    "build:styles:compressed": "npx node-sass app.scss dist/app.min.css --output-style compressed --source-map true",
+    "build:styles:uncompressed": "npx node-sass app.scss dist/app.css --source-map true",
     "build": "npm run build:styles:compressed && npm run build:styles:uncompressed",
     "serve": "es-dev-server --watch --app-index index.html",
     "start": "run-p watch serve",
