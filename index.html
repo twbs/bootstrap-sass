@@ -567,15 +567,24 @@
         <h3>Tabs</h3>
         <ul class="nav nav-tabs">
           <li class="active">
-            <a href="#">Home</a>
+            <a href="#home" role="tab" data-toggle="tab">Home</a>
           </li>
           <li class="disabled">
-            <a href="#">Profile</a>
+            <a href="#profile" role="tab" data-toggle="tab">Profile</a>
           </li>
           <li>
-            <a href="#">Messages</a>
+            <a href="#messages" role="tab" data-toggle="tab">Messages</a>
+          </li>
+          <li>
+            <a href="#settings" role="tab" data-toggle="tab">Settings</a>
           </li>
         </ul>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="home">Home tab</div>
+          <div role="tabpanel" class="tab-pane" id="profile">Profile tab</div>
+          <div role="tabpanel" class="tab-pane" id="messages">Messages tab</div>
+          <div role="tabpanel" class="tab-pane" id="settings">Settings tab</div>
+        </div>
         <h3>Pills</h3>
         <ul class="nav nav-pills">
           <li class="active">
