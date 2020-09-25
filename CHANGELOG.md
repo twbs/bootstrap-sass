@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.7.1](https://github.com/talis/bootstrap-sass/compare/v3.7.0...v3.7.1) (2020-09-25)
+
+
+### Bug Fixes
+
+* **alerts:** update `.alert-link` font-weight ([b8b96ae](https://github.com/talis/bootstrap-sass/commit/b8b96ae6747de119a0d64492afdd73988aa7d7ff))
+* **navbar:** apply transparent black to change hue ([d7dafde](https://github.com/talis/bootstrap-sass/commit/d7dafdefeba7c67b059cc78e9e3985f3bbaec7fe))
+* **navbar:** fix variable/function snafu ([51cc7a1](https://github.com/talis/bootstrap-sass/commit/51cc7a154a3cfb203a9a5379414e492e8903f5d0))
+* **navbar:** improve button appearance ([8b037f4](https://github.com/talis/bootstrap-sass/commit/8b037f4d6f07f7bcc5c96da266db81272822f706))
+
 ## [3.7.0](https://github.com/twbs/bootstrap-sass/compare/v3.6.1...v3.7.0) (2020-09-21)
 
 
