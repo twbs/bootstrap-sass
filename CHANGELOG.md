@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.7.2](https://github.com/talis/bootstrap-sass/compare/v3.7.1...v3.7.2) (2020-09-25)
+
+
+### Bug Fixes
+
+* improved interaction handling ([59be17d](https://github.com/talis/bootstrap-sass/commit/59be17d484500b9cdba03fd5d357e30618ee3236))
+
 ### [3.7.1](https://github.com/talis/bootstrap-sass/compare/v3.7.0...v3.7.1) (2020-09-25)
 
 
