@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.7.3](https://github.com/talis/bootstrap-sass/compare/v3.7.2...v3.7.3) (2020-10-05)
+
+
+### Bug Fixes
+
+* **buttons:** make use of currentColor ([#62](https://github.com/talis/bootstrap-sass/issues/62)) ([40cb629](https://github.com/talis/bootstrap-sass/commit/40cb6291bd310a2d1c2fd581de0a4124222ee3ec))
+
 ### [3.7.2](https://github.com/talis/bootstrap-sass/compare/v3.7.1...v3.7.2) (2020-09-25)
 
 
