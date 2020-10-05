@@ -167,7 +167,7 @@
   }
 
   &:focus {
-    outline: 2px solid $white;
+    outline: 2px solid currentColor;
     outline-offset: -2px;
   }
 
@@ -433,9 +433,9 @@
       color: $navbar-default-link-color;
 
       &:focus {
-        outline: 2px solid $white;
+        outline: 2px solid currentColor;
         outline-offset: -2px;
-        background-color: $navbar-default-bg;
+        background-color: inherit;
       }
 
       &:hover {

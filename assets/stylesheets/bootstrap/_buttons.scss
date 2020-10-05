@@ -69,7 +69,7 @@ a.btn {
 .btn-default,
 .btn-success,
 .btn-warning {
-  @include button-variant-plain($btn-default-color, $btn-default-bg, $btn-default-border);
+  @include button-variant-plain($btn-default-color, $btn-default-bg);
 }
 // Appears in Talis turqoise
 .btn-primary {
@@ -78,12 +78,12 @@ a.btn {
 
 // Info appears as pink
 .btn-info {
-  @include button-variant-plain($btn-default-color, $btn-default-bg, $btn-default-border);
+  @include button-variant-plain($btn-default-color, $btn-default-bg);
 }
 
 // Danger and error appear as a plain button with red text...
 .btn-danger {
-  @include button-variant-plain($btn-danger-color, $btn-danger-bg, $btn-danger-color);
+  @include button-variant-plain($btn-danger-color, $btn-danger-bg);
 }
 
 .btn-alert {
@@ -96,8 +96,8 @@ a.btn {
 
 // Make a button look and behave like a link
 .btn-link {
-  font-weight: 400;
   color: $link-color;
+  border-color: transparent;
   font-weight: 600;
 
   &,
@@ -115,26 +115,26 @@ a.btn {
   }
 
   &:hover {
-    border-color: $btn-default-border;
+    border-color: currentColor;
     background-color: $gray200;
   }
 
   &:focus {
-    border-color: $btn-default-color;
+    border-color: currentColor;
     background-color: transparent;
-    box-shadow: 0px 0px 0px 1px $btn-default-border;
+    box-shadow: 0px 0px 0px 1px currentColor;
   }
 
   &:hover:focus {
     background-color: $gray200;
-    border-color: $btn-default-color;
-    box-shadow: 0px 0px 0px 1px $btn-default-border;
+    border-color: currentColor;
+    box-shadow: 0px 0px 0px 1px currentColor
   }
 
   &:active {
     background-color: $gray200;
-    border-color: $btn-default-color;
-    box-shadow: 0px 0px 0px 1px $btn-default-border;
+    border-color: currentColor;
+    box-shadow: 0px 0px 0px 1px currentColor;
   }
 
   &[disabled],

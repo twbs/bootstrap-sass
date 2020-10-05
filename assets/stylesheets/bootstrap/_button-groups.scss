@@ -86,8 +86,7 @@
 .btn-group .dropdown-toggle:active,
 .btn-group.open .dropdown-toggle {
   outline: 0;
-  border-color: $brand-primary;
-  // box-shadow: 0 0 0 1px $brand-primary;
+  border-color: currentColor;
 }
 
 

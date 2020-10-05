@@ -15,4 +15,10 @@
   a {
     color: $text-color;
   }
+  .btn-alert {
+    text-decoration: none;
+    &:hover {
+      color: $white !important;
+    }
+  }
 }
