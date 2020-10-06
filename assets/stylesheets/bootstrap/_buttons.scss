@@ -90,6 +90,10 @@ a.btn {
   @include button-variant-alert();
 }
 
+.btn-alert--primary {
+  @include button-variant-alert--primary();
+}
+
 
 // Link buttons
 // -------------------------

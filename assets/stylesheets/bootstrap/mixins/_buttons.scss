@@ -164,8 +164,8 @@
   border-color: $black;
 
   &:hover {
-    background-color: $black;
-    color: $white;
+    background-color:rgba(0,0,0,0.1);
+    color: $black;
     border-color: $black;
   }
 
@@ -186,7 +186,7 @@
   &.active,
   .open > &.dropdown-toggle {
     color: $black;
-    background-color: transparent;
+    background-color: rgba(0,0,0,0.1);
     border-color: $black;
     box-shadow:
       0px 0px 0px 1px $black,
@@ -200,7 +200,81 @@
   }
 
   &:hover:active {
+    background-color: rgba(0,0,0,0.1);
+    color: $black;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] {
+    background-color: #ADB5BD;
+    border-color: #ADB5BD;
+    color: $white;
+    box-shadow: none;
+  }
+
+  &.disabled,
+  &[disabled],
+  &[disabled]:active,
+  fieldset[disabled] & {
+    // pointer-events: none;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: #ADB5BD;
+      border-color: #ADB5BD;
+      color: $white;
+      box-shadow: none;
+    }
+  }
+}
+
+@mixin button-variant-alert--primary() {
+  color: $white;
+  background-color: $black;
+  border-color: $black;
+
+  &:hover {
+    background-color: $gray800;
+    color: $white;
+    border-color: $black;
+  }
+
+  &:focus,
+  &.focus {
+    color: $white;
+    border-color: $black;
+    box-shadow:
+      0px 0px 0px 1px $white,
+      0px 0px 0px 2px $black,
+  }
+
+  &:hover:focus {
+    color: $white;
     background-color: $black;
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $white;
+    background-color: $gray800;
+    border-color: $black;
+    box-shadow:
+      0px 0px 0px 1px $white,
+      0px 0px 0px 2px $gray800;
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-image: none;
+  }
+
+  &:hover:active {
+    background-color: #gray800;
+    color: $white;
   }
 
   &.disabled,
