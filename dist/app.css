@@ -2444,8 +2444,8 @@ fieldset[disabled] a.btn {
   background-color: transparent;
   border-color: #000000; }
   .btn-alert:hover {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #000000;
     border-color: #000000; }
   .btn-alert:focus, .btn-alert.focus {
     color: #000000;
@@ -2456,14 +2456,15 @@ fieldset[disabled] a.btn {
   .btn-alert:active, .btn-alert.active,
   .open > .btn-alert.dropdown-toggle {
     color: #000000;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.1);
     border-color: #000000;
     box-shadow: 0px 0px 0px 1px #000000, 0px 0px 0px 2px transparent; }
   .btn-alert:active, .btn-alert.active,
   .open > .btn-alert.dropdown-toggle {
     background-image: none; }
   .btn-alert:hover:active {
-    background-color: #000000; }
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #000000; }
   .btn-alert.disabled, .btn-alert[disabled],
   .btn-alert fieldset[disabled] {
     background-color: #ADB5BD;
@@ -2474,6 +2475,48 @@ fieldset[disabled] a.btn {
   fieldset[disabled] .btn-alert:hover,
   fieldset[disabled] .btn-alert:focus,
   fieldset[disabled] .btn-alert.focus {
+    background-color: #ADB5BD;
+    border-color: #ADB5BD;
+    color: #ffffff;
+    box-shadow: none; }
+
+.btn-alert--primary {
+  color: #ffffff;
+  background-color: #000000;
+  border-color: #000000; }
+  .btn-alert--primary:hover {
+    background-color: #343a40;
+    color: #ffffff;
+    border-color: #000000; }
+  .btn-alert--primary:focus, .btn-alert--primary.focus {
+    color: #ffffff;
+    border-color: #000000;
+    box-shadow: 0px 0px 0px 1px #ffffff, 0px 0px 0px 2px #000000; }
+  .btn-alert--primary:hover:focus {
+    color: #ffffff;
+    background-color: #000000; }
+  .btn-alert--primary:active, .btn-alert--primary.active,
+  .open > .btn-alert--primary.dropdown-toggle {
+    color: #ffffff;
+    background-color: #343a40;
+    border-color: #000000;
+    box-shadow: 0px 0px 0px 1px #ffffff, 0px 0px 0px 2px #343a40; }
+  .btn-alert--primary:active, .btn-alert--primary.active,
+  .open > .btn-alert--primary.dropdown-toggle {
+    background-image: none; }
+  .btn-alert--primary:hover:active {
+    background-color: #gray800;
+    color: #ffffff; }
+  .btn-alert--primary.disabled, .btn-alert--primary[disabled],
+  .btn-alert--primary fieldset[disabled] {
+    background-color: #ADB5BD;
+    border-color: #ADB5BD;
+    color: #ffffff;
+    box-shadow: none; }
+  .btn-alert--primary.disabled:hover, .btn-alert--primary.disabled:focus, .btn-alert--primary.disabled.focus, .btn-alert--primary[disabled]:hover, .btn-alert--primary[disabled]:focus, .btn-alert--primary[disabled].focus, .btn-alert--primary[disabled]:active:hover, .btn-alert--primary[disabled]:active:focus, .btn-alert--primary[disabled]:active.focus,
+  fieldset[disabled] .btn-alert--primary:hover,
+  fieldset[disabled] .btn-alert--primary:focus,
+  fieldset[disabled] .btn-alert--primary.focus {
     background-color: #ADB5BD;
     border-color: #ADB5BD;
     color: #ffffff;
@@ -3926,7 +3969,7 @@ a.label:hover, a.label:focus {
   .alert-success .btn-alert {
     text-decoration: none; }
     .alert-success .btn-alert:hover {
-      color: #ffffff !important; }
+      color: currentColor !important; }
 
 .alert-info {
   color: #000000;
@@ -3941,7 +3984,7 @@ a.label:hover, a.label:focus {
   .alert-info .btn-alert {
     text-decoration: none; }
     .alert-info .btn-alert:hover {
-      color: #ffffff !important; }
+      color: currentColor !important; }
 
 .alert-warning {
   color: #000000;
@@ -3956,7 +3999,7 @@ a.label:hover, a.label:focus {
   .alert-warning .btn-alert {
     text-decoration: none; }
     .alert-warning .btn-alert:hover {
-      color: #ffffff !important; }
+      color: currentColor !important; }
 
 .alert-danger {
   color: #000000;
@@ -3971,7 +4014,7 @@ a.label:hover, a.label:focus {
   .alert-danger .btn-alert {
     text-decoration: none; }
     .alert-danger .btn-alert:hover {
-      color: #ffffff !important; }
+      color: currentColor !important; }
 
 .well {
   min-height: 20px;
