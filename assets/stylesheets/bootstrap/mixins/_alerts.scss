@@ -12,15 +12,20 @@
     color: $text-color;
   }
 
-  a {
+  a:not(.btn) {
     color: $text-color;
   }
 
-  .btn-alert {
+  a.btn-alert,
+  a.btn-alert--primary {
     text-decoration: none;
+  }
 
-    &:hover {
-      color: currentColor !important;
-    }
+  a.btn-alert.btn-alert:hover {
+    color: $black;
+  }
+
+  a.btn-alert--primary.btn-alert--primary:hover {
+    color: $white;
   }
 }
