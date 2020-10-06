@@ -3964,12 +3964,15 @@ a.label:hover, a.label:focus {
     border-top-color: #62dbc7; }
   .alert-success .alert-link {
     color: #000000; }
-  .alert-success a {
+  .alert-success a:not(.btn) {
     color: #000000; }
-  .alert-success .btn-alert {
+  .alert-success a.btn-alert,
+  .alert-success a.btn-alert--primary {
     text-decoration: none; }
-    .alert-success .btn-alert:hover {
-      color: currentColor !important; }
+  .alert-success a.btn-alert.btn-alert:hover {
+    color: #000000; }
+  .alert-success a.btn-alert--primary.btn-alert--primary:hover {
+    color: #ffffff; }
 
 .alert-info {
   color: #000000;
@@ -3979,12 +3982,15 @@ a.label:hover, a.label:focus {
     border-top-color: #37bcd1; }
   .alert-info .alert-link {
     color: #000000; }
-  .alert-info a {
+  .alert-info a:not(.btn) {
     color: #000000; }
-  .alert-info .btn-alert {
+  .alert-info a.btn-alert,
+  .alert-info a.btn-alert--primary {
     text-decoration: none; }
-    .alert-info .btn-alert:hover {
-      color: currentColor !important; }
+  .alert-info a.btn-alert.btn-alert:hover {
+    color: #000000; }
+  .alert-info a.btn-alert--primary.btn-alert--primary:hover {
+    color: #ffffff; }
 
 .alert-warning {
   color: #000000;
@@ -3994,12 +4000,15 @@ a.label:hover, a.label:focus {
     border-top-color: #ffc22a; }
   .alert-warning .alert-link {
     color: #000000; }
-  .alert-warning a {
+  .alert-warning a:not(.btn) {
     color: #000000; }
-  .alert-warning .btn-alert {
+  .alert-warning a.btn-alert,
+  .alert-warning a.btn-alert--primary {
     text-decoration: none; }
-    .alert-warning .btn-alert:hover {
-      color: currentColor !important; }
+  .alert-warning a.btn-alert.btn-alert:hover {
+    color: #000000; }
+  .alert-warning a.btn-alert--primary.btn-alert--primary:hover {
+    color: #ffffff; }
 
 .alert-danger {
   color: #000000;
@@ -4009,12 +4018,15 @@ a.label:hover, a.label:focus {
     border-top-color: #ae1d24; }
   .alert-danger .alert-link {
     color: #000000; }
-  .alert-danger a {
+  .alert-danger a:not(.btn) {
     color: #000000; }
-  .alert-danger .btn-alert {
+  .alert-danger a.btn-alert,
+  .alert-danger a.btn-alert--primary {
     text-decoration: none; }
-    .alert-danger .btn-alert:hover {
-      color: currentColor !important; }
+  .alert-danger a.btn-alert.btn-alert:hover {
+    color: #000000; }
+  .alert-danger a.btn-alert--primary.btn-alert--primary:hover {
+    color: #ffffff; }
 
 .well {
   min-height: 20px;

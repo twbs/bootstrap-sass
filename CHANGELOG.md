@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.7.5](https://github.com/talis/bootstrap-sass/compare/v3.7.4...v3.7.5) (2020-10-06)
+
+
+### Bug Fixes
+
+* **buttons:** fix link state override ([1e38bb9](https://github.com/talis/bootstrap-sass/commit/1e38bb9709061736e11aedd9be0a1c457529a684))
+
 ### [3.7.4](https://github.com/talis/bootstrap-sass/compare/v3.7.3...v3.7.4) (2020-10-06)
 
 
