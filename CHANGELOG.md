@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.7.6](https://github.com/talis/bootstrap-sass/compare/v3.7.5...v3.7.6) (2020-10-07)
+
+
+### Bug Fixes
+
+* wrap extensions in iife ([3db5b24](https://github.com/talis/bootstrap-sass/commit/3db5b24f4483b8adaa0606404ad42d4a41b82576))
+
 ### [3.7.5](https://github.com/talis/bootstrap-sass/compare/v3.7.4...v3.7.5) (2020-10-06)
 
 
