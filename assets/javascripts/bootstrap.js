@@ -2579,6 +2579,9 @@ if (typeof jQuery === 'undefined') {
 
 }(jQuery);
 
+(function($) {
+  'use strict';
+
 // GENERAL UTILITY FUNCTIONS
 // ===============================
 
@@ -2807,3 +2810,4 @@ element.addClass('active')
 element.find('[data-toggle=tab], [data-toggle=pill]').attr({ 'tabIndex' : '0','aria-selected' : true })
 element.filter('.tab-pane').attr({ 'aria-hidden' : false,'tabIndex' : '0' })
 }
+})(jQuery);
