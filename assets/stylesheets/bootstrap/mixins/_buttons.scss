@@ -72,24 +72,22 @@
   }
 }
 
-@mixin button-variant($color, $background, $border) {
+@mixin button-variant($color, $background) {
   color: $color;
   background-color: $background;
-  border-color: $border;
+  border-color: $background;
 
   &:hover {
     background-color: darken(saturate(adjust-hue($background, -0.2776), 1.4706), 7.0588);
     color: $color;
-    border-color: darken(saturate(adjust-hue($border, -0.2776), 1.4706), 7.0588);
+    border-color: darken(saturate(adjust-hue($background, -0.2776), 1.4706), 7.0588);
   }
 
   &:focus,
   &.focus {
     color: $color;
-    // background-color: darken(saturate(adjust-hue($background, -0.2776), 1.4706), 7.0588);
     border-color: $color;
     box-shadow:
-      // 0px 0px 0px 1px inset $color,
       0px 0px 0px 1px $color,
       0px 0px 0px 2px $background,
   }
@@ -103,14 +101,6 @@
     box-shadow:
       0px 0px 0px 1px $color,
       0px 0px 0px 2px darken(saturate(adjust-hue($background, -0.7276), 1.4706), 10.9804);
-
-
-    &:focus,
-    &.focus {
-      // background-color: darken(saturate(adjust-hue($background, -0.7276), 1.4706), 10.9804);
-      // border-color: darken(saturate(adjust-hue($background, -0.7276), 1.4706), 10.9804);
-      // box-shadow: 0 0 0 2px inset $white,
-    }
   }
 
   &:active,
