@@ -168,10 +168,6 @@
       0px 0px 0px 2px transparent,
   }
 
-  &:hover:focus {
-    color: $white;
-  }
-
   &:active,
   &.active,
   .open > &.dropdown-toggle {
@@ -263,7 +259,7 @@
   }
 
   &:hover:active {
-    background-color: #gray800;
+    background-color: $gray800;
     color: $white;
   }
 
