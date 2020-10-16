@@ -2444,8 +2444,6 @@ fieldset[disabled] a.btn {
     color: #000000;
     border-color: #000000;
     box-shadow: 0px 0px 0px 1px #000000, 0px 0px 0px 2px transparent; }
-  .btn-alert:hover:focus {
-    color: #ffffff; }
   .btn-alert:active, .btn-alert.active,
   .open > .btn-alert.dropdown-toggle {
     color: #000000;
@@ -2498,7 +2496,7 @@ fieldset[disabled] a.btn {
   .open > .btn-alert--primary.dropdown-toggle {
     background-image: none; }
   .btn-alert--primary:hover:active {
-    background-color: #gray800;
+    background-color: #343a40;
     color: #ffffff; }
   .btn-alert--primary.disabled, .btn-alert--primary[disabled],
   .btn-alert--primary fieldset[disabled] {

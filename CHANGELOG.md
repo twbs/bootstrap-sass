@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.7.8](https://github.com/talis/bootstrap-sass/compare/v3.7.7...v3.7.8) (2020-10-16)
+
+
+### Bug Fixes
+
+* **buttons:** remove white color from `.btn-alert:hover:focus` state ([#64](https://github.com/talis/bootstrap-sass/issues/64)) ([3af5f16](https://github.com/talis/bootstrap-sass/commit/3af5f164d495652dc81c049aa45807fca3c70731))
+
 ### [3.7.7](https://github.com/talis/bootstrap-sass/compare/v3.7.6...v3.7.7) (2020-10-12)
 
 
