@@ -4,15 +4,13 @@
 
 
 .breadcrumb {
-  padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal;
+  padding: 8px 15px;
   margin-bottom: $line-height-computed;
   list-style: none;
   background-color: $breadcrumb-bg;
   border-radius: $border-radius-base;
-
   > li {
     display: inline-block;
-
     + li:before {
       padding: 0 5px;
       color: $breadcrumb-color;
@@ -21,7 +19,6 @@
       content: "#{$breadcrumb-separator}#{$nbsp}"; // Unicode space added since inline-block means non-collapsing white-space
     }
   }
-
   > .active {
     color: $breadcrumb-active-color;
   }
