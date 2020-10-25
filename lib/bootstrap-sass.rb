@@ -1,42 +1,90 @@
+require 'bootstrap-sass/version'
 module Bootstrap
-  class FrameworkNotFound < StandardError; end
+  class << self
+    # Inspired by Kaminari
+    def load!
+      register_compass_extension if compass?
 
-  # Inspired by Kaminari
-  def self.load!
-    if compass? && asset_pipeline?
-      register_compass_extension
-      register_rails_engine
-    elsif compass?
-      # Only require compass extension if a standalone project
-      require 'bootstrap-sass/compass_functions'
-      register_compass_extension
-    elsif asset_pipeline?
-      require 'sass-rails' # See: https://github.com/thomas-mcdonald/bootstrap-sass/pull/4
-      register_rails_engine
-      require 'bootstrap-sass/rails_functions'
-    else
-      raise Bootstrap::FrameworkNotFound, "bootstrap-sass requires either Rails > 3.1 or Compass, neither of which are loaded"
+      if rails?
+        register_rails_engine
+      elsif hanami?
+        register_hanami
+      elsif sprockets?
+        register_sprockets
+      elsif defined?(::Sass) && ::Sass.respond_to?(:load_paths)
+        # The deprecated `sass` gem:
+        ::Sass.load_paths << stylesheets_path
+      end
+
+      if defined?(::Sass::Script::Value::Number)
+        # bootstrap requires minimum precision of 8, see https://github.com/twbs/bootstrap-sass/issues/409
+        ::Sass::Script::Value::Number.precision = [8, ::Sass::Script::Value::Number.precision].max
+      end
     end
-  end
 
-  private
-  def self.asset_pipeline?
-    defined?(::Rails) && ::Rails.version >= '3.1.0'
-  end
+    # Paths
+    def gem_path
+      @gem_path ||= File.expand_path '..', File.dirname(__FILE__)
+    end
 
-  def self.compass?
-    defined?(::Compass)
-  end
+    def stylesheets_path
+      File.join assets_path, 'stylesheets'
+    end
 
-  def self.register_compass_extension
-    base = File.join(File.dirname(__FILE__), '..')
-    styles = File.join(base, 'vendor', 'assets', 'stylesheets')
-    templates = File.join(base, 'templates')
-    ::Compass::Frameworks.register('bootstrap', :stylesheets_directory => styles, :templates_directory => templates)
-  end
+    def fonts_path
+      File.join assets_path, 'fonts'
+    end
 
-  def self.register_rails_engine
-    require 'bootstrap-sass/engine'
+    def javascripts_path
+      File.join assets_path, 'javascripts'
+    end
+
+    def assets_path
+      @assets_path ||= File.join gem_path, 'assets'
+    end
+
+    # Environment detection helpers
+    def sprockets?
+      defined?(::Sprockets)
+    end
+
+    def compass?
+      defined?(::Compass::Frameworks)
+    end
+
+    def rails?
+      defined?(::Rails)
+    end
+
+    def hanami?
+      defined?(::Hanami)
+    end
+
+    private
+
+    def register_compass_extension
+      ::Compass::Frameworks.register(
+          'bootstrap',
+          :version               => Bootstrap::VERSION,
+          :path                  => gem_path,
+          :stylesheets_directory => stylesheets_path,
+          :templates_directory   => File.join(gem_path, 'templates')
+      )
+    end
+
+    def register_rails_engine
+      require 'bootstrap-sass/engine'
+    end
+
+    def register_hanami
+      Hanami::Assets.sources << assets_path
+    end
+
+    def register_sprockets
+      Sprockets.append_path(stylesheets_path)
+      Sprockets.append_path(fonts_path)
+      Sprockets.append_path(javascripts_path)
+    end
   end
 end
 
