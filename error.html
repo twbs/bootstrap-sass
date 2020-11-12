@@ -7,20 +7,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="dist/app.css" />
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin />
+    <link rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"
+          media="print"
+          onload="this.media='all'" />
+
+    <style>
+      html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}main,section{display:block}h1{font-size:2em;margin:0.67em 0}hr{box-sizing:content-box;height:0}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}html{font-size:0.8125em}body{font-family:"Open Sans",sans-serif;font-size:13px;line-height:1.6;color:#495057;background-color:#fff}hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #dee2e6}h1,h2{font-family:inherit;font-weight:300;line-height:1.1}h1,h2{margin-top:20px;margin-bottom:10px}h1{color:#000000}h2{color:#868e96}h1{font-size:1.96154em}@media (min-width:992px){h1{font-size:2.30769em}}h2{font-size:1.96154em}@media (min-width:992px){h2{font-size:2.30769em}}p{margin:0 0 10px}dl{margin-top:0;margin-bottom:20px}dt,dd{line-height:1.6}dt{font-weight:700}dd{margin-left:0}@-ms-viewport{width:device-width}.o-dl--inline *:not(div){display:inline}.t-error{background-color:#017d87;color:#ffffff}.t-error hr{height:1px;background-color:rgba(255,255,255,0.2);border:none;max-width:20rem;margin:2rem 0}.c-error-page__container{display:flex;padding:0 5vw;max-width:60rem;min-height:100vh;flex-direction:column;justify-content:center}.c-error-page__header{font-size:52px;font-weight:700;color:#ffffff}.c-error-page__subheader{font-size:39px;color:#ffffff}.c-error-page__context{font-size:19px}
+    </style>
   </head>
   <body class="t-error">
     <main class="c-error-page__container">
       <h1 class="c-error-page__header">Error!</h1>
-      <h2 class="c-error-page__subheader">
-        Something has gone wrong, and our team has been notified
-      </h2>
-      <hr />
       <section class="c-error-page__context">
+        <h2 class="c-error-page__subheader">
+          Something has gone wrong, and our team has been notified
+        </h2>
+        <hr />
         <dl id="errorDesc" class="o-dl--inline">
           <dt>Error code:</dt>
           <dd>Error message</dd>
