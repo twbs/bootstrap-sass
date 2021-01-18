@@ -1565,14 +1565,14 @@ output {
     box-shadow: 0 0 0 1px #017d87;
     outline: 0; }
   .form-control::-moz-placeholder {
-    color: #868e96;
+    color: #495057;
     opacity: 1;
     font-style: italic; }
   .form-control:-ms-input-placeholder {
-    color: #868e96;
+    color: #495057;
     font-style: italic; }
   .form-control::-webkit-input-placeholder {
-    color: #868e96;
+    color: #495057;
     font-style: italic; }
   .form-control::-ms-expand {
     background-color: transparent;

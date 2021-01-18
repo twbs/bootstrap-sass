@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.7.9](https://github.com/talis/bootstrap-sass/compare/v3.7.8...v3.7.9) (2021-01-18)
+
+
+### Bug Fixes
+
+* update placeholder colour ([6017108](https://github.com/talis/bootstrap-sass/commit/601710862e2d6dae834d2169a8febb4f35eacce0))
+
 ### [3.7.8](https://github.com/talis/bootstrap-sass/compare/v3.7.7...v3.7.8) (2020-10-16)
 
 
