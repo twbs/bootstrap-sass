@@ -177,9 +177,7 @@ output {
   &[disabled],
   &[readonly],
   fieldset[disabled] & {
-    // background-color: $input-bg-disabled;
     background-color: $gray100;
-    // border-color: $input-border;
     border-color: $gray200;
     color: $gray;
     cursor: $cursor-disabled;
