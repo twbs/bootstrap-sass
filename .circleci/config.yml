@@ -9,7 +9,7 @@ jobs:
       # specify the version you desire here
       - image: circleci/node:14.15.4
 
-    working_directory: ~/app
+    working_directory: ~/repo
 
     steps:
       - run: 'node -v'
