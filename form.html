@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dist/app.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+  <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script defer type="text/javascript" src="assets/javascripts/bootstrap.js"></script>
+  <script defer type="text/javascript" src="FormValidator.js"></script>
+  <title>Exemplar Form</title>
+</head>
+<body>
+  <main class="container">
+    <h1>Exemplar Form</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Form</h2>
+        <form>
+          <div class="alert alert-danger" role="group" tabindex="-1" aria-labelledby="error-summary-heading" id="error-summary" hidden>
+            <h3>There's a problem with the form submission</h3>
+            <ul>
+              <li><a href="#name">Enter your first name</a></li>
+              <li><a href="#email">Enter an email address</a></li>
+            </ul>
+
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              class="form-control"
+              type="text"
+              name=""
+              id="name"
+              aria-required="true"
+              autocomplete="given-name">
+          </div>
+
+          <div class="form-group">
+            <label for="name">Email</label>
+            <input
+              class="form-control"
+              type="email"
+              name=""
+              id="email"
+              autocomplete="email"
+              aria-required="true">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone (optional)</label>
+            <input
+              class="form-control"
+              type="tel"
+              name=""
+              id="phone"
+              autocomplete="tel">
+          </div>
+
+          <div class="controls">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-default">Clear</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h2>Guidelines</h2>
+        <ol>
+          <li><code>novalidate</code> set on form to disable browser validation</li>
+          <li>Top-aligned labels</li>
+          <li><code>autocomplete</code> attribute</li>
+          <li>All fields required by default</li>
+        </ol>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
