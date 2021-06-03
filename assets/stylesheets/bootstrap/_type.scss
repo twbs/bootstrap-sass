@@ -1,3 +1,5 @@
+@use "sass:math";
+
 //
 // Typography
 // --------------------------------------------------
@@ -25,7 +27,7 @@ h1, .h1,
 h2, .h2,
 h3, .h3 {
   margin-top: $line-height-computed;
-  margin-bottom: ($line-height-computed / 2);
+  margin-bottom: math.div($line-height-computed, 2);
 
   small,
   .small {
@@ -35,8 +37,8 @@ h3, .h3 {
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  margin-top: ($line-height-computed / 2);
-  margin-bottom: ($line-height-computed / 2);
+  margin-top: math.div($line-height-computed, 2);
+  margin-bottom: math.div($line-height-computed, 2);
 
   small,
   .small {
@@ -56,7 +58,7 @@ h6, .h6 { font-size: $font-size-h6; }
 // -------------------------
 
 p {
-  margin: 0 0 ($line-height-computed / 2);
+  margin: 0 0 math.div($line-height-computed, 2);
 }
 
 .lead {
@@ -77,7 +79,7 @@ p {
 // Ex: (12px small font / 14px base font) * 100% = about 85%
 small,
 .small {
-  font-size: floor((100% * $font-size-small / $font-size-base));
+  font-size: floor(math.div(100% * $font-size-small, $font-size-base));
 }
 
 mark,
@@ -149,7 +151,7 @@ mark,
 ul,
 ol {
   margin-top: 0;
-  margin-bottom: ($line-height-computed / 2);
+  margin-bottom: math.div($line-height-computed, 2);
   ul,
   ol {
     margin-bottom: 0;
@@ -239,7 +241,7 @@ abbr[data-original-title] {
 
 // Blockquotes
 blockquote {
-  padding: ($line-height-computed / 2) $line-height-computed;
+  padding: math.div($line-height-computed, 2) $line-height-computed;
   margin: 0 0 $line-height-computed;
   font-size: $blockquote-font-size;
   border-left: 5px solid $blockquote-border-color;
