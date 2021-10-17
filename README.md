@@ -16,7 +16,7 @@ Please see the appropriate guide for your environment of choice:
 * [Bower](#b-bower).
 * [npm / Node.js](#c-npm--nodejs).
 
-### a. Ruby on Rails
+### A. Ruby on Rails
 
 `bootstrap-sass` is easy to drop into Rails with the asset pipeline.
 
@@ -111,7 +111,7 @@ Please make sure `sprockets-rails` is at least v2.1.4.
 
 bootstrap-sass is no longer compatible with Rails 3. The latest version of bootstrap-sass compatible with Rails 3.2 is v3.1.1.0.
 
-### b. Bower
+### B. Bower
 
 bootstrap-sass Bower package is compatible with node-sass 3.2.0+. You can install it with:
 
@@ -144,7 +144,7 @@ In `application.js`:
 
 See also this [example manifest.js](/test/dummy_node_mincer/manifest.js) for mincer.
 
-### c. npm / Node.js
+### D. npm / Node.js
 ```console
 $ npm install bootstrap-sass
 ```
