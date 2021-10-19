@@ -173,6 +173,7 @@ class Converter
       file   = replace_calculation_semantics(file)
       file   = replace_file_imports(file)
       file   = wrap_at_groups_with_at_root(file)
+      file   = replace_division(file)
       file
     end
 
@@ -180,6 +181,12 @@ class Converter
       replace_rules(file, /@(?:font-face|-ms-viewport)/) { |rule, _pos|
         %Q(@at-root {\n#{indent rule, 2}\n})
       }
+    end
+
+    def replace_division(less)
+      re = /(?<!\w)\(\s*([^(]+?)\s+\/\s+([^)]+?)\s*\)/
+      return less if less !~ re
+      "@use \"sass:math\";\n" + less.gsub(re, 'math.div(\1, \2)')
     end
 
     def sass_fn_exists(fn)
