@@ -1,3 +1,4 @@
+@use "sass:math";
 //
 // Carousel
 // --------------------------------------------------
@@ -244,16 +245,16 @@
     .icon-next {
       width: ($carousel-control-font-size * 1.5);
       height: ($carousel-control-font-size * 1.5);
-      margin-top: ($carousel-control-font-size / -2);
+      margin-top: math.div($carousel-control-font-size, -2);
       font-size: ($carousel-control-font-size * 1.5);
     }
     .glyphicon-chevron-left,
     .icon-prev {
-      margin-left: ($carousel-control-font-size / -2);
+      margin-left: math.div($carousel-control-font-size, -2);
     }
     .glyphicon-chevron-right,
     .icon-next {
-      margin-right: ($carousel-control-font-size / -2);
+      margin-right: math.div($carousel-control-font-size, -2);
     }
   }
 
