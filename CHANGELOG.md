@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.4.3 (non-ruby only)
+
+* Fix malformed `math.div` expressions. [#1225](https://github.com/twbs/bootstrap-sass/pull/1225)
+
 ## 3.4.2 (non-ruby only)
 
 * Compatibility with Sass 1.33. [#1221](https://github.com/twbs/bootstrap-sass/pull/1221)
