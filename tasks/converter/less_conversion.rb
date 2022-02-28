@@ -184,9 +184,41 @@ class Converter
     end
 
     def replace_division(less)
-      re = /(?<!\w)\(\s*([^(]+?)\s+\/\s+([^)]+?)\s*\)/
+      re = %r{
+        (?<expression>
+          (?<callee>[[:alpha:]\.]+)?
+          \(
+            (?:
+              (?>
+                (?<dividend>
+                  [^()/]+
+                  |
+                  \([^/]+\)
+                )
+                \s+
+                /
+                \s+
+                (?<divisor>
+                  [^()/]+
+                  |
+                  \([^/]+\)
+                )
+              )
+              |
+              \g<expression>
+            )
+          \)
+        )
+      }x
       return less if less !~ re
-      "@use \"sass:math\";\n" + less.gsub(re, 'math.div(\1, \2)')
+      "@use \"sass:math\";\n" + less.gsub(re) do
+        named_captures = $~.named_captures
+        callee = named_captures['callee']
+        dividend = named_captures['dividend']
+        divisor = named_captures['divisor']
+        expression = "math.div(#{dividend}, #{divisor})"
+        callee.nil? ? expression : "#{callee}(#{expression})"
+      end
     end
 
     def sass_fn_exists(fn)
