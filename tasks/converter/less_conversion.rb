@@ -730,13 +730,13 @@ SASS
       from - s.pos + 1
     end
 
-    # insert substitutions into text at positions (Range or Fixnum)
+    # insert substitutions into text at positions (Range or Integer)
     # substitutions can be passed as array or as yields from the &block called with |substring, position, text|
     # position is a range (begin..end)
     def replace_substrings_at(text, positions, replacements = nil, &block)
       offset = 0
       positions.each_with_index do |p, i|
-        p       = (p...p) if p.is_a?(Fixnum)
+        p       = (p...p) if p.is_a?(Integer)
         from    = p.begin + offset
         to      = p.end + offset
         p       = p.exclude_end? ? (from...to) : (from..to)
