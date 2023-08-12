@@ -1,4 +1,4 @@
-@use "sass:math";
+@import "../vendor/rfs";
 //
 // Carousel
 // --------------------------------------------------
@@ -245,16 +245,16 @@
     .icon-next {
       width: ($carousel-control-font-size * 1.5);
       height: ($carousel-control-font-size * 1.5);
-      margin-top: math.div($carousel-control-font-size, -2);
+      margin-top: divide($carousel-control-font-size, -2);
       font-size: ($carousel-control-font-size * 1.5);
     }
     .glyphicon-chevron-left,
     .icon-prev {
-      margin-left: math.div($carousel-control-font-size, -2);
+      margin-left: divide($carousel-control-font-size, -2);
     }
     .glyphicon-chevron-right,
     .icon-next {
-      margin-right: math.div($carousel-control-font-size, -2);
+      margin-right: divide($carousel-control-font-size, -2);
     }
   }
 

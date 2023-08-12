@@ -43,8 +43,8 @@ class Converter
     )
 
     # Convert a snippet of bootstrap LESS to Scss
-    def convert_less(less)
-      less = convert_to_scss(less)
+    def convert_less(less, filename)
+      less = convert_to_scss(less, filename)
       less = yield(less) if block_given?
       less
     end
@@ -58,15 +58,22 @@ class Converter
     end
 
     def process_stylesheet_assets
+      save_to = @save_to[:scss]
+
+      log_status 'Copying vendor stylesheets...'
+      rfs_path = File.expand_path('../../node_modules/rfs/scss.scss', __dir__)
+      rfs_dest = File.expand_path("../vendor/_rfs.scss", save_to)
+      raise "Couldn't find `node_modules/rfs/`. Forgot to `npm install`?" unless File.exist? rfs_path
+      save_file rfs_dest, File.read(rfs_path)
+
       log_status 'Processing stylesheets...'
       files   = read_files('less', bootstrap_less_files)
-      save_to = @save_to[:scss]
 
       log_status '  Converting LESS files to Scss:'
       files.each do |name, file|
         log_processing name
         # apply common conversions
-        file = convert_less(file)
+        file = convert_less(file, name)
         file = replace_all file, %r{// stylelint-disable.*?\n+}, '', optional: true
         if name.start_with?('mixins/')
           file = varargify_mixin_definitions(file, *VARARG_MIXINS)
@@ -157,7 +164,7 @@ class Converter
     end
 
     # apply general less to scss conversion
-    def convert_to_scss(file)
+    def convert_to_scss(file, name)
       # get local mixin names before converting the definitions
       mixins = shared_mixins + read_mixins(file)
       file   = replace_vars(file)
@@ -173,7 +180,7 @@ class Converter
       file   = replace_calculation_semantics(file)
       file   = replace_file_imports(file)
       file   = wrap_at_groups_with_at_root(file)
-      file   = replace_division(file)
+      file   = replace_division(file, name)
       file
     end
 
@@ -183,16 +190,33 @@ class Converter
       }
     end
 
-    def replace_division(less)
+    def replace_division(less, filename)
       re = %r{
         (?<expression>
-          (?<callee>[[:alpha:]\.]+)?
-          \(
+          # optional - might be a function call,
+          # or might be parenthesized expression.
+          (?<callee>
+            (?:[[:alpha:]_\-]+\.)? # namespace
+            [[:alpha:]_\-]+ # function
+          )?
+          \( # opening paren
+            # within the bounding parens
             (?:
               (?>
+                # an argument to divide can be
                 (?<dividend>
-                  [^()/]+
+                  # an expression containing no nested parens
+                  [^()]+
                   |
+                  # a color function
+                  (rgba?|hsla?hwb|lab|lch|oklab|oklch|color)\(.*\)
+                  |
+                  # or else, a function call or parenthesized expression,
+                  (
+                    (?:[[:alpha:]_\-]+\.)?
+                    [[:alpha:]_\-]+
+                  )?
+                  # containing no nested legacy division operators
                   \([^/]+\)
                 )
                 \s+
@@ -201,22 +225,32 @@ class Converter
                 (?<divisor>
                   [^()/]+
                   |
+                  (
+                    (?:[[:alpha:]_\-]+\.)?
+                    [[:alpha:]_\-]+
+                  )?
                   \([^/]+\)
                 )
               )
               |
-              \g<expression>
+              # if match fails,
+              \g<expression> # attempt recursively within the parens
             )
-          \)
+          \) # closing paren
         )
       }x
       return less if less !~ re
-      "@use \"sass:math\";\n" + less.gsub(re) do
+      path_to_rfs = [
+        *Array.new(filename.split('/').length, '..'),
+        'vendor',
+        'rfs'
+      ].join('/')
+      "@import \"#{path_to_rfs}\";\n" + less.gsub(re) do
         named_captures = $~.named_captures
         callee = named_captures['callee']
         dividend = named_captures['dividend']
         divisor = named_captures['divisor']
-        expression = "math.div(#{dividend}, #{divisor})"
+        expression = "divide(#{dividend}, #{divisor})"
         callee.nil? ? expression : "#{callee}(#{expression})"
       end
     end

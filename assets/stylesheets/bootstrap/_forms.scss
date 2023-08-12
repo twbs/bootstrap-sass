@@ -1,4 +1,4 @@
-@use "sass:math";
+@import "../vendor/rfs";
 //
 // Forms
 // --------------------------------------------------
@@ -582,7 +582,7 @@ textarea.form-control {
   // Reposition the icon because it's now within a grid column and columns have
   // `position: relative;` on them. Also accounts for the grid gutter padding.
   .has-feedback .form-control-feedback {
-    right: floor(math.div($grid-gutter-width, 2));
+    right: floor(divide($grid-gutter-width, 2));
   }
 
   // Form group sizes
