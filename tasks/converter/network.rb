@@ -19,7 +19,7 @@ class Converter
       log_http_get_files files, full_path, false
       files.map do |name|
         Thread.start {
-          contents[name] = open("#{full_path}/#{name}").read
+          contents[name] = URI.open("#{full_path}/#{name}").read
           Thread.exclusive { write_cached_files path, name => contents[name] }
         }
       end.each(&:join)
@@ -56,7 +56,7 @@ class Converter
         File.read(cache_path, mode: 'rb')
       else
         log_http_get_file url, false
-        content = open(url).read
+        content = URI.open(url).read
         File.open(cache_path, 'wb') { |f| f.write content }
         content
       end

@@ -1,3 +1,4 @@
+@use "sass:math";
 //
 // Navbars
 // --------------------------------------------------
@@ -228,7 +229,7 @@
 // the nav the full height of the horizontal nav (above 768px).
 
 .navbar-nav {
-  margin: ($navbar-padding-vertical / 2) (-$navbar-padding-horizontal);
+  margin: math.div($navbar-padding-vertical, 2) (-$navbar-padding-horizontal);
 
   > li > a {
     padding-top: 10px;
