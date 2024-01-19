@@ -173,6 +173,7 @@ class Converter
       file   = replace_calculation_semantics(file)
       file   = replace_file_imports(file)
       file   = wrap_at_groups_with_at_root(file)
+      file   = replace_division(file)
       file
     end
 
@@ -180,6 +181,44 @@ class Converter
       replace_rules(file, /@(?:font-face|-ms-viewport)/) { |rule, _pos|
         %Q(@at-root {\n#{indent rule, 2}\n})
       }
+    end
+
+    def replace_division(less)
+      re = %r{
+        (?<expression>
+          (?<callee>[[:alpha:]\.]+)?
+          \(
+            (?:
+              (?>
+                (?<dividend>
+                  [^()/]+
+                  |
+                  \([^/]+\)
+                )
+                \s+
+                /
+                \s+
+                (?<divisor>
+                  [^()/]+
+                  |
+                  \([^/]+\)
+                )
+              )
+              |
+              \g<expression>
+            )
+          \)
+        )
+      }x
+      return less if less !~ re
+      "@use \"sass:math\";\n" + less.gsub(re) do
+        named_captures = $~.named_captures
+        callee = named_captures['callee']
+        dividend = named_captures['dividend']
+        divisor = named_captures['divisor']
+        expression = "math.div(#{dividend}, #{divisor})"
+        callee.nil? ? expression : "#{callee}(#{expression})"
+      end
     end
 
     def sass_fn_exists(fn)
@@ -691,13 +730,13 @@ SASS
       from - s.pos + 1
     end
 
-    # insert substitutions into text at positions (Range or Fixnum)
+    # insert substitutions into text at positions (Range or Integer)
     # substitutions can be passed as array or as yields from the &block called with |substring, position, text|
     # position is a range (begin..end)
     def replace_substrings_at(text, positions, replacements = nil, &block)
       offset = 0
       positions.each_with_index do |p, i|
-        p       = (p...p) if p.is_a?(Fixnum)
+        p       = (p...p) if p.is_a?(Integer)
         from    = p.begin + offset
         to      = p.end + offset
         p       = p.exclude_end? ? (from...to) : (from..to)

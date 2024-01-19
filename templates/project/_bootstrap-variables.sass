@@ -1,5 +1,6 @@
-// Override Bootstrap variables here (defaults from bootstrap-sass v3.4.0):
+// Override Bootstrap variables here (defaults from bootstrap-sass v3.4.1):
 
+@use "sass:math";
 //
 // Variables
 // --------------------------------------------------
@@ -366,8 +367,8 @@
 // $navbar-height:                    50px
 // $navbar-margin-bottom:             $line-height-computed
 // $navbar-border-radius:             $border-radius-base
-// $navbar-padding-horizontal:        floor(($grid-gutter-width / 2))
-// $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2)
+// $navbar-padding-horizontal:        floor(math.div($grid-gutter-width, 2))
+// $navbar-padding-vertical:          math.div(($navbar-height - $line-height-computed), 2)
 // $navbar-collapse-max-height:       340px
 
 // $navbar-default-color:             #777
