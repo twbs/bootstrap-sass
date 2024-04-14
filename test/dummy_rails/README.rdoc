@@ -1,0 +1,3 @@
+== README
+
+This is a minimal Rails app for testing
