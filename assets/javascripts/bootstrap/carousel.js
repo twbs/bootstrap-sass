@@ -232,9 +232,9 @@
     e.preventDefault()
   }
 
-  $(document)
-    .on('click.bs.carousel.data-api', '[data-slide]', clickHandler)
-    .on('click.bs.carousel.data-api', '[data-slide-to]', clickHandler)
+  $('[data-slide], [data-slide-to]')
+    .on('click.bs.carousel.data-api', clickHandler)
+    .on('click.bs.carousel.data-api', clickHandler)
 
   $(window).on('load', function () {
     $('[data-ride="carousel"]').each(function () {

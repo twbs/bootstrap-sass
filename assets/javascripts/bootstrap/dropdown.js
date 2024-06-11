@@ -156,10 +156,23 @@
   // ===================================
 
   $(document)
-    .on('click.bs.dropdown.data-api', clearMenus)
-    .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
-    .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
-    .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
-    .on('keydown.bs.dropdown.data-api', '.dropdown-menu', Dropdown.prototype.keydown)
+    .on('show.bs.dropdown', function(e) {
+      $(document)
+        .on('click.bs.dropdown.data-api', clearMenus)
+    })
+    .on('hide.bs.dropdown', function(e) {
+      $(document)
+        .off('click.bs.dropdown.data-api', clearMenus)
+    })
+
+  $('.dropdown form')
+    .on('click.bs.dropdown.data-api', function (e) { e.stopPropagation() })
+
+  $('.dropdown-menu')
+    .on('keydown.bs.dropdown.data-api', Dropdown.prototype.keydown)
+
+  $(toggle)
+    .on('click.bs.dropdown.data-api', Dropdown.prototype.toggle)
+    .on('keydown.bs.dropdown.data-api', Dropdown.prototype.keydown)
 
 }(jQuery);
