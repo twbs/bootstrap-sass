@@ -102,7 +102,7 @@ input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
   // @include tab-focus;
-  outline: 2px solid $brand-primary;
+  outline: 2px solid $brand-secondary;
   outline-offset: 2px;
 }
 
@@ -708,7 +708,7 @@ was-validated .input-group .form-control:invalid, .input-group .form-control.is-
     -ms-user-select: none;
     user-select: none;
     background-color: transparent;
-    box-shadow: 0 0 0 1px $brand-primary;
+    box-shadow: 0 0 0 1px $brand-secondary;
 }
 
 .custom-control-label:hover::before {
@@ -732,7 +732,7 @@ was-validated .input-group .form-control:invalid, .input-group .form-control.is-
 
 .custom-control-input:checked~.custom-control-label::before {
     color: #fff;
-    background-color: $brand-primary;
+    background-color: $brand-secondary;
 }
 
 .custom-control-input:disabled~.custom-control-label {
@@ -740,7 +740,7 @@ was-validated .input-group .form-control:invalid, .input-group .form-control.is-
 }
 
 .custom-control-input:checked~.custom-control-label::before {
-    color: $brand-primary;
+    color: $brand-secondary;
     background-color: $white;
 }
 
@@ -756,18 +756,19 @@ was-validated .input-group .form-control:invalid, .input-group .form-control.is-
 }
 
 .custom-checkbox {
-  .custom-control-input:checked~.custom-control-label::before {      background-color: $white;
-      box-shadow: 0 0 0 1px $brand-primary;
+  .custom-control-input:checked~.custom-control-label::before {
+      background-color: $white;
+      box-shadow: 0 0 0 1px $brand-secondary;
   }
 
   .custom-control-input:focus~.custom-control-label::before {
     background-color: $white;
-    box-shadow: 0 0 0 2px $brand-primary;
+    box-shadow: 0 0 0 2px $brand-secondary;
   }
 
   .custom-control-input:focus:checked~.custom-control-label::before {
     background-color: $white;
-    box-shadow: 0 0 0 2px $brand-primary;
+    box-shadow: 0 0 0 2px $brand-secondary;
   }
 
   .o-custom-control__input--pink:focus~.custom-control-label::before {
@@ -783,7 +784,7 @@ was-validated .input-group .form-control:invalid, .input-group .form-control.is-
   }
 
   .custom-control-input:checked~.custom-control-label::after {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23017d87' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%231f1c3a' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
   }
 
   .o-custom-control__input--pink.custom-control-input:checked~.custom-control-label::after {
@@ -802,7 +803,7 @@ was-validated .input-group .form-control:invalid, .input-group .form-control.is-
 }
 
   .custom-control-input:focus~.custom-control-label::after {
-    box-shadow: 0 0 0 2px $brand-primary;
+    box-shadow: 0 0 0 2px $brand-secondary;
     border-radius: 1rem;
   }
 
@@ -811,7 +812,7 @@ was-validated .input-group .form-control:invalid, .input-group .form-control.is-
   }
 
   .custom-control-input:checked~.custom-control-label::after {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23017d87'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%231f1c3a'/%3E%3C/svg%3E");
     background-size: 14px;
   }
 

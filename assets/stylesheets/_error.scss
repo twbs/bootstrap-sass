@@ -1,6 +1,6 @@
 .t-error {
   background-color: $brand-primary;
-  color: $white;
+  color: $brand-secondary;
 
   hr {
     height: 1px;
@@ -23,12 +23,12 @@
 .c-error-page__header {
     font-size: floor($font-size-base * 4);
     font-weight: 700;
-    color: $white;
+    color: $brand-secondary;
 }
 
 .c-error-page__subheader {
     font-size: floor($font-size-base * 3);
-    color: $white;
+    color: $brand-secondary;
 }
 
 .c-error-page__context {

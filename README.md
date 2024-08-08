@@ -98,3 +98,7 @@ $navbar-default-color: $light-orange;
 
 @import "bootstrap";
 ```
+
+## Local Dev
+
+Run `npm run start` and this will bring up a local server with the docs that will recompile changes.

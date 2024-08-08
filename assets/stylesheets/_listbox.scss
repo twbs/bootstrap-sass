@@ -3,7 +3,7 @@
   padding: 12px;
   position: relative;
   line-height: 1.6;
-  color: #017d87;
+  color: $brand-secondary;
   white-space: nowrap;
   border-bottom: 1px solid #e9ecef;
 }
@@ -23,17 +23,17 @@
 }
 
 [role="option"]:hover {
-  background: #017d87;
+  background: $brand-secondary;
   color: white;
 }
 
 [role="option"].focused {
-  background: #017d87;
+  background: $brand-secondary;
   color: white;
 }
 
 [role="option"][aria-selected="true"] {
-  background-color: #017d87;
+  background-color: $brand-secondary;
   color: white;
 }
 
@@ -54,8 +54,8 @@
 }
 
 .c-fancy-listbox__toggle.c-fancy-listbox__toggle[aria-expanded="true"] {
-  background-color: white;
-  color: #017d87;
+  background-color: $white;
+  color: $brand-secondary;
   transition: none;
 }
 

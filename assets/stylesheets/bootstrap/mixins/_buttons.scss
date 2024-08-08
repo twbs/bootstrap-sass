@@ -11,7 +11,7 @@ $btn-disabled-color: #69727F;
   border-color: currentColor;
 
   &:hover {
-    background-color: #E9ECEF;
+    background-color: $gray-lighter;
     color: darken(saturate(adjust-hue($color, -0.2776), 1.4706), 7.0588);
   }
 
@@ -80,9 +80,9 @@ $btn-disabled-color: #69727F;
   border-color: $background;
 
   &:hover {
-    background-color: darken(saturate(adjust-hue($background, -0.2776), 1.4706), 7.0588);
+    background-color: $gray;
     color: $color;
-    border-color: darken(saturate(adjust-hue($background, -0.2776), 1.4706), 7.0588);
+    border-color: $gray;
   }
 
   &:focus,

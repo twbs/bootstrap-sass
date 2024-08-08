@@ -30,8 +30,8 @@
 
     > a:focus {
       outline: 0;
-      border-color: $brand-primary;
-      box-shadow: 0 0 0 1px $brand-primary;
+      border-color: $brand-secondary;
+      box-shadow: 0 0 0 1px $brand-secondary;
     }
 
     > a:active {
@@ -67,8 +67,8 @@
     }
 
     > a:focus {
-      border: 1px solid $brand-primary;
-      box-shadow: 0 0 0 1px $brand-primary;
+      border: 1px solid $brand-secondary;
+      box-shadow: 0 0 0 1px $brand-secondary;
     }
   }
 }

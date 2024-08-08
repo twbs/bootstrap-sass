@@ -59,7 +59,7 @@
     &:hover,
     &:focus {
       background-color: $nav-link-hover-bg;
-      border-color: $accent;
+      border-color: $brand-secondary;
     }
   }
 
@@ -111,7 +111,7 @@
       }
 
       &:focus {
-        outline: 2px solid #017d87;
+        outline: 2px solid $brand-secondary;
         outline-offset: -1px;
         background-color: $white;
         // border-top: 1px solid $nav-tabs-border-color;

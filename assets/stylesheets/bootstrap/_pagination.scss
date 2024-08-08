@@ -59,14 +59,14 @@
     &:focus {
       z-index: 3;
       outline: 0;
-      border-color: $brand-primary;
-      box-shadow: 0 0 0 1px inset $brand-primary;
+      border-color: $brand-secondary;
+      box-shadow: 0 0 0 1px inset $brand-secondary;
     }
 
     &:hover:focus {
       z-index: 3;
-      border-color: $brand-primary;
-      box-shadow: 0 0 0 1px inset $brand-primary;
+      border-color: $brand-secondary;
+      box-shadow: 0 0 0 1px inset $brand-secondary;
 
     }
   }
@@ -89,7 +89,7 @@
     &:focus {
       z-index: 3;
       color: $pagination-active-color;
-      background-image: linear-gradient(0deg, $brand-primary 4px, transparent 4px);
+      background-image: linear-gradient(0deg, $brand-secondary 4px, transparent 4px);
       font-weight: 600;
 
       background-color: $pagination-active-bg;

@@ -272,7 +272,7 @@
         }
       }
       .divider {
-        background-color: $accent;
+        background-color: $brand-secondary;
       }
     }
   }
@@ -449,7 +449,7 @@
       &:focus {
         color: $navbar-default-link-active-color;
         // background-color: $navbar-default-link-active-bg;
-        background-image: linear-gradient(0deg, white 4px, transparent 4px);
+        background-image: linear-gradient(0deg, $navbar-default-link-active-color 4px, transparent 4px);
       }
     }
     > .disabled > a {

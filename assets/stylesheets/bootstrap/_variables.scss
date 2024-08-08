@@ -28,8 +28,8 @@ $gray:                   $gray700 !default;
 $gray-dark:              $gray800 !default;
 $gray-darker:            $gray900 !default;
 
-$turquoise: #017d87;
-$accent: #005d64;
+$turquoise: #00E1BB;
+$inquisitive-blue: #1f1c3a;
 $pink: #c5197d;
 $green: #25828d;
 $yellow: #FFC943;
@@ -43,6 +43,7 @@ $battleship: $gray-light;
 $misty: $gray-lighter;
 
 $brand-primary:         $turquoise !default;
+$brand-secondary:       $inquisitive-blue !default;
 $brand-success:         #77E0CE !default;
 $brand-info:            #4CC3D6 !default;
 $brand-warning:         #FFC943 !default;
@@ -59,9 +60,9 @@ $body-bg:               #fff !default;
 $text-color:            $gray700 !default;
 
 //** Global textual link color.
-$link-color:            $brand-primary !default;
+$link-color:            $brand-secondary !default;
 //** Link hover color set via `darken()` function.
-$link-hover-color:      $accent !default;
+$link-hover-color:      $brand-secondary !default;
 //** Link hover decoration.
 $link-hover-decoration: none !default;
 
@@ -151,7 +152,7 @@ $border-radius-small:       3px !default;
 //** Global color for active items (e.g., navs or dropdowns).
 $component-active-color:    #fff !default;
 //** Global background color for active items (e.g., navs or dropdowns).
-$component-active-bg:       $accent !default;
+$component-active-bg:       $brand-secondary !default;
 
 //** Width of the `border` for generating carets that indicate dropdowns.
 $caret-width-base:          4px !default;
@@ -188,13 +189,13 @@ $table-header-color:            $black !default;
 
 $btn-font-weight:                600 !default;
 
-$btn-default-color:              $brand-primary !default;
+$btn-default-color:              $brand-secondary !default;
 $btn-default-bg:                 $white !default;
-$btn-default-border:             $brand-primary !default;
+$btn-default-border:             $brand-secondary !default;
 
 $btn-primary-color:              $white !default;
-$btn-primary-bg:                 $brand-primary !default;
-$btn-primary-border:             $brand-primary !default;
+$btn-primary-bg:                 $brand-secondary !default;
+$btn-primary-border:             $brand-secondary !default;
 
 $btn-success-color:              $white !default;
 $btn-success-bg:                 $brand-success !default;
@@ -244,7 +245,7 @@ $input-border-radius-large:      $border-radius-large !default;
 $input-border-radius-small:      $border-radius-small !default;
 
 //** Border color for inputs on focus
-$input-border-focus:             $brand-primary !default;
+$input-border-focus:             $brand-secondary !default;
 
 //** Placeholder text color
 $input-color-placeholder:        $gray700 !default;
@@ -287,11 +288,11 @@ $dropdown-fallback-border:       $battleship !default;
 $dropdown-divider-bg:            $misty !default;
 
 //** Dropdown link text color.
-$dropdown-link-color:            $brand-primary !default;
+$dropdown-link-color:            $brand-secondary !default;
 //** Hover color for dropdown links.
 $dropdown-link-hover-color:      #fff !default;
 //** Hover background for dropdown links.
-$dropdown-link-hover-bg:         $accent !default;
+$dropdown-link-hover-bg:         $brand-secondary !default;
 
 //** Active dropdown menu item text color.
 $dropdown-link-active-color:     $component-active-color !default;
@@ -412,14 +413,14 @@ $navbar-collapse-max-height:       340px !default;
 
 $navbar-default-color:             $white !default;
 $navbar-default-bg:                $brand-primary !default;
-$navbar-default-border:            $accent !default;
+$navbar-default-border:            $white !default;
 
 // Navbar links
-$navbar-default-link-color:                $white !default;
-$navbar-default-link-hover-color:          $white !default;
-$navbar-default-link-hover-bg:             $accent !default;
+$navbar-default-link-color:                $brand-secondary !default;
+$navbar-default-link-hover-color:          $brand-secondary !default;
+$navbar-default-link-hover-bg:             $brand-primary !default;
 $navbar-default-link-active-color:         $white !default;
-$navbar-default-link-active-bg:            $accent !default;
+$navbar-default-link-active-bg:            $brand-secondary !default;
 $navbar-default-link-disabled-color:       #ccc !default;
 $navbar-default-link-disabled-bg:          transparent !default;
 
@@ -429,9 +430,9 @@ $navbar-default-brand-hover-color:         darken($navbar-default-brand-color, 1
 $navbar-default-brand-hover-bg:            transparent !default;
 
 // Navbar toggle
-$navbar-default-toggle-hover-bg:           $accent !default;
+$navbar-default-toggle-hover-bg:           $brand-secondary !default;
 $navbar-default-toggle-icon-bar-bg:        $white !default;
-$navbar-default-toggle-border-color:       $accent !default;
+$navbar-default-toggle-border-color:       $brand-secondary !default;
 
 
 //=== Inverted navbar
@@ -473,13 +474,13 @@ $nav-disabled-link-color:                   #ADB5BD !default;
 $nav-disabled-link-hover-color:             #ADB5BD !default;
 
 //== Tabs
-$nav-tabs-border-color:                     $brand-primary !default;
+$nav-tabs-border-color:                     $brand-secondary !default;
 
 $nav-tabs-link-hover-border-color:          $gray200 !default;
 
 $nav-tabs-active-link-hover-bg:             $body-bg !default;
-$nav-tabs-active-link-hover-color:          $brand-primary !default;
-$nav-tabs-active-link-hover-border-color:   $brand-primary !default;
+$nav-tabs-active-link-hover-color:          $brand-secondary !default;
+$nav-tabs-active-link-hover-border-color:   $brand-secondary !default;
 
 $nav-tabs-justified-link-border-color:            $gray200 !default;
 $nav-tabs-justified-active-link-border-color:     $body-bg !default;
@@ -487,7 +488,7 @@ $nav-tabs-justified-active-link-border-color:     $body-bg !default;
 //== Pills
 $nav-pills-border-radius:                   $border-radius-base !default;
 $nav-pills-active-link-hover-bg:            $body-bg !default;
-$nav-pills-active-link-border-color:        $brand-primary !default;
+$nav-pills-active-link-border-color:        $brand-secondary !default;
 $nav-pills-active-link-hover-color:         $component-active-color !default;
 
 
@@ -497,16 +498,16 @@ $nav-pills-active-link-hover-color:         $component-active-color !default;
 
 $pagination-color:                     $link-color !default;
 $pagination-bg:                        #fff !default;
-$pagination-border:                    $brand-primary !default;
+$pagination-border:                    $brand-secondary !default;
 
 $pagination-hover-color:               $link-hover-color !default;
 $pagination-hover-bg:                  $gray200 !default;
 $pagination-down-bg:                   $gray200 !default;
-$pagination-hover-border:              $brand-primary !default;
+$pagination-hover-border:              $brand-secondary !default;
 
-$pagination-active-color:              $brand-primary !default;
+$pagination-active-color:              $brand-secondary !default;
 $pagination-active-bg:                 #fff !default;
-$pagination-active-border:             $brand-primary !default;
+$pagination-active-border:             $brand-secondary !default;
 
 $pagination-disabled-color:            #ADB5BD !default;
 $pagination-disabled-bg:               #fff !default;
