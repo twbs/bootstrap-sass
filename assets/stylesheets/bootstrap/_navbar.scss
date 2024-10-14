@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @use "sass:math";
 //
 // Navbars
@@ -90,6 +92,12 @@
 
 .navbar-fixed-top,
 .navbar-fixed-bottom {
+  // Fix the top/bottom navbars when screen real estate supports it
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: $zindex-navbar-fixed;
+
   .navbar-collapse {
     max-height: $navbar-collapse-max-height;
 
@@ -97,12 +105,6 @@
       max-height: 200px;
     }
   }
-
-  // Fix the top/bottom navbars when screen real estate supports it
-  position: fixed;
-  right: 0;
-  left: 0;
-  z-index: $zindex-navbar-fixed;
 
   // Undo the rounded corners
   @media (min-width: $grid-float-breakpoint) {
@@ -194,11 +196,12 @@
   float: right;
   padding: 9px 10px;
   margin-right: $navbar-padding-horizontal;
-  @include navbar-vertical-align(34px);
   background-color: transparent;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
   border-radius: $border-radius-base;
+
+  @include navbar-vertical-align(34px);
 
   // We remove the `outline` here, but later compensate by attaching `:hover`
   // styles to `:focus`.
@@ -630,7 +633,7 @@
 
   .navbar-collapse,
   .navbar-form {
-    border-color: darken($navbar-inverse-bg, 7%);
+    border-color: color.adjust($navbar-inverse-bg, $lightness: -7%, $space: hsl);
   }
 
   .navbar-link {
