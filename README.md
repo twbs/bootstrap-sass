@@ -18,6 +18,8 @@ Please see the appropriate guide for your environment of choice:
 
 ### a. Ruby on Rails
 
+#### Sprockets
+
 `bootstrap-sass` is easy to drop into Rails with the asset pipeline.
 
 In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `sass-rails` gem is present - it is added to new Rails applications by default.
@@ -73,7 +75,7 @@ Require Bootstrap Javascripts in `app/assets/javascripts/application.js`:
 `bootstrap-sprockets` provides individual Bootstrap Javascript files (`alert.js` or `dropdown.js`, for example), while
 `bootstrap` provides a concatenated file containing all Bootstrap Javascripts.
 
-#### Bower with Rails
+##### Bower with Rails
 
 When using [bootstrap-sass Bower package](#c-bower) instead of the gem in Rails, configure assets in `config/application.rb`:
 
@@ -103,13 +105,56 @@ Replace Bootstrap `require` directive in `application.js` with:
 //= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
 ```
 
-#### Rails 4.x
+##### Rails 4.x
 
 Please make sure `sprockets-rails` is at least v2.1.4.
 
-#### Rails 3.2.x
+##### Rails 3.2.x
 
 bootstrap-sass is no longer compatible with Rails 3. The latest version of bootstrap-sass compatible with Rails 3.2 is v3.1.1.0.
+
+#### Propshaft
+
+If you’re using Propshaft, the setup is as follows.
+
+In your Gemfile you need to add the `bootstrap-sass` gem, and ensure that the `dartsass-rails` gem is present and correctly set up.
+
+```ruby
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'dartsass-rails', '>= 2.1.0'
+```
+
+`bundle install` and restart your server to make the files available through the pipeline.
+
+Import Bootstrap styles in `app/assets/stylesheets/application.scss`:
+
+```scss
+@use "bootstrap" with (
+	// set configuration variables here
+);
+```
+
+It’s most likely that you need to set `$icon-font-path: "/bootstrap/"` in the configuration block.
+
+Make sure the file has `.scss` extension (or `.sass` for Sass syntax). 
+
+Bootstrap JavaScript depends on jQuery.
+If you're using Rails 7.1+, add the `jquery-rails` gem to your Gemfile:
+
+```ruby
+gem 'jquery-rails'
+```
+
+```console
+$ bundle install
+```
+
+Load Bootstrap’s Javascripts in you application layout `app/layouts/application.html.erb`:
+
+```html
+<%= javascript_include_tag "bootstrap" %>
+```
+
 
 ### b. Bower
 
