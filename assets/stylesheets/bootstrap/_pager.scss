@@ -1,7 +1,8 @@
 //
 // Pager pagination
 // --------------------------------------------------
-
+@use "variables" as *;
+@use "mixins" as *;
 
 .pager {
   padding-left: 0;

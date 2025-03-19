@@ -1,7 +1,8 @@
 //
 // Close icons
 // --------------------------------------------------
-
+@use "variables" as *;
+@use "mixins" as *;
 
 .close {
   float: right;

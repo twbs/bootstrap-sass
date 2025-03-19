@@ -2,7 +2,8 @@
 //
 // Carousel
 // --------------------------------------------------
-
+@use "variables" as *;
+@use "mixins" as *;
 
 // Wrapper for the slide container and indicators
 .carousel {

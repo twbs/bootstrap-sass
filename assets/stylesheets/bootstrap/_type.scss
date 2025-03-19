@@ -3,6 +3,8 @@
 // Typography
 // --------------------------------------------------
 
+@use "variables" as *;
+@use "mixins" as *;
 
 // Headings
 // -------------------------
@@ -62,7 +64,7 @@ p {
 
 .lead {
   margin-bottom: $line-height-computed;
-  font-size: floor(($font-size-base * 1.15));
+  font-size: math.floor(($font-size-base * 1.15));
   font-weight: 300;
   line-height: 1.4;
 
@@ -78,7 +80,7 @@ p {
 // Ex: math.div(12px small font, 14px base font) * 100% = about 85%
 small,
 .small {
-  font-size: floor(math.div(100% * $font-size-small, $font-size-base));
+  font-size: math.floor(math.div(100% * $font-size-small, $font-size-base));
 }
 
 mark,

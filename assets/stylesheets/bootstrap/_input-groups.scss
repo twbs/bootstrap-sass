@@ -2,6 +2,9 @@
 // Input groups
 // --------------------------------------------------
 
+@use "variables" as *;
+@use "mixins" as *;
+
 // Base styles
 // -------------------------
 .input-group {

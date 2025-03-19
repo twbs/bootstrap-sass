@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // Contextual backgrounds
 
 // [converter] $parent hack
@@ -7,6 +9,6 @@
   }
   a#{$parent}:hover,
   a#{$parent}:focus {
-    background-color: darken($color, 10%);
+    background-color: color.adjust($color, $lightness: -10%, $space: hsl);
   }
 }

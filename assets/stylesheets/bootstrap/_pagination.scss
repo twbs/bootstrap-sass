@@ -1,6 +1,9 @@
 //
 // Pagination (multiple pages)
 // --------------------------------------------------
+@use "variables" as *;
+@use "mixins" as *;
+
 .pagination {
   display: inline-block;
   padding-left: 0;

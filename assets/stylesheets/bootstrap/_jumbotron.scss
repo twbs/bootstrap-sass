@@ -1,8 +1,11 @@
+@use "sass:color";
 @use "sass:math";
+
 //
 // Jumbotron
 // --------------------------------------------------
-
+@use "variables" as *;
+@use "mixins" as *;
 
 .jumbotron {
   padding-top: $jumbotron-padding;
@@ -23,7 +26,7 @@
   }
 
   > hr {
-    border-top-color: darken($jumbotron-bg, 10%);
+    border-top-color: color.adjust($jumbotron-bg, $lightness: -10%, $space: hsl);
   }
 
   .container &,

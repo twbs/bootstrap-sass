@@ -1,7 +1,8 @@
 //
 // Breadcrumbs
 // --------------------------------------------------
-
+@use "variables" as *;
+@use "mixins" as *;
 
 .breadcrumb {
   padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal;

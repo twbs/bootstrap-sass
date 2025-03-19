@@ -3,6 +3,8 @@
 // Code (inline and block)
 // --------------------------------------------------
 
+@use "variables" as *;
+@use "mixins" as *;
 
 // Inline and block code styles
 code,

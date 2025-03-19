@@ -1,4 +1,5 @@
 // Progress bars
+@use "gradients" as *;
 
 @mixin progress-bar-variant($color) {
   background-color: $color;

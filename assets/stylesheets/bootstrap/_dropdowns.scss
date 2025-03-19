@@ -1,7 +1,8 @@
 //
 // Dropdown menus
 // --------------------------------------------------
-
+@use "variables" as *;
+@use "mixins" as *;
 
 // Dropdown arrow/caret
 .caret {

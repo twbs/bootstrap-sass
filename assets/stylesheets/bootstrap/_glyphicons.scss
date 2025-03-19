@@ -6,6 +6,8 @@
 // inline element with the appropriate classes, like so:
 //
 // <a href="#"><span class="glyphicon glyphicon-star"></span> Star</a>
+@use "variables" as *;
+@use "mixins" as *;
 
 @at-root {
   // Import the fonts

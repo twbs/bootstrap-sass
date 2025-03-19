@@ -1,6 +1,9 @@
 //
 // Button groups
 // --------------------------------------------------
+@use "variables" as *;
+@use "mixins" as *;
+@use "buttons" as *;
 
 // Make the div behave like a button
 .btn-group,

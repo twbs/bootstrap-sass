@@ -1,6 +1,8 @@
 //
 // Labels
 // --------------------------------------------------
+@use "variables" as *;
+@use "mixins" as *;
 
 .label {
   display: inline;

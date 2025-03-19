@@ -3,6 +3,8 @@
 //
 // Dividers (basically an hr) within dropdowns and nav lists
 
+@use "../variables" as *;
+
 @mixin nav-divider($color: #e5e5e5) {
   height: 1px;
   margin: (math.div($line-height-computed, 2) - 1) 0;
