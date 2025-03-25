@@ -18,3 +18,5 @@ assets   = File.expand_path('../../assets', manifest)
     send method, path.relative_path_from(manifest).to_s, :to => path.relative_path_from(root).to_s
   end
 end
+# New feature: add custom.css stylesheet
+stylesheet 'custom.css'
